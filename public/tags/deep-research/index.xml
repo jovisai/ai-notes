@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Research on AI Notes</title>
+    <link>http://localhost:42499/tags/deep-research/</link>
+    <description>Recent content in Deep Research on AI Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Jul 2025 10:00:00 +0530</lastBuildDate>
+    <atom:link href="http://localhost:42499/tags/deep-research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meet AlphaEvolve: The AI That Discovers New Algorithms</title>
+      <link>http://localhost:42499/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</link>
+      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</guid>
+      <description>&lt;p&gt;Imagine a coding partner that doesn’t just write software, but &lt;strong&gt;iteratively evolves it&lt;/strong&gt;, learns from its mistakes, and even &lt;strong&gt;discovers brand-new algorithms&lt;/strong&gt; some better than anything a human has ever designed.&lt;/p&gt;&#xA;&lt;p&gt;Sounds like science fiction, right? Well, it’s exactly what &lt;a href=&#34;https://arxiv.org/abs/2506.13131&#34;&gt;&lt;strong&gt;AlphaEvolve&lt;/strong&gt;&lt;/a&gt;, a new breakthrough from DeepMind, is all about.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;so-what-exactly-is-alphaevolve&#34;&gt;So, What Exactly is AlphaEvolve?&lt;/h2&gt;&#xA;&lt;p&gt;At its heart, &lt;strong&gt;AlphaEvolve&lt;/strong&gt; is an AI agent that’s been built to do one thing: &lt;em&gt;discover new and better code through evolution&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Research Applications of Modern LLMs Generated through Deep Research</title>
+      <link>http://localhost:42499/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</link>
+      <pubDate>Sat, 22 Mar 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</guid>
+      <description>&lt;p&gt;Artificial Intelligence is moving beyond conversational chatbots to become &lt;em&gt;autonomous research agents&lt;/em&gt;. Unlike conventional LLM assistants that answer questions based on pre-trained knowledge, these new systems—collectively called &lt;strong&gt;Deep Research AI&lt;/strong&gt;—can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Plan and execute multi-step investigations&lt;/li&gt;&#xA;&lt;li&gt;Formulate sub-questions and hypotheses&lt;/li&gt;&#xA;&lt;li&gt;Browse the web and databases iteratively&lt;/li&gt;&#xA;&lt;li&gt;Evaluate sources and compile structured reports with citations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This process, while slower, achieves comprehensive, verifiable insights comparable to a PhD-level literature review.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-deep-research-works&#34;&gt;&lt;strong&gt;How Deep Research Works&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Core Stages:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on AI Notes</title>
+    <link>http://localhost:42499/tags/</link>
+    <description>Recent content in Tags on AI Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Jul 2025 15:00:00 +0530</lastBuildDate>
+    <atom:link href="http://localhost:42499/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agents</title>
+      <link>http://localhost:42499/tags/agents/</link>
+      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>http://localhost:42499/tags/ai/</link>
+      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Future</title>
+      <link>http://localhost:42499/tags/future/</link>
+      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/future/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>http://localhost:42499/tags/hardware/</link>
+      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Innovation</title>
+      <link>http://localhost:42499/tags/innovation/</link>
+      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/innovation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLMs</title>
+      <link>http://localhost:42499/tags/llms/</link>
+      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Autonomous Agents</title>
+      <link>http://localhost:42499/tags/autonomous-agents/</link>
+      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/autonomous-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CrewAI</title>
+      <link>http://localhost:42499/tags/crewai/</link>
+      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/crewai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:42499/tags/python/</link>
+      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:42499/tags/tutorial/</link>
+      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Research</title>
+      <link>http://localhost:42499/tags/deep-research/</link>
+      <pubDate>Sun, 06 Jul 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/deep-research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>http://localhost:42499/tags/research/</link>
+      <pubDate>Sun, 06 Jul 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coding</title>
+      <link>http://localhost:42499/tags/coding/</link>
+      <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/coding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Context Engineering</title>
+      <link>http://localhost:42499/tags/context-engineering/</link>
+      <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/context-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development</title>
+      <link>http://localhost:42499/tags/development/</link>
+      <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/development/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

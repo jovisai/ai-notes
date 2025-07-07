@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=42499&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Beginner&#39;s Guide to Building AI Agents with CrewAI - AI Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="A Beginner&#39;s Guide to Building AI Agents with CrewAI">
+  <meta itemprop="description" content="A step-by-step tutorial to learning CrewAI, from the basics to advanced use cases, with Python code examples.">
+  <meta itemprop="datePublished" content="2025-07-06T13:00:00+05:30">
+  <meta itemprop="dateModified" content="2025-07-06T13:00:00+05:30">
+  <meta itemprop="wordCount" content="803">
+  <meta itemprop="keywords" content="AI,LLMs,Development,Python,CrewAI,Autonomous Agents"><meta property="og:url" content="http://localhost:42499/2025/07/a-beginners-guide-to-building-ai-agents-with-crewai/">
+  <meta property="og:site_name" content="AI Notes">
+  <meta property="og:title" content="A Beginner&#39;s Guide to Building AI Agents with CrewAI">
+  <meta property="og:description" content="A step-by-step tutorial to learning CrewAI, from the basics to advanced use cases, with Python code examples.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-06T13:00:00+05:30">
+    <meta property="article:modified_time" content="2025-07-06T13:00:00+05:30">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="LLMs">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="CrewAI">
+    <meta property="article:tag" content="Autonomous Agents">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Beginner&#39;s Guide to Building AI Agents with CrewAI">
+  <meta name="twitter:description" content="A step-by-step tutorial to learning CrewAI, from the basics to advanced use cases, with Python code examples.">
+<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:42499/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:42499/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="http://localhost:42499/css/dark.css" /><script src="http://localhost:42499/js/feather.min.js"></script>
+	
+	<script src="http://localhost:42499/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="http://localhost:42499/">
+				<img src="/avatar.jpeg" alt="AI Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="http://localhost:42499/">AI Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">A Beginner&#39;s Guide to Building AI Agents with CrewAI</h1>
+        
+        <div class="date">
+            <span class="day">06</span>
+            <span class="rest">Jul 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>CrewAI is a powerful framework for building sophisticated, multi-agent AI systems. It allows you to create autonomous agents that can work together to accomplish complex tasks. This guide will walk you through the basics of CrewAI, from setting up your first crew to exploring advanced use cases.</p>
+<h2 id="core-concepts"><strong>Core Concepts</strong></h2>
+<p>Before we dive into the code, let&rsquo;s understand the core concepts of CrewAI:</p>
+<ul>
+<li><strong>Agents:</strong> The fundamental building blocks of CrewAI. Each agent is an autonomous unit that can perform tasks, communicate with other agents, and use tools.</li>
+<li><strong>Tasks:</strong> The specific assignments that you give to your agents. Each task has a description, an expected output, and an agent assigned to it.</li>
+<li><strong>Tools:</strong> The instruments that your agents can use to accomplish tasks. Tools can be anything from a simple function to a complex API.</li>
+<li><strong>Crews:</strong> A group of agents that work together to accomplish a common goal. You define the agents, the tasks, and the process by which they collaborate.</li>
+</ul>
+<h2 id="getting-started-your-first-crew"><strong>Getting Started: Your First Crew</strong></h2>
+<p>Let&rsquo;s start by building a simple crew that can research a topic and write a blog post about it.</p>
+<h3 id="1-installation"><strong>1. Installation</strong></h3>
+<p>First, you need to install the CrewAI library:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install crewai
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You will also need to install the tools you want to use. For this example, we will use the <code>crewai_tools</code> library, which provides a set of pre-built tools for common tasks:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install crewai_tools
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-setting-up-the-environment"><strong>2. Setting up the Environment</strong></h3>
+<p>Before you can use CrewAI, you need to set up your environment with the necessary API keys. For this example, we will use OpenAI&rsquo;s GPT-4, so you will need to set your <code>OPENAI_API_KEY</code> environment variable.</p>
+<h3 id="3-defining-your-agents"><strong>3. Defining Your Agents</strong></h3>
+<p>Next, let&rsquo;s define the agents for our crew. We will need two agents: a researcher and a writer.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai_tools</span> <span style="color:#cf222e">import</span> SerperDevTool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a researcher agent</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>  role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;Senior Researcher&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;Uncover groundbreaking technologies in AI and data science&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  backstory<span style="color:#0550ae">=</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;You are a Senior Researcher at a leading tech think tank.&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Your expertise lies in identifying emerging trends and analyzing their potential impact.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>  verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  allow_delegation<span style="color:#0550ae">=</span><span style="color:#cf222e">False</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>SerperDevTool<span style="color:#1f2328">()]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a writer agent</span>
+</span></span><span style="display:flex;"><span>writer <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>  role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;Tech Content Strategist&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;Craft compelling content on tech advancements&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  backstory<span style="color:#0550ae">=</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;You are a renowned Tech Content Strategist, known for your insightful and engaging articles.&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;You transform complex concepts into clear, compelling narratives.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>  verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  allow_delegation<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-defining-the-tasks"><strong>4. Defining the Tasks</strong></h3>
+<p>Now, let&rsquo;s define the tasks for our agents. We will have two tasks: one for researching a topic and one for writing a blog post about it.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Task
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a research task</span>
+</span></span><span style="display:flex;"><span>research_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>  description<span style="color:#0550ae">=</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Identify the next big trend in AI. Focus on the potential of multimodal models.&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Your final answer must be a full analysis report, at least 4 paragraphs long.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>  expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;A comprehensive report on the latest AI trends.&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  agent<span style="color:#0550ae">=</span>researcher
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a writing task</span>
+</span></span><span style="display:flex;"><span>write_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>  description<span style="color:#0550ae">=</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Compose an insightful article on the future of AI, focusing on multimodal models.&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Your article should be based on the research provided by the researcher.&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Your final answer must be the full blog post of at least 4 paragraphs.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>  expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;A well-written blog post about the future of AI.&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  agent<span style="color:#0550ae">=</span>writer
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5-assembling-the-crew"><strong>5. Assembling the Crew</strong></h3>
+<p>Finally, let&rsquo;s assemble our crew and put it to work.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Crew<span style="color:#1f2328">,</span> Process
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Instantiate your crew with a sequential process</span>
+</span></span><span style="display:flex;"><span>crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>  agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">,</span> writer<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>  tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">,</span> write_task<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>  process<span style="color:#0550ae">=</span>Process<span style="color:#0550ae">.</span>sequential
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Get your crew to work!</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> crew<span style="color:#0550ae">.</span>kickoff<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;######################&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="advanced-use-cases"><strong>Advanced Use Cases</strong></h2>
+<p>CrewAI can be used for a wide range of advanced use cases, including:</p>
+<ul>
+<li><strong>Building a customer support team:</strong> You can create a crew of agents that can handle customer support requests, from answering simple questions to resolving complex issues.</li>
+<li><strong>Automating software development:</strong> You can create a crew of agents that can write code, run tests, and deploy applications.</li>
+<li><strong>Conducting scientific research:</strong> You can create a crew of agents that can design experiments, collect data, and analyze results.</li>
+</ul>
+<h2 id="the-future-is-collaborative"><strong>The Future is Collaborative</strong></h2>
+<p>CrewAI is a powerful tool for building the next generation of AI applications. By enabling you to create sophisticated, multi-agent systems, CrewAI opens up a world of possibilities for what you can build with AI.</p>
+<p>As the field of AI continues to evolve, the importance of collaborative, multi-agent systems will only grow. CrewAI is at the forefront of this trend, and it is a tool that every developer should have in their toolbox.</p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/llms">LLMs</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/development">Development</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/crewai">CrewAI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/autonomous-agents">Autonomous Agents</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="http://localhost:42499/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025 </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

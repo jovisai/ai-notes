@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=42499&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering - AI Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering">
+  <meta itemprop="description" content="How to prevent AI coding assistants from generating outdated or deprecated code by using real-time context engineering.">
+  <meta itemprop="datePublished" content="2025-07-02T12:00:00+05:30">
+  <meta itemprop="dateModified" content="2025-07-02T12:00:00+05:30">
+  <meta itemprop="wordCount" content="479">
+  <meta itemprop="keywords" content="AI,LLMs,Development,Coding,Context Engineering"><meta property="og:url" content="http://localhost:42499/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/">
+  <meta property="og:site_name" content="AI Notes">
+  <meta property="og:title" content="Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering">
+  <meta property="og:description" content="How to prevent AI coding assistants from generating outdated or deprecated code by using real-time context engineering.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-02T12:00:00+05:30">
+    <meta property="article:modified_time" content="2025-07-02T12:00:00+05:30">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="LLMs">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Coding">
+    <meta property="article:tag" content="Context Engineering">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering">
+  <meta name="twitter:description" content="How to prevent AI coding assistants from generating outdated or deprecated code by using real-time context engineering.">
+<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:42499/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:42499/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="http://localhost:42499/css/dark.css" /><script src="http://localhost:42499/js/feather.min.js"></script>
+	
+	<script src="http://localhost:42499/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="http://localhost:42499/">
+				<img src="/avatar.jpeg" alt="AI Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="http://localhost:42499/">AI Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering</h1>
+        
+        <div class="date">
+            <span class="day">02</span>
+            <span class="rest">Jul 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.</p>
+<p>This is where <strong>context engineering</strong> comes in. Instead of relying on the LLM&rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.</p>
+<h2 id="the-problem-stale-knowledge-in-llms"><strong>The Problem: Stale Knowledge in LLMs</strong></h2>
+<p>LLMs are a snapshot of the state of the software world at the time of their training. This means that they are often unaware of:</p>
+<ul>
+<li><strong>New library versions:</strong> A new major version of a library may introduce breaking changes that the LLM is not aware of.</li>
+<li><strong>Deprecated functions:</strong> The LLM may suggest using functions that have been deprecated and will be removed in a future release.</li>
+<li><strong>New best practices:</strong> The community may have adopted new patterns or best practices that are not reflected in the LLM&rsquo;s training data.</li>
+</ul>
+<p>This can lead to code that is difficult to maintain, insecure, and may not even compile.</p>
+<h2 id="the-solution-real-time-context"><strong>The Solution: Real-Time Context</strong></h2>
+<p>The solution is to provide the LLM with the information it needs to generate up-to-date code. This can be done by including relevant documentation, code examples, and other resources directly in the prompt.</p>
+<p>For example, if you are working with a new version of a library, you can include a link to the official documentation in the prompt. This will give the LLM the context it needs to generate code that is compatible with the new version.</p>
+<h2 id="context7-mcp-a-tool-for-context-engineering"><strong>Context7 MCP: A Tool for Context Engineering</strong></h2>
+<p>Manually providing context for every prompt can be tedious. This is where tools like <strong>Context7 MCP</strong> come in. Context7 MCP is a tool that automatically provides real-time, up-to-date documentation from official sources directly into the AI&rsquo;s context window.</p>
+<p>This allows you to get the benefits of context engineering without the manual effort. You can simply ask your AI coding assistant to generate code, and Context7 MCP will ensure that it has the information it needs to do so correctly.</p>
+<p>Context7 MCP is available as a GitHub repository and can be integrated with tools like Cursor IDE and Claude Code.</p>
+<p><strong>You can find the GitHub repository here:</strong> <a href="https://github.com/context-labs/context7-mcp">https://github.com/context-labs/context7-mcp</a></p>
+<h2 id="the-future-is-context-aware"><strong>The Future is Context-Aware</strong></h2>
+<p>As LLMs become more powerful, the importance of context engineering will only grow. By providing LLMs with the right information, at the right time, we can unlock their full potential and build better software, faster.</p>
+<p>The future of AI-assisted development is not just about bigger and better models, but also about smarter and more efficient ways of providing them with the context they need to succeed.</p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/llms">LLMs</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/development">Development</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/coding">Coding</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/context-engineering">Context Engineering</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="http://localhost:42499/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025 </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>
