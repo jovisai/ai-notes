@@ -1,4 +1,4 @@
-baseURL = "http://ai.muthu.co/"
+baseURL = "https://notes.muthu.co/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "AI Notes"
