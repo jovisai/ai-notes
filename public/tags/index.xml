@@ -6,55 +6,41 @@
     <description>Recent content in Tags on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Jul 2025 15:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 10:00:00 +0530</lastBuildDate>
     <atom:link href="http://localhost:42499/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agents</title>
-      <link>http://localhost:42499/tags/agents/</link>
-      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/agents/</guid>
-      <description></description>
-    </item>
     <item>
       <title>AI</title>
       <link>http://localhost:42499/tags/ai/</link>
-      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
+      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:42499/tags/ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Future</title>
-      <link>http://localhost:42499/tags/future/</link>
-      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/future/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hardware</title>
-      <link>http://localhost:42499/tags/hardware/</link>
-      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/hardware/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Innovation</title>
-      <link>http://localhost:42499/tags/innovation/</link>
-      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/innovation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LLMs</title>
-      <link>http://localhost:42499/tags/llms/</link>
-      <pubDate>Sun, 06 Jul 2025 15:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/llms/</guid>
       <description></description>
     </item>
     <item>
       <title>Autonomous Agents</title>
       <link>http://localhost:42499/tags/autonomous-agents/</link>
-      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
+      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
       <guid>http://localhost:42499/tags/autonomous-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Research</title>
+      <link>http://localhost:42499/tags/deep-research/</link>
+      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/deep-research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLMs</title>
+      <link>http://localhost:42499/tags/llms/</link>
+      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>http://localhost:42499/tags/research/</link>
+      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
+      <guid>http://localhost:42499/tags/research/</guid>
       <description></description>
     </item>
     <item>
@@ -76,20 +62,6 @@
       <link>http://localhost:42499/tags/tutorial/</link>
       <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
       <guid>http://localhost:42499/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Deep Research</title>
-      <link>http://localhost:42499/tags/deep-research/</link>
-      <pubDate>Sun, 06 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/deep-research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Research</title>
-      <link>http://localhost:42499/tags/research/</link>
-      <pubDate>Sun, 06 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/research/</guid>
       <description></description>
     </item>
     <item>

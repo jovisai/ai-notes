@@ -90,3 +90,7 @@ url = "https://linkedin.com/in/krimuthu/"
     endLevel = 3
     ordered = true
     startLevel = 2
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
