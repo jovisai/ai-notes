@@ -2,87 +2,108 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on AI Notes</title>
-    <link>http://localhost:42499/tags/</link>
+    <link>https://notes.muthu.co/tags/</link>
     <description>Recent content in Tags on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Jul 2025 10:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:42499/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI</title>
-      <link>http://localhost:42499/tags/ai/</link>
-      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/ai/</guid>
+      <title>Agentic-Ai</title>
+      <link>https://notes.muthu.co/tags/agentic-ai/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>https://notes.muthu.co/tags/ai/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Future</title>
+      <link>https://notes.muthu.co/tags/future/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/future/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llms</title>
+      <link>https://notes.muthu.co/tags/llms/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slms</title>
+      <link>https://notes.muthu.co/tags/slms/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/slms/</guid>
       <description></description>
     </item>
     <item>
       <title>Autonomous Agents</title>
-      <link>http://localhost:42499/tags/autonomous-agents/</link>
+      <link>https://notes.muthu.co/tags/autonomous-agents/</link>
       <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/autonomous-agents/</guid>
+      <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
       <description></description>
     </item>
     <item>
       <title>Deep Research</title>
-      <link>http://localhost:42499/tags/deep-research/</link>
+      <link>https://notes.muthu.co/tags/deep-research/</link>
       <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/deep-research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LLMs</title>
-      <link>http://localhost:42499/tags/llms/</link>
-      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/llms/</guid>
+      <guid>https://notes.muthu.co/tags/deep-research/</guid>
       <description></description>
     </item>
     <item>
       <title>Research</title>
-      <link>http://localhost:42499/tags/research/</link>
+      <link>https://notes.muthu.co/tags/research/</link>
       <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/research/</guid>
+      <guid>https://notes.muthu.co/tags/research/</guid>
       <description></description>
     </item>
     <item>
       <title>CrewAI</title>
-      <link>http://localhost:42499/tags/crewai/</link>
+      <link>https://notes.muthu.co/tags/crewai/</link>
       <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/crewai/</guid>
+      <guid>https://notes.muthu.co/tags/crewai/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:42499/tags/python/</link>
+      <link>https://notes.muthu.co/tags/python/</link>
       <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/python/</guid>
+      <guid>https://notes.muthu.co/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>http://localhost:42499/tags/tutorial/</link>
+      <link>https://notes.muthu.co/tags/tutorial/</link>
       <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/tutorial/</guid>
+      <guid>https://notes.muthu.co/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Coding</title>
-      <link>http://localhost:42499/tags/coding/</link>
+      <link>https://notes.muthu.co/tags/coding/</link>
       <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/coding/</guid>
+      <guid>https://notes.muthu.co/tags/coding/</guid>
       <description></description>
     </item>
     <item>
       <title>Context Engineering</title>
-      <link>http://localhost:42499/tags/context-engineering/</link>
+      <link>https://notes.muthu.co/tags/context-engineering/</link>
       <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/context-engineering/</guid>
+      <guid>https://notes.muthu.co/tags/context-engineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Development</title>
-      <link>http://localhost:42499/tags/development/</link>
+      <link>https://notes.muthu.co/tags/development/</link>
       <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/tags/development/</guid>
+      <guid>https://notes.muthu.co/tags/development/</guid>
       <description></description>
     </item>
   </channel>

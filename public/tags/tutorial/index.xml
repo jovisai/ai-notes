@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on AI Notes</title>
-    <link>http://localhost:42499/tags/tutorial/</link>
+    <link>https://notes.muthu.co/tags/tutorial/</link>
     <description>Recent content in Tutorial on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 06 Jul 2025 14:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:42499/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://notes.muthu.co/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts</title>
-      <link>http://localhost:42499/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>
+      <link>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>
       <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</guid>
+      <guid>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</guid>
       <description>&lt;p&gt;CrewAI is a cutting-edge framework for orchestrating autonomous AI agents. It allows you to build sophisticated multi-agent systems that can collaborate to solve complex problems. This guide breaks down CrewAI into 10 fundamental concepts, taking you from first principles to building a complete, end-to-end agentic workflow.&lt;/p&gt;&#xA;&lt;h3 id=&#34;concept-1-the-agent&#34;&gt;&lt;strong&gt;Concept 1: The Agent&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fundamental Idea:&lt;/strong&gt; An Agent is an autonomous entity designed to perform specific roles, achieve goals, and execute tasks. Think of it as a specialized member of your AI team. Each agent has a unique role, a goal that defines its purpose, and a backstory that provides context and personality. This allows agents to behave in a more specialized and predictable way.&lt;/p&gt;</description>
     </item>
   </channel>

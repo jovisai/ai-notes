@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Context Engineering on AI Notes</title>
-    <link>http://localhost:42499/tags/context-engineering/</link>
+    <link>https://notes.muthu.co/tags/context-engineering/</link>
     <description>Recent content in Context Engineering on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Jul 2025 12:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:42499/tags/context-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://notes.muthu.co/tags/context-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering</title>
-      <link>http://localhost:42499/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</link>
+      <link>https://notes.muthu.co/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</link>
       <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</guid>
+      <guid>https://notes.muthu.co/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</guid>
       <description>&lt;p&gt;One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.&lt;/p&gt;&#xA;&lt;p&gt;This is where &lt;strong&gt;context engineering&lt;/strong&gt; comes in. Instead of relying on the LLM&amp;rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.&lt;/p&gt;</description>
     </item>
   </channel>

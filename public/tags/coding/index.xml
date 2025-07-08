@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coding on AI Notes</title>
-    <link>http://localhost:42499/tags/coding/</link>
+    <link>https://notes.muthu.co/tags/coding/</link>
     <description>Recent content in Coding on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Jul 2025 12:00:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:42499/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://notes.muthu.co/tags/coding/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering</title>
-      <link>http://localhost:42499/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</link>
+      <link>https://notes.muthu.co/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</link>
       <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</guid>
+      <guid>https://notes.muthu.co/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</guid>
       <description>&lt;p&gt;One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.&lt;/p&gt;&#xA;&lt;p&gt;This is where &lt;strong&gt;context engineering&lt;/strong&gt; comes in. Instead of relying on the LLM&amp;rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Developer&#39;s Guide to Effective AI Coding Agents</title>
-      <link>http://localhost:42499/2025/07/a-developers-guide-to-effective-ai-coding-agents/</link>
+      <link>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</link>
       <pubDate>Tue, 01 Jul 2025 11:00:00 +0530</pubDate>
-      <guid>http://localhost:42499/2025/07/a-developers-guide-to-effective-ai-coding-agents/</guid>
+      <guid>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</guid>
       <description>&lt;p&gt;AI-powered coding assistants are rapidly evolving from simple auto-completion tools into sophisticated, &lt;strong&gt;collaborative agents&lt;/strong&gt;. While it&amp;rsquo;s tempting to offload entire tasks to these systems, the most effective approach is a &lt;em&gt;guided&lt;/em&gt; one, where the developer remains the architect and the AI acts as a highly efficient executor.&lt;/p&gt;&#xA;&lt;p&gt;This guide outlines a structured workflow for leveraging AI coding agents, ensuring you maintain control, improve code quality, and boost your productivity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-developer-as-architect&#34;&gt;&lt;strong&gt;The Developer as Architect&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;The fundamental principle of effective AI collaboration is that &lt;strong&gt;the developer must lead the process&lt;/strong&gt;. Over-delegating to an AI without a clear plan can lead to a loss of context, architectural drift, and code that is difficult to maintain.&lt;/p&gt;</description>
     </item>
   </channel>
