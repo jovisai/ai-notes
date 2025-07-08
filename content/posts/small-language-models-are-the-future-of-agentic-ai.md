@@ -5,7 +5,7 @@ draft: false
 tags: ["ai", "llms", "slms", "agentic-ai", "future"]
 ---
 
-I recently came across a paper titled *“Small Language Models are the Future of Agentic AI,”* and it got me thinking. The message is simple but powerful: bigger isn't always better.
+I recently came across a paper titled *"Small Language Models are the Future of Agentic AI,"* and it got me thinking. The message is simple but powerful: bigger isn't always better.
 
 In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.
 
@@ -72,3 +72,5 @@ We often equate progress with building bigger and more powerful tools. But in ma
 It’s the same principle behind high-performance teams: specialization, delegation, and continuous improvement.
 
 The future of AI may not depend on one giant brain. It may be built on smarter teams of smaller ones.
+
+Read the paper here: [*“Small Language Models are the Future of Agentic AI”*](https://arxiv.org/pdf/2506.02153)
