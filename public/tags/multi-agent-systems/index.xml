@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Agentic-Ai on AI Notes</title>
-    <link>https://notes.muthu.co/tags/agentic-ai/</link>
-    <description>Recent content in Agentic-Ai on AI Notes</description>
+    <title>Multi-Agent Systems on AI Notes</title>
+    <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
+    <description>Recent content in Multi-Agent Systems on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://notes.muthu.co/tags/agentic-ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://notes.muthu.co/tags/multi-agent-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>
       <link>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
       <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
       <description>&lt;p&gt;As artificial intelligence becomes more sophisticated, we are moving from single AI models to complex systems of multiple AI agents working together. These multi-agent systems (MAS) have the potential to solve incredibly complex problems, but they face a fundamental challenge: how do the agents talk to each other?&lt;/p&gt;&#xA;&lt;p&gt;Just like humans need language to cooperate, AI agents need communication protocols. These protocols are the rules of the road for AI interaction, defining how agents can exchange information, request actions, and work together on tasks. This post explores four of the most promising agent communication protocols (ACPs) and what they mean for the future of AI.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Small Language Models are the Future of Agentic AI</title>
-      <link>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</link>
-      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</guid>
-      <description>&lt;p&gt;I recently came across a paper titled &lt;em&gt;&amp;ldquo;Small Language Models are the Future of Agentic AI,&amp;rdquo;&lt;/em&gt; and it got me thinking. The message is simple but powerful: bigger isn&amp;rsquo;t always better.&lt;/p&gt;&#xA;&lt;p&gt;In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.&lt;/p&gt;&#xA;&lt;p&gt;Let’s break it down.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
