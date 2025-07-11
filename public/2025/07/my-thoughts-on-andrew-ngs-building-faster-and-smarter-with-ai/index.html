@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Key Takeaways from Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34; - A Technical Analysis - AI Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>My Thoughts on Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34; - AI Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="Key Takeaways from Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34; - A Technical Analysis">
-  <meta itemprop="description" content="I watched Andrew Ng’s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Let me extract the technically sound observations.
-Here’s what caught my attention. Ng isn’t chasing the latest transformer variant or arguing about AGI timelines. He’s focused on something much more important: how AI actually helps people build useful things faster.">
+  <meta itemprop="name" content="My Thoughts on Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34;">
+  <meta itemprop="description" content="I watched Andrew Ng’s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Here’s what caught my attention. Ng isn’t chasing the latest transformer variant or arguing about AGI timelines. He’s focused on something much more important: how AI actually helps people build useful things faster.">
   <meta itemprop="datePublished" content="2025-07-11T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-07-11T00:00:00+00:00">
-  <meta itemprop="wordCount" content="968">
-  <meta itemprop="keywords" content="Ai,Startups,Development,Agentic-Ai"><meta property="og:url" content="http://localhost:1313/2025/07/key-takeaways-from-andrew-ngs-building-faster-and-smarter-with-ai-a-technical-analysis/">
+  <meta itemprop="wordCount" content="961">
+  <meta itemprop="keywords" content="Ai,Startups,Development,Agentic-Ai"><meta property="og:url" content="https://notes.muthu.co/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/">
   <meta property="og:site_name" content="AI Notes">
-  <meta property="og:title" content="Key Takeaways from Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34; - A Technical Analysis">
-  <meta property="og:description" content="I watched Andrew Ng’s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Let me extract the technically sound observations.
-Here’s what caught my attention. Ng isn’t chasing the latest transformer variant or arguing about AGI timelines. He’s focused on something much more important: how AI actually helps people build useful things faster.">
+  <meta property="og:title" content="My Thoughts on Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34;">
+  <meta property="og:description" content="I watched Andrew Ng’s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Here’s what caught my attention. Ng isn’t chasing the latest transformer variant or arguing about AGI timelines. He’s focused on something much more important: how AI actually helps people build useful things faster.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -26,15 +24,14 @@ Here’s what caught my attention. Ng isn’t chasing the latest transformer var
     <meta property="article:tag" content="Agentic-Ai">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Key Takeaways from Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34; - A Technical Analysis">
-  <meta name="twitter:description" content="I watched Andrew Ng’s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Let me extract the technically sound observations.
-Here’s what caught my attention. Ng isn’t chasing the latest transformer variant or arguing about AGI timelines. He’s focused on something much more important: how AI actually helps people build useful things faster.">
-<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.css" />
+  <meta name="twitter:title" content="My Thoughts on Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34;">
+  <meta name="twitter:description" content="I watched Andrew Ng’s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Here’s what caught my attention. Ng isn’t chasing the latest transformer variant or arguing about AGI timelines. He’s focused on something much more important: how AI actually helps people build useful things faster.">
+<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 
-	<link id="dark-scheme" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.css" /><script src="http://localhost:1313/js/feather.min.js"></script>
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
-	<script src="http://localhost:1313/js/main.js"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
 
@@ -46,12 +43,12 @@ Here’s what caught my attention. Ng isn’t chasing the latest transformer var
 		<div class="header">
 	
 		<div class="avatar">
-			<a href="http://localhost:1313/">
+			<a href="https://notes.muthu.co/">
 				<img src="/avatar.jpeg" alt="AI Notes" />
 			</a>
 		</div>
 	
-	<h1 class="site-title"><a href="http://localhost:1313/">AI Notes</a></h1>
+	<h1 class="site-title"><a href="https://notes.muthu.co/">AI Notes</a></h1>
 	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
 			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
 		</nav>
@@ -84,7 +81,7 @@ Here’s what caught my attention. Ng isn’t chasing the latest transformer var
 		<div class="post">
     <div class="post-header">
     <div class="matter">
-        <h1 class="title">Key Takeaways from Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34; - A Technical Analysis</h1>
+        <h1 class="title">My Thoughts on Andrew Ng&#39;s &#34;Building Faster and Smarter with AI&#34;</h1>
         
         <div class="date">
             <span class="day">11</span>
@@ -101,8 +98,7 @@ Here’s what caught my attention. Ng isn’t chasing the latest transformer var
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/RNJCfif1dPY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
-<p>I watched Andrew Ng&rsquo;s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Let me extract the technically sound observations.</p>
-<p>Here&rsquo;s what caught my attention. Ng isn&rsquo;t chasing the latest transformer variant or arguing about AGI timelines. He&rsquo;s focused on something much more important: how AI actually helps people build useful things faster.</p>
+<p>I watched Andrew Ng&rsquo;s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Here&rsquo;s what caught my attention. Ng isn&rsquo;t chasing the latest transformer variant or arguing about AGI timelines. He&rsquo;s focused on something much more important: how AI actually helps people build useful things faster.</p>
 <h2 id="applications-win-infrastructure-follows">Applications Win, Infrastructure Follows</h2>
 <p>The media loves talking about chips and foundation models. But Ng is absolutely right - the real value sits in the application layer. This isn&rsquo;t rocket science. Applications generate revenue. Revenue pays for everything else. Yet somehow this obvious truth gets lost in all the GPU counting and parameter bragging.</p>
 <p>I&rsquo;ve seen this pattern before. In the early days of deep learning, everyone obsessed over architectures while the real breakthroughs came from people who figured out how to apply them to actual problems. Same thing here.</p>
@@ -181,7 +177,7 @@ Here’s what caught my attention. Ng isn’t chasing the latest transformer var
 
 
 <div class="back">
-    <a href="http://localhost:1313/"><span aria-hidden="true">← Back</span></a>
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
 </div>
 
 
