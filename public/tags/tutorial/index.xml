@@ -6,8 +6,15 @@
     <description>Recent content in Tutorial on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Jul 2025 14:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Mixture of Experts (MoE) from First Principles</title>
+      <link>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</link>
+      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</guid>
+      <description>&lt;p&gt;One of the most exciting architectural innovations in recent years is the &lt;strong&gt;Mixture of Experts (MoE)&lt;/strong&gt;. It&amp;rsquo;s a key reason why models like Mistral&amp;rsquo;s Mixtral and (reportedly) OpenAI&amp;rsquo;s GPT-4 are so powerful.&lt;/p&gt;&#xA;&lt;p&gt;To really understand MoE, let’s go back to first principles.&#xA;Here’s a rewritten version of your article with a &lt;strong&gt;Flesch Reading Ease score above 70&lt;/strong&gt;. The language is simpler and more direct, while keeping the core ideas intact.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts</title>
       <link>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>
