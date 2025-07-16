@@ -6,8 +6,43 @@
     <description>Recent content in Tags on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://notes.muthu.co/tags/ai/</link>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Benchmarking</title>
+      <link>https://notes.muthu.co/tags/benchmarking/</link>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/benchmarking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llms</title>
+      <link>https://notes.muthu.co/tags/llms/</link>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mmlu</title>
+      <link>https://notes.muthu.co/tags/mmlu/</link>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/mmlu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>https://notes.muthu.co/tags/research/</link>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/research/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Agentic-Ai</title>
       <link>https://notes.muthu.co/tags/agentic-ai/</link>
@@ -16,24 +51,10 @@
       <description></description>
     </item>
     <item>
-      <title>Ai</title>
-      <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Deep-Research</title>
       <link>https://notes.muthu.co/tags/deep-research/</link>
       <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/deep-research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llms</title>
-      <link>https://notes.muthu.co/tags/llms/</link>
-      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llms/</guid>
       <description></description>
     </item>
     <item>
@@ -97,13 +118,6 @@
       <link>https://notes.muthu.co/tags/autonomous-agents/</link>
       <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
       <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Research</title>
-      <link>https://notes.muthu.co/tags/research/</link>
-      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
-      <guid>https://notes.muthu.co/tags/research/</guid>
       <description></description>
     </item>
     <item>
