@@ -9,6 +9,13 @@
     <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/agentic-ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>TDD with Coding Agents: Building a Rate Limiting Service</title>
+      <link>https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/</guid>
+      <description>&lt;h2 id=&#34;problem-overview&#34;&gt;Problem Overview&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll build a sophisticated rate limiting service that supports:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window)&lt;/li&gt;&#xA;&lt;li&gt;Different storage backends (Memory, Redis)&lt;/li&gt;&#xA;&lt;li&gt;Per-user and per-API-key limits&lt;/li&gt;&#xA;&lt;li&gt;Rate limit headers in responses&lt;/li&gt;&#xA;&lt;li&gt;Graceful degradation when storage fails&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is complex enough to demonstrate TDD&amp;rsquo;s power with AI agents.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-tdd-works-exceptionally-well-with-ai-agents&#34;&gt;Why TDD Works Exceptionally Well with AI Agents&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;The AI Agent Advantage:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Perfect Memory&lt;/strong&gt;: Never forgets edge cases once written in tests&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Pattern Recognition&lt;/strong&gt;: Excellent at implementing algorithms to match test specifications&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Systematic Approach&lt;/strong&gt;: Follows TDD discipline consistently&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rapid Iteration&lt;/strong&gt;: Fast feedback cycles between test and implementation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;The Key Insight&lt;/strong&gt;: AI agents excel when they have clear specifications (tests) rather than vague requirements.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>The Complete Claude Code Best Practices Guide</title>
       <link>https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/</link>
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
