@@ -6,8 +6,15 @@
     <description>Recent content in Tutorial on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Complete Claude Code Best Practices Guide</title>
+      <link>https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/</guid>
+      <description>&lt;p&gt;&lt;em&gt;A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#quick-start--setup&#34;&gt;Quick Start &amp;amp; Setup&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#configuration-mastery&#34;&gt;Configuration Mastery&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#core-workflows--patterns&#34;&gt;Core Workflows &amp;amp; Patterns&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#advanced-techniques&#34;&gt;Advanced Techniques&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#team-workflows&#34;&gt;Team Workflows&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#testing--quality-assurance&#34;&gt;Testing &amp;amp; Quality Assurance&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#security--production-practices&#34;&gt;Security &amp;amp; Production Practices&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#cost-optimization&#34;&gt;Cost Optimization&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#multi-claude-workflows&#34;&gt;Multi-Claude Workflows&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mcp-integration&#34;&gt;MCP Integration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#troubleshooting--tips&#34;&gt;Troubleshooting &amp;amp; Tips&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#community-resources&#34;&gt;Community Resources&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Claude Code represents a paradigm shift in software development - it&amp;rsquo;s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic&amp;rsquo;s internal teams, community developers, and real-world production usage to help you master Claude Code.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Understanding Mixture of Experts (MoE) from First Principles</title>
       <link>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</link>

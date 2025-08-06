@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Complete Claude Code Best Practices Guide - AI Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="The Complete Claude Code Best Practices Guide">
+  <meta itemprop="description" content="A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge
+Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Core Workflows &amp; Patterns Advanced Techniques Team Workflows Testing &amp; Quality Assurance Security &amp; Production Practices Cost Optimization Multi-Claude Workflows MCP Integration Troubleshooting &amp; Tips Community Resources Introduction Claude Code represents a paradigm shift in software development - it’s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic’s internal teams, community developers, and real-world production usage to help you master Claude Code.">
+  <meta itemprop="wordCount" content="3484"><meta property="og:url" content="http://localhost:1313/1/01/the-complete-claude-code-best-practices-guide/">
+  <meta property="og:site_name" content="AI Notes">
+  <meta property="og:title" content="The Complete Claude Code Best Practices Guide">
+  <meta property="og:description" content="A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge
+Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Core Workflows &amp; Patterns Advanced Techniques Team Workflows Testing &amp; Quality Assurance Security &amp; Production Practices Cost Optimization Multi-Claude Workflows MCP Integration Troubleshooting &amp; Tips Community Resources Introduction Claude Code represents a paradigm shift in software development - it’s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic’s internal teams, community developers, and real-world production usage to help you master Claude Code.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Complete Claude Code Best Practices Guide">
+  <meta name="twitter:description" content="A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge
+Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Core Workflows &amp; Patterns Advanced Techniques Team Workflows Testing &amp; Quality Assurance Security &amp; Production Practices Cost Optimization Multi-Claude Workflows MCP Integration Troubleshooting &amp; Tips Community Resources Introduction Claude Code represents a paradigm shift in software development - it’s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic’s internal teams, community developers, and real-world production usage to help you master Claude Code.">
+<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.css" /><script src="http://localhost:1313/js/feather.min.js"></script>
+	
+	<script src="http://localhost:1313/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="http://localhost:1313/">
+				<img src="/avatar.jpeg" alt="AI Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="http://localhost:1313/">AI Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">The Complete Claude Code Best Practices Guide</h1>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p><em>A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge</em></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#quick-start--setup">Quick Start &amp; Setup</a></li>
+<li><a href="#configuration-mastery">Configuration Mastery</a></li>
+<li><a href="#core-workflows--patterns">Core Workflows &amp; Patterns</a></li>
+<li><a href="#advanced-techniques">Advanced Techniques</a></li>
+<li><a href="#team-workflows">Team Workflows</a></li>
+<li><a href="#testing--quality-assurance">Testing &amp; Quality Assurance</a></li>
+<li><a href="#security--production-practices">Security &amp; Production Practices</a></li>
+<li><a href="#cost-optimization">Cost Optimization</a></li>
+<li><a href="#multi-claude-workflows">Multi-Claude Workflows</a></li>
+<li><a href="#mcp-integration">MCP Integration</a></li>
+<li><a href="#troubleshooting--tips">Troubleshooting &amp; Tips</a></li>
+<li><a href="#community-resources">Community Resources</a></li>
+</ol>
+<hr>
+<h2 id="introduction">Introduction</h2>
+<p>Claude Code represents a paradigm shift in software development - it&rsquo;s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic&rsquo;s internal teams, community developers, and real-world production usage to help you master Claude Code.</p>
+<h3 id="key-principles">Key Principles</h3>
+<ul>
+<li><strong>Think of Claude as a very fast intern with perfect memory but limited experience</strong></li>
+<li><strong>Be specific in your instructions - Claude can&rsquo;t read your mind</strong></li>
+<li><strong>Use iterative workflows - the first attempt is rarely the final solution</strong></li>
+<li><strong>Leverage Claude&rsquo;s strengths: pattern recognition, documentation, and systematic problem-solving</strong></li>
+</ul>
+<hr>
+<h2 id="quick-start--setup">Quick Start &amp; Setup</h2>
+<h3 id="installation--authentication">Installation &amp; Authentication</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Install Claude Code</span>
+</span></span><span style="display:flex;"><span>npm install -g claude-code
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Navigate to your project and authenticate</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> your-project
+</span></span><span style="display:flex;"><span>claude
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="essential-first-steps">Essential First Steps</h3>
+<ol>
+<li><strong>Run <code>/init</code> command</strong> in any existing project to generate CLAUDE.md</li>
+<li><strong>Set up permissions</strong> with <code>/permissions</code> for tools you trust</li>
+<li><strong>Install GitHub CLI</strong> (<code>gh</code>) for GitHub integration</li>
+<li><strong>Configure your shell</strong> with <code>/terminal-setup</code> for better UX</li>
+</ol>
+<h3 id="key-shortcuts">Key Shortcuts</h3>
+<ul>
+<li><strong>Escape</strong>: Stop Claude mid-execution</li>
+<li><strong>Double Escape</strong>: Jump back in conversation history</li>
+<li><strong>Shift+Tab</strong>: Toggle auto-accept mode</li>
+<li><strong>Ctrl+V</strong> (not Cmd+V): Paste images on macOS</li>
+<li><strong>Shift+drag</strong>: Reference files properly in Claude</li>
+</ul>
+<hr>
+<h2 id="configuration-mastery">Configuration Mastery</h2>
+<h3 id="claudemd-files---your-ais-memory">CLAUDE.md Files - Your AI&rsquo;s Memory</h3>
+<p>CLAUDE.md is Claude&rsquo;s persistent memory. Think of it as onboarding documentation for a new team member.</p>
+<h4 id="location-priority">Location Priority</h4>
+<ol>
+<li><strong>Current directory</strong>: <code>CLAUDE.md</code> (shared) or <code>CLAUDE.local.md</code> (gitignored)</li>
+<li><strong>Parent directories</strong>: For monorepos</li>
+<li><strong>Child directories</strong>: Pulled on-demand</li>
+<li><strong>Global</strong>: <code>~/.claude/CLAUDE.md</code> (applies to all sessions)</li>
+</ol>
+<h4 id="essential-claudemd-structure">Essential CLAUDE.md Structure</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project: [Project Name]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Quick Commands
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`npm run build`</span>: Build the project
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`npm run test`</span>: Run tests
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`npm run lint`</span>: Run linting
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`npm run typecheck`</span>: Type checking
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Code Style &amp; Standards
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Use ES modules (import/export), not CommonJS
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Destructure imports when possible
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Always run tests after code changes
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Prefer single test files over full suites for performance
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Use TypeScript strict mode
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Architecture &amp; Key Files
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Core logic: <span style="color:#0a3069">`src/services/main_service.py`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> API routes: <span style="color:#0a3069">`src/api/routes/`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Database models: <span style="color:#0a3069">`src/models/`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Tests: <span style="color:#0a3069">`tests/`</span> (mirrors src structure)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Workflow Rules
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Branch naming: <span style="color:#0a3069">`feature/description`</span> or <span style="color:#0a3069">`fix/description`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Always create feature branches from <span style="color:#0a3069">`develop`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Run linter before commits
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Write tests for new functionality
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Project-Specific Guidelines
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Never uncomment test blocks without explicit instruction
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Reuse existing DAO functions instead of creating redundant ones
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Check existing patterns before implementing new solutions
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> IMPORTANT: Always validate input parameters for API endpoints
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> YOU MUST: Run type checking after making changes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="advanced-claudemd-techniques">Advanced CLAUDE.md Techniques</h4>
+<ul>
+<li><strong>Use examples</strong>: Include ✅ good and ❌ bad code examples</li>
+<li><strong>Tune for effectiveness</strong>: Run files through prompt improvers</li>
+<li><strong>Add emphasis</strong>: Use &ldquo;IMPORTANT&rdquo; or &ldquo;YOU MUST&rdquo; for critical rules</li>
+<li><strong>Keep it updated</strong>: Use <code>#</code> key during sessions to add new rules</li>
+<li><strong>Import other files</strong>: Use <code>@docs/api_conventions.md</code> for modularity</li>
+</ul>
+<h3 id="permission-management">Permission Management</h3>
+<h4 id="strategic-permission-setup">Strategic Permission Setup</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Allow safe operations</span>
+</span></span><span style="display:flex;"><span>/permissions add Edit
+</span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(git commit:*)&#34;</span>
+</span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(git push:*)&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Allow specific MCP tools</span>
+</span></span><span style="display:flex;"><span>/permissions add mcp__puppeteer__puppeteer_navigate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="team-permissions">Team Permissions</h4>
+<p>Share permissions via <code>.claude/settings.json</code>:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;allowedTools&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Edit&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Bash(git commit:*)&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;mcp__github__*&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="core-workflows--patterns">Core Workflows &amp; Patterns</h2>
+<h3 id="1-the-explore--plan--code--commit-pattern">1. The Explore → Plan → Code → Commit Pattern</h3>
+<p>This is the most versatile and effective workflow:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Phase 1: Explore**
+</span></span><span style="display:flex;"><span>&#34;Read the authentication module and related test files. Don&#39;t write any code yet - just explore and understand the current implementation.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Phase 2: Plan** 
+</span></span><span style="display:flex;"><span>&#34;Think harder about how to add OAuth support. Create a detailed plan considering:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Integration with existing auth flow
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Database schema changes needed
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Testing strategy
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Security considerations&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Phase 3: Code**
+</span></span><span style="display:flex;"><span>&#34;Now implement the OAuth feature according to your plan. Verify each component works as you build it.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Phase 4: Commit**
+</span></span><span style="display:flex;"><span>&#34;Run all tests, fix any issues, and commit with a descriptive message following our conventional commit format.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="why-this-works">Why This Works</h4>
+<ul>
+<li><strong>Prevents scope creep</strong>: Claude stays focused</li>
+<li><strong>Improves quality</strong>: Planning phase catches edge cases</li>
+<li><strong>Reduces iterations</strong>: Better first attempts</li>
+<li><strong>Maintains context</strong>: Each phase builds on the last</li>
+</ul>
+<h3 id="2-test-driven-development-tdd-with-claude">2. Test-Driven Development (TDD) with Claude</h3>
+<p>TDD becomes incredibly powerful with Claude:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Step 1: Write Tests First**
+</span></span><span style="display:flex;"><span>&#34;Write comprehensive tests for the user authentication feature. Cover:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Valid login scenarios
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Invalid credentials
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Session management
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Edge cases like expired tokens
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Be explicit that this is TDD - don&#39;t create mock implementations.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Step 2: Verify Test Failures**
+</span></span><span style="display:flex;"><span>&#34;Run the tests and confirm they fail as expected. Don&#39;t write any implementation code yet.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Step 3: Implement to Pass Tests**
+</span></span><span style="display:flex;"><span>&#34;Now write the minimum code needed to make all tests pass. Don&#39;t modify the tests.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Step 4: Iterate Until Green**
+</span></span><span style="display:flex;"><span>&#34;Keep iterating - run tests, fix issues, repeat until all tests pass.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-visual-development-workflow">3. Visual Development Workflow</h3>
+<p>For UI work, use Claude&rsquo;s visual capabilities:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Setup Visual Feedback**
+</span></span><span style="display:flex;"><span>&#34;Set up Puppeteer MCP server so you can take screenshots of our React app.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Implement with Visual Targets**
+</span></span><span style="display:flex;"><span>&#34;Here&#39;s the design mock [drag/drop image]. Implement this component, take a screenshot of the result, and iterate until it matches the design.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**Progressive Refinement**
+</span></span><span style="display:flex;"><span>&#34;The layout is close but spacing is off. Take another screenshot and adjust the CSS until the spacing matches the design exactly.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-the-safe-yolo-approach">4. The &ldquo;Safe YOLO&rdquo; Approach</h3>
+<p>For repetitive tasks in secure environments:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Run in Docker container without internet access</span>
+</span></span><span style="display:flex;"><span>claude --dangerously-skip-permissions <span style="color:#0a3069">&#34;Fix all ESLint errors in the src/ directory&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Use Cases:</strong></p>
+<ul>
+<li>Fixing linter errors</li>
+<li>Code formatting</li>
+<li>Updating import statements</li>
+<li>Generating boilerplate code</li>
+</ul>
+<hr>
+<h2 id="advanced-techniques">Advanced Techniques</h2>
+<h3 id="extended-thinking-triggers">Extended Thinking Triggers</h3>
+<p>Claude has different thinking levels you can activate:</p>
+<ul>
+<li><code>&quot;think&quot;</code> - Basic extended thinking</li>
+<li><code>&quot;think hard&quot;</code> - More computation time</li>
+<li><code>&quot;think harder&quot;</code> - Even more analysis</li>
+<li><code>&quot;ultrathink&quot;</code> - Maximum thinking budget</li>
+</ul>
+<h3 id="subagent-orchestration">Subagent Orchestration</h3>
+<p>Let Claude manage specialized subagents:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use subagents to investigate this performance issue:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Have one subagent analyze the database queries
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Have another examine the frontend bundle size
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Have a third review the caching strategy
+</span></span><span style="display:flex;"><span>Then synthesize their findings into recommendations.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="context-management">Context Management</h3>
+<h4 id="smart-context-clearing">Smart Context Clearing</h4>
+<ul>
+<li>Use <code>/clear</code> between different tasks</li>
+<li>Use <code>/compact</code> at natural breakpoints (after completing features)</li>
+<li>Keep conversations focused on single objectives</li>
+</ul>
+<h4 id="context-priming">Context Priming</h4>
+<p>Load relevant context systematically:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Before we start, read these files to understand the context:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#6639ba">@src/auth/auth_service</span>.py
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#6639ba">@tests/auth/test_auth</span>.py  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#6639ba">@docs/auth_requirements</span>.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Then let me know when you understand the current authentication architecture.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="file-and-data-handling">File and Data Handling</h3>
+<h4 id="multiple-input-methods">Multiple Input Methods</h4>
+<ul>
+<li><strong>Copy/paste</strong>: Direct text input</li>
+<li><strong>Pipe data</strong>: <code>cat logfile.txt | claude &quot;analyze these error logs&quot;</code></li>
+<li><strong>File references</strong>: Use tab-completion for accurate paths</li>
+<li><strong>URL fetching</strong>: Paste URLs for Claude to read documentation</li>
+<li><strong>Image analysis</strong>: Drag/drop or Cmd+Ctrl+Shift+4 → Ctrl+V on macOS</li>
+</ul>
+<hr>
+<h2 id="team-workflows">Team Workflows</h2>
+<h3 id="shared-claudemd-strategy">Shared CLAUDE.md Strategy</h3>
+<p>Create a hierarchical CLAUDE.md system:</p>
+<pre tabindex="0"><code>project-root/
+├── CLAUDE.md                 # Global project rules
+├── frontend/CLAUDE.md        # Frontend-specific guidelines  
+├── backend/CLAUDE.md         # Backend-specific patterns
+└── docs/CLAUDE.md           # Documentation standards
+</code></pre><h3 id="custom-slash-commands-for-teams">Custom Slash Commands for Teams</h3>
+<p>Create team-specific workflows in <code>.claude/commands/</code>:</p>
+<h4 id="projectfix-github-issuemd"><code>/project:fix-github-issue.md</code></h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Please analyze and fix GitHub issue: $ARGUMENTS
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Follow our team process:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Use <span style="color:#0a3069">`gh issue view`</span> to get issue details
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Create feature branch: <span style="color:#0a3069">`git checkout -b fix/issue-$ARGUMENTS`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Search codebase for relevant files
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Implement fix following our coding standards
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Write/update tests to verify the fix
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">6.</span> Run full test suite and linting
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">7.</span> Commit with format: <span style="color:#0a3069">`fix: resolve issue #$ARGUMENTS - [description]`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">8.</span> Push and create PR with our template
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="projectcode-reviewmd"><code>/project:code-review.md</code></h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Perform comprehensive code review of recent changes:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> **Standards Compliance**
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Check TypeScript/React conventions
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Verify proper error handling
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Ensure accessibility standards
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> **Quality Assurance**  
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Review test coverage
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Check for security vulnerabilities
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Validate performance implications
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> **Documentation**
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Confirm documentation is updated
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Check for inline comments where needed
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Use our established checklist and update CLAUDE.md with new patterns.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="prompt-plans-for-complex-projects">Prompt Plans for Complex Projects</h3>
+<p>Use structured prompt planning for large features:</p>
+<h4 id="specmd---high-level-specification"><code>spec.md</code> - High-level specification</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Feature: Real-time Collaboration
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Requirements
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Multiple users can edit documents simultaneously
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Changes sync in real-time
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Conflict resolution for concurrent edits
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Offline support with sync on reconnect
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Technical Approach
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> WebSocket connections for real-time updates
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Operational Transform for conflict resolution  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Redux for state management
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> IndexedDB for offline storage
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="prompt_planmd---implementation-steps"><code>prompt_plan.md</code> - Implementation steps</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Implementation Plan
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Phase 1: Backend Infrastructure ✅
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [x]</span> Set up WebSocket server
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [x]</span> Implement basic message routing
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [x]</span> Create user session management
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Phase 2: Real-time Sync (IN PROGRESS)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Implement operational transform algorithm
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Add conflict resolution logic  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Create client-side WebSocket handler
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Phase 3: Offline Support
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Add IndexedDB persistence
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Implement sync queue
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Handle reconnection scenarios
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Phase 4: Testing &amp; Polish
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Write comprehensive test suite
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Add error handling and edge cases
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">- [ ]</span> Performance optimization
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="testing--quality-assurance">Testing &amp; Quality Assurance</h2>
+<h3 id="test-first-development-pattern">Test-First Development Pattern</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;We&#39;re implementing TDD. First, write comprehensive tests for the shopping cart feature:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Add items to cart
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Remove items from cart  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Update quantities
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Calculate totals with tax
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Handle discount codes
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Manage cart persistence
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Don&#39;t implement any actual cart logic yet - just the test cases.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="automated-code-review-setup">Automated Code Review Setup</h3>
+<p>Use GitHub Actions with Claude Code:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In Claude Code terminal</span>
+</span></span><span style="display:flex;"><span>/install-github-app
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then customize the review prompt in <code>claude-code-review.yml</code>:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">direct_prompt</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">|</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Review this PR focusing on:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  - Security vulnerabilities and input validation
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  - Logic errors and edge cases  
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  - Performance implications
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  - Code maintainability
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Be concise - only report significant issues, not style preferences.</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="quality-gates-with-pre-commit-hooks">Quality Gates with Pre-commit Hooks</h3>
+<p>Set up comprehensive quality checks:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#57606a"># .pre-commit-config.yaml  </span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">repos</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span>- <span style="color:#0550ae">repo</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>local<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">hooks</span><span style="color:#1f2328">:</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">id</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>tests<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Run test suite<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">entry</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>npm test<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">language</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>system<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">id</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>typecheck  <span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>TypeScript check<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">entry</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>npm run typecheck<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">language</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>system<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">id</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>lint<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>ESLint check<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">entry</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>npm run lint<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">language</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>system<span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="testing-strategies-by-language">Testing Strategies by Language</h3>
+<h4 id="python-projects">Python Projects</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Set up pytest with these fixtures and test patterns:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Database fixtures with rollback
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> API client fixtures  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Mock external services
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Coverage reporting with minimum 80% threshold&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="javascripttypescript-projects">JavaScript/TypeScript Projects</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Configure Jest with:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Component testing with React Testing Library
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Integration tests for API endpoints
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> E2E tests with Playwright
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Visual regression tests for UI components&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="security--production-practices">Security &amp; Production Practices</h2>
+<h3 id="secure-development-workflow">Secure Development Workflow</h3>
+<h4 id="code-security-reviews">Code Security Reviews</h4>
+<p>Create a security-focused CLAUDE.md section:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>## Security Requirements
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Input Validation
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> ALWAYS validate and sanitize user input
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Use parameterized queries for database operations
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Implement proper authentication checks
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Sensitive Data Handling  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Never log sensitive data (passwords, tokens, PII)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Use environment variables for secrets
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Implement proper session management
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Security Testing
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Run dependency vulnerability scans
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Test for common OWASP vulnerabilities
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Validate API authentication and authorization
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="security-first-prompts">Security-First Prompts</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Review this authentication endpoint as a security expert. Focus on:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Input validation and sanitization
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> SQL injection vulnerabilities  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Authentication bypass scenarios
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Session management security
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Rate limiting and brute force protection
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Identify any security risks and provide specific fixes.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="production-deployment-patterns">Production Deployment Patterns</h3>
+<h4 id="infrastructure-as-code">Infrastructure as Code</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Create Terraform configuration for:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Auto-scaling web servers
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> RDS database with backups
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Redis cache cluster
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Load balancer with SSL
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> CloudWatch monitoring
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Follow security best practices for network isolation and access control.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="cicd-pipeline-setup">CI/CD Pipeline Setup</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Set up GitHub Actions workflow that:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Runs security scans on dependencies
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Executes full test suite
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Builds production artifacts
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Deploys to staging environment
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Runs smoke tests
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">6.</span> Promotes to production with approval gate
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">7.</span> Sends Slack notifications for status updates&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="handling-sensitive-code">Handling Sensitive Code</h3>
+<p><strong>Never share:</strong></p>
+<ul>
+<li>API keys or credentials</li>
+<li>Customer data or PII</li>
+<li>Proprietary algorithms</li>
+<li>Security tokens</li>
+</ul>
+<p><strong>Best practices:</strong></p>
+<ul>
+<li>Use private Claude instances for sensitive projects</li>
+<li>Implement proper access controls</li>
+<li>Sanitize data before sharing with Claude</li>
+<li>Use environment variables for configuration</li>
+</ul>
+<hr>
+<h2 id="cost-optimization">Cost Optimization</h2>
+<h3 id="token-management-strategies">Token Management Strategies</h3>
+<h4 id="efficient-context-usage">Efficient Context Usage</h4>
+<ul>
+<li>Use <code>/clear</code> frequently to reset context</li>
+<li>Keep prompts focused and specific</li>
+<li>Avoid including unnecessary file contents</li>
+<li>Use file references instead of copying large files</li>
+</ul>
+<h4 id="model-selection-for-teams">Model Selection for Teams</h4>
+<ul>
+<li><strong>Haiku</strong>: Simple tasks, documentation, basic analysis</li>
+<li><strong>Sonnet</strong>: Standard development work, code review, testing</li>
+<li><strong>Opus</strong>: Complex architecture, security reviews, critical debugging</li>
+</ul>
+<h4 id="usage-monitoring">Usage Monitoring</h4>
+<p>Use community tools to track costs:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Install usage monitoring</span>
+</span></span><span style="display:flex;"><span>npx cc-usage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># View cost breakdown</span>
+</span></span><span style="display:flex;"><span>cc-usage dashboard
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="workflow-optimization">Workflow Optimization</h3>
+<h4 id="batch-operations">Batch Operations</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Process these 15 similar API endpoints in batch:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Add input validation
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Update error handling  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Add logging
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Update tests
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Generate documentation
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Work through them systematically, committing after each group of 3.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="parallel-processing">Parallel Processing</h4>
+<p>Run multiple Claude instances for independent tasks:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Terminal 1: Frontend work</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> frontend <span style="color:#0550ae">&amp;&amp;</span> claude
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Terminal 2: Backend API  </span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> backend <span style="color:#0550ae">&amp;&amp;</span> claude
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Terminal 3: Testing</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> tests <span style="color:#0550ae">&amp;&amp;</span> claude
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="multi-claude-workflows">Multi-Claude Workflows</h2>
+<h3 id="git-worktrees-for-parallel-development">Git Worktrees for Parallel Development</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktrees for parallel work</span>
+</span></span><span style="display:flex;"><span>git worktree add ../project-feature-a -b feature-a
+</span></span><span style="display:flex;"><span>git worktree add ../project-feature-b -b feature-b  
+</span></span><span style="display:flex;"><span>git worktree add ../project-bugfix -b bugfix
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Start Claude in each</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../project-feature-a <span style="color:#0550ae">&amp;&amp;</span> claude
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># (repeat in separate terminals)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="review-and-implementation-pattern">Review and Implementation Pattern</h3>
+<p><strong>Terminal 1: Implementation</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Implement the new payment processing feature according to the spec in <span style="color:#6639ba">@docs/payment</span>-spec.md&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Terminal 2: Review</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Review the payment processing code that was just implemented. Focus on:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Security vulnerabilities
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Error handling completeness  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Test coverage
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Code maintainability&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Terminal 3: Integration</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Integrate the reviewed payment code with feedback from the reviewer. Address all security concerns and add missing tests.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="specialized-agent-coordination">Specialized Agent Coordination</h3>
+<p>Use different Claude instances for specialized roles:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Architecture Agent
+</span></span><span style="display:flex;"><span>&#34;Act as a senior architect. Design the microservice structure for our e-commerce platform.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Security Agent  
+</span></span><span style="display:flex;"><span>&#34;Act as a security expert. Review the authentication system for vulnerabilities.&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Performance Agent
+</span></span><span style="display:flex;"><span>&#34;Act as a performance engineer. Optimize the database queries and caching strategy.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="mcp-integration">MCP Integration</h2>
+<h3 id="essential-mcp-servers">Essential MCP Servers</h3>
+<h4 id="github-integration">GitHub Integration</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp add github -s project -- npx @modelcontextprotocol/server-github
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="web-search--research">Web Search &amp; Research</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp add brave-search -s project -- npx @modelcontextprotocol/server-brave-search
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="browser-automation">Browser Automation</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp add puppeteer -s project -- npx @modelcontextprotocol/server-puppeteer
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="database-access">Database Access</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp add postgresql -s project -- npx @modelcontextprotocol/server-postgresql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="advanced-mcp-workflows">Advanced MCP Workflows</h3>
+<h4 id="documentation-generation">Documentation Generation</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use the GitHub MCP server to:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Fetch all README files from our repositories
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Analyze common documentation patterns
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Generate comprehensive docs for our new microservice
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Create standardized README template for future projects&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="automated-testing">Automated Testing</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use Puppeteer MCP server to:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Navigate to our staging environment
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Test the complete user registration flow
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Take screenshots at each step
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Generate automated test report with visual validation&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="custom-mcp-server-development">Custom MCP Server Development</h3>
+<p>For team-specific needs:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#57606a">// Custom MCP server for internal APIs
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">const</span> <span style="color:#1f2328">server</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">McpServer</span><span style="color:#1f2328">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">name</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;company-internal-api&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">version</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;1.0.0&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">server</span><span style="color:#1f2328">.</span><span style="color:#1f2328">addTool</span><span style="color:#1f2328">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">name</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;query_user_analytics&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">description</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;Query our internal user analytics API&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">inputSchema</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">type</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;object&#39;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">properties</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">metric</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">type</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;string&#39;</span> <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">timeRange</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">type</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;string&#39;</span> <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="troubleshooting--tips">Troubleshooting &amp; Tips</h2>
+<h3 id="common-issues--solutions">Common Issues &amp; Solutions</h3>
+<h4 id="context-window-management">Context Window Management</h4>
+<p><strong>Problem</strong>: Claude loses track in long conversations
+<strong>Solution</strong>:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Before continuing, create a summary of our current progress and save it to progress.md. Then use /compact to optimize context.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="permission-errors">Permission Errors</h4>
+<p><strong>Problem</strong>: Constant permission prompts
+<strong>Solution</strong>:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Add commonly used tools to allowlist</span>
+</span></span><span style="display:flex;"><span>/permissions add Edit
+</span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(git:*)&#34;</span>
+</span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(npm:*)&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="code-quality-issues">Code Quality Issues</h4>
+<p><strong>Problem</strong>: Claude generates working but low-quality code
+<strong>Solution</strong>: Improve CLAUDE.md with specific examples:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>## Code Quality Standards
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>❌ Bad: Direct database queries in controllers
+</span></span><span style="display:flex;"><span>```python
+</span></span><span style="display:flex;"><span>def get_user(user_id):
+</span></span><span style="display:flex;"><span>    return db.execute(&#34;SELECT * FROM users WHERE id = %s&#34;, user_id)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>✅ Good: Use repository pattern</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_user</span><span style="color:#1f2328">(</span>user_id<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> UserRepository<span style="color:#0550ae">.</span>find_by_id<span style="color:#1f2328">(</span>user_id<span style="color:#1f2328">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><pre tabindex="0"><code>
+### Performance Optimization
+
+#### Faster Feedback Loops
+- Use subagents for parallel investigation
+- Batch similar operations together  
+- Keep conversations focused on single objectives
+- Use `/clear` between unrelated tasks
+
+#### Effective Prompting
+```markdown
+# Instead of vague requests
+&#34;Make the code better&#34;
+
+# Be specific about improvements  
+&#34;Refactor the authentication middleware to:
+1. Extract validation logic into separate functions
+2. Add proper error handling with specific error messages
+3. Improve type safety with TypeScript
+4. Add unit tests covering edge cases&#34;
+</code></pre><h3 id="debugging-strategies">Debugging Strategies</h3>
+<h4 id="stack-trace-analysis">Stack Trace Analysis</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Analyze this stack trace and production logs. Trace the control flow through our codebase and identify:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Root cause of the error
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Contributing factors  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Specific fix needed
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Prevention strategies for similar issues&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="performance-investigation">Performance Investigation</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use subagents to investigate this performance issue:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Database Agent: Analyze slow queries and indexing
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Frontend Agent: Check bundle size and render performance  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Network Agent: Review API response times and caching
+</span></span><span style="display:flex;"><span>Synthesize findings with specific optimization recommendations.&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="community-resources">Community Resources</h2>
+<h3 id="official-resources">Official Resources</h3>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Documentation</a></li>
+<li><a href="https://www.anthropic.com/academy">Anthropic Academy</a> - Courses on Claude Code</li>
+<li><a href="https://github.com/anthropics/claude-code-action">GitHub - Claude Code Action</a> - Official GitHub integration</li>
+</ul>
+<h3 id="community-collections">Community Collections</h3>
+<h4 id="awesome-claude-code-repository">Awesome Claude Code Repository</h4>
+<ul>
+<li><a href="https://github.com/hesreallyhim/awesome-claude-code">hesreallyhim/awesome-claude-code</a></li>
+<li>Curated list of commands, CLAUDE.md files, and workflows</li>
+<li>60+ slash commands categorized by use case</li>
+<li>Domain-specific CLAUDE.md examples</li>
+</ul>
+<h4 id="specialized-agent-collections">Specialized Agent Collections</h4>
+<ul>
+<li><a href="https://github.com/wshobson/agents">wshobson/agents</a> - 56 specialized subagents</li>
+<li><a href="https://github.com/grahama1970/claude-code-mcp-enhanced">grahama1970/claude-code-mcp-enhanced</a> - Enhanced MCP server</li>
+</ul>
+<h4 id="tools--utilities">Tools &amp; Utilities</h4>
+<ul>
+<li><strong>CC Usage</strong> (ryoppippi/cc-usage) - Cost monitoring and analysis</li>
+<li><strong>Claude Code Usage Monitor</strong> (Maciek-roboblog) - Real-time usage tracking</li>
+<li><strong>cclogviewer</strong> (Brad S.) - Pretty HTML UI for conversation logs</li>
+</ul>
+<h3 id="learning-resources">Learning Resources</h3>
+<h4 id="video-guides--tutorials">Video Guides &amp; Tutorials</h4>
+<ul>
+<li>Search for &ldquo;Claude Code&rdquo; on YouTube for latest tutorials</li>
+<li>Anthropic&rsquo;s official channel for feature announcements</li>
+<li>Community developers sharing workflow videos</li>
+</ul>
+<h4 id="blog-posts--articles">Blog Posts &amp; Articles</h4>
+<ul>
+<li><a href="https://harper.blog">Harper Reed&rsquo;s Blog</a> - Real-world TDD workflows</li>
+<li><a href="https://waleedk.medium.com">Waleed Kadous on Medium</a> - &ldquo;Lessons from the First 20 Hours&rdquo;</li>
+<li><a href="https://www.sabrina.dev">Sabrina Ramonov</a> - Production-grade AI coding practices</li>
+</ul>
+<h4 id="community-forums">Community Forums</h4>
+<ul>
+<li>r/ClaudeAI on Reddit</li>
+<li>Anthropic Discord server</li>
+<li>Twitter/X: #ClaudeCode hashtag</li>
+</ul>
+<h3 id="contributing-to-the-community">Contributing to the Community</h3>
+<h4 id="sharing-best-practices">Sharing Best Practices</h4>
+<ul>
+<li>Document your successful workflows</li>
+<li>Create reusable CLAUDE.md templates</li>
+<li>Share custom slash commands</li>
+<li>Write blog posts about discoveries</li>
+</ul>
+<h4 id="open-source-contributions">Open Source Contributions</h4>
+<ul>
+<li>Submit to awesome-claude-code repository</li>
+<li>Create MCP servers for common tools</li>
+<li>Build utilities that help other developers</li>
+<li>Share specialized agent configurations</li>
+</ul>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Claude Code represents a fundamental shift in how we approach software development. It&rsquo;s not just about generating code faster - it&rsquo;s about operating at a higher level of abstraction, focusing on what we want to build rather than the mechanics of building it.</p>
+<p>The most successful Claude Code users treat it as an intelligent collaborator rather than a magic black box. They:</p>
+<ul>
+<li><strong>Invest in configuration</strong> - Proper CLAUDE.md files and permission setup</li>
+<li><strong>Use structured workflows</strong> - Explore → Plan → Code → Commit patterns</li>
+<li><strong>Leverage specialization</strong> - Subagents and MCP integrations for specific tasks</li>
+<li><strong>Maintain human oversight</strong> - Active review and course correction</li>
+<li><strong>Share knowledge</strong> - Document patterns and contribute to community</li>
+</ul>
+<p>As AI continues to evolve, the developers who learn to orchestrate these tools effectively will have significant competitive advantages. Start with the basics in this guide, experiment with advanced patterns, and most importantly - share your discoveries with the community.</p>
+<p>The future of software development is collaborative intelligence between humans and AI. Claude Code gives us a powerful platform to explore that future today.</p>
+<hr>
+<p><em>This guide is a living document compiled from community contributions. For the latest updates and community discussions, join the Claude Code community on GitHub and Discord.</em></p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="http://localhost:1313/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>1 </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>
