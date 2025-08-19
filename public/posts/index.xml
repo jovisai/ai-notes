@@ -6,8 +6,15 @@
     <description>Recent content in Posts on AI Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Theory of Constraints applied to software development life cycles</title>
+      <link>https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</link>
+      <pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</guid>
+      <description>&lt;p&gt;As engineering leaders, we often focus on optimizing individual processes—faster CI/CD, better code reviews, more efficient testing. But what if the real performance gains come from identifying the single constraint that&amp;rsquo;s limiting your entire delivery pipeline?&lt;/p&gt;&#xA;&lt;p&gt;The Theory of Constraints teaches us that every system has exactly one bottleneck that determines overall throughput. In software development, this could be:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Common SDLC Bottlenecks:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Code review queues that delay merges for days&lt;/li&gt;&#xA;&lt;li&gt;Manual testing phases that create deployment delays&lt;/li&gt;&#xA;&lt;li&gt;Infrastructure provisioning that blocks feature rollouts&lt;/li&gt;&#xA;&lt;li&gt;Knowledge silos where only one person can deploy certain services&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;The Five-Step Process:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>TDD with Coding Agents: Building a Rate Limiting Service</title>
       <link>https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/</link>
