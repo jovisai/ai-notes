@@ -4,7 +4,7 @@
     <title>Mmlu on AI Notes</title>
     <link>https://notes.muthu.co/tags/mmlu/</link>
     <description>Recent content in Mmlu on AI Notes</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/mmlu/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://notes.muthu.co/2025/07/measuring-massive-multitask-language-understanding-why-mmlu-matters-and-what-it-really-tests/</link>
       <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/measuring-massive-multitask-language-understanding-why-mmlu-matters-and-what-it-really-tests/</guid>
-      <description>&lt;p&gt;I remember the first time I heard about MMLU. I was reading about GPT-3&amp;rsquo;s capabilities, and there it was - this benchmark that claimed to test AI across 57 different subjects. From elementary math to professional law, from world history to computer science. It sounded almost too ambitious to be real.&lt;/p&gt;&#xA;&lt;p&gt;But here&amp;rsquo;s the thing about MMLU (Measuring Massive Multitask Language Understanding) - it&amp;rsquo;s become one of the most important ways we measure how smart our AI systems really are. And after diving deep into it, I think it&amp;rsquo;s worth understanding what makes it special.&lt;/p&gt;</description>
+      <description>I remember the first time I heard about MMLU. I was reading about GPT-3&amp;rsquo;s capabilities, and there it was - this benchmark that claimed to test AI across 57 different subjects. From elementary math to professional law, from world history to computer science. It sounded almost too ambitious to be real.&#xA;But here&amp;rsquo;s the thing about MMLU (Measuring Massive Multitask Language Understanding) - it&amp;rsquo;s become one of the most important ways we measure how smart our AI systems really are.</description>
     </item>
   </channel>
 </rss>

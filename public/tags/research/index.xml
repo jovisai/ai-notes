@@ -4,7 +4,7 @@
     <title>Research on AI Notes</title>
     <link>https://notes.muthu.co/tags/research/</link>
     <description>Recent content in Research on AI Notes</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/research/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://notes.muthu.co/2025/07/measuring-massive-multitask-language-understanding-why-mmlu-matters-and-what-it-really-tests/</link>
       <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/measuring-massive-multitask-language-understanding-why-mmlu-matters-and-what-it-really-tests/</guid>
-      <description>&lt;p&gt;I remember the first time I heard about MMLU. I was reading about GPT-3&amp;rsquo;s capabilities, and there it was - this benchmark that claimed to test AI across 57 different subjects. From elementary math to professional law, from world history to computer science. It sounded almost too ambitious to be real.&lt;/p&gt;&#xA;&lt;p&gt;But here&amp;rsquo;s the thing about MMLU (Measuring Massive Multitask Language Understanding) - it&amp;rsquo;s become one of the most important ways we measure how smart our AI systems really are. And after diving deep into it, I think it&amp;rsquo;s worth understanding what makes it special.&lt;/p&gt;</description>
+      <description>I remember the first time I heard about MMLU. I was reading about GPT-3&amp;rsquo;s capabilities, and there it was - this benchmark that claimed to test AI across 57 different subjects. From elementary math to professional law, from world history to computer science. It sounded almost too ambitious to be real.&#xA;But here&amp;rsquo;s the thing about MMLU (Measuring Massive Multitask Language Understanding) - it&amp;rsquo;s become one of the most important ways we measure how smart our AI systems really are.</description>
     </item>
     <item>
       <title>Meet AlphaEvolve: The AI That Discovers New Algorithms</title>
       <link>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</link>
       <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
       <guid>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</guid>
-      <description>&lt;p&gt;Imagine a coding partner that doesn’t just write software, but &lt;strong&gt;iteratively evolves it&lt;/strong&gt;, learns from its mistakes, and even &lt;strong&gt;discovers brand-new algorithms&lt;/strong&gt; some better than anything a human has ever designed.&lt;/p&gt;&#xA;&lt;p&gt;Sounds like science fiction, right? Well, it’s exactly what &lt;a href=&#34;https://arxiv.org/abs/2506.13131&#34;&gt;&lt;strong&gt;AlphaEvolve&lt;/strong&gt;&lt;/a&gt;, a new breakthrough from DeepMind, is all about.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;so-what-exactly-is-alphaevolve&#34;&gt;So, What Exactly is AlphaEvolve?&lt;/h2&gt;&#xA;&lt;p&gt;At its heart, &lt;strong&gt;AlphaEvolve&lt;/strong&gt; is an AI agent that’s been built to do one thing: &lt;em&gt;discover new and better code through evolution&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>Imagine a coding partner that doesn’t just write software, but iteratively evolves it, learns from its mistakes, and even discovers brand-new algorithms some better than anything a human has ever designed.&#xA;Sounds like science fiction, right? Well, it’s exactly what AlphaEvolve, a new breakthrough from DeepMind, is all about.&#xA;So, What Exactly is AlphaEvolve? At its heart, AlphaEvolve is an AI agent that’s been built to do one thing: discover new and better code through evolution.</description>
     </item>
     <item>
       <title>Deep Research Applications of Modern LLMs Generated through Deep Research</title>
       <link>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</link>
       <pubDate>Sat, 22 Mar 2025 10:00:00 +0530</pubDate>
       <guid>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</guid>
-      <description>&lt;p&gt;Artificial Intelligence is moving beyond conversational chatbots to become &lt;em&gt;autonomous research agents&lt;/em&gt;. Unlike conventional LLM assistants that answer questions based on pre-trained knowledge, these new systems—collectively called &lt;strong&gt;Deep Research AI&lt;/strong&gt;—can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Plan and execute multi-step investigations&lt;/li&gt;&#xA;&lt;li&gt;Formulate sub-questions and hypotheses&lt;/li&gt;&#xA;&lt;li&gt;Browse the web and databases iteratively&lt;/li&gt;&#xA;&lt;li&gt;Evaluate sources and compile structured reports with citations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This process, while slower, achieves comprehensive, verifiable insights comparable to a PhD-level literature review.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-deep-research-works&#34;&gt;&lt;strong&gt;How Deep Research Works&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Core Stages:&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>Artificial Intelligence is moving beyond conversational chatbots to become autonomous research agents. Unlike conventional LLM assistants that answer questions based on pre-trained knowledge, these new systems—collectively called Deep Research AI—can:&#xA;Plan and execute multi-step investigations Formulate sub-questions and hypotheses Browse the web and databases iteratively Evaluate sources and compile structured reports with citations This process, while slower, achieves comprehensive, verifiable insights comparable to a PhD-level literature review.&#xA;How Deep Research Works Core Stages:</description>
     </item>
   </channel>
 </rss>

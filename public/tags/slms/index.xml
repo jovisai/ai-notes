@@ -4,7 +4,7 @@
     <title>Slms on AI Notes</title>
     <link>https://notes.muthu.co/tags/slms/</link>
     <description>Recent content in Slms on AI Notes</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/slms/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</link>
       <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</guid>
-      <description>&lt;p&gt;One of the most exciting architectural innovations in recent years is the &lt;strong&gt;Mixture of Experts (MoE)&lt;/strong&gt;. It&amp;rsquo;s a key reason why models like Mistral&amp;rsquo;s Mixtral and (reportedly) OpenAI&amp;rsquo;s GPT-4 are so powerful.&lt;/p&gt;&#xA;&lt;p&gt;To really understand MoE, let’s go back to first principles.&#xA;Here’s a rewritten version of your article with a &lt;strong&gt;Flesch Reading Ease score above 70&lt;/strong&gt;. The language is simpler and more direct, while keeping the core ideas intact.&lt;/p&gt;</description>
+      <description>One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It&amp;rsquo;s a key reason why models like Mistral&amp;rsquo;s Mixtral and (reportedly) OpenAI&amp;rsquo;s GPT-4 are so powerful.&#xA;To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact.</description>
     </item>
     <item>
       <title>Small Language Models are the Future of Agentic AI</title>
       <link>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</link>
       <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</guid>
-      <description>&lt;p&gt;I recently came across a paper titled &lt;em&gt;&amp;ldquo;Small Language Models are the Future of Agentic AI,&amp;rdquo;&lt;/em&gt; and it got me thinking. The message is simple but powerful: bigger isn&amp;rsquo;t always better.&lt;/p&gt;&#xA;&lt;p&gt;In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.&lt;/p&gt;&#xA;&lt;p&gt;Let’s break it down.&lt;/p&gt;</description>
+      <description>I recently came across a paper titled &amp;ldquo;Small Language Models are the Future of Agentic AI,&amp;rdquo; and it got me thinking. The message is simple but powerful: bigger isn&amp;rsquo;t always better.&#xA;In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.&#xA;Let’s break it down.</description>
     </item>
   </channel>
 </rss>

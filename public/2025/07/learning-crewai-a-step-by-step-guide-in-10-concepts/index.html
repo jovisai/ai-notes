@@ -3,31 +3,19 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts - AI Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	
-  <meta itemprop="name" content="Learning CrewAI: A Step-by-Step Guide in 10 Concepts">
-  <meta itemprop="description" content="A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs.">
-  <meta itemprop="datePublished" content="2025-07-06T14:00:00+05:30">
-  <meta itemprop="dateModified" content="2025-07-06T14:00:00+05:30">
-  <meta itemprop="wordCount" content="1589">
-  <meta itemprop="keywords" content="Ai,Python,CrewAI,Autonomous Agents,Llms,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/">
-  <meta property="og:site_name" content="AI Notes">
-  <meta property="og:title" content="Learning CrewAI: A Step-by-Step Guide in 10 Concepts">
-  <meta property="og:description" content="A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-07-06T14:00:00+05:30">
-    <meta property="article:modified_time" content="2025-07-06T14:00:00+05:30">
-    <meta property="article:tag" content="Ai">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="CrewAI">
-    <meta property="article:tag" content="Autonomous Agents">
-    <meta property="article:tag" content="Llms">
-    <meta property="article:tag" content="Tutorial">
+	<meta itemprop="name" content="Learning CrewAI: A Step-by-Step Guide in 10 Concepts">
+<meta itemprop="description" content="A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs."><meta itemprop="datePublished" content="2025-07-06T14:00:00+05:30" />
+<meta itemprop="dateModified" content="2025-07-06T14:00:00+05:30" />
+<meta itemprop="wordCount" content="1589">
+<meta itemprop="keywords" content="AI,Python,CrewAI,Autonomous Agents,LLMs,Tutorial," /><meta property="og:title" content="Learning CrewAI: A Step-by-Step Guide in 10 Concepts" />
+<meta property="og:description" content="A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-07-06T14:00:00+05:30" />
+<meta property="article:modified_time" content="2025-07-06T14:00:00+05:30" />
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Learning CrewAI: A Step-by-Step Guide in 10 Concepts">
-  <meta name="twitter:description" content="A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs.">
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Learning CrewAI: A Step-by-Step Guide in 10 Concepts"/>
+<meta name="twitter:description" content="A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs."/>
 <link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 
@@ -109,28 +97,28 @@
   </pre>
 
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Agent
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define an agent</span>
-</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;AI Researcher&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Gather the latest AI trends from 2024&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You are an expert AI researcher who writes reports on emerging AI trends.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>  <span style="color:#57606a"># Shows the agent&#39;s thought process</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define an agent</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;AI Researcher&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Gather the latest AI trends from 2024&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;You are an expert AI researcher who writes reports on emerging AI trends.&#34;</span>,
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>  <span style="color:#998;font-style:italic"># Shows the agent&#39;s thought process</span>
+</span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><h3 id="concept-2-the-task"><strong>Concept 2: The Task</strong></h3>
 <p><strong>Fundamental Idea:</strong> A Task is a specific, actionable instruction given to an agent. It defines the work to be done, the expected outcome, and the agent responsible for completing it. Tasks are the building blocks of a crew&rsquo;s workflow.</p>
 <p><strong>Real-Life Analogy:</strong> You assign your marketing agent to “write a blog post” or your finance agent to “summarize last month’s revenue.” Each instruction is a task with a clear objective and a responsible agent.</p>
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Task
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Task
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Assume &#39;researcher&#39; agent is already defined</span>
-</span></span><span style="display:flex;"><span>research_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Identify the top 3 AI trends in 2024 using online sources.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A list of the top 3 trends with a short summary of each.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>researcher<span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Assume &#39;researcher&#39; agent is already defined</span>
+</span></span><span style="display:flex;"><span>research_task <span style="color:#000;font-weight:bold">=</span> Task(
+</span></span><span style="display:flex;"><span>    description<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Identify the top 3 AI trends in 2024 using online sources.&#34;</span>,
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A list of the top 3 trends with a short summary of each.&#34;</span>,
+</span></span><span style="display:flex;"><span>    agent<span style="color:#000;font-weight:bold">=</span>researcher,
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><h3 id="concept-3-the-crew"><strong>Concept 3: The Crew</strong></h3>
 <p><strong>Fundamental Idea:</strong> A Crew is a team of agents working together to execute a set of tasks. The crew defines the overall process, whether it&rsquo;s sequential, parallel, or a more complex hierarchical structure. It&rsquo;s the engine that drives the collaboration between your agents.</p>
 <p><strong>Real-Life Analogy:</strong> A film crew consists of a director, cameraman, and editor. Each agent performs their task, and together they produce a movie. The crew orchestrates who does what and when.</p>
@@ -144,18 +132,18 @@
   </pre>
 
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Crew
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Crew
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Assume &#39;researcher&#39; and &#39;research_task&#39; are defined</span>
-</span></span><span style="display:flex;"><span>ai_crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Assume &#39;researcher&#39; and &#39;research_task&#39; are defined</span>
+</span></span><span style="display:flex;"><span>ai_crew <span style="color:#000;font-weight:bold">=</span> Crew(
+</span></span><span style="display:flex;"><span>    agents<span style="color:#000;font-weight:bold">=</span>[researcher],
+</span></span><span style="display:flex;"><span>    tasks<span style="color:#000;font-weight:bold">=</span>[research_task],
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Start the crew&#39;s work</span>
-</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> ai_crew<span style="color:#0550ae">.</span>kickoff<span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Start the crew&#39;s work</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#000;font-weight:bold">=</span> ai_crew<span style="color:#000;font-weight:bold">.</span>kickoff()
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(result)
 </span></span></code></pre></div><h3 id="concept-4-multi-agent-workflows"><strong>Concept 4: Multi-Agent Workflows</strong></h3>
 <p><strong>Fundamental Idea:</strong> You can connect tasks to create dependencies, allowing agents to pass information and collaborate in a sequence. This is the foundation of building complex, multi-step processes. The <code>context</code> parameter in a task is used to specify which other tasks must be completed before this one can begin.</p>
 <p><strong>Real-Life Analogy:</strong> A researcher gathers facts, a writer uses those facts to draft an article, and an editor reviews the draft. Each agent acts only after the previous one has completed their task.</p>
@@ -165,143 +153,143 @@
   </pre>
 
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Agent, Task, Crew
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define Agents</span>
-</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;AI Researcher&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Find recent breakthroughs in AI.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;An expert in AI keeping up with the latest research.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define Agents</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;AI Researcher&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Find recent breakthroughs in AI.&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;An expert in AI keeping up with the latest research.&#34;</span>,
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>writer <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Technical Writer&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Write a short blog post from research data.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A skilled writer who can turn complex info into engaging posts.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>writer <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Technical Writer&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Write a short blog post from research data.&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A skilled writer who can turn complex info into engaging posts.&#34;</span>,
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define Tasks with context</span>
-</span></span><span style="display:flex;"><span>research_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Find the 3 most important AI research breakthroughs of 2024.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A list of 3 breakthroughs with a 1-2 line explanation each.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>researcher
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define Tasks with context</span>
+</span></span><span style="display:flex;"><span>research_task <span style="color:#000;font-weight:bold">=</span> Task(
+</span></span><span style="display:flex;"><span>    description<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Find the 3 most important AI research breakthroughs of 2024.&#34;</span>,
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A list of 3 breakthroughs with a 1-2 line explanation each.&#34;</span>,
+</span></span><span style="display:flex;"><span>    agent<span style="color:#000;font-weight:bold">=</span>researcher
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>write_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Write a short blog post based on the AI research findings.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A 300-word blog post summarizing the breakthroughs.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>writer<span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    context<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">]</span>  <span style="color:#57606a"># The writer uses the output of the research_task</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>write_task <span style="color:#000;font-weight:bold">=</span> Task(
+</span></span><span style="display:flex;"><span>    description<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Write a short blog post based on the AI research findings.&#34;</span>,
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A 300-word blog post summarizing the breakthroughs.&#34;</span>,
+</span></span><span style="display:flex;"><span>    agent<span style="color:#000;font-weight:bold">=</span>writer,
+</span></span><span style="display:flex;"><span>    context<span style="color:#000;font-weight:bold">=</span>[research_task]  <span style="color:#998;font-style:italic"># The writer uses the output of the research_task</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define and run the Crew</span>
-</span></span><span style="display:flex;"><span>ai_blog_crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">,</span> writer<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">,</span> write_task<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define and run the Crew</span>
+</span></span><span style="display:flex;"><span>ai_blog_crew <span style="color:#000;font-weight:bold">=</span> Crew(
+</span></span><span style="display:flex;"><span>    agents<span style="color:#000;font-weight:bold">=</span>[researcher, writer],
+</span></span><span style="display:flex;"><span>    tasks<span style="color:#000;font-weight:bold">=</span>[research_task, write_task],
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> ai_blog_crew<span style="color:#0550ae">.</span>kickoff<span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#000;font-weight:bold">=</span> ai_blog_crew<span style="color:#000;font-weight:bold">.</span>kickoff()
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(result)
 </span></span></code></pre></div><h3 id="concept-5-tools"><strong>Concept 5: Tools</strong></h3>
 <p><strong>Fundamental Idea:</strong> Tools are external functions an agent can use to interact with the world, like browsing the web, searching a PDF, or querying a database. Tools are what give your agents their superpowers, allowing them to go beyond the knowledge of their LLM and access real-time information.</p>
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai_tools</span> <span style="color:#cf222e">import</span> tool
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Agent, Task, Crew
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai_tools</span> <span style="color:#000;font-weight:bold">import</span> tool
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define a custom tool</span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">@tool</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;search_google&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">google_search</span><span style="color:#1f2328">(</span>query<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Searches Google and returns a simulated answer.&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># In a real scenario, this would integrate with an actual search API</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Simulated search result for: </span><span style="color:#0a3069">{</span>query<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define a custom tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@tool</span>(<span style="color:#d14">&#34;search_google&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">google_search</span>(query: <span style="color:#0086b3">str</span>) <span style="color:#000;font-weight:bold">-&gt;</span> <span style="color:#0086b3">str</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;&#34;&#34;Searches Google and returns a simulated answer.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic"># In a real scenario, this would integrate with an actual search API</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">f</span><span style="color:#d14">&#34;Simulated search result for: </span><span style="color:#d14">{</span>query<span style="color:#d14">}</span><span style="color:#d14">&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Add the tool to an agent</span>
-</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;AI Researcher&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Find the latest trends in generative AI.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You use external tools to get real-time information.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>google_search<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Add the tool to an agent</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;AI Researcher&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Find the latest trends in generative AI.&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;You use external tools to get real-time information.&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#000;font-weight:bold">=</span>[google_search],
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># The rest of the setup (Task, Crew) remains similar</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># The rest of the setup (Task, Crew) remains similar</span>
 </span></span></code></pre></div><h3 id="concept-6-memory"><strong>Concept 6: Memory</strong></h3>
 <p><strong>Fundamental Idea:</strong> Memory allows an agent to store and reuse information from past tasks, giving them continuity. This is crucial for building agents that can learn from their experiences and make better decisions over time. In CrewAI, memory can be short-term (for the duration of a single crew execution) or long-term (persisting across multiple executions).</p>
 <p>In CrewAI, memory flows implicitly between agents in a sequence. When a task depends on another (via the <code>context</code> parameter), the output of the first task is automatically available in the memory of the agent performing the second task.</p>
 <h3 id="concept-7-custom-llms"><strong>Concept 7: Custom LLMs</strong></h3>
 <p><strong>Fundamental Idea:</strong> You can assign different LLMs (local models via Ollama, or APIs like Claude, Groq, etc.) to different agents. This allows you to choose the best model for each agent&rsquo;s specific role and tasks. For example, you might use a powerful model like GPT-4 for a reasoning-intensive task, and a faster, cheaper model for a simple summarization task.</p>
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_community.llms</span> <span style="color:#cf222e">import</span> Ollama
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Agent
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">langchain_community.llms</span> <span style="color:#000;font-weight:bold">import</span> Ollama
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Use a local model running on Ollama</span>
-</span></span><span style="display:flex;"><span>local_llm <span style="color:#0550ae">=</span> Ollama<span style="color:#1f2328">(</span>model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;mistral&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Use a local model running on Ollama</span>
+</span></span><span style="display:flex;"><span>local_llm <span style="color:#000;font-weight:bold">=</span> Ollama(model<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;mistral&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Local AI Researcher&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Find local AI trends.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A privacy-conscious analyst using local models.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    llm<span style="color:#0550ae">=</span>local_llm<span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Local AI Researcher&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Find local AI trends.&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A privacy-conscious analyst using local models.&#34;</span>,
+</span></span><span style="display:flex;"><span>    llm<span style="color:#000;font-weight:bold">=</span>local_llm,
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><h3 id="concept-8-collaboration-patterns"><strong>Concept 8: Collaboration Patterns</strong></h3>
 <p><strong>Fundamental Idea:</strong> Agents can collaborate in various patterns: sequentially, in parallel, or in debates. The collaboration pattern you choose will depend on the specific problem you are trying to solve. For example, a sequential process is ideal for a linear workflow, while a parallel process can be used to speed up tasks that can be performed independently.</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Pattern</th>
-          <th style="text-align: left">Description</th>
-          <th style="text-align: left">How to Implement</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left"><strong>Sequential</strong></td>
-          <td style="text-align: left">Agent B waits for Agent A.</td>
-          <td style="text-align: left">Use <code>context=[task_a]</code> in Task B.</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Parallel</strong></td>
-          <td style="text-align: left">Agents work independently.</td>
-          <td style="text-align: left">Define tasks with no <code>context</code>.</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Refinement</strong></td>
-          <td style="text-align: left">Agent B improves Agent A’s output.</td>
-          <td style="text-align: left">A sequential workflow where B’s task is to refine A’s output.</td>
-      </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align:left">Pattern</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">How to Implement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Sequential</strong></td>
+<td style="text-align:left">Agent B waits for Agent A.</td>
+<td style="text-align:left">Use <code>context=[task_a]</code> in Task B.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Parallel</strong></td>
+<td style="text-align:left">Agents work independently.</td>
+<td style="text-align:left">Define tasks with no <code>context</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Refinement</strong></td>
+<td style="text-align:left">Agent B improves Agent A’s output.</td>
+<td style="text-align:left">A sequential workflow where B’s task is to refine A’s output.</td>
+</tr>
+</tbody>
 </table>
 <h3 id="concept-9-integrating-built-in-tools"><strong>Concept 9: Integrating Built-in Tools</strong></h3>
 <p><strong>Fundamental Idea:</strong> <code>crewai_tools</code> provides pre-built tools for common tasks like reading PDFs, scraping websites, and searching the web. These tools are easy to use and can save you a lot of time and effort. They are designed to be plug-and-play, so you can easily add them to your agents and start using them right away.</p>
 <p><strong>Code Example (PDF Tool):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># pip install crewai_tools</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai_tools</span> <span style="color:#cf222e">import</span> PDFSearchTool
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># pip install crewai_tools</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Agent, Task, Crew
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai_tools</span> <span style="color:#000;font-weight:bold">import</span> PDFSearchTool
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize the tool for a specific PDF</span>
-</span></span><span style="display:flex;"><span>pdf_tool <span style="color:#0550ae">=</span> PDFSearchTool<span style="color:#1f2328">(</span>pdf_path<span style="color:#0550ae">=</span><span style="color:#0a3069">&#39;path/to/your/report.pdf&#39;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Initialize the tool for a specific PDF</span>
+</span></span><span style="display:flex;"><span>pdf_tool <span style="color:#000;font-weight:bold">=</span> PDFSearchTool(pdf_path<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;path/to/your/report.pdf&#39;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create an agent with the tool</span>
-</span></span><span style="display:flex;"><span>analyst <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Financial Analyst&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Extract revenue trends from the report.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;An expert at analyzing financial documents.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>pdf_tool<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create an agent with the tool</span>
+</span></span><span style="display:flex;"><span>analyst <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Financial Analyst&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Extract revenue trends from the report.&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;An expert at analyzing financial documents.&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#000;font-weight:bold">=</span>[pdf_tool],
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a task that prompts the agent to use the tool</span>
-</span></span><span style="display:flex;"><span>task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Read the attached PDF and summarize the revenue trends.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A short summary of revenue numbers and patterns.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>analyst
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create a task that prompts the agent to use the tool</span>
+</span></span><span style="display:flex;"><span>task <span style="color:#000;font-weight:bold">=</span> Task(
+</span></span><span style="display:flex;"><span>    description<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Read the attached PDF and summarize the revenue trends.&#34;</span>,
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A short summary of revenue numbers and patterns.&#34;</span>,
+</span></span><span style="display:flex;"><span>    agent<span style="color:#000;font-weight:bold">=</span>analyst
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># ... create and kickoff the crew</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># ... create and kickoff the crew</span>
 </span></span></code></pre></div><h3 id="concept-10-building-an-end-to-end-workflow"><strong>Concept 10: Building an End-to-End Workflow</strong></h3>
 <p>Let&rsquo;s combine everything to create a multi-agent system that researches AI news, summarizes it, and drafts a LinkedIn post. This example demonstrates how you can chain together multiple agents and tasks to create a complete, automated workflow.</p>
 <pre class="mermaid">graph TD
@@ -319,52 +307,52 @@
   </pre>
 
 <p><strong>Code Example:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai_tools</span> <span style="color:#cf222e">import</span> SerpAPITool
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai</span> <span style="color:#000;font-weight:bold">import</span> Agent, Task, Crew
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">crewai_tools</span> <span style="color:#000;font-weight:bold">import</span> SerpAPITool
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define Tools</span>
-</span></span><span style="display:flex;"><span>search_tool <span style="color:#0550ae">=</span> SerpAPITool<span style="color:#1f2328">()</span> <span style="color:#57606a"># Requires a SERPAPI_API_KEY environment variable</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define Tools</span>
+</span></span><span style="display:flex;"><span>search_tool <span style="color:#000;font-weight:bold">=</span> SerpAPITool() <span style="color:#998;font-style:italic"># Requires a SERPAPI_API_KEY environment variable</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define Agents</span>
-</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;AI News Researcher&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Find 5 important AI news stories from the last 7 days&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You are an AI news expert, skilled in finding trending topics.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>search_tool<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define Agents</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;AI News Researcher&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Find 5 important AI news stories from the last 7 days&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;You are an AI news expert, skilled in finding trending topics.&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#000;font-weight:bold">=</span>[search_tool],
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>writer <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Content Creator&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Write an engaging LinkedIn post from an AI news summary&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You are an expert in writing viral LinkedIn content for engineers.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>writer <span style="color:#000;font-weight:bold">=</span> Agent(
+</span></span><span style="display:flex;"><span>    role<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Content Creator&#34;</span>,
+</span></span><span style="display:flex;"><span>    goal<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Write an engaging LinkedIn post from an AI news summary&#34;</span>,
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;You are an expert in writing viral LinkedIn content for engineers.&#34;</span>,
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define Tasks</span>
-</span></span><span style="display:flex;"><span>research_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Search for the 5 most interesting AI news stories from the last 7 days.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A list of 5 headlines and a 1-line description for each.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>researcher
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Define Tasks</span>
+</span></span><span style="display:flex;"><span>research_task <span style="color:#000;font-weight:bold">=</span> Task(
+</span></span><span style="display:flex;"><span>    description<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Search for the 5 most interesting AI news stories from the last 7 days.&#34;</span>,
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A list of 5 headlines and a 1-line description for each.&#34;</span>,
+</span></span><span style="display:flex;"><span>    agent<span style="color:#000;font-weight:bold">=</span>researcher
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>write_post_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Using the news items, write a LinkedIn-style post aimed at engineering leaders.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A 200-word professional and engaging post.&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>writer<span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>    context<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>write_post_task <span style="color:#000;font-weight:bold">=</span> Task(
+</span></span><span style="display:flex;"><span>    description<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;Using the news items, write a LinkedIn-style post aimed at engineering leaders.&#34;</span>,
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;A 200-word professional and engaging post.&#34;</span>,
+</span></span><span style="display:flex;"><span>    agent<span style="color:#000;font-weight:bold">=</span>writer,
+</span></span><span style="display:flex;"><span>    context<span style="color:#000;font-weight:bold">=</span>[research_task]
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create and run the Crew</span>
-</span></span><span style="display:flex;"><span>crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">,</span> writer<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">,</span> write_post_task<span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Create and run the Crew</span>
+</span></span><span style="display:flex;"><span>crew <span style="color:#000;font-weight:bold">=</span> Crew(
+</span></span><span style="display:flex;"><span>    agents<span style="color:#000;font-weight:bold">=</span>[researcher, writer],
+</span></span><span style="display:flex;"><span>    tasks<span style="color:#000;font-weight:bold">=</span>[research_task, write_post_task],
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> crew<span style="color:#0550ae">.</span>kickoff<span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">Final LinkedIn Post:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#000;font-weight:bold">=</span> crew<span style="color:#000;font-weight:bold">.</span>kickoff()
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(<span style="color:#d14">&#34;</span><span style="color:#d14">\n</span><span style="color:#d14">Final LinkedIn Post:</span><span style="color:#d14">\n</span><span style="color:#d14">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0086b3">print</span>(result)
 </span></span></code></pre></div><p>By mastering these 10 concepts, you have the foundation to build powerful and customized agentic workflows with CrewAI. Happy building!</p>
 
     <hr class="footer-separator" />

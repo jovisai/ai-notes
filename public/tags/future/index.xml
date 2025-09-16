@@ -4,7 +4,7 @@
     <title>Future on AI Notes</title>
     <link>https://notes.muthu.co/tags/future/</link>
     <description>Recent content in Future on AI Notes</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/future/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</link>
       <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</guid>
-      <description>&lt;p&gt;I recently came across a paper titled &lt;em&gt;&amp;ldquo;Small Language Models are the Future of Agentic AI,&amp;rdquo;&lt;/em&gt; and it got me thinking. The message is simple but powerful: bigger isn&amp;rsquo;t always better.&lt;/p&gt;&#xA;&lt;p&gt;In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.&lt;/p&gt;&#xA;&lt;p&gt;Let’s break it down.&lt;/p&gt;</description>
+      <description>I recently came across a paper titled &amp;ldquo;Small Language Models are the Future of Agentic AI,&amp;rdquo; and it got me thinking. The message is simple but powerful: bigger isn&amp;rsquo;t always better.&#xA;In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.&#xA;Let’s break it down.</description>
     </item>
   </channel>
 </rss>
