@@ -1,7 +1,7 @@
 baseURL = "https://notes.muthu.co/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "AI Notes"
+title = "Engineering Notes"
 theme = "ink-free"
 [pagination]
   pagerSize = 10
