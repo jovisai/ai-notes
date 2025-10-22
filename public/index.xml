@@ -16,6 +16,13 @@
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software</title>
+      <link>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
+      <description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Systems That Search for New Algorithms Automatically</title>
       <link>https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
