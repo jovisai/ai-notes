@@ -3,28 +3,40 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>TDD with Coding Agents: Building a Rate Limiting Service - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta itemprop="name" content="TDD with Coding Agents: Building a Rate Limiting Service">
-<meta itemprop="description" content="Problem Overview We&rsquo;ll build a sophisticated rate limiting service that supports:
-Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD&rsquo;s power with AI agents.
+	
+  <meta itemprop="name" content="TDD with Coding Agents: Building a Rate Limiting Service">
+  <meta itemprop="description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
+Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD’s power with AI agents.
 Why TDD Works Exceptionally Well with AI Agents The AI Agent Advantage:
-Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements."><meta itemprop="datePublished" content="2025-08-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2025-08-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2547">
-<meta itemprop="keywords" content="AI,Agentic AI,LLMs,Development,Coding,Tutorial,Autonomous Agents," /><meta property="og:title" content="TDD with Coding Agents: Building a Rate Limiting Service" />
-<meta property="og:description" content="Problem Overview We&rsquo;ll build a sophisticated rate limiting service that supports:
-Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD&rsquo;s power with AI agents.
+Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements.">
+  <meta itemprop="datePublished" content="2025-08-06T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-08-06T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2547">
+  <meta itemprop="keywords" content="Ai,Agentic-Ai,Llms,Development,Coding,Tutorial,Autonomous Agents"><meta property="og:url" content="https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="TDD with Coding Agents: Building a Rate Limiting Service">
+  <meta property="og:description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
+Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD’s power with AI agents.
 Why TDD Works Exceptionally Well with AI Agents The AI Agent Advantage:
-Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2025-08-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-08-06T00:00:00+00:00" />
+Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-06T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Agentic-Ai">
+    <meta property="article:tag" content="Llms">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Coding">
+    <meta property="article:tag" content="Tutorial">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="TDD with Coding Agents: Building a Rate Limiting Service"/>
-<meta name="twitter:description" content="Problem Overview We&rsquo;ll build a sophisticated rate limiting service that supports:
-Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD&rsquo;s power with AI agents.
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TDD with Coding Agents: Building a Rate Limiting Service">
+  <meta name="twitter:description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
+Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD’s power with AI agents.
 Why TDD Works Exceptionally Well with AI Agents The AI Agent Advantage:
-Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements."/>
+Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements.">
 <link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 
@@ -117,14 +129,14 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 <h3 id="claude-code-prompt-for-setup">Claude Code Prompt for Setup</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>We&#39;re building a rate limiting service using strict TDD. Set up the project structure:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">1.</span> Create a Python project with pytest
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">2.</span> Set up the basic directory structure:
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">-</span> src/rate_limiter/
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">-</span> tests/
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">-</span> requirements.txt
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">3.</span> Install dependencies: pytest, redis, typing-extensions
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">4.</span> Create <span style="font-weight:bold">__init__</span>.py files
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">5.</span> Set up a basic pytest configuration
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Create a Python project with pytest
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Set up the basic directory structure:
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> src/rate_limiter/
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> tests/
+</span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> requirements.txt
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Install dependencies: pytest, redis, typing-extensions
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Create __init__.py files
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Set up a basic pytest configuration
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>IMPORTANT: This is TDD - we&#39;ll write tests first, then implement. Don&#39;t create any implementation code yet, just the project scaffold.
 </span></span></code></pre></div><p>Expected project structure:</p>
@@ -150,323 +162,323 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now we write our first failing tests. Create comprehensive tests for the core RateLimiter interface.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Requirements to test:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> RateLimiter should check if a request is allowed
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Should return remaining quota and reset time
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Should handle different rate limit rules (requests per minute/hour)
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Should support different identifiers (user_id, api_key, ip_address)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> RateLimiter should check if a request is allowed
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Should return remaining quota and reset time
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Should handle different rate limit rules (requests per minute/hour)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Should support different identifiers (user_id, api_key, ip_address)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Write these tests in tests/test_core.py. Make them descriptive and cover edge cases:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Normal request flow
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Exceeding rate limit
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Time-based reset behavior
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Multiple identifiers
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Invalid inputs
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Normal request flow
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Exceeding rate limit
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Time-based reset behavior
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Multiple identifiers
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Invalid inputs
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Remember: PURE TDD - write tests that describe exactly what we want, but don&#39;t implement anything yet. The tests should fail because we haven&#39;t written the implementation.
 </span></span></code></pre></div><p><strong>Expected Test File (tests/test_core.py):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pytest</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">datetime</span> <span style="color:#000;font-weight:bold">import</span> datetime, timedelta
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">unittest.mock</span> <span style="color:#000;font-weight:bold">import</span> Mock, patch
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime<span style="color:#1f2328">,</span> timedelta
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">unittest.mock</span> <span style="color:#cf222e">import</span> Mock<span style="color:#1f2328">,</span> patch
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">src.rate_limiter.core</span> <span style="color:#000;font-weight:bold">import</span> RateLimiter, RateLimitResult, RateLimitRule
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">src.rate_limiter.core</span> <span style="color:#cf222e">import</span> RateLimiter<span style="color:#1f2328">,</span> RateLimitResult<span style="color:#1f2328">,</span> RateLimitRule
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">TestRateLimiterCore</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_allows_request_within_limit</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test that requests within limit are allowed&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_current_count<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">TestRateLimiterCore</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_allows_request_within_limit</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test that requests within limit are allowed&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_current_count<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#0550ae">5</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> RateLimiter(storage)
-</span></span><span style="display:flex;"><span>        rule <span style="color:#000;font-weight:bold">=</span> RateLimitRule(limit<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, window_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> RateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        rule <span style="color:#0550ae">=</span> RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">60</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, rule)
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>reset_time <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>reset_time <span style="color:#0550ae">is</span> <span style="color:#0550ae">not</span> <span style="color:#cf222e">None</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_denies_request_when_limit_exceeded</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test that requests exceeding limit are denied&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_current_count<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_denies_request_when_limit_exceeded</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test that requests exceeding limit are denied&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_current_count<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#0550ae">10</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> RateLimiter(storage)
-</span></span><span style="display:flex;"><span>        rule <span style="color:#000;font-weight:bold">=</span> RateLimitRule(limit<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, window_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> RateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        rule <span style="color:#0550ae">=</span> RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">60</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, rule)
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>retry_after <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>retry_after <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">0</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_resets_count_after_window_expires</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test that rate limit resets after time window&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># First call: at limit</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Second call: after reset, should be allowed</span>
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_current_count<span style="color:#000;font-weight:bold">.</span>side_effect <span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">10</span>, <span style="color:#099">1</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_resets_count_after_window_expires</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test that rate limit resets after time window&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># First call: at limit</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Second call: after reset, should be allowed</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_current_count<span style="color:#0550ae">.</span>side_effect <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> RateLimiter(storage)
-</span></span><span style="display:flex;"><span>        rule <span style="color:#000;font-weight:bold">=</span> RateLimitRule(limit<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, window_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> RateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        rule <span style="color:#0550ae">=</span> RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">60</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># First request - should be denied</span>
-</span></span><span style="display:flex;"><span>        result1 <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, rule)
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result1<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># First request - should be denied</span>
+</span></span><span style="display:flex;"><span>        result1 <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result1<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">False</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Simulate time passing (mocked in implementation)</span>
-</span></span><span style="display:flex;"><span>        result2 <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, rule)
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result2<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Simulate time passing (mocked in implementation)</span>
+</span></span><span style="display:flex;"><span>        result2 <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result2<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_handles_different_identifiers</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test rate limiting works for different identifier types&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_current_count<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_handles_different_identifiers</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test rate limiting works for different identifier types&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_current_count<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#0550ae">5</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> RateLimiter(storage)
-</span></span><span style="display:flex;"><span>        rule <span style="color:#000;font-weight:bold">=</span> RateLimitRule(limit<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, window_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> RateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        rule <span style="color:#0550ae">=</span> RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">60</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Different identifiers should be tracked separately</span>
-</span></span><span style="display:flex;"><span>        result1 <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, rule)
-</span></span><span style="display:flex;"><span>        result2 <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;api_key_abc&#34;</span>, rule)
-</span></span><span style="display:flex;"><span>        result3 <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;192.168.1.1&#34;</span>, rule)
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Different identifiers should be tracked separately</span>
+</span></span><span style="display:flex;"><span>        result1 <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        result2 <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;api_key_abc&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        result3 <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;192.168.1.1&#34;</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> <span style="color:#0086b3">all</span>(r<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">for</span> r <span style="color:#000;font-weight:bold">in</span> [result1, result2, result3])
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Should have called storage for each identifier</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> storage<span style="color:#000;font-weight:bold">.</span>get_current_count<span style="color:#000;font-weight:bold">.</span>call_count <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> <span style="color:#6639ba">all</span><span style="color:#1f2328">(</span>r<span style="color:#0550ae">.</span>allowed <span style="color:#cf222e">for</span> r <span style="color:#0550ae">in</span> <span style="color:#1f2328">[</span>result1<span style="color:#1f2328">,</span> result2<span style="color:#1f2328">,</span> result3<span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Should have called storage for each identifier</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> storage<span style="color:#0550ae">.</span>get_current_count<span style="color:#0550ae">.</span>call_count <span style="color:#0550ae">==</span> <span style="color:#0550ae">3</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_raises_error_for_invalid_inputs</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test proper error handling for invalid inputs&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> RateLimiter(storage)
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_raises_error_for_invalid_inputs</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test proper error handling for invalid inputs&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> RateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> pytest<span style="color:#000;font-weight:bold">.</span>raises(<span style="color:#900;font-weight:bold">ValueError</span>):
-</span></span><span style="display:flex;"><span>            limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;&#34;</span>, RateLimitRule(<span style="color:#099">10</span>, <span style="color:#099">60</span>))  <span style="color:#998;font-style:italic"># Empty identifier</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> pytest<span style="color:#0550ae">.</span>raises<span style="color:#1f2328">(</span>ValueError<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span> RateLimitRule<span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">60</span><span style="color:#1f2328">))</span>  <span style="color:#57606a"># Empty identifier</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> pytest<span style="color:#000;font-weight:bold">.</span>raises(<span style="color:#900;font-weight:bold">ValueError</span>):
-</span></span><span style="display:flex;"><span>            limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, RateLimitRule(<span style="color:#099">0</span>, <span style="color:#099">60</span>))  <span style="color:#998;font-style:italic"># Zero limit</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> pytest<span style="color:#0550ae">.</span>raises<span style="color:#1f2328">(</span>ValueError<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> RateLimitRule<span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">60</span><span style="color:#1f2328">))</span>  <span style="color:#57606a"># Zero limit</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> pytest<span style="color:#000;font-weight:bold">.</span>raises(<span style="color:#900;font-weight:bold">ValueError</span>):
-</span></span><span style="display:flex;"><span>            limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, RateLimitRule(<span style="color:#099">10</span>, <span style="color:#099">0</span>))  <span style="color:#998;font-style:italic"># Zero window</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> pytest<span style="color:#0550ae">.</span>raises<span style="color:#1f2328">(</span>ValueError<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> RateLimitRule<span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">))</span>  <span style="color:#57606a"># Zero window</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">TestRateLimitRule</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_creates_valid_rule</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test RateLimitRule creation with valid parameters&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        rule <span style="color:#000;font-weight:bold">=</span> RateLimitRule(limit<span style="color:#000;font-weight:bold">=</span><span style="color:#099">100</span>, window_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">3600</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> rule<span style="color:#000;font-weight:bold">.</span>limit <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">100</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> rule<span style="color:#000;font-weight:bold">.</span>window_seconds <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">3600</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">TestRateLimitRule</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_creates_valid_rule</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test RateLimitRule creation with valid parameters&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        rule <span style="color:#0550ae">=</span> RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=</span><span style="color:#0550ae">100</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">3600</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> rule<span style="color:#0550ae">.</span>limit <span style="color:#0550ae">==</span> <span style="color:#0550ae">100</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> rule<span style="color:#0550ae">.</span>window_seconds <span style="color:#0550ae">==</span> <span style="color:#0550ae">3600</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_validates_rule_parameters</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test RateLimitRule validation&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> pytest<span style="color:#000;font-weight:bold">.</span>raises(<span style="color:#900;font-weight:bold">ValueError</span>):
-</span></span><span style="display:flex;"><span>            RateLimitRule(limit<span style="color:#000;font-weight:bold">=-</span><span style="color:#099">1</span>, window_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_validates_rule_parameters</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test RateLimitRule validation&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> pytest<span style="color:#0550ae">.</span>raises<span style="color:#1f2328">(</span>ValueError<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">60</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> pytest<span style="color:#000;font-weight:bold">.</span>raises(<span style="color:#900;font-weight:bold">ValueError</span>):
-</span></span><span style="display:flex;"><span>            RateLimitRule(limit<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>, window_seconds<span style="color:#000;font-weight:bold">=-</span><span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> pytest<span style="color:#0550ae">.</span>raises<span style="color:#1f2328">(</span>ValueError<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            RateLimitRule<span style="color:#1f2328">(</span>limit<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> window_seconds<span style="color:#0550ae">=-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">TestRateLimitResult</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_result_contains_required_fields</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test RateLimitResult has all required fields&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        reset_time <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now() <span style="color:#000;font-weight:bold">+</span> timedelta(seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">TestRateLimitResult</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_result_contains_required_fields</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test RateLimitResult has all required fields&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        reset_time <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span> <span style="color:#0550ae">+</span> timedelta<span style="color:#1f2328">(</span>seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">60</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> RateLimitResult(
-</span></span><span style="display:flex;"><span>            allowed<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>,
-</span></span><span style="display:flex;"><span>            remaining<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>,
-</span></span><span style="display:flex;"><span>            reset_time<span style="color:#000;font-weight:bold">=</span>reset_time,
-</span></span><span style="display:flex;"><span>            retry_after<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> RateLimitResult<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            allowed<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            remaining<span style="color:#0550ae">=</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            reset_time<span style="color:#0550ae">=</span>reset_time<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            retry_after<span style="color:#0550ae">=</span><span style="color:#cf222e">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>reset_time <span style="color:#000;font-weight:bold">==</span> reset_time
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>retry_after <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>reset_time <span style="color:#0550ae">==</span> reset_time
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>retry_after <span style="color:#0550ae">is</span> <span style="color:#cf222e">None</span>
 </span></span></code></pre></div><h3 id="step-2-algorithm-specific-tests">Step 2: Algorithm-Specific Tests</h3>
 <p><strong>Claude Code Prompt:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now create comprehensive tests for the Token Bucket algorithm specifically. This should test:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Token bucket starts full
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Tokens are consumed on each request  
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Tokens refill at specified rate
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Burst capacity handling
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Time-based token refill
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Edge cases like system clock changes
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Token bucket starts full
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Tokens are consumed on each request  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Tokens refill at specified rate
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Burst capacity handling
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Time-based token refill
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Edge cases like system clock changes
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Create tests/test_token_bucket.py. Again, pure TDD - comprehensive tests but no implementation.
 </span></span></code></pre></div><p><strong>Expected Test File (tests/test_token_bucket.py):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pytest</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">datetime</span> <span style="color:#000;font-weight:bold">import</span> datetime, timedelta
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">unittest.mock</span> <span style="color:#000;font-weight:bold">import</span> Mock, patch
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">src.rate_limiter.algorithms</span> <span style="color:#000;font-weight:bold">import</span> TokenBucketRateLimiter
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime<span style="color:#1f2328">,</span> timedelta
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">unittest.mock</span> <span style="color:#cf222e">import</span> Mock<span style="color:#1f2328">,</span> patch
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">src.rate_limiter.algorithms</span> <span style="color:#cf222e">import</span> TokenBucketRateLimiter
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">TestTokenBucketRateLimiter</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_allows_requests_when_bucket_has_tokens</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test requests are allowed when tokens are available&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Mock storage to return bucket state: 5 tokens, last refill now</span>
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">5</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">TestTokenBucketRateLimiter</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_allows_requests_when_bucket_has_tokens</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test requests are allowed when tokens are available&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Mock storage to return bucket state: 5 tokens, last refill now</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(
-</span></span><span style="display:flex;"><span>            identifier<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user123&#34;</span>,
-</span></span><span style="display:flex;"><span>            capacity<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>,
-</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1.0</span>,  <span style="color:#998;font-style:italic"># 1 token per second</span>
-</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            identifier<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            capacity<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#0550ae">=</span><span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span>  <span style="color:#57606a"># 1 token per second</span>
+</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#0550ae">=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">4</span>  <span style="color:#998;font-style:italic"># 5 - 1 requested</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">4</span>  <span style="color:#57606a"># 5 - 1 requested</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_denies_request_when_no_tokens_available</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test requests are denied when bucket is empty&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">0</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_denies_request_when_no_tokens_available</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test requests are denied when bucket is empty&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(
-</span></span><span style="display:flex;"><span>            identifier<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user123&#34;</span>,
-</span></span><span style="display:flex;"><span>            capacity<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>,
-</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1.0</span>,
-</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            identifier<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            capacity<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#0550ae">=</span><span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#0550ae">=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>retry_after <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#099">0</span>  <span style="color:#998;font-style:italic"># Should indicate when tokens will be available</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>retry_after <span style="color:#0550ae">&gt;</span> <span style="color:#0550ae">0</span>  <span style="color:#57606a"># Should indicate when tokens will be available</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_refills_tokens_based_on_time_elapsed</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test tokens are refilled based on elapsed time&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        past_time <span style="color:#000;font-weight:bold">=</span> now <span style="color:#000;font-weight:bold">-</span> timedelta(seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>)  <span style="color:#998;font-style:italic"># 10 seconds ago</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_refills_tokens_based_on_time_elapsed</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test tokens are refilled based on elapsed time&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        past_time <span style="color:#0550ae">=</span> now <span style="color:#0550ae">-</span> timedelta<span style="color:#1f2328">(</span>seconds<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">)</span>  <span style="color:#57606a"># 10 seconds ago</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Bucket had 2 tokens, 10 seconds ago</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># With refill_rate=1.0, should have 12 tokens now (2 + 10*1.0)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># But capped at capacity=10</span>
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">2</span>, past_time<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Bucket had 2 tokens, 10 seconds ago</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># With refill_rate=1.0, should have 12 tokens now (2 + 10*1.0)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># But capped at capacity=10</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> past_time<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> patch(<span style="color:#d14">&#39;src.rate_limiter.algorithms.datetime&#39;</span>) <span style="color:#000;font-weight:bold">as</span> mock_datetime:
-</span></span><span style="display:flex;"><span>            mock_datetime<span style="color:#000;font-weight:bold">.</span>now<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> now
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> patch<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;src.rate_limiter.algorithms.datetime&#39;</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">as</span> mock_datetime<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            mock_datetime<span style="color:#0550ae">.</span>now<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> now
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(
-</span></span><span style="display:flex;"><span>                identifier<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user123&#34;</span>,
-</span></span><span style="display:flex;"><span>                capacity<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>,
-</span></span><span style="display:flex;"><span>                refill_rate<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1.0</span>,
-</span></span><span style="display:flex;"><span>                requested_tokens<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
-</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>            result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                identifier<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                capacity<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                refill_rate<span style="color:#0550ae">=</span><span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                requested_tokens<span style="color:#0550ae">=</span><span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">9</span>  <span style="color:#998;font-style:italic"># min(2 + 10*1.0, 10) - 1 = 9</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">9</span>  <span style="color:#57606a"># min(2 + 10*1.0, 10) - 1 = 9</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_handles_burst_requests_up_to_capacity</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test burst requests are handled up to bucket capacity&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">10</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())  <span style="color:#998;font-style:italic"># Full bucket</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_handles_burst_requests_up_to_capacity</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test burst requests are handled up to bucket capacity&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>  <span style="color:#57606a"># Full bucket</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Request 5 tokens at once</span>
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(
-</span></span><span style="display:flex;"><span>            identifier<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user123&#34;</span>,
-</span></span><span style="display:flex;"><span>            capacity<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>,
-</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1.0</span>,
-</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Request 5 tokens at once</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            identifier<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            capacity<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#0550ae">=</span><span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#0550ae">=</span><span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">5</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_denies_burst_request_exceeding_available_tokens</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test burst requests exceeding available tokens are denied&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())  <span style="color:#998;font-style:italic"># 3 tokens available</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_denies_burst_request_exceeding_available_tokens</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test burst requests exceeding available tokens are denied&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>  <span style="color:#57606a"># 3 tokens available</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Request 5 tokens, but only 3 available</span>
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(
-</span></span><span style="display:flex;"><span>            identifier<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;user123&#34;</span>,
-</span></span><span style="display:flex;"><span>            capacity<span style="color:#000;font-weight:bold">=</span><span style="color:#099">10</span>,
-</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1.0</span>,
-</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>
-</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Request 5 tokens, but only 3 available</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            identifier<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            capacity<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            refill_rate<span style="color:#0550ae">=</span><span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            requested_tokens<span style="color:#0550ae">=</span><span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">3</span>  <span style="color:#998;font-style:italic"># Unchanged</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">==</span> <span style="color:#0550ae">3</span>  <span style="color:#57606a"># Unchanged</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_updates_storage_with_new_bucket_state</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test storage is updated with new bucket state after request&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">5</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_updates_storage_with_new_bucket_state</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test storage is updated with new bucket state after request&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> patch(<span style="color:#d14">&#39;src.rate_limiter.algorithms.datetime&#39;</span>) <span style="color:#000;font-weight:bold">as</span> mock_datetime:
-</span></span><span style="display:flex;"><span>            mock_datetime<span style="color:#000;font-weight:bold">.</span>now<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> now
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> patch<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;src.rate_limiter.algorithms.datetime&#39;</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">as</span> mock_datetime<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            mock_datetime<span style="color:#0550ae">.</span>now<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> now
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, <span style="color:#099">10</span>, <span style="color:#099">1.0</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>            limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Should update storage with new state: 4 tokens, current timestamp</span>
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>set_bucket_state<span style="color:#000;font-weight:bold">.</span>assert_called_once_with(<span style="color:#d14">&#34;user123&#34;</span>, <span style="color:#099">4</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Should update storage with new state: 4 tokens, current timestamp</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>set_bucket_state<span style="color:#0550ae">.</span>assert_called_once_with<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">4</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_handles_clock_changes_gracefully</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test algorithm handles system clock changes&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        future_time <span style="color:#000;font-weight:bold">=</span> now <span style="color:#000;font-weight:bold">+</span> timedelta(hours<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>)  <span style="color:#998;font-style:italic"># Clock jumped forward</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_handles_clock_changes_gracefully</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test algorithm handles system clock changes&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        future_time <span style="color:#0550ae">=</span> now <span style="color:#0550ae">+</span> timedelta<span style="color:#1f2328">(</span>hours<span style="color:#0550ae">=</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>  <span style="color:#57606a"># Clock jumped forward</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Last refill was in the &#34;future&#34; due to clock change</span>
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">5</span>, future_time<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Last refill was in the &#34;future&#34; due to clock change</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> future_time<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">with</span> patch(<span style="color:#d14">&#39;src.rate_limiter.algorithms.datetime&#39;</span>) <span style="color:#000;font-weight:bold">as</span> mock_datetime:
-</span></span><span style="display:flex;"><span>            mock_datetime<span style="color:#000;font-weight:bold">.</span>now<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> now
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">with</span> patch<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;src.rate_limiter.algorithms.datetime&#39;</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">as</span> mock_datetime<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            mock_datetime<span style="color:#0550ae">.</span>now<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> now
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, <span style="color:#099">10</span>, <span style="color:#099">1.0</span>, <span style="color:#099">1</span>)
+</span></span><span style="display:flex;"><span>            result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1.0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Should handle gracefully, not add negative time</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">True</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>remaining <span style="color:#000;font-weight:bold">&gt;=</span> <span style="color:#099">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Should handle gracefully, not add negative time</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>remaining <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">test_calculates_correct_retry_after_time</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#d14">&#34;&#34;&#34;Test retry_after is calculated correctly when denied&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        storage <span style="color:#000;font-weight:bold">=</span> Mock()
-</span></span><span style="display:flex;"><span>        now <span style="color:#000;font-weight:bold">=</span> datetime<span style="color:#000;font-weight:bold">.</span>now()
-</span></span><span style="display:flex;"><span>        storage<span style="color:#000;font-weight:bold">.</span>get_bucket_state<span style="color:#000;font-weight:bold">.</span>return_value <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">0</span>, now<span style="color:#000;font-weight:bold">.</span>timestamp())
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">test_calculates_correct_retry_after_time</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Test retry_after is calculated correctly when denied&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        storage <span style="color:#0550ae">=</span> Mock<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        now <span style="color:#0550ae">=</span> datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        storage<span style="color:#0550ae">.</span>get_bucket_state<span style="color:#0550ae">.</span>return_value <span style="color:#0550ae">=</span> <span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> now<span style="color:#0550ae">.</span>timestamp<span style="color:#1f2328">())</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        limiter <span style="color:#000;font-weight:bold">=</span> TokenBucketRateLimiter(storage)
+</span></span><span style="display:flex;"><span>        limiter <span style="color:#0550ae">=</span> TokenBucketRateLimiter<span style="color:#1f2328">(</span>storage<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        result <span style="color:#000;font-weight:bold">=</span> limiter<span style="color:#000;font-weight:bold">.</span>check_limit(<span style="color:#d14">&#34;user123&#34;</span>, <span style="color:#099">10</span>, <span style="color:#099">2.0</span>, <span style="color:#099">1</span>)  <span style="color:#998;font-style:italic"># 2 tokens per second</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> limiter<span style="color:#0550ae">.</span>check_limit<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;user123&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">10</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2.0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>  <span style="color:#57606a"># 2 tokens per second</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> result<span style="color:#000;font-weight:bold">.</span>allowed <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">False</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Need 1 token, refill rate is 2/second, so should wait 0.5 seconds</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">assert</span> <span style="color:#0086b3">abs</span>(result<span style="color:#000;font-weight:bold">.</span>retry_after <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">0.5</span>) <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">0.01</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>allowed <span style="color:#0550ae">is</span> <span style="color:#cf222e">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Need 1 token, refill rate is 2/second, so should wait 0.5 seconds</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span>result<span style="color:#0550ae">.</span>retry_after <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.5</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0.01</span>
 </span></span></code></pre></div><h3 id="step-3-storage-backend-tests">Step 3: Storage Backend Tests</h3>
 <p><strong>Claude Code Prompt:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Create tests for Redis and Memory storage backends. Test:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Memory Storage:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Thread safety for concurrent access
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Proper data isolation between identifiers
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Memory cleanup/expiration
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Thread safety for concurrent access
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Proper data isolation between identifiers
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Memory cleanup/expiration
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Redis Storage:  
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Connection handling and retries
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Atomic operations for rate limiting
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Graceful fallback when Redis is unavailable
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Proper key expiration
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Connection handling and retries
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Atomic operations for rate limiting
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Graceful fallback when Redis is unavailable
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Proper key expiration
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Create tests/test_storage.py with comprehensive coverage.
 </span></span></code></pre></div><hr>
@@ -507,78 +519,78 @@ Now implement the MINIMUM code needed to make the core tests pass. Follow TDD st
 
 Start with the data structures and basic RateLimiter class.
 </code></pre><p><strong>Expected Implementation (src/rate_limiter/core.py):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">abc</span> <span style="color:#000;font-weight:bold">import</span> ABC, abstractmethod
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">dataclasses</span> <span style="color:#000;font-weight:bold">import</span> dataclass
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">datetime</span> <span style="color:#000;font-weight:bold">import</span> datetime, timedelta
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">typing</span> <span style="color:#000;font-weight:bold">import</span> Optional
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">abc</span> <span style="color:#cf222e">import</span> ABC<span style="color:#1f2328">,</span> abstractmethod
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">dataclasses</span> <span style="color:#cf222e">import</span> dataclass
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime<span style="color:#1f2328">,</span> timedelta
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Optional
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@dataclass</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RateLimitRule</span>:
-</span></span><span style="display:flex;"><span>    limit: <span style="color:#0086b3">int</span>
-</span></span><span style="display:flex;"><span>    window_seconds: <span style="color:#0086b3">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">RateLimitRule</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    limit<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span>
+</span></span><span style="display:flex;"><span>    window_seconds<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">__post_init__</span>(<span style="color:#999">self</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>limit <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">raise</span> <span style="color:#900;font-weight:bold">ValueError</span>(<span style="color:#d14">&#34;Limit must be positive&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>window_seconds <span style="color:#000;font-weight:bold">&lt;=</span> <span style="color:#099">0</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">raise</span> <span style="color:#900;font-weight:bold">ValueError</span>(<span style="color:#d14">&#34;Window seconds must be positive&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__post_init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>limit <span style="color:#0550ae">&lt;=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">raise</span> ValueError<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Limit must be positive&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>window_seconds <span style="color:#0550ae">&lt;=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">raise</span> ValueError<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Window seconds must be positive&#34;</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@dataclass</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RateLimitResult</span>:
-</span></span><span style="display:flex;"><span>    allowed: <span style="color:#0086b3">bool</span>
-</span></span><span style="display:flex;"><span>    remaining: <span style="color:#0086b3">int</span>
-</span></span><span style="display:flex;"><span>    reset_time: Optional[datetime] <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">None</span>
-</span></span><span style="display:flex;"><span>    retry_after: Optional[<span style="color:#0086b3">float</span>] <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">RateLimitResult</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    allowed<span style="color:#1f2328">:</span> <span style="color:#6639ba">bool</span>
+</span></span><span style="display:flex;"><span>    remaining<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span>
+</span></span><span style="display:flex;"><span>    reset_time<span style="color:#1f2328">:</span> Optional<span style="color:#1f2328">[</span>datetime<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">None</span>
+</span></span><span style="display:flex;"><span>    retry_after<span style="color:#1f2328">:</span> Optional<span style="color:#1f2328">[</span><span style="color:#6639ba">float</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">None</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RateLimitStorage</span>(ABC):
-</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@abstractmethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">get_current_count</span>(<span style="color:#999">self</span>, identifier: <span style="color:#0086b3">str</span>, rule: RateLimitRule) <span style="color:#000;font-weight:bold">-&gt;</span> <span style="color:#0086b3">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">RateLimitStorage</span><span style="color:#1f2328">(</span>ABC<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">get_current_count</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> identifier<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">:</span> RateLimitRule<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">int</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">pass</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@abstractmethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">increment_count</span>(<span style="color:#999">self</span>, identifier: <span style="color:#0086b3">str</span>, rule: RateLimitRule) <span style="color:#000;font-weight:bold">-&gt;</span> <span style="color:#0086b3">int</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">@abstractmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">increment_count</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> identifier<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">:</span> RateLimitRule<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">int</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">pass</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RateLimiter</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> __init__(<span style="color:#999">self</span>, storage: RateLimitStorage):
-</span></span><span style="display:flex;"><span>        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>storage <span style="color:#000;font-weight:bold">=</span> storage
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">RateLimiter</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> storage<span style="color:#1f2328">:</span> RateLimitStorage<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>storage <span style="color:#0550ae">=</span> storage
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">check_limit</span>(<span style="color:#999">self</span>, identifier: <span style="color:#0086b3">str</span>, rule: RateLimitRule) <span style="color:#000;font-weight:bold">-&gt;</span> RateLimitResult:
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> identifier:
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">raise</span> <span style="color:#900;font-weight:bold">ValueError</span>(<span style="color:#d14">&#34;Identifier cannot be empty&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">check_limit</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> identifier<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> rule<span style="color:#1f2328">:</span> RateLimitRule<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> RateLimitResult<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> identifier<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">raise</span> ValueError<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Identifier cannot be empty&#34;</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        current_count <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>storage<span style="color:#000;font-weight:bold">.</span>get_current_count(identifier, rule)
+</span></span><span style="display:flex;"><span>        current_count <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>storage<span style="color:#0550ae">.</span>get_current_count<span style="color:#1f2328">(</span>identifier<span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> current_count <span style="color:#000;font-weight:bold">&gt;=</span> rule<span style="color:#000;font-weight:bold">.</span>limit:
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> RateLimitResult(
-</span></span><span style="display:flex;"><span>                allowed<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">False</span>,
-</span></span><span style="display:flex;"><span>                remaining<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0</span>,
-</span></span><span style="display:flex;"><span>                retry_after<span style="color:#000;font-weight:bold">=</span><span style="color:#099">60.0</span>  <span style="color:#998;font-style:italic"># Simplified - just return window seconds</span>
-</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> current_count <span style="color:#0550ae">&gt;=</span> rule<span style="color:#0550ae">.</span>limit<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> RateLimitResult<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                allowed<span style="color:#0550ae">=</span><span style="color:#cf222e">False</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                remaining<span style="color:#0550ae">=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                retry_after<span style="color:#0550ae">=</span><span style="color:#0550ae">60.0</span>  <span style="color:#57606a"># Simplified - just return window seconds</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic"># Allow request and increment</span>
-</span></span><span style="display:flex;"><span>        new_count <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>storage<span style="color:#000;font-weight:bold">.</span>increment_count(identifier, rule)
-</span></span><span style="display:flex;"><span>        remaining <span style="color:#000;font-weight:bold">=</span> rule<span style="color:#000;font-weight:bold">.</span>limit <span style="color:#000;font-weight:bold">-</span> new_count
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Allow request and increment</span>
+</span></span><span style="display:flex;"><span>        new_count <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>storage<span style="color:#0550ae">.</span>increment_count<span style="color:#1f2328">(</span>identifier<span style="color:#1f2328">,</span> rule<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        remaining <span style="color:#0550ae">=</span> rule<span style="color:#0550ae">.</span>limit <span style="color:#0550ae">-</span> new_count
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> RateLimitResult(
-</span></span><span style="display:flex;"><span>            allowed<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">True</span>,
-</span></span><span style="display:flex;"><span>            remaining<span style="color:#000;font-weight:bold">=</span>remaining,
-</span></span><span style="display:flex;"><span>            reset_time<span style="color:#000;font-weight:bold">=</span>datetime<span style="color:#000;font-weight:bold">.</span>now() <span style="color:#000;font-weight:bold">+</span> timedelta(seconds<span style="color:#000;font-weight:bold">=</span>rule<span style="color:#000;font-weight:bold">.</span>window_seconds)
-</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> RateLimitResult<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            allowed<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            remaining<span style="color:#0550ae">=</span>remaining<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            reset_time<span style="color:#0550ae">=</span>datetime<span style="color:#0550ae">.</span>now<span style="color:#1f2328">()</span> <span style="color:#0550ae">+</span> timedelta<span style="color:#1f2328">(</span>seconds<span style="color:#0550ae">=</span>rule<span style="color:#0550ae">.</span>window_seconds<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h3 id="step-2-token-bucket-implementation">Step 2: Token Bucket Implementation</h3>
 <p><strong>Claude Code Prompt:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now implement the TokenBucketRateLimiter to make those tests pass. Remember - minimal implementation that satisfies the tests, we&#39;ll refactor later.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Key requirements from tests:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Token bucket with capacity and refill rate
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Time-based token refill
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Burst request handling
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Storage integration
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Clock change handling
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Token bucket with capacity and refill rate
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Time-based token refill
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Burst request handling
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Storage integration
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Clock change handling
 </span></span></code></pre></div><h3 id="step-3-iterative-implementation">Step 3: Iterative Implementation</h3>
 <p><strong>Claude Code Prompt for each iteration:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Run the tests again:
@@ -637,21 +649,21 @@ Run tests after each refactoring to ensure they stay green. The key rule: improv
 <p><strong>Claude Code Prompt:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now write integration tests that test the complete system working together:
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">1.</span> Real Redis backend with test containers
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">2.</span> Multiple rate limiting algorithms working together  
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">3.</span> Concurrent request handling
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">4.</span> Performance under load
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">5.</span> Failure scenarios (Redis down, network issues)
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Real Redis backend with test containers
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Multiple rate limiting algorithms working together  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Concurrent request handling
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Performance under load
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Failure scenarios (Redis down, network issues)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>These are higher-level tests that ensure our components work together correctly.
 </span></span></code></pre></div><hr>
 <h2 id="why-this-tdd-approach-works-so-well-with-ai-agents">Why This TDD Approach Works So Well with AI Agents</h2>
 <h3 id="1-clear-specifications">1. <strong>Clear Specifications</strong></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#999"># Instead of vague requirements:
-</span></span></span><span style="display:flex;"><span><span style="color:#999"></span>&#34;Build a rate limiter&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Instead of vague requirements:
+</span></span><span style="display:flex;"><span>&#34;Build a rate limiter&#34;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#999"># TDD gives clear specifications:
-</span></span></span><span style="display:flex;"><span><span style="color:#999"></span>&#34;test_denies_request_when_limit_exceeded should fail when current_count &gt;= limit&#34;
+</span></span><span style="display:flex;"><span># TDD gives clear specifications:
+</span></span><span style="display:flex;"><span>&#34;test_denies_request_when_limit_exceeded should fail when current_count &gt;= limit&#34;
 </span></span></code></pre></div><h3 id="2-systematic-progress">2. <strong>Systematic Progress</strong></h3>
 <p>The AI agent follows a methodical approach:</p>
 <ul>
@@ -678,19 +690,19 @@ Run tests after each refactoring to ensure they stay green. The key rule: improv
 <h2 id="advanced-tdd-techniques-with-ai-agents">Advanced TDD Techniques with AI Agents</h2>
 <h3 id="property-based-testing">Property-Based Testing</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Add property-based tests using hypothesis library:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Rate limiter should never allow more requests than the limit
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Token bucket should never have negative tokens
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> Time-based calculations should be monotonic&#34;
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Rate limiter should never allow more requests than the limit
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Token bucket should never have negative tokens
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Time-based calculations should be monotonic&#34;
 </span></span></code></pre></div><h3 id="test-data-builders">Test Data Builders</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Create test data builders for complex scenarios:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> RateLimitRuleBuilder for different rule types
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> MockStorageBuilder for various storage states  
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">-</span> ScenarioBuilder for integration test cases&#34;
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> RateLimitRuleBuilder for different rule types
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> MockStorageBuilder for various storage states  
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> ScenarioBuilder for integration test cases&#34;
 </span></span></code></pre></div><h3 id="mutation-testing">Mutation Testing</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use mutmut to verify our tests catch all possible bugs:
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">1.</span> Run mutation testing on the rate limiter code
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">2.</span> Identify any surviving mutants
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">3.</span> Add tests to kill remaining mutants&#34;
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Run mutation testing on the rate limiter code
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Identify any surviving mutants
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Add tests to kill remaining mutants&#34;
 </span></span></code></pre></div><hr>
 <h2 id="common-tdd-pitfalls-to-avoid-with-ai-agents">Common TDD Pitfalls to Avoid with AI Agents</h2>
 <h3 id="1-writing-too-much-code">1. <strong>Writing Too Much Code</strong></h3>

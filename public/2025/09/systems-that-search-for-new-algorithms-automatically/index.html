@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Systems That Search for New Algorithms Automatically - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Systems That Search for New Algorithms Automatically">
+  <meta itemprop="description" content="An introduction to AlphaEvolve, DeepMind&#39;s new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.">
+  <meta itemprop="datePublished" content="2025-09-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-09-17T00:00:00+00:00">
+  <meta itemprop="wordCount" content="347">
+  <meta itemprop="keywords" content="Ai,Llms,Research,Deep-Research,Autonomous Agents"><meta property="og:url" content="https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Systems That Search for New Algorithms Automatically">
+  <meta property="og:description" content="An introduction to AlphaEvolve, DeepMind&#39;s new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-17T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Llms">
+    <meta property="article:tag" content="Research">
+    <meta property="article:tag" content="Deep-Research">
+    <meta property="article:tag" content="Autonomous Agents">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Systems That Search for New Algorithms Automatically">
+  <meta name="twitter:description" content="An introduction to AlphaEvolve, DeepMind&#39;s new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.">
+<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Systems That Search for New Algorithms Automatically</h1>
+        
+        <div class="date">
+            <span class="day">17</span>
+            <span class="rest">Sep 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>Let’s start with a <strong>very simple version</strong> so you can see the idea in action.</p>
+<p>We’ll use a genetic algorithm to “discover” a formula that approximates a target function.</p>
+<p>This isn’t as powerful as DeepMind’s AlphaTensor, but it shows how machines can <em>search for algorithms or formulas automatically</em>.</p>
+<h3 id="example-discovering-a-formula-for-fx--x2--x--1">Example: Discovering a formula for <code>f(x) = x^2 + x + 1</code></h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">random</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">math</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Our target function</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">target</span><span style="color:#1f2328">(</span>x<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> x<span style="color:#0550ae">**</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">+</span> x <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Generate a random &#34;algorithm&#34; = coefficients for ax^2 + bx + c</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">random_algorithm</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">[</span>random<span style="color:#0550ae">.</span>randint<span style="color:#1f2328">(</span><span style="color:#0550ae">-</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">for</span> _ <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span><span style="color:#0550ae">3</span><span style="color:#1f2328">)]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Evaluate how good an algorithm is</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">fitness</span><span style="color:#1f2328">(</span>alg<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    a<span style="color:#1f2328">,</span> b<span style="color:#1f2328">,</span> c <span style="color:#0550ae">=</span> alg
+</span></span><span style="display:flex;"><span>    error <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> x <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span><span style="color:#0550ae">-</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">6</span><span style="color:#1f2328">):</span>  <span style="color:#57606a"># test on values -5 to 5</span>
+</span></span><span style="display:flex;"><span>        guess <span style="color:#0550ae">=</span> a<span style="color:#0550ae">*</span>x<span style="color:#0550ae">**</span><span style="color:#0550ae">2</span> <span style="color:#0550ae">+</span> b<span style="color:#0550ae">*</span>x <span style="color:#0550ae">+</span> c
+</span></span><span style="display:flex;"><span>        error <span style="color:#0550ae">+=</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span>guess <span style="color:#0550ae">-</span> target<span style="color:#1f2328">(</span>x<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0550ae">-</span>error  <span style="color:#57606a"># higher is better (less error)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Mutate the algorithm slightly</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">mutate</span><span style="color:#1f2328">(</span>alg<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    new <span style="color:#0550ae">=</span> alg<span style="color:#1f2328">[:]</span>
+</span></span><span style="display:flex;"><span>    idx <span style="color:#0550ae">=</span> random<span style="color:#0550ae">.</span>randint<span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    new<span style="color:#1f2328">[</span>idx<span style="color:#1f2328">]</span> <span style="color:#0550ae">+=</span> random<span style="color:#0550ae">.</span>choice<span style="color:#1f2328">([</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> new
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Evolutionary search</span>
+</span></span><span style="display:flex;"><span>population <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>random_algorithm<span style="color:#1f2328">()</span> <span style="color:#cf222e">for</span> _ <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span><span style="color:#0550ae">20</span><span style="color:#1f2328">)]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> gen <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span><span style="color:#0550ae">100</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Evaluate fitness</span>
+</span></span><span style="display:flex;"><span>    population<span style="color:#0550ae">.</span>sort<span style="color:#1f2328">(</span>key<span style="color:#0550ae">=</span>fitness<span style="color:#1f2328">,</span> reverse<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    best <span style="color:#0550ae">=</span> population<span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> fitness<span style="color:#1f2328">(</span>best<span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">:</span>  <span style="color:#57606a"># perfect match</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Keep top half, mutate to create new</span>
+</span></span><span style="display:flex;"><span>    new_pop <span style="color:#0550ae">=</span> population<span style="color:#1f2328">[:</span><span style="color:#0550ae">10</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">while</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>new_pop<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">20</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        new_pop<span style="color:#0550ae">.</span>append<span style="color:#1f2328">(</span>mutate<span style="color:#1f2328">(</span>random<span style="color:#0550ae">.</span>choice<span style="color:#1f2328">(</span>population<span style="color:#1f2328">[:</span><span style="color:#0550ae">10</span><span style="color:#1f2328">])))</span>
+</span></span><span style="display:flex;"><span>    population <span style="color:#0550ae">=</span> new_pop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Discovered formula coefficients (a, b, c):&#34;</span><span style="color:#1f2328">,</span> best<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Which means: f(x) = </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">*x^2 + </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">*x + </span><span style="color:#0a3069">{}</span><span style="color:#0a3069">&#34;</span><span style="color:#0550ae">.</span>format<span style="color:#1f2328">(</span><span style="color:#0550ae">*</span>best<span style="color:#1f2328">))</span>
+</span></span></code></pre></div><hr>
+<h3 id="what-happens-here">What happens here</h3>
+<ol>
+<li>We define a <strong>target function</strong>: <code>x^2 + x + 1</code>.</li>
+<li>The system randomly generates candidate formulas like <code>-3x^2 + 4x + 2</code>.</li>
+<li>Each candidate is <strong>scored</strong> on how close it comes to the real target.</li>
+<li>The best candidates survive, mutate, and evolve.</li>
+<li>After several generations, the system “discovers” the correct algorithm <code>[1, 1, 1]</code>.</li>
+</ol>
+<hr>
+<p>This is a toy version of <strong>automatic algorithm discovery</strong>.
+Instead of just coefficients, real systems search for <strong>entire algorithmic steps</strong> (loops, branches, optimizations).</p>
+<p>👉 Do you want me to extend this so the system can actually <strong>discover sorting algorithms</strong> (like bubble sort or insertion sort) using the same approach? That would be a closer analogy to real-world cases.</p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/llms">LLMs</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/research">Research</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/deep-research">Deep Research</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/autonomous-agents">Autonomous Agents</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025 </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

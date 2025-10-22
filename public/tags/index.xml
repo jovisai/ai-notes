@@ -4,29 +4,71 @@
     <title>Tags on Engineering Notes</title>
     <link>https://notes.muthu.co/tags/</link>
     <description>Recent content in Tags on Engineering Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agentic-Ai</title>
-      <link>https://notes.muthu.co/tags/agentic-ai/</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langgraph</title>
+      <link>https://notes.muthu.co/tags/langgraph/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/langgraph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent-Systems</title>
+      <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://notes.muthu.co/tags/python/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Autonomous Agents</title>
       <link>https://notes.muthu.co/tags/autonomous-agents/</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep-Research</title>
+      <link>https://notes.muthu.co/tags/deep-research/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/deep-research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llms</title>
+      <link>https://notes.muthu.co/tags/llms/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>https://notes.muthu.co/tags/research/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agentic-Ai</title>
+      <link>https://notes.muthu.co/tags/agentic-ai/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +83,6 @@
       <link>https://notes.muthu.co/tags/development/</link>
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llms</title>
-      <link>https://notes.muthu.co/tags/llms/</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llms/</guid>
       <description></description>
     </item>
     <item>
@@ -72,20 +107,6 @@
       <description></description>
     </item>
     <item>
-      <title>Research</title>
-      <link>https://notes.muthu.co/tags/research/</link>
-      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Deep-Research</title>
-      <link>https://notes.muthu.co/tags/deep-research/</link>
-      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/deep-research/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Slms</title>
       <link>https://notes.muthu.co/tags/slms/</link>
       <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
@@ -107,13 +128,6 @@
       <description></description>
     </item>
     <item>
-      <title>Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
-      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Scalability</title>
       <link>https://notes.muthu.co/tags/scalability/</link>
       <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
@@ -132,13 +146,6 @@
       <link>https://notes.muthu.co/tags/crewai/</link>
       <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
       <guid>https://notes.muthu.co/tags/crewai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://notes.muthu.co/tags/python/</link>
-      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
-      <guid>https://notes.muthu.co/tags/python/</guid>
       <description></description>
     </item>
     <item>

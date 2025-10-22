@@ -3,22 +3,34 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Understanding Mixture of Experts (MoE) from First Principles - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta itemprop="name" content="Understanding Mixture of Experts (MoE) from First Principles">
-<meta itemprop="description" content="One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It&rsquo;s a key reason why models like Mistral&rsquo;s Mixtral and (reportedly) OpenAI&rsquo;s GPT-4 are so powerful.
-To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact."><meta itemprop="datePublished" content="2025-07-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2025-07-13T00:00:00+00:00" />
-<meta itemprop="wordCount" content="671">
-<meta itemprop="keywords" content="ai,llms,agentic-ai,deep-research,tutorial,slms," /><meta property="og:title" content="Understanding Mixture of Experts (MoE) from First Principles" />
-<meta property="og:description" content="One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It&rsquo;s a key reason why models like Mistral&rsquo;s Mixtral and (reportedly) OpenAI&rsquo;s GPT-4 are so powerful.
-To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2025-07-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-07-13T00:00:00+00:00" />
+	
+  <meta itemprop="name" content="Understanding Mixture of Experts (MoE) from First Principles">
+  <meta itemprop="description" content="One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It’s a key reason why models like Mistral’s Mixtral and (reportedly) OpenAI’s GPT-4 are so powerful.
+To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact.">
+  <meta itemprop="datePublished" content="2025-07-13T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-07-13T00:00:00+00:00">
+  <meta itemprop="wordCount" content="671">
+  <meta itemprop="keywords" content="Ai,Llms,Agentic-Ai,Deep-Research,Tutorial,Slms"><meta property="og:url" content="https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Understanding Mixture of Experts (MoE) from First Principles">
+  <meta property="og:description" content="One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It’s a key reason why models like Mistral’s Mixtral and (reportedly) OpenAI’s GPT-4 are so powerful.
+To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-07-13T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Llms">
+    <meta property="article:tag" content="Agentic-Ai">
+    <meta property="article:tag" content="Deep-Research">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="article:tag" content="Slms">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Understanding Mixture of Experts (MoE) from First Principles"/>
-<meta name="twitter:description" content="One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It&rsquo;s a key reason why models like Mistral&rsquo;s Mixtral and (reportedly) OpenAI&rsquo;s GPT-4 are so powerful.
-To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact."/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Understanding Mixture of Experts (MoE) from First Principles">
+  <meta name="twitter:description" content="One of the most exciting architectural innovations in recent years is the Mixture of Experts (MoE). It’s a key reason why models like Mistral’s Mixtral and (reportedly) OpenAI’s GPT-4 are so powerful.
+To really understand MoE, let’s go back to first principles. Here’s a rewritten version of your article with a Flesch Reading Ease score above 70. The language is simpler and more direct, while keeping the core ideas intact.">
 <link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 
