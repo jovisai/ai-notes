@@ -6,8 +6,15 @@
     <description>Recent content in Software-Development on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/software-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Architecture is the Prompt - Guiding AI with Hexagonal Design</title>
+      <link>https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</guid>
+      <description>&lt;p&gt;As developers, we&amp;rsquo;ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you&amp;rsquo;re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.&lt;/p&gt;&#xA;&lt;p&gt;The immediate reaction is to blame the tool and focus on &amp;ldquo;better prompt engineering.&amp;rdquo; We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn&amp;rsquo;t just the prompt; it&amp;rsquo;s that we&amp;rsquo;re asking the AI to understand the invisible, implicit rules of a complex system.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software</title>
       <link>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</link>

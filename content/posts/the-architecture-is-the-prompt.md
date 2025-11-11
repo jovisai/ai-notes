@@ -1,6 +1,6 @@
 ---
 title: "The Architecture is the Prompt - Guiding AI with Hexagonal Design"
-date: 2025-11-12
+date: 2025-11-11
 tags: ["ai", "software-development", "agentic-ai", "systems-architecture", "coding"]
 ---
 
@@ -38,7 +38,7 @@ This structure creates a powerful "dependency inversion." The infrastructure cod
 
 Here is a Graphviz diagram illustrating the overall architecture. The core is isolated, and all interactions happen through well-defined ports.
 
-![Hexagonal architecture](/hexagon_hld.png)
+![Hexagonal architecture](/hexagonhld.png)
 
 ## The Power of Targeted Prompts
 
@@ -74,7 +74,7 @@ Each prompt is small, targeted, and builds upon the solid foundation of the arch
 
 This Graphviz diagram shows the specific components and dependencies for our example. Notice how all arrows point inward, demonstrating the dependency rule.
 
-![diagram shows the specific components and dependencies](detailed_flow.png)
+![diagram shows the specific components and dependencies](/detailedflow.png)
 
 ## The Benefits for AI Collaboration
 
