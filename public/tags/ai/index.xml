@@ -88,35 +88,35 @@
     <item>
       <title>Meet AlphaEvolve: The AI That Discovers New Algorithms</title>
       <link>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</link>
-      <pubDate>Mon, 07 Jul 2025 10:00:00 +0530</pubDate>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</guid>
       <description>&lt;p&gt;Imagine a coding partner that doesn’t just write software, but &lt;strong&gt;iteratively evolves it&lt;/strong&gt;, learns from its mistakes, and even &lt;strong&gt;discovers brand-new algorithms&lt;/strong&gt; some better than anything a human has ever designed.&lt;/p&gt;&#xA;&lt;p&gt;Sounds like science fiction, right? Well, it’s exactly what &lt;a href=&#34;https://arxiv.org/abs/2506.13131&#34;&gt;&lt;strong&gt;AlphaEvolve&lt;/strong&gt;&lt;/a&gt;, a new breakthrough from DeepMind, is all about.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;so-what-exactly-is-alphaevolve&#34;&gt;So, What Exactly is AlphaEvolve?&lt;/h2&gt;&#xA;&lt;p&gt;At its heart, &lt;strong&gt;AlphaEvolve&lt;/strong&gt; is an AI agent that’s been built to do one thing: &lt;em&gt;discover new and better code through evolution&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts</title>
       <link>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>
-      <pubDate>Sun, 06 Jul 2025 14:00:00 +0530</pubDate>
+      <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</guid>
       <description>&lt;p&gt;CrewAI is a cutting-edge framework for orchestrating autonomous AI agents. It allows you to build sophisticated multi-agent systems that can collaborate to solve complex problems. This guide breaks down CrewAI into 10 fundamental concepts, taking you from first principles to building a complete, end-to-end agentic workflow.&lt;/p&gt;&#xA;&lt;h3 id=&#34;concept-1-the-agent&#34;&gt;&lt;strong&gt;Concept 1: The Agent&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fundamental Idea:&lt;/strong&gt; An Agent is an autonomous entity designed to perform specific roles, achieve goals, and execute tasks. Think of it as a specialized member of your AI team. Each agent has a unique role, a goal that defines its purpose, and a backstory that provides context and personality. This allows agents to behave in a more specialized and predictable way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering</title>
       <link>https://notes.muthu.co/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</link>
-      <pubDate>Wed, 02 Jul 2025 12:00:00 +0530</pubDate>
+      <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/</guid>
       <description>&lt;p&gt;One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.&lt;/p&gt;&#xA;&lt;p&gt;This is where &lt;strong&gt;context engineering&lt;/strong&gt; comes in. Instead of relying on the LLM&amp;rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Developer&#39;s Guide to Effective AI Coding Agents</title>
       <link>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</link>
-      <pubDate>Tue, 01 Jul 2025 11:00:00 +0530</pubDate>
+      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</guid>
       <description>&lt;p&gt;AI-powered coding assistants are rapidly evolving from simple auto-completion tools into sophisticated, &lt;strong&gt;collaborative agents&lt;/strong&gt;. While it&amp;rsquo;s tempting to offload entire tasks to these systems, the most effective approach is a &lt;em&gt;guided&lt;/em&gt; one, where the developer remains the architect and the AI acts as a highly efficient executor.&lt;/p&gt;&#xA;&lt;p&gt;This guide outlines a structured workflow for leveraging AI coding agents, ensuring you maintain control, improve code quality, and boost your productivity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-developer-as-architect&#34;&gt;&lt;strong&gt;The Developer as Architect&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;The fundamental principle of effective AI collaboration is that &lt;strong&gt;the developer must lead the process&lt;/strong&gt;. Over-delegating to an AI without a clear plan can lead to a loss of context, architectural drift, and code that is difficult to maintain.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deep Research Applications of Modern LLMs Generated through Deep Research</title>
       <link>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</link>
-      <pubDate>Sat, 22 Mar 2025 10:00:00 +0530</pubDate>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</guid>
       <description>&lt;p&gt;Artificial Intelligence is moving beyond conversational chatbots to become &lt;em&gt;autonomous research agents&lt;/em&gt;. Unlike conventional LLM assistants that answer questions based on pre-trained knowledge, these new systems—collectively called &lt;strong&gt;Deep Research AI&lt;/strong&gt;—can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Plan and execute multi-step investigations&lt;/li&gt;&#xA;&lt;li&gt;Formulate sub-questions and hypotheses&lt;/li&gt;&#xA;&lt;li&gt;Browse the web and databases iteratively&lt;/li&gt;&#xA;&lt;li&gt;Evaluate sources and compile structured reports with citations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This process, while slower, achieves comprehensive, verifiable insights comparable to a PhD-level literature review.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-deep-research-works&#34;&gt;&lt;strong&gt;How Deep Research Works&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Core Stages:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>

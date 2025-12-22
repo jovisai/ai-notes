@@ -1,6 +1,6 @@
 ---
 title: "Learning CrewAI: A Step-by-Step Guide in 10 Concepts"
-date: 2025-07-06T14:00:00+05:30
+date: 2025-07-06
 description: "A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs."
 tags: [AI, Python, CrewAI, Autonomous Agents, LLMs, Tutorial]
 ---

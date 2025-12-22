@@ -1,6 +1,6 @@
 ---
 title: "Deep Research Applications of Modern LLMs Generated through Deep Research"
-date: 2025-03-22T10:00:00+05:30
+date: 2025-03-22
 description: "Exploring how modern AI systems are evolving beyond conversational chatbots to become autonomous research agents capable of conducting comprehensive, PhD-level investigations."
 tags: [AI, LLMs, Research, Deep Research, Autonomous Agents]
 ---

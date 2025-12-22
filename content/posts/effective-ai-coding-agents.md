@@ -1,6 +1,6 @@
 ---
 title: "A Developer's Guide to Effective AI Coding Agents"
-date: 2025-07-01T11:00:00+05:30
+date: 2025-07-01
 description: "Moving beyond basic code completion to a structured, developer-led workflow that harnesses the full potential of AI coding agents."
 tags: [AI, LLMs, Development, Coding, Autonomous Agents]
 ---
