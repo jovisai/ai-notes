@@ -98,8 +98,6 @@ Write the code. Implement the solution. Ship the feature.
 
 That's exactly the part getting commoditized fastest.
 
-![The Engineer's Career Shift](/engineer_shift.png)
-
 The engineers who will thrive aren't the ones with the most elegant implementations. They're the ones who can look at a problem and say:
 
 - **"We shouldn't build this at all."**
@@ -123,10 +121,6 @@ The engineers who recognize this shift early and deliberately cultivate "what" s
 ---
 
 ## Where to Position Yourself
-
-![The Value Stack](/value_stack.png)
-
-Here's the prediction for 2026:
 
 The most valuable skill won't be prompting AI. It won't even be building AI systems.
 
