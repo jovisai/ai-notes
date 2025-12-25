@@ -15,12 +15,15 @@ Here's a framework I've been thinking about: every job, every role, every task y
 ![The Three Layers of Every Job](/three_layers.png)
 
 **Why**
+
 The purpose. The demand. The reason something needs to exist.
 
 **What** 
+
 The decision. The direction. Choosing what to build, what to solve, what to prioritize.
 
 **How**
+
 The execution. The method. The implementation details.
 
 These layers aren't new. They've always existed. But AI is fundamentally reshaping how value is distributed across them.
@@ -141,19 +144,19 @@ Fast.
 
 Moving from "how" to "what" isn't about abandoning technical depth. It's about expanding your perspective. Some practical approaches:
 
-1. **Ask "should we?" before "how do we?"** 
+1. **Ask "should we?" before "how do we?"** -
     Train yourself to question whether a solution is worth building before diving into implementation.
 
-2. **Understand the business context** 
+2. **Understand the business context** -
     Know why your work matters to customers, to revenue, to the company's strategy. The "what" becomes clearer when you understand the "why."
 
-3. **Practice saying no**
+3. **Practice saying no** -
     The ability to kill bad ideas early is a "what" skill. It requires confidence and judgment.
 
-4. **Embrace ambiguity**
+4. **Embrace ambiguity** -
     "What" decisions rarely have clear right answers. Get comfortable making calls with incomplete information.
 
-5. **Spend time with customers** 
+5. **Spend time with customers** -
     Understanding real problems, not just technical specifications, shifts your thinking from execution to direction.
 
 ---
