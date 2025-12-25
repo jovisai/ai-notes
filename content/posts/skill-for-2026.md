@@ -161,8 +161,6 @@ Moving from "how" to "what" isn't about abandoning technical depth. It's about e
 
 ---
 
-## Final Thought
-
 The big picture here isn't that different from the past. Technology has always added abstraction layers on top of jobs.
 
 AI is just adding the next one.
