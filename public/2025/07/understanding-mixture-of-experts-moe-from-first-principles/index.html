@@ -231,14 +231,16 @@ Here’s a rewritten version of your article with a <strong>Flesch Reading Ease 
 
 	mermaid.initialize({
 		startOnLoad: true,
-		theme: getMermaidTheme()
+		theme: getMermaidTheme(),
+		handDrawn: true
 	});
 
 	const applyTheme = () => {
 		const newTheme = getMermaidTheme();
 		mermaid.initialize({
 			startOnLoad: true,
-			theme: newTheme
+			theme: newTheme,
+			handDrawn: true
 		});
 	};
 

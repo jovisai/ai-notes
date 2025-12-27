@@ -375,14 +375,16 @@ Cross-Origin-Embedder-Policy: require-corp
 
 	mermaid.initialize({
 		startOnLoad: true,
-		theme: getMermaidTheme()
+		theme: getMermaidTheme(),
+		handDrawn: true
 	});
 
 	const applyTheme = () => {
 		const newTheme = getMermaidTheme();
 		mermaid.initialize({
 			startOnLoad: true,
-			theme: newTheme
+			theme: newTheme,
+			handDrawn: true
 		});
 	};
 
