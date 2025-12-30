@@ -5,19 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Technical Introduction to Ava - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="A Technical Introduction to Ava">
-  <meta itemprop="description" content="This post is about an experiment to understand how to use LLM models completely on the client side and use it with speech.
+  <meta itemprop="description" content="Ava is a AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
 GitHub Repository: https://github.com/muthuspark/ava/
 Live Demo: https://ava.muthu.co
-Ava is a privacy-first AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It leverages the power of WebAssembly to perform all of its functions locally on the user’s device. This means that no data is ever sent to a server, ensuring complete privacy. Ava’s capabilities include:">
+Ava’s capabilities include:">
   <meta itemprop="datePublished" content="2025-12-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-12-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1093"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/">
+  <meta itemprop="wordCount" content="1109"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="A Technical Introduction to Ava">
-  <meta property="og:description" content="This post is about an experiment to understand how to use LLM models completely on the client side and use it with speech.
+  <meta property="og:description" content="Ava is a AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
 GitHub Repository: https://github.com/muthuspark/ava/
 Live Demo: https://ava.muthu.co
-Ava is a privacy-first AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It leverages the power of WebAssembly to perform all of its functions locally on the user’s device. This means that no data is ever sent to a server, ensuring complete privacy. Ava’s capabilities include:">
+Ava’s capabilities include:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -26,10 +26,10 @@ Ava is a privacy-first AI voice assistant that runs entirely in the browser. It 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="A Technical Introduction to Ava">
-  <meta name="twitter:description" content="This post is about an experiment to understand how to use LLM models completely on the client side and use it with speech.
+  <meta name="twitter:description" content="Ava is a AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
 GitHub Repository: https://github.com/muthuspark/ava/
 Live Demo: https://ava.muthu.co
-Ava is a privacy-first AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It leverages the power of WebAssembly to perform all of its functions locally on the user’s device. This means that no data is ever sent to a server, ensuring complete privacy. Ava’s capabilities include:">
+Ava’s capabilities include:">
 <link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 
@@ -98,10 +98,14 @@ Ava is a privacy-first AI voice assistant that runs entirely in the browser. It 
 
     
     
-    <p>This post is about an experiment to understand how to use LLM models completely on the client side and use it with speech.</p>
+    <p>
+  <img src="https://raw.githubusercontent.com/muthuspark/ava/main/screenshot.png" alt="&lsquo;AVA UI&rsquo;">
+
+</p>
+<p>Ava is a AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user&rsquo;s device which means that no data is ever sent to a server, ensuring complete privacy.</p>
 <p><strong>GitHub Repository:</strong> <a href="https://github.com/muthuspark/ava/">https://github.com/muthuspark/ava/</a></p>
 <p><strong>Live Demo:</strong> <a href="https://ava.muthu.co">https://ava.muthu.co</a></p>
-<p>Ava is a privacy-first AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It leverages the power of WebAssembly to perform all of its functions locally on the user&rsquo;s device. This means that no data is ever sent to a server, ensuring complete privacy. Ava&rsquo;s capabilities include:</p>
+<p>Ava&rsquo;s capabilities include:</p>
 <ul>
 <li><strong>Voice Activity Detection (VAD):</strong> Detects when the user is speaking and when they have finished.</li>
 <li><strong>Speech-to-Text:</strong> Transcribes the user&rsquo;s speech into text.</li>
@@ -110,26 +114,48 @@ Ava is a privacy-first AI voice assistant that runs entirely in the browser. It 
 </ul>
 <p>This document provides a technical overview of Ava&rsquo;s architecture, technical stack, and configuration.</p>
 <h2 id="architecture">Architecture</h2>
-<p>Ava uses a three-stage pipeline architecture, with each stage powered by WebAssembly-based components. This design ensures that all processing occurs on the client-side, preserving user privacy.</p>
-<pre class="mermaid">graph TD;
-    A[Microphone] --&gt; B{Speech Recognition};
-    B --&gt; C{Language Model};
-    C --&gt; D{Speech Synthesis};
-    subgraph Speech Recognition
-        direction LR
-        B1[Voice Activity Detection] --&gt; B2[Transcription];
+<p>Ava uses a three-stage pipeline architecture, with each stage is powered by WebAssembly-based components.</p>
+<pre class="mermaid">graph TB
+    %% Input Stage
+    MIC[Microphone Input]
+    
+    %% Stage 1: Speech Recognition
+    subgraph SR[&#34;Stage 1: Speech Recognition&#34;]
+        direction TB
+        VAD[Voice Activity Detection &lt;br&gt; Detects speech segments]
+        ASR[Speech-to-Text Transcription &lt;br&gt; Converts audio to text]
+        VAD --&gt; ASR
     end
-    subgraph Language Model
-        C1[Inference]
+    
+    %% Stage 2: Language Model
+    subgraph LM[&#34;Stage 2: Language Model&#34;]
+        direction TB
+        INF[LLM Inference&lt;br&gt;Generates contextual response]
     end
-    subgraph Speech Synthesis
-        D1[Low-Latency Output]
+    
+    %% Stage 3: Speech Synthesis
+    subgraph TTS[&#34;Stage 3: Speech Synthesis&#34;]
+        direction TB
+        SYNTH[Text-to-Speech&lt;br&gt;Low-latency audio output]
     end
-    B -- Transcribed Text --&gt; C;
-    C -- Generated Text --&gt; D;
-    style B fill:#f9f,stroke:#333,stroke-width:2px;
-    style C fill:#ccf,stroke:#333,stroke-width:2px;
-    style D fill:#cfc,stroke:#333,stroke-width:2px;
+    
+    %% Output Stage
+    SPEAKER[Speaker Output]
+    
+    %% Flow connections
+    MIC --&gt; SR
+    SR --&gt;|Transcribed Text| LM
+    LM --&gt;|Generated Response| TTS
+    TTS --&gt; SPEAKER
+    
+    %% Styling
+    classDef inputOutput fill:#e1f5ff,stroke:#0288d1,stroke-width:2px
+    classDef stage fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef component fill:#fff3e0,stroke:#f57c00,stroke-width:1px
+    
+    class MIC,SPEAKER inputOutput
+    class SR,LM,TTS stage
+    class VAD,ASR,INF,SYNTH component
   </pre>
 
 <ol>

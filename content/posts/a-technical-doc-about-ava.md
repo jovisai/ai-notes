@@ -4,14 +4,15 @@ date: 2025-12-22
 draft: false
 ---
 
-This post is about an experiment to understand how to use LLM models completely on the client side and use it with speech.
+!['AVA UI'](https://raw.githubusercontent.com/muthuspark/ava/main/screenshot.png)
+
+Ava is a AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user's device which means that no data is ever sent to a server, ensuring complete privacy. 
 
 **GitHub Repository:** [https://github.com/muthuspark/ava/](https://github.com/muthuspark/ava/)
 
 **Live Demo:** [https://ava.muthu.co](https://ava.muthu.co)
 
-
-Ava is a privacy-first AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It leverages the power of WebAssembly to perform all of its functions locally on the user's device. This means that no data is ever sent to a server, ensuring complete privacy. Ava's capabilities include:
+Ava's capabilities include:
 
 *   **Voice Activity Detection (VAD):** Detects when the user is speaking and when they have finished.
 *   **Speech-to-Text:** Transcribes the user's speech into text.
@@ -22,28 +23,50 @@ This document provides a technical overview of Ava's architecture, technical sta
 
 ## Architecture
 
-Ava uses a three-stage pipeline architecture, with each stage powered by WebAssembly-based components. This design ensures that all processing occurs on the client-side, preserving user privacy.
+Ava uses a three-stage pipeline architecture, with each stage is powered by WebAssembly-based components.
 
 ```mermaid
-graph TD;
-    A[Microphone] --> B{Speech Recognition};
-    B --> C{Language Model};
-    C --> D{Speech Synthesis};
-    subgraph Speech Recognition
-        direction LR
-        B1[Voice Activity Detection] --> B2[Transcription];
+graph TB
+    %% Input Stage
+    MIC[Microphone Input]
+    
+    %% Stage 1: Speech Recognition
+    subgraph SR["Stage 1: Speech Recognition"]
+        direction TB
+        VAD[Voice Activity Detection <br> Detects speech segments]
+        ASR[Speech-to-Text Transcription <br> Converts audio to text]
+        VAD --> ASR
     end
-    subgraph Language Model
-        C1[Inference]
+    
+    %% Stage 2: Language Model
+    subgraph LM["Stage 2: Language Model"]
+        direction TB
+        INF[LLM Inference<br>Generates contextual response]
     end
-    subgraph Speech Synthesis
-        D1[Low-Latency Output]
+    
+    %% Stage 3: Speech Synthesis
+    subgraph TTS["Stage 3: Speech Synthesis"]
+        direction TB
+        SYNTH[Text-to-Speech<br>Low-latency audio output]
     end
-    B -- Transcribed Text --> C;
-    C -- Generated Text --> D;
-    style B fill:#f9f,stroke:#333,stroke-width:2px;
-    style C fill:#ccf,stroke:#333,stroke-width:2px;
-    style D fill:#cfc,stroke:#333,stroke-width:2px;
+    
+    %% Output Stage
+    SPEAKER[Speaker Output]
+    
+    %% Flow connections
+    MIC --> SR
+    SR -->|Transcribed Text| LM
+    LM -->|Generated Response| TTS
+    TTS --> SPEAKER
+    
+    %% Styling
+    classDef inputOutput fill:#e1f5ff,stroke:#0288d1,stroke-width:2px
+    classDef stage fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef component fill:#fff3e0,stroke:#f57c00,stroke-width:1px
+    
+    class MIC,SPEAKER inputOutput
+    class SR,LM,TTS stage
+    class VAD,ASR,INF,SYNTH component
 ```
 
 
