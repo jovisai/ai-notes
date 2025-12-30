@@ -6,7 +6,7 @@ draft: false
 
 !['AVA UI'](https://raw.githubusercontent.com/muthuspark/ava/main/screenshot.png)
 
-Ava is a AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user's device which means that no data is ever sent to a server, ensuring complete privacy. 
+Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user's device which means that no data is ever sent to a server, ensuring complete privacy. 
 
 **GitHub Repository:** [https://github.com/muthuspark/ava/](https://github.com/muthuspark/ava/)
 
