@@ -19,7 +19,7 @@ theme = "ink-free"
 	mermaidCDN = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs"
 
 	# Site color - dark/light/auto
-	mode = "auto"
+	mode = "light"
 
 	# Enable a table of contents:
 	# Either "static"/true, "floating", "both", or "none" (default: static)

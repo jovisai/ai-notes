@@ -727,8 +727,6 @@ AI agents excel at the fast feedback cycle:
 
 ---
 
-## Conclusion
-
 TDD with AI agents is incredibly powerful because:
 
 1. **AI agents excel with clear specifications** (tests)

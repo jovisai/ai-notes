@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building a Multi-Agent Code Review System with AutoGen - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Building a Multi-Agent Code Review System with AutoGen">
+  <meta itemprop="description" content="Create a team of specialized AI agents that review code for security, style, and logic issues using Microsoft&#39;s AutoGen framework.">
+  <meta itemprop="datePublished" content="2025-12-26T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-26T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1283">
+  <meta itemprop="keywords" content="Ai,AutoGen,Code Review,Multi-Agent,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Building a Multi-Agent Code Review System with AutoGen">
+  <meta property="og:description" content="Create a team of specialized AI agents that review code for security, style, and logic issues using Microsoft&#39;s AutoGen framework.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-26T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="AutoGen">
+    <meta property="article:tag" content="Code Review">
+    <meta property="article:tag" content="Multi-Agent">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a Multi-Agent Code Review System with AutoGen">
+  <meta name="twitter:description" content="Create a team of specialized AI agents that review code for security, style, and logic issues using Microsoft&#39;s AutoGen framework.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Building a Multi-Agent Code Review System with AutoGen</h1>
+        
+        <div class="date">
+            <span class="day">26</span>
+            <span class="rest">Dec 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>Code review is a perfect use case for multi-agent systems. Different aspects of code quality—security, style, logic, performance—require different expertise. Instead of one generalist reviewer, we can create a team of specialists.</p>
+<p>In this article, we&rsquo;ll build a code review system using Microsoft&rsquo;s AutoGen framework. Our team will have three specialized reviewers plus a coordinator that synthesizes their findings.</p>
+<h2 id="the-architecture">The Architecture</h2>
+<pre class="mermaid">graph TD
+    A[Code Input] --&gt; B[Coordinator]
+    B --&gt; C[Security Reviewer]
+    B --&gt; D[Style Reviewer]
+    B --&gt; E[Logic Reviewer]
+    C --&gt; F[Final Report]
+    D --&gt; F
+    E --&gt; F
+  </pre>
+
+<p>Each reviewer focuses on their domain:</p>
+<ul>
+<li><strong>Security Reviewer:</strong> Checks for vulnerabilities, injection risks, authentication issues</li>
+<li><strong>Style Reviewer:</strong> Evaluates code formatting, naming conventions, documentation</li>
+<li><strong>Logic Reviewer:</strong> Analyzes algorithm correctness, edge cases, error handling</li>
+</ul>
+<h2 id="setting-up-autogen">Setting Up AutoGen</h2>
+<p>Install the required packages:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install -U <span style="color:#0a3069">&#34;autogen-agentchat&#34;</span> <span style="color:#0a3069">&#34;autogen-ext[openai]&#34;</span>
+</span></span></code></pre></div><h2 id="defining-the-agents">Defining the Agents</h2>
+<p>AutoGen uses an agent-centric model where each agent has a name, system message, and model configuration.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen_agentchat.agents</span> <span style="color:#cf222e">import</span> AssistantAgent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen_agentchat.teams</span> <span style="color:#cf222e">import</span> RoundRobinGroupChat
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen_agentchat.conditions</span> <span style="color:#cf222e">import</span> TextMentionTermination<span style="color:#1f2328">,</span> MaxMessageTermination
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen_ext.models.openai</span> <span style="color:#cf222e">import</span> OpenAIChatCompletionClient
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize the model client (uses OPENAI_API_KEY env var by default)</span>
+</span></span><span style="display:flex;"><span>model_client <span style="color:#0550ae">=</span> OpenAIChatCompletionClient<span style="color:#1f2328">(</span>model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gpt-4o-mini&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Security Reviewer</span>
+</span></span><span style="display:flex;"><span>security_reviewer <span style="color:#0550ae">=</span> AssistantAgent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;SecurityReviewer&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model_client<span style="color:#0550ae">=</span>model_client<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a security-focused code reviewer.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Analyze code for:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - SQL injection vulnerabilities
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - XSS risks
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Authentication/authorization issues
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Sensitive data exposure
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Input validation problems
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Format your findings as:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    SECURITY ISSUES:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - [SEVERITY: HIGH/MEDIUM/LOW] Description
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    If no issues found, state: &#34;No security issues identified.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    End your review with &#34;SECURITY REVIEW COMPLETE.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Style Reviewer</span>
+</span></span><span style="display:flex;"><span>style_reviewer <span style="color:#0550ae">=</span> AssistantAgent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;StyleReviewer&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model_client<span style="color:#0550ae">=</span>model_client<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a code style reviewer.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Analyze code for:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Naming conventions (variables, functions, classes)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Code formatting and indentation
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Documentation and comments
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Function/method length
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Code organization
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Format your findings as:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    STYLE ISSUES:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - [PRIORITY: HIGH/MEDIUM/LOW] Description
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    If code follows best practices, state: &#34;Code style is acceptable.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    End your review with &#34;STYLE REVIEW COMPLETE.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Logic Reviewer</span>
+</span></span><span style="display:flex;"><span>logic_reviewer <span style="color:#0550ae">=</span> AssistantAgent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;LogicReviewer&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model_client<span style="color:#0550ae">=</span>model_client<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a logic and correctness reviewer.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Analyze code for:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Algorithm correctness
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Edge case handling
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Error handling
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Potential null/undefined issues
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Race conditions or concurrency issues
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Format your findings as:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    LOGIC ISSUES:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - [SEVERITY: HIGH/MEDIUM/LOW] Description
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    If logic is sound, state: &#34;No logic issues identified.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    End your review with &#34;LOGIC REVIEW COMPLETE.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Coordinator</span>
+</span></span><span style="display:flex;"><span>coordinator <span style="color:#0550ae">=</span> AssistantAgent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Coordinator&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model_client<span style="color:#0550ae">=</span>model_client<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are the code review coordinator.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Your job is to:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    1. Present the code to the review team
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    2. After all reviews are complete, synthesize a final report
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    When you see all three &#34;REVIEW COMPLETE&#34; messages, create a summary:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    FINAL CODE REVIEW REPORT
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    ========================
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Security: [Summary]
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Style: [Summary]
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Logic: [Summary]
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Overall Assessment: [APPROVE/NEEDS CHANGES/REJECT]
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Priority Fixes: [List top 3 issues if any]
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    End with &#34;TERMINATE&#34; to conclude the review.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="creating-the-review-team">Creating the Review Team</h2>
+<p>AutoGen provides team patterns for multi-agent collaboration. We&rsquo;ll use <code>RoundRobinGroupChat</code> which gives each agent a turn to speak.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Define termination conditions</span>
+</span></span><span style="display:flex;"><span>text_termination <span style="color:#0550ae">=</span> TextMentionTermination<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TERMINATE&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>max_termination <span style="color:#0550ae">=</span> MaxMessageTermination<span style="color:#1f2328">(</span>max_messages<span style="color:#0550ae">=</span><span style="color:#0550ae">15</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Combine conditions: stop on TERMINATE or after 15 messages</span>
+</span></span><span style="display:flex;"><span>termination <span style="color:#0550ae">=</span> text_termination <span style="color:#0550ae">|</span> max_termination
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create the team (agents passed as first positional argument)</span>
+</span></span><span style="display:flex;"><span>review_team <span style="color:#0550ae">=</span> RoundRobinGroupChat<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>coordinator<span style="color:#1f2328">,</span> security_reviewer<span style="color:#1f2328">,</span> style_reviewer<span style="color:#1f2328">,</span> logic_reviewer<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    termination_condition<span style="color:#0550ae">=</span>termination
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="running-a-code-review">Running a Code Review</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">asyncio</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen_agentchat.ui</span> <span style="color:#cf222e">import</span> Console
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">async</span> <span style="color:#cf222e">def</span> <span style="color:#6639ba">review_code</span><span style="color:#1f2328">(</span>code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Run a code review on the provided code.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    task <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;&#34;&#34;Please review the following code:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">```python
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span><span style="color:#0a3069">{</span>code<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span></code></pre></div><p>Each reviewer should analyze the code from their perspective.
+Coordinator, please synthesize the final report after all reviews.
+&quot;&quot;&quot;</p>
+<pre><code># Run the review with console output
+await Console(review_team.run_stream(task=task))
+
+# Clean up
+await model_client.close()
+</code></pre>
+<h1 id="example-usage">Example usage</h1>
+<p>code_to_review = &rsquo;&rsquo;'
+def get_user(user_id):
+query = f&quot;SELECT * FROM users WHERE id = {user_id}&quot;
+result = db.execute(query)
+return result[0] if result else None</p>
+<p>def process_data(data):
+for i in range(len(data)):
+if data[i] &gt; 100:
+data[i] = 100
+return data
+&rsquo;''</p>
+<p>asyncio.run(review_code(code_to_review))</p>
+<pre tabindex="0"><code>
+## Expected Output
+
+The agents will take turns reviewing the code:
+</code></pre><p>SecurityReviewer:
+SECURITY ISSUES:</p>
+<ul>
+<li>[SEVERITY: HIGH] SQL injection vulnerability in get_user().
+The user_id is directly interpolated into the query string.
+Use parameterized queries instead.</li>
+</ul>
+<p>SECURITY REVIEW COMPLETE.</p>
+<p>StyleReviewer:
+STYLE ISSUES:</p>
+<ul>
+<li>[PRIORITY: MEDIUM] Missing docstrings for both functions</li>
+<li>[PRIORITY: LOW] Consider using enumerate() instead of range(len())</li>
+</ul>
+<p>STYLE REVIEW COMPLETE.</p>
+<p>LogicReviewer:
+LOGIC ISSUES:</p>
+<ul>
+<li>[SEVERITY: MEDIUM] get_user() may raise IndexError if result is empty list</li>
+<li>[SEVERITY: LOW] process_data() modifies input in place, may cause side effects</li>
+</ul>
+<p>LOGIC REVIEW COMPLETE.</p>
+<h1 id="final-code-review-report">Coordinator:
+FINAL CODE REVIEW REPORT</h1>
+<p>Security: Critical SQL injection vulnerability found
+Style: Missing documentation, minor style improvements needed
+Logic: Potential runtime errors and side effects</p>
+<p>Overall Assessment: NEEDS CHANGES
+Priority Fixes:</p>
+<ol>
+<li>Fix SQL injection using parameterized queries</li>
+<li>Add null check before accessing result[0]</li>
+<li>Add function docstrings</li>
+</ol>
+<p>TERMINATE</p>
+<pre tabindex="0"><code>
+## Customizing Agent Behavior
+
+### Adding Tools
+
+Agents can use tools to enhance their capabilities. Tools are Python functions (sync or async) with type hints and docstrings:
+
+```python
+import subprocess
+import tempfile
+
+async def run_bandit(code: str) -&gt; str:
+    &#34;&#34;&#34;Run bandit security scanner on the provided Python code.
+
+    Args:
+        code: Python source code to analyze
+
+    Returns:
+        JSON output from bandit security scanner
+    &#34;&#34;&#34;
+    with tempfile.NamedTemporaryFile(mode=&#39;w&#39;, suffix=&#39;.py&#39;, delete=False) as f:
+        f.write(code)
+        f.flush()
+
+        result = subprocess.run(
+            [&#39;bandit&#39;, &#39;-f&#39;, &#39;json&#39;, f.name],
+            capture_output=True,
+            text=True
+        )
+
+        return result.stdout or &#34;No security issues found by bandit.&#34;
+
+# Pass tools as a list to the agent
+security_reviewer = AssistantAgent(
+    name=&#34;SecurityReviewer&#34;,
+    model_client=model_client,
+    tools=[run_bandit],
+    system_message=&#34;&#34;&#34;You are a security-focused code reviewer.
+    Use the run_bandit tool to scan code for vulnerabilities.
+    Combine tool results with your own analysis.&#34;&#34;&#34;
+)
+</code></pre><h3 id="different-team-patterns">Different Team Patterns</h3>
+<p>AutoGen supports multiple collaboration patterns:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen_agentchat.teams</span> <span style="color:#cf222e">import</span> SelectorGroupChat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Selector pattern: an LLM chooses who speaks next based on conversation</span>
+</span></span><span style="display:flex;"><span>selector_team <span style="color:#0550ae">=</span> SelectorGroupChat<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>coordinator<span style="color:#1f2328">,</span> security_reviewer<span style="color:#1f2328">,</span> style_reviewer<span style="color:#1f2328">,</span> logic_reviewer<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    model_client<span style="color:#0550ae">=</span>model_client<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    termination_condition<span style="color:#0550ae">=</span>termination
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="handling-large-code-files">Handling Large Code Files</h2>
+<p>For large files, chunk the code and review incrementally:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">chunk_code</span><span style="color:#1f2328">(</span>code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> max_lines<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">50</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">]:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Split code into reviewable chunks.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    lines <span style="color:#0550ae">=</span> code<span style="color:#0550ae">.</span>split<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#39;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    chunks <span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> i <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>lines<span style="color:#1f2328">),</span> max_lines<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        chunk <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#39;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#39;</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">(</span>lines<span style="color:#1f2328">[</span>i<span style="color:#1f2328">:</span>i <span style="color:#0550ae">+</span> max_lines<span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>        chunks<span style="color:#0550ae">.</span>append<span style="color:#1f2328">(</span>chunk<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> chunks
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">async</span> <span style="color:#cf222e">def</span> <span style="color:#6639ba">review_large_file</span><span style="color:#1f2328">(</span>code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Review a large file in chunks.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    chunks <span style="color:#0550ae">=</span> chunk_code<span style="color:#1f2328">(</span>code<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    all_issues <span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> chunk <span style="color:#0550ae">in</span> <span style="color:#6639ba">enumerate</span><span style="color:#1f2328">(</span>chunks<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Reviewing chunk </span><span style="color:#0a3069">{</span>i <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#0a3069">}</span><span style="color:#0a3069">/</span><span style="color:#0a3069">{</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>chunks<span style="color:#1f2328">)</span><span style="color:#0a3069">}</span><span style="color:#0a3069">...&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#0550ae">=</span> <span style="color:#cf222e">await</span> review_team<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            task<span style="color:#0550ae">=</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Review this code chunk:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">```python</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>chunk<span style="color:#0a3069">}</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">```&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        all_issues<span style="color:#0550ae">.</span>append<span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> all_issues
+</span></span></code></pre></div><h2 id="integration-with-cicd">Integration with CI/CD</h2>
+<p>Wrap the review system in an API for CI/CD integration:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">fastapi</span> <span style="color:#cf222e">import</span> FastAPI
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">pydantic</span> <span style="color:#cf222e">import</span> BaseModel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#0550ae">=</span> FastAPI<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">ReviewRequest</span><span style="color:#1f2328">(</span>BaseModel<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    filename<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@app.post</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;/review&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">async</span> <span style="color:#cf222e">def</span> <span style="color:#6639ba">api_review</span><span style="color:#1f2328">(</span>request<span style="color:#1f2328">:</span> ReviewRequest<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#0550ae">=</span> <span style="color:#cf222e">await</span> review_team<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        task<span style="color:#0550ae">=</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Review </span><span style="color:#0a3069">{</span>request<span style="color:#0550ae">.</span>filename<span style="color:#0a3069">}</span><span style="color:#0a3069">:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">```</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>request<span style="color:#0550ae">.</span>code<span style="color:#0a3069">}</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">```&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Parse the result to extract structured issues</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;filename&#34;</span><span style="color:#1f2328">:</span> request<span style="color:#0550ae">.</span>filename<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;issues&#34;</span><span style="color:#1f2328">:</span> parse_review_output<span style="color:#1f2328">(</span>result<span style="color:#0550ae">.</span>messages<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;completed&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h2 id="limitations-and-considerations">Limitations and Considerations</h2>
+<ul>
+<li><strong>Cost:</strong> Multiple agents means multiple LLM calls per review. Batch reviews when possible.</li>
+<li><strong>Speed:</strong> Sequential reviews add latency. Consider parallel execution for independent reviewers.</li>
+<li><strong>Consistency:</strong> Agent responses can vary. Use structured output formats for reliable parsing.</li>
+<li><strong>False positives:</strong> AI reviewers may flag non-issues. Human oversight is still valuable.</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s Next</h2>
+<p>This basic system can be extended with:</p>
+<ul>
+<li><strong>Language-specific reviewers:</strong> Specialized agents for Python, JavaScript, Go, etc.</li>
+<li><strong>Integration with GitHub:</strong> Automatically review pull requests</li>
+<li><strong>Learning from feedback:</strong> Track which suggestions are accepted/rejected</li>
+<li><strong>Custom rule enforcement:</strong> Company-specific style guides and security policies</li>
+</ul>
+<p>Multi-agent code review demonstrates how specialized agents can collaborate on complex tasks. The key insight is that different perspectives—security, style, logic—are best handled by focused experts rather than a single generalist.</p>
+<hr>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Copy this prompt into your AI coding agent to build this project:</p>
+<pre tabindex="0"><code>Build a multi-agent code review system using AutoGen. Create:
+1. A SecurityReviewer agent that checks for vulnerabilities (SQL injection, XSS)
+2. A StyleReviewer agent that evaluates naming, formatting, documentation
+3. A LogicReviewer agent that analyzes correctness and edge cases
+4. A Coordinator agent that synthesizes findings into a final report
+
+Use autogen-agentchat with AssistantAgent and RoundRobinGroupChat. Each reviewer
+should format findings with severity levels. The coordinator should produce an
+overall assessment (APPROVE/NEEDS CHANGES/REJECT). Include termination conditions.
+</code></pre>
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/autogen">AutoGen</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/code-review">Code Review</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent">Multi-Agent</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tutorial">Tutorial</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	const getMermaidTheme = () => {
+		const savedScheme = localStorage.getItem('scheme');
+		if (savedScheme) {
+			return savedScheme === 'dark' ? 'dark' : 'default';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	};
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: getMermaidTheme(),
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = getMermaidTheme();
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

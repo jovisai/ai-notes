@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MCP on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/mcp/</link>
+    <description>Recent content in MCP on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building an MCP Server with Python: Connect Claude to Your Database</title>
+      <link>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/</guid>
+      <description>&lt;p&gt;The Model Context Protocol (MCP) is Anthropic&amp;rsquo;s open standard for connecting AI applications to external data sources and tools. Think of it like a USB-C port for AI—a standardized way to plug any data source into Claude or other AI assistants.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a practical MCP server that connects Claude to a SQLite database. By the end, you&amp;rsquo;ll be able to ask Claude natural language questions about your data, and it will query the database directly.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

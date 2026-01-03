@@ -6,8 +6,15 @@
     <description>Recent content in CrewAI on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/crewai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
+      <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts</title>
       <link>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>

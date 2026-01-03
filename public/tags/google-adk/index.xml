@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google ADK on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/google-adk/</link>
+    <description>Recent content in Google ADK on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/google-adk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Multi-Agent Travel Planner with Google ADK</title>
+      <link>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</guid>
+      <description>&lt;p&gt;Google&amp;rsquo;s Agent Development Kit (ADK) is a new framework for building AI agents that&amp;rsquo;s optimized for Gemini but works with any LLM. Its standout feature is built-in support for multi-agent orchestration—agents that coordinate and delegate to other agents.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a travel planner where a host agent delegates to specialized sub-agents for flights, hotels, and activities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-adk&#34;&gt;Why ADK?&lt;/h2&gt;&#xA;&lt;p&gt;ADK brings several innovations:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Code-first development:&lt;/strong&gt; Define agents in Python, not YAML or JSON&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multi-agent by design:&lt;/strong&gt; Built-in patterns for parallel, sequential, and hierarchical agents&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Model-agnostic:&lt;/strong&gt; Works with Gemini, GPT-4, Claude, and others via LiteLLM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time support:&lt;/strong&gt; Bidirectional audio/video streaming built-in&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[User Request] --&amp;gt; B[Travel Host Agent]&#xA;    B --&amp;gt; C[Flight Agent]&#xA;    B --&amp;gt; D[Hotel Agent]&#xA;    B --&amp;gt; E[Activity Agent]&#xA;    C --&amp;gt; F[Flight Options]&#xA;    D --&amp;gt; G[Hotel Options]&#xA;    E --&amp;gt; H[Activity Options]&#xA;    F --&amp;gt; I[Final Itinerary]&#xA;    G --&amp;gt; I&#xA;    H --&amp;gt; I&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;The host agent receives the travel request and delegates to specialists:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

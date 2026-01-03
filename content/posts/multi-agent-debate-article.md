@@ -159,8 +159,6 @@ print(result.final_judgment)
 print(result.reasoning)
 ```
 
-## Conclusion
-
 This minimal multi-agent debate system demonstrates how `langgraph` can be used to create sophisticated, multi-agent workflows. By orchestrating a debate between agents with different perspectives, we can generate more comprehensive and well-reasoned answers to complex questions.
 
 While this system is simple, it provides a solid foundation for more advanced applications. Future improvements could include:

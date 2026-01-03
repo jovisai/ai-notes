@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hybrid Systems on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/hybrid-systems/</link>
+    <description>Recent content in Hybrid Systems on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/hybrid-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid AI Agents: Combining LLMs with Symbolic Reasoning</title>
+      <link>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</guid>
+      <description>&lt;p&gt;LLMs are remarkably flexible but notoriously unreliable for precise reasoning. They hallucinate, make arithmetic errors, and struggle with complex logic. Symbolic systems—rule engines, constraint solvers, knowledge graphs—are precise but rigid.&lt;/p&gt;&#xA;&lt;p&gt;The solution? Combine them. Hybrid AI agents use LLMs for natural language understanding and high-level reasoning, while delegating precise tasks to symbolic systems. This is emerging as a key pattern in production AI systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-hybrid&#34;&gt;Why Hybrid?&lt;/h2&gt;&#xA;&lt;p&gt;Consider a tax preparation agent. An LLM can:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

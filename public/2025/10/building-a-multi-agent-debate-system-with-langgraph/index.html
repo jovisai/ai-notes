@@ -9,7 +9,7 @@
 In this article, we’ll explore a minimal multi-agent debate system built with Python and the powerful langgraph library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We’ll dive into the product requirements, the system architecture, and the implementation details.">
   <meta itemprop="datePublished" content="2025-10-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-10-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1033">
+  <meta itemprop="wordCount" content="1032">
   <meta itemprop="keywords" content="Ai,Multi-Agent-Systems,Langgraph,Python"><meta property="og:url" content="https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="Building a Multi-Agent Debate System with LangGraph">
@@ -29,7 +29,10 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
   <meta name="twitter:title" content="Building a Multi-Agent Debate System with LangGraph">
   <meta name="twitter:description" content="Introduction Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a “debate,” where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.
 In this article, we’ll explore a minimal multi-agent debate system built with Python and the powerful langgraph library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We’ll dive into the product requirements, the system architecture, and the implementation details.">
-<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
@@ -53,7 +56,7 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
 	
 	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
 	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
-			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
 		</nav>
 	</div>
 
@@ -210,8 +213,7 @@ Your task:
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Print the results</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#0550ae">.</span>final_judgment<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#0550ae">.</span>reasoning<span style="color:#1f2328">)</span>
-</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
-<p>This minimal multi-agent debate system demonstrates how <code>langgraph</code> can be used to create sophisticated, multi-agent workflows. By orchestrating a debate between agents with different perspectives, we can generate more comprehensive and well-reasoned answers to complex questions.</p>
+</span></span></code></pre></div><p>This minimal multi-agent debate system demonstrates how <code>langgraph</code> can be used to create sophisticated, multi-agent workflows. By orchestrating a debate between agents with different perspectives, we can generate more comprehensive and well-reasoned answers to complex questions.</p>
 <p>While this system is simple, it provides a solid foundation for more advanced applications. Future improvements could include:</p>
 <ul>
 <li><strong>Tool Use:</strong> Allowing agents to access external tools for fact-checking or data retrieval.</li>
@@ -265,8 +267,8 @@ Your task:
 
 	<div class="footer wrapper">
 	<nav class="nav">
-		<div>2025 </div>
-		
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
 	</nav>
 </div><script>feather.replace()</script>
 

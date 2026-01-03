@@ -1,6 +1,6 @@
 :root {
   /* Colors */
-  --color-primary: #0056b3;
+  --color-primary: #0000FF;
   --color-text: #212529;
   --color-text-light: #333;
   --color-text-muted: #666;
@@ -10,13 +10,13 @@
   --color-background-code: #f6f8fa;
   --color-border: #dee2e6;
   --color-border-light: #f4f4f4;
-  --color-selection: #0056b3;
+  --color-selection: #0000FF;
   --color-selection-text: #ffffff;
   
   /* Typography */
-  --font-family-base: "Arial", serif;
-  --font-family-mono: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace;
-  --font-size-base: 18px;
+  --font-family-base: "Source Sans 3", sans-serif;
+  --font-family-mono: monospace;
+  --font-size-base: 1rem;
   --line-height-base: 1.6;
   --line-height-heading: 1.3;
   
@@ -233,11 +233,6 @@ ul.flat li {
     font-size: 70%;
 }
 
-
-.post {
-    max-width: var(--max-width-content);
-}
-
 .post ul li {
     margin-bottom: 10px;
 }
@@ -251,19 +246,12 @@ ul.flat li {
     margin-bottom: 0;
     margin-top: 0;
     padding: 5px;
-    background: #ccc !important;
     padding-left: 20px;
     border-radius: 4px;
 }
 
-.highlight {
-    font-size: 0.85em;
-    max-width: 800px;
-    overflow-x: auto;
-}
-
 pre {
-    background: var(--color-background-alt);
+    background-color: #efefef !important;
     padding: var(--space-md);
     border-radius: var(--border-radius);
     font-family: var(--font-family-mono);

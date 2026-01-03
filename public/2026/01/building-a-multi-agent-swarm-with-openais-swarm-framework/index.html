@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework">
+  <meta itemprop="description" content="Learn the basics of OpenAI&#39;s experimental Swarm framework for lightweight multi-agent orchestration with handoffs and routines.">
+  <meta itemprop="datePublished" content="2026-01-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-01-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1447">
+  <meta itemprop="keywords" content="Ai,OpenAI,Multi-Agent,Swarm,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework">
+  <meta property="og:description" content="Learn the basics of OpenAI&#39;s experimental Swarm framework for lightweight multi-agent orchestration with handoffs and routines.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="OpenAI">
+    <meta property="article:tag" content="Multi-Agent">
+    <meta property="article:tag" content="Swarm">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework">
+  <meta name="twitter:description" content="Learn the basics of OpenAI&#39;s experimental Swarm framework for lightweight multi-agent orchestration with handoffs and routines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework</h1>
+        
+        <div class="date">
+            <span class="day">01</span>
+            <span class="rest">Jan 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>OpenAI&rsquo;s Swarm is an experimental framework for building multi-agent systems. Unlike heavier frameworks, Swarm is intentionally minimal—it adds just two concepts on top of the Chat Completions API: <strong>handoffs</strong> and <strong>routines</strong>. This makes it easy to understand and extend.</p>
+<p>In this article, we&rsquo;ll build a customer service system where specialized agents hand off conversations to each other based on customer needs.</p>
+<h2 id="what-is-swarm">What is Swarm?</h2>
+<p>Swarm is OpenAI&rsquo;s take on multi-agent orchestration. Key principles:</p>
+<ul>
+<li><strong>Lightweight:</strong> ~500 lines of code, minimal abstraction</li>
+<li><strong>Stateless:</strong> Each call is independent, you manage state</li>
+<li><strong>Handoffs:</strong> Agents can transfer conversations to other agents</li>
+<li><strong>Routines:</strong> Agents follow defined procedures</li>
+</ul>
+<p>Swarm is explicitly experimental and not intended for production. It&rsquo;s meant for learning and prototyping.</p>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install git+https://github.com/openai/swarm.git
+</span></span></code></pre></div><h2 id="core-concepts">Core Concepts</h2>
+<h3 id="agents">Agents</h3>
+<p>An agent is defined by its name, instructions, and functions:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">swarm</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>support_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Support Agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You are a helpful customer support agent. Answer general questions about the product.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>get_product_info<span style="color:#1f2328">,</span> get_order_status<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h3 id="functions">Functions</h3>
+<p>Functions are tools the agent can call:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_product_info</span><span style="color:#1f2328">(</span>product_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Get information about a product.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        product_id: The product identifier
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Look up product in database</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Product </span><span style="color:#0a3069">{</span>product_id<span style="color:#0a3069">}</span><span style="color:#0a3069">: Widget Pro, $49.99&#34;</span>
+</span></span></code></pre></div><h3 id="handoffs">Handoffs</h3>
+<p>The key innovation. An agent can return another agent, transferring the conversation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">transfer_to_billing</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Transfer the conversation to the billing department.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> billing_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>support_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Support Agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;...&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>transfer_to_billing<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>When the agent decides to call <code>transfer_to_billing()</code>, the conversation continues with <code>billing_agent</code>.</p>
+<h2 id="building-a-customer-service-system">Building a Customer Service System</h2>
+<p>Let&rsquo;s create a system with three specialized agents:</p>
+<pre class="mermaid">graph TD
+    A[Customer] --&gt; B[Triage Agent]
+    B --&gt;|Technical| C[Tech Support]
+    B --&gt;|Billing| D[Billing Agent]
+    B --&gt;|General| E[General Support]
+  </pre>
+
+<h3 id="step-1-define-the-agents">Step 1: Define the Agents</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">swarm</span> <span style="color:#cf222e">import</span> Swarm<span style="color:#1f2328">,</span> Agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize Swarm client</span>
+</span></span><span style="display:flex;"><span>client <span style="color:#0550ae">=</span> Swarm<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Database simulation</span>
+</span></span><span style="display:flex;"><span>ORDERS <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;ORD-123&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;shipped&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;tracking&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;1Z999AA10123&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;ORD-456&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;processing&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;tracking&#34;</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">None</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ACCOUNTS <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;ACC-789&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;balance&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">49.99</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;plan&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Pro Monthly&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Tool functions</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_order_status</span><span style="color:#1f2328">(</span>order_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Look up the status of an order.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    order <span style="color:#0550ae">=</span> ORDERS<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span>order_id<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> order<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Order </span><span style="color:#0a3069">{</span>order_id<span style="color:#0a3069">}</span><span style="color:#0a3069"> not found.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Order </span><span style="color:#0a3069">{</span>order_id<span style="color:#0a3069">}</span><span style="color:#0a3069">: </span><span style="color:#0a3069">{</span>order<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;status&#39;</span><span style="color:#1f2328">]</span><span style="color:#0a3069">}</span><span style="color:#0a3069">, Tracking: </span><span style="color:#0a3069">{</span>order<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;tracking&#39;</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">or</span> <span style="color:#0a3069">&#39;Not yet available&#39;</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_account_balance</span><span style="color:#1f2328">(</span>account_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Get the current account balance.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    account <span style="color:#0550ae">=</span> ACCOUNTS<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span>account_id<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> account<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Account </span><span style="color:#0a3069">{</span>account_id<span style="color:#0a3069">}</span><span style="color:#0a3069"> not found.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Account </span><span style="color:#0a3069">{</span>account_id<span style="color:#0a3069">}</span><span style="color:#0a3069">: $</span><span style="color:#0a3069">{</span>account<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;balance&#39;</span><span style="color:#1f2328">]</span><span style="color:#0a3069">:</span><span style="color:#0a3069">.2f</span><span style="color:#0a3069">}</span><span style="color:#0a3069">, Plan: </span><span style="color:#0a3069">{</span>account<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;plan&#39;</span><span style="color:#1f2328">]</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">process_refund</span><span style="color:#1f2328">(</span>order_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> reason<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Process a refund for an order.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> order_id <span style="color:#0550ae">not</span> <span style="color:#0550ae">in</span> ORDERS<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Cannot refund: Order </span><span style="color:#0a3069">{</span>order_id<span style="color:#0a3069">}</span><span style="color:#0a3069"> not found.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Refund initiated for </span><span style="color:#0a3069">{</span>order_id<span style="color:#0a3069">}</span><span style="color:#0a3069">. Reason: </span><span style="color:#0a3069">{</span>reason<span style="color:#0a3069">}</span><span style="color:#0a3069">. Amount will be credited in 3-5 days.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">create_support_ticket</span><span style="color:#1f2328">(</span>issue<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> priority<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;normal&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Create a support ticket for technical issues.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    ticket_id <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;TKT-&#34;</span> <span style="color:#0550ae">+</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">(</span><span style="color:#6639ba">hash</span><span style="color:#1f2328">(</span>issue<span style="color:#1f2328">))[:</span><span style="color:#0550ae">6</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Created ticket </span><span style="color:#0a3069">{</span>ticket_id<span style="color:#0a3069">}</span><span style="color:#0a3069"> with </span><span style="color:#0a3069">{</span>priority<span style="color:#0a3069">}</span><span style="color:#0a3069"> priority. A technician will respond within 24 hours.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Agent definitions</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">transfer_to_tech_support</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Transfer to technical support for product issues.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> tech_support_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">transfer_to_billing</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Transfer to billing for payment and subscription issues.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> billing_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">transfer_to_triage</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Transfer back to triage for re-routing.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> triage_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Triage Agent - First point of contact</span>
+</span></span><span style="display:flex;"><span>triage_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Triage Agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are the first point of contact for customer service.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Your job is to understand the customer&#39;s issue and route them to the right agent.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - For technical issues (product not working, bugs, how-to questions): transfer to tech support
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - For billing issues (payments, refunds, subscriptions): transfer to billing
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - For general questions: answer directly if possible
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Always be polite and confirm the transfer before making it.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>transfer_to_tech_support<span style="color:#1f2328">,</span> transfer_to_billing<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Tech Support Agent</span>
+</span></span><span style="display:flex;"><span>tech_support_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Tech Support Agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a technical support specialist.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Help customers with product issues, troubleshooting, and how-to questions.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    If you can&#39;t resolve the issue, create a support ticket.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    If the customer has a billing question, transfer to billing.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>create_support_ticket<span style="color:#1f2328">,</span> get_order_status<span style="color:#1f2328">,</span> transfer_to_billing<span style="color:#1f2328">,</span> transfer_to_triage<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Billing Agent</span>
+</span></span><span style="display:flex;"><span>billing_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Billing Agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a billing specialist.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Help customers with payments, refunds, and subscription management.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    You can:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Look up account balances
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Process refunds for valid orders
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Explain billing policies
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    If the customer has a technical issue, transfer to tech support.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>get_account_balance<span style="color:#1f2328">,</span> process_refund<span style="color:#1f2328">,</span> get_order_status<span style="color:#1f2328">,</span> transfer_to_tech_support<span style="color:#1f2328">,</span> transfer_to_triage<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h3 id="step-2-run-the-conversation">Step 2: Run the Conversation</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">run_customer_service</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Run an interactive customer service session.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Customer Service System&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;=&#34;</span> <span style="color:#0550ae">*</span> <span style="color:#0550ae">40</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Type &#39;quit&#39; to exit</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    messages <span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>    agent <span style="color:#0550ae">=</span> triage_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">while</span> <span style="color:#cf222e">True</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        user_input <span style="color:#0550ae">=</span> <span style="color:#6639ba">input</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Customer: &#34;</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>strip<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> user_input<span style="color:#0550ae">.</span>lower<span style="color:#1f2328">()</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#39;quit&#39;</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        messages<span style="color:#0550ae">.</span>append<span style="color:#1f2328">({</span><span style="color:#0a3069">&#34;role&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;user&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">:</span> user_input<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#0550ae">=</span> client<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            agent<span style="color:#0550ae">=</span>agent<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            messages<span style="color:#0550ae">=</span>messages
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Update messages with response</span>
+</span></span><span style="display:flex;"><span>        messages <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>messages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Check if agent changed (handoff occurred)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> response<span style="color:#0550ae">.</span>agent <span style="color:#0550ae">!=</span> agent<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">[Transferred to </span><span style="color:#0a3069">{</span>response<span style="color:#0550ae">.</span>agent<span style="color:#0550ae">.</span>name<span style="color:#0a3069">}</span><span style="color:#0a3069">]</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            agent <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Print agent response</span>
+</span></span><span style="display:flex;"><span>        last_message <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>messages<span style="color:#1f2328">[</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>agent<span style="color:#0550ae">.</span>name<span style="color:#0a3069">}</span><span style="color:#0a3069">: </span><span style="color:#0a3069">{</span>last_message<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;content&#39;</span><span style="color:#1f2328">]</span><span style="color:#0a3069">}</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#953800">__name__</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;__main__&#34;</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    run_customer_service<span style="color:#1f2328">()</span>
+</span></span></code></pre></div><h3 id="example-conversation">Example Conversation</h3>
+<pre tabindex="0"><code>Customer: Hi, I&#39;m having trouble with my order
+
+Triage Agent: I&#39;d be happy to help you with your order. Could you tell me
+more about what kind of trouble you&#39;re experiencing? Is it a technical issue
+with the product, or is it related to payment or shipping?
+
+Customer: I was charged twice for order ORD-123
+
+Triage Agent: I understand you were charged twice - that&#39;s definitely a
+billing issue. Let me transfer you to our billing specialist who can help
+resolve this.
+
+[Transferred to Billing Agent]
+
+Billing Agent: Hello! I can see you were charged twice for order ORD-123.
+Let me look into this. Could you provide your account ID so I can verify
+the charges?
+
+Customer: It&#39;s ACC-789
+
+Billing Agent: I&#39;ve found your account. Your current balance shows $49.99.
+I can process a refund for the duplicate charge. Would you like me to proceed?
+
+Customer: Yes please
+
+Billing Agent: I&#39;ve initiated a refund for order ORD-123 due to the duplicate
+charge. The amount will be credited to your account within 3-5 business days.
+Is there anything else I can help you with?
+</code></pre><h2 id="how-handoffs-work">How Handoffs Work</h2>
+<p>When an agent calls a function that returns another agent, Swarm:</p>
+<ol>
+<li>Executes the function, getting the new agent</li>
+<li>Replaces the current agent with the new one</li>
+<li>Continues the conversation with the new agent&rsquo;s instructions</li>
+</ol>
+<p>The conversation history is preserved, so the new agent has full context.</p>
+<h2 id="routines-multi-step-procedures">Routines: Multi-Step Procedures</h2>
+<p>Swarm supports &ldquo;routines&rdquo; — agents that follow multi-step procedures. This is just convention, not a special feature:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>checkout_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Checkout Agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You guide customers through checkout.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Follow these steps IN ORDER:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    1. Confirm the items in their cart
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    2. Collect shipping address
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    3. Collect payment information
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    4. Confirm the order
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Do not skip steps. If the customer wants to modify their cart,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    start over from step 1.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>get_cart<span style="color:#1f2328">,</span> update_shipping<span style="color:#1f2328">,</span> process_payment<span style="color:#1f2328">,</span> confirm_order<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>The &ldquo;routine&rdquo; is encoded in the instructions. The agent follows the steps and uses functions as needed.</p>
+<h2 id="context-variables">Context Variables</h2>
+<p>Swarm supports passing context between agents:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">swarm</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_customer_context</span><span style="color:#1f2328">(</span>context_variables<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Access customer info from context.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    customer_id <span style="color:#0550ae">=</span> context_variables<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;customer_id&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Customer ID: </span><span style="color:#0a3069">{</span>customer_id<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>support_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Support&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You have access to customer context.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    functions<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>get_customer_context<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Run with context</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#0550ae">=</span> client<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>support_agent<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#0550ae">=</span><span style="color:#1f2328">[{</span><span style="color:#0a3069">&#34;role&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;user&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Who am I?&#34;</span><span style="color:#1f2328">}],</span>
+</span></span><span style="display:flex;"><span>    context_variables<span style="color:#0550ae">=</span><span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;customer_id&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;CUST-12345&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;plan&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Premium&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="error-handling">Error Handling</h2>
+<p>Wrap your functions with error handling:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">safe_get_order</span><span style="color:#1f2328">(</span>order_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Get order status with error handling.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">try</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        order <span style="color:#0550ae">=</span> database<span style="color:#0550ae">.</span>get_order<span style="color:#1f2328">(</span>order_id<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> format_order<span style="color:#1f2328">(</span>order<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">except</span> OrderNotFoundError<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Order </span><span style="color:#0a3069">{</span>order_id<span style="color:#0a3069">}</span><span style="color:#0a3069"> was not found. Please check the order ID.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">except</span> DatabaseError<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;I&#39;m having trouble accessing order information right now. Please try again.&#34;</span>
+</span></span></code></pre></div><h2 id="streaming-responses">Streaming Responses</h2>
+<p>For real-time output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>response <span style="color:#0550ae">=</span> client<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>agent<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#0550ae">=</span>messages<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    stream<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> chunk <span style="color:#0550ae">in</span> response<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> chunk<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>chunk<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">],</span> end<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span> flush<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="when-to-use-swarm">When to Use Swarm</h2>
+<p><strong>Good for:</strong></p>
+<ul>
+<li>Learning multi-agent concepts</li>
+<li>Prototyping agent systems</li>
+<li>Simple handoff-based workflows</li>
+<li>Educational projects</li>
+</ul>
+<p><strong>Not good for:</strong></p>
+<ul>
+<li>Production systems (it&rsquo;s experimental)</li>
+<li>Complex state management</li>
+<li>Parallel agent execution</li>
+<li>Long-running workflows</li>
+</ul>
+<h2 id="swarm-vs-other-frameworks">Swarm vs Other Frameworks</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Aspect</th>
+          <th>Swarm</th>
+          <th>LangGraph</th>
+          <th>CrewAI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Complexity</td>
+          <td>Minimal</td>
+          <td>Medium</td>
+          <td>Medium</td>
+      </tr>
+      <tr>
+          <td>State management</td>
+          <td>Manual</td>
+          <td>Built-in</td>
+          <td>Built-in</td>
+      </tr>
+      <tr>
+          <td>Production ready</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Handoffs</td>
+          <td>Native</td>
+          <td>Via edges</td>
+          <td>Via delegation</td>
+      </tr>
+      <tr>
+          <td>Learning curve</td>
+          <td>Low</td>
+          <td>Medium</td>
+          <td>Low</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="whats-next">What&rsquo;s Next</h2>
+<p>Swarm is a teaching tool. Once you understand the concepts, move to:</p>
+<ul>
+<li><strong>LangGraph</strong> for production stateful agents</li>
+<li><strong>CrewAI</strong> for role-based collaboration</li>
+<li><strong>AutoGen</strong> for conversational multi-agent systems</li>
+</ul>
+<p>The patterns you learn in Swarm—handoffs, context passing, routines—transfer directly to these more robust frameworks.</p>
+<p>Swarm shows that multi-agent orchestration doesn&rsquo;t have to be complicated. Sometimes two primitives are all you need.</p>
+<hr>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Copy this prompt into your AI coding agent to build this project:</p>
+<pre tabindex="0"><code>Build a customer service system using OpenAI&#39;s Swarm framework:
+1. A Triage Agent that routes customers to the right specialist
+2. A Tech Support Agent with tools for order status and creating tickets
+3. A Billing Agent with tools for account balance and processing refunds
+
+Implement handoff functions that return the target agent. Use the Swarm
+client to run conversations and detect when handoffs occur. Include mock
+data for orders and accounts. Create an interactive loop that prints
+agent responses and announces transfers.
+</code></pre>
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/openai">OpenAI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent">Multi-Agent</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/swarm">Swarm</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tutorial">Tutorial</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	const getMermaidTheme = () => {
+		const savedScheme = localStorage.getItem('scheme');
+		if (savedScheme) {
+			return savedScheme === 'dark' ? 'dark' : 'default';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	};
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: getMermaidTheme(),
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = getMermaidTheme();
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

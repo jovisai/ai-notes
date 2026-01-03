@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DeepEval on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/deepeval/</link>
+    <description>Recent content in DeepEval on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/deepeval/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Evaluating Your AI Agents with DeepEval: A Practical Guide</title>
+      <link>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</link>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</guid>
+      <description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

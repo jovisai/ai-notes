@@ -6,14 +6,63 @@
     <description>Recent content in Posts on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid AI Agents: Combining LLMs with Symbolic Reasoning</title>
+      <link>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</guid>
+      <description>&lt;p&gt;LLMs are remarkably flexible but notoriously unreliable for precise reasoning. They hallucinate, make arithmetic errors, and struggle with complex logic. Symbolic systems—rule engines, constraint solvers, knowledge graphs—are precise but rigid.&lt;/p&gt;&#xA;&lt;p&gt;The solution? Combine them. Hybrid AI agents use LLMs for natural language understanding and high-level reasoning, while delegating precise tasks to symbolic systems. This is emerging as a key pattern in production AI systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-hybrid&#34;&gt;Why Hybrid?&lt;/h2&gt;&#xA;&lt;p&gt;Consider a tax preparation agent. An LLM can:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework</title>
+      <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</guid>
+      <description>&lt;p&gt;OpenAI&amp;rsquo;s Swarm is an experimental framework for building multi-agent systems. Unlike heavier frameworks, Swarm is intentionally minimal—it adds just two concepts on top of the Chat Completions API: &lt;strong&gt;handoffs&lt;/strong&gt; and &lt;strong&gt;routines&lt;/strong&gt;. This makes it easy to understand and extend.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a customer service system where specialized agents hand off conversations to each other based on customer needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-swarm&#34;&gt;What is Swarm?&lt;/h2&gt;&#xA;&lt;p&gt;Swarm is OpenAI&amp;rsquo;s take on multi-agent orchestration. Key principles:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contextual RAG: Adding Context to Chunks for Better Retrieval</title>
+      <link>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</guid>
+      <description>&lt;p&gt;Standard RAG has a fundamental problem: chunks lose their context. When you split a document into pieces, each chunk becomes isolated. A sentence like &amp;ldquo;The company increased revenue by 15%&amp;rdquo; is meaningless without knowing which company, which year, and what the previous revenue was.&lt;/p&gt;&#xA;&lt;p&gt;Contextual RAG solves this by enriching each chunk with surrounding context before embedding. Anthropic&amp;rsquo;s research shows this technique can reduce retrieval failures by up to 67%.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Research Assistant with Windsurf&#39;s Cascade Agent</title>
+      <link>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</guid>
+      <description>&lt;p&gt;Windsurf is an AI-powered IDE that goes beyond code completion. Its Cascade feature is a full coding agent that understands your entire project, generates code across multiple files, runs commands, and debugs issues—all from natural language instructions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll use Windsurf to build a research assistant application, demonstrating how Cascade handles complex, multi-file development tasks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-makes-windsurf-different&#34;&gt;What Makes Windsurf Different&lt;/h2&gt;&#xA;&lt;p&gt;Traditional AI coding tools like GitHub Copilot are reactive—they complete the line you&amp;rsquo;re writing. Windsurf&amp;rsquo;s Cascade is proactive:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Evaluating Your AI Agents with DeepEval: A Practical Guide</title>
+      <link>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</link>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</guid>
+      <description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Multi-Agent Travel Planner with Google ADK</title>
+      <link>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</guid>
+      <description>&lt;p&gt;Google&amp;rsquo;s Agent Development Kit (ADK) is a new framework for building AI agents that&amp;rsquo;s optimized for Gemini but works with any LLM. Its standout feature is built-in support for multi-agent orchestration—agents that coordinate and delegate to other agents.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a travel planner where a host agent delegates to specialized sub-agents for flights, hotels, and activities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-adk&#34;&gt;Why ADK?&lt;/h2&gt;&#xA;&lt;p&gt;ADK brings several innovations:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Code-first development:&lt;/strong&gt; Define agents in Python, not YAML or JSON&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multi-agent by design:&lt;/strong&gt; Built-in patterns for parallel, sequential, and hierarchical agents&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Model-agnostic:&lt;/strong&gt; Works with Gemini, GPT-4, Claude, and others via LiteLLM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time support:&lt;/strong&gt; Bidirectional audio/video streaming built-in&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[User Request] --&amp;gt; B[Travel Host Agent]&#xA;    B --&amp;gt; C[Flight Agent]&#xA;    B --&amp;gt; D[Hotel Agent]&#xA;    B --&amp;gt; E[Activity Agent]&#xA;    C --&amp;gt; F[Flight Options]&#xA;    D --&amp;gt; G[Hotel Options]&#xA;    E --&amp;gt; H[Activity Options]&#xA;    F --&amp;gt; I[Final Itinerary]&#xA;    G --&amp;gt; I&#xA;    H --&amp;gt; I&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;The host agent receives the travel request and delegates to specialists:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Most Interesting AI Agent Design Pattern Right Now</title>
       <link>https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</guid>
       <description>&lt;p&gt;AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.&lt;/p&gt;&#xA;&lt;p&gt;This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Multi-Agent Code Review System with AutoGen</title>
+      <link>https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/</guid>
+      <description>&lt;p&gt;Code review is a perfect use case for multi-agent systems. Different aspects of code quality—security, style, logic, performance—require different expertise. Instead of one generalist reviewer, we can create a team of specialists.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a code review system using Microsoft&amp;rsquo;s AutoGen framework. Our team will have three specialized reviewers plus a coordinator that synthesizes their findings.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-architecture&#34;&gt;The Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[Code Input] --&amp;gt; B[Coordinator]&#xA;    B --&amp;gt; C[Security Reviewer]&#xA;    B --&amp;gt; D[Style Reviewer]&#xA;    B --&amp;gt; E[Logic Reviewer]&#xA;    C --&amp;gt; F[Final Report]&#xA;    D --&amp;gt; F&#xA;    E --&amp;gt; F&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Each reviewer focuses on their domain:&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Skill That Will Define Your Career in 2026</title>
@@ -23,11 +72,32 @@
       <description>&lt;p&gt;&lt;em&gt;Why mastering &amp;ldquo;what&amp;rdquo; and &amp;ldquo;why&amp;rdquo; matters more than ever in the age of AI&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-three-layers-of-every-job&#34;&gt;The Three Layers of Every Job&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a framework I&amp;rsquo;ve been thinking about: every job, every role, every task you do breaks down into three fundamental layers.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/three_layers.png&#34; alt=&#34;The Three Layers of Every Job&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The purpose. The demand. The reason something needs to exist.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The decision. The direction. Choosing what to build, what to solve, what to prioritize.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Building an Agentic RAG Pipeline with LangGraph</title>
+      <link>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</guid>
+      <description>&lt;p&gt;Traditional RAG (Retrieval-Augmented Generation) follows a simple pattern: embed the query, find similar documents, generate an answer. But this &amp;ldquo;naive RAG&amp;rdquo; approach breaks down when queries are complex, ambiguous, or require information from multiple sources.&lt;/p&gt;&#xA;&lt;p&gt;Agentic RAG solves this by letting the LLM make decisions about retrieval. Instead of a fixed pipeline, the LLM can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decompose complex queries into sub-queries&lt;/li&gt;&#xA;&lt;li&gt;Decide if retrieved documents are sufficient&lt;/li&gt;&#xA;&lt;li&gt;Reformulate queries when initial retrieval fails&lt;/li&gt;&#xA;&lt;li&gt;Synthesize information from multiple retrieval rounds&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build an Agentic RAG system using LangGraph.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>A Technical Introduction to Ava</title>
       <link>https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/</guid>
       <description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://raw.githubusercontent.com/muthuspark/ava/main/screenshot.png&#34; alt=&#34;&amp;lsquo;AVA UI&amp;rsquo;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user&amp;rsquo;s device which means that no data is ever sent to a server, ensuring complete privacy.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GitHub Repository:&lt;/strong&gt; &lt;a href=&#34;https://github.com/muthuspark/ava/&#34;&gt;https://github.com/muthuspark/ava/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Live Demo:&lt;/strong&gt; &lt;a href=&#34;https://ava.muthu.co&#34;&gt;https://ava.muthu.co&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Ava&amp;rsquo;s capabilities include:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
+      <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building an MCP Server with Python: Connect Claude to Your Database</title>
+      <link>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/</guid>
+      <description>&lt;p&gt;The Model Context Protocol (MCP) is Anthropic&amp;rsquo;s open standard for connecting AI applications to external data sources and tools. Think of it like a USB-C port for AI—a standardized way to plug any data source into Claude or other AI assistants.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a practical MCP server that connects Claude to a SQLite database. By the end, you&amp;rsquo;ll be able to ask Claude natural language questions about your data, and it will query the database directly.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Architecture is the Prompt - Guiding AI with Hexagonal Design</title>

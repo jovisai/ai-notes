@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDE on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/ide/</link>
+    <description>Recent content in IDE on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Research Assistant with Windsurf&#39;s Cascade Agent</title>
+      <link>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</guid>
+      <description>&lt;p&gt;Windsurf is an AI-powered IDE that goes beyond code completion. Its Cascade feature is a full coding agent that understands your entire project, generates code across multiple files, runs commands, and debugs issues—all from natural language instructions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll use Windsurf to build a research assistant application, demonstrating how Cascade handles complex, multi-file development tasks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-makes-windsurf-different&#34;&gt;What Makes Windsurf Different&lt;/h2&gt;&#xA;&lt;p&gt;Traditional AI coding tools like GitHub Copilot are reactive—they complete the line you&amp;rsquo;re writing. Windsurf&amp;rsquo;s Cascade is proactive:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

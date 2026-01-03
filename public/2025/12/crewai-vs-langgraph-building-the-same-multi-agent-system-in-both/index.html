@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="CrewAI vs LangGraph: Building the Same Multi-Agent System in Both">
+  <meta itemprop="description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
+  <meta itemprop="datePublished" content="2025-12-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="873">
+  <meta itemprop="keywords" content="Ai,Multi-Agent,CrewAI,Langgraph,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="CrewAI vs LangGraph: Building the Same Multi-Agent System in Both">
+  <meta property="og:description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-22T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Multi-Agent">
+    <meta property="article:tag" content="CrewAI">
+    <meta property="article:tag" content="Langgraph">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CrewAI vs LangGraph: Building the Same Multi-Agent System in Both">
+  <meta name="twitter:description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</h1>
+        
+        <div class="date">
+            <span class="day">22</span>
+            <span class="rest">Dec 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.</p>
+<p>In this article, we&rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.</p>
+<h2 id="the-task">The Task</h2>
+<p>We&rsquo;ll build a simple two-agent workflow:</p>
+<ol>
+<li><strong>Researcher Agent:</strong> Finds key facts about a topic</li>
+<li><strong>Writer Agent:</strong> Summarizes the research into readable content</li>
+</ol>
+<pre class="mermaid">graph LR
+    A[Topic] --&gt; B[Researcher]
+    B --&gt; C[Writer]
+    C --&gt; D[Summary]
+  </pre>
+
+<h2 id="crewai-implementation">CrewAI Implementation</h2>
+<p>CrewAI models agents as team members with roles, goals, and backstories. The framework handles the orchestration automatically.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define agents with roles</span>
+</span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Research Analyst&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Find accurate information about the given topic&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You are an expert researcher who finds reliable sources.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>writer <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    role<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Content Writer&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    goal<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Create clear, engaging summaries from research&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    backstory<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You transform complex information into readable content.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define tasks</span>
+</span></span><span style="display:flex;"><span>research_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Research the topic: </span><span style="color:#0a3069">{topic}</span><span style="color:#0a3069">. Find 3 key facts with sources.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A list of 3 key facts with sources.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>researcher
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>writing_task <span style="color:#0550ae">=</span> Task<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Write a summary based on the research findings.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    expected_output<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A 100-word summary of the key facts.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>writer<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    context<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">]</span>  <span style="color:#57606a"># Depends on research_task</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create and run crew</span>
+</span></span><span style="display:flex;"><span>crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">,</span> writer<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">,</span> writing_task<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> crew<span style="color:#0550ae">.</span>kickoff<span style="color:#1f2328">(</span>inputs<span style="color:#0550ae">=</span><span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;topic&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;quantum computing&#34;</span><span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h3 id="what-crewai-handles-for-you">What CrewAI Handles For You</h3>
+<ul>
+<li><strong>Task sequencing:</strong> The <code>context</code> parameter automatically passes output from one task to another</li>
+<li><strong>Prompt engineering:</strong> Role, goal, and backstory are woven into each agent&rsquo;s system prompt</li>
+<li><strong>Execution:</strong> The crew handles invoking tasks in the right order</li>
+</ul>
+<h2 id="langgraph-implementation">LangGraph Implementation</h2>
+<p>LangGraph requires you to define the state schema and each transition explicitly. This gives you more control but requires more code.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> TypedDict<span style="color:#1f2328">,</span> Annotated
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_openai</span> <span style="color:#cf222e">import</span> ChatOpenAI
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">operator</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define the state schema</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">ResearchState</span><span style="color:#1f2328">(</span>TypedDict<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    topic<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    research<span style="color:#1f2328">:</span> Annotated<span style="color:#1f2328">[</span><span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">],</span> operator<span style="color:#0550ae">.</span>add<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    summary<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize LLM</span>
+</span></span><span style="display:flex;"><span>llm <span style="color:#0550ae">=</span> ChatOpenAI<span style="color:#1f2328">(</span>model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gpt-4o-mini&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">research_node</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> ResearchState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Research agent node.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    topic <span style="color:#0550ae">=</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;topic&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    messages <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;role&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;user&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Research the topic &#39;</span><span style="color:#0a3069">{</span>topic<span style="color:#0a3069">}</span><span style="color:#0a3069">&#39;. Provide exactly 3 key facts, each on a new line.&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#0550ae">=</span> llm<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">(</span>messages<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    facts <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>strip<span style="color:#1f2328">()</span><span style="color:#0550ae">.</span>split<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;research&#34;</span><span style="color:#1f2328">:</span> facts<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">writing_node</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> ResearchState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Writing agent node.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    research <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">(</span>state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;research&#34;</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    messages <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;role&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;user&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Based on these research findings:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>research<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Write a 100-word summary.&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#0550ae">=</span> llm<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">(</span>messages<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;summary&#34;</span><span style="color:#1f2328">:</span> response<span style="color:#0550ae">.</span>content<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Build the graph</span>
+</span></span><span style="display:flex;"><span>workflow <span style="color:#0550ae">=</span> StateGraph<span style="color:#1f2328">(</span>ResearchState<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Add nodes</span>
+</span></span><span style="display:flex;"><span>workflow<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">,</span> research_node<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>workflow<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;writer&#34;</span><span style="color:#1f2328">,</span> writing_node<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define edges (the flow)</span>
+</span></span><span style="display:flex;"><span>workflow<span style="color:#0550ae">.</span>set_entry_point<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>workflow<span style="color:#0550ae">.</span>add_edge<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;writer&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>workflow<span style="color:#0550ae">.</span>add_edge<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;writer&#34;</span><span style="color:#1f2328">,</span> END<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Compile</span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#0550ae">=</span> workflow<span style="color:#0550ae">.</span>compile<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Run</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> graph<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;topic&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;quantum computing&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;research&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;summary&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;summary&#34;</span><span style="color:#1f2328">])</span>
+</span></span></code></pre></div><h3 id="what-langgraph-requires-you-to-define">What LangGraph Requires You To Define</h3>
+<ul>
+<li><strong>State schema:</strong> Explicitly define what data flows through the graph</li>
+<li><strong>Node functions:</strong> Write each agent as a function that transforms state</li>
+<li><strong>Edges:</strong> Manually wire up the execution order</li>
+</ul>
+<h2 id="side-by-side-comparison">Side-by-Side Comparison</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Aspect</th>
+          <th>CrewAI</th>
+          <th>LangGraph</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Abstraction Level</strong></td>
+          <td>High (role-based)</td>
+          <td>Low (graph-based)</td>
+      </tr>
+      <tr>
+          <td><strong>Agent Definition</strong></td>
+          <td>Role, goal, backstory</td>
+          <td>Python functions</td>
+      </tr>
+      <tr>
+          <td><strong>State Management</strong></td>
+          <td>Implicit (via context)</td>
+          <td>Explicit (TypedDict)</td>
+      </tr>
+      <tr>
+          <td><strong>Task Dependencies</strong></td>
+          <td><code>context</code> parameter</td>
+          <td><code>add_edge()</code> calls</td>
+      </tr>
+      <tr>
+          <td><strong>Learning Curve</strong></td>
+          <td>Lower</td>
+          <td>Higher</td>
+      </tr>
+      <tr>
+          <td><strong>Flexibility</strong></td>
+          <td>Moderate</td>
+          <td>High</td>
+      </tr>
+      <tr>
+          <td><strong>Debugging</strong></td>
+          <td>Harder (abstracted)</td>
+          <td>Easier (explicit)</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="when-to-choose-crewai">When to Choose CrewAI</h2>
+<p>CrewAI is the better choice when:</p>
+<ul>
+<li><strong>You want quick prototypes.</strong> The role-based abstraction lets you spin up agents fast.</li>
+<li><strong>Your workflow is linear.</strong> Simple chains of tasks work well with CrewAI.</li>
+<li><strong>You prefer high-level APIs.</strong> Less code, more focus on agent behavior.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># CrewAI excels at simple, linear workflows</span>
+</span></span><span style="display:flex;"><span>crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">,</span> writer<span style="color:#1f2328">,</span> editor<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">,</span> writing_task<span style="color:#1f2328">,</span> editing_task<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    verbose<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="when-to-choose-langgraph">When to Choose LangGraph</h2>
+<p>LangGraph is the better choice when:</p>
+<ul>
+<li><strong>You need complex control flow.</strong> Conditional branching, loops, and parallel execution.</li>
+<li><strong>State management is critical.</strong> You need fine-grained control over what data flows where.</li>
+<li><strong>You want debugging visibility.</strong> Explicit state makes it easier to trace issues.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># LangGraph handles complex branching easily</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">should_continue</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> ResearchState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;research&#34;</span><span style="color:#1f2328">])</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;researcher&#34;</span>  <span style="color:#57606a"># Loop back for more research</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;writer&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>workflow<span style="color:#0550ae">.</span>add_conditional_edges<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    should_continue<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;writer&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;writer&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="a-hybrid-approach">A Hybrid Approach</h2>
+<p>In practice, many teams use both. CrewAI for high-level agent orchestration, LangGraph for complex individual agents that need precise control flow.</p>
+<pre class="mermaid">graph TD
+    A[CrewAI Crew] --&gt; B[Agent 1: Simple]
+    A --&gt; C[Agent 2: LangGraph Subgraph]
+    C --&gt; D[Node 1]
+    C --&gt; E[Node 2]
+    D --&gt; F[Conditional]
+    E --&gt; F
+  </pre>
+
+<h2 id="performance-considerations">Performance Considerations</h2>
+<p>Both frameworks add overhead compared to direct LLM calls:</p>
+<ul>
+<li><strong>CrewAI:</strong> More abstraction layers, slightly higher latency</li>
+<li><strong>LangGraph:</strong> Minimal overhead, close to raw performance</li>
+</ul>
+<p>For most applications, this difference is negligible compared to LLM response times.</p>
+<hr>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Copy this prompt into your AI coding agent to build this project:</p>
+<pre tabindex="0"><code>Build the same research assistant workflow in both CrewAI and LangGraph:
+1. A Researcher agent that finds 3 key facts about a topic
+2. A Writer agent that summarizes the research into 100 words
+
+For CrewAI: Use Agent, Task, and Crew classes with context dependencies.
+For LangGraph: Use StateGraph with TypedDict state, node functions, and edges.
+
+Compare the two implementations side by side. Test both with the topic
+&#34;quantum computing&#34; and show the output from each framework.
+</code></pre>
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent">Multi-Agent</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/crewai">CrewAI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/langgraph">LangGraph</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tutorial">Tutorial</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	const getMermaidTheme = () => {
+		const savedScheme = localStorage.getItem('scheme');
+		if (savedScheme) {
+			return savedScheme === 'dark' ? 'dark' : 'default';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	};
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: getMermaidTheme(),
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = getMermaidTheme();
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

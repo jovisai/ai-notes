@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building a Multi-Agent Travel Planner with Google ADK - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Building a Multi-Agent Travel Planner with Google ADK">
+  <meta itemprop="description" content="Create a travel planning system with specialized agents for flights, hotels, and activities using Google&#39;s Agent Development Kit.">
+  <meta itemprop="datePublished" content="2025-12-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1520">
+  <meta itemprop="keywords" content="Ai,Google ADK,Multi-Agent,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Building a Multi-Agent Travel Planner with Google ADK">
+  <meta property="og:description" content="Create a travel planning system with specialized agents for flights, hotels, and activities using Google&#39;s Agent Development Kit.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-28T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Google ADK">
+    <meta property="article:tag" content="Multi-Agent">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a Multi-Agent Travel Planner with Google ADK">
+  <meta name="twitter:description" content="Create a travel planning system with specialized agents for flights, hotels, and activities using Google&#39;s Agent Development Kit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Building a Multi-Agent Travel Planner with Google ADK</h1>
+        
+        <div class="date">
+            <span class="day">28</span>
+            <span class="rest">Dec 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>Google&rsquo;s Agent Development Kit (ADK) is a new framework for building AI agents that&rsquo;s optimized for Gemini but works with any LLM. Its standout feature is built-in support for multi-agent orchestration—agents that coordinate and delegate to other agents.</p>
+<p>In this article, we&rsquo;ll build a travel planner where a host agent delegates to specialized sub-agents for flights, hotels, and activities.</p>
+<h2 id="why-adk">Why ADK?</h2>
+<p>ADK brings several innovations:</p>
+<ul>
+<li><strong>Code-first development:</strong> Define agents in Python, not YAML or JSON</li>
+<li><strong>Multi-agent by design:</strong> Built-in patterns for parallel, sequential, and hierarchical agents</li>
+<li><strong>Model-agnostic:</strong> Works with Gemini, GPT-4, Claude, and others via LiteLLM</li>
+<li><strong>Real-time support:</strong> Bidirectional audio/video streaming built-in</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<pre class="mermaid">graph TD
+    A[User Request] --&gt; B[Travel Host Agent]
+    B --&gt; C[Flight Agent]
+    B --&gt; D[Hotel Agent]
+    B --&gt; E[Activity Agent]
+    C --&gt; F[Flight Options]
+    D --&gt; G[Hotel Options]
+    E --&gt; H[Activity Options]
+    F --&gt; I[Final Itinerary]
+    G --&gt; I
+    H --&gt; I
+  </pre>
+
+<p>The host agent receives the travel request and delegates to specialists:</p>
+<ul>
+<li><strong>Flight Agent:</strong> Searches for flights based on dates and destination</li>
+<li><strong>Hotel Agent:</strong> Finds accommodations matching the trip parameters</li>
+<li><strong>Activity Agent:</strong> Suggests activities and attractions</li>
+</ul>
+<h2 id="setting-up">Setting Up</h2>
+<p>Install ADK:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install google-adk
+</span></span></code></pre></div><p>Set up your API key in a <code>.env</code> file:</p>
+<pre tabindex="0"><code>GOOGLE_API_KEY=your_api_key_here
+</code></pre><h2 id="project-structure">Project Structure</h2>
+<pre tabindex="0"><code>travel_planner/
+├── __init__.py
+├── agent.py          # Host agent
+├── flight_agent.py   # Flight specialist
+├── hotel_agent.py    # Hotel specialist
+├── activity_agent.py # Activity specialist
+└── tools.py          # Shared tool definitions
+</code></pre><h2 id="defining-tools">Defining Tools</h2>
+<p>First, let&rsquo;s create the tools our agents will use:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># tools.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">search_flights</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    origin<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    destination<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    departure_date<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    return_date<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Search for available flights.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        origin: Departure airport code (e.g., &#39;SFO&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        destination: Arrival airport code (e.g., &#39;NRT&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        departure_date: Departure date (YYYY-MM-DD)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        return_date: Return date (YYYY-MM-DD)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Dictionary with flight options
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># In production, call a flight API</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;success&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;flights&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;airline&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;United&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;flight&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;UA837&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;departure&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>departure_date<span style="color:#0a3069">}</span><span style="color:#0a3069"> 10:30&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;arrival&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>departure_date<span style="color:#0a3069">}</span><span style="color:#0a3069"> 14:45+1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1250</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;airline&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;JAL&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;flight&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;JL001&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;departure&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>departure_date<span style="color:#0a3069">}</span><span style="color:#0a3069"> 13:00&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;arrival&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>departure_date<span style="color:#0a3069">}</span><span style="color:#0a3069"> 17:30+1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1480</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">search_hotels</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    city<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    check_in<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    check_out<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    guests<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Search for available hotels.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        city: Destination city
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        check_in: Check-in date (YYYY-MM-DD)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        check_out: Check-out date (YYYY-MM-DD)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        guests: Number of guests
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Dictionary with hotel options
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;success&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;hotels&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Park Hyatt Tokyo&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;location&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Shinjuku&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price_per_night&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">650</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;rating&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4.8</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Aman Tokyo&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;location&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Otemachi&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price_per_night&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1200</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;rating&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4.9</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">search_activities</span><span style="color:#1f2328">(</span>city<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> interests<span style="color:#1f2328">:</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">])</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Search for activities and attractions.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        city: Destination city
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        interests: List of interest categories
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Dictionary with activity suggestions
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;success&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;activities&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Senso-ji Temple&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;category&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;cultural&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;duration&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;2 hours&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;TeamLab Borderless&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;category&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;art&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;duration&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;3 hours&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">35</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Tsukiji Outer Market Food Tour&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;category&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;food&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;duration&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;4 hours&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;price&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">120</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h2 id="creating-specialist-agents">Creating Specialist Agents</h2>
+<p>Each specialist agent focuses on one domain:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># flight_agent.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.agents</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">tools</span> <span style="color:#cf222e">import</span> search_flights
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flight_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;flight_agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gemini-2.0-flash&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Specialist agent for finding and comparing flights.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instruction<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a flight booking specialist.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    When given origin, destination, and dates:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    1. Search for available flights using the search_flights tool
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    2. Compare options by price, duration, and convenience
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    3. Recommend the best option with clear reasoning
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Always present prices in USD and include total travel time.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>search_flights<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># hotel_agent.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.agents</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">tools</span> <span style="color:#cf222e">import</span> search_hotels
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hotel_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;hotel_agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gemini-2.0-flash&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Specialist agent for finding accommodations.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instruction<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a hotel booking specialist.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    When given a city and dates:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    1. Search for available hotels using the search_hotels tool
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    2. Consider location, price, and ratings
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    3. Recommend options for different budgets
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Highlight proximity to major attractions and transport.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>search_hotels<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># activity_agent.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.agents</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">tools</span> <span style="color:#cf222e">import</span> search_activities
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>activity_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;activity_agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gemini-2.0-flash&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Specialist agent for finding activities and attractions.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instruction<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a local activities expert.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    When given a destination and interests:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    1. Search for activities using the search_activities tool
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    2. Group suggestions by category
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    3. Create a day-by-day suggested itinerary
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Consider timing, logistics, and traveler energy levels.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>search_activities<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="the-host-agent">The Host Agent</h2>
+<p>The host agent orchestrates the specialists. ADK supports hierarchical agent structures where a parent agent can delegate to sub-agents:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># agent.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.agents</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">flight_agent</span> <span style="color:#cf222e">import</span> flight_agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">hotel_agent</span> <span style="color:#cf222e">import</span> hotel_agent
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">activity_agent</span> <span style="color:#cf222e">import</span> activity_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>root_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;travel_planner&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gemini-2.0-flash&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    description<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;A comprehensive travel planning assistant.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    instruction<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&#34;&#34;You are a travel planning coordinator.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    When a user requests a trip:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    1. Extract key details: destination, dates, interests, budget
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    2. Delegate to flight_agent for transportation options
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    3. Delegate to hotel_agent for accommodation options
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    4. Delegate to activity_agent for things to do
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    5. Synthesize everything into a cohesive itinerary
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Present the final plan with:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Flight details and cost
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Hotel recommendation and cost
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Day-by-day activity schedule
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    - Total estimated budget
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Ask clarifying questions if needed.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    sub_agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>flight_agent<span style="color:#1f2328">,</span> hotel_agent<span style="color:#1f2328">,</span> activity_agent<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="running-the-planner">Running the Planner</h2>
+<p>ADK provides multiple ways to run your agent:</p>
+<h3 id="command-line">Command Line</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adk run travel_planner
+</span></span></code></pre></div><p>This starts an interactive chat where you can type requests like:</p>
+<blockquote>
+<p>&ldquo;Plan a 5-day trip to Tokyo from San Francisco, departing March 15th. I&rsquo;m interested in food, temples, and modern art.&rdquo;</p></blockquote>
+<h3 id="web-interface">Web Interface</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adk web --port <span style="color:#0550ae">8000</span>
+</span></span></code></pre></div><p>This launches a browser-based UI with conversation history and debugging tools.</p>
+<h3 id="programmatic-usage">Programmatic Usage</h3>
+<p>For programmatic usage, ADK provides a Runner class. Here&rsquo;s a basic example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">asyncio</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.runners</span> <span style="color:#cf222e">import</span> Runner
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.sessions</span> <span style="color:#cf222e">import</span> InMemorySessionService
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">agent</span> <span style="color:#cf222e">import</span> root_agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">async</span> <span style="color:#cf222e">def</span> <span style="color:#6639ba">plan_trip</span><span style="color:#1f2328">(</span>request<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Run the travel planner agent programmatically.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Create session service and runner</span>
+</span></span><span style="display:flex;"><span>    session_service <span style="color:#0550ae">=</span> InMemorySessionService<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    runner <span style="color:#0550ae">=</span> Runner<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        agent<span style="color:#0550ae">=</span>root_agent<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        app_name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;travel_planner&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        session_service<span style="color:#0550ae">=</span>session_service
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Create a session</span>
+</span></span><span style="display:flex;"><span>    session <span style="color:#0550ae">=</span> <span style="color:#cf222e">await</span> session_service<span style="color:#0550ae">.</span>create_session<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        app_name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;travel_planner&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        user_id<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user1&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Run the agent and collect response</span>
+</span></span><span style="display:flex;"><span>    response_text <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">async</span> <span style="color:#cf222e">for</span> event <span style="color:#0550ae">in</span> runner<span style="color:#0550ae">.</span>run_async<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        user_id<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;user1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        session_id<span style="color:#0550ae">=</span>session<span style="color:#0550ae">.</span>id<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        new_message<span style="color:#0550ae">=</span>request
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#6639ba">hasattr</span><span style="color:#1f2328">(</span>event<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;text&#39;</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            response_text <span style="color:#0550ae">+=</span> event<span style="color:#0550ae">.</span>text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> response_text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Example</span>
+</span></span><span style="display:flex;"><span>request <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Plan a 5-day trip to Tokyo from San Francisco.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Dates: March 15-20, 2026
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Budget: $5000
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Interests: Japanese cuisine, temples, anime culture
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>response <span style="color:#0550ae">=</span> asyncio<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>plan_trip<span style="color:#1f2328">(</span>request<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>response<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>For most use cases, the CLI is simpler:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adk run travel_planner
+</span></span></code></pre></div><h2 id="agent-communication">Agent Communication</h2>
+<p>ADK handles agent-to-agent communication automatically. When the host agent decides to consult the flight agent, it:</p>
+<ol>
+<li>Formats the delegation request</li>
+<li>Passes relevant context (dates, origin, destination)</li>
+<li>Receives the flight agent&rsquo;s response</li>
+<li>Incorporates it into the overall plan</li>
+</ol>
+<p>You can observe this in the web UI, which shows the full message flow between agents.</p>
+<h2 id="parallel-vs-sequential-execution">Parallel vs Sequential Execution</h2>
+<p>By default, ADK can run sub-agents in parallel when they don&rsquo;t depend on each other. In our travel planner:</p>
+<ul>
+<li>Flight, hotel, and activity searches can run in parallel</li>
+<li>The final itinerary synthesis happens after all searches complete</li>
+</ul>
+<pre class="mermaid">gantt
+    title Agent Execution Timeline
+    dateFormat X
+    axisFormat %s
+
+    section Parallel
+    Flight Search    :0, 2
+    Hotel Search     :0, 2
+    Activity Search  :0, 3
+
+    section Sequential
+    Synthesize Plan  :3, 4
+  </pre>
+
+<h2 id="error-handling">Error Handling</h2>
+<p>ADK tools should include error handling in the function implementation. Return structured error responses so the agent can inform the user:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.agents</span> <span style="color:#cf222e">import</span> Agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">search_flights_safe</span><span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    origin<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    destination<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    departure_date<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    return_date<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Search for flights with error handling.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        origin: Departure airport code
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        destination: Arrival airport code
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        departure_date: Departure date (YYYY-MM-DD)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        return_date: Return date (YYYY-MM-DD)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Dictionary with flight options or error message
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">try</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Call the actual flight search</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> search_flights<span style="color:#1f2328">(</span>origin<span style="color:#1f2328">,</span> destination<span style="color:#1f2328">,</span> departure_date<span style="color:#1f2328">,</span> return_date<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">except</span> Exception <span style="color:#cf222e">as</span> e<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;error&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;message&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Could not search flights: </span><span style="color:#0a3069">{</span><span style="color:#6639ba">str</span><span style="color:#1f2328">(</span>e<span style="color:#1f2328">)</span><span style="color:#0a3069">}</span><span style="color:#0a3069">. Please try different dates.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flight_agent <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;flight_agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gemini-2.0-flash&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    tools<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>search_flights_safe<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    instruction<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You are a flight specialist. If a search fails, explain the error to the user.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="adding-memory">Adding Memory</h2>
+<p>ADK manages session state through the Runner. For persistent memory across sessions, use a session service:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.runners</span> <span style="color:#cf222e">import</span> Runner
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">google.adk.sessions</span> <span style="color:#cf222e">import</span> InMemorySessionService
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a session service for persistence</span>
+</span></span><span style="display:flex;"><span>session_service <span style="color:#0550ae">=</span> InMemorySessionService<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>runner <span style="color:#0550ae">=</span> Runner<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    agent<span style="color:#0550ae">=</span>root_agent<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    app_name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;travel_planner&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    session_service<span style="color:#0550ae">=</span>session_service
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Sessions persist across runs with the same user_id/session_id</span>
+</span></span></code></pre></div><p>For production, use a database-backed session service to persist conversations.</p>
+<h2 id="deployment">Deployment</h2>
+<p>ADK agents can be deployed to Google Cloud&rsquo;s Vertex AI Agent Engine:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>adk deploy --project my-project --region us-central1
+</span></span></code></pre></div><p>This gives you:</p>
+<ul>
+<li>Managed scaling</li>
+<li>Built-in monitoring</li>
+<li>API endpoints for integration</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s Next</h2>
+<p>This travel planner can be extended with:</p>
+<ul>
+<li><strong>Real API integrations:</strong> Connect to Amadeus, Booking.com, Viator</li>
+<li><strong>Budget optimization:</strong> Agent that finds the best value combinations</li>
+<li><strong>Calendar integration:</strong> Sync with Google Calendar</li>
+<li><strong>Real-time updates:</strong> Flight delay notifications</li>
+</ul>
+<p>Google ADK simplifies multi-agent development by handling the orchestration complexity. You focus on defining what each agent does; ADK handles how they work together.</p>
+<hr>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Copy this prompt into your AI coding agent to build this project:</p>
+<pre tabindex="0"><code>Build a multi-agent travel planner using Google ADK. Create:
+1. A FlightAgent that searches for flights given origin, destination, and dates
+2. A HotelAgent that finds accommodations matching trip parameters
+3. An ActivityAgent that suggests activities based on interests
+4. A root TravelPlanner agent that coordinates the specialists
+
+Use google-adk with the Agent class. Define tools for each specialist agent.
+The host agent should delegate to sub-agents and synthesize a complete itinerary
+with flights, hotel, activities, and total budget. Include mock data for testing.
+</code></pre>
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/google-adk">Google ADK</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent">Multi-Agent</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tutorial">Tutorial</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	const getMermaidTheme = () => {
+		const savedScheme = localStorage.getItem('scheme');
+		if (savedScheme) {
+			return savedScheme === 'dark' ? 'dark' : 'default';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	};
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: getMermaidTheme(),
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = getMermaidTheme();
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

@@ -4,13 +4,7 @@ date: 2025-07-06T10:00:00+05:30
 description: "About Muthu Krishnan - Software Engineer and AI Enthusiast"
 ---
 
-# About Me
-
-Hello! I'm **Muthu Krishnan**, an Engineering Manager at Sanas.ai with over 15 years of experience building scalable SaaS applications. I'm passionate about the intersection of AI, software engineering, and innovative technology.
-
-## Professional Background
-
-Currently working as a Engineering Manager at Sanas.ai, I specialize in developing robust, scalable software solutions with a focus on AI and machine learning technologies. My expertise spans across multiple programming languages and technologies, with particular strength in Java, C++, and AI systems.
+Hello! I'm **Muthu Krishnan**, An AI Agents builder at Sanas.ai building a team of AI Agents which automate many of our core workflows as Sanas.ai . I have over 16 years of experience building scalable SaaS applications. I'm passionate about the intersection of AI, software engineering, and innovative technology. I specialize in developing robust, scalable software solutions with a focus on AI and machine learning technologies. My expertise spans across multiple programming languages and technologies, with particular strength in Java, Python, and AI systems.
 
 ## Technical Interests
 

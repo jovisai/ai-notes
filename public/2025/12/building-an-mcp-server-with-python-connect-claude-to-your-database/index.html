@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building an MCP Server with Python: Connect Claude to Your Database - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Building an MCP Server with Python: Connect Claude to Your Database">
+  <meta itemprop="description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
+  <meta itemprop="datePublished" content="2025-12-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1053">
+  <meta itemprop="keywords" content="Ai,MCP,Python,Claude,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Building an MCP Server with Python: Connect Claude to Your Database">
+  <meta property="og:description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-20T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building an MCP Server with Python: Connect Claude to Your Database">
+  <meta name="twitter:description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Building an MCP Server with Python: Connect Claude to Your Database</h1>
+        
+        <div class="date">
+            <span class="day">20</span>
+            <span class="rest">Dec 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>The Model Context Protocol (MCP) is Anthropic&rsquo;s open standard for connecting AI applications to external data sources and tools. Think of it like a USB-C port for AI—a standardized way to plug any data source into Claude or other AI assistants.</p>
+<p>In this article, we&rsquo;ll build a practical MCP server that connects Claude to a SQLite database. By the end, you&rsquo;ll be able to ask Claude natural language questions about your data, and it will query the database directly.</p>
+<h2 id="what-is-mcp">What is MCP?</h2>
+<p>MCP consists of three main components:</p>
+<ul>
+<li><strong>Hosts:</strong> AI applications that initiate connections (like Claude Desktop)</li>
+<li><strong>Clients:</strong> Systems within the host that maintain connections to servers</li>
+<li><strong>Servers:</strong> Programs that expose tools, resources, and prompts to the AI</li>
+</ul>
+<pre class="mermaid">graph LR
+    A[Claude Desktop] --&gt;|MCP Protocol| B[Your MCP Server]
+    B --&gt;|SQL| C[(SQLite DB)]
+  </pre>
+
+<p>The magic happens in the server. You define tools using Python functions, and the MCP SDK automatically makes them available to Claude.</p>
+<h2 id="setting-up-the-project">Setting Up the Project</h2>
+<p>First, create a new project and install dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir mcp-database-server
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> mcp-database-server
+</span></span><span style="display:flex;"><span>python -m venv venv
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">source</span> venv/bin/activate  <span style="color:#57606a"># On Windows: venv\Scripts\activate</span>
+</span></span><span style="display:flex;"><span>pip install mcp httpx
+</span></span></code></pre></div><h2 id="building-the-database-server">Building the Database Server</h2>
+<p>Let&rsquo;s build an MCP server that exposes three tools:</p>
+<ol>
+<li><code>list_tables</code> - Show available tables</li>
+<li><code>describe_table</code> - Get a table&rsquo;s schema</li>
+<li><code>run_query</code> - Execute read-only SQL queries</li>
+</ol>
+<h3 id="the-complete-server">The Complete Server</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># database_server.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">mcp.server.fastmcp</span> <span style="color:#cf222e">import</span> FastMCP
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">sqlite3</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">json</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize FastMCP server</span>
+</span></span><span style="display:flex;"><span>mcp <span style="color:#0550ae">=</span> FastMCP<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;database-query&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Database path</span>
+</span></span><span style="display:flex;"><span>DB_PATH <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;data.db&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">init_db</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Initialize database with sample data.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    conn <span style="color:#0550ae">=</span> sqlite3<span style="color:#0550ae">.</span>connect<span style="color:#1f2328">(</span>DB_PATH<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    cursor <span style="color:#0550ae">=</span> conn<span style="color:#0550ae">.</span>cursor<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cursor<span style="color:#0550ae">.</span>execute<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        CREATE TABLE IF NOT EXISTS users (
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            id INTEGER PRIMARY KEY,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            name TEXT NOT NULL,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            email TEXT NOT NULL,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            created_at TEXT DEFAULT CURRENT_TIMESTAMP
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        )
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cursor<span style="color:#0550ae">.</span>execute<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        CREATE TABLE IF NOT EXISTS orders (
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            id INTEGER PRIMARY KEY,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            user_id INTEGER,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            product TEXT NOT NULL,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            amount REAL NOT NULL,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">            FOREIGN KEY (user_id) REFERENCES users (id)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        )
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Insert sample data if empty</span>
+</span></span><span style="display:flex;"><span>    cursor<span style="color:#0550ae">.</span>execute<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;SELECT COUNT(*) FROM users&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> cursor<span style="color:#0550ae">.</span>fetchone<span style="color:#1f2328">()[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        cursor<span style="color:#0550ae">.</span>executemany<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;INSERT INTO users (name, email) VALUES (?, ?)&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Alice Johnson&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;alice@example.com&#34;</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Bob Smith&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;bob@example.com&#34;</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Carol White&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;carol@example.com&#34;</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        cursor<span style="color:#0550ae">.</span>executemany<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;INSERT INTO orders (user_id, product, amount) VALUES (?, ?, ?)&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Widget A&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">29.99</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Widget B&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">49.99</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0550ae">2</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Gadget X&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">199.99</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Widget A&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">29.99</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">(</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Service Plan&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">99.99</span><span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#0550ae">.</span>commit<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#0550ae">.</span>close<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@mcp.tool</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">list_tables</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;List all tables in the database.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Returns a list of table names available for querying.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    conn <span style="color:#0550ae">=</span> sqlite3<span style="color:#0550ae">.</span>connect<span style="color:#1f2328">(</span>DB_PATH<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    cursor <span style="color:#0550ae">=</span> conn<span style="color:#0550ae">.</span>cursor<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cursor<span style="color:#0550ae">.</span>execute<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    tables <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>row<span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#cf222e">for</span> row <span style="color:#0550ae">in</span> cursor<span style="color:#0550ae">.</span>fetchall<span style="color:#1f2328">()]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#0550ae">.</span>close<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> json<span style="color:#0550ae">.</span>dumps<span style="color:#1f2328">({</span><span style="color:#0a3069">&#34;tables&#34;</span><span style="color:#1f2328">:</span> tables<span style="color:#1f2328">},</span> indent<span style="color:#0550ae">=</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@mcp.tool</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">describe_table</span><span style="color:#1f2328">(</span>table_name<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Get the schema of a specific table.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        table_name: Name of the table to describe
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    conn <span style="color:#0550ae">=</span> sqlite3<span style="color:#0550ae">.</span>connect<span style="color:#1f2328">(</span>DB_PATH<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    cursor <span style="color:#0550ae">=</span> conn<span style="color:#0550ae">.</span>cursor<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cursor<span style="color:#0550ae">.</span>execute<span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;PRAGMA table_info(</span><span style="color:#0a3069">{</span>table_name<span style="color:#0a3069">}</span><span style="color:#0a3069">)&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    columns <span style="color:#0550ae">=</span> cursor<span style="color:#0550ae">.</span>fetchall<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> columns<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        conn<span style="color:#0550ae">.</span>close<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Table &#39;</span><span style="color:#0a3069">{</span>table_name<span style="color:#0a3069">}</span><span style="color:#0a3069">&#39; not found.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    schema <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> col<span style="color:#1f2328">[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;type&#34;</span><span style="color:#1f2328">:</span> col<span style="color:#1f2328">[</span><span style="color:#0550ae">2</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;nullable&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">not</span> col<span style="color:#1f2328">[</span><span style="color:#0550ae">3</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;primary_key&#34;</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">bool</span><span style="color:#1f2328">(</span>col<span style="color:#1f2328">[</span><span style="color:#0550ae">5</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> col <span style="color:#0550ae">in</span> columns
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#0550ae">.</span>close<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> json<span style="color:#0550ae">.</span>dumps<span style="color:#1f2328">({</span><span style="color:#0a3069">&#34;table&#34;</span><span style="color:#1f2328">:</span> table_name<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;columns&#34;</span><span style="color:#1f2328">:</span> schema<span style="color:#1f2328">},</span> indent<span style="color:#0550ae">=</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@mcp.tool</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">run_query</span><span style="color:#1f2328">(</span>sql<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Execute a read-only SQL query on the database.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        sql: The SQL query to execute (SELECT statements only)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Security: Only allow SELECT statements</span>
+</span></span><span style="display:flex;"><span>    sql_upper <span style="color:#0550ae">=</span> sql<span style="color:#0550ae">.</span>strip<span style="color:#1f2328">()</span><span style="color:#0550ae">.</span>upper<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> sql_upper<span style="color:#0550ae">.</span>startswith<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;SELECT&#34;</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;Error: Only SELECT queries are allowed for safety.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    conn <span style="color:#0550ae">=</span> sqlite3<span style="color:#0550ae">.</span>connect<span style="color:#1f2328">(</span>DB_PATH<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    cursor <span style="color:#0550ae">=</span> conn<span style="color:#0550ae">.</span>cursor<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">try</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        cursor<span style="color:#0550ae">.</span>execute<span style="color:#1f2328">(</span>sql<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        columns <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>desc<span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span> <span style="color:#cf222e">for</span> desc <span style="color:#0550ae">in</span> cursor<span style="color:#0550ae">.</span>description<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        rows <span style="color:#0550ae">=</span> cursor<span style="color:#0550ae">.</span>fetchall<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        results <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span><span style="color:#6639ba">dict</span><span style="color:#1f2328">(</span><span style="color:#6639ba">zip</span><span style="color:#1f2328">(</span>columns<span style="color:#1f2328">,</span> row<span style="color:#1f2328">))</span> <span style="color:#cf222e">for</span> row <span style="color:#0550ae">in</span> rows<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        conn<span style="color:#0550ae">.</span>close<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> json<span style="color:#0550ae">.</span>dumps<span style="color:#1f2328">({</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;columns&#34;</span><span style="color:#1f2328">:</span> columns<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;rows&#34;</span><span style="color:#1f2328">:</span> results<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;count&#34;</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>results<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">},</span> indent<span style="color:#0550ae">=</span><span style="color:#0550ae">2</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">except</span> sqlite3<span style="color:#0550ae">.</span>Error <span style="color:#cf222e">as</span> e<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        conn<span style="color:#0550ae">.</span>close<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;SQL Error: </span><span style="color:#0a3069">{</span><span style="color:#6639ba">str</span><span style="color:#1f2328">(</span>e<span style="color:#1f2328">)</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize database on import</span>
+</span></span><span style="display:flex;"><span>init_db<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#953800">__name__</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;__main__&#34;</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    mcp<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>transport<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;stdio&#34;</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h3 id="how-it-works">How It Works</h3>
+<p>The <code>@mcp.tool()</code> decorator is the key. It automatically:</p>
+<ul>
+<li>Converts your function into an MCP tool</li>
+<li>Uses the docstring as the tool description</li>
+<li>Extracts parameter types from type hints</li>
+<li>Generates the JSON schema Claude needs</li>
+</ul>
+<p>When Claude receives access to this server, it sees three tools it can call. If a user asks &ldquo;What tables are in the database?&rdquo;, Claude will call <code>list_tables()</code> and return the result.</p>
+<h2 id="connecting-to-claude-desktop">Connecting to Claude Desktop</h2>
+<p>Create a configuration file to tell Claude Desktop about your server:</p>
+<p><strong>macOS:</strong> <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>
+<strong>Windows:</strong> <code>%APPDATA%\Claude\claude_desktop_config.json</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;mcpServers&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;database&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;python&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;args&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;/full/path/to/database_server.py&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;env&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><p>Restart Claude Desktop, and you&rsquo;ll see the tools icon appear in the chat interface.</p>
+<h2 id="testing-the-server-locally">Testing the Server Locally</h2>
+<p>Before connecting to Claude, test your tools directly:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># test_server.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">database_server</span> <span style="color:#cf222e">import</span> list_tables<span style="color:#1f2328">,</span> describe_table<span style="color:#1f2328">,</span> run_query
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Tables:&#34;</span><span style="color:#1f2328">,</span> list_tables<span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">Users schema:&#34;</span><span style="color:#1f2328">,</span> describe_table<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;users&#34;</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">Query results:&#34;</span><span style="color:#1f2328">,</span> run_query<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;SELECT u.name, o.product, o.amount &#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;FROM users u JOIN orders o ON u.id = o.user_id&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">))</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;columns&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;product&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;amount&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;rows&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0550ae">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Alice Johnson&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&#34;product&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Widget A&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&#34;amount&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">29.99</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0550ae">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Alice Johnson&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&#34;product&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Widget B&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&#34;amount&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">49.99</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0550ae">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Bob Smith&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&#34;product&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Gadget X&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">&#34;amount&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">199.99</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;count&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h2 id="example-conversations">Example Conversations</h2>
+<p>Once connected, you can have natural conversations with Claude about your data:</p>
+<p><strong>User:</strong> &ldquo;Who are the top customers by total spending?&rdquo;</p>
+<p><strong>Claude:</strong> <em>Calls <code>run_query</code> with:</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#cf222e">SELECT</span><span style="color:#fff"> </span>u<span style="color:#1f2328">.</span>name<span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">SUM</span><span style="color:#1f2328">(</span>o<span style="color:#1f2328">.</span>amount<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">as</span><span style="color:#fff"> </span>total<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">FROM</span><span style="color:#fff"> </span>users<span style="color:#fff"> </span>u<span style="color:#fff"> </span><span style="color:#cf222e">JOIN</span><span style="color:#fff"> </span>orders<span style="color:#fff"> </span>o<span style="color:#fff"> </span><span style="color:#cf222e">ON</span><span style="color:#fff"> </span>u<span style="color:#1f2328">.</span>id<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span>o<span style="color:#1f2328">.</span>user_id<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">GROUP</span><span style="color:#fff"> </span><span style="color:#cf222e">BY</span><span style="color:#fff"> </span>u<span style="color:#1f2328">.</span>id<span style="color:#fff"> </span><span style="color:#cf222e">ORDER</span><span style="color:#fff"> </span><span style="color:#cf222e">BY</span><span style="color:#fff"> </span>total<span style="color:#fff"> </span><span style="color:#cf222e">DESC</span><span style="color:#fff">
+</span></span></span></code></pre></div><p><strong>Claude:</strong> &ldquo;Based on the data, Bob Smith is your top customer with $199.99 in purchases, followed by Alice Johnson at $79.98.&rdquo;</p>
+<h2 id="security-considerations">Security Considerations</h2>
+<p>The example above includes a basic security measure—only allowing SELECT queries. For production use, consider:</p>
+<ul>
+<li><strong>Query whitelisting:</strong> Only allow specific query patterns</li>
+<li><strong>Row limits:</strong> Add <code>LIMIT</code> clauses to prevent large result sets</li>
+<li><strong>Authentication:</strong> Add API key validation</li>
+<li><strong>Logging:</strong> Track all queries for auditing</li>
+</ul>
+<h2 id="whats-next">What&rsquo;s Next</h2>
+<p>This basic server can be extended to:</p>
+<ul>
+<li>Support multiple databases (PostgreSQL, MySQL)</li>
+<li>Add write operations with confirmation prompts</li>
+<li>Include data visualization tools</li>
+<li>Provide natural language to SQL translation</li>
+</ul>
+<p>MCP opens up powerful possibilities for connecting AI to your data. The key is starting simple and iterating based on what your users actually need.</p>
+<hr>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Copy this prompt into your AI coding agent to build this project:</p>
+<pre tabindex="0"><code>Build an MCP server in Python that connects to a SQLite database. Include:
+1. A tool to list all tables in the database
+2. A tool to describe a table&#39;s schema
+3. A tool to run read-only SELECT queries
+
+Use the mcp package with FastMCP (@mcp.tool() decorator). Create a sample
+database with users and orders tables containing test data. Add security
+to only allow SELECT statements. Provide the Claude Desktop config JSON.
+</code></pre>
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/mcp">MCP</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/claude">Claude</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tutorial">Tutorial</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	const getMermaidTheme = () => {
+		const savedScheme = localStorage.getItem('scheme');
+		if (savedScheme) {
+			return savedScheme === 'dark' ? 'dark' : 'default';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	};
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: getMermaidTheme(),
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = getMermaidTheme();
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

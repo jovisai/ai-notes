@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building a Research Assistant with Windsurf&#39;s Cascade Agent - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Building a Research Assistant with Windsurf&#39;s Cascade Agent">
+  <meta itemprop="description" content="Learn how to leverage Windsurf&#39;s agentic Cascade feature to build applications faster with AI-assisted multi-file editing and debugging.">
+  <meta itemprop="datePublished" content="2025-12-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1258">
+  <meta itemprop="keywords" content="Ai,Windsurf,IDE,Coding Agent,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Building a Research Assistant with Windsurf&#39;s Cascade Agent">
+  <meta property="og:description" content="Learn how to leverage Windsurf&#39;s agentic Cascade feature to build applications faster with AI-assisted multi-file editing and debugging.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-30T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Windsurf">
+    <meta property="article:tag" content="IDE">
+    <meta property="article:tag" content="Coding Agent">
+    <meta property="article:tag" content="Tutorial">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a Research Assistant with Windsurf&#39;s Cascade Agent">
+  <meta name="twitter:description" content="Learn how to leverage Windsurf&#39;s agentic Cascade feature to build applications faster with AI-assisted multi-file editing and debugging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Building a Research Assistant with Windsurf&#39;s Cascade Agent</h1>
+        
+        <div class="date">
+            <span class="day">30</span>
+            <span class="rest">Dec 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>Windsurf is an AI-powered IDE that goes beyond code completion. Its Cascade feature is a full coding agent that understands your entire project, generates code across multiple files, runs commands, and debugs issues—all from natural language instructions.</p>
+<p>In this article, we&rsquo;ll use Windsurf to build a research assistant application, demonstrating how Cascade handles complex, multi-file development tasks.</p>
+<h2 id="what-makes-windsurf-different">What Makes Windsurf Different</h2>
+<p>Traditional AI coding tools like GitHub Copilot are reactive—they complete the line you&rsquo;re writing. Windsurf&rsquo;s Cascade is proactive:</p>
+<ul>
+<li><strong>Project awareness:</strong> Understands your entire codebase, not just the current file</li>
+<li><strong>Multi-file editing:</strong> Creates and modifies multiple files in a single operation</li>
+<li><strong>Command execution:</strong> Runs terminal commands, tests, and builds</li>
+<li><strong>Iterative debugging:</strong> Analyzes errors and fixes them automatically</li>
+</ul>
+<h2 id="setting-up-windsurf">Setting Up Windsurf</h2>
+<p>Download from <a href="https://windsurf.com">windsurf.com</a> and install. Windsurf is free for basic use, with a Pro tier at $15/month for heavier usage.</p>
+<p>On first launch:</p>
+<ol>
+<li>Sign in with GitHub or email</li>
+<li>Open your project folder</li>
+<li>Press <code>Cmd+L</code> (Mac) or <code>Ctrl+L</code> (Windows/Linux) to open Cascade</li>
+</ol>
+<h2 id="building-the-research-assistant">Building the Research Assistant</h2>
+<p>We&rsquo;ll build a CLI research assistant that:</p>
+<ul>
+<li>Takes a research topic as input</li>
+<li>Searches the web for information</li>
+<li>Summarizes findings with sources</li>
+<li>Saves results to markdown</li>
+</ul>
+<h3 id="step-1-project-setup">Step 1: Project Setup</h3>
+<p>Open Cascade and type:</p>
+<pre tabindex="0"><code>Create a Python project structure for a research assistant CLI.
+Include:
+- src/research_assistant/main.py (entry point)
+- src/research_assistant/search.py (web search module)
+- src/research_assistant/summarizer.py (content summarization)
+- src/research_assistant/utils.py (helper functions)
+- requirements.txt
+- README.md
+
+Use click for the CLI framework.
+</code></pre><p>Cascade will:</p>
+<ol>
+<li>Create all the files and folders</li>
+<li>Set up the package structure with <code>__init__.py</code> files</li>
+<li>Add proper imports between modules</li>
+<li>Generate a <code>requirements.txt</code> with dependencies</li>
+</ol>
+<p>You&rsquo;ll see the changes appear in your editor, with a diff view showing what&rsquo;s being created.</p>
+<h3 id="step-2-implementing-web-search">Step 2: Implementing Web Search</h3>
+<p>Continue the conversation:</p>
+<pre tabindex="0"><code>Implement the search.py module. It should:
+- Use the Tavily API for web search
+- Accept a query string and number of results
+- Return a list of SearchResult objects with title, url, and snippet
+- Handle rate limiting and errors gracefully
+
+Add the Tavily SDK to requirements.txt.
+</code></pre><p>Cascade generates something like:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># src/research_assistant/search.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">dataclasses</span> <span style="color:#cf222e">import</span> dataclass
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">tavily</span> <span style="color:#cf222e">import</span> TavilyClient
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">os</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">SearchResult</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    title<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    url<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    snippet<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    score<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">WebSearcher</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> api_key<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span> <span style="color:#0550ae">|</span> <span style="color:#cf222e">None</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">None</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>api_key <span style="color:#0550ae">=</span> api_key <span style="color:#0550ae">or</span> os<span style="color:#0550ae">.</span>getenv<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TAVILY_API_KEY&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>api_key<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">raise</span> ValueError<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TAVILY_API_KEY not set&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>client <span style="color:#0550ae">=</span> TavilyClient<span style="color:#1f2328">(</span>api_key<span style="color:#0550ae">=</span><span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>api_key<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">search</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> query<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> num_results<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span>SearchResult<span style="color:#1f2328">]:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">try</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            response <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>client<span style="color:#0550ae">.</span>search<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                query<span style="color:#0550ae">=</span>query<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                max_results<span style="color:#0550ae">=</span>num_results<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                include_answer<span style="color:#0550ae">=</span><span style="color:#cf222e">False</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>                SearchResult<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                    title<span style="color:#0550ae">=</span>r<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;title&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>                    url<span style="color:#0550ae">=</span>r<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;url&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>                    snippet<span style="color:#0550ae">=</span>r<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">][:</span><span style="color:#0550ae">500</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>                    score<span style="color:#0550ae">=</span>r<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;score&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0.0</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">for</span> r <span style="color:#0550ae">in</span> response<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;results&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">except</span> Exception <span style="color:#cf222e">as</span> e<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Search error: </span><span style="color:#0a3069">{</span>e<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#1f2328">[]</span>
+</span></span></code></pre></div><h3 id="step-3-building-the-summarizer">Step 3: Building the Summarizer</h3>
+<pre tabindex="0"><code>Now implement summarizer.py. It should:
+- Use OpenAI&#39;s API to summarize web content
+- Take a list of SearchResults and create a coherent summary
+- Include inline citations like [1], [2]
+- Return both the summary and a list of sources
+
+Make it async for better performance.
+</code></pre><p>Cascade writes the summarizer and updates the imports.</p>
+<h3 id="step-4-wiring-it-together">Step 4: Wiring It Together</h3>
+<pre tabindex="0"><code>Update main.py to:
+- Parse CLI arguments using click (topic, output file, num sources)
+- Call the searcher and summarizer
+- Save output as markdown with a sources section
+- Show a progress spinner during search/summarize
+
+Also add a --verbose flag for debugging.
+</code></pre><h3 id="step-5-testing-and-debugging">Step 5: Testing and Debugging</h3>
+<p>Here&rsquo;s where Cascade shines. Ask it to run the code:</p>
+<pre tabindex="0"><code>Run the research assistant with the topic &#34;quantum computing breakthroughs 2025&#34;
+</code></pre><p>Cascade executes the command in the terminal. If there&rsquo;s an error:</p>
+<pre tabindex="0"><code>Error: ModuleNotFoundError: No module named &#39;tavily&#39;
+</code></pre><p>Cascade automatically:</p>
+<ol>
+<li>Identifies the missing dependency</li>
+<li>Runs <code>pip install tavily-python</code></li>
+<li>Re-runs the command</li>
+</ol>
+<p>If there&rsquo;s a code error, it analyzes the traceback and fixes it:</p>
+<pre tabindex="0"><code>I see an AttributeError in summarizer.py line 45. The OpenAI client
+expects &#39;messages&#39; not &#39;prompt&#39;. Let me fix that.
+</code></pre><h3 id="step-6-refinement">Step 6: Refinement</h3>
+<p>Once basic functionality works, iterate:</p>
+<pre tabindex="0"><code>The summary is too long. Limit it to 300 words maximum.
+Also add a --format option to choose between markdown and plain text.
+</code></pre><pre tabindex="0"><code>Add error handling for when the API rate limit is hit.
+Implement exponential backoff with a maximum of 3 retries.
+</code></pre><pre tabindex="0"><code>Write unit tests for the search module using pytest.
+Mock the Tavily API responses.
+</code></pre><p>Cascade handles each request, modifying the appropriate files.</p>
+<h2 id="advanced-cascade-techniques">Advanced Cascade Techniques</h2>
+<h3 id="multi-step-tasks">Multi-Step Tasks</h3>
+<p>For complex tasks, break them into steps:</p>
+<pre tabindex="0"><code>I want to add a caching layer. Let&#39;s do this step by step:
+1. First, show me how you&#39;d structure the cache module
+2. Wait for my approval before implementing
+</code></pre><p>Cascade will outline the approach and wait for confirmation.</p>
+<h3 id="context-from-documentation">Context from Documentation</h3>
+<p>If you have API docs or specs:</p>
+<pre tabindex="0"><code>Here&#39;s the API specification for the data source:
+[paste OpenAPI spec or documentation]
+
+Implement a client module that covers all endpoints.
+</code></pre><h3 id="debugging-production-issues">Debugging Production Issues</h3>
+<p>Paste error logs directly:</p>
+<pre tabindex="0"><code>Users are reporting this error in production:
+
+KeyError: &#39;results&#39; in search.py line 28
+
+The query was &#34;AI safety research papers&#34;. Can you identify
+possible causes and fix it?
+</code></pre><p>Cascade analyzes the code path, identifies edge cases, and implements fixes.</p>
+<h2 id="tips-for-effective-cascade-usage">Tips for Effective Cascade Usage</h2>
+<h3 id="1-be-specific">1. Be Specific</h3>
+<p>Bad: &ldquo;Make the code better&rdquo;
+Good: &ldquo;Refactor the search function to use async/await and add retry logic&rdquo;</p>
+<h3 id="2-provide-context">2. Provide Context</h3>
+<pre tabindex="0"><code>This is a FastAPI backend that will be deployed on AWS Lambda.
+We need cold start times under 500ms. Generate the handler module
+with this constraint in mind.
+</code></pre><h3 id="3-review-before-accepting">3. Review Before Accepting</h3>
+<p>Cascade shows diffs before applying changes. Review them carefully—AI can introduce subtle bugs.</p>
+<h3 id="4-use-checkpoints">4. Use Checkpoints</h3>
+<p>Before major changes:</p>
+<pre tabindex="0"><code>Before we refactor the database layer, let me commit the current state.
+</code></pre><p>Then make a git commit as a restore point.</p>
+<h3 id="5-iterate-incrementally">5. Iterate Incrementally</h3>
+<p>Instead of one massive prompt, build up:</p>
+<pre tabindex="0"><code>Start with a minimal working version, then we&#39;ll add features.
+</code></pre><h2 id="limitations">Limitations</h2>
+<p>Cascade isn&rsquo;t magic:</p>
+<ul>
+<li><strong>Large codebases:</strong> Performance degrades on very large projects (100k+ lines)</li>
+<li><strong>Complex refactors:</strong> Major architectural changes still need human design</li>
+<li><strong>Framework quirks:</strong> May not know the latest framework versions</li>
+<li><strong>Testing gaps:</strong> Generated tests may miss edge cases</li>
+</ul>
+<p>Use Cascade as an accelerator, not a replacement for engineering judgment.</p>
+<h2 id="windsurf-vs-cursor-vs-cline">Windsurf vs Cursor vs Cline</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Windsurf</th>
+          <th>Cursor</th>
+          <th>Cline</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Project awareness</td>
+          <td>Full</td>
+          <td>Full</td>
+          <td>Full</td>
+      </tr>
+      <tr>
+          <td>Multi-file edits</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Command execution</td>
+          <td>Native</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Self-debugging</td>
+          <td>Yes</td>
+          <td>Partial</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Pricing</td>
+          <td>$15/mo</td>
+          <td>$20/mo</td>
+          <td>Free (BYOK)</td>
+      </tr>
+      <tr>
+          <td>Standalone IDE</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>VS Code extension</td>
+      </tr>
+  </tbody>
+</table>
+<p>Windsurf&rsquo;s edge is its polish—the UI is smoother, and the agent feels more coherent across long sessions.</p>
+<h2 id="what-we-built">What We Built</h2>
+<p>In about 30 minutes of Cascade interaction, we created:</p>
+<ul>
+<li>A complete Python CLI application</li>
+<li>Four modules with proper separation of concerns</li>
+<li>External API integrations (Tavily, OpenAI)</li>
+<li>Error handling and retry logic</li>
+<li>Unit tests with mocked dependencies</li>
+<li>Documentation</li>
+</ul>
+<p>The key insight: Cascade handles the boilerplate so you can focus on design decisions and edge cases.</p>
+<h2 id="whats-next">What&rsquo;s Next</h2>
+<p>As AI coding agents evolve, the developer role shifts from writing code to:</p>
+<ul>
+<li>Designing system architecture</li>
+<li>Reviewing and refining AI-generated code</li>
+<li>Handling edge cases the AI misses</li>
+<li>Ensuring security and performance</li>
+</ul>
+<p>Windsurf and tools like it are the beginning of this shift. The developers who thrive will be those who learn to collaborate effectively with their AI pair programmer.</p>
+<hr>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Copy this prompt into your AI coding agent to build this project:</p>
+<pre tabindex="0"><code>Build a research assistant CLI in Python that:
+1. Takes a research topic as input
+2. Searches the web using the Tavily API
+3. Summarizes findings using OpenAI with inline citations [1], [2]
+4. Saves results to markdown with a sources section
+
+Use click for CLI arguments, dataclasses for SearchResult objects, and async
+for the summarizer. Include error handling with retry logic. Structure the
+project with separate modules: main.py, search.py, summarizer.py, utils.py.
+</code></pre>
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/windsurf">Windsurf</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/ide">IDE</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/coding-agent">Coding Agent</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tutorial">Tutorial</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

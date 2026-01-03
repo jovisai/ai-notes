@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multi-Agent on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/multi-agent/</link>
+    <description>Recent content in Multi-Agent on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/multi-agent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework</title>
+      <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</guid>
+      <description>&lt;p&gt;OpenAI&amp;rsquo;s Swarm is an experimental framework for building multi-agent systems. Unlike heavier frameworks, Swarm is intentionally minimal—it adds just two concepts on top of the Chat Completions API: &lt;strong&gt;handoffs&lt;/strong&gt; and &lt;strong&gt;routines&lt;/strong&gt;. This makes it easy to understand and extend.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a customer service system where specialized agents hand off conversations to each other based on customer needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-swarm&#34;&gt;What is Swarm?&lt;/h2&gt;&#xA;&lt;p&gt;Swarm is OpenAI&amp;rsquo;s take on multi-agent orchestration. Key principles:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Multi-Agent Travel Planner with Google ADK</title>
+      <link>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</guid>
+      <description>&lt;p&gt;Google&amp;rsquo;s Agent Development Kit (ADK) is a new framework for building AI agents that&amp;rsquo;s optimized for Gemini but works with any LLM. Its standout feature is built-in support for multi-agent orchestration—agents that coordinate and delegate to other agents.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a travel planner where a host agent delegates to specialized sub-agents for flights, hotels, and activities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-adk&#34;&gt;Why ADK?&lt;/h2&gt;&#xA;&lt;p&gt;ADK brings several innovations:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Code-first development:&lt;/strong&gt; Define agents in Python, not YAML or JSON&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multi-agent by design:&lt;/strong&gt; Built-in patterns for parallel, sequential, and hierarchical agents&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Model-agnostic:&lt;/strong&gt; Works with Gemini, GPT-4, Claude, and others via LiteLLM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time support:&lt;/strong&gt; Bidirectional audio/video streaming built-in&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[User Request] --&amp;gt; B[Travel Host Agent]&#xA;    B --&amp;gt; C[Flight Agent]&#xA;    B --&amp;gt; D[Hotel Agent]&#xA;    B --&amp;gt; E[Activity Agent]&#xA;    C --&amp;gt; F[Flight Options]&#xA;    D --&amp;gt; G[Hotel Options]&#xA;    E --&amp;gt; H[Activity Options]&#xA;    F --&amp;gt; I[Final Itinerary]&#xA;    G --&amp;gt; I&#xA;    H --&amp;gt; I&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;The host agent receives the travel request and delegates to specialists:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Multi-Agent Code Review System with AutoGen</title>
+      <link>https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/</guid>
+      <description>&lt;p&gt;Code review is a perfect use case for multi-agent systems. Different aspects of code quality—security, style, logic, performance—require different expertise. Instead of one generalist reviewer, we can create a team of specialists.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a code review system using Microsoft&amp;rsquo;s AutoGen framework. Our team will have three specialized reviewers plus a coordinator that synthesizes their findings.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-architecture&#34;&gt;The Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[Code Input] --&amp;gt; B[Coordinator]&#xA;    B --&amp;gt; C[Security Reviewer]&#xA;    B --&amp;gt; D[Style Reviewer]&#xA;    B --&amp;gt; E[Logic Reviewer]&#xA;    C --&amp;gt; F[Final Report]&#xA;    D --&amp;gt; F&#xA;    E --&amp;gt; F&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Each reviewer focuses on their domain:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
+      <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

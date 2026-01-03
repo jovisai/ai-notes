@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Retrieval on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/retrieval/</link>
+    <description>Recent content in Retrieval on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/retrieval/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contextual RAG: Adding Context to Chunks for Better Retrieval</title>
+      <link>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</guid>
+      <description>&lt;p&gt;Standard RAG has a fundamental problem: chunks lose their context. When you split a document into pieces, each chunk becomes isolated. A sentence like &amp;ldquo;The company increased revenue by 15%&amp;rdquo; is meaningless without knowing which company, which year, and what the previous revenue was.&lt;/p&gt;&#xA;&lt;p&gt;Contextual RAG solves this by enriching each chunk with surrounding context before embedding. Anthropic&amp;rsquo;s research shows this technique can reduce retrieval failures by up to 67%.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

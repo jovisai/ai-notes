@@ -50,7 +50,3 @@ Despite the progress in agent communication, there are still many challenges to 
 *   **Scalability:** How do we build systems that can support millions or even billions of agents?
 
 Researchers are actively working on these challenges, exploring new communication-centric frameworks and more robust security models.
-
-## Conclusion
-
-Agent communication protocols are a critical piece of the puzzle for building the next generation of AI systems. By enabling agents to communicate and collaborate effectively, protocols like MCP, ACP, A2A, and ANP are paving the way for a future where intelligent systems can work together to solve some of the world’s most pressing problems. The road ahead is still long, but the progress so far is a promising sign of what’s to come.
