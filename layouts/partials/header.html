@@ -24,6 +24,7 @@
 	{{- template "_internal/twitter_cards.html" . -}}
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="{{ .Site.BaseURL }}css/print.css" />
 	{{- if isset .Site.Params "customcss" }}
 	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}{{ .Site.Params.customCSS }}" />
 	{{ end }}
