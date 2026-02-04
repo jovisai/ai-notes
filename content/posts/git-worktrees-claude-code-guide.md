@@ -20,6 +20,12 @@ date: 2026-02-02
 
 ---
 
+## Video Guide
+
+{{< youtube HrNtlJGvvqg >}}
+
+---
+
 ## 1. Introduction
 
 ### The Problem: Context Switching Kills Productivity
