@@ -20,10 +20,6 @@ date: 2026-02-02
 
 ---
 
-## Video Guide
-
-{{< youtube HrNtlJGvvqg >}}
-
 ---
 
 ## 1. Introduction
@@ -47,6 +43,8 @@ git stash pop
 This workflow is fragile, slow, and destroys the deep understanding Claude has built about your specific task.
 
 ### The Solution: Git Worktrees
+
+{{< youtube HrNtlJGvvqg >}}
 
 Git worktrees allow you to have **multiple working directories** attached to the same repository, each checked out to a different branch. Combined with Claude Code, this enables:
 

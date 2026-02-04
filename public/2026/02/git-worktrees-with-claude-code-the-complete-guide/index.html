@@ -5,13 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Git Worktrees with Claude Code: The Complete Guide - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="Git Worktrees with Claude Code: The Complete Guide">
-  <meta itemprop="description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples Video Guide 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
+  <meta itemprop="description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
   <meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
-  <meta itemprop="wordCount" content="3292"><meta property="og:url" content="https://notes.muthu.co/2026/02/git-worktrees-with-claude-code-the-complete-guide/">
+  <meta itemprop="wordCount" content="3290"><meta property="og:url" content="https://notes.muthu.co/2026/02/git-worktrees-with-claude-code-the-complete-guide/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="Git Worktrees with Claude Code: The Complete Guide">
-  <meta property="og:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples Video Guide 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
+  <meta property="og:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -20,7 +20,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Git Worktrees with Claude Code: The Complete Guide">
-  <meta name="twitter:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples Video Guide 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
+  <meta name="twitter:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
 <link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
@@ -110,11 +110,6 @@
 <li><a href="#12-real-world-examples">Real-World Examples</a></li>
 </ol>
 <hr>
-<h2 id="video-guide">Video Guide</h2>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HrNtlJGvvqg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-
 <hr>
 <h2 id="1-introduction">1. Introduction</h2>
 <h3 id="the-problem-context-switching-kills-productivity">The Problem: Context Switching Kills Productivity</h3>
@@ -130,6 +125,10 @@
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># wait for Claude to re-understand everything...</span>
 </span></span></code></pre></div><p>This workflow is fragile, slow, and destroys the deep understanding Claude has built about your specific task.</p>
 <h3 id="the-solution-git-worktrees">The Solution: Git Worktrees</h3>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HrNtlJGvvqg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
 <p>Git worktrees allow you to have <strong>multiple working directories</strong> attached to the same repository, each checked out to a different branch. Combined with Claude Code, this enables:</p>
 <ul>
 <li><strong>Parallel Claude sessions</strong> working on different tasks simultaneously</li>
