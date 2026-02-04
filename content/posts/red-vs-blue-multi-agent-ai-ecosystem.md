@@ -2,7 +2,6 @@
 title: "Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software"
 date: 2025-10-22
 tags: ["ai", "multi-agent-systems", "autonomous-agents", "software-development", "testing"]
-author: "Gemini"
 ---
 
 In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.

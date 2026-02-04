@@ -1,6 +1,6 @@
 ---
 title: "Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering"
-date: 2025-07-02T12:00:00+05:30
+date: 2025-07-02
 description: "How to prevent AI coding assistants from generating outdated or deprecated code by using real-time context engineering."
 tags: [AI, LLMs, Development, Coding, Context Engineering]
 ---

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Most Interesting AI Agent Design Pattern Right Now - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="The Most Interesting AI Agent Design Pattern Right Now">
+  <meta itemprop="description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
+This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.">
+  <meta itemprop="datePublished" content="2025-12-27T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-27T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1061"><meta property="og:url" content="https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="The Most Interesting AI Agent Design Pattern Right Now">
+  <meta property="og:description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
+This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-27T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Most Interesting AI Agent Design Pattern Right Now">
+  <meta name="twitter:description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
+This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.">
+<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">The Most Interesting AI Agent Design Pattern Right Now</h1>
+        
+        <div class="date">
+            <span class="day">27</span>
+            <span class="rest">Dec 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.</p>
+<p>This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.</p>
+<p>That single shift makes agents far more adaptive and useful for real-world tasks.</p>
+<hr>
+<h2 id="the-foundation-react">The Foundation: ReAct</h2>
+<p>To understand CodeAct, we first need to understand its predecessor, <strong>ReAct (Reason and Act)</strong>. The ReAct pattern enables an agent to reason about a task, choose a tool, act, and then observe the outcome before reasoning again.</p>
+<p>It works in a simple, powerful loop:</p>
+<ol>
+<li><strong>Reason</strong>: The agent thinks about the task and decides which tool to use.</li>
+<li><strong>Act</strong>: The agent uses the selected tool with the appropriate inputs.</li>
+<li><strong>Observe</strong>: The agent receives the output from the tool.</li>
+</ol>
+<p>This loop repeats until the task is complete. It&rsquo;s a reliable pattern but has one major limitation: what happens when the agent doesn&rsquo;t have the right tool for the job?</p>
+<pre class="mermaid">graph TD
+    A[Start] --&gt; B{Reason};
+    B --&gt; C[Select Tool];
+    C --&gt; D[Act];
+    D --&gt; E[Observe];
+    E --&gt; B;
+    E --&gt; F[Finish];
+  </pre>
+
+<hr>
+<h2 id="introducing-codeact-the-next-evolution">Introducing CodeAct: The Next Evolution</h2>
+<p><strong>CodeAct</strong> extends the ReAct pattern by adding a crucial new capability: if no existing tool fits the current step, the agent can write and execute a piece of code to solve that specific part of the problem. This generated code acts as a temporary, single-use tool.</p>
+<p>In simple terms, <strong>the agent can build what it needs, when it needs it.</strong></p>
+<p>This diagram shows how CodeAct creates a new path for the agent when it encounters a roadblock.</p>
+<pre class="mermaid">graph TD
+    A[Start Task] --&gt; B{Reason};
+    B --&gt; C{Tool Available?};
+    C -- Yes --&gt; D[Act with Tool];
+    D --&gt; E[Observe];
+    E --&gt; B;
+    C -- No --&gt; F(Write Code);
+    F --&gt; G(Execute Code in Sandbox);
+    G --&gt; H[Observe Code Output];
+    H --&gt; B;
+    E --&gt; I[Finish];
+    H --&gt; I;
+  </pre>
+
+<p>This adaptive problem-solving is what makes the pattern so powerful.</p>
+<hr>
+<h2 id="a-simple-codeact-loop-in-practice">A Simple CodeAct Loop in Practice</h2>
+<p>Let&rsquo;s look at how a CodeAct loop works, this time with a conceptual code example. Imagine an agent tasked with: <em>&ldquo;What is the total size of all .csv files in the current directory?&rdquo;</em></p>
+<p>The agent has a <code>list_files</code> tool but no tool to get file sizes.</p>
+<p>Here is a simplified Python-like implementation of how it might solve this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CodeActAgent</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> tools<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>tools <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>tool<span style="color:#0550ae">.</span>name<span style="color:#1f2328">:</span> tool <span style="color:#cf222e">for</span> tool <span style="color:#0550ae">in</span> tools<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>sandbox <span style="color:#0550ae">=</span> CodeSandbox<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">execute</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> task<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Initial thought process based on the task</span>
+</span></span><span style="display:flex;"><span>        thought <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;I need to find the total size of all CSV files. First, I&#39;ll list all files.&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Use the &#39;list_files&#39; tool</span>
+</span></span><span style="display:flex;"><span>        files <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>tools<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;list_files&#39;</span><span style="color:#1f2328">]</span><span style="color:#0550ae">.</span>run<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Next thought: I have the file list, but no tool to get individual file sizes and sum them up.</span>
+</span></span><span style="display:flex;"><span>        thought <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;I have the list: </span><span style="color:#0a3069">{</span>files<span style="color:#0a3069">}</span><span style="color:#0a3069">. I need to filter for .csv files, get their sizes, and sum them. I don&#39;t have a tool for this. I will write code.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># The LLM generates Python code to solve the specific sub-problem</span>
+</span></span><span style="display:flex;"><span>        code_to_execute <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">import os
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">total_size = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">files = [&#34;data.csv&#34;, &#34;report.txt&#34;, &#34;archive.csv&#34;] # In a real scenario, this comes from the previous step
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">for f in files:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    if f.endswith(&#39;.csv&#39;):
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        total_size += os.path.getsize(f)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">print(total_size)
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;No suitable tool found. Writing and executing code.&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;--- Generated Code ---</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>code_to_execute<span style="color:#0a3069">}</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">--------------------&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># The code is run in a secure sandbox</span>
+</span></span><span style="display:flex;"><span>        observation <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>sandbox<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>code_to_execute<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Observation from code: </span><span style="color:#0a3069">{</span>observation<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># The final result is returned</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;The total size is </span><span style="color:#0a3069">{</span>observation<span style="color:#0a3069">}</span><span style="color:#0a3069"> bytes.&#34;</span>
+</span></span></code></pre></div><p>This example demonstrates the core flow: the agent uses an existing tool, realizes it&rsquo;s not enough, and seamlessly transitions to writing code to finish the job.</p>
+<hr>
+<h2 id="why-this-pattern-is-gaining-traction">Why This Pattern is Gaining Traction</h2>
+<h3 id="it-mirrors-human-problem-solving">It Mirrors Human Problem-Solving</h3>
+<p>Engineers don&rsquo;t just use fixed tools. When something is missing, they write a script, a query, or a helper function. CodeAct allows agents to work the same way, making them feel more like a true partner.</p>
+<h3 id="it-shatters-rigid-limits">It Shatters Rigid Limits</h3>
+<p>Traditional agents fail when their toolset is incomplete. CodeAct agents adapt. Whether it&rsquo;s cleaning messy data, performing a custom calculation, or combining outputs from multiple APIs, the agent can create a solution instead of giving up.</p>
+<h3 id="it-leverages-modern-llms">It Leverages Modern LLMs</h3>
+<p>Large Language Models are exceptionally good at writing short, correct, and context-aware code. CodeAct harnesses this strength, turning a text-generating capability into a powerful, real-world action.</p>
+<hr>
+<h2 id="real-world-use-cases-where-codeact-shines">Real-World Use Cases Where CodeAct Shines</h2>
+<ul>
+<li><strong>Data Analysis and Reporting</strong>: An agent can generate a custom transformation script for each unique dataset instead of relying on fixed, brittle pipelines.</li>
+<li><strong>Automation and Ops</strong>: Need a one-off log parser or a script to check API health? The agent can write it, run it, and report the results safely.</li>
+<li><strong>Developer Assistance</strong>: Instead of just suggesting code, the agent can execute it, test its output, and refine it, providing a much higher level of support.</li>
+</ul>
+<hr>
+<h2 id="risks-and-mitigation-strategies">Risks and Mitigation Strategies</h2>
+<p>CodeAct is powerful, so it must be used with care.</p>
+<ul>
+<li><strong>Code Safety</strong>: All generated code <strong>must</strong> run in a strict sandbox. This means limiting file system access, blocking network calls, and setting tight time and memory caps.</li>
+<li><strong>Audit and Traceability</strong>: Log every generated piece of code, along with its inputs and outputs. This is critical for debugging, security reviews, and understanding agent behavior.</li>
+<li><strong>Tool Sprawl</strong>: Generated code should be ephemeral. Treat these dynamic tools as disposable helpers, not permanent additions to the agent&rsquo;s toolkit.</li>
+</ul>
+<p>Teams that implement these safeguards can achieve strong results without sacrificing control or security.</p>
+<hr>
+<h2 id="why-codeact-is-here-to-stay">Why CodeAct is Here to Stay</h2>
+<p>The trend in AI is clear: agents are moving from being passive assistants to active operators. Fixed toolsets are a bottleneck in that evolution. Dynamic tool creation through code generation removes that bottleneck.</p>
+<p>As models get better at reasoning and coding, the CodeAct pattern will only become more reliable and valuable. That is why it is one of the most important and widely discussed agent design patterns today.</p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025 </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	const getMermaidTheme = () => {
+		const savedScheme = localStorage.getItem('scheme');
+		if (savedScheme) {
+			return savedScheme === 'dark' ? 'dark' : 'default';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+	};
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: getMermaidTheme(),
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = getMermaidTheme();
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

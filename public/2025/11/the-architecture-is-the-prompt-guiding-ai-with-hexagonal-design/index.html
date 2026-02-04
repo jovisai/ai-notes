@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Architecture is the Prompt - Guiding AI with Hexagonal Design - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="The Architecture is the Prompt - Guiding AI with Hexagonal Design">
+  <meta itemprop="description" content="As developers, we’ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you’re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.
+The immediate reaction is to blame the tool and focus on “better prompt engineering.” We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn’t just the prompt; it’s that we’re asking the AI to understand the invisible, implicit rules of a complex system.">
+  <meta itemprop="datePublished" content="2025-11-11T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-11T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1058">
+  <meta itemprop="keywords" content="Ai,Software-Development,Agentic-Ai,Systems-Architecture,Coding"><meta property="og:url" content="https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="The Architecture is the Prompt - Guiding AI with Hexagonal Design">
+  <meta property="og:description" content="As developers, we’ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you’re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.
+The immediate reaction is to blame the tool and focus on “better prompt engineering.” We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn’t just the prompt; it’s that we’re asking the AI to understand the invisible, implicit rules of a complex system.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-11T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Software-Development">
+    <meta property="article:tag" content="Agentic-Ai">
+    <meta property="article:tag" content="Systems-Architecture">
+    <meta property="article:tag" content="Coding">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Architecture is the Prompt - Guiding AI with Hexagonal Design">
+  <meta name="twitter:description" content="As developers, we’ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you’re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.
+The immediate reaction is to blame the tool and focus on “better prompt engineering.” We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn’t just the prompt; it’s that we’re asking the AI to understand the invisible, implicit rules of a complex system.">
+<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li><span class="scheme-toggle"><a href="#" id="scheme-toggle"></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">The Architecture is the Prompt - Guiding AI with Hexagonal Design</h1>
+        
+        <div class="date">
+            <span class="day">11</span>
+            <span class="rest">Nov 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>As developers, we&rsquo;ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you&rsquo;re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.</p>
+<p>The immediate reaction is to blame the tool and focus on &ldquo;better prompt engineering.&rdquo; We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn&rsquo;t just the prompt; it&rsquo;s that we&rsquo;re asking the AI to understand the invisible, implicit rules of a complex system.</p>
+<p>What if we reframed the problem? Instead of trying to make the AI follow the rules, what if we built systems where the rules are explicit and unavoidable? This is where <strong>Hexagonal Architecture</strong>, also known as the <strong>Ports and Adapters</strong> pattern, becomes a game-changer for AI collaboration. The core insight is this: <strong>the architecture is the prompt.</strong></p>
+<h2 id="why-prompt-engineering-alone-fails">Why Prompt Engineering Alone Fails</h2>
+<p>When a codebase has tangled dependencies and mixed concerns, its architecture is implicit. The &ldquo;rules&rdquo; live in documentation, tribal knowledge, and the minds of senior developers. An AI, no matter how advanced, struggles to perceive these unwritten laws.</p>
+<p>Trying to control an AI in such an environment through prompts is like giving someone a 20-page document on how to navigate a maze. A much better solution is to redesign the maze to have clear, simple paths.</p>
+<p>A well-structured architecture doesn&rsquo;t need a lengthy explanation. It naturally guides both human and AI developers toward the correct implementation. The code won&rsquo;t compile or run if you break the rules.</p>
+<h2 id="introducing-hexagonal-architecture">Introducing Hexagonal Architecture</h2>
+<p>Hexagonal Architecture is a design pattern that decouples the core business logic of your application from the external services it interacts with, such as databases, APIs, and user interfaces.</p>
+<p>It achieves this by creating a clear separation between the &ldquo;inside&rdquo; and the &ldquo;outside&rdquo; of your application:</p>
+<ol>
+<li><strong>The Core (The Hexagon)</strong>: This is the heart of your application. It contains the pure, unadulterated business logic and domain models (e.g., an <code>Order</code> object with its rules). The core has no dependencies on any external technology. It doesn&rsquo;t know about PostgreSQL, REST, or gRPC.</li>
+<li><strong>Ports (The Gates)</strong>: These are interfaces that define how information flows in and out of the core. They are the formal contracts for interaction.
+<ul>
+<li><strong>Inbound/Driving Ports</strong>: Define how the outside world can interact with your application (e.g., a <code>CreateOrderUseCase</code> interface).</li>
+<li><strong>Outbound/Driven Ports</strong>: Define what your application needs from the outside world (e.g., an <code>OrderRepository</code> interface to save an order).</li>
+</ul>
+</li>
+<li><strong>Adapters (The Bridges)</strong>: These are the concrete implementations of the ports. They translate requests from the outside world into calls on the inbound ports and implement the outbound ports using specific technologies.
+<ul>
+<li><strong>Driving Adapters</strong>: A REST controller that calls the <code>CreateOrderUseCase</code>.</li>
+<li><strong>Driven Adapters</strong>: A PostgreSQL implementation of the <code>OrderRepository</code> interface.</li>
+</ul>
+</li>
+</ol>
+<p>This structure creates a powerful &ldquo;dependency inversion.&rdquo; The infrastructure code (like database access) depends on the core business logic, not the other way around.</p>
+<h3 id="a-high-level-view">A High-Level View</h3>
+<p>Here is a Graphviz diagram illustrating the overall architecture. The core is isolated, and all interactions happen through well-defined ports.</p>
+<p>
+  <img src="/hexagonhld.png" alt="Hexagonal architecture">
+
+</p>
+<h2 id="the-power-of-targeted-prompts">The Power of Targeted Prompts</h2>
+<p>When your architecture is this clean, your prompts to an AI agent become radically simpler and more effective. You are no longer describing the entire system; you are asking for a small, isolated change within a clearly defined boundary.</p>
+<p>Let&rsquo;s consider an example: adding a user deactivation feature.</p>
+<h3 id="prompt-1-modify-the-domain-logic">Prompt 1: Modify the Domain Logic</h3>
+<p>First, we ask the AI to change the core business model. The prompt is focused purely on business rules.</p>
+<blockquote>
+<p>&ldquo;In the <code>User</code> domain model, add a <code>deactivate()</code> method. This method should set the user&rsquo;s status to <code>INACTIVE</code> and record the current timestamp in a <code>deactivatedAt</code> field. Ensure the object is always in a valid state.&rdquo;</p></blockquote>
+<p>The AI can&rsquo;t make a mistake and call a database here. The <code>User</code> object has no access to database libraries. The compiler or interpreter will enforce this boundary.</p>
+<h3 id="prompt-2-implement-a-new-use-case">Prompt 2: Implement a New Use Case</h3>
+<p>Next, we create the application service that orchestrates the deactivation.</p>
+<blockquote>
+<p>&ldquo;Create a <code>DeactivateUser</code> use case. It should accept a <code>userId</code>, use the <code>UserRepository</code> port to load the <code>User</code> aggregate, call the user&rsquo;s <code>deactivate()</code> method, and then use the repository to save the updated user.&rdquo;</p></blockquote>
+<p>The prompt is a simple set of instructions. The AI is guided by the interfaces (<code>UserRepository</code>) and the domain model (<code>User</code>).</p>
+<h3 id="prompt-3-create-a-driving-adapter">Prompt 3: Create a Driving Adapter</h3>
+<p>Finally, we expose this functionality via a REST API.</p>
+<blockquote>
+<p>&ldquo;Create a new endpoint <code>/users/{id}/deactivate</code> in the <code>User</code> REST controller. It should be a <code>POST</code> request. This endpoint should call the <code>DeactivateUser</code> use case with the provided user ID.&rdquo;</p></blockquote>
+<p>Each prompt is small, targeted, and builds upon the solid foundation of the architecture. The AI&rsquo;s task is constrained and clear at every step.</p>
+<h3 id="a-detailed-diagram-of-the-flow">A Detailed Diagram of the Flow</h3>
+<p>This Graphviz diagram shows the specific components and dependencies for our example. Notice how all arrows point inward, demonstrating the dependency rule.</p>
+<p>
+  <img src="/detailedflow.png" alt="diagram shows the specific components and dependencies">
+
+</p>
+<h2 id="the-benefits-for-ai-collaboration">The Benefits for AI Collaboration</h2>
+<p>Adopting a hexagonal architecture yields immense benefits when working with AI:</p>
+<ol>
+<li><strong>Clarity and Focus</strong>: The AI works on one small, isolated component at a time. Cognitive load is drastically reduced.</li>
+<li><strong>Structural Enforcement</strong>: The compiler becomes your best friend. The AI physically cannot violate architectural boundaries because the necessary dependencies are not available.</li>
+<li><strong>Enhanced Testability</strong>: It&rsquo;s trivial to ask an AI to write unit tests for your pure domain logic or use cases because they can be tested in isolation without mocking complex infrastructure.</li>
+<li><strong>Reduced Hallucination</strong>: With clear interfaces (ports) acting as contracts, the AI has a precise target for its implementation, reducing the chances it will invent incorrect solutions.</li>
+</ol>
+<h2 id="take-away">Take away</h2>
+<p>Stop spending hours crafting the &ldquo;perfect prompt&rdquo; to tame an AI in a complex codebase. Instead, invest in a clean architecture that does the hard work for you. By embracing Hexagonal Architecture, you create a system with clear boundaries, single responsibilities, and explicit contracts.</p>
+<p>In this world, the architecture itself becomes the ultimate prompt—a silent guide that naturally constrains and directs the AI to produce code that is clean, maintainable, and correct by design. This not only improves your collaboration with AI but also leads to more robust and scalable software for years to come.</p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai">ai</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/software-development">software-development</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/agentic-ai">agentic-ai</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/systems-architecture">systems-architecture</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/coding">coding</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025 </div>
+		
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>
