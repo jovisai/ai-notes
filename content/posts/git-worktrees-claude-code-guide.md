@@ -20,8 +20,6 @@ date: 2026-02-02
 
 ---
 
----
-
 ## 1. Introduction
 
 ### The Problem: Context Switching Kills Productivity
