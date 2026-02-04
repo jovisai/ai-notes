@@ -410,51 +410,6 @@ case $cmd in
 esac
 ```
 
-### Official `claude-wt` Tool
-
-Anthropic provides an official worktree workflow toolkit:
-
-```bash
-# Install
-git clone https://github.com/anthropics/worktree-workflow.git
-cd worktree-workflow
-./install.sh
-
-# Add alias to shell config
-alias claude-wt='source ~/.local/bin/claude-wt'
-
-# Usage
-claude-wt feature-auth                    # Create worktree with branch name
-claude-wt feature-auth "Implement auth"   # Create with initial prompt
-claude-wt --safe feature-auth             # Safe mode with permission prompts
-```
-
-### incident.io's `w` Function
-
-A production-tested function from incident.io:
-
-```bash
-# Create and enter a new worktree
-w myproject new-feature
-
-# Run Claude Code in that worktree
-w myproject new-feature claude
-
-# Check git status without switching directories
-w myproject new-feature git status
-
-# Commit directly from anywhere
-w myproject new-feature git commit -m "fix: the thing"
-```
-
-Features:
-- Creates worktrees automatically with username prefix
-- Organizes in `~/projects/worktrees/` structure
-- Runs commands in worktree context without changing directory
-- Intelligent tab completion
-
----
-
 ## 7. Custom Claude Commands for Worktrees
 
 ### Create a `/worktree` Command
