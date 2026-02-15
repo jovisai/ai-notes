@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Claude Code CLI Best Practices Checklist - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Claude Code CLI Best Practices Checklist">
+  <meta itemprop="description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
+Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Permissions &amp; Security Context Management Custom Commands &amp; Slash Commands Hooks for Automation Parallel Development with Git Worktrees CLI Usage Patterns MCP Server Integration Session Management Keyboard Shortcuts &amp; Navigation Advanced Tips &amp; Tricks Common Pitfalls to Avoid 1. Initial Setup &amp; Configuration Getting Started Install Claude Code: npm install -g @anthropic-ai/claude-code Run claude in your project directory to start Run /init to generate a starter CLAUDE.md based on your project structure Install GitHub CLI (gh) for seamless GitHub integration Set up your preferred terminal (iTerm2, VS Code terminal recommended) Settings Hierarchy Claude Code uses hierarchical settings stored in JSON files:">
+  <meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1832"><meta property="og:url" content="https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Claude Code CLI Best Practices Checklist">
+  <meta property="og:description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
+Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Permissions &amp; Security Context Management Custom Commands &amp; Slash Commands Hooks for Automation Parallel Development with Git Worktrees CLI Usage Patterns MCP Server Integration Session Management Keyboard Shortcuts &amp; Navigation Advanced Tips &amp; Tricks Common Pitfalls to Avoid 1. Initial Setup &amp; Configuration Getting Started Install Claude Code: npm install -g @anthropic-ai/claude-code Run claude in your project directory to start Run /init to generate a starter CLAUDE.md based on your project structure Install GitHub CLI (gh) for seamless GitHub integration Set up your preferred terminal (iTerm2, VS Code terminal recommended) Settings Hierarchy Claude Code uses hierarchical settings stored in JSON files:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-02T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Code CLI Best Practices Checklist">
+  <meta name="twitter:description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
+Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Permissions &amp; Security Context Management Custom Commands &amp; Slash Commands Hooks for Automation Parallel Development with Git Worktrees CLI Usage Patterns MCP Server Integration Session Management Keyboard Shortcuts &amp; Navigation Advanced Tips &amp; Tricks Common Pitfalls to Avoid 1. Initial Setup &amp; Configuration Getting Started Install Claude Code: npm install -g @anthropic-ai/claude-code Run claude in your project directory to start Run /init to generate a starter CLAUDE.md based on your project structure Install GitHub CLI (gh) for seamless GitHub integration Set up your preferred terminal (iTerm2, VS Code terminal recommended) Settings Hierarchy Claude Code uses hierarchical settings stored in JSON files:">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://notes.muthu.co/">
+				<img src="/avatar.jpeg" alt="Engineering Notes" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+	<div class="site-description"><p>Thoughts and Ideas on AI by Muthukrishnan</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Claude Code CLI Best Practices Checklist</h1>
+        
+        <div class="date">
+            <span class="day">02</span>
+            <span class="rest">Feb 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.</p>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-initial-setup--configuration">Initial Setup &amp; Configuration</a></li>
+<li><a href="#2-claudemd-configuration">CLAUDE.md Configuration</a></li>
+<li><a href="#3-permissions--security">Permissions &amp; Security</a></li>
+<li><a href="#4-context-management">Context Management</a></li>
+<li><a href="#5-custom-commands--slash-commands">Custom Commands &amp; Slash Commands</a></li>
+<li><a href="#6-hooks-for-automation">Hooks for Automation</a></li>
+<li><a href="#7-parallel-development-with-git-worktrees">Parallel Development with Git Worktrees</a></li>
+<li><a href="#8-cli-usage-patterns">CLI Usage Patterns</a></li>
+<li><a href="#9-mcp-server-integration">MCP Server Integration</a></li>
+<li><a href="#10-session-management">Session Management</a></li>
+<li><a href="#11-keyboard-shortcuts--navigation">Keyboard Shortcuts &amp; Navigation</a></li>
+<li><a href="#12-advanced-tips--tricks">Advanced Tips &amp; Tricks</a></li>
+<li><a href="#13-common-pitfalls-to-avoid">Common Pitfalls to Avoid</a></li>
+</ol>
+<hr>
+<h2 id="1-initial-setup--configuration">1. Initial Setup &amp; Configuration</h2>
+<h3 id="getting-started">Getting Started</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Install Claude Code: <code>npm install -g @anthropic-ai/claude-code</code></li>
+<li><input disabled="" type="checkbox"> Run <code>claude</code> in your project directory to start</li>
+<li><input disabled="" type="checkbox"> Run <code>/init</code> to generate a starter CLAUDE.md based on your project structure</li>
+<li><input disabled="" type="checkbox"> Install GitHub CLI (<code>gh</code>) for seamless GitHub integration</li>
+<li><input disabled="" type="checkbox"> Set up your preferred terminal (iTerm2, VS Code terminal recommended)</li>
+</ul>
+<h3 id="settings-hierarchy">Settings Hierarchy</h3>
+<p>Claude Code uses hierarchical settings stored in JSON files:</p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>User settings</strong>: <code>~/.claude/settings.json</code> (applies to all projects)</li>
+<li><input disabled="" type="checkbox"> <strong>Project settings</strong>: <code>.claude/settings.json</code> (shared with team, committed to git)</li>
+<li><input disabled="" type="checkbox"> <strong>Local project settings</strong>: <code>.claude/settings.local.json</code> (personal, git-ignored)</li>
+</ul>
+<h3 id="example-settingsjson">Example settings.json</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;model&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;claude-sonnet-4-20250514&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;maxTokens&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4096</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;permissions&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;allowedTools&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;Read&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Write&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Bash(git *)&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;deny&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;Read(./.env)&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;Read(./.env.*)&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0a3069">&#34;Write(./production.config.*)&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><hr>
+<h2 id="2-claudemd-configuration">2. CLAUDE.md Configuration</h2>
+<h3 id="purpose">Purpose</h3>
+<p>CLAUDE.md is your project&rsquo;s persistent memory—loaded automatically at the start of every session.</p>
+<h3 id="best-practices">Best Practices</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Keep it <strong>concise</strong> and human-readable</li>
+<li><input disabled="" type="checkbox"> Delete what you don&rsquo;t need from <code>/init</code> output (less is more)</li>
+<li><input disabled="" type="checkbox"> Focus on <strong>universally applicable</strong> instructions</li>
+<li><input disabled="" type="checkbox"> Let linters/formatters handle code style (not CLAUDE.md)</li>
+<li><input disabled="" type="checkbox"> The filename is case-sensitive: must be exactly <code>CLAUDE.md</code></li>
+</ul>
+<h3 id="what-to-include">What to Include</h3>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Project context</strong>: One-liner describing the project</li>
+<li><input disabled="" type="checkbox"> <strong>Key directories</strong>: Architecture overview and important paths</li>
+<li><input disabled="" type="checkbox"> <strong>Common commands</strong>: Build, test, lint, deploy commands</li>
+<li><input disabled="" type="checkbox"> <strong>Gotchas</strong>: Project-specific warnings and quirks</li>
+<li><input disabled="" type="checkbox"> <strong>MCP server instructions</strong>: How to use configured integrations</li>
+</ul>
+<h3 id="what-not-to-include">What NOT to Include</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Exhaustive code style guidelines (use linters instead)</li>
+<li><input disabled="" type="checkbox"> Non-universal &ldquo;hotfix&rdquo; instructions</li>
+<li><input disabled="" type="checkbox"> Redundant information Claude can infer from code</li>
+</ul>
+<h3 id="file-locations">File Locations</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Location</th>
+          <th>Scope</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>~/.claude/CLAUDE.md</code></td>
+          <td>Global (all projects)</td>
+      </tr>
+      <tr>
+          <td><code>./CLAUDE.md</code></td>
+          <td>Project root (shared with team)</td>
+      </tr>
+      <tr>
+          <td><code>./subdirectory/CLAUDE.md</code></td>
+          <td>Subdirectory-specific</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="example-claudemd">Example CLAUDE.md</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project Context
+</span></span><span style="display:flex;"><span>FastAPI REST API for user authentication. Uses SQLAlchemy + Pydantic.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Key Directories
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`app/models/`</span> - database models
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`app/api/`</span> - route handlers
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`app/core/`</span> - configuration and utilities
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## Common Commands
+</span></span><span style="display:flex;"><span>```bash
+</span></span><span style="display:flex;"><span>uvicorn app.main:app --reload  # dev server
+</span></span><span style="display:flex;"><span>pytest tests/                   # run tests
+</span></span></code></pre></div><h2 id="gotchas">Gotchas</h2>
+<ul>
+<li>Always use <code>--break-system-packages</code> flag with pip</li>
+<li>Run migrations before testing locally</li>
+</ul>
+<pre tabindex="0"><code>
+---
+
+## 3. Permissions &amp; Security
+
+### Managing Permissions
+- [ ] Use `/permissions` command to configure allowlist
+- [ ] Select &#34;Always allow&#34; when prompted for trusted actions
+- [ ] Consider `--dangerously-skip-permissions` for trusted workflows (use with caution)
+- [ ] Use `/sandbox` for OS-level isolation
+
+### Permission Configuration
+```json
+{
+  &#34;permissions&#34;: {
+    &#34;allow&#34;: [
+      &#34;Read&#34;,
+      &#34;Grep&#34;,
+      &#34;LS&#34;,
+      &#34;Bash(npm run test:*)&#34;,
+      &#34;Bash(git commit:*)&#34;,
+      &#34;Edit&#34;
+    ],
+    &#34;deny&#34;: [
+      &#34;WebFetch&#34;,
+      &#34;Bash(curl:*)&#34;,
+      &#34;Read(./.env)&#34;,
+      &#34;Read(./secrets/**)&#34;
+    ]
+  }
+}
+</code></pre><h3 id="security-best-practices">Security Best Practices</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Never store secrets in CLAUDE.md</li>
+<li><input disabled="" type="checkbox"> Deny access to <code>.env</code> files and secrets directories</li>
+<li><input disabled="" type="checkbox"> Start with minimal permissions, expand as needed</li>
+<li><input disabled="" type="checkbox"> Use <code>--allowedTools</code> flag for one-time permission sets</li>
+</ul>
+<hr>
+<h2 id="4-context-management">4. Context Management</h2>
+<h3 id="monitor-context-usage">Monitor Context Usage</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Watch the context indicator (bottom right) for token usage</li>
+<li><input disabled="" type="checkbox"> Use <code>/clear</code> often—start fresh for new tasks</li>
+<li><input disabled="" type="checkbox"> Use <code>/compact</code> to manually trigger context compaction</li>
+<li><input disabled="" type="checkbox"> Be aware that auto-compaction may cause context loss</li>
+</ul>
+<h3 id="context-optimization-tips">Context Optimization Tips</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Keep conversations focused on single tasks</li>
+<li><input disabled="" type="checkbox"> Clear context before switching to unrelated work</li>
+<li><input disabled="" type="checkbox"> Use worktrees for parallel tasks instead of context switching</li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t let old conversation history consume tokens</li>
+</ul>
+<h3 id="custom-status-line-advanced">Custom Status Line (Advanced)</h3>
+<p>You can customize the status line to show:</p>
+<ul>
+<li>Current model</li>
+<li>Git branch and uncommitted file count</li>
+<li>Token usage progress bar</li>
+<li>Last message preview</li>
+</ul>
+<hr>
+<h2 id="5-custom-commands--slash-commands">5. Custom Commands &amp; Slash Commands</h2>
+<h3 id="creating-project-commands">Creating Project Commands</h3>
+<p>Store prompt templates in <code>.claude/commands/</code> directory:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p .claude/commands
+</span></span></code></pre></div><h3 id="example-fix-github-issue-command">Example: Fix GitHub Issue Command</h3>
+<p>Create <code>.claude/commands/fix-issue.md</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Please analyze and fix the GitHub issue: $ARGUMENTS.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Follow these steps:
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Use <span style="color:#0a3069">`gh issue view`</span> to get the issue details
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Understand the problem described in the issue
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Search the codebase for relevant files
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Implement the necessary changes to fix the issue
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">5.</span> Write and run tests to verify the fix
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">6.</span> Ensure code passes linting and type checking
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">7.</span> Create a descriptive commit message
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">8.</span> Push and create a PR
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Remember to use the GitHub CLI (<span style="color:#0a3069">`gh`</span>) for all GitHub-related tasks.
+</span></span></code></pre></div><p>Usage: <code>/project:fix-issue 1234</code></p>
+<h3 id="personal-commands">Personal Commands</h3>
+<p>Store in <code>~/.claude/commands/</code> for commands available across all projects.</p>
+<h3 id="command-features">Command Features</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Use <code>$ARGUMENTS</code> variable for parameters</li>
+<li><input disabled="" type="checkbox"> Add front matter for allowed tools:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
+</span></span><span style="display:flex;"><span>description: Create a git commit with context
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Include dynamic context with <code>!</code> prefix: <code>!</code>git status``</li>
+</ul>
+<hr>
+<h2 id="6-hooks-for-automation">6. Hooks for Automation</h2>
+<h3 id="hook-events">Hook Events</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Event</th>
+          <th>When It Fires</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>PreToolUse</code></td>
+          <td>Before Claude executes an action</td>
+      </tr>
+      <tr>
+          <td><code>PostToolUse</code></td>
+          <td>After Claude completes an action</td>
+      </tr>
+      <tr>
+          <td><code>UserPromptSubmit</code></td>
+          <td>When you submit a prompt</td>
+      </tr>
+      <tr>
+          <td><code>SessionStart</code></td>
+          <td>When Claude starts</td>
+      </tr>
+      <tr>
+          <td><code>SessionEnd</code></td>
+          <td>When session terminates</td>
+      </tr>
+      <tr>
+          <td><code>Stop</code></td>
+          <td>When Claude finishes responding</td>
+      </tr>
+      <tr>
+          <td><code>Notification</code></td>
+          <td>When Claude sends an alert</td>
+      </tr>
+      <tr>
+          <td><code>PermissionRequest</code></td>
+          <td>When Claude requests permission (v2.0.45+)</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="example-auto-format-on-file-edit">Example: Auto-Format on File Edit</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;PostToolUse&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;matcher&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Edit|Write&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;type&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;command&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;jq -r &#39;.tool_input.file_path&#39; | xargs npx prettier --write&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="example-block-sensitive-files">Example: Block Sensitive Files</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;PreToolUse&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;matcher&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Edit|Write&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;type&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;command&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;python3 -c \&#34;import json, sys; d=json.load(sys.stdin); p=d.get(&#39;tool_input&#39;,{}).get(&#39;file_path&#39;,&#39;&#39;); sys.exit(2 if any(x in p for x in [&#39;.env&#39;,&#39;package-lock.json&#39;,&#39;.git/&#39;]) else 0)\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="example-desktop-notifications">Example: Desktop Notifications</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;Notification&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;type&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;command&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;notify-send &#39;Claude Code&#39; &#39;Awaiting your input&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="hook-exit-codes">Hook Exit Codes</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Code</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>Success, continue</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>Non-blocking error</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Block action (PreToolUse/PermissionRequest)</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Deferred execution</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="7-parallel-development-with-git-worktrees">7. Parallel Development with Git Worktrees</h2>
+<h3 id="why-worktrees">Why Worktrees?</h3>
+<ul>
+<li>Run multiple Claude instances simultaneously</li>
+<li>Each worktree has isolated file state</li>
+<li>No context switching—maintain deep understanding per task</li>
+<li>All worktrees share Git history and remotes</li>
+</ul>
+<h3 id="setup-worktrees">Setup Worktrees</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree for a feature</span>
+</span></span><span style="display:flex;"><span>git worktree add ../my-project-feature-auth feature/auth
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create worktree from main</span>
+</span></span><span style="display:flex;"><span>git worktree add ../my-project-refactor -b refactor/cleanup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># List worktrees</span>
+</span></span><span style="display:flex;"><span>git worktree list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Remove worktree</span>
+</span></span><span style="display:flex;"><span>git worktree remove ../my-project-feature-auth
+</span></span></code></pre></div><h3 id="parallel-workflow">Parallel Workflow</h3>
+<ol>
+<li><input disabled="" type="checkbox"> Create worktrees for each task/feature</li>
+<li><input disabled="" type="checkbox"> Open each worktree in separate terminal/IDE window</li>
+<li><input disabled="" type="checkbox"> Run <code>/init</code> in each worktree session</li>
+<li><input disabled="" type="checkbox"> Assign distinct tasks to each Claude instance</li>
+<li><input disabled="" type="checkbox"> Cycle through to check progress and approve permissions</li>
+<li><input disabled="" type="checkbox"> Cherry-pick completed work into main branch</li>
+</ol>
+<h3 id="tools-for-worktree-management">Tools for Worktree Management</h3>
+<ul>
+<li><code>claude-wt</code> script: Auto-creates worktrees and launches Claude Code</li>
+<li>GitButler: Manages commits/branches across parallel sessions</li>
+<li><code>/worktree</code> custom command: Automates worktree creation</li>
+</ul>
+<h3 id="best-practices-1">Best Practices</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Limit to 2-3 active worktrees (review bandwidth is the bottleneck)</li>
+<li><input disabled="" type="checkbox"> Give sessions descriptive names</li>
+<li><input disabled="" type="checkbox"> Use draft PRs for Claude-generated changes</li>
+<li><input disabled="" type="checkbox"> Clean up worktrees after merging</li>
+</ul>
+<hr>
+<h2 id="8-cli-usage-patterns">8. CLI Usage Patterns</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start interactive session</span>
+</span></span><span style="display:flex;"><span>claude
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Start with initial prompt</span>
+</span></span><span style="display:flex;"><span>claude <span style="color:#0a3069">&#34;How does turnManager.js work?&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Headless mode (non-interactive)</span>
+</span></span><span style="display:flex;"><span>claude -p <span style="color:#0a3069">&#34;How many files are in this project?&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Resume previous session</span>
+</span></span><span style="display:flex;"><span>claude --resume
+</span></span></code></pre></div><h3 id="piping--chaining">Piping &amp; Chaining</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Pipe input to Claude</span>
+</span></span><span style="display:flex;"><span>cat data.csv <span style="color:#1f2328">|</span> claude -p <span style="color:#0a3069">&#34;Who won the most games?&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Chain with other CLIs</span>
+</span></span><span style="display:flex;"><span>git diff <span style="color:#1f2328">|</span> claude -p <span style="color:#0a3069">&#34;Explain these changes&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Output to file</span>
+</span></span><span style="display:flex;"><span>claude -p <span style="color:#0a3069">&#34;Generate API docs&#34;</span> &gt; api-docs.md
+</span></span></code></pre></div><h3 id="useful-flags">Useful Flags</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Flag</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>-p</code></td>
+          <td>Print mode (headless, non-interactive)</td>
+      </tr>
+      <tr>
+          <td><code>--resume</code></td>
+          <td>Resume previous session</td>
+      </tr>
+      <tr>
+          <td><code>--from-pr 123</code></td>
+          <td>Resume session linked to PR</td>
+      </tr>
+      <tr>
+          <td><code>--verbose</code></td>
+          <td>Debug mode (shows detailed output)</td>
+      </tr>
+      <tr>
+          <td><code>--mcp-debug</code></td>
+          <td>Debug MCP connections</td>
+      </tr>
+      <tr>
+          <td><code>--allowedTools</code></td>
+          <td>Specify allowed tools for this run</td>
+      </tr>
+      <tr>
+          <td><code>--output-format json</code></td>
+          <td>JSON output for scripting</td>
+      </tr>
+      <tr>
+          <td><code>--dangerously-skip-permissions</code></td>
+          <td>Skip all permission prompts</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="shell-integration">Shell Integration</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Run shell commands in Claude session with ! prefix</span>
+</span></span><span style="display:flex;"><span>! git status
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Bypass conversational mode for direct execution</span>
+</span></span><span style="display:flex;"><span>!npm run <span style="color:#6639ba">test</span>
+</span></span></code></pre></div><hr>
+<h2 id="9-mcp-server-integration">9. MCP Server Integration</h2>
+<h3 id="adding-mcp-servers">Adding MCP Servers</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Add MCP server globally</span>
+</span></span><span style="display:flex;"><span>claude mcp add -s user playwright npx @playwright/mcp@latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Add to project</span>
+</span></span><span style="display:flex;"><span>claude mcp add puppeteer npx @anthropic/mcp-puppeteer
+</span></span></code></pre></div><h3 id="configuration-in-mcpjson">Configuration in .mcp.json</h3>
+<p>Check into git for team-wide access:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;servers&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;puppeteer&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;npx&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;args&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;@anthropic/mcp-puppeteer&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;sentry&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;npx&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;args&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;@sentry/mcp-server&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="popular-mcp-servers">Popular MCP Servers</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Puppeteer (browser automation)</li>
+<li><input disabled="" type="checkbox"> Sentry (error monitoring)</li>
+<li><input disabled="" type="checkbox"> GitHub (issues, PRs)</li>
+<li><input disabled="" type="checkbox"> Slack (notifications)</li>
+<li><input disabled="" type="checkbox"> Database connectors</li>
+<li><input disabled="" type="checkbox"> Figma (design integration)</li>
+</ul>
+<h3 id="document-mcp-usage-in-claudemd">Document MCP Usage in CLAUDE.md</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>### Slack MCP
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Posts to <span style="color:#6639ba">#dev</span>-notifications channel only
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Use for deployment notifications and build failures
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Do not use for individual PR updates
+</span></span></code></pre></div><hr>
+<h2 id="10-session-management">10. Session Management</h2>
+<h3 id="session-commands">Session Commands</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Command</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/resume</code></td>
+          <td>Open session picker</td>
+      </tr>
+      <tr>
+          <td><code>/clear</code></td>
+          <td>Clear current context</td>
+      </tr>
+      <tr>
+          <td><code>/compact</code></td>
+          <td>Manually compact context</td>
+      </tr>
+      <tr>
+          <td><code>/help</code></td>
+          <td>Show all commands</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="session-picker-features">Session Picker Features</h3>
+<ul>
+<li>Navigate with arrow keys</li>
+<li>Press <code>R</code> to rename session</li>
+<li>Sessions grouped by git branch</li>
+<li>Forked sessions grouped under root</li>
+</ul>
+<h3 id="best-practices-2">Best Practices</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Name sessions descriptively</li>
+<li><input disabled="" type="checkbox"> Use <code>/clear</code> when starting new tasks</li>
+<li><input disabled="" type="checkbox"> Sessions are stored per project directory</li>
+<li><input disabled="" type="checkbox"> Use <code>--fork-session</code> for experimental branches</li>
+</ul>
+<hr>
+<h2 id="11-keyboard-shortcuts--navigation">11. Keyboard Shortcuts &amp; Navigation</h2>
+<h3 id="essential-shortcuts">Essential Shortcuts</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Shortcut</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Escape</code></td>
+          <td>Stop Claude (not Ctrl+C!)</td>
+      </tr>
+      <tr>
+          <td><code>Escape</code> (twice)</td>
+          <td>Show previous messages</td>
+      </tr>
+      <tr>
+          <td><code>Up/Down</code></td>
+          <td>Navigate command history</td>
+      </tr>
+      <tr>
+          <td><code>Ctrl+R</code></td>
+          <td>Reverse search history</td>
+      </tr>
+      <tr>
+          <td><code>Ctrl+V</code></td>
+          <td>Paste images (not Cmd+V)</td>
+      </tr>
+      <tr>
+          <td><code>Shift+Drag</code></td>
+          <td>Reference files properly</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="terminal-setup">Terminal Setup</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Run <code>/terminal-setup</code> to install Shift+Enter binding</li>
+<li><input disabled="" type="checkbox"> Configure line break behavior in terminal settings</li>
+<li><input disabled="" type="checkbox"> Enable Vim mode with <code>/vim</code> if preferred</li>
+</ul>
+<hr>
+<h2 id="12-advanced-tips--tricks">12. Advanced Tips &amp; Tricks</h2>
+<h3 id="prompting-techniques">Prompting Techniques</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Use &ldquo;think hard&rdquo; or &ldquo;think carefully&rdquo; for complex problems</li>
+<li><input disabled="" type="checkbox"> Ask Claude to &ldquo;explore, plan, code, commit&rdquo; for features</li>
+<li><input disabled="" type="checkbox"> Request plans before implementation for large changes</li>
+<li><input disabled="" type="checkbox"> Use <code>/plan</code> or plan mode for complex tasks</li>
+</ul>
+<h3 id="using-external-tools">Using External Tools</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Tell Claude to use CLI tools (<code>gh</code>, <code>aws</code>, <code>gcloud</code>, <code>sentry-cli</code>)</li>
+<li><input disabled="" type="checkbox"> CLI tools are more context-efficient than APIs</li>
+<li><input disabled="" type="checkbox"> Let Claude learn new tools with <code>--help</code>: &ldquo;Use &lsquo;foo-cli &ndash;help&rsquo; to learn foo, then solve X&rdquo;</li>
+</ul>
+<h3 id="voice-input">Voice Input</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Use voice messages for faster input</li>
+<li><input disabled="" type="checkbox"> Whisper into earphones for quiet environments</li>
+<li><input disabled="" type="checkbox"> Speaking is often faster than typing long prompts</li>
+</ul>
+<h3 id="container-isolation">Container Isolation</h3>
+<p>Run Claude Code in containers for:</p>
+<ul>
+<li>Long-running experimental tasks</li>
+<li>Risky operations without affecting host</li>
+<li>Orchestrating multiple AI CLIs</li>
+</ul>
+<h3 id="debugging">Debugging</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Use <code>--verbose</code> flag for debugging</li>
+<li><input disabled="" type="checkbox"> Use <code>HTTPS_PROXY</code> to inspect raw traffic</li>
+<li><input disabled="" type="checkbox"> Check <code>~/.claude/projects/</code> for session transcripts</li>
+<li><input disabled="" type="checkbox"> Review logs in JSONL format</li>
+</ul>
+<h3 id="token-efficiency">Token Efficiency</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Use Skills (loaded on-demand) instead of stuffing CLAUDE.md</li>
+<li><input disabled="" type="checkbox"> Keep CLAUDE.md focused and minimal</li>
+<li><input disabled="" type="checkbox"> Clear context frequently</li>
+<li><input disabled="" type="checkbox"> Use specific, detailed prompts</li>
+</ul>
+<hr>
+<h2 id="13-common-pitfalls-to-avoid">13. Common Pitfalls to Avoid</h2>
+<h3 id="-dont-do-this">❌ Don&rsquo;t Do This</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Don&rsquo;t use <code>Ctrl+C</code> to stop Claude (exits entirely)—use <code>Escape</code></li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t expect <code>Cmd+V</code> to paste images—use <code>Ctrl+V</code></li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t drag files without <code>Shift</code>—they&rsquo;ll open in new tab</li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t let context grow unbounded—use <code>/clear</code></li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t run 5+ parallel agents—review bandwidth is the bottleneck</li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t stuff CLAUDE.md with code style rules—use linters</li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t forget to run <code>/init</code> in new worktrees</li>
+<li><input disabled="" type="checkbox"> Don&rsquo;t commit <code>.claude/settings.local.json</code></li>
+</ul>
+<h3 id="-do-this-instead">✅ Do This Instead</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Revert often with <code>git revert</code> if Claude makes unwanted changes</li>
+<li><input disabled="" type="checkbox"> Create draft PRs for Claude-generated code</li>
+<li><input disabled="" type="checkbox"> Use deterministic tools (linters, formatters) over LLM suggestions</li>
+<li><input disabled="" type="checkbox"> Script worktree bootstrap early in adoption</li>
+<li><input disabled="" type="checkbox"> Start with 2 parallel agents, not 5</li>
+<li><input disabled="" type="checkbox"> Monitor token usage and API costs</li>
+</ul>
+<hr>
+<h2 id="quick-reference-card">Quick Reference Card</h2>
+<h3 id="daily-workflow">Daily Workflow</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start session</span>
+</span></span><span style="display:flex;"><span>claude
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize project memory</span>
+</span></span><span style="display:flex;"><span>/init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Clear context for new task</span>
+</span></span><span style="display:flex;"><span>/clear
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Resume previous session</span>
+</span></span><span style="display:flex;"><span>/resume
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Check permissions</span>
+</span></span><span style="display:flex;"><span>/permissions
+</span></span></code></pre></div><h3 id="key-files">Key Files</h3>
+<pre tabindex="0"><code>~/.claude/
+├── settings.json          # Global settings
+├── CLAUDE.md              # Global memory
+└── commands/              # Personal commands
+
+.claude/
+├── settings.json          # Project settings (committed)
+├── settings.local.json    # Local settings (git-ignored)
+└── commands/              # Project commands
+
+./CLAUDE.md                # Project memory (committed)
+.mcp.json                  # MCP server config (committed)
+</code></pre><h3 id="emergency-commands">Emergency Commands</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Skip all permissions (trusted environments only)</span>
+</span></span><span style="display:flex;"><span>claude --dangerously-skip-permissions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Update Claude Code</span>
+</span></span><span style="display:flex;"><span>claude update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Check version</span>
+</span></span><span style="display:flex;"><span>claude --version
+</span></span></code></pre></div><hr>
+<p><em>Last updated: February 2026</em>
+<em>Based on community best practices and official Anthropic documentation</em></p>
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>
