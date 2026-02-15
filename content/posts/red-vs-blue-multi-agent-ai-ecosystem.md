@@ -1,5 +1,5 @@
 ---
-title: "Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software"
+title: "A Multi-Agent AI Ecosystem for Self-Improving Software"
 date: 2025-10-22
 tags: ["ai", "multi-agent-systems", "autonomous-agents", "software-development", "testing"]
 ---

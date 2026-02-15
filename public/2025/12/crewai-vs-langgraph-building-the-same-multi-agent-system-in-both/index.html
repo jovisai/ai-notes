@@ -2,16 +2,17 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="CrewAI vs LangGraph: Building the Same Multi-Agent System in Both">
+  <meta itemprop="name" content="CrewAI vs LangGraph Building the Same Multi-Agent System in Both">
   <meta itemprop="description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
   <meta itemprop="datePublished" content="2025-12-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-12-22T00:00:00+00:00">
   <meta itemprop="wordCount" content="873">
   <meta itemprop="keywords" content="Ai,Multi-Agent,CrewAI,Langgraph,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">
   <meta property="og:site_name" content="Engineering Notes">
-  <meta property="og:title" content="CrewAI vs LangGraph: Building the Same Multi-Agent System in Both">
+  <meta property="og:title" content="CrewAI vs LangGraph Building the Same Multi-Agent System in Both">
   <meta property="og:description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -26,7 +27,7 @@
     <meta property="article:tag" content="Tutorial">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CrewAI vs LangGraph: Building the Same Multi-Agent System in Both">
+  <meta name="twitter:title" content="CrewAI vs LangGraph Building the Same Multi-Agent System in Both">
   <meta name="twitter:description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +38,10 @@
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -72,6 +77,14 @@
 			</li>
 			
 			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
 				<a href="/about">About</a>
 			</li>
 			
@@ -91,7 +104,7 @@
 		<div class="post">
     <div class="post-header">
     <div class="matter">
-        <h1 class="title">CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</h1>
+        <h1 class="title">CrewAI vs LangGraph Building the Same Multi-Agent System in Both</h1>
         
         <div class="date">
             <span class="day">22</span>
@@ -345,6 +358,16 @@ For LangGraph: Use StateGraph with TypedDict state, node functions, and edges.
 Compare the two implementations side by side. Test both with the topic
 &#34;quantum computing&#34; and show the output from each framework.
 </code></pre>
+    <div class="jovis-ad">
+    <div class="jovis-ad-badge">● Intelligence at Every Action</div>
+    <h3 class="jovis-ad-headline">AI Native<br><span class="jovis-ad-cyan">Project Management</span></h3>
+    <p class="jovis-ad-description">Stop using tools that bolt on AI as an afterthought. Jovis is built AI-first — smart routing, proactive monitoring, and intelligent workflows from the ground up.</p>
+    <div class="jovis-ad-buttons">
+        <a class="jovis-ad-cta" href="https://jovis.ai?utm_source=blog&utm_medium=post_footer">Get early access →</a>
+        <a class="jovis-ad-secondary" href="https://jovis.ai?utm_source=blog&utm_medium=post_footer&utm_content=how_it_works">See how it works</a>
+    </div>
+</div>
+
     <hr class="footer-separator" />
 <div class="tags">
     
@@ -396,7 +419,17 @@ Compare the two implementations side by side. Test both with the topic
 	</div>
 	
 
-	<div class="footer wrapper">
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
 	<nav class="nav">
 		<div>&copy 2025   Muthukrishnan</div>
 		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
@@ -406,22 +439,14 @@ Compare the two implementations side by side. Test both with the topic
 <script type="module">
 	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
 
-	const getMermaidTheme = () => {
-		const savedScheme = localStorage.getItem('scheme');
-		if (savedScheme) {
-			return savedScheme === 'dark' ? 'dark' : 'default';
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-	};
-
 	mermaid.initialize({
 		startOnLoad: true,
-		theme: getMermaidTheme(),
+		theme: 'default',
 		handDrawn: true
 	});
 
 	const applyTheme = () => {
-		const newTheme = getMermaidTheme();
+		const newTheme = 'default';
 		mermaid.initialize({
 			startOnLoad: true,
 			theme: newTheme,

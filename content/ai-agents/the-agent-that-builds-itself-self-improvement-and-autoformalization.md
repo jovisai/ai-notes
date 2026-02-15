@@ -1,5 +1,5 @@
 ---
-title: "The Agent That Builds Itself: Self-Improvement and Autoformalization"
+title: "Self-Improvement and Autoformalization in AI Agents That Build Themselves"
 date: 2025-10-05
 tags: ["AI Agents", "Self-Improvement", "Autoformalization", "AI Safety", "Meta-Programming"]
 ---

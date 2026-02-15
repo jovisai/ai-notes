@@ -9,11 +9,18 @@
     <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/hybrid-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hybrid AI Agents: Combining LLMs with Symbolic Reasoning</title>
-      <link>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</link>
+      <title>Combining LLMs with Symbolic Reasoning in Hybrid AI Agents</title>
+      <link>https://notes.muthu.co/2026/01/combining-llms-with-symbolic-reasoning-in-hybrid-ai-agents/</link>
       <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</guid>
+      <guid>https://notes.muthu.co/2026/01/combining-llms-with-symbolic-reasoning-in-hybrid-ai-agents/</guid>
       <description>&lt;p&gt;LLMs are remarkably flexible but notoriously unreliable for precise reasoning. They hallucinate, make arithmetic errors, and struggle with complex logic. Symbolic systems—rule engines, constraint solvers, knowledge graphs—are precise but rigid.&lt;/p&gt;&#xA;&lt;p&gt;The solution? Combine them. Hybrid AI agents use LLMs for natural language understanding and high-level reasoning, while delegating precise tasks to symbolic systems. This is emerging as a key pattern in production AI systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-hybrid&#34;&gt;Why Hybrid?&lt;/h2&gt;&#xA;&lt;p&gt;Consider a tax preparation agent. An LLM can:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Symbolic Reasoning and Neural-Symbolic Integration in AI Agents</title>
+      <link>https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents/</link>
+      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents/</guid>
+      <description>&lt;p&gt;Modern AI agents face a fundamental challenge: how to combine the pattern-matching prowess of neural networks with the logical precision of symbolic reasoning. While large language models excel at learning from data, they struggle with tasks requiring rigorous logic, mathematical proof, or verifiable reasoning chains. This is where neural-symbolic integration becomes essential.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-terms&#34;&gt;Simple Terms&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re solving a detective mystery. A neural network is like your intuition—it recognizes patterns, faces, and makes educated guesses based on similar cases you&amp;rsquo;ve seen before. Symbolic reasoning is like your logical deduction—following strict rules of inference, creating alibis, and proving guilt or innocence with ironclad logic.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

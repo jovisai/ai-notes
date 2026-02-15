@@ -1,5 +1,5 @@
 ---
-title: "Manage Your Attention Budget: Your Scarcest Resource"
+title: "Manage Your Attention Budget as Your Scarcest Resource"
 date: 2025-10-16
 tags: ['engineering-management']
 ---

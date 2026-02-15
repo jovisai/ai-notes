@@ -1,5 +1,5 @@
 ---
-title: "The Power of Many: Solving Complex Problems with AI Agent Swarms"
+title: "Solving Complex Problems with AI Agent Swarms"
 date: 2025-10-05
 tags: ["AI Agents", "Multi-Agent Systems", "Swarm Intelligence", "Distributed Computing", "Scalability"]
 ---

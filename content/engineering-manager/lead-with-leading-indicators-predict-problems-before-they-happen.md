@@ -1,5 +1,5 @@
 ---
-title: "Lead with Leading Indicators: Predict Problems Before They Happen"
+title: "Lead with Leading Indicators to Predict Problems Before They Happen"
 date: 2025-10-11
 tags: ['engineering-management']
 ---

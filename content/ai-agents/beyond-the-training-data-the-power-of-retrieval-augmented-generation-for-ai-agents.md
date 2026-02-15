@@ -1,5 +1,5 @@
 ---
-title: "Beyond the Training Data: The Power of Retrieval-Augmented Generation (RAG) for AI Agents"
+title: "Beyond the Training Data with Retrieval-Augmented Generation for AI Agents"
 date: 2025-10-05
 tags: ["AI Agents", "RAG", "LLM", "Vector Databases", "Information Retrieval"]
 ---

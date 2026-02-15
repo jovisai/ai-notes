@@ -1,5 +1,5 @@
 ---
-title: "Building a Research Assistant with Windsurf's Cascade Agent"
+title: "Building a Research Assistant with Windsurfs Cascade Agent"
 date: 2025-12-30
 description: "Learn how to leverage Windsurf's agentic Cascade feature to build applications faster with AI-assisted multi-file editing and debugging."
 tags: [AI, Windsurf, IDE, Coding Agent, Tutorial]

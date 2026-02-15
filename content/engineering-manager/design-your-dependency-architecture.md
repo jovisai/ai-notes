@@ -1,5 +1,5 @@
 ---
-title: "Design Your Dependency Architecture: The Hidden Multiplier of Organizational Velocity"
+title: "Design Your Dependency Architecture for Organizational Velocity"
 date: 2025-11-30
 tags: ['engineering-management']
 ---

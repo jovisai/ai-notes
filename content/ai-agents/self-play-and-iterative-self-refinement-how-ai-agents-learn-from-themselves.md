@@ -1,5 +1,5 @@
 ---
-title: "Self-Play and Iterative Self-Refinement: How AI Agents Learn from Themselves"
+title: "How AI Agents Learn from Themselves Through Self-Play and Iterative Refinement"
 date: 2025-11-25
 draft: false
 tags: ["ai-agents", "self-play", "self-refinement", "reinforcement-learning", "llm"]

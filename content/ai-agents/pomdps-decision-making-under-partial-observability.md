@@ -1,5 +1,5 @@
 ---
-title: "POMDPs: Decision-Making Under Partial Observability"
+title: "Decision-Making Under Partial Observability with POMDPs"
 date: 2025-10-23
 draft: false
 tags: ["ai-agents", "decision-theory", "planning", "uncertainty", "POMDPs"]

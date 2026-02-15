@@ -1,5 +1,5 @@
 ---
-title: "Building an MCP Server with Python: Connect Claude to Your Database"
+title: "Building an MCP Server with Python to Connect Claude to Your Database"
 date: 2025-12-20
 description: "A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly."
 tags: [AI, MCP, Python, Claude, Tutorial]

@@ -1,5 +1,5 @@
 ---
-title: "Agent Communication Protocols and Message-Passing Patterns: The Language of Coordination"
+title: "Agent Communication Protocols and Message-Passing Patterns for Coordination"
 description: "Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems"
 pubDate: 2025-11-07
 tags: ["ai-agents", "multi-agent-systems", "communication-protocols", "distributed-systems", "coordination"]

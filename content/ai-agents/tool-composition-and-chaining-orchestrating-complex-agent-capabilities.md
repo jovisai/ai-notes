@@ -1,5 +1,5 @@
 ---
-title: "Tool Composition and Chaining: Orchestrating Complex Agent Capabilities"
+title: "Tool Composition and Chaining for Complex Agent Capabilities"
 date: 2025-11-30
 draft: false
 tags: ["ai-agents", "tool-use", "orchestration", "composition", "architecture"]

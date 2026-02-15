@@ -1,5 +1,5 @@
 ---
-title: "ReAct: Fusing Reasoning and Action in LLM Agents"
+title: "Fusing Reasoning and Action in LLM Agents with ReAct"
 date: 2025-10-04
 tags: ["AI Agents", "LLM", "Reasoning", "Tool Use", "ReAct"]
 ---

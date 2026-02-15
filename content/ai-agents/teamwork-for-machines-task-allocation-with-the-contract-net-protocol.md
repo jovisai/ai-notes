@@ -1,5 +1,5 @@
 ---
-title: "Teamwork for Machines: Task Allocation with the Contract Net Protocol"
+title: "Task Allocation for Machine Teamwork with the Contract Net Protocol"
 date: 2025-10-05
 tags: ["AI Agents", "Multi-Agent Systems", "Coordination", "Distributed AI"]
 ---

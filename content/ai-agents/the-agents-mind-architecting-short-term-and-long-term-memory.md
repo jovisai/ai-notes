@@ -1,5 +1,5 @@
 ---
-title: "The Agent's Mind: Architecting Short-Term and Long-Term Memory"
+title: "Architecting Short-Term and Long-Term Memory in AI Agents"
 date: 2025-10-05
 tags: ["AI Agents", "Memory", "Architecture", "Cognitive Science", "Vector Databases"]
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Optimize Deployment Frequency: Your Competitive Moat"
+title: "Optimize Deployment Frequency as Your Competitive Moat"
 date: 2025-11-28
 tags: ['engineering-management']
 ---

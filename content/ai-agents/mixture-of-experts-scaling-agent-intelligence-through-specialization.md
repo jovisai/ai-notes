@@ -1,5 +1,5 @@
 ---
-title: "Mixture of Experts: Scaling Agent Intelligence Through Specialization"
+title: "Scaling Agent Intelligence Through Specialization with Mixture of Experts"
 date: 2025-10-25
 draft: false
 tags: ["ai-agents", "machine-learning", "architecture", "scaling", "specialization"]

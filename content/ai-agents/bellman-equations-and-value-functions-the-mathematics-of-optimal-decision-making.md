@@ -1,5 +1,5 @@
 ---
-title: "Bellman Equations and Value Functions: The Mathematics of Optimal Decision-Making"
+title: "Bellman Equations and Value Functions for Optimal Decision-Making"
 date: 2025-10-19
 tags: ["AI Agents", "Reinforcement Learning", "Decision Making", "Dynamic Programming", "Bellman Equation"]
 draft: false

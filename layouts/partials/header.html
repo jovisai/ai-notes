@@ -10,7 +10,8 @@
 	{{- end -}}
 
 	{{- if isset .Site.Params "favicon" -}}
-	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
+	<link rel="icon" type="image/jpeg" href={{ .Site.Params.favicon }} />
+	<link rel="apple-touch-icon" href={{ .Site.Params.favicon }} />
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +51,10 @@
 	{{- else if (isset .Site.Params "social") -}}
 	<script src="{{ .Site.BaseURL }}js/feather.min.js"></script>
 	{{ end }}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="{{ .Site.BaseURL }}js/main.js"></script>
 	{{- if isset .Site.Params "customjs" -}}
 	{{- range .Site.Params.customJS }}

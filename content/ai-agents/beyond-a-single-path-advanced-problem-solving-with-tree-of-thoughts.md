@@ -1,5 +1,5 @@
 ---
-title: "Beyond a Single Path: Advanced Problem-Solving with Tree of Thoughts"
+title: "Advanced Problem-Solving with Tree of Thoughts"
 date: 2025-10-05
 tags: ["AI Agents", "Reasoning", "Tree of Thoughts", "LLM", "Problem Solving"]
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Consensus Algorithms: Coordinating Agreement in Distributed Agent Systems"
+title: "Consensus Algorithms for Coordinating Agreement in Distributed Agent Systems"
 date: 2025-11-27
 draft: false
 tags: ["ai-agents", "distributed-systems", "consensus", "multi-agent", "coordination"]

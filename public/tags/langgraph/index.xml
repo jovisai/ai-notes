@@ -16,7 +16,7 @@
       <description>&lt;p&gt;Traditional RAG (Retrieval-Augmented Generation) follows a simple pattern: embed the query, find similar documents, generate an answer. But this &amp;ldquo;naive RAG&amp;rdquo; approach breaks down when queries are complex, ambiguous, or require information from multiple sources.&lt;/p&gt;&#xA;&lt;p&gt;Agentic RAG solves this by letting the LLM make decisions about retrieval. Instead of a fixed pipeline, the LLM can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decompose complex queries into sub-queries&lt;/li&gt;&#xA;&lt;li&gt;Decide if retrieved documents are sufficient&lt;/li&gt;&#xA;&lt;li&gt;Reformulate queries when initial retrieval fails&lt;/li&gt;&#xA;&lt;li&gt;Synthesize information from multiple retrieval rounds&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build an Agentic RAG system using LangGraph.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both</title>
       <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
@@ -28,6 +28,20 @@
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs</title>
+      <link>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</link>
+      <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-terms&#34;&gt;Simple Terms&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re building an AI assistant that needs to research a topic, write a draft, review it, make edits, and then decide whether to publish or revise further. Unlike a simple chain where each step happens once in order, this workflow needs &lt;strong&gt;loops, decisions, and state tracking&lt;/strong&gt;. That&amp;rsquo;s where graph-based agent workflows come in.&lt;/p&gt;&#xA;&lt;p&gt;Think of it like a flowchart with a memory: nodes represent actions (like &amp;ldquo;research&amp;rdquo; or &amp;ldquo;review&amp;rdquo;), edges represent transitions (like &amp;ldquo;move to editing&amp;rdquo;), and the graph maintains a shared state (the draft, feedback, research notes) that evolves as the agent moves through the workflow.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prompt Chaining and Workflow Orchestration for Reliable Multi-Step Agents</title>
+      <link>https://notes.muthu.co/2025/10/prompt-chaining-and-workflow-orchestration-for-reliable-multi-step-agents/</link>
+      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/prompt-chaining-and-workflow-orchestration-for-reliable-multi-step-agents/</guid>
+      <description>&lt;p&gt;When you ask an AI to perform a complex task like &amp;ldquo;analyze this dataset and create a comprehensive report with visualizations,&amp;rdquo; you&amp;rsquo;re really asking for a sequence of specialized operations: data validation, statistical analysis, insight extraction, visualization generation, and narrative synthesis. &lt;strong&gt;Prompt chaining&lt;/strong&gt; is the architectural pattern that breaks monolithic AI tasks into discrete, composable steps, each with its own focused prompt and purpose.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;In Simple Terms:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

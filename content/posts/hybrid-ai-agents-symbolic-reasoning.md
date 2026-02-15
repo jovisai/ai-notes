@@ -1,5 +1,5 @@
 ---
-title: "Hybrid AI Agents: Combining LLMs with Symbolic Reasoning"
+title: "Combining LLMs with Symbolic Reasoning in Hybrid AI Agents"
 date: 2026-01-03
 description: "Build more reliable AI agents by combining the flexibility of LLMs with the precision of symbolic reasoning systems."
 tags: [AI, Symbolic AI, Hybrid Systems, Python, Tutorial]

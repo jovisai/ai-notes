@@ -1,5 +1,5 @@
 ---
-title: "Measuring Massive Multitask Language Understanding: Why MMLU Matters and What It Really Tests"
+title: "Why MMLU Matters and What Massive Multitask Language Understanding Really Tests"
 date: 2025-07-16
 description: "A personal dive into MMLU - the benchmark that's reshaping how we measure AI intelligence across dozens of academic subjects."
 tags: [ai, llms, benchmarking, mmlu, research]

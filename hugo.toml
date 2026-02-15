@@ -8,6 +8,8 @@ theme = "ink-free"
 
 [permalinks]
   posts = "/:year/:month/:title"
+  ai-agents = "/:year/:month/:title"
+  engineering-manager = "/:year/:month/:title"
 
 [params]
 	subtitle = "Thoughts and Ideas on AI by Muthukrishnan"
@@ -15,8 +17,12 @@ theme = "ink-free"
 	# Optional 64x64 avatar image.
 	avatar = "/avatar.jpeg"
 
+	favicon = "/avatar.jpeg"
+
 	featherIconsCDN = false
 	mermaidCDN = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs"
+
+	mainSections = ["posts", "ai-agents", "engineering-manager"]
 
 	# Site color - dark/light/auto
 	mode = "light"
@@ -35,10 +41,10 @@ theme = "ink-free"
 	wpm = 250
 
 	# For statistics, we can compare the total word count against a book of your choice
-	statisticsEnabled = true
-	referenceBookWords = 95000.0
-	referenceBook = "Artificial Intelligence: A Modern Approach"
-	referenceAuthor = "Stuart Russell & Peter Norvig"
+	# statisticsEnabled = true
+	# referenceBookWords = 95000.0
+	# referenceBook = "Artificial Intelligence: A Modern Approach"
+	# referenceAuthor = "Stuart Russell & Peter Norvig"
 
 # Nav.
 [[menu.main]]
@@ -52,19 +58,29 @@ url = "/posts"
 weight = 2
 
 [[menu.main]]
+name = "AI Agents"
+url = "/ai-agents"
+weight = 3
+
+[[menu.main]]
+name = "Engineering Manager"
+url = "/engineering-manager"
+weight = 4
+
+[[menu.main]]
 name = "About"
 url = "/about"
-weight = 3
+weight = 5
 
 [[menu.main]]
 name = "Resume"
 url = "/resume"
-weight = 4
+weight = 6
 
 [[menu.main]]
 name = "Tags & Stats"
 url = "/tags"
-weight = 5
+weight = 7
 
 [[params.social]]
 name = "Github"
@@ -90,6 +106,12 @@ url = "https://linkedin.com/in/krimuthu/"
     noClasses = true
     style = "github"
     tabWidth = 4
+
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['$$', '$$']]
+      inline = [['$', '$']]
 
   [markup.tableOfContents]
     endLevel = 3

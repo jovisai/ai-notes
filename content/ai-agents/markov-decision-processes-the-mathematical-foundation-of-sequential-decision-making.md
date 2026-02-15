@@ -1,5 +1,5 @@
 ---
-title: "Markov Decision Processes: The Mathematical Foundation of Sequential Decision-Making"
+title: "Markov Decision Processes as the Foundation of Sequential Decision-Making"
 date: 2025-11-26
 draft: false
 ---

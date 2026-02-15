@@ -1,5 +1,5 @@
 ---
-title: "Manage Your Team's Cognitive Load Budget"
+title: "Manage Your Teams Cognitive Load Budget"
 date: 2025-11-12
 tags: ['engineering-management']
 ---

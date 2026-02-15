@@ -14,7 +14,7 @@
   --color-selection-text: #ffffff;
   
   /* Typography */
-  --font-family-base: "Source Sans 3", sans-serif;
+  --font-family-base: "Verdana", sans-serif;
   --font-family-mono: monospace;
   --font-size-base: 1rem;
   --line-height-base: 1.6;
@@ -345,8 +345,6 @@ pre .ln,
 }
 
 .header .site-description nav {
-    margin: 0;
-    padding: 0;
     border: none;
     min-width: 50px;
     margin-left: 15px;
@@ -669,6 +667,104 @@ code:not(pre *) {
     font-weight: 600;
   }
   
+
+/* Jovis ad banner */
+.jovis-ad {
+    background-color: #0b0b0f;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin: var(--space-2xl) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.jovis-ad::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(0, 224, 215, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(0, 224, 215, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.jovis-ad-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #00e0d7;
+    border: 1px solid rgba(0, 224, 215, 0.3);
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.jovis-ad-headline {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+}
+
+.jovis-ad-cyan {
+    color: #00e0d7;
+}
+
+.jovis-ad-description {
+    color: #9ca3af !important;
+    margin: 0 auto 1.75rem auto;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 520px;
+}
+
+.jovis-ad-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.jovis-ad-cta {
+    display: inline-block;
+    background-color: #00e0d7;
+    color: #0b0b0f !important;
+    padding: 0.7rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border: none !important;
+    transition: opacity 150ms ease;
+}
+
+.jovis-ad-cta:hover,
+.jovis-ad-cta:focus {
+    opacity: 0.85;
+    border-bottom: none !important;
+}
+
+.jovis-ad-secondary {
+    display: inline-block;
+    color: #ffffff !important;
+    padding: 0.7rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: border-color 150ms ease;
+}
+
+.jovis-ad-secondary:hover,
+.jovis-ad-secondary:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
 
 /* For https://github.com/martignoni/hugo-notice */
 .notice {

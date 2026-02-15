@@ -1,5 +1,5 @@
 ---
-title: "Temporal Difference Learning and Q-Learning: The Engine of Agent Intelligence"
+title: "Temporal Difference Learning and Q-Learning as the Engine of Agent Intelligence"
 date: 2025-11-04
 tags: ["AI Agents", "Reinforcement Learning", "Q-Learning", "TD Learning", "Value Functions"]
 ---

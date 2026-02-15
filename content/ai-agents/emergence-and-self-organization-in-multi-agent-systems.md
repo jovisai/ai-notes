@@ -1,5 +1,5 @@
 ---
-title: "Emergence and Self-Organization in Multi-Agent Systems: When Simple Rules Create Complex Intelligence"
+title: "Emergence and Self-Organization When Simple Rules Create Complex Intelligence"
 date: 2025-10-21
 draft: false
 tags: ["ai-agents", "multi-agent-systems", "emergence", "self-organization", "swarm-intelligence", "complexity"]

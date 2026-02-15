@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Testing - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Testing - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="alternate" type="application/rss+xml" href="https://notes.muthu.co/tags/testing/index.xml" title="Engineering Notes" />
 	
@@ -25,6 +26,10 @@
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -54,6 +59,14 @@
 			
 			<li>
 				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
 			</li>
 			
 			<li>
@@ -88,11 +101,32 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/">Evaluating Your AI Agents with DeepEval: A Practical Guide</a>
+							<a href="/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/">A Practical Guide to Evaluating Your AI Agents with DeepEval</a>
 						</h4>
 						<span class="description">
 							
 								Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.
+							
+						</span>
+					</div>
+				</div>
+			</li>
+			
+			<li class="post">
+				<div class="post-header">
+					<div class="meta">
+						<div class="date">
+							<span class="day">05</span>
+							<span class="rest">Nov 2025</span>
+						</div>
+					</div>
+					<div class="matter">
+						<h4 class="title small">
+							<a href="/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/">Agent Debugging and Observability for Seeing Inside the Black Box</a>
+						</h4>
+						<span class="description">
+							
+								Master the art of understanding, debugging, and monitoring AI agents through tracing, logging, and observability patterns
 							
 						</span>
 					</div>
@@ -109,7 +143,7 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/">Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software</a>
+							<a href="/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/">A Multi-Agent AI Ecosystem for Self-Improving Software</a>
 						</h4>
 						<span class="description">
 							
@@ -125,7 +159,17 @@ In the relentless pursuit of robust and secure software, developers have long re
 		
 	</div>
 
-	<div class="footer wrapper">
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
 	<nav class="nav">
 		<div>&copy 2025   Muthukrishnan</div>
 		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>

@@ -6,8 +6,29 @@
     <description>Recent content in Multi-Agent-Systems on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/multi-agent-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Improving Decisions Through Multi-Agent Debate and Deliberation</title>
+      <link>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
+      <description>&lt;h2 id=&#34;the-wisdom-of-disagreement&#34;&gt;The Wisdom of Disagreement&lt;/h2&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re making a critical decision. Would you trust a single advisor, or would you prefer to hear multiple perspectives—even conflicting ones—before choosing? This intuition underlies &lt;strong&gt;multi-agent debate&lt;/strong&gt;: a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone.&lt;/p&gt;&#xA;&lt;p&gt;Unlike simple voting or averaging, debate involves &lt;strong&gt;iterative argumentation&lt;/strong&gt;. Agents don&amp;rsquo;t just state opinions; they respond to each other, refine their positions, and sometimes change their minds. The result? More robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Agent Communication Protocols and Message-Passing Patterns for Coordination</title>
+      <link>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
+      <description>&lt;p&gt;When you have multiple AI agents working together, the most critical question isn&amp;rsquo;t &lt;em&gt;what&lt;/em&gt; each agent can do—it&amp;rsquo;s &lt;em&gt;how&lt;/em&gt; they communicate. Just as human teams need shared language and communication norms, multi-agent systems require structured protocols for exchanging information, coordinating actions, and achieving collective goals.&lt;/p&gt;&#xA;&lt;p&gt;Today, we&amp;rsquo;ll explore the foundational protocols and patterns that enable agents to &amp;ldquo;talk&amp;rdquo; to each other effectively.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-terms&#34;&gt;Simple Terms&lt;/h3&gt;&#xA;&lt;p&gt;Imagine a restaurant kitchen during dinner rush. The head chef, sous chefs, and line cooks must coordinate perfectly: &amp;ldquo;Order up for table 5!&amp;rdquo;, &amp;ldquo;I need two minutes on the salmon!&amp;rdquo;, &amp;ldquo;86 the lamb!&amp;rdquo;. Each message has a purpose (inform, request, confirm), a sender, a recipient, and expected timing. Without this structured communication, chaos ensues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Multi-Agent AI Ecosystem for Self-Improving Software</title>
+      <link>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
+      <description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building a Multi-Agent Debate System with LangGraph</title>
       <link>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</link>
@@ -16,11 +37,53 @@
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software</title>
-      <link>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
-      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
-      <description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
+      <title>Emergence and Self-Organization When Simple Rules Create Complex Intelligence</title>
+      <link>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</link>
+      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</guid>
+      <description>&lt;h2 id=&#34;introduction-the-magic-of-collective-intelligence&#34;&gt;Introduction: The Magic of Collective Intelligence&lt;/h2&gt;&#xA;&lt;p&gt;Imagine a thousand ants working together to build a complex nest with ventilation systems, nurseries, and food storage—without blueprints, architects, or central command. Or picture a flock of starlings performing mesmerizing aerial dances, each bird following just three simple rules. This is &lt;strong&gt;emergence&lt;/strong&gt;: complex, intelligent behavior arising from simple local interactions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;In simple terms&lt;/strong&gt;: Emergence in multi-agent systems means that when many simple agents interact following basic rules, the &lt;strong&gt;whole system&lt;/strong&gt; displays behaviors and capabilities that &lt;strong&gt;no single agent possesses&lt;/strong&gt;. The intelligence emerges from the collective, not from any central controller.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Collaborative Problem-Solving in Multi-Agent Systems with the Blackboard Architecture</title>
+      <link>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</link>
+      <pubDate>Fri, 17 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</guid>
+      <description>&lt;p&gt;Imagine a group of experts gathered around a large blackboard, each contributing their specialized knowledge to solve a complex problem. One expert writes a hypothesis, another adds supporting evidence, a third identifies a contradiction, and gradually, through this collaborative dance, a solution emerges. This metaphor captures the essence of the &lt;strong&gt;blackboard architecture&lt;/strong&gt;—one of the most elegant patterns for coordinating multiple AI agents working on problems that require diverse expertise.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-blackboard-architecture&#34;&gt;What Is the Blackboard Architecture?&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-simple-explanation&#34;&gt;The Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;The blackboard architecture is a design pattern where multiple independent agents (called &lt;strong&gt;knowledge sources&lt;/strong&gt;) collaborate by reading from and writing to a shared workspace (the &lt;strong&gt;blackboard&lt;/strong&gt;). A &lt;strong&gt;control component&lt;/strong&gt; decides which agent should act next based on the current state of the blackboard.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Auction-Based Task Allocation in Multi-Agent Systems</title>
+      <link>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</link>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-terms&#34;&gt;Simple Terms&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you have five robots in a warehouse and ten packages to deliver. How do you decide which robot should pick up which package? You could randomly assign them, but some robots might be closer to certain packages, have more battery life, or be better suited for heavy loads.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Auction-based task allocation&lt;/strong&gt; solves this by letting robots &amp;ldquo;bid&amp;rdquo; on tasks. Each robot evaluates how well-suited it is for a task and submits a bid. The system awards tasks to the robots with the best bids, ensuring efficient distribution without centralized micromanagement.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Programming Multi-Agent Conversations with AutoGen</title>
+      <link>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</link>
+      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;At its core, &lt;strong&gt;AutoGen&lt;/strong&gt; is a framework for simplifying the orchestration, optimization, and automation of complex LLM workflows. But what makes it unique is its central metaphor: &lt;strong&gt;conversable agents&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Simple Explanation:&lt;/strong&gt; Imagine a team of experts in a chat room. You, the user, can talk to a project manager. This manager doesn&amp;rsquo;t do the work itself but knows which expert to talk to—a coder, a data analyst, a writer. The experts can talk to each other, execute code, ask for feedback, and report back. AutoGen allows you to program this &amp;ldquo;chat room&amp;rdquo; of AI agents.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Solving Complex Problems with AI Agent Swarms</title>
+      <link>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Observe a colony of ants. No single ant possesses a grand blueprint. There is no &amp;ldquo;leader&amp;rdquo; ant giving orders. Each ant operates on a few simple rules, reacting to its local environment and the pheromone trails of its peers. Yet, from these simple, decentralized actions, a stunningly complex intelligence emerges: the colony builds intricate nests, finds the shortest path to food, and defends its territory.&lt;/p&gt;&#xA;&lt;p&gt;This is the core philosophy behind an &lt;strong&gt;AI Agent Swarm&lt;/strong&gt;. Instead of building one monolithic, super-intelligent agent or a small team of specialized agents, a swarm consists of a massive number of relatively simple, often identical agents working in parallel. The complex, intelligent behavior of the system is an &lt;strong&gt;emergent property&lt;/strong&gt; of their collective actions, not the design of any single member.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Task Allocation for Machine Teamwork with the Contract Net Protocol</title>
+      <link>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;How do you get a team to work together without a rigid, top-down manager? Imagine you&amp;rsquo;re a general contractor building a house. You don&amp;rsquo;t know how to do the plumbing or electrical work yourself. So, you announce the &amp;ldquo;plumbing job&amp;rdquo; to a network of trusted plumbers. They review the job&amp;rsquo;s requirements and send you back bids with their price and timeline. You evaluate the bids and award the contract to the best one.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium</title>
+      <link>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imagine two partners in crime are captured and held in separate interrogation rooms. The police don&amp;rsquo;t have enough evidence for a major conviction unless one of them talks. They offer each prisoner a deal, unaware of the other&amp;rsquo;s choice.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;If both stay silent, they both serve 1 year on a lesser charge.&lt;/li&gt;&#xA;&lt;li&gt;If one betrays the other (and the other stays silent), the betrayer goes free, and the silent one serves 5 years.&lt;/li&gt;&#xA;&lt;li&gt;If both betray each other, they both serve 3 years.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;What should they do? This is the famous &lt;strong&gt;Prisoner&amp;rsquo;s Dilemma&lt;/strong&gt;, and it&amp;rsquo;s a classic example of a &amp;ldquo;game.&amp;rdquo; &lt;strong&gt;Game Theory&lt;/strong&gt; is the mathematical study of strategic decision-making among rational, self-interested agents. It&amp;rsquo;s the perfect tool for analyzing how AI agents will behave in environments where their goals may conflict or align with others.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>

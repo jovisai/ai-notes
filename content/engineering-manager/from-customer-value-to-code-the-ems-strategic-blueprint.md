@@ -1,5 +1,5 @@
 ---
-title: "From Customer Value to Code: The EM's Strategic Blueprint"
+title: "From Customer Value to Code as the EMs Strategic Blueprint"
 date: 2025-09-25
 tags: ['engineering-management']
 ---

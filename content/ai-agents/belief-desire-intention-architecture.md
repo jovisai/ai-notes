@@ -1,5 +1,5 @@
 ---
-title: "Belief-Desire-Intention (BDI) Architecture: Building Rational Agents with Human-Like Reasoning"
+title: "Building Rational Agents with Human-Like Reasoning Using BDI Architecture"
 date: 2025-10-20
 draft: false
 tags: ["ai-agents", "bdi", "architecture", "reasoning", "planning"]

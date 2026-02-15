@@ -1,5 +1,5 @@
 ---
-title: "Codify Your Quality Bar: Make Standards Executable"
+title: "Codify Your Quality Bar and Make Standards Executable"
 date: 2025-11-08
 tags: ['engineering-management']
 ---

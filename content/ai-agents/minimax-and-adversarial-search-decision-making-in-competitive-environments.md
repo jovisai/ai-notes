@@ -1,5 +1,5 @@
 ---
-title: "Minimax and Adversarial Search: Decision-Making in Competitive Environments"
+title: "Minimax and Adversarial Search for Decision-Making in Competitive Environments"
 date: 2025-10-13
 draft: false
 tags: ["AI Agents", "Game Theory", "Search Algorithms", "Adversarial Search", "Decision Making"]

@@ -9,17 +9,17 @@
     <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/crewai/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both</title>
       <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
       <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts</title>
-      <link>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>
+      <title>Learning CrewAI in a Step-by-Step Guide with 10 Concepts</title>
+      <link>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</link>
       <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</guid>
+      <guid>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</guid>
       <description>&lt;p&gt;CrewAI is a cutting-edge framework for orchestrating autonomous AI agents. It allows you to build sophisticated multi-agent systems that can collaborate to solve complex problems. This guide breaks down CrewAI into 10 fundamental concepts, taking you from first principles to building a complete, end-to-end agentic workflow.&lt;/p&gt;&#xA;&lt;h3 id=&#34;concept-1-the-agent&#34;&gt;&lt;strong&gt;Concept 1: The Agent&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fundamental Idea:&lt;/strong&gt; An Agent is an autonomous entity designed to perform specific roles, achieve goals, and execute tasks. Think of it as a specialized member of your AI team. Each agent has a unique role, a goal that defines its purpose, and a backstory that provides context and personality. This allows agents to behave in a more specialized and predictable way.&lt;/p&gt;</description>
     </item>
   </channel>

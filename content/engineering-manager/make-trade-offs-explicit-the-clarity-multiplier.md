@@ -1,5 +1,5 @@
 ---
-title: "Make Trade-offs Explicit: The Clarity Multiplier"
+title: "Make Trade-offs Explicit as a Clarity Multiplier"
 date: 2025-10-21
 tags: ['engineering-management']
 ---

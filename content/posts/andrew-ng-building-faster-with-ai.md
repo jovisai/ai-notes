@@ -1,5 +1,5 @@
 ---
-title: "My Thoughts on Andrew Ng's \"Building Faster and Smarter with AI\""
+title: "My Thoughts on Andrew Ngs Building Faster and Smarter with AI"
 date: 2025-07-11
 tags: ["ai", "startups", "development", "agentic-ai"]
 ---

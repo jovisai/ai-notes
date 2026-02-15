@@ -1,5 +1,5 @@
 ---
-title: "Agentic Workflow Graphs: Building Stateful AI Systems with LangGraph"
+title: "Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs"
 date: 2025-10-12
 tags: [ai-agents, langgraph, workflow-orchestration, state-management, agent-architecture]
 description: "Learn how to build complex, stateful AI agent systems using graph-based architectures with LangGraph—a paradigm shift from linear chains to cyclic, controllable workflows."

@@ -1,5 +1,5 @@
 ---
-title: "Guardrails for Intelligence: Ensuring Agent Safety with Constitutional AI"
+title: "Ensuring Agent Safety with Constitutional AI Guardrails"
 date: 2025-10-05
 tags: ["AI Agents", "AI Safety", "Alignment", "Constitutional AI", "Ethics"]
 ---

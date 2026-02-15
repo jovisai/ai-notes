@@ -1,5 +1,5 @@
 ---
-title: "Vector Embeddings and Semantic Search: The Foundation of Agent Memory and Retrieval"
+title: "Vector Embeddings and Semantic Search as the Foundation of Agent Memory"
 date: 2025-10-18
 draft: false
 tags: ["AI Agents", "Vector Embeddings", "Semantic Search", "RAG", "Memory Systems"]

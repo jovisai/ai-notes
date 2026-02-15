@@ -9,38 +9,38 @@
     <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hybrid AI Agents: Combining LLMs with Symbolic Reasoning</title>
-      <link>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</link>
+      <title>Combining LLMs with Symbolic Reasoning in Hybrid AI Agents</title>
+      <link>https://notes.muthu.co/2026/01/combining-llms-with-symbolic-reasoning-in-hybrid-ai-agents/</link>
       <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/01/hybrid-ai-agents-combining-llms-with-symbolic-reasoning/</guid>
+      <guid>https://notes.muthu.co/2026/01/combining-llms-with-symbolic-reasoning-in-hybrid-ai-agents/</guid>
       <description>&lt;p&gt;LLMs are remarkably flexible but notoriously unreliable for precise reasoning. They hallucinate, make arithmetic errors, and struggle with complex logic. Symbolic systems—rule engines, constraint solvers, knowledge graphs—are precise but rigid.&lt;/p&gt;&#xA;&lt;p&gt;The solution? Combine them. Hybrid AI agents use LLMs for natural language understanding and high-level reasoning, while delegating precise tasks to symbolic systems. This is emerging as a key pattern in production AI systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-hybrid&#34;&gt;Why Hybrid?&lt;/h2&gt;&#xA;&lt;p&gt;Consider a tax preparation agent. An LLM can:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework</title>
-      <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</link>
+      <title>Building a Multi-Agent Swarm with OpenAI Swarm Framework</title>
+      <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</guid>
+      <guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</guid>
       <description>&lt;p&gt;OpenAI&amp;rsquo;s Swarm is an experimental framework for building multi-agent systems. Unlike heavier frameworks, Swarm is intentionally minimal—it adds just two concepts on top of the Chat Completions API: &lt;strong&gt;handoffs&lt;/strong&gt; and &lt;strong&gt;routines&lt;/strong&gt;. This makes it easy to understand and extend.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a customer service system where specialized agents hand off conversations to each other based on customer needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-swarm&#34;&gt;What is Swarm?&lt;/h2&gt;&#xA;&lt;p&gt;Swarm is OpenAI&amp;rsquo;s take on multi-agent orchestration. Key principles:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Contextual RAG: Adding Context to Chunks for Better Retrieval</title>
-      <link>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</link>
+      <title>Adding Context to Chunks for Better Retrieval with Contextual RAG</title>
+      <link>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</guid>
+      <guid>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</guid>
       <description>&lt;p&gt;Standard RAG has a fundamental problem: chunks lose their context. When you split a document into pieces, each chunk becomes isolated. A sentence like &amp;ldquo;The company increased revenue by 15%&amp;rdquo; is meaningless without knowing which company, which year, and what the previous revenue was.&lt;/p&gt;&#xA;&lt;p&gt;Contextual RAG solves this by enriching each chunk with surrounding context before embedding. Anthropic&amp;rsquo;s research shows this technique can reduce retrieval failures by up to 67%.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Building a Research Assistant with Windsurf&#39;s Cascade Agent</title>
+      <title>Building a Research Assistant with Windsurfs Cascade Agent</title>
       <link>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</link>
       <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</guid>
       <description>&lt;p&gt;Windsurf is an AI-powered IDE that goes beyond code completion. Its Cascade feature is a full coding agent that understands your entire project, generates code across multiple files, runs commands, and debugs issues—all from natural language instructions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll use Windsurf to build a research assistant application, demonstrating how Cascade handles complex, multi-file development tasks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-makes-windsurf-different&#34;&gt;What Makes Windsurf Different&lt;/h2&gt;&#xA;&lt;p&gt;Traditional AI coding tools like GitHub Copilot are reactive—they complete the line you&amp;rsquo;re writing. Windsurf&amp;rsquo;s Cascade is proactive:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Evaluating Your AI Agents with DeepEval: A Practical Guide</title>
-      <link>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</link>
+      <title>A Practical Guide to Evaluating Your AI Agents with DeepEval</title>
+      <link>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</guid>
+      <guid>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</guid>
       <description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
     </item>
     <item>
@@ -65,24 +65,24 @@
       <description>&lt;p&gt;Traditional RAG (Retrieval-Augmented Generation) follows a simple pattern: embed the query, find similar documents, generate an answer. But this &amp;ldquo;naive RAG&amp;rdquo; approach breaks down when queries are complex, ambiguous, or require information from multiple sources.&lt;/p&gt;&#xA;&lt;p&gt;Agentic RAG solves this by letting the LLM make decisions about retrieval. Instead of a fixed pipeline, the LLM can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decompose complex queries into sub-queries&lt;/li&gt;&#xA;&lt;li&gt;Decide if retrieved documents are sufficient&lt;/li&gt;&#xA;&lt;li&gt;Reformulate queries when initial retrieval fails&lt;/li&gt;&#xA;&lt;li&gt;Synthesize information from multiple retrieval rounds&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build an Agentic RAG system using LangGraph.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both</title>
       <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
       <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Building an MCP Server with Python: Connect Claude to Your Database</title>
-      <link>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/</link>
+      <title>Building an MCP Server with Python to Connect Claude to Your Database</title>
+      <link>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-connect-claude-to-your-database/</guid>
+      <guid>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</guid>
       <description>&lt;p&gt;The Model Context Protocol (MCP) is Anthropic&amp;rsquo;s open standard for connecting AI applications to external data sources and tools. Think of it like a USB-C port for AI—a standardized way to plug any data source into Claude or other AI assistants.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a practical MCP server that connects Claude to a SQLite database. By the end, you&amp;rsquo;ll be able to ask Claude natural language questions about your data, and it will query the database directly.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>TDD with Coding Agents: Building a Rate Limiting Service</title>
-      <link>https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/</link>
+      <title>TDD with Coding Agents to Build a Rate Limiting Service</title>
+      <link>https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</link>
       <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/</guid>
+      <guid>https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</guid>
       <description>&lt;h2 id=&#34;problem-overview&#34;&gt;Problem Overview&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll build a sophisticated rate limiting service that supports:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window)&lt;/li&gt;&#xA;&lt;li&gt;Different storage backends (Memory, Redis)&lt;/li&gt;&#xA;&lt;li&gt;Per-user and per-API-key limits&lt;/li&gt;&#xA;&lt;li&gt;Rate limit headers in responses&lt;/li&gt;&#xA;&lt;li&gt;Graceful degradation when storage fails&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is complex enough to demonstrate TDD&amp;rsquo;s power with AI agents.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-tdd-works-exceptionally-well-with-ai-agents&#34;&gt;Why TDD Works Exceptionally Well with AI Agents&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;The AI Agent Advantage:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Perfect Memory&lt;/strong&gt;: Never forgets edge cases once written in tests&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Pattern Recognition&lt;/strong&gt;: Excellent at implementing algorithms to match test specifications&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Systematic Approach&lt;/strong&gt;: Follows TDD discipline consistently&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rapid Iteration&lt;/strong&gt;: Fast feedback cycles between test and implementation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;The Key Insight&lt;/strong&gt;: AI agents excel when they have clear specifications (tests) rather than vague requirements.&lt;/p&gt;</description>
     </item>
     <item>
@@ -93,17 +93,17 @@
       <description>&lt;p&gt;&lt;em&gt;A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#quick-start--setup&#34;&gt;Quick Start &amp;amp; Setup&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#configuration-mastery&#34;&gt;Configuration Mastery&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#core-workflows--patterns&#34;&gt;Core Workflows &amp;amp; Patterns&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#advanced-techniques&#34;&gt;Advanced Techniques&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#team-workflows&#34;&gt;Team Workflows&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#testing--quality-assurance&#34;&gt;Testing &amp;amp; Quality Assurance&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#security--production-practices&#34;&gt;Security &amp;amp; Production Practices&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#cost-optimization&#34;&gt;Cost Optimization&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#multi-claude-workflows&#34;&gt;Multi-Claude Workflows&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mcp-integration&#34;&gt;MCP Integration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#troubleshooting--tips&#34;&gt;Troubleshooting &amp;amp; Tips&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#community-resources&#34;&gt;Community Resources&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Claude Code represents a paradigm shift in software development - it&amp;rsquo;s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic&amp;rsquo;s internal teams, community developers, and real-world production usage to help you master Claude Code.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Understanding Mixture of Experts (MoE) from First Principles</title>
-      <link>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</link>
+      <title>Understanding Mixture of Experts from First Principles</title>
+      <link>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/</link>
       <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-moe-from-first-principles/</guid>
+      <guid>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/</guid>
       <description>&lt;p&gt;One of the most exciting architectural innovations in recent years is the &lt;strong&gt;Mixture of Experts (MoE)&lt;/strong&gt;. It&amp;rsquo;s a key reason why models like Mistral&amp;rsquo;s Mixtral and (reportedly) OpenAI&amp;rsquo;s GPT-4 are so powerful.&lt;/p&gt;&#xA;&lt;p&gt;To really understand MoE, let’s go back to first principles.&#xA;Here’s a rewritten version of your article with a &lt;strong&gt;Flesch Reading Ease score above 70&lt;/strong&gt;. The language is simpler and more direct, while keeping the core ideas intact.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Learning CrewAI: A Step-by-Step Guide in 10 Concepts</title>
-      <link>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</link>
+      <title>Learning CrewAI in a Step-by-Step Guide with 10 Concepts</title>
+      <link>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</link>
       <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/</guid>
+      <guid>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</guid>
       <description>&lt;p&gt;CrewAI is a cutting-edge framework for orchestrating autonomous AI agents. It allows you to build sophisticated multi-agent systems that can collaborate to solve complex problems. This guide breaks down CrewAI into 10 fundamental concepts, taking you from first principles to building a complete, end-to-end agentic workflow.&lt;/p&gt;&#xA;&lt;h3 id=&#34;concept-1-the-agent&#34;&gt;&lt;strong&gt;Concept 1: The Agent&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fundamental Idea:&lt;/strong&gt; An Agent is an autonomous entity designed to perform specific roles, achieve goals, and execute tasks. Think of it as a specialized member of your AI team. Each agent has a unique role, a goal that defines its purpose, and a backstory that provides context and personality. This allows agents to behave in a more specialized and predictable way.&lt;/p&gt;</description>
     </item>
   </channel>

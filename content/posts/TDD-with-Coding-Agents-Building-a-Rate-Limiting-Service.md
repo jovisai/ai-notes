@@ -1,5 +1,5 @@
 ---
-title: 'TDD with Coding Agents: Building a Rate Limiting Service'
+title: "TDD with Coding Agents to Build a Rate Limiting Service"
 date: "2025-08-06"
 tags: ["AI", "Agentic AI", "LLMs", "Development", "Coding", "Tutorial", "Autonomous Agents"]
 ---

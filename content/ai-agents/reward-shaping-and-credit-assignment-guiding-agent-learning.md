@@ -1,5 +1,5 @@
 ---
-title: "Reward Shaping and Credit Assignment: Guiding Agent Learning"
+title: "Reward Shaping and Credit Assignment for Guiding Agent Learning"
 date: 2025-12-01
 tags: ["AI Agents", "Reinforcement Learning", "Reward Engineering", "Machine Learning", "Agent Training"]
 description: "Master the art and science of designing reward functions and solving the credit assignment problem—the key to training agents that learn efficiently and align with human intentions."

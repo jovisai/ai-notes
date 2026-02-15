@@ -1,5 +1,5 @@
 ---
-title: "The Gardener and the Garden: Shape the Environment, Don't Just Manage the Plants"
+title: "Shape the Environment Instead of Just Managing the Plants"
 date: "2025-10-02"
 tags: ['engineering-management']
 ---

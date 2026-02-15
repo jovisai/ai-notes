@@ -1,5 +1,5 @@
 ---
-title: "Human-in-the-Loop Agents: Bridging Autonomy and Oversight"
+title: "Human-in-the-Loop Agents for Bridging Autonomy and Oversight"
 date: 2025-11-11
 description: "Master the patterns and practices of human-in-the-loop agent systems that balance automation with human judgment"
 tags: ["ai-agents", "human-in-the-loop", "agent-architecture", "interactive-systems"]

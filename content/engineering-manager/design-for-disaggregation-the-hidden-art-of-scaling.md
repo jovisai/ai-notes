@@ -1,5 +1,5 @@
 ---
-title: "Design for Disaggregation: The Hidden Art of Scaling"
+title: "Design for Disaggregation and the Hidden Art of Scaling"
 date: 2025-11-13
 tags: ['engineering-management']
 ---

@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/multi-agent/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building a Multi-Agent Swarm with OpenAI&#39;s Swarm Framework</title>
-      <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</link>
+      <title>Building a Multi-Agent Swarm with OpenAI Swarm Framework</title>
+      <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openais-swarm-framework/</guid>
+      <guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</guid>
       <description>&lt;p&gt;OpenAI&amp;rsquo;s Swarm is an experimental framework for building multi-agent systems. Unlike heavier frameworks, Swarm is intentionally minimal—it adds just two concepts on top of the Chat Completions API: &lt;strong&gt;handoffs&lt;/strong&gt; and &lt;strong&gt;routines&lt;/strong&gt;. This makes it easy to understand and extend.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a customer service system where specialized agents hand off conversations to each other based on customer needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-swarm&#34;&gt;What is Swarm?&lt;/h2&gt;&#xA;&lt;p&gt;Swarm is OpenAI&amp;rsquo;s take on multi-agent orchestration. Key principles:&lt;/p&gt;</description>
     </item>
     <item>
@@ -30,11 +30,18 @@
       <description>&lt;p&gt;Code review is a perfect use case for multi-agent systems. Different aspects of code quality—security, style, logic, performance—require different expertise. Instead of one generalist reviewer, we can create a team of specialists.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a code review system using Microsoft&amp;rsquo;s AutoGen framework. Our team will have three specialized reviewers plus a coordinator that synthesizes their findings.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-architecture&#34;&gt;The Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[Code Input] --&amp;gt; B[Coordinator]&#xA;    B --&amp;gt; C[Security Reviewer]&#xA;    B --&amp;gt; D[Style Reviewer]&#xA;    B --&amp;gt; E[Logic Reviewer]&#xA;    C --&amp;gt; F[Final Report]&#xA;    D --&amp;gt; F&#xA;    E --&amp;gt; F&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Each reviewer focuses on their domain:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</title>
+      <title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both</title>
       <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
       <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Consensus Algorithms for Coordinating Agreement in Distributed Agent Systems</title>
+      <link>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</guid>
+      <description>&lt;p&gt;When multiple AI agents need to make a collective decision—whether it&amp;rsquo;s agreeing on a shared belief, coordinating a distributed transaction, or electing a leader—they face the fundamental challenge of &lt;strong&gt;distributed consensus&lt;/strong&gt;. How do you ensure that agents reach agreement even when some are slow, unreachable, or Byzantine (malicious)? This is where consensus algorithms become essential.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-consensus&#34;&gt;What Is Consensus?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Simple terms&lt;/strong&gt;: Consensus is the process by which a group of agents agrees on a single value or decision, even when facing failures, network delays, or conflicting information.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

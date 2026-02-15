@@ -1,5 +1,5 @@
 ---
-title: "The Art of Strategic Quitting: When to Stop, Deprecate, and Say No"
+title: "The Art of Strategic Quitting and Knowing When to Say No"
 date: 2025-09-29
 tags: ['engineering-management']
 ---

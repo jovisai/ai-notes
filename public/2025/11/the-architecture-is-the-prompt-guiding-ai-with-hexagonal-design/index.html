@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Architecture is the Prompt - Guiding AI with Hexagonal Design - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Architecture is the Prompt - Guiding AI with Hexagonal Design - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="The Architecture is the Prompt - Guiding AI with Hexagonal Design">
   <meta itemprop="description" content="As developers, we’ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you’re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.
@@ -39,6 +40,10 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -71,6 +76,14 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
 			
 			<li>
 				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
 			</li>
 			
 			<li>
@@ -174,6 +187,16 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
 <p>Stop spending hours crafting the &ldquo;perfect prompt&rdquo; to tame an AI in a complex codebase. Instead, invest in a clean architecture that does the hard work for you. By embracing Hexagonal Architecture, you create a system with clear boundaries, single responsibilities, and explicit contracts.</p>
 <p>In this world, the architecture itself becomes the ultimate prompt—a silent guide that naturally constrains and directs the AI to produce code that is clean, maintainable, and correct by design. This not only improves your collaboration with AI but also leads to more robust and scalable software for years to come.</p>
 
+    <div class="jovis-ad">
+    <div class="jovis-ad-badge">● Intelligence at Every Action</div>
+    <h3 class="jovis-ad-headline">AI Native<br><span class="jovis-ad-cyan">Project Management</span></h3>
+    <p class="jovis-ad-description">Stop using tools that bolt on AI as an afterthought. Jovis is built AI-first — smart routing, proactive monitoring, and intelligent workflows from the ground up.</p>
+    <div class="jovis-ad-buttons">
+        <a class="jovis-ad-cta" href="https://jovis.ai?utm_source=blog&utm_medium=post_footer">Get early access →</a>
+        <a class="jovis-ad-secondary" href="https://jovis.ai?utm_source=blog&utm_medium=post_footer&utm_content=how_it_works">See how it works</a>
+    </div>
+</div>
+
     <hr class="footer-separator" />
 <div class="tags">
     
@@ -221,7 +244,17 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
 	</div>
 	
 
-	<div class="footer wrapper">
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
 	<nav class="nav">
 		<div>&copy 2025   Muthukrishnan</div>
 		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>

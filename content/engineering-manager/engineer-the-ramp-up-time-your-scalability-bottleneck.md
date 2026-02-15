@@ -1,5 +1,5 @@
 ---
-title: "Engineer the Ramp-Up Time: Your Scalability Bottleneck"
+title: "Engineer the Ramp-Up Time to Fix Your Scalability Bottleneck"
 date: 2025-11-17
 tags: ['engineering-management']
 ---

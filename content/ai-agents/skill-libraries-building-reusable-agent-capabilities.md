@@ -1,5 +1,5 @@
 ---
-title: "Skill Libraries: Building Reusable Agent Capabilities"
+title: "Building Reusable Agent Capabilities with Skill Libraries"
 date: 2025-12-06
 draft: false
 tags: ["ai-agents", "skill-learning", "hierarchical-rl", "program-synthesis", "compositionality"]

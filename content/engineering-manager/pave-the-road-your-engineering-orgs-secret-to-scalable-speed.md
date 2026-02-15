@@ -1,5 +1,5 @@
 ---
-title: "Pave the Road: Your Engineering Org's Secret to Scalable Speed"
+title: "Pave the Road to Scalable Speed in Your Engineering Org"
 date: 2025-10-03
 tags: ['engineering-management']
 ---

@@ -1,5 +1,5 @@
 ---
-title: "From Business Goals to Code: The Backward-Thinking EM"
+title: "From Business Goals to Code with Backward Thinking"
 date: 2025-09-23
 tags: ['engineering-management']
 ---

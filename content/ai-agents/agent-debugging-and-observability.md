@@ -1,5 +1,5 @@
 ---
-title: "Agent Debugging and Observability: Seeing Inside the Black Box"
+title: "Agent Debugging and Observability for Seeing Inside the Black Box"
 date: 2025-11-05
 draft: false
 tags: ["ai-agents", "debugging", "observability", "testing", "monitoring"]

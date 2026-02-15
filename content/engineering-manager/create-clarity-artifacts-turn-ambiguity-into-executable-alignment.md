@@ -1,5 +1,5 @@
 ---
-title: "Create Clarity Artifacts: Turn Ambiguity into Executable Alignment"
+title: "Create Clarity Artifacts to Turn Ambiguity into Executable Alignment"
 date: 2025-11-07
 tags: ['engineering-management']
 ---

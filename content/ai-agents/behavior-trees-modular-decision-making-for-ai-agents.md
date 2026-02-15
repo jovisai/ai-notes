@@ -1,5 +1,5 @@
 ---
-title: "Behavior Trees: Modular Decision-Making for AI Agents"
+title: "Behavior Trees for Modular Decision-Making in AI Agents"
 date: 2025-10-09
 tags: ["AI Agents", "Behavior Trees", "Decision Making", "Architecture"]
 draft: false

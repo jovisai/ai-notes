@@ -1,5 +1,5 @@
 ---
-title: "Strategic Minds: Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium"
+title: "Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium"
 date: 2025-10-05
 tags: ["AI Agents", "Multi-Agent Systems", "Game Theory", "Nash Equilibrium", "Strategy"]
 ---

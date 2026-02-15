@@ -1,5 +1,5 @@
 ---
-title: "Hierarchical Task Networks: Planning with Decomposition"
+title: "Hierarchical Task Networks for Planning with Decomposition"
 date: 2025-10-08
 tags: ["AI Agents", "HTN", "Planning", "Task Decomposition", "Hierarchical Planning"]
 ---

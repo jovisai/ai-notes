@@ -1,5 +1,5 @@
 ---
-title: "Manufacture Slack: The Counterintuitive Key to High-Performing Teams"
+title: "Manufacture Slack as the Counterintuitive Key to High-Performing Teams"
 date: "2025-09-27"
 tags: ['engineering-management']
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Goal-Oriented Action Planning: Dynamic Problem Solving for Adaptive Agents"
+title: "Goal-Oriented Action Planning for Dynamic Problem Solving in Adaptive Agents"
 date: 2025-10-16
 draft: false
 tags: ["ai-agents", "planning", "goap", "game-ai", "decision-making"]

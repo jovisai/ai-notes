@@ -1,5 +1,5 @@
 ---
-title: "Manage Energy, Not Time: The Sustainable Path to High Performance"
+title: "Manage Energy Not Time for Sustainable High Performance"
 date: 2025-10-04
 tags: ['engineering-management']
 ---

@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building a Multi-Agent Code Review System with AutoGen - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building a Multi-Agent Code Review System with AutoGen - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <meta itemprop="name" content="Building a Multi-Agent Code Review System with AutoGen">
   <meta itemprop="description" content="Create a team of specialized AI agents that review code for security, style, and logic issues using Microsoft&#39;s AutoGen framework.">
@@ -37,6 +38,10 @@
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -69,6 +74,14 @@
 			
 			<li>
 				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
 			</li>
 			
 			<li>
@@ -436,6 +449,16 @@ Use autogen-agentchat with AssistantAgent and RoundRobinGroupChat. Each reviewer
 should format findings with severity levels. The coordinator should produce an
 overall assessment (APPROVE/NEEDS CHANGES/REJECT). Include termination conditions.
 </code></pre>
+    <div class="jovis-ad">
+    <div class="jovis-ad-badge">● Intelligence at Every Action</div>
+    <h3 class="jovis-ad-headline">AI Native<br><span class="jovis-ad-cyan">Project Management</span></h3>
+    <p class="jovis-ad-description">Stop using tools that bolt on AI as an afterthought. Jovis is built AI-first — smart routing, proactive monitoring, and intelligent workflows from the ground up.</p>
+    <div class="jovis-ad-buttons">
+        <a class="jovis-ad-cta" href="https://jovis.ai?utm_source=blog&utm_medium=post_footer">Get early access →</a>
+        <a class="jovis-ad-secondary" href="https://jovis.ai?utm_source=blog&utm_medium=post_footer&utm_content=how_it_works">See how it works</a>
+    </div>
+</div>
+
     <hr class="footer-separator" />
 <div class="tags">
     
@@ -487,7 +510,17 @@ overall assessment (APPROVE/NEEDS CHANGES/REJECT). Include termination condition
 	</div>
 	
 
-	<div class="footer wrapper">
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
 	<nav class="nav">
 		<div>&copy 2025   Muthukrishnan</div>
 		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
@@ -497,22 +530,14 @@ overall assessment (APPROVE/NEEDS CHANGES/REJECT). Include termination condition
 <script type="module">
 	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
 
-	const getMermaidTheme = () => {
-		const savedScheme = localStorage.getItem('scheme');
-		if (savedScheme) {
-			return savedScheme === 'dark' ? 'dark' : 'default';
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
-	};
-
 	mermaid.initialize({
 		startOnLoad: true,
-		theme: getMermaidTheme(),
+		theme: 'default',
 		handDrawn: true
 	});
 
 	const applyTheme = () => {
-		const newTheme = getMermaidTheme();
+		const newTheme = 'default';
 		mermaid.initialize({
 			startOnLoad: true,
 			theme: newTheme,

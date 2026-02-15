@@ -1,5 +1,5 @@
 ---
-title: "Chain-of-Thought Reasoning: Giving LLMs a Thinking Process"
+title: "Chain-of-Thought Reasoning and Giving LLMs a Thinking Process"
 date: 2025-10-03
 draft: false
 ---

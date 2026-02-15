@@ -1,5 +1,5 @@
 ---
-title: "Architect for Reversibility: The High-Velocity Advantage"
+title: "Architect for Reversibility as a High-Velocity Advantage"
 date: 2025-12-04
 tags: ['engineering-management']
 ---

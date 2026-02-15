@@ -1,5 +1,5 @@
 ---
-title: "Evaluating Your AI Agents with DeepEval: A Practical Guide"
+title: "A Practical Guide to Evaluating Your AI Agents with DeepEval"
 date: 2025-12-29
 description: "Learn how to systematically test and evaluate AI agents using DeepEval's metrics for relevancy, faithfulness, and task completion."
 tags: [AI, Evaluation, DeepEval, Testing, Python, Tutorial]

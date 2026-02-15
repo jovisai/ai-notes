@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Llms - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Llms - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="alternate" type="application/rss+xml" href="https://notes.muthu.co/tags/llms/index.xml" title="Engineering Notes" />
 	
@@ -25,6 +26,10 @@
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -54,6 +59,14 @@
 			
 			<li>
 				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
 			</li>
 			
 			<li>
@@ -109,7 +122,7 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/08/tdd-with-coding-agents-building-a-rate-limiting-service/">TDD with Coding Agents: Building a Rate Limiting Service</a>
+							<a href="/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/">TDD with Coding Agents to Build a Rate Limiting Service</a>
 						</h4>
 						<span class="description">
 							
@@ -159,7 +172,7 @@ We&#39;ll build a sophisticated rate limiting service that supports:
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/measuring-massive-multitask-language-understanding-why-mmlu-matters-and-what-it-really-tests/">Measuring Massive Multitask Language Understanding: Why MMLU Matters and What It Really Tests</a>
+							<a href="/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/">Why MMLU Matters and What Massive Multitask Language Understanding Really Tests</a>
 						</h4>
 						<span class="description">
 							
@@ -180,7 +193,7 @@ We&#39;ll build a sophisticated rate limiting service that supports:
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/understanding-mixture-of-experts-moe-from-first-principles/">Understanding Mixture of Experts (MoE) from First Principles</a>
+							<a href="/2025/07/understanding-mixture-of-experts-from-first-principles/">Understanding Mixture of Experts from First Principles</a>
 						</h4>
 						<span class="description">
 							
@@ -245,7 +258,7 @@ I recently came across a paper titled *&#34;Small Language Models are the Future
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/">Meet AlphaEvolve: The AI That Discovers New Algorithms</a>
+							<a href="/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/">Meet AlphaEvolve the AI That Discovers New Algorithms</a>
 						</h4>
 						<span class="description">
 							
@@ -266,7 +279,7 @@ I recently came across a paper titled *&#34;Small Language Models are the Future
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/">Learning CrewAI: A Step-by-Step Guide in 10 Concepts</a>
+							<a href="/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/">Learning CrewAI in a Step-by-Step Guide with 10 Concepts</a>
 						</h4>
 						<span class="description">
 							
@@ -287,7 +300,7 @@ I recently came across a paper titled *&#34;Small Language Models are the Future
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/keeping-your-ai-code-gen-up-to-date-an-introduction-to-context-engineering/">Keeping Your AI Code-Gen Up-to-Date: An Introduction to Context Engineering</a>
+							<a href="/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/">An Introduction to Context Engineering for AI Code Generation</a>
 						</h4>
 						<span class="description">
 							
@@ -308,7 +321,7 @@ I recently came across a paper titled *&#34;Small Language Models are the Future
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/a-developers-guide-to-effective-ai-coding-agents/">A Developer&#39;s Guide to Effective AI Coding Agents</a>
+							<a href="/2025/07/a-developers-guide-to-effective-ai-coding-agents/">A Developers Guide to Effective AI Coding Agents</a>
 						</h4>
 						<span class="description">
 							
@@ -344,7 +357,17 @@ I recently came across a paper titled *&#34;Small Language Models are the Future
 		
 	</div>
 
-	<div class="footer wrapper">
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
 	<nav class="nav">
 		<div>&copy 2025   Muthukrishnan</div>
 		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>

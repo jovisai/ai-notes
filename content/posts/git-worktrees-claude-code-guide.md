@@ -1,5 +1,5 @@
 ---
-title: "Git Worktrees with Claude Code: The Complete Guide"
+title: "The Complete Guide to Git Worktrees with Claude Code"
 date: 2026-02-02
 ---
 

@@ -16,10 +16,10 @@
       <description>&lt;p&gt;As developers, we&amp;rsquo;ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you&amp;rsquo;re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.&lt;/p&gt;&#xA;&lt;p&gt;The immediate reaction is to blame the tool and focus on &amp;ldquo;better prompt engineering.&amp;rdquo; We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn&amp;rsquo;t just the prompt; it&amp;rsquo;s that we&amp;rsquo;re asking the AI to understand the invisible, implicit rules of a complex system.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software</title>
-      <link>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
+      <title>A Multi-Agent AI Ecosystem for Self-Improving Software</title>
+      <link>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
+      <guid>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
       <description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
     </item>
   </channel>

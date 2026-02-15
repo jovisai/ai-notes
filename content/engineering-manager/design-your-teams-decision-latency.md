@@ -1,5 +1,5 @@
 ---
-title: "Design Your Team's Decision Latency"
+title: "Design Your Teams Decision Latency"
 date: 2025-11-25
 tags: ['engineering-management']
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Engineer the Handoffs: Where Most Productivity Dies"
+title: "Engineer the Handoffs Where Most Productivity Dies"
 date: 2025-10-20
 tags: ['engineering-management']
 ---

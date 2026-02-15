@@ -1,5 +1,5 @@
 ---
-title: "Reflection and Self-Critique: Teaching Agents to Learn from Mistakes"
+title: "Teaching Agents to Learn from Mistakes Through Reflection and Self-Critique"
 date: 2025-10-11
 tags: ["AI Agents", "Reflexion", "Self-Correction", "Learning", "Meta-Cognition"]
 ---

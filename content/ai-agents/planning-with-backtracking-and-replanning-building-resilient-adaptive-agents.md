@@ -1,5 +1,5 @@
 ---
-title: "Planning with Backtracking and Replanning: Building Resilient Adaptive Agents"
+title: "Planning with Backtracking and Replanning for Resilient Adaptive Agents"
 date: 2025-11-10
 draft: false
 tags: ["AI Agents", "Planning", "Algorithms", "Adaptive Systems"]

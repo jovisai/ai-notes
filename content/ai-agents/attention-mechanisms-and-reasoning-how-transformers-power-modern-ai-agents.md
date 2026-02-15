@@ -1,5 +1,5 @@
 ---
-title: "Attention Mechanisms and Reasoning: How Transformers Power Modern AI Agents"
+title: "How Transformers Power Modern AI Agents with Attention and Reasoning"
 date: 2025-11-06
 draft: false
 tags: ["ai-agents", "transformers", "attention-mechanisms", "deep-learning", "llm", "architecture"]

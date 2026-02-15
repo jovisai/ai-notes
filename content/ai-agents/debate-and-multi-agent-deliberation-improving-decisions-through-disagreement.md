@@ -1,5 +1,5 @@
 ---
-title: "Debate and Multi-Agent Deliberation: Improving Decisions Through Disagreement"
+title: "Improving Decisions Through Multi-Agent Debate and Deliberation"
 date: 2025-12-04
 draft: false
 tags: ["ai-agents", "multi-agent-systems", "reasoning", "debate", "deliberation", "llm"]

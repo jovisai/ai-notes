@@ -1,5 +1,5 @@
 ---
-title: "CrewAI vs LangGraph: Building the Same Multi-Agent System in Both"
+title: "CrewAI vs LangGraph Building the Same Multi-Agent System in Both"
 date: 2025-12-22
 description: "A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks."
 tags: [AI, Multi-Agent, CrewAI, LangGraph, Python, Tutorial]

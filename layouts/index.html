@@ -25,14 +25,14 @@
 								<a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup
 										class="draft-label">DRAFT</sup>{{ end }}</a>
 							</h4>
-							{{ $wordCountNoCode := replaceRE `(?s)<div class="highlight">.*?</div>` "" .Content |
+							<!-- {{ $wordCountNoCode := replaceRE `(?s)<div class="highlight">.*?</div>` "" .Content |
 							countwords }}
 							<h4 class="title small smaller">
 								{{ $wordCountNoCode | lang.FormatNumberCustom 0 }} words, ~{{ div $wordCountNoCode
 								.Site.Params.wpm
 								}} min read
-							</h4>
-							<h4 class="title small smaller">
+							</h4> -->
+							<!-- <h4 class="title small smaller">
 								{{ if gt .Params.tags 0 }}
 								<ul class="tags flat">
 									{{ $tagUrl := "tags/"}}
@@ -42,7 +42,7 @@
 									{{ end }}
 								</ul>
 								{{ end }}
-							</h4>
+							</h4> -->
 							<span class="description">
 								{{ if isset .Params "description" }}
 								{{ .Description }}

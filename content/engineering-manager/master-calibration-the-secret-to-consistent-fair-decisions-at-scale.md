@@ -1,5 +1,5 @@
 ---
-title: "Master Calibration: The Secret to Consistent, Fair Decisions at Scale"
+title: "Master Calibration for Consistent Fair Decisions at Scale"
 date: 2025-11-16
 tags: ['engineering-management']
 ---

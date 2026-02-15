@@ -1,5 +1,5 @@
 ---
-title: "First, Let's Make a Plan: Improving Agent Reliability with Plan-and-Solve Prompting"
+title: "Improving Agent Reliability with Plan-and-Solve Prompting"
 date: 2025-10-05
 tags: ["AI Agents", "Prompting", "Planning", "Reasoning", "Reliability"]
 ---

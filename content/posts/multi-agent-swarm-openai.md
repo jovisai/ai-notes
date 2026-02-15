@@ -1,5 +1,5 @@
 ---
-title: "Building a Multi-Agent Swarm with OpenAI's Swarm Framework"
+title: "Building a Multi-Agent Swarm with OpenAI Swarm Framework"
 date: 2026-01-01
 description: "Learn the basics of OpenAI's experimental Swarm framework for lightweight multi-agent orchestration with handoffs and routines."
 tags: [AI, OpenAI, Multi-Agent, Swarm, Python, Tutorial]

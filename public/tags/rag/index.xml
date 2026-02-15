@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 31 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Contextual RAG: Adding Context to Chunks for Better Retrieval</title>
-      <link>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</link>
+      <title>Adding Context to Chunks for Better Retrieval with Contextual RAG</title>
+      <link>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/contextual-rag-adding-context-to-chunks-for-better-retrieval/</guid>
+      <guid>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</guid>
       <description>&lt;p&gt;Standard RAG has a fundamental problem: chunks lose their context. When you split a document into pieces, each chunk becomes isolated. A sentence like &amp;ldquo;The company increased revenue by 15%&amp;rdquo; is meaningless without knowing which company, which year, and what the previous revenue was.&lt;/p&gt;&#xA;&lt;p&gt;Contextual RAG solves this by enriching each chunk with surrounding context before embedding. Anthropic&amp;rsquo;s research shows this technique can reduce retrieval failures by up to 67%.&lt;/p&gt;</description>
     </item>
     <item>
@@ -21,6 +21,20 @@
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</guid>
       <description>&lt;p&gt;Traditional RAG (Retrieval-Augmented Generation) follows a simple pattern: embed the query, find similar documents, generate an answer. But this &amp;ldquo;naive RAG&amp;rdquo; approach breaks down when queries are complex, ambiguous, or require information from multiple sources.&lt;/p&gt;&#xA;&lt;p&gt;Agentic RAG solves this by letting the LLM make decisions about retrieval. Instead of a fixed pipeline, the LLM can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decompose complex queries into sub-queries&lt;/li&gt;&#xA;&lt;li&gt;Decide if retrieved documents are sufficient&lt;/li&gt;&#xA;&lt;li&gt;Reformulate queries when initial retrieval fails&lt;/li&gt;&#xA;&lt;li&gt;Synthesize information from multiple retrieval rounds&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build an Agentic RAG system using LangGraph.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vector Embeddings and Semantic Search as the Foundation of Agent Memory</title>
+      <link>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</link>
+      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</guid>
+      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;for-beginners&#34;&gt;For Beginners&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you need to find &amp;ldquo;documents about cats&amp;rdquo; in a massive library. Traditional search looks for the exact word &amp;ldquo;cats,&amp;rdquo; but what about documents that say &amp;ldquo;feline,&amp;rdquo; &amp;ldquo;kitty,&amp;rdquo; or &amp;ldquo;tabby&amp;rdquo;? Semantic search understands &lt;strong&gt;meaning&lt;/strong&gt;, not just words.&lt;/p&gt;&#xA;&lt;p&gt;Vector embeddings transform text (or images, audio, etc.) into arrays of numbers—points in high-dimensional space—where &lt;strong&gt;similar meanings cluster together&lt;/strong&gt;. &amp;ldquo;Cat&amp;rdquo; and &amp;ldquo;feline&amp;rdquo; end up close in this space, while &amp;ldquo;cat&amp;rdquo; and &amp;ldquo;automobile&amp;rdquo; are far apart.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Beyond the Training Data with Retrieval-Augmented Generation for AI Agents</title>
+      <link>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</guid>
+      <description>&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imagine taking an exam. In a &amp;ldquo;closed-book&amp;rdquo; test, you rely solely on what you&amp;rsquo;ve memorized. This is like a standard Large Language Model (LLM)—its knowledge is frozen at the end of its training. Now, imagine an &amp;ldquo;open-book&amp;rdquo; exam. You can consult your textbook to find relevant information before writing your answer. This is the essence of &lt;strong&gt;Retrieval-Augmented Generation (RAG)&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;RAG gives an AI agent an external knowledge base—a library, a database, a collection of documents—that it can consult in real-time. Instead of just &amp;ldquo;making things up&amp;rdquo; from its parametric memory, the agent first &lt;strong&gt;retrieves&lt;/strong&gt; relevant facts and then &lt;strong&gt;generates&lt;/strong&gt; an answer based on that retrieved context. This makes the agent&amp;rsquo;s responses more factual, up-to-date, and verifiable.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

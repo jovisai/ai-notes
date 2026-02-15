@@ -1,5 +1,5 @@
 ---
-title: Your Team Isn't a Family; It's a High-Performance System
+title: "Your Team Is Not a Family but a High-Performance System"
 date: 2025-09-29
 tags: ['engineering-management']
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Mastering the 'Why': The EM's Guide to High-Impact Communication"
+title: "Mastering the Why in High-Impact Engineering Communication"
 date: 2025-09-30
 tags: ['engineering-management']
 ---

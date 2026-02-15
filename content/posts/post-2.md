@@ -1,5 +1,5 @@
 ---
-title: "Meet AlphaEvolve: The AI That Discovers New Algorithms"
+title: "Meet AlphaEvolve the AI That Discovers New Algorithms"
 date: 2025-07-07
 description: "An introduction to AlphaEvolve, DeepMind's new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains."
 tags: [AI, LLMs, Research, Deep Research, Autonomous Agents]

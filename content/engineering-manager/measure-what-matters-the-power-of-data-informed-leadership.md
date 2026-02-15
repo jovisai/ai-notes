@@ -1,5 +1,5 @@
 ---
-title: "Measure What Matters: The Power of Data-Informed Leadership"
+title: "Measure What Matters Through Data-Informed Leadership"
 date: "2025-10-07"
 tags: ["engineering-management"]
 ---

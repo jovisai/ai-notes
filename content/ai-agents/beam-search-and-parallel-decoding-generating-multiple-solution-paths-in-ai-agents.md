@@ -1,5 +1,5 @@
 ---
-title: "Beam Search and Parallel Decoding: Generating Multiple Solution Paths in AI Agents"
+title: "Beam Search and Parallel Decoding for Multiple Solution Paths in AI Agents"
 date: 2025-12-02
 draft: false
 tags: ["ai-agents", "search-algorithms", "llm", "planning", "optimization"]

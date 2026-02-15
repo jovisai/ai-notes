@@ -1,5 +1,5 @@
 ---
-title: "Architect Your Team's Communication Protocol"
+title: "Architect Your Teams Communication Protocol"
 date: 2025-11-10
 tags: ['engineering-management']
 ---

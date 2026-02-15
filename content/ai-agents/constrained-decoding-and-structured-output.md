@@ -1,5 +1,5 @@
 ---
-title: "Constrained Decoding and Structured Output: Ensuring Agent Reliability Through Format Control"
+title: "Constrained Decoding and Structured Output for Agent Reliability"
 date: 2025-11-15
 draft: false
 tags: ["ai-agents", "structured-output", "constrained-decoding", "reliability", "tool-use"]

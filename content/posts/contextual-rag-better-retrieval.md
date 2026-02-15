@@ -1,5 +1,5 @@
 ---
-title: "Contextual RAG: Adding Context to Chunks for Better Retrieval"
+title: "Adding Context to Chunks for Better Retrieval with Contextual RAG"
 date: 2025-12-31
 description: "Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%."
 tags: [AI, RAG, Retrieval, Python, Tutorial]

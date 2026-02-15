@@ -1,5 +1,5 @@
 ---
-title: "A* Search: Intelligent Pathfinding for AI Agents"
+title: "Intelligent Pathfinding for AI Agents with A-Star Search"
 date: 2025-10-07
 tags: ["AI Agents", "A* Algorithm", "Search", "Pathfinding", "Heuristics"]
 ---

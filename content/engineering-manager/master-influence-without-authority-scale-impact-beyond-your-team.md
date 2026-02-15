@@ -1,5 +1,5 @@
 ---
-title: "Master Influence Without Authority: Scale Impact Beyond Your Team"
+title: "Master Influence Without Authority to Scale Impact Beyond Your Team"
 date: 2025-11-29
 tags: ['engineering-management']
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Monte Carlo Tree Search: From Games to LLMs"
+title: "Monte Carlo Tree Search from Games to LLMs"
 date: 2025-10-07
 tags: ["AI Agents", "Algorithms", "MCTS", "Planning"]
 ---

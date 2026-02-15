@@ -1,5 +1,5 @@
 ---
-title: "Prompt Chaining and Workflow Orchestration: Building Reliable Multi-Step Agents"
+title: "Prompt Chaining and Workflow Orchestration for Reliable Multi-Step Agents"
 date: 2025-10-10
 tags: ["AI Agents", "Prompt Chaining", "Workflow", "Orchestration", "LangGraph"]
 ---

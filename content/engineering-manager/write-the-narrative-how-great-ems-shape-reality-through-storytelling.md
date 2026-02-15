@@ -1,5 +1,5 @@
 ---
-title: "Write the Narrative: How Great EMs Shape Reality Through Storytelling"
+title: "How Great EMs Shape Reality Through Storytelling"
 date: 2025-10-12
 tags: ['engineering-management']
 ---

@@ -1,5 +1,5 @@
 ---
-title: "From Words to Actions: How AI Agents Use Tools with Function Calling"
+title: "How AI Agents Use Tools with Function Calling"
 date: 2025-10-05
 tags: ["AI Agents", "Function Calling", "Tool Use", "LLM", "API"]
 ---

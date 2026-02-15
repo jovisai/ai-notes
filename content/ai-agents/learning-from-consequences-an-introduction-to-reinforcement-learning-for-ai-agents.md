@@ -1,5 +1,5 @@
 ---
-title: "Learning from Consequences: An Introduction to Reinforcement Learning for AI Agents"
+title: "An Introduction to Reinforcement Learning for AI Agents"
 date: 2025-10-05
 tags: ["AI Agents", "Reinforcement Learning", "Q-Learning", "Machine Learning"]
 ---

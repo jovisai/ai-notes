@@ -1,5 +1,5 @@
 ---
-title: "Constraint Satisfaction Problems: Finding Valid Solutions in Complex Agent Planning"
+title: "Constraint Satisfaction Problems for Valid Solutions in Complex Agent Planning"
 date: 2025-11-28
 draft: false
 tags: ["ai-agents", "planning", "algorithms", "csp", "classical-ai"]

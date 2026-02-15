@@ -9,17 +9,24 @@
     <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Evaluating Your AI Agents with DeepEval: A Practical Guide</title>
-      <link>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</link>
+      <title>A Practical Guide to Evaluating Your AI Agents with DeepEval</title>
+      <link>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/evaluating-your-ai-agents-with-deepeval-a-practical-guide/</guid>
+      <guid>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</guid>
       <description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Red vs. Blue: A Multi-Agent AI Ecosystem for Self-Improving Software</title>
-      <link>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
+      <title>Agent Debugging and Observability for Seeing Inside the Black Box</title>
+      <link>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</link>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</guid>
+      <description>&lt;p&gt;When your AI agent fails, hallucinates, or makes unexpected decisions, how do you find out why? Unlike traditional software where you can step through code line-by-line, AI agents operate through chains of LLM calls, tool invocations, and state transitions that can be opaque and non-deterministic. This article explores the essential techniques for making agent behavior visible, debuggable, and monitorable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re debugging a program that randomly changes its behavior each time you run it, calls external services you can&amp;rsquo;t fully control, and makes decisions based on fuzzy pattern matching rather than exact logic. That&amp;rsquo;s AI agent debugging.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A Multi-Agent AI Ecosystem for Self-Improving Software</title>
+      <link>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/red-vs.-blue-a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
+      <guid>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
       <description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
     </item>
   </channel>

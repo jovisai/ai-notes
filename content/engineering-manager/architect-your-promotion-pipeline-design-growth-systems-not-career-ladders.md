@@ -1,5 +1,5 @@
 ---
-title: "Architect Your Promotion Pipeline: Design Growth Systems, Not Career Ladders"
+title: "Architect Your Promotion Pipeline with Growth Systems Not Career Ladders"
 date: 2025-11-26
 tags: ['engineering-management']
 ---

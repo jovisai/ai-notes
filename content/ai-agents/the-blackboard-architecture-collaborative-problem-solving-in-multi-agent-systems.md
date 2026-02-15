@@ -1,5 +1,5 @@
 ---
-title: "The Blackboard Architecture: Collaborative Problem-Solving in Multi-Agent Systems"
+title: "Collaborative Problem-Solving in Multi-Agent Systems with the Blackboard Architecture"
 date: 2025-10-17
 description: "Explore how the blackboard pattern enables multiple specialized agents to work together on complex problems through shared knowledge spaces and opportunistic reasoning."
 tags: ["ai-agents", "architecture", "multi-agent-systems", "design-patterns", "collaboration"]

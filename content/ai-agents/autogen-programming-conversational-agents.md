@@ -1,5 +1,5 @@
 ---
-title: "AutoGen: Programming Multi-Agent Conversations"
+title: "Programming Multi-Agent Conversations with AutoGen"
 date: 2025-10-06
 tags: ["AI Agents", "Multi-Agent Systems", "AutoGen", "Frameworks", "Conversational AI"]
 ---

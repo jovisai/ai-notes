@@ -1,5 +1,5 @@
 ---
-title: "Semantic Routing & Intent Classification: The Traffic Controller of AI Agent Systems"
+title: "Semantic Routing and Intent Classification in AI Agent Systems"
 date: 2025-11-09
 tags: ["ai-agents", "semantic-routing", "intent-classification", "nlp", "embeddings"]
 draft: false

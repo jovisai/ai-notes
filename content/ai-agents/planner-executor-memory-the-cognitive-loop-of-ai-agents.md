@@ -1,6 +1,6 @@
 
 ---
-title: "Planner-Executor-Memory: The Cognitive Loop of AI Agents"
+title: "The Cognitive Loop of AI Agents with Planner Executor and Memory"
 date: 2025-10-02
 draft: false
 ---

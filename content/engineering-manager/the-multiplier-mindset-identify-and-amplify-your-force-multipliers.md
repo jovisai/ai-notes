@@ -1,5 +1,5 @@
 ---
-title: "The Multiplier Mindset: Identify and Amplify Your Force Multipliers"
+title: "The Multiplier Mindset for Identifying and Amplifying Force Multipliers"
 date: 2025-10-10
 tags: ['engineering-management']
 ---

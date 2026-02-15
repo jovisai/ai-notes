@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CrewAI - Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CrewAI - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="alternate" type="application/rss+xml" href="https://notes.muthu.co/tags/crewai/index.xml" title="Engineering Notes" />
 	
@@ -25,6 +26,10 @@
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
 	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -54,6 +59,14 @@
 			
 			<li>
 				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
 			</li>
 			
 			<li>
@@ -88,7 +101,7 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">CrewAI vs LangGraph: Building the Same Multi-Agent System in Both</a>
+							<a href="/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">CrewAI vs LangGraph Building the Same Multi-Agent System in Both</a>
 						</h4>
 						<span class="description">
 							
@@ -109,7 +122,7 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							<a href="/2025/07/learning-crewai-a-step-by-step-guide-in-10-concepts/">Learning CrewAI: A Step-by-Step Guide in 10 Concepts</a>
+							<a href="/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/">Learning CrewAI in a Step-by-Step Guide with 10 Concepts</a>
 						</h4>
 						<span class="description">
 							
@@ -124,7 +137,17 @@
 		
 	</div>
 
-	<div class="footer wrapper">
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
 	<nav class="nav">
 		<div>&copy 2025   Muthukrishnan</div>
 		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>

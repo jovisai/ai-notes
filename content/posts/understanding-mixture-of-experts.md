@@ -1,5 +1,5 @@
 ---
-title: "Understanding Mixture of Experts (MoE) from First Principles"
+title: "Understanding Mixture of Experts from First Principles"
 date: 2025-07-13
 tags: ["ai", "llms", "agentic-ai", "deep-research", "tutorial", "slms"]
 ---

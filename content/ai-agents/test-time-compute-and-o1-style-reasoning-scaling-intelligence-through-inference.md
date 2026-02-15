@@ -1,5 +1,5 @@
 ---
-title: "Test-Time Compute and o1-Style Reasoning: Scaling Intelligence Through Inference"
+title: "Test-Time Compute and o1-Style Reasoning for Scaling Intelligence Through Inference"
 date: 2025-11-17
 draft: false
 tags: ["AI Agents", "o1", "Test-Time Compute", "Reasoning", "Scaling Laws"]

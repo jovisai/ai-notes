@@ -1,5 +1,5 @@
 ---
-title: "Verification and Validation Loops: Ensuring Agent Reliability Through Runtime Checks"
+title: "Verification and Validation Loops for Agent Reliability Through Runtime Checks"
 date: 2025-11-14
 draft: false
 tags: ["ai-agents", "verification", "validation", "reliability", "quality-assurance", "self-correction"]
