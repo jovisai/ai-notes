@@ -73,6 +73,8 @@ Each article should focus on **one key concept, algorithm, pattern, or recent re
 * Advanced topics: Self-play, Autoformalization, AI Safety in agents
 * Research updates: new benchmarks, emerging architectures
 
+- Look at the format of the article /home/leopard/development/blogs/ai-notes/content/ai-agents/agent-debugging-and-observability.md to understand how the blogs are structured in this blog.
+- Ensure the title is a single sentence without special characters.
 - Do not repeat or copy existing articles inside $POSTDIR.
 - Save the file as {article-title}.md in all lowercase inside $POSTDIR." 
 

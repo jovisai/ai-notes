@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai-Agents</title>
+      <link>https://notes.muthu.co/tags/ai-agents/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge-Distillation</title>
+      <link>https://notes.muthu.co/tags/knowledge-distillation/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/knowledge-distillation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Model-Compression</title>
+      <link>https://notes.muthu.co/tags/model-compression/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/model-compression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent-Systems</title>
+      <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transfer-Learning</title>
+      <link>https://notes.muthu.co/tags/transfer-learning/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/transfer-learning/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
@@ -170,13 +205,6 @@
       <description></description>
     </item>
     <item>
-      <title>Ai-Agents</title>
-      <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Compositionality</title>
       <link>https://notes.muthu.co/tags/compositionality/</link>
       <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
@@ -230,13 +258,6 @@
       <link>https://notes.muthu.co/tags/llm/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Multi-Agent-Systems</title>
-      <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
       <description></description>
     </item>
     <item>
@@ -629,13 +650,6 @@
       <link>https://notes.muthu.co/tags/meta-learning/</link>
       <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/meta-learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Transfer-Learning</title>
-      <link>https://notes.muthu.co/tags/transfer-learning/</link>
-      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/transfer-learning/</guid>
       <description></description>
     </item>
     <item>
