@@ -76,9 +76,17 @@ Each article should focus on **one key concept, algorithm, pattern, or recent re
 - Look at the format of the article /home/leopard/development/blogs/ai-notes/content/ai-agents/agent-debugging-and-observability.md to understand how the blogs are structured in this blog.
 - Ensure the title is a single sentence without special characters.
 - Do not repeat or copy existing articles inside $POSTDIR.
-- Save the file as {article-title}.md in all lowercase inside $POSTDIR." 
+- Save the file as {article-title}.md in all lowercase inside $POSTDIR.
+- **Math & LaTeX formatting:** This blog uses KaTeX for math rendering. NEVER put math expressions inside code blocks (\`\`\` or backticks). Use \$...\$ for inline math (e.g. \$O(T^2)\$, \$\\pi(a|s)\$) and \$\$...\$\$ on their own lines for display math. Pseudocode and code examples stay in code blocks — only mathematical notation uses LaTeX."
 
 /home/leopard/.local/bin/claude --dangerously-skip-permissions --verbose -p "$PROMPT"
+
+/home/leopard/.local/bin/claude --dangerously-skip-permissions --verbose -c -p "Review the markdown file you just created in $POSTDIR and fix any errors:
+1. **Math/LaTeX**: Ensure all math uses KaTeX syntax (\$...\$ inline, \$\$...\$\$ display). No math inside code blocks or backticks.
+2. **Code blocks**: Ensure all code blocks have correct language tags and valid syntax.
+3. **Mermaid diagrams**: Ensure all mermaid blocks use valid Mermaid.js syntax (correct node/edge definitions, no missing brackets or arrows).
+4. **Markdown structure**: Fix broken links, unclosed formatting, or malformed tables.
+Only edit the file if there are actual errors. Do not rewrite or restyle the content."
 
 bash render_publish.sh
 

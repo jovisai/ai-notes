@@ -18,11 +18,9 @@ Imitation learning (IL) lets an agent learn a task by observing demonstrations f
 
 Formally, imitation learning operates on a dataset of expert demonstrations:
 
-```
-D = {(s₁, a₁), (s₂, a₂), ..., (sₙ, aₙ)}
-```
+$$D = \{(s_1, a_1), (s_2, a_2), \ldots, (s_n, a_n)\}$$
 
-Where `sᵢ` is a state (observation) and `aᵢ` is the action the expert took in that state. The goal is to learn a policy `π(a|s)` that maps states to actions, mimicking the expert's decision-making process. Unlike reinforcement learning, we never define a reward function — the expert's behavior *is* the specification.
+Where $s_i$ is a state (observation) and $a_i$ is the action the expert took in that state. The goal is to learn a policy $\pi(a|s)$ that maps states to actions, mimicking the expert's decision-making process. Unlike reinforcement learning, we never define a reward function — the expert's behavior *is* the specification.
 
 There are three main families:
 
@@ -46,9 +44,7 @@ The relationship to core AI principles is direct: imitation learning sits at the
 
 The simplest approach: treat demonstrations as a supervised learning dataset.
 
-```
-Objective: minimize  L(θ) = Σ -log π_θ(aᵢ | sᵢ)
-```
+$$\text{Objective: minimize } \mathcal{L}(\theta) = \sum_{i} -\log \pi_\theta(a_i \mid s_i)$$
 
 **Pseudocode:**
 
@@ -64,7 +60,7 @@ BEHAVIORAL_CLONING(expert_demos D, epochs E):
 
 **The compounding error problem:** BC trains on expert states, but at test time the agent visits its own states. Small errors accumulate — if the agent drifts slightly off the expert's trajectory, it encounters states never seen in training, leading to worse actions, which leads to more unfamiliar states, and so on.
 
-For a horizon of `T` steps, the error grows as **O(T²)** — quadratically with trajectory length.
+For a horizon of $T$ steps, the error grows as $O(T^2)$ — quadratically with trajectory length.
 
 ### DAgger (Dataset Aggregation)
 
@@ -81,7 +77,7 @@ DAGGER(expert π*, iterations N, policy π_θ):
     return best π_i
 ```
 
-DAgger achieves **O(T)** error — linear instead of quadratic — because the agent learns to recover from its own mistakes.
+DAgger achieves $O(T)$ error — linear instead of quadratic — because the agent learns to recover from its own mistakes.
 
 ```mermaid
 flowchart LR
@@ -250,8 +246,8 @@ graph.add_conditional_edges("input", route_from_demonstrations, {
 
 | Method | Data Needed | Reward Function? | Compounding Error | Sample Efficiency |
 |--------|------------|------------------|-------------------|-------------------|
-| **Behavioral Cloning** | Expert demos only | No | Yes (O(T²)) | High |
-| **DAgger** | Demos + expert queries | No | Reduced (O(T)) | High |
+| **Behavioral Cloning** | Expert demos only | No | Yes ($O(T^2)$) | High |
+| **DAgger** | Demos + expert queries | No | Reduced ($O(T)$) | High |
 | **Inverse RL** | Expert demos | Inferred | No | Low |
 | **Standard RL** | Environment interaction | Yes (hand-designed) | No | Very low |
 | **RLHF** | Preferences + demos | Learned from prefs | No | Medium |
