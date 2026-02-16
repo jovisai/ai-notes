@@ -1,32 +1,23 @@
 ---
-title: "Resume"
-date: 2025-11-06T10:00:00+05:30
+title: "Senior Engineering Leader Scaling Teams & Systems from Startup to Enterprise"
+date: 2026-02-06T10:00:00+05:30
 description: "Resume of Muthu Krishnan - Senior Engineering Leader"
 ---
 
-**Senior Engineering Leader**
-**Scaling Teams & Systems from Startup to Enterprise**
-
----
-
-## Contact Information
-
 - **Mobile:** +91 9964929755
-- **Email:** muthukrishnan.t@hotmail.com
+- **Email:** muthukrishnan.t[@]hotmail.com
 - **Blog:** [notes.muthu.co](https://notes.muthu.co)
 - **GitHub:** [github.com/muthuspark](https://github.com/muthuspark/)
-- **LinkedIn:** [linkedin.com/in/mkrimuthu](https://www.linkedin.com/in/mkrimuthu/)
+- **LinkedIn:** [linkedin.com/in/mkrimuthu](https://www.linkedin.com/in/krimuthu/)
 - **Location:** Bangalore, India
 
 ---
 
 ## PROFESSIONAL SUMMARY
 
-Senior Engineering Manager with **14+ years of experience** scaling high-performance SaaS platforms and leading engineering organizations. Proven track record of growing teams and delivering enterprise-grade solutions processing millions of daily events.
+Senior Engineering Leader with **16+ years of experience** building and scaling engineering organizations, SaaS platforms, and AI-driven systems. Track record of growing teams from 0 to 30, launching products from MVP to **$2M+ revenue**, and holding **5 patents** in application intelligence.
 
-Expert in building scalable architectures, implementing engineering best practices, and driving technical initiatives from concept to production. Successfully led teams across multiple domains including analytics platforms, desktop solutions, and mobile applications with demonstrated ability to balance technical leadership with hands-on engineering contributions.
-
-Former startup founder with deep understanding of product development lifecycle and go-to-market strategies.
+Currently leading enterprise-wide AI transformation, previously scaled desktop and mobile products at a Series D startup. Former startup founder with hands-on expertise across full-stack development, system architecture, and go-to-market execution.
 
 ---
 
@@ -46,6 +37,12 @@ Former startup founder with deep understanding of product development lifecycle 
 - Full-stack Development: Java, Python, JavaScript
 - Database Design: ClickHouse, Redis, MySQL, various NoSQL solutions
 
+### AI & Machine Learning
+- AI Agent Frameworks: LangGraph, CrewAI, AutoGen, Google ADK
+- LLM Integration: Prompt Engineering, RAG Pipelines, Context Engineering
+- Human-AI Collaboration Systems & AI-first Workflow Design
+- NLU & Conversational AI (Dialogflow)
+
 ### Product & Business
 - Technical Product Management
 - Revenue-focused Engineering
@@ -57,35 +54,48 @@ Former startup founder with deep understanding of product development lifecycle 
 
 ## WORK HISTORY
 
+### AI Transformation Lead, Sanas AI
+**2024 to Present**
+
+Leading enterprise-wide AI transformation, taking AI initiatives from isolated experiments to an integrated platform handling core workflows across engineering teams.
+
+#### Key Achievements:
+- Designed and implemented an **AI-first operating model** where AI agents are embedded across engineering workflows, replacing ad-hoc tool usage with systematic human-AI collaboration
+- Built the **business case and ROI framework** for AI investment, securing executive and investor buy-in with measurable productivity metrics
+- Architected **cross-functional AI infrastructure** that compounds capabilities across teams rather than remaining siloed in individual functions
+- Restructured team workflows and role definitions to optimize for human-AI collaboration at scale
+
+
 ### Engineering Manager & Principal Engineer, Whatfix
-**2017 to present**
+**2017 to 2024**
 
 Led engineering initiatives across multiple roles, growing the Desktop solution from MVP to **$2M revenue** in three years with patent filings. Managed a team of **12 engineers** across 3 different products, with primary focus on Desktop as the highest revenue generator.
 
-Built efficient engineering processes while serving as individual contributor on complex features and proof of concepts for potential revenue opportunities.
+Drove engineering process improvements while contributing as an IC on complex features and revenue-generating proof of concepts.
 
 #### Key Technical Achievements:
 - Architected the entire **Mobile Solution from scratch** using React Native and Node.js microservices architecture, scaling to support enterprise clients
 - Led **4-engineer deployment automation team**, implementing CI/CD pipelines that **reduced deployment time from hours to minutes**
 - Spearheaded a **6-month research project** converting guided walkthroughs to chat interface using Dialogflow and NLU, leading to new product feature adoption
-- Worked closely with customers and developers as **Solution Architect**, building the entire repository of technical content including white papers and code templates
+- Served as **Solution Architect** for key accounts, authoring white papers, code templates, and the full technical content repository
 
 ---
 
-### Early Career Experience
-**Software Engineer, 2010 to 2017**
+### Founder, webzeest.com
+**2014 to 2016**
 
-*Across multiple organizations including Huawei, NextGen Healthcare, Vidyartha, and Founder at webzeest.com*
+Founded and built a blogging platform end-to-end — product design, development, launch, and user acquisition.
 
-Built foundational expertise in full-stack development, system architecture, and product development while gaining entrepreneurial experience as a startup founder.
+### Software Engineer, Huawei / NextGen Healthcare / Vidyartha
+**2010 to 2017**
 
-#### Key contributions:
-- Founded and developed **webzeest.com** blogging platform
-- Migrated legacy applications to modern tech stacks (Career Counseling platform from desktop to SaaS using MEAN stack)
-- Developed healthcare APIs and telecom domain solutions
-- Architected browser extension solutions
-- Gained extensive experience with Java, Python, JavaScript, and various databases while transitioning from individual contributor to technical leadership roles
-- Early-stage startup experience provided valuable insights into product development, user experience, and building scalable solutions from scratch
+Full-stack engineering across telecom, healthcare, and ed-tech domains.
+
+#### Key Contributions:
+- Migrated a career counseling platform from desktop to **SaaS using MEAN stack**, expanding addressable market
+- Developed **healthcare APIs** serving clinical workflow integrations at NextGen Healthcare
+- Built **telecom domain solutions** at Huawei handling high-throughput network event processing
+- Architected **browser extension solutions** for enterprise clients
 
 ---
 
@@ -121,4 +131,4 @@ Comprehensive technical book covering 40+ search algorithms across 7 categories 
 
 ## GET IN TOUCH
 
-Feel free to reach out via email at **muthukrishnan.t@hotmail.com** or connect on [LinkedIn](https://www.linkedin.com/in/mkrimuthu/).
+Feel free to reach out via email at **muthukrishnan.t[@]hotmail.com** or connect on [LinkedIn](https://www.linkedin.com/in/krimuthu/).
