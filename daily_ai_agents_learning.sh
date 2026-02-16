@@ -80,4 +80,6 @@ Each article should focus on **one key concept, algorithm, pattern, or recent re
 
 /home/leopard/.local/bin/claude --dangerously-skip-permissions --verbose -p "$PROMPT"
 
+bash render_publish.sh
+
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] AI Agents Learning article generated successfully!"

@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Imitation Learning Teaching Agents by Watching Experts</title>
+      <link>https://notes.muthu.co/2026/02/imitation-learning-teaching-agents-by-watching-experts/</link>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/imitation-learning-teaching-agents-by-watching-experts/</guid>
+      <description>&lt;p&gt;How did you learn to drive a car? Not by randomly pressing pedals until you accidentally arrived at your destination — that would be reinforcement learning. Instead, someone showed you what to do: turn the wheel here, brake there, check the mirrors. You learned by watching. This is the core idea behind &lt;strong&gt;imitation learning&lt;/strong&gt;: teaching agents by giving them examples of expert behavior rather than reward signals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imitation learning (IL) lets an agent learn a task by observing demonstrations from an expert. Instead of exploring randomly and discovering what works (as in reinforcement learning), the agent watches what a skilled performer does and tries to replicate that behavior. Think of it as the AI equivalent of an apprentice learning from a master craftsperson.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
       <link>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
