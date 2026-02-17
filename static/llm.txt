@@ -1,0 +1,174 @@
+# Engineering Notes
+
+> Thoughts and Ideas on AI by Muthukrishnan
+
+This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent systems, and engineering management. Muthu is an AI Agents builder at Sanas.ai with 16+ years of experience building scalable SaaS applications. He is the author of "Essential Search Algorithms: Navigating the Digital Maze."
+
+## Sections
+
+- [All Posts](https://notes.muthu.co/posts): General articles on AI, coding agents, and software engineering
+- [AI Agents](https://notes.muthu.co/ai-agents): Deep-dive series on AI agent concepts, algorithms, and architectures
+- [Engineering Manager](https://notes.muthu.co/engineering-manager): Leadership, team management, and organizational design for engineering managers
+- [About](https://notes.muthu.co/about): About the author
+- [Resume](https://notes.muthu.co/resume): Professional background
+
+## Posts
+
+- [AI Agent Communication Protocols MCP, ACP, A2A, and ANP](https://notes.muthu.co/2025/07/a-deep-dive-into-ai-agent-communication-protocols): An overview of the most important communication protocols for multi-agent systems, and how they enable interoperability and scalability.
+- [Building an Agentic RAG Pipeline with LangGraph](https://notes.muthu.co/2025/12/agentic-rag-langgraph-tutorial): Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.
+- [My Thoughts on Andrew Ngs Building Faster and Smarter with AI](https://notes.muthu.co/2025/07/andrew-ng-building-faster-with-ai)
+- [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-doc-about-ava)
+- [Building an MCP Server with Python to Connect Claude to Your Database](https://notes.muthu.co/2025/12/building-mcp-server-python-claude): A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.
+- [Building a Research Assistant with Windsurfs Cascade Agent](https://notes.muthu.co/2025/12/building-with-windsurf-cascade-agent): Learn how to leverage Windsurf's agentic Cascade feature to build applications faster with AI-assisted multi-file editing and debugging.
+- [Claude Code CLI Best Practices Checklist](https://notes.muthu.co/2026/02/claude-code-best-practices-checklist): Create a git commit with context
+- [An Introduction to Context Engineering for AI Code Generation](https://notes.muthu.co/2025/07/context-engineering-for-llms): How to prevent AI coding assistants from generating outdated or deprecated code by using real-time context engineering.
+- [Adding Context to Chunks for Better Retrieval with Contextual RAG](https://notes.muthu.co/2025/12/contextual-rag-better-retrieval): Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.
+- [CrewAI vs LangGraph Building the Same Multi-Agent System in Both](https://notes.muthu.co/2025/12/crewai-vs-langgraph-comparison): A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.
+- [A Developers Guide to Effective AI Coding Agents](https://notes.muthu.co/2025/07/effective-ai-coding-agents): Moving beyond basic code completion to a structured, developer-led workflow that harnesses the full potential of AI coding agents.
+- [How the Effort Paradox Harms Top Performers](https://notes.muthu.co/2025/09/effort-paradox)
+- [A Practical Guide to Evaluating Your AI Agents with DeepEval](https://notes.muthu.co/2025/12/evaluating-ai-agents-deepeval): Learn how to systematically test and evaluate AI agents using DeepEval's metrics for relevancy, faithfulness, and task completion.
+- [The Complete Guide to Git Worktrees with Claude Code](https://notes.muthu.co/2026/02/git-worktrees-claude-code-guide): Create a git worktree in a peer directory
+- [Combining LLMs with Symbolic Reasoning in Hybrid AI Agents](https://notes.muthu.co/2026/01/hybrid-ai-agents-symbolic-reasoning): Build more reliable AI agents by combining the flexibility of LLMs with the precision of symbolic reasoning systems.
+- [Learning CrewAI in a Step-by-Step Guide with 10 Concepts](https://notes.muthu.co/2025/07/learning-crewai-in-10-concepts): A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs.
+- [Why MMLU Matters and What Massive Multitask Language Understanding Really Tests](https://notes.muthu.co/2025/07/measuring-massive-multitask-language-understanding): A personal dive into MMLU - the benchmark that's reshaping how we measure AI intelligence across dozens of academic subjects.
+- [Building a Multi-Agent Code Review System with AutoGen](https://notes.muthu.co/2025/12/multi-agent-code-review-autogen): Create a team of specialized AI agents that review code for security, style, and logic issues using Microsoft's AutoGen framework.
+- [Building a Multi-Agent Debate System with LangGraph](https://notes.muthu.co/2025/10/multi-agent-debate-article)
+- [Building a Multi-Agent Swarm with OpenAI Swarm Framework](https://notes.muthu.co/2026/01/multi-agent-swarm-openai): Learn the basics of OpenAI's experimental Swarm framework for lightweight multi-agent orchestration with handoffs and routines.
+- [The Most Interesting AI Agent Design Pattern Right Now](https://notes.muthu.co/2025/12/newest-design-pattern)
+- [Deep Research Applications of Modern LLMs Generated through Deep Research](https://notes.muthu.co/2025/03/post-1): Exploring how modern AI systems are evolving beyond conversational chatbots to become autonomous research agents capable of conducting comprehensive, PhD-level investigations.
+- [Meet AlphaEvolve the AI That Discovers New Algorithms](https://notes.muthu.co/2025/07/post-2): An introduction to AlphaEvolve, DeepMind's new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.
+- [A Multi-Agent AI Ecosystem for Self-Improving Software](https://notes.muthu.co/2025/10/red-vs-blue-multi-agent-ai-ecosystem)
+- [The Skill That Will Define Your Career in 2026](https://notes.muthu.co/2025/12/skill-for-2026)
+- [Small Language Models are the Future of Agentic AI](https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai)
+- [Systems That Search for New Algorithms Automatically](https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically): An introduction to AlphaEvolve, DeepMind's new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.
+- [TDD with Coding Agents to Build a Rate Limiting Service](https://notes.muthu.co/"2025/0/TDD-with-Coding-Agents-Building-a-Rate-Limiting-Service)
+- [The Architecture is the Prompt - Guiding AI with Hexagonal Design](https://notes.muthu.co/2025/11/the-architecture-is-the-prompt)
+- [The Complete Claude Code Best Practices Guide](https://notes.muthu.co/"2025/0/The-Complete-Claude-Code-Best-Practices-Guide)
+- [The Theory of Constraints applied to software development life cycles](https://notes.muthu.co/2025/08/the-theory-of-constraints-your-sdlc-s-hidden-performance-bottleneck)
+- [Building a Multi-Agent Travel Planner with Google ADK](https://notes.muthu.co/2025/12/travel-planner-google-adk): Create a travel planning system with specialized agents for flights, hotels, and activities using Google's Agent Development Kit.
+- [Understanding Mixture of Experts from First Principles](https://notes.muthu.co/2025/07/understanding-mixture-of-experts)
+
+## AI Agents Series
+
+- [Agent Debugging and Observability for Seeing Inside the Black Box](https://notes.muthu.co/2025/11/agent-debugging-and-observability): Master the art of understanding, debugging, and monitoring AI agents through tracing, logging, and observability patterns
+- [Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs](https://notes.muthu.co/2025/10/agentic-workflow-graphs-building-stateful-ai-systems-with-langgraph): Learn how to build complex, stateful AI agent systems using graph-based architectures with LangGraph—a paradigm shift from linear chains to cyclic, controllable workflows.
+- [Intelligent Pathfinding for AI Agents with A-Star Search](https://notes.muthu.co/2025/10/a-star-search-intelligent-pathfinding-for-ai-agents)
+- [How Transformers Power Modern AI Agents with Attention and Reasoning](https://notes.muthu.co/2025/11/attention-mechanisms-and-reasoning-how-transformers-power-modern-ai-agents): Understand how attention mechanisms enable AI agents to reason, maintain context, and make intelligent decisions in modern LLM-based systems.
+- [Auction-Based Task Allocation in Multi-Agent Systems](https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems): Learn how auction mechanisms from economics power efficient task distribution in multi-agent systems, from robot swarms to cloud computing.
+- [Programming Multi-Agent Conversations with AutoGen](https://notes.muthu.co/2025/10/autogen-programming-conversational-agents)
+- [Beam Search and Parallel Decoding for Multiple Solution Paths in AI Agents](https://notes.muthu.co/2025/12/beam-search-and-parallel-decoding-generating-multiple-solution-paths-in-ai-agents): Master beam search—a powerful technique for exploring multiple solution paths simultaneously in AI agents, from classical NLP to modern LLM reasoning systems.
+- [Behavior Trees for Modular Decision-Making in AI Agents](https://notes.muthu.co/2025/10/behavior-trees-modular-decision-making-for-ai-agents)
+- [Building Rational Agents with Human-Like Reasoning Using BDI Architecture](https://notes.muthu.co/2025/10/belief-desire-intention-architecture): Master the BDI architecture pattern that models rational agent behavior through beliefs, desires, and intentions—a bridge between philosophy and practical AI systems.
+- [Bellman Equations and Value Functions for Optimal Decision-Making](https://notes.muthu.co/2025/10/bellman-equations-and-value-functions-the-mathematics-of-optimal-decision-making)
+- [Advanced Problem-Solving with Tree of Thoughts](https://notes.muthu.co/2025/10/beyond-a-single-path-advanced-problem-solving-with-tree-of-thoughts)
+- [Beyond the Training Data with Retrieval-Augmented Generation for AI Agents](https://notes.muthu.co/2025/10/beyond-the-training-data-the-power-of-retrieval-augmented-generation-for-ai-agents)
+- [Chain-of-Thought Reasoning and Giving LLMs a Thinking Process](https://notes.muthu.co/2025/10/chain-of-thought-reasoning-giving-llms-a-thinking-process)
+- [Consensus Algorithms for Coordinating Agreement in Distributed Agent Systems](https://notes.muthu.co/2025/11/consensus-algorithms-coordinating-agreement-in-distributed-agent-systems)
+- [Constrained Decoding and Structured Output for Agent Reliability](https://notes.muthu.co/2025/11/constrained-decoding-and-structured-output): Master how modern AI agents ensure reliability through controlled generation—from JSON schemas to grammar constraints and finite-state machines.
+- [Constraint Satisfaction Problems for Valid Solutions in Complex Agent Planning](https://notes.muthu.co/2025/11/constraint-satisfaction-problems-finding-valid-solutions-in-complex-agent-planning): Master constraint satisfaction problems (CSP) - a fundamental technique for agent planning, scheduling, and configuration tasks where finding any valid solution is the goal.
+- [Contextual Bandits for Balancing Exploration and Exploitation in Real-Time](https://notes.muthu.co/2025/11/contextual-bandits-balancing-exploration-and-exploitation-in-real-time-decisions): Master contextual bandits—the algorithm behind personalized recommendations, A/B testing, and adaptive agents. Learn how to balance exploration and exploitation in real-time decision-making.
+- [Curiosity-Driven Learning and Intrinsic Motivation in AI Agents](https://notes.muthu.co/2025/11/curiosity-driven-learning-and-intrinsic-motivation-in-ai-agents): Discover how curiosity-driven learning enables AI agents to explore, learn, and adapt in sparse-reward environments through intrinsic motivation mechanisms.
+- [Improving Decisions Through Multi-Agent Debate and Deliberation](https://notes.muthu.co/2025/12/debate-and-multi-agent-deliberation-improving-decisions-through-disagreement): How AI agents can reach better decisions by arguing with each other—exploring debate protocols, deliberation architectures, and the surprising power of constructive disagreement.
+- [Diffusion Models and Iterative Refinement in AI Agent Planning](https://notes.muthu.co/2025/12/diffusion-models-and-iterative-refinement-in-ai-agent-planning): Explore how diffusion models enable AI agents to generate and refine complex action plans through iterative denoising, revolutionizing long-horizon planning and decision-making.
+- [Emergence and Self-Organization When Simple Rules Create Complex Intelligence](https://notes.muthu.co/2025/10/emergence-and-self-organization-in-multi-agent-systems): Discover how simple local interactions between agents can spontaneously produce sophisticated global behaviors—from ant colonies to distributed AI systems.
+- [Error Recovery and Graceful Degradation in AI Agents](https://notes.muthu.co/2026/02/error-recovery-and-graceful-degradation-in-ai-agents): Learn how to build resilient AI agents that recover from failures, degrade gracefully, and maintain reliability in production environments
+- [Improving Agent Reliability with Plan-and-Solve Prompting](https://notes.muthu.co/2025/10/first-lets-make-a-plan-improving-agent-reliability-with-plan-and-solve-prompting)
+- [How AI Agents Use Tools with Function Calling](https://notes.muthu.co/2025/10/from-words-to-actions-how-ai-agents-use-tools-with-function-calling)
+- [Goal-Oriented Action Planning for Dynamic Problem Solving in Adaptive Agents](https://notes.muthu.co/2025/10/goal-oriented-action-planning-dynamic-problem-solving-for-adaptive-agents): Discover how Goal-Oriented Action Planning (GOAP) enables AI agents to dynamically create flexible plans that adapt to changing conditions, from game NPCs to modern autonomous systems.
+- [Ensuring Agent Safety with Constitutional AI Guardrails](https://notes.muthu.co/2025/10/guardrails-for-intelligence-ensuring-agent-safety-with-constitutional-ai)
+- [Hierarchical Task Networks for Planning with Decomposition](https://notes.muthu.co/2025/10/hierarchical-task-networks-planning-with-decomposition)
+- [Human-in-the-Loop Agents for Bridging Autonomy and Oversight](https://notes.muthu.co/2025/11/human-in-the-loop-agents): Master the patterns and practices of human-in-the-loop agent systems that balance automation with human judgment
+- [Imitation Learning Teaching Agents by Watching Experts](https://notes.muthu.co/2026/02/imitation-learning-teaching-agents-by-watching-experts): Learn how AI agents can acquire complex behaviors by observing and mimicking expert demonstrations, from classical behavioral cloning to modern LLM agent distillation
+- [Inverse Reinforcement Learning Inferring Goals From Behavior](https://notes.muthu.co/2026/02/inverse-reinforcement-learning-inferring-goals-from-behavior): Learn how inverse reinforcement learning lets AI agents discover hidden reward functions by observing expert behavior, and why it matters for agent alignment and autonomous systems
+- [Knowledge Distillation Teaching Smaller Agents From Larger Ones](https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones): Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability
+- [An Introduction to Reinforcement Learning for AI Agents](https://notes.muthu.co/2025/10/learning-from-consequences-an-introduction-to-reinforcement-learning-for-ai-agents)
+- [Markov Decision Processes as the Foundation of Sequential Decision-Making](https://notes.muthu.co/2025/11/markov-decision-processes-the-mathematical-foundation-of-sequential-decision-making)
+- [Meta-Learning and Few-Shot Adaptation in AI Agents](https://notes.muthu.co/2025/11/meta-learning-and-few-shot-adaptation-in-ai-agents): How agents learn to learn, adapting rapidly to new tasks with minimal examples through meta-learning and few-shot learning techniques.
+- [Minimax and Adversarial Search for Decision-Making in Competitive Environments](https://notes.muthu.co/2025/10/minimax-and-adversarial-search-decision-making-in-competitive-environments): Master the minimax algorithm and adversarial search - the foundation of game-playing AI agents and competitive decision-making systems.
+- [Scaling Agent Intelligence Through Specialization with Mixture of Experts](https://notes.muthu.co/2025/10/mixture-of-experts-scaling-agent-intelligence-through-specialization)
+- [Monte Carlo Tree Search from Games to LLMs](https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms)
+- [Multi-Armed Bandits and the Exploration-Exploitation Dilemma in Agent Learning](https://notes.muthu.co/2025/11/multi-armed-bandits-the-exploration-exploitation-dilemma-in-agent-learning): Master the fundamental problem of sequential decision-making under uncertainty and learn how AI agents balance trying new actions versus exploiting known rewards
+- [The Cognitive Loop of AI Agents with Planner Executor and Memory](https://notes.muthu.co/2025/10/planner-executor-memory-the-cognitive-loop-of-ai-agents)
+- [Planning with Backtracking and Replanning for Resilient Adaptive Agents](https://notes.muthu.co/2025/11/planning-with-backtracking-and-replanning-building-resilient-adaptive-agents): Learn how backtracking and replanning enable AI agents to recover from failures and adapt to dynamic environments
+- [Policy Gradient Methods and Actor-Critic Architectures](https://notes.muthu.co/2025/10/policy-gradient-methods-and-actor-critic-architectures): Master the mathematics and implementation of policy gradient methods and actor-critic architectures—the foundation of modern agent learning systems.
+- [Decision-Making Under Partial Observability with POMDPs](https://notes.muthu.co/2025/10/pomdps-decision-making-under-partial-observability)
+- [Prompt Chaining and Workflow Orchestration for Reliable Multi-Step Agents](https://notes.muthu.co/2025/10/prompt-chaining-and-workflow-orchestration-building-reliable-multi-step-agents)
+- [Fusing Reasoning and Action in LLM Agents with ReAct](https://notes.muthu.co/2025/10/react-fusing-reasoning-and-action-in-llm-agents)
+- [Teaching Agents to Learn from Mistakes Through Reflection and Self-Critique](https://notes.muthu.co/2025/10/reflection-and-self-critique-teaching-agents-to-learn-from-mistakes)
+- [Reward Shaping and Credit Assignment for Guiding Agent Learning](https://notes.muthu.co/2025/12/reward-shaping-and-credit-assignment-guiding-agent-learning): Master the art and science of designing reward functions and solving the credit assignment problem—the key to training agents that learn efficiently and align with human intentions.
+- [How AI Agents Learn from Themselves Through Self-Play and Iterative Refinement](https://notes.muthu.co/2025/11/self-play-and-iterative-self-refinement-how-ai-agents-learn-from-themselves): Explore how AI agents improve through self-play and iterative refinement—from AlphaGo's game mastery to modern LLM self-correction techniques.
+- [Semantic Routing and Intent Classification in AI Agent Systems](https://notes.muthu.co/2025/11/semantic-routing-and-intent-classification)
+- [Building Reusable Agent Capabilities with Skill Libraries](https://notes.muthu.co/2025/12/skill-libraries-building-reusable-agent-capabilities): How AI agents acquire, store, and compose reusable skills—from hierarchical reinforcement learning to LLM-based skill synthesis and the emerging paradigm of lifelong learning agents.
+- [Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium](https://notes.muthu.co/2025/10/strategic-minds-understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium)
+- [Symbolic Reasoning and Neural-Symbolic Integration in AI Agents](https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents)
+- [Task Allocation for Machine Teamwork with the Contract Net Protocol](https://notes.muthu.co/2025/10/teamwork-for-machines-task-allocation-with-the-contract-net-protocol)
+- [Temporal Difference Learning and Q-Learning as the Engine of Agent Intelligence](https://notes.muthu.co/2025/11/temporal-difference-learning-and-q-learning-the-engine-of-agent-intelligence)
+- [Test-Time Compute and o1-Style Reasoning for Scaling Intelligence Through Inference](https://notes.muthu.co/2025/11/test-time-compute-and-o1-style-reasoning-scaling-intelligence-through-inference)
+- [Architecting Short-Term and Long-Term Memory in AI Agents](https://notes.muthu.co/2025/10/the-agents-mind-architecting-short-term-and-long-term-memory)
+- [Self-Improvement and Autoformalization in AI Agents That Build Themselves](https://notes.muthu.co/2025/10/the-agent-that-builds-itself-self-improvement-and-autoformalization)
+- [Collaborative Problem-Solving in Multi-Agent Systems with the Blackboard Architecture](https://notes.muthu.co/2025/10/the-blackboard-architecture-collaborative-problem-solving-in-multi-agent-systems): Explore how the blackboard pattern enables multiple specialized agents to work together on complex problems through shared knowledge spaces and opportunistic reasoning.
+- [Solving Complex Problems with AI Agent Swarms](https://notes.muthu.co/2025/10/the-power-of-many-solving-complex-problems-with-ai-agent-swarms)
+- [Tool Composition and Chaining for Complex Agent Capabilities](https://notes.muthu.co/2025/11/tool-composition-and-chaining-orchestrating-complex-agent-capabilities): Master the art of combining simple tools into sophisticated agent capabilities through composition patterns, chaining strategies, and intelligent orchestration.
+- [Vector Embeddings and Semantic Search as the Foundation of Agent Memory](https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-the-foundation-of-agent-memory-and-retrieval): Master the mathematical and practical foundations of vector embeddings—the technology that enables AI agents to remember, search, and reason over vast knowledge bases.
+- [Verification and Validation Loops for Agent Reliability Through Runtime Checks](https://notes.muthu.co/2025/11/verification-and-validation-loops-ensuring-agent-reliability-through-runtime-checks): Learn how modern AI agents use verification and validation loops to ensure output quality, catch errors at runtime, and build reliable production systems.
+- [What If GitHub Was Built for AI Agents](https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents): Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts
+
+## Engineering Manager Series
+
+- [Architect for Reversibility as a High-Velocity Advantage](https://notes.muthu.co/2025/12/architect-for-reversibility-the-high-velocity-advantage)
+- [Architect Your Culture with Decision Records](https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records)
+- [Architect Your Promotion Pipeline with Growth Systems Not Career Ladders](https://notes.muthu.co/2025/11/architect-your-promotion-pipeline-design-growth-systems-not-career-ladders)
+- [Architect Your Staff-Plus Pipeline](https://notes.muthu.co/2025/11/architect-your-staff-plus-pipeline)
+- [Architect Your Teams Communication Protocol](https://notes.muthu.co/2025/11/architect-your-teams-communication-protocol)
+- [Build Abstractions That Accelerate, Not Complicate](https://notes.muthu.co/2025/11/build-abstractions-that-accelerate-not-complicate)
+- [Build Context Portability, Not Knowledge Silos](https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos)
+- [Build Conviction Through Small Bets](https://notes.muthu.co/2025/10/build-conviction-through-small-bets)
+- [Build Escalation Paths, Not Firefighters](https://notes.muthu.co/2025/10/build-escalation-paths-not-firefighters)
+- [Build Leverage Through Documentation as Code](https://notes.muthu.co/2025/10/build-leverage-through-documentation-as-code)
+- [Build Organizational Memory, Not Institutional Knowledge](https://notes.muthu.co/2025/11/build-organizational-memory-not-institutional-knowledge)
+- [Codify Your Quality Bar and Make Standards Executable](https://notes.muthu.co/2025/11/codify-your-quality-bar-make-standards-executable)
+- [Create Clarity Artifacts to Turn Ambiguity into Executable Alignment](https://notes.muthu.co/2025/11/create-clarity-artifacts-turn-ambiguity-into-executable-alignment)
+- [Debug Organizational Velocity, Not Individual Productivity](https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity)
+- [Decentralize Decisions, Centralize Context](https://notes.muthu.co/2025/10/decentralize-decisions-centralize-context)
+- [Design for Disaggregation and the Hidden Art of Scaling](https://notes.muthu.co/2025/11/design-for-disaggregation-the-hidden-art-of-scaling)
+- [Design Ownership Boundaries, Not Org Charts](https://notes.muthu.co/2025/11/design-ownership-boundaries-not-org-charts)
+- [Design Self-Correcting Systems, Not Processes](https://notes.muthu.co/2025/12/design-self-correcting-systems-not-processes)
+- [Design Your Dependency Architecture for Organizational Velocity](https://notes.muthu.co/2025/11/design-your-dependency-architecture)
+- [Design Your Feedback Loops](https://notes.muthu.co/2025/10/design-your-feedback-loops)
+- [Design Your Teams Decision Latency](https://notes.muthu.co/2025/11/design-your-teams-decision-latency)
+- [Engineer the Handoffs Where Most Productivity Dies](https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies)
+- [Engineer the Ramp-Up Time to Fix Your Scalability Bottleneck](https://notes.muthu.co/2025/11/engineer-the-ramp-up-time-your-scalability-bottleneck)
+- [Expand Your Decision-Making Bandwidth, Not Your Meeting Calendar](https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar)
+- [From Business Goals to Code with Backward Thinking](https://notes.muthu.co/2025/09/from-business-goals-to-code-the-backward-thinking-em)
+- [From Customer Value to Code as the EMs Strategic Blueprint](https://notes.muthu.co/2025/09/from-customer-value-to-code-the-ems-strategic-blueprint)
+- [Hire for Trajectory, Not Just Skills](https://notes.muthu.co/2025/10/hire-for-trajectory-not-just-skills)
+- [Invest in Compounding Leverage](https://notes.muthu.co/2025/10/invest-in-compounding-leverage)
+- [Lead with Leading Indicators to Predict Problems Before They Happen](https://notes.muthu.co/2025/10/lead-with-leading-indicators-predict-problems-before-they-happen)
+- [Make Decisions Reversible](https://notes.muthu.co/2025/10/make-decisions-reversible)
+- [Make Trade-offs Explicit as a Clarity Multiplier](https://notes.muthu.co/2025/10/make-trade-offs-explicit-the-clarity-multiplier)
+- [Manage Energy Not Time for Sustainable High Performance](https://notes.muthu.co/2025/10/manage-energy-not-time-the-sustainable-path-to-high-performance)
+- [Manage Signal-to-Noise - The Hidden Cost of Organizational Chatter](https://notes.muthu.co/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter)
+- [Manage Technical Investment Velocity, Not Just Delivery Velocity](https://notes.muthu.co/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity)
+- [Manage Your Attention Budget as Your Scarcest Resource](https://notes.muthu.co/2025/10/manage-your-attention-budget-your-scarcest-resource)
+- [Manage Your Teams Cognitive Load Budget](https://notes.muthu.co/2025/11/manage-your-teams-cognitive-load-budget)
+- [Manufacture Slack as the Counterintuitive Key to High-Performing Teams](https://notes.muthu.co/"2025/0/manufacture-slack-the-counterintuitive-key-to-high-performing-teams)
+- [Master Calibration for Consistent Fair Decisions at Scale](https://notes.muthu.co/2025/11/master-calibration-the-secret-to-consistent-fair-decisions-at-scale)
+- [Master Influence Without Authority to Scale Impact Beyond Your Team](https://notes.muthu.co/2025/11/master-influence-without-authority-scale-impact-beyond-your-team)
+- [Mastering the Why in High-Impact Engineering Communication](https://notes.muthu.co/2025/09/mastering-the-why-the-ems-guide-to-high-impact-communication)
+- [Master the Art of Managing Up and Across](https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across)
+- [Measure What Matters Through Data-Informed Leadership](https://notes.muthu.co/"2025/1/measure-what-matters-the-power-of-data-informed-leadership)
+- [Optimize Deployment Frequency as Your Competitive Moat](https://notes.muthu.co/2025/11/optimize-deployment-frequency-your-competitive-moat)
+- [Pave the Road to Scalable Speed in Your Engineering Org](https://notes.muthu.co/2025/10/pave-the-road-your-engineering-orgs-secret-to-scalable-speed)
+- [Run Pre-Mortems, Not Post-Mortems](https://notes.muthu.co/2025/11/run-pre-mortems-not-post-mortems)
+- [Scale Culture Through Defaults, Not Rules](https://notes.muthu.co/2025/10/scale-culture-through-defaults-not-rules)
+- [Shape the Decision Space Before the Decision](https://notes.muthu.co/2025/11/shape-the-decision-space-before-the-decision)
+- [Stop Managing People, Start Managing the System](https://notes.muthu.co/2025/09/stop-managing-people-start-managing-the-system)
+- [The Art of Strategic Quitting and Knowing When to Say No](https://notes.muthu.co/2025/09/the-art-of-strategic-quitting-when-to-stop-deprecate-and-say-no)
+- [Shape the Environment Instead of Just Managing the Plants](https://notes.muthu.co/"2025/1/the-gardener-and-the-garden-shape-the-environment-dont-just-manage-the-plants)
+- [The Multiplier Mindset for Identifying and Amplifying Force Multipliers](https://notes.muthu.co/2025/10/the-multiplier-mindset-identify-and-amplify-your-force-multipliers)
+- [Transform Failures Into Capability, Not Bureaucracy](https://notes.muthu.co/2025/10/transform-failures-into-capability-not-bureaucracy)
+- [Treat Tech Debt Like a Financial Portfolio](https://notes.muthu.co/2025/10/treat-tech-debt-like-a-financial-portfolio)
+- [Write Engineering Investment Cases, Not Technical Proposals](https://notes.muthu.co/2025/11/write-engineering-investment-cases-not-technical-proposals)
+- [How Great EMs Shape Reality Through Storytelling](https://notes.muthu.co/2025/10/write-the-narrative-how-great-ems-shape-reality-through-storytelling)
+- [Your Engineering Org is Your Product](https://notes.muthu.co/2025/10/your-engineering-org-is-your-product)
+- [Your Team Is Not a Family but a High-Performance System](https://notes.muthu.co/2025/09/your-team-isnt-a-family-its-a-high-performance-system)

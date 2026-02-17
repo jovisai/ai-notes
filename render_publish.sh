@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e  # Exit on any error
+echo "Generating llm.txt..."
+./generate_llm_txt.sh
 hugo
 echo "Building site with Hugo..."
 echo "Running pagefind..."
