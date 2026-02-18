@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crew-Based</title>
+      <link>https://notes.muthu.co/tags/crew-based/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/crew-based/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CrewAI</title>
+      <link>https://notes.muthu.co/tags/crewai/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/crewai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent</title>
+      <link>https://notes.muthu.co/tags/multi-agent/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Orchestration</title>
+      <link>https://notes.muthu.co/tags/orchestration/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/orchestration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Role-Specialization</title>
+      <link>https://notes.muthu.co/tags/role-specialization/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/role-specialization/</guid>
       <description></description>
     </item>
     <item>
@@ -184,13 +219,6 @@
       <description></description>
     </item>
     <item>
-      <title>Multi-Agent</title>
-      <link>https://notes.muthu.co/tags/multi-agent/</link>
-      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>OpenAI</title>
       <link>https://notes.muthu.co/tags/openai/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
@@ -286,13 +314,6 @@
       <link>https://notes.muthu.co/tags/langgraph/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/langgraph/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>CrewAI</title>
-      <link>https://notes.muthu.co/tags/crewai/</link>
-      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/crewai/</guid>
       <description></description>
     </item>
     <item>
@@ -447,13 +468,6 @@
       <link>https://notes.muthu.co/tags/composition/</link>
       <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/composition/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Orchestration</title>
-      <link>https://notes.muthu.co/tags/orchestration/</link>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/orchestration/</guid>
       <description></description>
     </item>
     <item>

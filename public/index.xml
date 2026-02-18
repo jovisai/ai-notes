@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Role Specialization and Crew Based Multi Agent Architectures</title>
+      <link>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</guid>
+      <description>&lt;p&gt;Why does a hospital have surgeons, anesthetists, and nurses instead of one person doing everything? Because specialization works. The same principle is now reshaping how we build AI agent systems. Instead of one all-knowing agent, we compose a &lt;em&gt;crew&lt;/em&gt; of role-specialized agents that collaborate on complex tasks. This article unpacks how role specialization works, why it matters, and how to build crew-based architectures in practice.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you need to write a research report. You could ask one person to do the research, write the prose, fact-check it, and format it. Or you could assemble a small team: a &lt;strong&gt;researcher&lt;/strong&gt; who finds sources, a &lt;strong&gt;writer&lt;/strong&gt; who drafts the text, an &lt;strong&gt;editor&lt;/strong&gt; who reviews for quality, and a &lt;strong&gt;fact-checker&lt;/strong&gt; who verifies claims. Each person focuses on what they do best, and the final product is stronger.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Inverse Reinforcement Learning Inferring Goals From Behavior</title>
       <link>https://notes.muthu.co/2026/02/inverse-reinforcement-learning-inferring-goals-from-behavior/</link>
