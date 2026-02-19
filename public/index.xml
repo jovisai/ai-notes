@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
+      <link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
+      <description>&lt;p&gt;You built an AI agent. It works on your demos. But is it actually &lt;em&gt;good&lt;/em&gt;? Can it handle real-world complexity? Will it break on edge cases? Agent evaluation is one of the hardest unsolved problems in the field — and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Think of agent evaluation like grading a student. A multiple-choice exam (traditional ML benchmarks) tests one narrow skill. But agents are more like interns — they perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer evaluation framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Role Specialization and Crew Based Multi Agent Architectures</title>
       <link>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</link>
