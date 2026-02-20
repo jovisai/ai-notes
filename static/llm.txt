@@ -63,6 +63,7 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Bellman Equations and Value Functions for Optimal Decision-Making](https://notes.muthu.co/2025/10/bellman-equations-and-value-functions-the-mathematics-of-optimal-decision-making)
 - [Advanced Problem-Solving with Tree of Thoughts](https://notes.muthu.co/2025/10/beyond-a-single-path-advanced-problem-solving-with-tree-of-thoughts)
 - [Beyond the Training Data with Retrieval-Augmented Generation for AI Agents](https://notes.muthu.co/2025/10/beyond-the-training-data-the-power-of-retrieval-augmented-generation-for-ai-agents)
+- [Causal Reasoning and Intervention Planning in AI Agents](https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents): How AI agents can move beyond correlation to understand cause and effect, enabling more robust planning, better tool use, and reliable interventions in the real world
 - [Chain-of-Thought Reasoning and Giving LLMs a Thinking Process](https://notes.muthu.co/2025/10/chain-of-thought-reasoning-giving-llms-a-thinking-process)
 - [Consensus Algorithms for Coordinating Agreement in Distributed Agent Systems](https://notes.muthu.co/2025/11/consensus-algorithms-coordinating-agreement-in-distributed-agent-systems)
 - [Constrained Decoding and Structured Output for Agent Reliability](https://notes.muthu.co/2025/11/constrained-decoding-and-structured-output): Master how modern AI agents ensure reliability through controlled generation—from JSON schemas to grammar constraints and finite-state machines.

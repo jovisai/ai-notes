@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Causal Reasoning and Intervention Planning in AI Agents</title>
+      <link>https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents/</guid>
+      <description>&lt;p&gt;Most AI agents today are extraordinarily good at spotting patterns—but dangerously bad at understanding &lt;em&gt;why&lt;/em&gt; things happen. An agent that confuses correlation with causation will recommend an umbrella because it noticed people carrying them on days the bus is late, rather than because it&amp;rsquo;s raining. Causal reasoning gives agents the ability to ask &amp;ldquo;what would happen if I did X?&amp;rdquo; instead of merely &amp;ldquo;what usually happens alongside X?&amp;rdquo; This article explores how causal inference transforms agent planning from pattern matching into genuine understanding.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
       <link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>

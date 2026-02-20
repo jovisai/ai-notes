@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Causal-Inference</title>
+      <link>https://notes.muthu.co/tags/causal-inference/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/causal-inference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Causal-Reasoning</title>
+      <link>https://notes.muthu.co/tags/causal-reasoning/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/causal-reasoning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Decision-Making</title>
+      <link>https://notes.muthu.co/tags/decision-making/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/decision-making/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>
@@ -422,13 +450,6 @@
       <description></description>
     </item>
     <item>
-      <title>Planning</title>
-      <link>https://notes.muthu.co/tags/planning/</link>
-      <pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/planning/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Trajectory-Optimization</title>
       <link>https://notes.muthu.co/tags/trajectory-optimization/</link>
       <pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
@@ -594,13 +615,6 @@
       <link>https://notes.muthu.co/tags/bandit-algorithms/</link>
       <pubDate>Sun, 16 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/bandit-algorithms/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Decision-Making</title>
-      <link>https://notes.muthu.co/tags/decision-making/</link>
-      <pubDate>Sun, 16 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/decision-making/</guid>
       <description></description>
     </item>
     <item>
