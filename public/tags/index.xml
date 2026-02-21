@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dspy</title>
+      <link>https://notes.muthu.co/tags/dspy/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/dspy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://notes.muthu.co/tags/llm/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pipelines</title>
+      <link>https://notes.muthu.co/tags/pipelines/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/pipelines/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt-Optimization</title>
+      <link>https://notes.muthu.co/tags/prompt-optimization/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/prompt-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stanford</title>
+      <link>https://notes.muthu.co/tags/stanford/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/stanford/</guid>
       <description></description>
     </item>
     <item>
@@ -419,13 +454,6 @@
       <link>https://notes.muthu.co/tags/deliberation/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/deliberation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llm</title>
-      <link>https://notes.muthu.co/tags/llm/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llm/</guid>
       <description></description>
     </item>
     <item>

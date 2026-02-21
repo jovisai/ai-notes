@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatic Prompt Optimization with DSPy Building Self-Tuning Agent Pipelines</title>
+      <link>https://notes.muthu.co/2026/02/automatic-prompt-optimization-with-dspy-building-self-tuning-agent-pipelines/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/automatic-prompt-optimization-with-dspy-building-self-tuning-agent-pipelines/</guid>
+      <description>&lt;p&gt;Every serious AI agent builder reaches the same wall. You&amp;rsquo;ve wired together a clean pipeline — plan, retrieve, synthesize, respond — but performance plateaus and you&amp;rsquo;re left A/B-testing prompt variations by hand. Change one instruction, re-run evals, change it back, repeat. It&amp;rsquo;s the 1990s hyperparameter tuning problem, dressed in new clothes.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;DSPy&lt;/strong&gt; (Declarative Self-improving Python), introduced by Khattab et al. at Stanford in 2023, reframes that wall as an optimization problem. Instead of writing prompts, you write &lt;em&gt;programs&lt;/em&gt;. Then you let an optimizer find the prompts for you.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Causal Reasoning and Intervention Planning in AI Agents</title>
       <link>https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents/</link>
