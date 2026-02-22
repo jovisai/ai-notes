@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hierarchical-Rl</title>
+      <link>https://notes.muthu.co/tags/hierarchical-rl/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/hierarchical-rl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Options-Framework</title>
+      <link>https://notes.muthu.co/tags/options-framework/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/options-framework/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Subgoals</title>
+      <link>https://notes.muthu.co/tags/subgoals/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/subgoals/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Temporal-Abstraction</title>
+      <link>https://notes.muthu.co/tags/temporal-abstraction/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/temporal-abstraction/</guid>
       <description></description>
     </item>
     <item>
@@ -167,13 +202,6 @@
       <link>https://notes.muthu.co/tags/inverse-rl/</link>
       <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/inverse-rl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -419,13 +447,6 @@
       <link>https://notes.muthu.co/tags/engineering-management/</link>
       <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/engineering-management/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hierarchical-Rl</title>
-      <link>https://notes.muthu.co/tags/hierarchical-rl/</link>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/hierarchical-rl/</guid>
       <description></description>
     </item>
     <item>

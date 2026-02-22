@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Temporal Abstraction and the Options Framework How Agents Learn to Think in Subgoals</title>
+      <link>https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals/</guid>
+      <description>&lt;p&gt;Most reinforcement learning agents think one step at a time. They observe the environment, pick an action, collect a reward, and repeat. This works fine for simple tasks—but real-world problems often require &lt;em&gt;sustained commitment to a plan&lt;/em&gt;: navigate to the kitchen, open the fridge, grab the milk, then pour it. Each of those steps involves dozens of low-level actions, and treating them all as independent decisions leads to agents that never learn anything useful.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Automatic Prompt Optimization with DSPy Building Self-Tuning Agent Pipelines</title>
       <link>https://notes.muthu.co/2026/02/automatic-prompt-optimization-with-dspy-building-self-tuning-agent-pipelines/</link>

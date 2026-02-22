@@ -106,6 +106,7 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium](https://notes.muthu.co/2025/10/strategic-minds-understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium)
 - [Symbolic Reasoning and Neural-Symbolic Integration in AI Agents](https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents)
 - [Task Allocation for Machine Teamwork with the Contract Net Protocol](https://notes.muthu.co/2025/10/teamwork-for-machines-task-allocation-with-the-contract-net-protocol)
+- [Temporal Abstraction and the Options Framework How Agents Learn to Think in Subgoals](https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals): Understand how AI agents escape the curse of shortsightedness by learning reusable subgoals and temporally extended actions through the Options Framework
 - [Temporal Difference Learning and Q-Learning as the Engine of Agent Intelligence](https://notes.muthu.co/2025/11/temporal-difference-learning-and-q-learning-the-engine-of-agent-intelligence)
 - [Test-Time Compute and o1-Style Reasoning for Scaling Intelligence Through Inference](https://notes.muthu.co/2025/11/test-time-compute-and-o1-style-reasoning-scaling-intelligence-through-inference)
 - [Architecting Short-Term and Long-Term Memory in AI Agents](https://notes.muthu.co/2025/10/the-agents-mind-architecting-short-term-and-long-term-memory)
