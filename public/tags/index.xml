@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cooperative-Ai</title>
+      <link>https://notes.muthu.co/tags/cooperative-ai/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/cooperative-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emergent-Behavior</title>
+      <link>https://notes.muthu.co/tags/emergent-behavior/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/emergent-behavior/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Marl</title>
+      <link>https://notes.muthu.co/tags/marl/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/marl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent</title>
+      <link>https://notes.muthu.co/tags/multi-agent/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +62,6 @@
       <link>https://notes.muthu.co/tags/options-framework/</link>
       <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/options-framework/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -153,13 +181,6 @@
       <link>https://notes.muthu.co/tags/crewai/</link>
       <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/crewai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Multi-Agent</title>
-      <link>https://notes.muthu.co/tags/multi-agent/</link>
-      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
       <description></description>
     </item>
     <item>
