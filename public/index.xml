@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continual Learning and Catastrophic Forgetting How Agents Remember Without Forgetting</title>
+      <link>https://notes.muthu.co/2026/02/continual-learning-and-catastrophic-forgetting-how-agents-remember-without-forgetting/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/continual-learning-and-catastrophic-forgetting-how-agents-remember-without-forgetting/</guid>
+      <description>&lt;p&gt;You&amp;rsquo;ve finally trained your agent to handle customer support tickets perfectly. Then you fine-tune it on a new product line. Suddenly, it forgets everything it knew about the old one. This isn&amp;rsquo;t a bug in your code — it&amp;rsquo;s a fundamental property of neural networks called &lt;strong&gt;catastrophic forgetting&lt;/strong&gt;, and solving it is one of the deepest unsolved problems in AI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine teaching a dog to sit, then spending a week teaching it to roll over. When you return to &amp;ldquo;sit,&amp;rdquo; it might seem confused — but the dog still mostly remembers. Now imagine a neural network in the same scenario: after training on Task B, it can completely lose the ability to do Task A. Not &amp;ldquo;slightly worse&amp;rdquo; — &lt;em&gt;completely lost&lt;/em&gt;. That&amp;rsquo;s catastrophic forgetting.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Multi-Agent Reinforcement Learning Teaching Agents to Cooperate Compete and Coexist</title>
       <link>https://notes.muthu.co/2026/02/multi-agent-reinforcement-learning-teaching-agents-to-cooperate-compete-and-coexist/</link>

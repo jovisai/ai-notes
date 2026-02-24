@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Catastrophic-Forgetting</title>
+      <link>https://notes.muthu.co/tags/catastrophic-forgetting/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/catastrophic-forgetting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Continual-Learning</title>
+      <link>https://notes.muthu.co/tags/continual-learning/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/continual-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lifelong-Learning</title>
+      <link>https://notes.muthu.co/tags/lifelong-learning/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/lifelong-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory</title>
+      <link>https://notes.muthu.co/tags/memory/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/memory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neural-Networks</title>
+      <link>https://notes.muthu.co/tags/neural-networks/</link>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/neural-networks/</guid>
       <description></description>
     </item>
     <item>
@@ -1308,13 +1343,6 @@
       <link>https://notes.muthu.co/tags/information-retrieval/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/information-retrieval/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Memory</title>
-      <link>https://notes.muthu.co/tags/memory/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/memory/</guid>
       <description></description>
     </item>
     <item>
