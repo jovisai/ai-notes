@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code-Generation</title>
+      <link>https://notes.muthu.co/tags/code-generation/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/code-generation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Program-Synthesis</title>
+      <link>https://notes.muthu.co/tags/program-synthesis/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/program-synthesis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Repl</title>
+      <link>https://notes.muthu.co/tags/repl/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/repl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Swe-Agent</title>
+      <link>https://notes.muthu.co/tags/swe-agent/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/swe-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tool-Use</title>
+      <link>https://notes.muthu.co/tags/tool-use/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/tool-use/</guid>
       <description></description>
     </item>
     <item>
@@ -506,13 +541,6 @@
       <description></description>
     </item>
     <item>
-      <title>Program-Synthesis</title>
-      <link>https://notes.muthu.co/tags/program-synthesis/</link>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/program-synthesis/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Skill-Learning</title>
       <link>https://notes.muthu.co/tags/skill-learning/</link>
       <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
@@ -608,13 +636,6 @@
       <link>https://notes.muthu.co/tags/composition/</link>
       <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/composition/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tool-Use</title>
-      <link>https://notes.muthu.co/tags/tool-use/</link>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/tool-use/</guid>
       <description></description>
     </item>
     <item>

@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Writing Agents and Program Synthesis Teaching AI to Build Its Own Tools</title>
+      <link>https://notes.muthu.co/2026/02/code-writing-agents-and-program-synthesis-teaching-ai-to-build-its-own-tools/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/code-writing-agents-and-program-synthesis-teaching-ai-to-build-its-own-tools/</guid>
+      <description>&lt;p&gt;Code is the most powerful tool an AI agent can wield. Unlike a database query or an API call, code is universal: it can transform data, automate tasks, call other tools, and even modify the agent&amp;rsquo;s own environment. When an agent learns to write and run code as a first-class reasoning step, it escapes the prison of pre-defined tools and becomes genuinely open-ended. This article explores how code-writing agents work, where they came from, and how to build one yourself.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Continual Learning and Catastrophic Forgetting How Agents Remember Without Forgetting</title>
       <link>https://notes.muthu.co/2026/02/continual-learning-and-catastrophic-forgetting-how-agents-remember-without-forgetting/</link>
