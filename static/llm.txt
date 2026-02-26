@@ -50,6 +50,7 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 
 ## AI Agents Series
 
+- [Active Inference and the Free Energy Principle How Agents Minimize Surprise Instead of Maximizing Reward](https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise): Explore Karl Friston's Free Energy Principle: a unified theory where agents minimize surprise through belief updating and action, offering an alternative foundation to reward-based reinforcement learning
 - [Agent Debugging and Observability for Seeing Inside the Black Box](https://notes.muthu.co/2025/11/agent-debugging-and-observability): Master the art of understanding, debugging, and monitoring AI agents through tracing, logging, and observability patterns
 - [Agent Evaluation and Benchmarking for Measuring What Matters](https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-measuring-what-matters): Learn how to systematically evaluate AI agent performance using benchmarks, metrics, and evaluation frameworks that go beyond simple accuracy
 - [Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs](https://notes.muthu.co/2025/10/agentic-workflow-graphs-building-stateful-ai-systems-with-langgraph): Learn how to build complex, stateful AI agent systems using graph-based architectures with LangGraph—a paradigm shift from linear chains to cyclic, controllable workflows.

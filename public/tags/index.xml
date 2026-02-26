@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Active-Inference</title>
+      <link>https://notes.muthu.co/tags/active-inference/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/active-inference/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bayesian</title>
+      <link>https://notes.muthu.co/tags/bayesian/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/bayesian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Free-Energy</title>
+      <link>https://notes.muthu.co/tags/free-energy/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/free-energy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Perception</title>
+      <link>https://notes.muthu.co/tags/perception/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/perception/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>
@@ -202,13 +237,6 @@
       <link>https://notes.muthu.co/tags/decision-making/</link>
       <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/decision-making/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Planning</title>
-      <link>https://notes.muthu.co/tags/planning/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>

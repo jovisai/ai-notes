@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Active Inference and the Free Energy Principle How Agents Minimize Surprise Instead of Maximizing Reward</title>
+      <link>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</guid>
+      <description>&lt;p&gt;What if an agent didn&amp;rsquo;t try to maximize reward at all? What if it simply tried to avoid being surprised? That&amp;rsquo;s the radical idea behind the &lt;strong&gt;Free Energy Principle&lt;/strong&gt;, a theory from neuroscience that&amp;rsquo;s quietly gaining traction in AI agent research. It offers a unified explanation of perception, learning, and action under a single mathematical objective — and it&amp;rsquo;s different from anything else in the field.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re a robot in a dark room. You don&amp;rsquo;t know where you are. You have beliefs about what the room probably looks like. When your senses give you data, you have two options:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Code Writing Agents and Program Synthesis Teaching AI to Build Its Own Tools</title>
       <link>https://notes.muthu.co/2026/02/code-writing-agents-and-program-synthesis-teaching-ai-to-build-its-own-tools/</link>
