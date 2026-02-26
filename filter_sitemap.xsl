@@ -10,5 +10,10 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="s:url[not(contains(s:loc, '/posts/'))]"/>
+  <xsl:template match="s:url[not(
+    contains(s:loc, '/posts/') or
+    contains(s:loc, '/2024/') or
+    contains(s:loc, '/2025/') or
+    contains(s:loc, '/2026/')
+  )]"/>
 </xsl:stylesheet>

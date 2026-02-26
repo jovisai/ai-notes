@@ -2,7 +2,7 @@
 set -e  # Exit on any error
 echo "Generating llm.txt..."
 ./generate_llm_txt.sh
-hugo
+hugo --cleanDestinationDir
 echo "Building site with Hugo..."
 echo "Running pagefind..."
 xsltproc --output public/sitemap.xml filter_sitemap.xsl public/sitemap.xml
