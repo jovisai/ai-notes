@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</loc>
+    <lastmod>2026-02-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notes.muthu.co/2026/02/offline-reinforcement-learning-training-agents-from-fixed-datasets/</loc>
+    <lastmod>2026-02-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</loc>
     <lastmod>2026-02-26T00:00:00+00:00</lastmod>
   </url><url>

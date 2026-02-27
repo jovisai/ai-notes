@@ -6,8 +6,22 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grounded Language Agents Connecting Words to Actions in the Physical World</title>
+      <link>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</guid>
+      <description>&lt;p&gt;Telling a robot to &amp;ldquo;grab the red mug near the coffee machine&amp;rdquo; sounds trivially easy to a human. But for an AI agent, it requires solving one of the deepest problems in cognitive science: how do words connect to the real world? This article explores &lt;strong&gt;grounded language agents&lt;/strong&gt; — systems that can reason in language &lt;em&gt;and&lt;/em&gt; act meaningfully in physical or simulated environments.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine teaching someone a language entirely from a dictionary — no images, no real objects, only definitions of words in terms of other words. They might learn to use the language syntactically but would never truly &lt;em&gt;understand&lt;/em&gt; what &amp;ldquo;red&amp;rdquo; or &amp;ldquo;hot&amp;rdquo; or &amp;ldquo;above&amp;rdquo; means. That&amp;rsquo;s the situation language models are in.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Offline Reinforcement Learning Training Agents from Fixed Datasets</title>
+      <link>https://notes.muthu.co/2026/02/offline-reinforcement-learning-training-agents-from-fixed-datasets/</link>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/offline-reinforcement-learning-training-agents-from-fixed-datasets/</guid>
+      <description>&lt;p&gt;Most reinforcement learning stories follow the same arc: an agent stumbles around an environment, gathers experience, and gradually improves. But what happens when the environment is too expensive to explore, too risky to let an agent loose in, or simply not available at training time? Offline RL — also called batch RL — answers this question by flipping the paradigm: learn everything you can from a fixed dataset of past interactions, then deploy.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Active Inference and the Free Energy Principle How Agents Minimize Surprise Instead of Maximizing Reward</title>
       <link>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</link>
