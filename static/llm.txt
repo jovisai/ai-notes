@@ -16,6 +16,7 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 
 - [AI Agent Communication Protocols MCP, ACP, A2A, and ANP](https://notes.muthu.co/2025/07/a-deep-dive-into-ai-agent-communication-protocols): An overview of the most important communication protocols for multi-agent systems, and how they enable interoperability and scalability.
 - [Building an Agentic RAG Pipeline with LangGraph](https://notes.muthu.co/2025/12/agentic-rag-langgraph-tutorial): Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.
+- [Conceptual AI Agents Universe — System Design Document](https://notes.muthu.co/2026/02/ai-agents-universe): A plugin-based platform architecture where each AI agent system is an independently subscribable capability. One interface, one orchestrator, unlimited agents — added without touching existing code.
 - [My Thoughts on Andrew Ngs Building Faster and Smarter with AI](https://notes.muthu.co/2025/07/andrew-ng-building-faster-with-ai)
 - [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-doc-about-ava)
 - [Building an MCP Server with Python to Connect Claude to Your Database](https://notes.muthu.co/2025/12/building-mcp-server-python-claude): A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.

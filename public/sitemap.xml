@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</loc>
+    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/2026/02/distributional-reinforcement-learning-and-learning-the-full-return-distribution/</loc>
+    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notes.muthu.co/posts/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</loc>
@@ -53,9 +59,6 @@
     <lastmod>2026-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/</loc>
-    <lastmod>2026-02-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/posts/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</loc>

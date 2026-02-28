@@ -9,6 +9,13 @@
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Conceptual AI Agents Universe — System Design Document</title>
+      <link>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</guid>
+      <description>&lt;h1 id=&#34;part-1-high-level-design&#34;&gt;PART 1: HIGH-LEVEL DESIGN&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-vision--problem-statement&#34;&gt;1. Vision &amp;amp; Problem Statement&lt;/h2&gt;&#xA;&lt;p&gt;Organizations need AI automation across multiple business functions — code review, customer support, QA, documentation, data analysis, and more. Today, each of these is a siloed solution with its own interface, deployment, and learning curve.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;AI Agents Universe&lt;/strong&gt; solves this by providing a single platform where each AI capability is a self-contained, subscription-based plugin. One interface, one orchestrator, unlimited capabilities — added without touching existing code.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Distributional Reinforcement Learning and Learning the Full Return Distribution</title>
       <link>https://notes.muthu.co/2026/02/distributional-reinforcement-learning-and-learning-the-full-return-distribution/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
