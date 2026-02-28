@@ -6,8 +6,50 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C51</title>
+      <link>https://notes.muthu.co/tags/c51/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/c51/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributional-Rl</title>
+      <link>https://notes.muthu.co/tags/distributional-rl/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/distributional-rl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>QR-DQN</title>
+      <link>https://notes.muthu.co/tags/qr-dqn/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/qr-dqn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Risk-Sensitive</title>
+      <link>https://notes.muthu.co/tags/risk-sensitive/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/risk-sensitive/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uncertainty</title>
+      <link>https://notes.muthu.co/tags/uncertainty/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/uncertainty/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai-Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
@@ -62,13 +104,6 @@
       <link>https://notes.muthu.co/tags/offline-rl/</link>
       <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/offline-rl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -1119,13 +1154,6 @@
       <link>https://notes.muthu.co/tags/pomdps/</link>
       <pubDate>Thu, 23 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/pomdps/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Uncertainty</title>
-      <link>https://notes.muthu.co/tags/uncertainty/</link>
-      <pubDate>Thu, 23 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/uncertainty/</guid>
       <description></description>
     </item>
     <item>
