@@ -6,20 +6,62 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agents</title>
+      <link>https://notes.muthu.co/tags/ai-agents/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alignment</title>
+      <link>https://notes.muthu.co/tags/alignment/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/alignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dpo</title>
+      <link>https://notes.muthu.co/tags/dpo/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/dpo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llms</title>
+      <link>https://notes.muthu.co/tags/llms/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Preference-Learning</title>
+      <link>https://notes.muthu.co/tags/preference-learning/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/preference-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reward-Modeling</title>
+      <link>https://notes.muthu.co/tags/reward-modeling/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reward-modeling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rlhf</title>
+      <link>https://notes.muthu.co/tags/rlhf/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/rlhf/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Agentic-Ai</title>
       <link>https://notes.muthu.co/tags/agentic-ai/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI Agents</title>
-      <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
       <description></description>
     </item>
     <item>
@@ -447,13 +489,6 @@
       <link>https://notes.muthu.co/tags/role-specialization/</link>
       <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/role-specialization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Alignment</title>
-      <link>https://notes.muthu.co/tags/alignment/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/alignment/</guid>
       <description></description>
     </item>
     <item>
@@ -1588,13 +1623,6 @@
       <link>https://notes.muthu.co/tags/deep-research/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/deep-research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llms</title>
-      <link>https://notes.muthu.co/tags/llms/</link>
-      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llms/</guid>
       <description></description>
     </item>
     <item>
