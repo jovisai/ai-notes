@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Goal-Conditioned</title>
+      <link>https://notes.muthu.co/tags/goal-conditioned/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/goal-conditioned/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HER</title>
+      <link>https://notes.muthu.co/tags/her/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/her/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Robotic-Planning</title>
+      <link>https://notes.muthu.co/tags/robotic-planning/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/robotic-planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sparse-Rewards</title>
+      <link>https://notes.muthu.co/tags/sparse-rewards/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/sparse-rewards/</guid>
       <description></description>
     </item>
     <item>
@@ -118,13 +153,6 @@
       <link>https://notes.muthu.co/tags/qr-dqn/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/qr-dqn/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>

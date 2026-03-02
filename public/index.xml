@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goal-Conditioned Reinforcement Learning and Hindsight Experience Replay Turn Failures Into Training Opportunities</title>
+      <link>https://notes.muthu.co/2026/03/goal-conditioned-reinforcement-learning-and-hindsight-experience-replay-turn-failures-into-training-opportunities/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/goal-conditioned-reinforcement-learning-and-hindsight-experience-replay-turn-failures-into-training-opportunities/</guid>
+      <description>&lt;p&gt;A robot arm swings, misses the cube, and the reward is zero. Again. And again. For thousands of episodes. This is the brutal reality of sparse-reward reinforcement learning: the agent almost never succeeds, so it almost never learns. Hindsight Experience Replay (HER) is one of the most elegant ideas in modern RL — instead of discarding failed trajectories, it asks: &lt;em&gt;what goal was the agent secretly achieving all along?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine a toddler trying to stack a block on top of another. They miss, but the block lands somewhere. A smart parent doesn&amp;rsquo;t just say &amp;ldquo;you failed.&amp;rdquo; They say: &amp;ldquo;You successfully moved the block to &lt;em&gt;that&lt;/em&gt; spot — now let&amp;rsquo;s build on that.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>RLHF and Preference Learning Teaching Agents What Humans Actually Want</title>
       <link>https://notes.muthu.co/2026/03/rlhf-and-preference-learning-teaching-agents-what-humans-actually-want/</link>
