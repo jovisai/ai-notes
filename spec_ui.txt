@@ -1,0 +1,769 @@
+❯ /speckit.specify The current system always creates only a task, support for creating more issue types like Bug, Story and Epic
+
+⏺ Bash(git fetch --all --prune 2>&1 | tail -3)
+  ⎿   - [deleted]         (none)     -> origin/feature/active-members-popup
+      - [deleted]         (none)     -> origin/feature/created-date-column-filter
+      - [deleted]         (none)     -> origin/feature/session-and-filters-enhancements
+
+⏺ Bash(git ls-remote --heads origin | grep -E 'refs/heads/[0-9]+-jira-issue-types$'
+      git branch | grep -E '^[* ]*[0-9]+-jira-issue-types$'…)
+  ⎿  grep: git: No such file or directory
+     grep: branch: No such file or directory
+     (no specs dir)
+
+⏺ Bash(git ls-remote --heads origin | grep -E 'refs/heads/[0-9]+-jira-issue-types$' ; echo "---" ; git branch | grep -E
+      '^\**[[:space:]]*[0-9]+-jira-issue-types$' ; ec…)
+  ⎿  ---
+     ---
+     (no match)
+
+⏺ No existing branches or specs found — starting at number 1. Running the creation script:
+
+⏺ Bash(.specify/scripts/bash/create-new-feature.sh --json "The current system always creates only a task, support for creating more
+       issue types like Bug, Story and Epi…)
+  ⎿  Switched to a new branch '001-jira-issue-types'
+     {
+       "BRANCH_NAME": "001-jira-issue-types",
+     … +3 lines (ctrl+o to expand)
+
+⏺ Branch created. Now let me explore the current Jira integration to understand what needs to change:
+
+⏺ Searched for 1 pattern, read 3 files (ctrl+o to expand)
+
+⏺ Now I have everything I need. Let me write the specification:
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Write(specs/001-jira-issue-types/spec.md)
+  ⎿  Error writing file
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Write(specs/001-jira-issue-types/spec.md)
+  ⎿  Added 91 lines, removed 76 lines
+        1 -# Feature Specification: [FEATURE NAME]
+        1 +# Feature Specification: Jira Issue Type Selection
+        2
+        3 -**Feature Branch**: `[###-feature-name]`
+        4 -**Created**: [DATE]
+        5 -**Status**: Draft
+        6 -**Input**: User description: "$ARGUMENTS"
+        3 +**Feature Branch**: `001-jira-issue-types`
+        4 +**Created**: 2026-03-02
+        5 +**Status**: Draft
+        6 +**Input**: User description: "The current system always creates only a task, support for creating more issue type
+          +s like Bug, Story and Epic"
+        7
+        8  ## User Scenarios & Testing *(mandatory)*
+        9
+       10 -<!--
+       11 -  IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
+       12 -  Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
+       13 -  you should still have a viable MVP (Minimum Viable Product) that delivers value.
+       14 -
+       15 -  Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
+       16 -  Think of each story as a standalone slice of functionality that can be:
+       17 -  - Developed independently
+       18 -  - Tested independently
+       19 -  - Deployed independently
+       20 -  - Demonstrated to users independently
+       21 --->
+       10 +### User Story 1 — Choose Issue Type When Creating Tickets (Priority: P1)
+       11
+       23 -### User Story 1 - [Brief Title] (Priority: P1)
+       12 +A user has finished reviewing extracted action items from a meeting transcript and is about to
+       13 +push them to Jira. Currently every ticket is created as a "Task". The user needs to be able to
+       14 +select a different issue type — for example "Bug" when the items describe defects, or "Story"
+       15 +when they represent new capabilities — before clicking "Create Tickets".
+       16
+       25 -[Describe this user journey in plain language]
+       17 +**Why this priority**: This is the core ask. Without this, all other stories have no value.
+       18 +It covers the highest-frequency path: bulk ticket creation from extracted items.
+       19
+       27 -**Why this priority**: [Explain the value and why it has this priority level]
+       20 +**Independent Test**: Open the create-tickets workflow, change the issue type to "Bug", create
+       21 +tickets, and verify all created Jira issues are of type "Bug".
+       22
+       29 -**Independent Test**: [Describe how this can be tested independently - e.g., "Can be fully tested by [specific ac
+          -tion] and delivers [specific value]"]
+       30 -
+       23  **Acceptance Scenarios**:
+       24
+       33 -1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+       34 -2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+       25 +1. **Given** a user is reviewing extracted action items,
+       26 +   **When** they open the ticket-creation panel,
+       27 +   **Then** they see an issue type selector defaulting to "Task" with options: Task, Bug, Story, Epic.
+       28
+       36 ----
+       29 +2. **Given** a user selects "Story" from the issue type selector,
+       30 +   **When** they click "Create Tickets",
+       31 +   **Then** all tickets are created in Jira with issue type "Story".
+       32
+       38 -### User Story 2 - [Brief Title] (Priority: P2)
+       33 +3. **Given** a user selects "Epic",
+       34 +   **When** they click "Create Tickets",
+       35 +   **Then** all tickets are created in Jira with issue type "Epic", and any Epic-specific Jira
+       36 +   requirements are handled gracefully — either populated automatically or surfaced as a clear
+       37 +   error, without crashing.
+       38
+       40 -[Describe this user journey in plain language]
+       39 +4. **Given** a user selects an issue type and then changes their mind before submitting,
+       40 +   **When** they pick a different type,
+       41 +   **Then** the final selected type is what gets used for all tickets in the batch.
+       42
+       42 -**Why this priority**: [Explain the value and why it has this priority level]
+       43 -
+       44 -**Independent Test**: [Describe how this can be tested independently]
+       45 -
+       46 -**Acceptance Scenarios**:
+       47 -
+       48 -1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+       49 -
+       43  ---
+       44
+       52 -### User Story 3 - [Brief Title] (Priority: P3)
+       45 +### User Story 2 — Save a Default Issue Type in Settings (Priority: P2)
+       46
+       54 -[Describe this user journey in plain language]
+       47 +A user who consistently creates "Bug" tickets wants to set that as their personal default so
+       48 +they don't have to re-select it every session. The Settings page should allow them to choose a
+       49 +preferred default issue type that pre-fills the selector on the create-tickets panel.
+       50
+       56 -**Why this priority**: [Explain the value and why it has this priority level]
+       51 +**Why this priority**: Reduces repetitive friction for teams with a consistent workflow.
+       52 +Depends on Story 1 (the selector must exist first) but delivers independent value once Story 1
+       53 +is complete.
+       54
+       58 -**Independent Test**: [Describe how this can be tested independently]
+       55 +**Independent Test**: Set default issue type to "Bug" in Settings, navigate to the
+       56 +create-tickets panel, and verify the selector pre-populates with "Bug".
+       57
+       58  **Acceptance Scenarios**:
+       59
+       62 -1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+       60 +1. **Given** a user is on the Settings page,
+       61 +   **When** they view the Defaults section,
+       62 +   **Then** they see an "Issue Type" selector with the same four options (Task, Bug, Story, Epic)
+       63 +   showing their currently saved preference.
+       64
+       64 ----
+       65 +2. **Given** a user changes the default issue type to "Story" and saves,
+       66 +   **When** they next open the create-tickets panel (same or new session),
+       67 +   **Then** the issue type selector is pre-filled with "Story".
+       68
+       66 -[Add more user stories as needed, each with an assigned priority]
+       69 +3. **Given** a user has never explicitly changed the default issue type,
+       70 +   **When** they open the create-tickets panel,
+       71 +   **Then** the selector defaults to "Task", preserving backward-compatible behaviour.
+       72
+       73 +---
+       74 +
+       75  ### Edge Cases
+       76
+       70 -<!--
+       71 -  ACTION REQUIRED: The content in this section represents placeholders.
+       72 -  Fill them out with the right edge cases.
+       73 --->
+       77 +- What happens when a Jira project does not support a selected issue type (e.g., "Epic" is
+       78 +  disabled for that project)? The system MUST surface a clear, per-ticket error rather than
+       79 +  silently creating a "Task" fallback or failing the entire batch without explanation.
+       80 +- What happens when the selected issue type requires additional mandatory fields in Jira
+       81 +  (e.g., Epic Name for Epics)? The system MUST attempt creation, and on failure return the
+       82 +  Jira API error as a user-visible message rather than crashing or swallowing the error.
+       83
+       75 -- What happens when [boundary condition]?
+       76 -- How does system handle [error scenario]?
+       77 -
+       84  ## Requirements *(mandatory)*
+       85
+       80 -<!--
+       81 -  ACTION REQUIRED: The content in this section represents placeholders.
+       82 -  Fill them out with the right functional requirements.
+       83 --->
+       84 -
+       86  ### Functional Requirements
+       87
+       87 -- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
+       88 -- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
+       89 -- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
+       90 -- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
+       91 -- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+       88 +- **FR-001**: The ticket-creation panel MUST present a selector for Jira issue type with
+       89 +  at minimum these options: Task, Bug, Story, Epic.
+       90 +- **FR-002**: The selected issue type MUST apply uniformly to all tickets created in a single
+       91 +  batch submission.
+       92 +- **FR-003**: The system MUST pass the user-selected issue type to Jira when creating each
+       93 +  ticket; it MUST NOT override or silently ignore the selection.
+       94 +- **FR-004**: If Jira rejects a ticket because of an unsupported or misconfigured issue type,
+       95 +  the system MUST display a clear per-ticket error message within the normal creation flow.
+       96 +- **FR-005**: Users MUST be able to save a preferred default issue type from the Settings page.
+       97 +- **FR-006**: The saved default MUST persist across sessions and pre-fill the issue type
+       98 +  selector each time the create-tickets panel is opened.
+       99 +- **FR-007**: If no default has been explicitly saved, the system MUST fall back to "Task" to
+      100 +  preserve existing behaviour for all current users.
+      101
+       93 -*Example of marking unclear requirements:*
+      102 +### Key Entities
+      103
+       95 -- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password
+          -, SSO, OAuth?]
+       96 -- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+      104 +- **Issue Type**: A classification applied to a Jira ticket at creation time. Supported
+      105 +  values: Task, Bug, Story, Epic. Applied at the batch level during ticket creation.
+      106 +- **User Default Issue Type**: The user's saved preference for issue type, stored in their
+      107 +  settings profile. Defaults to "Task" when unset.
+      108
+       98 -### Key Entities *(include if feature involves data)*
+       99 -
+      100 -- **[Entity 1]**: [What it represents, key attributes without implementation]
+      101 -- **[Entity 2]**: [What it represents, relationships to other entities]
+      102 -
+      109  ## Success Criteria *(mandatory)*
+      110
+      105 -<!--
+      106 -  ACTION REQUIRED: Define measurable success criteria.
+      107 -  These must be technology-agnostic and measurable.
+      108 --->
+      109 -
+      111  ### Measurable Outcomes
+      112
+      112 -- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
+      113 -- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
+      114 -- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"
+          -]
+      115 -- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+      113 +- **SC-001**: Users can create a full batch of Jira tickets as any of the four supported
+      114 +  issue types (Task, Bug, Story, Epic) without leaving the create-tickets panel, verified
+      115 +  end-to-end against a live Jira instance.
+      116 +- **SC-002**: Users who save a default issue type in Settings see it pre-filled on the
+      117 +  create-tickets panel on every subsequent visit — no exceptions.
+      118 +- **SC-003**: A ticket creation failure caused by an unsupported issue type produces a
+      119 +  visible, actionable error message within the creation flow (no blank screens or unhandled
+      120 +  exceptions).
+      121 +- **SC-004**: All existing users who have never touched issue type settings continue to see
+      122 +  "Task" as the default — zero regressions on current behaviour.
+      123 +
+      124 +## Assumptions
+      125 +
+      126 +- The four issue types (Task, Bug, Story, Epic) are treated as a fixed, hardcoded list.
+      127 +  Dynamic fetching of supported issue types per Jira project is out of scope.
+      128 +- Issue type is selected at the batch level; per-item type override is out of scope.
+      129 +- Epic-specific required fields (e.g., Epic Name) are handled best-effort: the system uses
+      130 +  the item title as the summary and surfaces any Jira rejection to the user.
+
+⏺ Now run the quality validation and create the checklist:
+
+⏺ Bash(mkdir -p /Users/Muthu.krishnan/code/ai-agents-actions-tracker/specs/001-jira-issue-types/checklists)
+  ⎿  Done
+
+⏺ Write(specs/001-jira-issue-types/checklists/requirements.md)
+  ⎿  Wrote 35 lines to specs/001-jira-issue-types/checklists/requirements.md
+       1 # Specification Quality Checklist: Jira Issue Type Selection
+       2
+       3 **Purpose**: Validate specification completeness and quality before proceeding to planning
+       4 **Created**: 2026-03-02
+       5 **Feature**: [spec.md](../spec.md)
+       6
+       7 ## Content Quality
+       8
+       9 - [x] No implementation details (languages, frameworks, APIs)
+      10 - [x] Focused on user value and business needs
+     … +25 lines (ctrl+o to expand)
+
+⏺ Spec complete. Here's the summary:
+
+  ---
+  Branch: 001-jira-issue-types
+  Spec: specs/001-jira-issue-types/spec.md
+  Checklist: specs/001-jira-issue-types/checklists/requirements.md — all items pass ✅
+
+  What was specified (2 user stories, no clarifications needed):
+
+  ┌───────┬──────────┬──────────────────────────────────────────────────────────────────────────┐
+  │ Story │ Priority │                               Description                                │
+  ├───────┼──────────┼──────────────────────────────────────────────────────────────────────────┤
+  │ US1   │ P1       │ Choose issue type (Task/Bug/Story/Epic) when creating a batch of tickets │
+  ├───────┼──────────┼──────────────────────────────────────────────────────────────────────────┤
+  │ US2   │ P2       │ Save a preferred default issue type in Settings to pre-fill the selector │
+  └───────┴──────────┴──────────────────────────────────────────────────────────────────────────┘
+
+  Scope decisions captured as assumptions (no clarification needed):
+  - Fixed list of 4 types — no dynamic per-project type fetching
+  - Batch-level selection only — no per-item type override
+  - Epic-specific fields handled best-effort; errors surfaced to user
+
+  Ready for: /speckit.plan to produce the implementation design.
+
+✻ Brewed for 2m 25s
+
+❯ /speckit.plan
+
+⏺ Bash(.specify/scripts/bash/setup-plan.sh --json)
+  ⎿  Copied plan template to /Users/Muthu.krishnan/code/ai-agents-actions-tracker/specs/001-jira-issue-types/plan.md
+     {
+       "FEATURE_SPEC": "/Users/Muthu.krishnan/code/ai-agents-actions-tracker/specs/001-jira-issue-types/spec.md",
+     … +5 lines (ctrl+o to expand)
+
+⏺ Read 2 files (ctrl+o to expand)
+
+⏺ Now let me research the frontend and any relevant backend details I haven't seen yet:
+
+⏺ Searched for 1 pattern, read 2 files (ctrl+o to expand)
+
+⏺ Excellent findings! Now let me look at the actions store and the Settings page Vue component:
+
+⏺ Searched for 4 patterns, read 1 file (ctrl+o to expand)
+
+⏺ Now I have complete picture of the system. Let me also check the api.js and SettingsPage for the defaults section:
+
+⏺ Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now I have complete research. Let me write all the planning artifacts:
+
+⏺ Read 2 files (ctrl+o to expand)
+
+⏺ I now have complete understanding of the codebase. Let me write all the planning artifacts in parallel:
+
+⏺ Write(specs/001-jira-issue-types/research.md)
+  ⎿  Wrote 89 lines to specs/001-jira-issue-types/research.md
+      1 # Research: Jira Issue Type Selection
+      2
+      3 **Feature**: 001-jira-issue-types
+      4 **Date**: 2026-03-02
+      5
+      6 ## Decision: No new API endpoints or database migrations required
+      7
+      8 **Decision**: Implement the feature entirely by extending existing code — no new routes, no new
+      9 DB columns, no new services.
+     … +79 lines (ctrl+o to expand)
+
+⏺ Write(specs/001-jira-issue-types/data-model.md)
+  ⎿  Wrote 80 lines to specs/001-jira-issue-types/data-model.md
+      1 # Data Model: Jira Issue Type Selection
+      2
+      3 **Feature**: 001-jira-issue-types
+      4 **Date**: 2026-03-02
+      5
+      6 ## No new entities or DB schema changes
+      7
+      8 The `default_issue_type` column (`String(50)`, default `"Task"`) already exists on the
+      9 `user_settings` table. **No Alembic migration is required.**
+     … +70 lines (ctrl+o to expand)
+
+⏺ Bash(mkdir -p /Users/Muthu.krishnan/code/ai-agents-actions-tracker/specs/001-jira-issue-types/contracts)
+  ⎿  Done
+
+⏺ Write(specs/001-jira-issue-types/contracts/api-changes.md)
+  ⎿  Wrote 113 lines to specs/001-jira-issue-types/contracts/api-changes.md
+       1 # API Contract Changes: Jira Issue Type Selection
+       2
+       3 **Feature**: 001-jira-issue-types
+       4 **Date**: 2026-03-02
+       5
+       6 No new endpoints are added. The two existing endpoints below have tightened validation only.
+       7
+       8 ---
+       9
+      10 ## POST /api/actions/create-tickets
+     … +103 lines (ctrl+o to expand)
+
+⏺ Write(specs/001-jira-issue-types/quickstart.md)
+  ⎿  Wrote 80 lines to specs/001-jira-issue-types/quickstart.md
+       1 # Quickstart Validation: Jira Issue Type Selection
+       2
+       3 **Feature**: 001-jira-issue-types
+       4 **Date**: 2026-03-02
+       5
+       6 Use these scenarios to manually verify the feature end-to-end after implementation.
+       7
+       8 ## Prerequisites
+       9
+      10 - App running locally (`uvicorn main:app --reload` + frontend built)
+     … +70 lines (ctrl+o to expand)
+
+⏺ Now write the main plan.md:
+
+⏺ Write(specs/001-jira-issue-types/plan.md)
+  ⎿  Added 83 lines, removed 71 lines
+        1 -# Implementation Plan: [FEATURE]
+        1 +# Implementation Plan: Jira Issue Type Selection
+        2
+        3 -**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
+        4 -**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+        3 +**Branch**: `001-jira-issue-types` | **Date**: 2026-03-02 | **Spec**: [spec.md](./spec.md)
+        4 +**Input**: Feature specification from `/specs/001-jira-issue-types/spec.md`
+        5
+        6 -**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/plan-template.md` fo
+          -r the execution workflow.
+        7 -
+        6  ## Summary
+        7
+       10 -[Extract from feature spec: primary requirement + technical approach from research]
+        8 +Allow users to create Jira tickets as Bug, Story, or Epic in addition to the current Task-only
+        9 +default. The selector already exists in the UI (Task/Story/Bug); the gap is: "Epic" is missing,
+       10 +the selector never pre-fills from the saved default, and the Settings page has no UI to set the
+       11 +default. Backend infrastructure is fully in place — only schema validation and frontend wiring
+       12 +are needed. No new API endpoints, no new DB columns, no new services.
+       13
+       14  ## Technical Context
+       15
+       14 -<!--
+       15 -  ACTION REQUIRED: Replace the content in this section with the technical details
+       16 -  for the project. The structure here is presented in advisory capacity to guide
+       17 -  the iteration process.
+       18 --->
+       16 +**Language/Version**: Python 3.12+ (backend), Vue.js 3 (frontend)
+       17 +**Primary Dependencies**: FastAPI, Pydantic v2, SQLAlchemy async, Vue 3 + Pinia
+       18 +**Storage**: PostgreSQL 16 — `user_settings.default_issue_type` column already exists
+       19 +**Testing**: pytest (backend)
+       20 +**Target Platform**: Linux server (Docker) + browser (Vue SPA)
+       21 +**Project Type**: Web service (FastAPI) + SPA (Vue.js 3)
+       22 +**Performance Goals**: Standard web app response times; no new async calls introduced
+       23 +**Constraints**: No new DB migrations; no new API endpoints; backward-compatible (existing
+       24 +users must continue to see "Task" as default)
+       25 +**Scale/Scope**: 5 files changed; ~30 lines of code added/modified across frontend + backend
+       26
+       20 -**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+       21 -**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+       22 -**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+       23 -**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+       24 -**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+       25 -**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+       26 -**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+       27 -**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+       28 -**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+       29 -
+       27  ## Constitution Check
+       28
+       29  *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+       30
+       34 -[Gates determined based on constitution file]
+       31 +| Principle | Status | Notes |
+       32 +|-----------|--------|-------|
+       33 +| I. Web-App Architecture | ✅ PASS | Route → Service → Model pattern unchanged. Schema changes in `app/schemas/`
+          +. Frontend changes in Vue components. No business logic leaks into routes. |
+       34 +| II. AI-Augmented, Not AI-Dependent | ✅ N/A | Feature does not touch Claude AI integration. |
+       35 +| III. Data Integrity & Migration Discipline | ✅ PASS | No new DB columns. `default_issue_type` already exists.
+          +No migration needed. |
+       36 +| IV. Security & Multi-Tenant Safety | ✅ PASS | All endpoints already require `get_current_user`. Settings are s
+          +coped to authenticated user. No cross-user data access. |
+       37 +| V. Simplicity & Independent Testability | ✅ PASS | Minimal changes: add one `<option>`, one `Literal` type, on
+          +e `<select>` in Settings. No new abstractions. Each story testable independently. |
+       38
+       39 +**Post-design re-check**: All gates still pass. Changes are the minimum necessary.
+       40 +
+       41  ## Project Structure
+       42
+       43  ### Documentation (this feature)
+       44
+       45  ```text
+       41 -specs/[###-feature]/
+       42 -├── plan.md              # This file (/speckit.plan command output)
+       43 -├── research.md          # Phase 0 output (/speckit.plan command)
+       44 -├── data-model.md        # Phase 1 output (/speckit.plan command)
+       45 -├── quickstart.md        # Phase 1 output (/speckit.plan command)
+       46 -├── contracts/           # Phase 1 output (/speckit.plan command)
+       47 -└── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
+       46 +specs/001-jira-issue-types/
+       47 +├── plan.md              # This file
+       48 +├── research.md          # Phase 0 output
+       49 +├── data-model.md        # Phase 1 output
+       50 +├── quickstart.md        # Phase 1 output
+       51 +├── contracts/
+       52 +│   └── api-changes.md   # Phase 1 output
+       53 +└── tasks.md             # Phase 2 output (/speckit.tasks)
+       54  ```
+       55
+       56  ### Source Code (repository root)
+       51 -<!--
+       52 -  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+       53 -  for this feature. Delete unused options and expand the chosen structure with
+       54 -  real paths (e.g., apps/admin, packages/something). The delivered plan must
+       55 -  not include Option labels.
+       56 --->
+       57
+       58  ```text
+       59 -# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+       60 -src/
+       61 -├── models/
+       62 -├── services/
+       63 -├── cli/
+       64 -└── lib/
+       59 +# Web application — backend + frontend
+       60
+       66 -tests/
+       67 -├── contract/
+       68 -├── integration/
+       69 -└── unit/
+       61 +app/schemas/
+       62 +├── action_item.py        # Change JiraConfig.issue_type to Literal enum [MODIFIED]
+       63 +└── settings.py           # Change DefaultSettings.issue_type to Literal enum [MODIFIED]
+       64
+       71 -# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
+       72 -backend/
+       73 -├── src/
+       74 -│   ├── models/
+       75 -│   ├── services/
+       76 -│   └── api/
+       77 -└── tests/
+       65 +static/src/
+       66 +├── components/
+       67 +│   ├── CreateTab.vue     # Add "Epic" option; initialize issueType from settings [MODIFIED]
+       68 +│   └── SettingsPage.vue  # Add issue type selector to Defaults section [MODIFIED]
+       69 +└── stores/
+       70 +    └── actions.js        # Initialize config.issueType from settingsStore after load [MODIFIED]
+       71 +```
+       72
+       79 -frontend/
+       80 -├── src/
+       81 -│   ├── components/
+       82 -│   ├── pages/
+       83 -│   └── services/
+       84 -└── tests/
+       73 +**Structure Decision**: Web application pattern (Option 2). Backend changes are pure schema
+       74 +validation additions in `app/schemas/`. Frontend changes are in existing Vue components and
+       75 +the Pinia actions store. No new files are needed.
+       76
+       86 -# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
+       87 -api/
+       88 -└── [same as backend above]
+       77 +## Detailed Change Map
+       78
+       90 -ios/ or android/
+       91 -└── [platform-specific structure: feature modules, UI flows, platform tests]
+       79 +### US1: Choose issue type when creating tickets
+       80 +
+       81 +#### `static/src/components/CreateTab.vue` (line ~151)
+       82 +Add `<option>Epic</option>` to the issue type `<select>`. The selector already binds to
+       83 +`store.config.issueType` and is already wired to the create-tickets API call.
+       84 +
+       85 +#### `static/src/stores/actions.js` (after loadSettings in CreateTab onMounted)
+       86 +After `settingsStore.loadSettings()` resolves, set:
+       87 +```js
+       88 +store.config.issueType = settingsStore.defaults.issueType
+       89  ```
+       90 +This is done in `CreateTab.vue`'s `onMounted`, since that's where `loadSettings` is already
+       91 +called, keeping the store itself free of a hard dependency on settings load order.
+       92
+       94 -**Structure Decision**: [Document the selected structure and reference the real
+       95 -directories captured above]
+       93 +#### `app/schemas/action_item.py`
+       94 +```python
+       95 +from typing import Literal
+       96 +# In JiraConfig:
+       97 +issue_type: Literal["Task", "Bug", "Story", "Epic"] = "Task"
+       98 +```
+       99
+       97 -## Complexity Tracking
+      100 +### US2: Save a default issue type in Settings
+      101
+       99 -> **Fill ONLY if Constitution Check has violations that must be justified**
+      102 +#### `static/src/components/SettingsPage.vue`
+      103 +Add an issue type `<select>` to the Defaults section (after or alongside the My Projects
+      104 +section), bound to `settings.defaults.issueType`. The `settings` object is the reactive
+      105 +`settingsStore` — changes auto-save via the existing 500 ms debounce watcher.
+      106
+      101 -| Violation | Why Needed | Simpler Alternative Rejected Because |
+      102 -|-----------|------------|-------------------------------------|
+      103 -| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
+      104 -| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+      107 +#### `app/schemas/settings.py`
+      108 +```python
+      109 +from typing import Literal
+      110 +# In DefaultSettings:
+      111 +issue_type: Literal["Task", "Bug", "Story", "Epic"] = "Task"
+      112 +```
+      113 +
+      114 +## Complexity Tracking
+      115 +
+      116 +> No Constitution violations. No complexity justification required.
+
+⏺ Now update the agent context file:
+
+⏺ Bash(.specify/scripts/bash/update-agent-context.sh claude)
+  ⎿  INFO: === Updating agent context files for feature 001-jira-issue-types ===
+     INFO: Parsing plan data from /Users/Muthu.krishnan/code/ai-agents-actions-tracker/specs/001-jira-issue-types/plan.md
+     INFO: Found language: Python 3.12+ (backend), Vue.js 3 (frontend)
+     … +16 lines (ctrl+o to expand)
+
+⏺ Read 1 file (ctrl+o to expand)
+
+⏺ Update(CLAUDE.md)
+  ⎿  Added 28 lines, removed 4 lines
+       9  ## Project Structure
+      10
+      11  ```text
+      12 -src/
+      13 -tests/
+      12 +app/
+      13 +├── core/          # DB, security, date utils
+      14 +├── models/        # SQLAlchemy ORM models
+      15 +├── routes/        # FastAPI route handlers (thin orchestrators)
+      16 +├── schemas/       # Pydantic request/response schemas
+      17 +└── services/      # Business logic
+      18 +static/src/
+      19 +├── components/    # Vue.js components
+      20 +├── stores/        # Pinia stores (actions.js, settings.js)
+      21 +└── api.js         # API client
+      22 +tests/             # pytest tests
+      23 +alembic/           # DB migrations
+      24  ```
+      25
+      26  ## Commands
+      27
+      18 -cd src [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNOLOGIES] pytest [ONLY COMMANDS FOR AC
+         -TIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNOLOGIES] ruff check .
+      28 +```bash
+      29 +# Backend
+      30 +uvicorn main:app --reload
+      31 +pytest tests/
+      32 +alembic upgrade head
+      33 +alembic revision --autogenerate -m "<description>"
+      34
+      35 +# Frontend
+      36 +cd static && npm install && npm run build
+      37 +
+      38 +# Docker
+      39 +docker-compose -f docker-compose.dev.yml up
+      40 +```
+      41 +
+      42  ## Code Style
+      43
+      22 -Python 3.12+ (backend), Vue.js 3 (frontend): Follow standard conventions
+      44 +- Backend: Route → Service → Model pattern. Business logic in `app/services/`.
+      45 +- Frontend: Pinia stores for state, `api.js` for all HTTP calls, no business logic in components.
+      46 +- Pydantic schemas for all API boundaries. Use `Literal` for enum fields.
+      47
+      48  ## Recent Changes
+      49
+
+⏺ Now verify all artifacts are in place:
+
+⏺ Searched for 1 pattern (ctrl+o to expand)
+
+⏺ All artifacts generated. Here's the planning summary:
+
+  ---
+  Branch: 001-jira-issue-types
+  Plan: specs/001-jira-issue-types/plan.md
+
+  What the research found
+
+  The infrastructure is almost entirely in place already — this is a small, focused change:
+
+  ┌─────────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────────┐
+  │                           What exists                           │                   What's missing                    │
+  ├─────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────┤
+  │ JiraService.create_issue(issue_type=...) passes type to Jira ✅ │ "Epic" option missing from CreateTab.vue selector   │
+  ├─────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────┤
+  │ user_settings.default_issue_type DB column exists ✅            │ Settings page has no issue type UI                  │
+  ├─────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────┤
+  │ Settings API reads/writes default_issue_type ✅                 │ config.issueType never pre-fills from saved default │
+  ├─────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────┤
+  │ Frontend store loads defaults.issueType from API ✅             │ No enum validation on backend schemas               │
+  └─────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────┘
+
+  Constitution check — all gates pass ✅
+
+  No violations. No complexity justification needed.
+
+  Generated artifacts
+
+  ┌──────────────────────────┬───────────────────────────────────────────────────────────────┐
+  │           File           │                            Purpose                            │
+  ├──────────────────────────┼───────────────────────────────────────────────────────────────┤
+  │ plan.md                  │ Implementation plan with detailed change map                  │
+  ├──────────────────────────┼───────────────────────────────────────────────────────────────┤
+  │ research.md              │ Gap analysis — what exists vs. what's missing                 │
+  ├──────────────────────────┼───────────────────────────────────────────────────────────────┤
+  │ data-model.md            │ Schema changes (no migrations needed)                         │
+  ├──────────────────────────┼───────────────────────────────────────────────────────────────┤
+  │ contracts/api-changes.md │ API contract changes (2 endpoints, tightened validation only) │
+  ├──────────────────────────┼───────────────────────────────────────────────────────────────┤
+  │ quickstart.md            │ 6 manual test scenarios                                       │
+  ├──────────────────────────┼───────────────────────────────────────────────────────────────┤
+  │ CLAUDE.md                │ Agent context updated                                         │
+  └──────────────────────────┴───────────────────────────────────────────────────────────────┘
+
+  Ready for: /speckit.tasks — will now succeed since plan.md is complete.
+
+✻ Crunched for 3m 50s
+
+❯ /speckit.tasks
+
+⏺ Bash(.specify/scripts/bash/check-prerequisites.sh --json)
+  ⎿  {
+       "FEATURE_DIR": "/Users/Muthu.krishnan/code/ai-agents-actions-tracker/specs/001-jira-issue-types",
+       "AVAILABLE_DOCS": [
+     … +6 lines (ctrl+o to expand)
+
+⏺ All prerequisites met. Let me load all design documents in parallel:
+
+⏺ Read 4 files (ctrl+o to expand)
+
+⏺ Now I have all the context. Generating tasks.md:
+
+⏺ Write(specs/001-jira-issue-types/tasks.md)
+  ⎿  Wrote 165 lines to specs/001-jira-issue-types/tasks.md
+      1 ---
+      2
+      3 description: "Task list for Jira Issue Type Selection"
+      4 ---
+      5
+      6 # Tasks: Jira Issue Type Selection
+      7
+      8 **Input**: Design documents from `/specs/001-jira-issue-types/`
+      9 **Prerequisites**: plan.md ✅, spec.md ✅, research.md ✅, data-model.md ✅, contracts/api-changes.md ✅
+     … +155 lines (ctrl+o to expand)
+
+⏺ Validate all tasks follow the required format:
+
+⏺ Searched for 1 pattern (ctrl+o to expand)
+
+⏺ All 8 task lines pass format validation. Here's the final report:
+
+  ---
+  Generated: specs/001-jira-issue-types/tasks.md
+
+  Summary
+
+  ┌────────────────────────┬──────────────────────────────────────┐
+  │         Metric         │                Value                 │
+  ├────────────────────────┼──────────────────────────────────────┤
+  │ Total tasks            │ 8 (T001–T008)                        │
+  ├────────────────────────┼──────────────────────────────────────┤
+  │ US1 tasks              │ 2 (T004, T005)                       │
+  ├────────────────────────┼──────────────────────────────────────┤
+  │ US2 tasks              │ 1 (T006)                             │
+  ├────────────────────────┼──────────────────────────────────────┤
+  │ Foundational tasks     │ 2 (T002, T003)                       │
+  ├────────────────────────┼──────────────────────────────────────┤
+  │ Polish tasks           │ 2 (T007, T008)                       │
+  ├────────────────────────┼──────────────────────────────────────┤
+  │ Parallel opportunities │ T002‖T003, T004+T005‖T006, T007‖T008 │
+  └────────────────────────┴──────────────────────────────────────┘
+
+  Independent test criteria
+
+  ┌──────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │  Story   │                                             Independent Test                                              │
+  ├──────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ US1 (P1) │ Select "Bug", create tickets, verify Jira issue type is "Bug" (Quickstart Scenario 1)                     │
+  ├──────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ US2 (P2) │ Set Settings default to "Story", reload, open Create tab — selector shows "Story" (Quickstart Scenario 3) │
+  └──────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+  MVP scope
+
+  US1 only (T002 + T004 + T005) — 3 tasks, ~5 lines of code changed. Delivers full value: all four issue types selectable when
+  creating tickets.
+
+  Format validation
+
+  All 8 tasks: ✅ checkbox ✅ Task ID ✅ [P]/[Story] labels where required ✅ file path in description
+
+✻ Brewed for 2m 28s
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ /speckit.implement
