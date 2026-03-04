@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Model-Based Reinforcement Learning How Agents Simulate Experience to Learn Faster</title>
+      <link>https://notes.muthu.co/2026/03/model-based-reinforcement-learning-how-agents-simulate-experience-to-learn-faster/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/model-based-reinforcement-learning-how-agents-simulate-experience-to-learn-faster/</guid>
+      <description>&lt;p&gt;Most reinforcement learning algorithms learn the hard way: try something, observe the outcome, update. Repeat a million times. Model-based RL takes a smarter route — build a compressed model of the world first, then &lt;em&gt;simulate&lt;/em&gt; experience inside that model. The result: agents that can plan ahead, recover from sparse rewards, and learn from far fewer real interactions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine learning to play chess. A model-free learner plays thousands of games and slowly infers that certain board positions lead to wins. A model-based learner does something different: it internalizes &lt;em&gt;the rules of chess&lt;/em&gt; and can then mentally simulate &amp;ldquo;if I do this, then that happens.&amp;rdquo; That internal simulation is the model.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Successor Representations a Map of Where You Are Going</title>
       <link>https://notes.muthu.co/2026/03/successor-representations-a-map-of-where-you-are-going/</link>
