@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Safe Reinforcement Learning Teaches Agents to Optimize Without Violating Constraints</title>
+      <link>https://notes.muthu.co/2026/03/safe-reinforcement-learning-teaches-agents-to-optimize-without-violating-constraints/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/safe-reinforcement-learning-teaches-agents-to-optimize-without-violating-constraints/</guid>
+      <description>&lt;p&gt;Standard reinforcement learning has one job: maximize reward. That simplicity is its strength and its danger. Unconstrained agents find shortcuts, exploit edge cases, and occasionally do something catastrophic in pursuit of the objective. Safe RL introduces a second imperative — &lt;em&gt;don&amp;rsquo;t break things&lt;/em&gt; — and makes it mathematically rigorous.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re training a robotic arm to pick up objects as fast as possible. Pure RL will happily discover that swinging the arm at maximum velocity gets the job done quickly — right up until it smashes the object, the table, or a nearby human. You want to tell the agent: &amp;ldquo;optimize for speed, but &lt;em&gt;never&lt;/em&gt; apply more than 50 Newtons of force.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Model-Based Reinforcement Learning How Agents Simulate Experience to Learn Faster</title>
       <link>https://notes.muthu.co/2026/03/model-based-reinforcement-learning-how-agents-simulate-experience-to-learn-faster/</link>
