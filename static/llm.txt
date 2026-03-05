@@ -15,10 +15,10 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 ## Posts
 
 - [AI Agent Communication Protocols MCP, ACP, A2A, and ANP](https://notes.muthu.co/2025/07/a-deep-dive-into-ai-agent-communication-protocols): An overview of the most important communication protocols for multi-agent systems, and how they enable interoperability and scalability.
+- [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-doc-about-ava)
 - [Building an Agentic RAG Pipeline with LangGraph](https://notes.muthu.co/2025/12/agentic-rag-langgraph-tutorial): Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.
 - [Conceptual AI Agents Universe — System Design Document](https://notes.muthu.co/2026/02/ai-agents-universe): A plugin-based platform architecture where each AI agent system is an independently subscribable capability. One interface, one orchestrator, unlimited agents — added without touching existing code.
 - [My Thoughts on Andrew Ngs Building Faster and Smarter with AI](https://notes.muthu.co/2025/07/andrew-ng-building-faster-with-ai)
-- [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-doc-about-ava)
 - [Building an MCP Server with Python to Connect Claude to Your Database](https://notes.muthu.co/2025/12/building-mcp-server-python-claude): A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.
 - [Building a Research Assistant with Windsurfs Cascade Agent](https://notes.muthu.co/2025/12/building-with-windsurf-cascade-agent): Learn how to leverage Windsurf's agentic Cascade feature to build applications faster with AI-assisted multi-file editing and debugging.
 - [Claude Code CLI Best Practices Checklist](https://notes.muthu.co/2026/02/claude-code-best-practices-checklist): Create a git commit with context
@@ -51,11 +51,11 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 
 ## AI Agents Series
 
+- [Intelligent Pathfinding for AI Agents with A-Star Search](https://notes.muthu.co/2025/10/a-star-search-intelligent-pathfinding-for-ai-agents)
 - [Active Inference and the Free Energy Principle How Agents Minimize Surprise Instead of Maximizing Reward](https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise): Explore Karl Friston's Free Energy Principle: a unified theory where agents minimize surprise through belief updating and action, offering an alternative foundation to reward-based reinforcement learning
 - [Agent Debugging and Observability for Seeing Inside the Black Box](https://notes.muthu.co/2025/11/agent-debugging-and-observability): Master the art of understanding, debugging, and monitoring AI agents through tracing, logging, and observability patterns
 - [Agent Evaluation and Benchmarking for Measuring What Matters](https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-measuring-what-matters): Learn how to systematically evaluate AI agent performance using benchmarks, metrics, and evaluation frameworks that go beyond simple accuracy
 - [Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs](https://notes.muthu.co/2025/10/agentic-workflow-graphs-building-stateful-ai-systems-with-langgraph): Learn how to build complex, stateful AI agent systems using graph-based architectures with LangGraph—a paradigm shift from linear chains to cyclic, controllable workflows.
-- [Intelligent Pathfinding for AI Agents with A-Star Search](https://notes.muthu.co/2025/10/a-star-search-intelligent-pathfinding-for-ai-agents)
 - [How Transformers Power Modern AI Agents with Attention and Reasoning](https://notes.muthu.co/2025/11/attention-mechanisms-and-reasoning-how-transformers-power-modern-ai-agents): Understand how attention mechanisms enable AI agents to reason, maintain context, and make intelligent decisions in modern LLM-based systems.
 - [Auction-Based Task Allocation in Multi-Agent Systems](https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems): Learn how auction mechanisms from economics power efficient task distribution in multi-agent systems, from robot swarms to cloud computing.
 - [Programming Multi-Agent Conversations with AutoGen](https://notes.muthu.co/2025/10/autogen-programming-conversational-agents)
@@ -114,6 +114,7 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [How AI Agents Learn from Themselves Through Self-Play and Iterative Refinement](https://notes.muthu.co/2025/11/self-play-and-iterative-self-refinement-how-ai-agents-learn-from-themselves): Explore how AI agents improve through self-play and iterative refinement—from AlphaGo's game mastery to modern LLM self-correction techniques.
 - [Semantic Routing and Intent Classification in AI Agent Systems](https://notes.muthu.co/2025/11/semantic-routing-and-intent-classification)
 - [Building Reusable Agent Capabilities with Skill Libraries](https://notes.muthu.co/2025/12/skill-libraries-building-reusable-agent-capabilities): How AI agents acquire, store, and compose reusable skills—from hierarchical reinforcement learning to LLM-based skill synthesis and the emerging paradigm of lifelong learning agents.
+- [Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying](https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit): A complete tutorial on using GitHub's spec-kit to bring structure to AI-assisted development — from install to your first specification.
 - [Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium](https://notes.muthu.co/2025/10/strategic-minds-understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium)
 - [Successor Representations a Map of Where You Are Going](https://notes.muthu.co/2026/03/successor-representations-a-map-of-where-you-are-going): Understand successor representations — the elegant middle ground between model-free and model-based RL that enables fast adaptation and transfer across tasks.
 - [Symbolic Reasoning and Neural-Symbolic Integration in AI Agents](https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents)
@@ -121,8 +122,8 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Temporal Abstraction and the Options Framework How Agents Learn to Think in Subgoals](https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals): Understand how AI agents escape the curse of shortsightedness by learning reusable subgoals and temporally extended actions through the Options Framework
 - [Temporal Difference Learning and Q-Learning as the Engine of Agent Intelligence](https://notes.muthu.co/2025/11/temporal-difference-learning-and-q-learning-the-engine-of-agent-intelligence)
 - [Test-Time Compute and o1-Style Reasoning for Scaling Intelligence Through Inference](https://notes.muthu.co/2025/11/test-time-compute-and-o1-style-reasoning-scaling-intelligence-through-inference)
-- [Architecting Short-Term and Long-Term Memory in AI Agents](https://notes.muthu.co/2025/10/the-agents-mind-architecting-short-term-and-long-term-memory)
 - [Self-Improvement and Autoformalization in AI Agents That Build Themselves](https://notes.muthu.co/2025/10/the-agent-that-builds-itself-self-improvement-and-autoformalization)
+- [Architecting Short-Term and Long-Term Memory in AI Agents](https://notes.muthu.co/2025/10/the-agents-mind-architecting-short-term-and-long-term-memory)
 - [Collaborative Problem-Solving in Multi-Agent Systems with the Blackboard Architecture](https://notes.muthu.co/2025/10/the-blackboard-architecture-collaborative-problem-solving-in-multi-agent-systems): Explore how the blackboard pattern enables multiple specialized agents to work together on complex problems through shared knowledge spaces and opportunistic reasoning.
 - [Solving Complex Problems with AI Agent Swarms](https://notes.muthu.co/2025/10/the-power-of-many-solving-complex-problems-with-ai-agent-swarms)
 - [Tool Composition and Chaining for Complex Agent Capabilities](https://notes.muthu.co/2025/11/tool-composition-and-chaining-orchestrating-complex-agent-capabilities): Master the art of combining simple tools into sophisticated agent capabilities through composition patterns, chaining strategies, and intelligent orchestration.
@@ -171,8 +172,8 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Manufacture Slack as the Counterintuitive Key to High-Performing Teams](https://notes.muthu.co/"2025/0/manufacture-slack-the-counterintuitive-key-to-high-performing-teams)
 - [Master Calibration for Consistent Fair Decisions at Scale](https://notes.muthu.co/2025/11/master-calibration-the-secret-to-consistent-fair-decisions-at-scale)
 - [Master Influence Without Authority to Scale Impact Beyond Your Team](https://notes.muthu.co/2025/11/master-influence-without-authority-scale-impact-beyond-your-team)
-- [Mastering the Why in High-Impact Engineering Communication](https://notes.muthu.co/2025/09/mastering-the-why-the-ems-guide-to-high-impact-communication)
 - [Master the Art of Managing Up and Across](https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across)
+- [Mastering the Why in High-Impact Engineering Communication](https://notes.muthu.co/2025/09/mastering-the-why-the-ems-guide-to-high-impact-communication)
 - [Measure What Matters Through Data-Informed Leadership](https://notes.muthu.co/"2025/1/measure-what-matters-the-power-of-data-informed-leadership)
 - [Optimize Deployment Frequency as Your Competitive Moat](https://notes.muthu.co/2025/11/optimize-deployment-frequency-your-competitive-moat)
 - [Pave the Road to Scalable Speed in Your Engineering Org](https://notes.muthu.co/2025/10/pave-the-road-your-engineering-orgs-secret-to-scalable-speed)
