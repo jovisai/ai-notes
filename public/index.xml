@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reward Machines and Automata-Based Task Specification for AI Agents</title>
+      <link>https://notes.muthu.co/2026/03/reward-machines-and-automata-based-task-specification-for-ai-agents/</link>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/reward-machines-and-automata-based-task-specification-for-ai-agents/</guid>
+      <description>&lt;p&gt;Reinforcement learning agents learn by chasing rewards. But what happens when the reward depends on &lt;em&gt;history&lt;/em&gt;, not just the current state? &amp;ldquo;First pick up the key, &lt;em&gt;then&lt;/em&gt; open the door, &lt;em&gt;then&lt;/em&gt; reach the exit&amp;rdquo; — this kind of structured, sequential task breaks the Markov assumption that most RL algorithms rely on. Reward machines solve this elegantly by encoding task structure as a finite-state automaton that emits rewards as the agent progresses.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Safe Reinforcement Learning Teaches Agents to Optimize Without Violating Constraints</title>
       <link>https://notes.muthu.co/2026/03/safe-reinforcement-learning-teaches-agents-to-optimize-without-violating-constraints/</link>
