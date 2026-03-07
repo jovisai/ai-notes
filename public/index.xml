@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cooperative Game Theory and Shapley Values for Fair Credit Assignment in Multi-Agent Systems</title>
+      <link>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</guid>
+      <description>&lt;p&gt;When a team of AI agents solves a hard problem together, a fundamental question emerges: who deserves credit? If a research agent, a coding agent, and a critic agent collaborate to produce an excellent answer, how much of the success belongs to each? This is the &lt;strong&gt;credit assignment problem&lt;/strong&gt; in multi-agent settings — and cooperative game theory gives us a beautiful, principled solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine three friends — Alice, Bob, and Carol — decide to start a business. Alone, Alice earns $30K/year, Bob earns $20K, and Carol earns $10K. Together, all three earn $100K — far more than the sum of their solo efforts. How do they split that $100K fairly?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Reward Machines and Automata-Based Task Specification for AI Agents</title>
       <link>https://notes.muthu.co/2026/03/reward-machines-and-automata-based-task-specification-for-ai-agents/</link>

@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cooperative-Game-Theory</title>
+      <link>https://notes.muthu.co/tags/cooperative-game-theory/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/cooperative-game-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Credit-Assignment</title>
+      <link>https://notes.muthu.co/tags/credit-assignment/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/credit-assignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fairness</title>
+      <link>https://notes.muthu.co/tags/fairness/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/fairness/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent</title>
+      <link>https://notes.muthu.co/tags/multi-agent/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shapley-Values</title>
+      <link>https://notes.muthu.co/tags/shapley-values/</link>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/shapley-values/</guid>
       <description></description>
     </item>
     <item>
@@ -510,13 +545,6 @@
       <link>https://notes.muthu.co/tags/marl/</link>
       <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/marl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Multi-Agent</title>
-      <link>https://notes.muthu.co/tags/multi-agent/</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
       <description></description>
     </item>
     <item>
