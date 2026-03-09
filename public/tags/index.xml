@@ -6,8 +6,50 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuous-Control</title>
+      <link>https://notes.muthu.co/tags/continuous-control/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/continuous-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Entropy-Regularization</title>
+      <link>https://notes.muthu.co/tags/entropy-regularization/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/entropy-regularization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maximum-Entropy</title>
+      <link>https://notes.muthu.co/tags/maximum-entropy/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/maximum-entropy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SAC</title>
+      <link>https://notes.muthu.co/tags/sac/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/sac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Soft-Actor-Critic</title>
+      <link>https://notes.muthu.co/tags/soft-actor-critic/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/soft-actor-critic/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
@@ -62,13 +104,6 @@
       <link>https://notes.muthu.co/tags/formal-methods/</link>
       <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/formal-methods/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>

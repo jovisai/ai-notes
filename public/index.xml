@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maximum Entropy Reinforcement Learning and the Soft Actor-Critic Algorithm</title>
+      <link>https://notes.muthu.co/2026/03/maximum-entropy-reinforcement-learning-and-the-soft-actor-critic-algorithm/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/maximum-entropy-reinforcement-learning-and-the-soft-actor-critic-algorithm/</guid>
+      <description>&lt;p&gt;Most RL algorithms train an agent to maximize reward. Full stop. But what if you asked it to &lt;em&gt;also&lt;/em&gt; stay as random as possible while doing so? This seemingly paradoxical objective — maximize reward &lt;em&gt;and&lt;/em&gt; maximize entropy — turns out to produce better, more robust agents. This is the key insight behind Maximum Entropy RL and its flagship algorithm, Soft Actor-Critic (SAC).&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Entropy, in information theory, measures &lt;em&gt;unpredictability&lt;/em&gt;. A coin-flip has high entropy; a loaded coin that always shows heads has zero entropy. In RL, policy entropy measures how spread-out an agent&amp;rsquo;s action choices are.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Cooperative Game Theory and Shapley Values for Fair Credit Assignment in Multi-Agent Systems</title>
       <link>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</link>
