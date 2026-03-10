@@ -6,8 +6,50 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agents</title>
+      <link>https://notes.muthu.co/tags/ai-agents/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Game Theory</title>
+      <link>https://notes.muthu.co/tags/game-theory/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/game-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent</title>
+      <link>https://notes.muthu.co/tags/multi-agent/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Poker</title>
+      <link>https://notes.muthu.co/tags/poker/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/poker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Continuous-Control</title>
       <link>https://notes.muthu.co/tags/continuous-control/</link>
@@ -30,13 +72,6 @@
       <description></description>
     </item>
     <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>SAC</title>
       <link>https://notes.muthu.co/tags/sac/</link>
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
@@ -48,13 +83,6 @@
       <link>https://notes.muthu.co/tags/soft-actor-critic/</link>
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/soft-actor-critic/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI Agents</title>
-      <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
       <description></description>
     </item>
     <item>
@@ -76,13 +104,6 @@
       <link>https://notes.muthu.co/tags/fairness/</link>
       <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/fairness/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Multi-Agent</title>
-      <link>https://notes.muthu.co/tags/multi-agent/</link>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
       <description></description>
     </item>
     <item>
@@ -167,13 +188,6 @@
       <link>https://notes.muthu.co/tags/model-based/</link>
       <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/model-based/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Planning</title>
-      <link>https://notes.muthu.co/tags/planning/</link>
-      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>
@@ -1560,13 +1574,6 @@
       <link>https://notes.muthu.co/tags/adversarial-search/</link>
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/adversarial-search/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Game Theory</title>
-      <link>https://notes.muthu.co/tags/game-theory/</link>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/game-theory/</guid>
       <description></description>
     </item>
     <item>
