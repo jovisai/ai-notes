@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mean Field Games and Mean Field Reinforcement Learning for Massive Agent Populations</title>
+      <link>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</guid>
+      <description>&lt;p&gt;What happens when you have not two or ten agents competing, but ten thousand, or ten million? Classical game theory breaks down — computing Nash equilibria becomes intractable, and tracking every agent&amp;rsquo;s interaction with every other agent is computationally impossible. Mean field games (MFGs) offer an elegant escape: instead of reasoning about every individual, you reason about the &lt;em&gt;crowd&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re a commuter choosing which road to take to work. You don&amp;rsquo;t care about any specific other driver — you care about &lt;em&gt;traffic&lt;/em&gt;, the aggregate behavior of the crowd. Your best route depends on what everyone else does collectively, and collectively, everyone&amp;rsquo;s route depends on what you (and others) do.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Counterfactual Regret Minimization for Solving Imperfect Information Games</title>
       <link>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</link>

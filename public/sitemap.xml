@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</loc>
+    <lastmod>2026-03-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
   </url><url>
