@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curriculum Learning and Automatic Curriculum Generation in Reinforcement Learning</title>
+      <link>https://notes.muthu.co/2026/03/curriculum-learning-and-automatic-curriculum-generation-in-reinforcement-learning/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/curriculum-learning-and-automatic-curriculum-generation-in-reinforcement-learning/</guid>
+      <description>&lt;p&gt;A child learning to ride a bike doesn&amp;rsquo;t start on a mountain trail. They begin with training wheels, then a flat path, then gentle slopes. This deceptively simple idea — &lt;strong&gt;order matters when learning&lt;/strong&gt; — turns out to be one of the most powerful, underexplored tools in reinforcement learning. Curriculum learning teaches agents progressively, and its modern variants automate the whole process.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-concept-introduction&#34;&gt;1. Concept Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;simple-explanation&#34;&gt;Simple Explanation&lt;/h3&gt;&#xA;&lt;p&gt;Imagine you&amp;rsquo;re training an agent to navigate a maze. You could throw it into a massive labyrinth from day one — but most of its experience will be random wandering, and the reward signal is so sparse it barely learns. Alternatively, you give it a tiny maze first. Once it masters that, you present bigger, more complex mazes. Progress is faster, more stable, and generalises better.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mean Field Games and Mean Field Reinforcement Learning for Massive Agent Populations</title>
       <link>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</link>

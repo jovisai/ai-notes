@@ -6,13 +6,55 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Curriculum-Learning</title>
+      <link>https://notes.muthu.co/tags/curriculum-learning/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/curriculum-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exploration</title>
+      <link>https://notes.muthu.co/tags/exploration/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/exploration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PAIRED</title>
+      <link>https://notes.muthu.co/tags/paired/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/paired/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PLR</title>
+      <link>https://notes.muthu.co/tags/plr/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/plr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Training</title>
+      <link>https://notes.muthu.co/tags/training/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/training/</guid>
       <description></description>
     </item>
     <item>
@@ -34,13 +76,6 @@
       <link>https://notes.muthu.co/tags/multi-agent/</link>
       <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/multi-agent/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reinforcement Learning</title>
-      <link>https://notes.muthu.co/tags/reinforcement-learning/</link>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -1077,13 +1112,6 @@
       <link>https://notes.muthu.co/tags/curiosity/</link>
       <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/curiosity/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Exploration</title>
-      <link>https://notes.muthu.co/tags/exploration/</link>
-      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/exploration/</guid>
       <description></description>
     </item>
     <item>
