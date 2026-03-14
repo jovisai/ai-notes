@@ -6,17 +6,11 @@ tags: ["ai-agents", "reinforcement-learning", "model-based", "dyna", "planning",
 description: "Explore how agents that build internal environment models can plan, simulate, and learn orders of magnitude faster than model-free approaches"
 ---
 
-Most reinforcement learning algorithms learn the hard way: try something, observe the outcome, update. Repeat a million times. Model-based RL takes a smarter route — build a compressed model of the world first, then *simulate* experience inside that model. The result: agents that can plan ahead, recover from sparse rewards, and learn from far fewer real interactions.
+Most reinforcement learning algorithms learn the hard way: try something, observe the outcome, update — and repeat a million times. Model-based RL takes a different route. The agent first builds a compressed model of the world, then *simulates* experience inside that model. Agents that can plan ahead this way recover from sparse rewards and learn from far fewer real interactions.
 
-## 1. Concept Introduction
+## Concept Introduction
 
-### Simple Explanation
-
-Imagine learning to play chess. A model-free learner plays thousands of games and slowly infers that certain board positions lead to wins. A model-based learner does something different: it internalizes *the rules of chess* and can then mentally simulate "if I do this, then that happens." That internal simulation is the model.
-
-In RL, the **environment model** is a learned function that predicts: *given state $s$ and action $a$, what will the next state $s'$ and reward $r$ be?*
-
-### Technical Detail
+In RL, the **environment model** is a learned function that predicts: given state $s$ and action $a$, what will the next state $s'$ and reward $r$ be? A model-free learner plays thousands of games and slowly infers which board positions lead to wins. A model-based learner internalizes the rules and can mentally simulate "if I do this, then that happens."
 
 Formally, an environment model approximates the dynamics:
 
@@ -26,7 +20,7 @@ $$\hat{R}(s, a) \approx \mathbb{E}[r | s, a]$$
 
 With this model in hand, the agent can do **background planning**: generate synthetic $(s, a, r, s')$ transitions without stepping in the real environment, then use those synthetic transitions to update a value function or policy. Real environment interactions remain precious; simulated ones are essentially free.
 
-## 2. Historical & Theoretical Context
+## Historical & Theoretical Context
 
 The key ideas crystallized in Richard Sutton's landmark 1991 paper introducing **Dyna**, which unified learning and planning in a single architecture. The insight was elegant: model-free RL (e.g. Q-learning) and model-based planning (e.g. dynamic programming) are not competing philosophies — they are the two ends of a spectrum, and you can run both simultaneously.
 
@@ -36,7 +30,7 @@ Two major branches emerged:
 - **Shallow models** (tabular or linear) — fast, interpretable, but limited to simple domains
 - **Deep generative models** — neural world models (Dreamer, MuZero) that handle pixels and complex state spaces
 
-## 3. Algorithms & Math
+## Algorithms & Math
 
 ### The Dyna-Q Algorithm
 
@@ -83,9 +77,9 @@ Deep MBRL methods like **MBPO** (Dagan et al., 2019) use short model rollouts to
 
 $$\text{Error}_k \leq k \cdot \epsilon_{\text{model}} + \text{policy approximation error}$$
 
-## 4. Design Patterns & Architectures
+## Design Patterns & Architectures
 
-Three canonical patterns exist in MBRL agent design:
+Three canonical patterns exist in MBRL:
 
 ```mermaid
 graph TD
@@ -104,9 +98,9 @@ graph TD
 
 **Latent world models (Dreamer, MuZero)**: learn a compact latent representation $z_t$ of the world state, then do all planning in latent space. Much more scalable to raw observations.
 
-These connect directly to the **planner–executor** pattern: the model serves as the planner's simulator, while a learned policy handles real-world execution.
+All three connect to the **planner–executor** pattern: the model serves as the planner's simulator, while a learned policy handles real-world execution.
 
-## 5. Practical Application
+## Practical Application
 
 Here's a minimal Dyna-Q implementation on a simple gridworld, alongside a sketch of how you'd layer MBRL into a modern agent:
 
@@ -183,26 +177,7 @@ graph.add_node("update", policy_update_node)
 graph.add_edge("rollout", "update")
 ```
 
-## 6. Comparisons & Tradeoffs
-
-| Method | Sample Efficiency | Asymptotic Performance | Compute Cost | Key Risk |
-|---|---|---|---|---|
-| **Model-free (DQN, SAC)** | Low | High (given data) | Low | Needs many real steps |
-| **Dyna-Q / MBPO** | High | Matches model-free | Medium | Model bias hurts if model is poor |
-| **MPC / shooting** | High | Good for short horizons | High (plan at each step) | Slow inference |
-| **MuZero / Dreamer** | Very high | State-of-the-art | Very high (training) | Complex, brittle training |
-
-**When to use MBRL:**
-- Real environment steps are expensive (robotics, drug discovery, A/B testing)
-- The domain has learnable structure (deterministic or low-variance dynamics)
-- You need rapid adaptation to new goals (model reuse across tasks)
-
-**When to avoid:**
-- Highly stochastic environments (model errors compound quickly)
-- Infinite data available (model-free may match with enough compute)
-- Extremely complex observations like raw video (unless using latent-space models)
-
-## 7. Latest Developments & Research
+## Latest Developments & Research
 
 **MBPO (2019)**: Showed that short model rollouts ($k \leq 5$) with SAC achieve 5–25× sample efficiency over pure model-free SAC on MuJoCo benchmarks, without sacrificing asymptotic performance.
 
@@ -214,15 +189,15 @@ graph.add_edge("rollout", "update")
 
 **Open problems**: Model exploitation (the policy learns to game model inaccuracies), multi-step model error propagation, and learning models in non-stationary environments remain active research areas.
 
-## 8. Cross-Disciplinary Insight
+## Cross-Disciplinary Insight
 
-MBRL mirrors how **classical control engineering** has always worked. A control engineer designs a PID controller by first deriving a physics-based model (transfer function, state-space equations) of the plant, then synthesizing a controller analytically or numerically. Model-free RL is the engineer who skips the physics and just tunes gains by trial and error — it works eventually, but wastes resources.
+MBRL mirrors how **classical control engineering** has always worked. A control engineer designs a PID controller by first deriving a physics-based model (transfer function, state-space equations) of the plant, then synthesizing a controller analytically or numerically. Model-free RL skips the physics and tunes gains by trial and error. It works eventually, but wastes resources.
 
-The deeper connection is to **Bayesian experimental design**: a MBRL agent that knows where its model is uncertain should actively seek transitions that reduce model uncertainty — the exploration strategy known as **curiosity via model uncertainty** (closely related to what you read in the curiosity-driven learning article). This is exactly how a scientist designs the most informative experiment.
+There is also a connection to **Bayesian experimental design**: a MBRL agent that knows where its model is uncertain should actively seek transitions that reduce that uncertainty — the exploration strategy known as curiosity via model uncertainty. This is how a scientist designs the most informative experiment.
 
-In neuroscience, the hippocampus and prefrontal cortex implement something analogous: offline replay during sleep allows the brain to "simulate" experiences, consolidating memory and generalizing knowledge. Dyna's background planning loop is essentially the same mechanism.
+In neuroscience, the hippocampus and prefrontal cortex implement something analogous: offline replay during sleep allows the brain to simulate experiences and consolidate memory. Dyna's background planning loop is structurally the same mechanism.
 
-## 9. Daily Challenge
+## Daily Challenge
 
 **Exercise: Measure the Dyna speedup curve**
 
@@ -234,7 +209,7 @@ You should observe a strong speedup up to around $n = 20$, then diminishing retu
 
 **Bonus**: Implement **prioritized sweeping** — instead of randomly sampling from the model, sample states whose Q-values changed most recently (like priority queues in Dijkstra). You should see another significant speedup.
 
-## 10. References & Further Reading
+## References & Further Reading
 
 ### Foundational Papers
 - **"Dyna, an Integrated Architecture for Learning, Planning, and Reacting"** — Sutton (1991): The paper that started it all
@@ -257,14 +232,3 @@ You should observe a strong speedup up to around $n = 20$, then diminishing retu
 - **Model-based RL benchmarks (MBBL)**: https://github.com/WilsonWangTHU/mbbl
 
 ---
-
-## Key Takeaways
-
-1. **The model is a simulation engine**: A learned dynamics model lets you generate unlimited synthetic experience at near-zero cost.
-2. **Dyna is the blueprint**: Interleave real Q-updates with background planning steps; the ratio $n$ controls the sample-efficiency/compute tradeoff.
-3. **Short rollouts, shallow errors**: Deep MBRL methods (MBPO) use $k \leq 5$ rollout steps to prevent model error compounding.
-4. **Latent-space models scale**: DreamerV3 and MuZero learn compact representations before planning, making MBRL tractable on raw observations.
-5. **Most valuable when real data is scarce**: Robotics, biology, and clinical trials are MBRL's natural home.
-6. **Model uncertainty = exploration signal**: A confused model is a reason to explore — the bridge between MBRL and curiosity-driven learning.
-
-Model-based RL is arguably the most principled approach to sample efficiency: rather than ignoring the structure of the world, you learn it. The cost is complexity; the reward is an agent that can reason about consequences before it acts.

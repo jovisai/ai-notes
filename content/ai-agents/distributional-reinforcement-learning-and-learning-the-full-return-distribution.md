@@ -6,22 +6,11 @@ tags: ["reinforcement-learning", "distributional-rl", "C51", "QR-DQN", "risk-sen
 description: "Move beyond expected returns — learn why modeling the full distribution of rewards unlocks risk-aware agents, better exploration, and state-of-the-art performance"
 ---
 
-Most reinforcement learning courses teach agents to maximize one number: the *expected* cumulative reward. But reality is messier. Two paths to the same expected reward might look completely different — one is a safe, consistent path; the other is a high-variance gamble. Standard RL agents are blind to this difference. **Distributional RL** fixes that by making agents learn the entire probability distribution over returns, not just the mean.
+Most reinforcement learning courses teach agents to maximize one number: the *expected* cumulative reward. But reality is messier. Two paths to the same expected reward might look completely different. One is a safe, consistent path; the other is a high-variance gamble. Standard RL agents are blind to this difference. **Distributional RL** fixes that by making agents learn the entire probability distribution over returns, not just the mean.
 
-## 1. Concept Introduction
+## Concept Introduction
 
-### Simple Explanation
-
-Imagine you're choosing between two jobs:
-
-- **Job A**: Always pays 50,000/year.
-- **Job B**: 50% chance of 20,000, 50% chance of 80,000.
-
-Both have the same **expected** salary (50,000). But they are very different choices depending on your risk tolerance.
-
-Standard Q-learning collapses this choice to a single number. Distributional RL keeps the full picture — it learns the shape of the return distribution, not just its center.
-
-### Technical Detail
+Standard Q-learning collapses the return to a single expected value. Distributional RL keeps the full picture, learning the shape of the return distribution, not just its center. Two actions with identical expected rewards can look very different when you model the full distribution: one might be consistently moderate, the other a high-variance gamble.
 
 In standard RL, the action-value function is defined as:
 
@@ -33,9 +22,9 @@ Distributional RL replaces this scalar with a **random variable** $Z(s, a)$ such
 
 $$Q(s, a) = \mathbb{E}[Z(s, a)]$$
 
-The agent learns the full distribution $Z(s, a)$ — its mean, variance, skew, and tail behavior. This requires a new Bellman equation and new loss functions, but the payoff is significant: richer agent behavior, better stability, and natural risk-awareness.
+The agent learns the full distribution $Z(s, a)$: its mean, variance, skew, and tail behavior. This requires a new Bellman equation and new loss functions, but the payoff is significant: richer agent behavior, better stability, and natural risk-awareness.
 
-## 2. Historical & Theoretical Context
+## Historical & Theoretical Context
 
 The distributional perspective on RL was formalized by Marc Bellemare, Will Dabney, and Rémi Munos in their landmark 2017 paper, **"A Distributional Perspective on Reinforcement Learning"** (Bellemare et al., 2017). This introduced the **C51** algorithm (Categorical 51-atom) and won a best paper award at ICML.
 
@@ -43,11 +32,11 @@ The key theoretical insight was the **Distributional Bellman Equation**:
 
 $$Z(s, a) \stackrel{D}{=} R(s, a) + \gamma Z(S', A')$$
 
-The $\stackrel{D}{=}$ notation means equality in *distribution*, not just in expectation. The right-hand side is a new random variable: the immediate reward $R$ plus the discounted future return. This equation is a contraction in the **Wasserstein metric** — it has a unique fixed point, the true return distribution.
+The $\stackrel{D}{=}$ notation means equality in *distribution*, not just in expectation. The right-hand side is a new random variable: the immediate reward $R$ plus the discounted future return. This equation is a contraction in the **Wasserstein metric**, with a unique fixed point: the true return distribution.
 
 Earlier work on risk-sensitive RL (Heger 1994, Sobel 1982) touched related ideas, but distributional RL unified the theory and produced a practical, scalable algorithm that beat DQN across Atari benchmarks.
 
-## 3. Algorithms & Math
+## Algorithms & Math
 
 ### The Distributional Bellman Equation
 
@@ -81,9 +70,9 @@ where $\delta$ is the TD error and $\ell_\kappa$ is the Huber loss. QR-DQN is mo
 
 ### IQN: Implicit Quantile Networks
 
-**IQN** (Dabney et al., 2018b) goes further — it learns a continuous mapping from quantile level $\tau$ to return quantile using a neural network $Z_\tau(s,a) = f(s, a, \tau)$. At inference, you sample multiple $\tau$ values to get the full distribution dynamically. This is the most expressive of the three.
+**IQN** (Dabney et al., 2018b) goes further, learning a continuous mapping from quantile level $\tau$ to return quantile using a neural network $Z_\tau(s,a) = f(s, a, \tau)$. At inference, you sample multiple $\tau$ values to get the full distribution dynamically. This is the most expressive of the three.
 
-## 4. Design Patterns & Architectures
+## Design Patterns & Architectures
 
 Distributional RL plugs naturally into existing architectures with one key change: the output head produces a distribution instead of a scalar.
 
@@ -98,13 +87,9 @@ graph LR
     F --> G[Environment]
 ```
 
-**Risk-sensitive action selection** is where distributional RL shines. Instead of $\arg\max_a \mathbb{E}[Z(s,a)]$, you can use:
+**Risk-sensitive action selection** is where distributional RL shines. Instead of $\arg\max_a \mathbb{E}[Z(s,a)]$, you can choose the action maximizing Conditional Value-at-Risk (expected return in the worst $\alpha$% of outcomes) for safety-critical agents, take the 90th-percentile return to encourage exploration, or simply take the mean to match classical Q-learning while often benefiting from the richer representation.
 
-- **CVaR policy**: Choose the action maximizing the Conditional Value-at-Risk (expected return in the worst $\alpha$% of outcomes) — useful for safety-critical agents.
-- **Optimistic exploration**: Choose the action with the highest 90th-percentile return — useful for encouraging exploration.
-- **Standard greedy**: Just take the mean — matches classical Q-learning performance but often beats it due to better representation learning.
-
-## 5. Practical Application
+## Practical Application
 
 ```python
 import torch
@@ -187,37 +172,23 @@ print(f"Greedy action (mean): {greedy_action.item()}")
 
 In a **LangGraph** multi-agent system, distributional RL can be used to select between tool-calling strategies: an orchestrator agent learns a return distribution for each tool, and can switch between risk-seeking (during exploration phases) and risk-averse (during deployment) behavior simply by changing the quantile level used for action selection.
 
-## 6. Comparisons & Tradeoffs
-
-| Method | Distribution | Fixed support | Theoretical guarantee | Compute overhead |
-|---|---|---|---|---|
-| DQN | None (scalar) | N/A | Contraction in $L^\infty$ | None |
-| C51 | Categorical | Yes | KL projection | ~1.5x |
-| QR-DQN | Quantile | No | Wasserstein-1 | ~1.5x |
-| IQN | Implicit quantile | No | Wasserstein-1 | ~2x |
-| DSAC | Gaussian (SAC) | No | Soft Bellman | ~1.5x |
-
-**Strengths:** Distributional methods consistently outperform scalar baselines on Atari. The richer representation reduces overestimation bias. Risk-sensitive policies emerge naturally without architectural changes.
-
-**Limitations:** Projecting distributions adds complexity. Hyperparameters like $V_{\min}$, $V_{\max}$ (C51) or $N$ (quantile count) require tuning. In continuous control, distributional methods are less dominant — SAC and TD3 often match them with less complexity.
-
-## 7. Latest Developments & Research
+## Latest Developments & Research
 
 **Ensemble Distributional Actor-Critic (EDAC, 2021)** combines distributional returns with ensemble Q-networks for offline RL, achieving state-of-the-art on D4RL benchmarks by penalizing high-variance actions out-of-distribution.
 
 **Distributional Soft Actor-Critic (DSAC, 2023)** extends the approach to continuous action spaces by combining IQN-style return modeling with entropy regularization, outperforming SAC on MuJoCo locomotion tasks.
 
-**Safety and Risk-Sensitive Agents (2023–2025):** A wave of robotics and autonomous driving work uses CVaR policies derived from distributional RL to produce agents that are both performant and safe, with formal bounds on worst-case behavior — connecting to the broader field of **constrained RL**.
+**Safety and Risk-Sensitive Agents (2023–2025):** A wave of robotics and autonomous driving work uses CVaR policies derived from distributional RL to produce agents that are both performant and safe, with formal bounds on worst-case behavior, connecting to the broader field of **constrained RL**.
 
 **Open questions:** How to best represent multimodal distributions (where the return can take two very different values depending on environment stochasticity)? How to scale distributional critics to very large action spaces efficiently?
 
-## 8. Cross-Disciplinary Insight
+## Cross-Disciplinary Insight
 
 Distributional RL has deep roots in **financial risk management**. The Conditional Value-at-Risk (CVaR) measure used in distributional RL is borrowed directly from quantitative finance, where portfolio managers optimize not for expected return but for tail-risk-adjusted return. The Markowitz mean-variance framework (1952) is a simplified version of this idea.
 
-In **neuroscience**, dopamine neurons in the brain appear to encode a distributional signal, not just the mean reward prediction error (Dabney et al., 2020, *Nature*). Different dopamine neurons appear to represent optimistic and pessimistic quantile estimates — strong evidence that biological agents use something like distributional RL internally.
+In **neuroscience**, dopamine neurons in the brain appear to encode a distributional signal, not just the mean reward prediction error (Dabney et al., 2020, *Nature*). Different dopamine neurons appear to represent optimistic and pessimistic quantile estimates, strong evidence that biological agents use something like distributional RL internally.
 
-## 9. Daily Challenge / Thought Exercise
+## Daily Challenge / Thought Exercise
 
 **Exercise:** Take a classic CartPole environment and implement both a standard DQN and a C51 agent (you can use stable-baselines3 or a minimal PyTorch implementation).
 
@@ -232,7 +203,7 @@ In **neuroscience**, dopamine neurons in the brain appear to encode a distributi
 
 How would your choice change depending on the agent's mandate (hedge fund vs. pension fund)?
 
-## 10. References & Further Reading
+## References & Further Reading
 
 - **Bellemare, Dabney, Munos (2017)** — [A Distributional Perspective on Reinforcement Learning](https://arxiv.org/abs/1707.06887) — the foundational C51 paper
 - **Dabney et al. (2018)** — [Distributional Reinforcement Learning with Quantile Regression (QR-DQN)](https://arxiv.org/abs/1710.10044)

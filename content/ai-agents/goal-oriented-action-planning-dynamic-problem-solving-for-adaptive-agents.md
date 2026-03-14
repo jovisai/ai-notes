@@ -9,13 +9,9 @@ description: "Discover how Goal-Oriented Action Planning (GOAP) enables AI agent
 
 ## Introduction
 
-Imagine an AI game character tasked with "defeat the enemy." A scripted agent might follow a predetermined sequence: get weapon → find enemy → attack. But what if the weapon is unavailable? Or the enemy moves? The agent breaks.
+**Goal-Oriented Action Planning (GOAP)** is a backward-chaining AI planning system where agents search through a graph of possible actions to find sequences that transform the current world state into a goal state. Each action has preconditions (what must be true to execute it) and effects (what changes when executed).
 
-**Goal-Oriented Action Planning (GOAP)** solves this elegantly. Instead of following rigid scripts, the agent reasons backward from its goal, dynamically constructing a plan based on the current world state. If conditions change, it replans on the fly.
-
-**In simple terms:** GOAP lets agents figure out *how* to achieve goals rather than being told exactly *what* to do. It's planning that emerges from actions, preconditions, and effects.
-
-**Technically:** GOAP is a backward-chaining AI planning system where agents search through a graph of possible actions to find sequences that transform the current world state into a goal state. Each action has preconditions (what must be true to execute it) and effects (what changes when executed).
+Instead of following rigid scripts, the agent reasons backward from its goal, dynamically constructing a plan based on the current world state. If conditions change, it replans on the fly. GOAP lets agents figure out *how* to achieve goals rather than being told exactly *what* to do.
 
 ## Historical & Theoretical Context
 
@@ -23,11 +19,9 @@ GOAP was popularized by **Jeff Orkin** at MIT in 2003 for the game **F.E.A.R.**,
 
 GOAP draws from **STRIPS** (Stanford Research Institute Problem Solver, 1971), one of the earliest automated planning systems. STRIPS represented actions as precondition-effect pairs and used backward search. GOAP modernized this for real-time game environments.
 
-**Core principle:** Rather than hardcoding behavior sequences, encode the *capabilities* of the agent (actions) and let the planner discover valid sequences. This separates domain knowledge (actions) from control logic (planner).
+Rather than hardcoding behavior sequences, encode the *capabilities* of the agent (actions) and let the planner discover valid sequences. This separates domain knowledge (actions) from control logic (planner).
 
 ## How GOAP Works: The Algorithm
-
-### The Components
 
 1. **World State:** A set of key-value pairs representing facts about the world
    - Example: `{hasWeapon: false, enemyVisible: true, inCover: false}`
@@ -40,7 +34,7 @@ GOAP draws from **STRIPS** (Stanford Research Institute Problem Solver, 1971), o
 3. **Goal:** Desired world state
    - Example: `{enemyDefeated: true}`
 
-### The Planning Process
+
 
 ```
 Algorithm: GOAP Planner (Backward Search)
@@ -74,7 +68,7 @@ Output: sequence of actions (plan)
 3. Return failure (no plan found)
 ```
 
-**Key insight:** We search *backward* from the goal to the current state. Each step asks, "What action could have created this state?" This is often more efficient than forward search in goal-directed scenarios.
+We search *backward* from the goal to the current state. Each step asks, "What action could have created this state?" This is often more efficient than forward search in goal-directed scenarios.
 
 ### Example Walkthrough
 
@@ -261,34 +255,6 @@ graph.add_edge("plan", "execute")
 graph.add_conditional_edges("execute", should_replan)
 ```
 
-## Comparisons & Tradeoffs
-
-| Approach | Flexibility | Performance | Complexity | Best For |
-|----------|-------------|-------------|------------|----------|
-| **FSM** | Low | Excellent | Low | Simple, predictable behaviors |
-| **Behavior Trees** | Medium | Very Good | Medium | Hierarchical, reactive behaviors |
-| **GOAP** | High | Good | Medium | Dynamic, goal-driven scenarios |
-| **HTN** | Very High | Good | High | Complex, hierarchical planning |
-| **LLM Planning** | Extreme | Poor | Low (to use) | Uncertain, language-rich domains |
-
-**GOAP Strengths:**
-- Emergent behavior from simple action definitions
-- Naturally handles dynamic environments (replanning)
-- Scales better than FSMs for complex domains
-- Intuitive action-based authoring
-
-**Limitations:**
-- Cannot handle temporal reasoning (actions over time)
-- Struggles with uncertainty (assumes deterministic effects)
-- No built-in learning (actions must be authored)
-- Computational cost grows with action/state space
-
-**When to use GOAP:**
-- Multiple valid paths to goals
-- Actions have clear preconditions/effects
-- Real-time constraints (needs fast planning)
-- Domain is mostly deterministic
-
 ## Latest Developments & Research
 
 ### Modern Variants (2022-2025)
@@ -381,4 +347,4 @@ Extend the GOAP implementation above to handle a **"Gather Resources"** scenario
 ---
 
 **Next Steps:**
-After mastering GOAP, explore **Hierarchical Task Networks (HTN)** for more complex decomposition strategies, or dive into **Monte Carlo Tree Search** for handling uncertainty in planning. GOAP provides an excellent foundation for understanding how agents bridge goals and actions through automated reasoning.
+After mastering GOAP, explore Hierarchical Task Networks (HTN) for more complex decomposition strategies, or Monte Carlo Tree Search for handling uncertainty in planning.

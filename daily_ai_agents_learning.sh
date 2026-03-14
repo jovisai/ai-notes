@@ -14,50 +14,15 @@ You are my mentor and research assistant. Write a short, focused article (800–
 **Scope:**
 Each article should focus on **one key concept, algorithm, pattern, or recent research trend** in AI agent programming. The article must contain the below points wherever relevant:
 
-1. **Concept Introduction**
-
-   * Explain the concept in **simple terms** (as if to a beginner).
-   * Then expand into **technical detail** for a practitioner.
-
-2. **Historical & Theoretical Context**
-
-   * Origin of the idea (who/when/why).
-   * Relation to core AI or multi-agent systems principles.
-
-3. **Algorithms & Math (if relevant)**
-
-   * Show pseudocode or formulas where useful.
-   * Break down step by step how it works.
-
-4. **Design Patterns & Architectures**
-
-   * How the concept fits into real agent architectures.
-   * Known patterns it connects with (e.g. event-driven, blackboard, planner–executor loop).
-
-5. **Practical Application**
-
-   * Give a **small coding example** (Python preferred).
-   * Show how it might be used in an AI agent framework (LangGraph, CrewAI, AutoGen, Swarm, etc).
-
-6. **Comparisons & Tradeoffs**
-
-   * How this method compares to alternatives.
-   * Limitations, strengths, scalability.
-
-7. **Latest Developments & Research**
-
-   * Summarize **recent papers, benchmarks, or breakthroughs** (past 2–3 years).
-   * Mention open problems or ongoing debates.
-
-8. **Cross-Disciplinary Insight**
-
-   * Relate the idea to another field (systems theory, neuroscience, distributed computing, economics, etc).
-
-9. **Daily Challenge / Thought Exercise**
-
-   * A short problem, coding exercise, or thought experiment I can do in under 30 minutes to deepen my grasp.
-
-10. **References & Further Reading**
+- **Concept Introduction**: explain the concept simply, then expand into technical detail for a practitioner.
+- **Historical & Theoretical Context**: origin of the idea (who/when/why) and relation to core AI principles.
+- **Algorithms & Math (if relevant)**: pseudocode or formulas where useful, broken down step by step.
+- **Design Patterns & Architectures**: how the concept fits into real agent architectures and known patterns.
+- **Practical Application**: a small coding example (Python preferred), shown in a real agent framework (LangGraph, CrewAI, AutoGen, Swarm, etc).
+- **Latest Developments & Research**: recent papers, benchmarks, or breakthroughs (past 2–3 years) and open problems.
+- **Cross-Disciplinary Insight**: relate the idea to another field (systems theory, neuroscience, distributed computing, economics, etc).
+- **Daily Challenge / Thought Exercise**: a short problem or thought experiment completable in under 30 minutes.
+- **References & Further Reading**
 
 * Cite papers by **title, authors, venue, and year** — do not generate URLs.
 * Only include URLs for well-known, major repos where you are certain the URL is correct (e.g. \`github.com/openai/...\`, \`github.com/google-deepmind/...\`). When in doubt, omit the URL entirely.

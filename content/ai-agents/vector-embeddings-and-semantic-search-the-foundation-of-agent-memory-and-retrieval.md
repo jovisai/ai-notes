@@ -9,19 +9,6 @@ description: "Master the mathematical and practical foundations of vector embedd
 
 ## Concept Introduction
 
-### For Beginners
-
-Imagine you need to find "documents about cats" in a massive library. Traditional search looks for the exact word "cats," but what about documents that say "feline," "kitty," or "tabby"? Semantic search understands **meaning**, not just words.
-
-Vector embeddings transform text (or images, audio, etc.) into arrays of numbers—points in high-dimensional space—where **similar meanings cluster together**. "Cat" and "feline" end up close in this space, while "cat" and "automobile" are far apart.
-
-For AI agents, this is revolutionary. Instead of exact keyword matching, agents can:
-- Remember conversations by meaning, not just keywords
-- Retrieve relevant context from millions of documents in milliseconds
-- Make decisions based on semantic similarity to past experiences
-
-### For Practitioners
-
 A **vector embedding** is a learned continuous representation of data in ℝⁿ (typically n=384 to 4096 dimensions). Modern embedding models are deep neural networks trained via contrastive learning or other self-supervised objectives to satisfy:
 
 ```
@@ -30,14 +17,14 @@ similarity(embed(text_a), embed(text_b)) ≈ semantic_similarity(text_a, text_b)
 
 The embedding function `f: Text → ℝⁿ` maps discrete tokens into a dense vector space where cosine similarity, Euclidean distance, or dot product serve as semantic proximity metrics.
 
+For AI agents, this enables memory and retrieval by meaning rather than by keywords. Agents can recall relevant past context from millions of documents in milliseconds, or make decisions based on semantic similarity to prior experiences.
+
 **Key properties:**
 - **Semantic preservation**: Similar inputs → similar vectors
 - **Dimensionality**: Trade-off between expressiveness and efficiency
 - **Metric space**: Enables efficient nearest-neighbor search (ANN)
 
 ## Historical & Theoretical Context
-
-### Origins
 
 The journey from symbolic AI to semantic embeddings:
 
@@ -54,8 +41,6 @@ The journey from symbolic AI to semantic embeddings:
 - BERT (2018) introduced contextual embeddings
 - Sentence-BERT (2019) made sentence-level embeddings practical
 - OpenAI's text-embedding-ada-002 (2022), Cohere's embed-v3, Google's Gecko (2024)
-
-### Theoretical Foundation
 
 Embeddings formalize the **distributional hypothesis** from linguistics: "You shall know a word by the company it keeps" (Firth, 1957).
 
@@ -132,7 +117,7 @@ Return top-k by score
 
 ## Design Patterns & Architectures
 
-### Pattern 1: Retrieval-Augmented Generation (RAG)
+### Retrieval-Augmented Generation (RAG)
 
 ```
 User Query → Embed → Similarity Search → Retrieve Docs → LLM Context → Response
@@ -144,7 +129,7 @@ User Query → Embed → Similarity Search → Retrieve Docs → LLM Context →
 - **Retrieval logic**: Top-k, filtering, re-ranking
 - **LLM**: Generates response with retrieved context
 
-### Pattern 2: Semantic Memory for Agents
+### Semantic Memory for Agents
 
 ```mermaid
 graph TD
@@ -156,7 +141,7 @@ graph TD
     F --> G[Inform Action]
 ```
 
-### Pattern 3: Hybrid Search
+### Hybrid Search
 
 Combine semantic + keyword search:
 
@@ -258,37 +243,6 @@ workflow.add_node("respond", respond)
 workflow.add_edge("retrieve", "respond")
 ```
 
-## Comparisons & Tradeoffs
-
-### Embedding Models
-
-| Model | Dimensions | Speed | Quality | Use Case |
-|-------|-----------|-------|---------|----------|
-| all-MiniLM-L6-v2 | 384 | Fast | Good | Prototypes, low-latency |
-| text-embedding-3-small | 1536 | Medium | Better | Production, cost-effective |
-| text-embedding-3-large | 3072 | Slow | Best | High-accuracy, research |
-| Cohere embed-v3 | 1024 | Medium | Excellent | Multilingual, custom |
-
-**Tradeoffs:**
-- **Dimension size**: Higher = more expressive but slower search + more memory
-- **Domain-specific fine-tuning**: Better accuracy but requires labeled data
-- **Multilingual**: Universal models trade per-language quality for breadth
-
-### Vector Databases
-
-| Database | ANN Algorithm | Scalability | Best For |
-|----------|--------------|-------------|----------|
-| FAISS | HNSW, IVF | Billions | Research, custom setups |
-| Pinecone | Proprietary | Billions | Managed, production |
-| Weaviate | HNSW | Millions-billions | Open source, hybrid search |
-| Chroma | HNSW | Millions | Lightweight, local dev |
-| Qdrant | HNSW | Billions | Filtering, metadata |
-
-**Limitations:**
-- **Curse of dimensionality**: Very high dimensions (>2000) degrade ANN performance
-- **Semantic gaps**: Embeddings struggle with negation, sarcasm, highly technical jargon
-- **Cold start**: Need sufficient data to build effective indexes
-
 ## Latest Developments & Research
 
 ### 2023-2025 Breakthroughs
@@ -320,7 +274,7 @@ workflow.add_edge("retrieve", "respond")
 
 ### Open Problems
 
-- **Compositionality**: "red car" vs "car that is red"—embeddings often conflate
+- **Compositionality**: "red car" vs "car that is red" are often conflated by embeddings
 - **Temporal dynamics**: Meanings drift (e.g., "tweet" pre/post Twitter)
 - **Efficient updates**: Most indexes require full rebuild for new data
 - **Explainability**: Why did this document match? (black-box similarity)
@@ -366,9 +320,9 @@ And `cosine(A, B) = 0.85`, `cosine(A, C) = 0.12`, what would you expect for:
 
 ```python
 # Challenge: Extend SemanticMemory to support:
-# 1. Memory decay (older memories less relevant)
-# 2. Memory importance weighting
-# 3. Forgetting (remove low-score memories when full)
+# Memory decay (older memories less relevant)
+# Memory importance weighting
+# Forgetting (remove low-score memories when full)
 
 class AdvancedMemory(SemanticMemory):
     def __init__(self, max_size=100):
@@ -437,7 +391,5 @@ class AdvancedMemory(SemanticMemory):
     - [https://arxiv.org/abs/2004.12832](https://arxiv.org/abs/2004.12832)
 
 ---
-
-**Tomorrow's Preview**: We'll explore **"Agentic Loops with Tool Use: From ReAct to Function Calling Orchestration"**—how agents decide *which* tool to use and *when* to stop reasoning.
 
 *Master one concept daily. Build agents systematically.*

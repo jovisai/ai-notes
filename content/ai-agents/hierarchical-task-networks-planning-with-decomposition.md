@@ -4,24 +4,9 @@ date: 2025-10-08
 tags: ["AI Agents", "HTN", "Planning", "Task Decomposition", "Hierarchical Planning"]
 ---
 
-## 1. Concept Introduction
+## Concept Introduction
 
-**In Simple Terms:**
-
-Imagine you're planning to "prepare a dinner party." You don't think about this as a single monolithic action. Instead, you naturally break it down:
-
-1. **Plan the menu** → Which breaks into: choose appetizer, choose main course, choose dessert
-2. **Shop for ingredients** → Which breaks into: make shopping list, go to store, buy items
-3. **Cook the meal** → Which breaks into: prep ingredients, cook appetizer, cook main, etc.
-4. **Set the table** → Which breaks into: arrange plates, set silverware, add decorations
-
-Notice how each high-level task decomposes into smaller subtasks, and some of those decompose further? This hierarchical thinking is exactly how **Hierarchical Task Networks (HTN)** work.
-
-HTN planning mirrors how humans naturally think about complex problems: start with abstract goals, progressively refine them into concrete actions, and execute the final primitive steps.
-
-**Technical Detail:**
-
-An HTN planner works with two types of tasks:
+**Hierarchical Task Networks (HTN)** planning works by decomposing abstract goals into progressively more concrete subtasks until reaching actions the agent can directly execute. An HTN planner works with two types of tasks:
 
 - **Primitive tasks**: Concrete actions the agent can directly execute (e.g., `pickup(item)`, `move(location)`)
 - **Compound tasks**: Abstract goals that must be decomposed into subtasks using **methods** (e.g., `prepare_dinner`, `travel_to_city`)
@@ -49,7 +34,7 @@ graph TD
     D --> I[Primitive: Drain]
 ```
 
-## 2. Historical & Theoretical Context
+## Historical & Theoretical Context
 
 HTN planning was pioneered by **Earl Sacerdoti** in the mid-1970s through his **NOAH (Nets of Action Hierarchies)** system, followed by **Austin Tate's NONLIN** planner. These were responses to the limitations of classical STRIPS planning, which struggled with complex, real-world problems.
 
@@ -57,13 +42,13 @@ The key insight was that human experts don't plan by searching through all possi
 
 **SHOP (Simple Hierarchical Ordered Planner)**, developed by Dana Nau and colleagues in the late 1990s, became the theoretical foundation for modern HTN systems. SHOP2, its successor, is still widely used today.
 
-**Why HTN Matters:**
+Three properties make HTN planning practically important:
 
 - **Scalability**: By decomposing problems hierarchically, HTN planners can solve problems with thousands of primitive actions that would be intractable for classical planners.
 - **Domain Knowledge**: HTN methods encode expert strategies, making plans not just feasible but also high-quality.
 - **Explainability**: The hierarchical structure makes it easy to explain *why* the agent chose a particular approach.
 
-## 3. Algorithms & Math
+## Algorithms & Math
 
 Here's the core HTN planning algorithm (simplified from SHOP):
 
@@ -101,11 +86,11 @@ function HTN_Plan(task_network, state, methods, operators):
 
 1. **Soundness**: If HTN_Plan returns a plan, it's guaranteed to achieve the goal (assuming methods are correctly specified)
 2. **Completeness**: If a solution exists and is expressible through the given methods, HTN_Plan will find it
-3. **Expressivity**: HTN is strictly more expressive than STRIPS—any STRIPS problem can be encoded as HTN, but not vice versa
+3. **Expressivity**: HTN is strictly more expressive than STRIPS. Any STRIPS problem can be encoded as HTN, but not vice versa.
 
 **Complexity**: HTN planning is NEXPTIME-complete in the general case, but practical domains with good decomposition methods often solve in polynomial time.
 
-## 4. Design Patterns & Architectures
+## Design Patterns & Architectures
 
 HTN planning integrates beautifully with several agent architecture patterns:
 
@@ -145,7 +130,7 @@ Method: deliver_package
     - deliver [agent: selected_driver]
 ```
 
-## 5. Practical Application
+## Practical Application
 
 **Python Implementation:**
 
@@ -297,40 +282,18 @@ Generated plan:
 **In Modern Agent Frameworks:**
 
 - **LangGraph**: You can implement HTN by creating a graph where compound tasks have subgraphs. Each method becomes a conditional edge that routes to different subgraph decompositions.
-- **CrewAI**: HTN maps naturally to hierarchical crews—a manager agent (compound task) delegates to specialist agents (subtasks).
+- **CrewAI**: HTN maps naturally to hierarchical crews, where a manager agent (compound task) delegates to specialist agents (subtasks).
 - **AutoGen**: Use a dedicated "planner" agent that decomposes high-level goals and delegates primitive tasks to executor agents.
 
-## 6. Comparisons & Tradeoffs
-
-| Planning Approach | Knowledge Required | Search Space | Scalability | Flexibility |
-|------------------|-------------------|--------------|-------------|-------------|
-| **HTN** | Domain decomposition methods | Small (guided by methods) | Excellent | Medium (bounded by methods) |
-| **STRIPS/Classical** | Operators only | Large (explores all orderings) | Poor for complex domains | High (explores all possibilities) |
-| **Partial-Order Planning** | Operators + ordering constraints | Medium | Good | High |
-| **LLM-based Planning** | None (learned) | Variable | Good (with prompting tricks) | Very high (novel situations) |
-
-**Strengths:**
-
-- **Efficiency**: Decomposition methods encode expert knowledge, dramatically reducing search
-- **Scalability**: Solves problems with 1000+ primitive actions that would be intractable for classical planners
-- **Explainability**: The hierarchical structure provides a clear explanation of "why" each action was chosen
-- **Quality**: Methods can encode best practices, ensuring high-quality plans
-
-**Limitations:**
-
-- **Knowledge Engineering**: Requires manual specification of decomposition methods (labor-intensive)
-- **Brittleness**: If no method applies, planning fails—even if a valid plan exists using a different strategy
-- **Dynamic Environments**: Classical HTN assumes static worlds; adaptation requires replanning
-
-## 7. Latest Developments & Research
+## Latest Developments & Research
 
 **Recent Advances (2022-2025):**
 
-### 1. **Learned HTN Methods (2023)**
+### **Learned HTN Methods (2023)**
 
 Researchers are combining HTN with deep learning. Instead of hand-coding methods, neural networks learn decomposition strategies from demonstrations. The system **HTNRL** (Hierarchical Task Network Reinforcement Learning) achieved state-of-the-art results on planning benchmarks by learning when to apply which decomposition method.
 
-### 2. **HTN for LLM Agents (2024)**
+### **HTN for LLM Agents (2024)**
 
 Papers like "HiP: Hierarchical Planning for Language Agents" show that LLMs can be prompted to generate HTN-style decompositions:
 
@@ -345,20 +308,20 @@ LLM Method Decomposition:
 
 This combines HTN's structure with LLM flexibility, outperforming flat ReAct-style agents on complex tasks.
 
-### 3. **Anytime HTN Planning**
+### **Anytime HTN Planning**
 
 New algorithms like **ANTHILL** provide partial plans quickly and refine them over time. Critical for real-time robotics where the agent must act under time pressure but can improve its plan as computation continues.
 
-### 4. **Multi-Agent HTN**
+### **Multi-Agent HTN**
 
-The **MA-HTN** framework extends HTN to multi-agent settings with shared and private methods. Used in warehouse automation where robot teams coordinate to fulfill orders—each robot plans its own tasks while coordinating on shared resources.
+The **MA-HTN** framework extends HTN to multi-agent settings with shared and private methods. Used in warehouse automation where robot teams coordinate to fulfill orders, each robot plans its own tasks while coordinating on shared resources.
 
 **Benchmarks:**
 
 - **IPC (International Planning Competition)**: HTN track tests planners on domains like logistics, manufacturing, and game planning
 - **PlanSys2**: ROS2 integration for HTN planning in robotics
 
-## 8. Cross-Disciplinary Insight
+## Cross-Disciplinary Insight
 
 HTN planning mirrors **organizational management theory**, specifically **Management by Objectives (MBO)** developed by Peter Drucker.
 
@@ -368,13 +331,13 @@ In MBO:
 3. Teams execute concrete actions (primitive operators)
 4. Progress is monitored and plans adjusted (replanning)
 
-This parallel isn't coincidental—both HTN and MBO recognize that complex goals are achieved through hierarchical decomposition and delegation. HTN can be viewed as a computational model of organizational planning.
+Both HTN and MBO recognize that complex goals are achieved through hierarchical decomposition and delegation.
 
 From **Cognitive Science**: Human problem-solving protocols (verbal recordings of people solving puzzles) show we naturally use hierarchical decomposition. We set subgoals, solve them, and move to the next. HTN formalizes this cognitive strategy.
 
 From **Software Engineering**: HTN methods are analogous to **design patterns**. Just as design patterns codify expert solutions to recurring software problems, HTN methods codify expert solutions to recurring planning problems.
 
-## 9. Daily Challenge / Thought Exercise
+## Daily Challenge / Thought Exercise
 
 **Task (20 minutes):**
 
@@ -391,9 +354,9 @@ You're building an AI agent that helps users plan their workday. Design an HTN d
 - How would you handle **user preferences**? (morning person vs. night owl)
 - What **primitive operators** would your agent need to execute the plan? (API calls to calendar, email, Slack?)
 
-Write out your HTN domain in pseudocode or as a structured diagram. Think about how this compares to just giving an LLM the same goal—what does the HTN structure buy you?
+Write out your HTN domain in pseudocode or as a structured diagram. Think about how this compares to just giving an LLM the same goal: what does the HTN structure buy you?
 
-## 10. References & Further Reading
+## References & Further Reading
 
 1. **Foundational Paper**: Erol, K., Hendler, J., & Nau, D. S. (1994). "HTN Planning: Complexity and Expressivity." *AAAI-94*. [Link](https://www.aaai.org/Papers/AAAI/1994/AAAI94-191.pdf)
 
@@ -413,4 +376,3 @@ Write out your HTN domain in pseudocode or as a structured diagram. Think about 
 
 ---
 
-*The next time you tackle a complex project, notice how your mind naturally decomposes it into hierarchical subgoals. That's HTN planning—not just an algorithm, but a model of intelligent problem-solving itself.*

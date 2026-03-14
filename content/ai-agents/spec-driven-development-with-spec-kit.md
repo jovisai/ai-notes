@@ -8,11 +8,11 @@ description: "A complete tutorial on using GitHub's spec-kit to bring structure 
 
 Most AI coding sessions start the same way. You open your editor, type a rough idea into the chat, and watch the agent generate files. It feels productive. Then two hours later you are reviewing code that solves a problem you never quite specified, built on assumptions the agent made silently, in a style that does not match the rest of your project.
 
-This is vibe coding — and it does not scale.
+This is vibe coding. It does not scale.
 
 spec-kit is GitHub's answer to that problem. It installs a pipeline of slash commands into your AI coding agent that forces structure before implementation: write a spec, produce a plan, generate tasks, then implement. This tutorial walks through the complete workflow using a real feature addition to a live project.
 
-## 1. The Problem: Vibe Coding at Scale
+## The Problem: Vibe Coding at Scale
 
 Vibe coding is the practice of jumping straight to implementation with an AI agent, using a rough prompt as the only specification. For throwaway scripts it works fine. For real features on real codebases, it produces four predictable failure modes.
 
@@ -24,9 +24,9 @@ Vibe coding is the practice of jumping straight to implementation with an AI age
 
 **Rework.** The most expensive failure mode. You implement, review, discover the feature does not match what the stakeholder wanted, and start over. A five-minute spec conversation would have caught it.
 
-The alternative is to make the specification the first deliverable — not the code.
+The alternative is to make the specification the first deliverable, not the code.
 
-## 2. What Is Spec-Driven Development?
+## What Is Spec-Driven Development?
 
 Spec-driven development treats the specification as the source of truth that all downstream artifacts derive from. The code is an implementation detail. The spec is the contract.
 
@@ -44,17 +44,17 @@ Each phase gates the next. You cannot generate tasks without a plan. You cannot 
 
 The key insight is that specifications and plans are different things. A spec describes *what* the user needs in user-value terms: no technology, no implementation, no assumptions. A plan describes *how* to build it: languages, files, patterns, migrations. Keeping them separate prevents the common failure where "spec writing" turns into "architecture discussion" before you have agreed on what the user actually wants.
 
-## 3. Introducing spec-kit
+## Introducing spec-kit
 
 [spec-kit](https://github.com/github/spec-kit) is an open-source CLI from GitHub that implements this pipeline as slash commands for your AI coding agent.
 
-You install it once. It installs five slash commands — `speckit.constitution`, `speckit.specify`, `speckit.plan`, `speckit.tasks`, `speckit.implement` — directly into your agent's configuration. After that, you run the pipeline from inside your normal coding session. No context switch, no separate tool.
+You install it once. It installs five slash commands (`speckit.constitution`, `speckit.specify`, `speckit.plan`, `speckit.tasks`, `speckit.implement`) directly into your agent's configuration. After that, you run the pipeline from inside your normal coding session. No context switch, no separate tool.
 
 spec-kit supports 18+ agents including Claude Code, GitHub Copilot, Cursor, Windsurf, Zed, and Cline. The commands work the same regardless of which agent you use because they install as agent-agnostic slash command definitions.
 
 The agent does the work. spec-kit provides the structure: templates, scripts, and quality checklists that the agent reads, fills in, and validates. The output is a set of markdown files in a `specs/` directory that become the permanent record of every feature decision.
 
-## 4. Installation
+## Installation
 
 **Prerequisites**: Python 3.11+, [UV](https://docs.astral.sh/uv/), Git, and any supported AI coding agent.
 
@@ -81,7 +81,7 @@ specify init
 
 This creates a `.specify/` directory in your project root containing scripts, templates, and agent configuration. It also registers the slash commands with your installed AI agents. From this point on, `/speckit.specify`, `/speckit.plan`, and the rest are available in your coding session.
 
-## 5. The Workflow: A Real Example
+## The Workflow: A Real Example
 
 The following walkthrough uses a real session: adding Jira issue type selection to `ai-agents-actions-tracker`, a tool that extracts action items from meeting transcripts and pushes them to Jira. The existing system always created tickets as "Task." The feature request was to support Bug, Story, and Epic as well.
 
@@ -95,7 +95,7 @@ You run it once when you set up spec-kit. For `ai-agents-actions-tracker` it cap
 
 ![](/spec_constitution.png)
 
-Every subsequent plan generates a **Constitution Check** — a gate that verifies the feature design does not violate these principles. This prevents architectural drift across features without requiring a human reviewer to remember every past decision.
+Every subsequent plan generates a **Constitution Check**, a gate that verifies the feature design does not violate these principles. This prevents architectural drift across features without requiring a human reviewer to remember every past decision.
 
 ### Step 2 — Write the Spec (`/speckit.specify`)
 
@@ -119,8 +119,8 @@ The output is a two-story spec with no clarifications needed:
 
 The spec also captures scope decisions as explicit assumptions so they do not become implicit debate later:
 
-- Four types only — no dynamic fetching of supported types per Jira project
-- Batch-level selection — no per-item type override
+- Four types only, no dynamic fetching of supported types per Jira project
+- Batch-level selection, no per-item type override
 - Epic-specific required fields handled best-effort; Jira rejections surfaced to user
 
 Notice what is not in the spec: no mention of Vue components, no mention of FastAPI, no mention of how the default is stored. Those belong in the plan.
@@ -133,7 +133,7 @@ Notice what is not in the spec: no mention of Vue components, no mention of Fast
 
 The plan command reads `spec.md`, researches the codebase in depth, and produces a complete technical design. It also runs the Constitution Check before generating anything.
 
-The gap analysis is the most valuable output — it documents exactly what already exists versus what is missing:
+The gap analysis is the most valuable output. It documents exactly what already exists versus what is missing:
 
 ![](/spec_plan.png)
 
@@ -145,7 +145,7 @@ The plan concluded that this feature required changes to five files and approxim
 /speckit.tasks
 ```
 
-The tasks command reads all the planning artifacts and generates a flat, ordered, independently implementable task list. If you try to run it without a completed `plan.md`, it fails with a clear error — this is the gate system in action.
+The tasks command reads all the planning artifacts and generates a flat, ordered, independently implementable task list. If you try to run it without a completed `plan.md`, it fails with a clear error. This is the gate system in action.
 
 With the plan in place, it produced eight tasks:
 
@@ -164,17 +164,17 @@ Because every decision was made upfront, the implementation phase produces no su
 
 ![](/spec_implement.png)
 
-## 6. Key Concepts Explained
+## Key Concepts Explained
 
 **The Constitution** is project memory. It captures decisions that span features: how the project is architected, what constraints exist, what patterns are standard. Every plan runs a Constitution Check against it. Without the Constitution, each feature is written in isolation and architectural drift accumulates silently.
 
-**Spec vs. Plan** is the most important separation in the workflow. The spec is a user-value document — it describes what users need, written in language any stakeholder can read, with no mention of implementation. The plan is a technical document — it describes exactly which files change, what the data model looks like, and what the API contract is. Merging them produces a document that is both too technical for stakeholders and too vague for developers.
+**Spec vs. Plan** is the most important separation in the workflow. The spec is a user-value document: it describes what users need, written in language any stakeholder can read, with no mention of implementation. The plan is a technical document, describing exactly which files change, what the data model looks like, and what the API contract is. Merging them produces a document that is both too technical for stakeholders and too vague for developers.
 
-**The Gate System** is what makes the pipeline work. Tasks require a plan. A plan requires a spec. You cannot skip steps by design. This is not bureaucracy — it is the same principle as a compiler refusing to link code that has not been compiled. Each phase validates the previous phase's output before generating the next. The checklist artifacts (in `specs/*/checklists/`) are the validation mechanism.
+**The Gate System** is what makes the pipeline work. Tasks require a plan. A plan requires a spec. You cannot skip steps by design. This is not bureaucracy; it is the same principle as a compiler refusing to link code that has not been compiled. Each phase validates the previous phase's output before generating the next. The checklist artifacts (in `specs/*/checklists/`) are the validation mechanism.
 
 **Assumptions as first-class citizens.** The spec explicitly lists what is out of scope and what is assumed. In the example: dynamic fetching of issue types per Jira project is out of scope; Epic-specific required fields are handled best-effort. Writing assumptions down prevents them from becoming unspoken constraints that surprise the next person who works on the feature.
 
-## 7. What spec-kit Produces
+## What spec-kit Produces
 
 After running the full pipeline, your `specs/` directory contains:
 
@@ -192,7 +192,7 @@ specs/001-jira-issue-types/
 
 These files are committed to the repository alongside the code. They answer every future question about why the feature works the way it does, what was considered and rejected, and what the explicit assumptions were. They are also input for the next feature that builds on this one.
 
-## 8. When to Use Spec-Driven Development
+## When to Use Spec-Driven Development
 
 **Good fit:**
 
@@ -213,10 +213,10 @@ These files are committed to the repository alongside the code. They answer ever
 
 The spec writing step in the real example took under three minutes of terminal time (two minutes and twenty-five seconds according to the session output). The plan step took under four minutes. The entire pipeline produced eight clear tasks with parallel opportunities identified. Compare that to the alternative: discovering mid-implementation that "Epic" support requires a mandatory Epic Name field that Jira rejects if missing.
 
-## 9. References and Further Reading
+## References and Further Reading
 
 - **spec-kit on GitHub**: [https://github.com/github/spec-kit](https://github.com/github/spec-kit)
 - **Supported AI agents**: Claude Code, GitHub Copilot (VS Code, JetBrains), Cursor, Windsurf, Zed, Cline, Goose, Aider, Continue, and more — see the repo README for the full list
 - **UV installer**: [https://docs.astral.sh/uv/](https://docs.astral.sh/uv/) — required for the `uvx` one-time install mode
 
-The spec-kit repository also contains the Constitution template, all slash command definitions, and the scripts that back each pipeline step — worth reading if you want to understand what the commands are actually doing or adapt them for a different workflow.
+The spec-kit repository also contains the Constitution template, all slash command definitions, and the scripts that back each pipeline step. Worth reading if you want to understand what the commands are actually doing or adapt them for a different workflow.

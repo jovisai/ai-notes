@@ -9,15 +9,11 @@ description: "Master the minimax algorithm and adversarial search - the foundati
 
 ## Introduction
 
-Imagine you're playing chess against a highly skilled opponent. Every move you consider, you think: "If I move here, they'll probably respond there, and then I could move..." This recursive thinking about an adversary's optimal responses is exactly what the **minimax algorithm** formalizes.
+The **minimax algorithm** is a decision-making procedure for two-player zero-sum games, where one player's gain is the other's loss. It assumes both players play optimally and works backward from game endings to determine the best current move.
 
-**Simple Explanation**: Minimax is a decision-making algorithm used when two players compete in a zero-sum game (one player's gain is the other's loss). It assumes both players play optimally and works backward from game endings to determine the best current move.
-
-**Technical Detail**: Minimax performs a depth-first search through the game tree, alternating between maximizing and minimizing layers. At terminal nodes, it evaluates game states using a heuristic function. The algorithm propagates these values upward: maximizing player chooses the highest value child, minimizing player chooses the lowest. This creates a minimax value for each node representing the game outcome under optimal play.
+Minimax performs a depth-first search through the game tree, alternating between maximizing and minimizing layers. At terminal nodes, it evaluates game states using a heuristic function. The algorithm propagates these values upward: the maximizing player chooses the highest-value child, the minimizing player chooses the lowest. This creates a minimax value for each node representing the game outcome under optimal play.
 
 ## Historical & Theoretical Context
-
-### Origins
 
 The minimax algorithm emerged from **game theory**, pioneered by John von Neumann and Oskar Morgenstern in their 1944 book "Theory of Games and Economic Behavior." Von Neumann proved the minimax theorem in 1928, establishing that in zero-sum games, there exists an optimal mixed strategy.
 
@@ -26,15 +22,13 @@ The algorithmic application to computer game-playing began in the 1950s:
 - **1956**: Arthur Samuel's checkers program used minimax with alpha-beta pruning
 - **1997**: IBM's Deep Blue defeated world chess champion Garry Kasparov, using advanced minimax variants
 
-### Theoretical Foundation
-
 Minimax rests on several key assumptions:
-1. **Perfect Information**: Both players see the complete game state
-2. **Determinism**: No randomness in game mechanics
-3. **Zero-Sum**: One player's utility equals the negative of the other's
-4. **Rationality**: Both players choose optimally to maximize their outcome
+1. **Perfect Information**: both players see the complete game state
+2. **Determinism**: no randomness in game mechanics
+3. **Zero-Sum**: one player's utility equals the negative of the other's
+4. **Rationality**: both players choose optimally to maximize their outcome
 
-The algorithm implements backward induction from game theory - solving the game from end states backward to determine current optimal play.
+The algorithm implements backward induction from game theory, solving the game from end states backward to determine current optimal play.
 
 ## The Algorithm
 
@@ -265,24 +259,6 @@ graph = StateGraph(GameAgentState)
 graph.add_node("minimax_decision", minimax_decision_node)
 ```
 
-## Comparisons & Tradeoffs
-
-### Minimax vs. Alternatives
-
-| Approach | Strengths | Weaknesses | Best For |
-|----------|-----------|------------|----------|
-| **Minimax** | Optimal play guarantee, simple to implement | Exponential complexity, requires perfect information | Perfect-info games (Chess, Checkers) |
-| **MCTS** | No evaluation function needed, handles uncertainty | May not find optimal move, needs many simulations | Large branching (Go), stochastic games |
-| **Deep RL** | Learns from experience, handles complexity | Requires extensive training, black box | Complex state spaces, continuous actions |
-| **Heuristic Search** | Fast, practical for large spaces | Not guaranteed optimal | Real-time games, large state spaces |
-
-### Limitations
-
-1. **Computational Cost**: Chess has ~10^120 possible games - impossible to search completely
-2. **Horizon Effect**: Limited depth causes "pushing problems beyond the horizon"
-3. **Evaluation Function**: Quality depends heavily on heuristic design
-4. **Perfect Information Requirement**: Doesn't handle hidden information (poker, fog-of-war)
-
 ## Latest Developments & Research
 
 ### Modern Advances (2022-2025)
@@ -404,4 +380,4 @@ class Connect4:
 
 ---
 
-**Next Steps**: Now that you understand adversarial search, explore how Monte Carlo Tree Search (MCTS) handles games where minimax becomes intractable. Then investigate how modern agents combine neural networks with tree search in systems like AlphaZero and MuZero.
+**Next Steps**: Explore how Monte Carlo Tree Search (MCTS) handles games where minimax becomes intractable, and how modern agents combine neural networks with tree search in systems like AlphaZero and MuZero.

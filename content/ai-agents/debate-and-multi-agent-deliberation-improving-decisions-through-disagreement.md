@@ -9,9 +9,7 @@ description: "How AI agents can reach better decisions by arguing with each othe
 
 ## The Wisdom of Disagreement
 
-Imagine you're making a critical decision. Would you trust a single advisor, or would you prefer to hear multiple perspectives—even conflicting ones—before choosing? This intuition underlies **multi-agent debate**: a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone.
-
-Unlike simple voting or averaging, debate involves **iterative argumentation**. Agents don't just state opinions; they respond to each other, refine their positions, and sometimes change their minds. The result? More robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.
+**Multi-agent debate** is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.
 
 ## Historical & Theoretical Context
 
@@ -34,7 +32,7 @@ In AI, debate-like mechanisms appeared in several waves:
    - **Multi-Agent Debate** (Du et al., 2023): Agents iteratively critique each other
    - **Society of Mind** (Park et al., 2023): Simulating diverse personas to surface perspectives
 
-The key insight: **LLMs can simulate multiple viewpoints**, making debate practical without physically distinct agents.
+LLMs can simulate multiple viewpoints, making debate practical without physically distinct agents.
 
 ## How Debate Works: The Protocol
 
@@ -100,7 +98,7 @@ Unlike adversarial games (Minimax), cooperative debate seeks **Pareto improvemen
 
 ## Design Patterns & Architectures
 
-### 1. **Symmetric Debate** (Peer-to-Peer)
+### Symmetric Debate (Peer-to-Peer)
 
 All agents are equals. Used when no ground truth is available.
 
@@ -116,7 +114,7 @@ graph LR
 
 **Best for**: Open-ended problems (design, strategy, creative tasks)
 
-### 2. **Judge-Mediated Debate**
+### Judge-Mediated Debate
 
 A separate judge agent evaluates proposals and declares a winner.
 
@@ -131,7 +129,7 @@ graph TD
 
 **Best for**: Factual questions, math problems (judge verifies correctness)
 
-### 3. **Hierarchical Deliberation**
+### Hierarchical Deliberation
 
 Agents at different abstraction levels. Low-level agents debate details; high-level agents synthesize.
 
@@ -251,28 +249,6 @@ for _ in range(3):
     workflow.add_edge("agent_2", "agent_0")
 ```
 
-## Comparisons & Tradeoffs
-
-| Approach | Strengths | Weaknesses |
-|----------|-----------|------------|
-| **Single Agent** | Fast, cheap, simple | Narrow perspective, prone to errors |
-| **Self-Consistency** (voting) | No interaction needed | Wastes compute on redundant paths |
-| **Debate** | Deep exploration, error correction | Slower (multiple rounds), more tokens |
-| **Ensemble** (parallel agents) | Diversity without interaction | No refinement, may miss synthesis |
-
-### When to Use Debate
-
-✅ **Use debate when:**
-- Correctness > speed
-- Problem has ambiguity or multiple valid approaches
-- You can afford 3–5x token cost vs. single agent
-- Explanation/justification is important (traceable reasoning)
-
-❌ **Avoid debate when:**
-- Problem is trivial or has clear correct answer
-- Real-time response needed
-- Budget-constrained (debate is expensive)
-
 ## Latest Developments & Research
 
 ### Recent Breakthroughs (2023-2025)
@@ -313,7 +289,7 @@ Research on human juries shows:
 - Initial minority opinions often sway final verdict (debate surfaces hidden insights)
 - "Shared information bias": Groups overweight commonly known facts (agents can counter this by being adversarial)
 
-**Lesson for AI**: Explicitly design agents to surface **non-obvious** perspectives, not just restate the majority view.
+The implication for AI: explicitly design agents to surface non-obvious perspectives, not just restate the majority view.
 
 ## Daily Challenge: Build a Debate System
 
@@ -362,4 +338,4 @@ Research on human juries shows:
 
 ---
 
-**Key Takeaway**: Disagreement isn't a bug in multi-agent systems—it's a feature. By designing agents to argue constructively, we tap into the same deliberative processes that make human institutions robust. The next time you build an AI agent, ask: *Who would disagree with this answer, and why?*
+Disagreement isn't a bug in multi-agent systems. It's a feature. Designing agents to argue constructively leverages the same deliberative dynamics that make human institutions robust.

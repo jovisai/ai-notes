@@ -8,7 +8,7 @@ description: "How agents reason about other agents' beliefs, goals, and strategi
 
 In multi-agent systems, an agent that treats the world as static will be outplayed by one that models its counterparts. Opponent modeling builds an internal representation of another agent's goals, beliefs, and likely actions. Theory of Mind extends this to recursive reasoning: rather than only predicting what an opponent will *do*, a ToM-capable agent reasons about what they *believe* to be true.
 
-## 1. Concept Introduction
+## Concept Introduction
 
 **Opponent modeling** is the ability of an agent to build an internal representation of another agent's goals, beliefs, and likely behavior. In multi-agent settings, ignoring other agents and acting as if the world is static is almost always suboptimal. The most effective players, human or AI, exploit what they know about their counterparts.
 
@@ -28,7 +28,7 @@ With a learned model, agent $i$ then best-responds to the posterior-weighted pol
 
 $$\pi_i^*(a \mid s) = \arg\max_{\pi_i} \mathbb{E}_{\theta_j \sim P(\cdot \mid \tau_t)} \left[ V^{\pi_i, \hat{\pi}_j(\theta_j)}(s) \right]$$
 
-## 2. Historical & Theoretical Context
+## Historical & Theoretical Context
 
 The idea of modeling other minds has ancient philosophical roots, but modern computational treatments began in the late 1980s and 1990s.
 
@@ -38,7 +38,7 @@ In AI, early opponent modeling appeared in game-playing programs. Jonathan Schae
 
 The term "Theory of Mind" entered AI formally through the developmental psychology literature. Premack and Woodruff coined the phrase in 1978 studying chimpanzees. The false belief task (Wimmer & Perner, 1983) became the standard test. In AI, ToM benchmarks emerged as large language models grew sophisticated enough to warrant evaluation.
 
-## 3. Algorithms & Math
+## Algorithms & Math
 
 ### K-Level Reasoning
 
@@ -77,7 +77,7 @@ $$\hat{a}_j^{t+1} = f_\phi(\tau_j^{1:t}, s^{t+1})$$
 
 The agent conditions its own policy on this prediction. The architecture often separates beliefs (what the opponent observes) from desires (their objective), mirroring the belief-desire-intention (BDI) architecture.
 
-## 4. Design Patterns & Architectures
+## Design Patterns & Architectures
 
 Opponent modeling integrates into agents as a meta-reasoning layer sitting between perception and action selection:
 
@@ -99,7 +99,7 @@ graph LR
 
 **Hierarchical ToM**: maintain multiple levels, a fast heuristic model for within-game decisions and a slow Bayesian model updated across games for long-run adaptation.
 
-## 5. Practical Application
+## Practical Application
 
 Here is a simple negotiation agent that uses opponent modeling to adapt its offers. It tracks the opponent's concession rate and infers their reservation price:
 
@@ -185,19 +185,7 @@ for seller_offer in seller_offers:
           f"{buyer.opponent_model.estimated_reservation():.1f} | My offer: {my_offer:.1f}")
 ```
 
-## 6. Comparisons & Tradeoffs
-
-| Approach | Strength | Weakness |
-|---|---|---|
-| **K-level reasoning** | Computationally cheap, no learning required | Brittle when opponent doesn't fit assumed level |
-| **Bayesian type inference** | Principled uncertainty handling | Requires hand-crafted type space |
-| **Neural opponent model** | Learns complex behaviors from data | Data hungry, can overfit to specific opponents |
-| **LLM-based ToM** | Flexible, generalizes across contexts | Slow, expensive, may hallucinate mental states |
-| **No opponent modeling** | Simple, robust against adversarial adaptation | Leaves value on the table in repeated games |
-
-A key limitation: opponent models can be exploited. If your opponent knows you are modeling them, they can deliberately mislead your model, "teaching" you a false belief about their policy, then switching. This is the realm of **deceptive signaling**, and it spirals into an arms race of nested beliefs.
-
-## 7. Latest Developments & Research
+## Latest Developments & Research
 
 ToM in LLMs (2023–2025) has generated significant debate. Kosinski (2023) claimed GPT-4 shows "theory of mind capabilities," sparking controversy. Subsequent work (Ullman, 2023; Shapira et al., 2023) showed LLMs fail systematic variations of classic ToM tasks, suggesting pattern matching rather than genuine mental state reasoning. The field now distinguishes **behavioral ToM** (passing tests) from **mechanistic ToM** (actually representing beliefs).
 
@@ -209,7 +197,7 @@ PASTA (Opponent Modeling via Planning and Self-Play, 2024) combined Monte Carlo 
 
 Open questions remain around non-stationary opponents (how quickly should you update your model?) and adversarial robustness (what happens when the opponent is actively deceiving you?). Scaling to many-agent settings, where modeling every opponent separately is intractable, remains a separate challenge.
 
-## 8. Cross-Disciplinary Insight
+## Cross-Disciplinary Insight
 
 Opponent modeling is deeply connected to economics through the theory of **signaling games**. In signaling games (Spence, 1973), a sender with private information chooses a costly signal, and the receiver updates their belief about the sender's type. The sender models the receiver's inference process; the receiver models the sender's incentives.
 
@@ -217,7 +205,7 @@ In neuroscience, ToM maps to the temporoparietal junction (TPJ) and medial prefr
 
 The connection to **Bayesian brain theory** is striking: just as the brain predicts sensory inputs to minimize surprise (active inference), it may predict other agents' actions to minimize social prediction error.
 
-## 9. Daily Challenge
+## Daily Challenge
 
 **Build a Bluffing Detector**
 
@@ -232,7 +220,7 @@ $$p_\text{bluff} \sim \text{Beta}(\alpha + \text{bluffs}, \beta + \text{value be
 
 **Extension**: What happens to your estimate when the opponent *knows* you're tracking them and deliberately plays mixed strategies? At what sample size does your estimate become reliable? Explore the exploration-exploitation tradeoff in opponent modeling.
 
-## 10. References & Further Reading
+## References & Further Reading
 
 ### Papers
 - **"Level-k Thinking"** (Nagel, 1995): Foundational empirical paper on bounded rationality in games, *American Economic Review*

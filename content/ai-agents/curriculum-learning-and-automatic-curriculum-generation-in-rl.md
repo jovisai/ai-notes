@@ -6,31 +6,25 @@ tags: ["ai-agents", "reinforcement-learning", "curriculum-learning", "PAIRED", "
 description: "How agents learn faster and more robustly by training on the right task at the right time — from hand-crafted curricula to adversarial environment generation"
 ---
 
-A child learning to ride a bike doesn't start on a mountain trail. They begin with training wheels, then a flat path, then gentle slopes. This deceptively simple idea — **order matters when learning** — turns out to be one of the most powerful, underexplored tools in reinforcement learning. Curriculum learning teaches agents progressively, and its modern variants automate the whole process.
+Order matters when learning. This deceptively simple idea turns out to be one of the most powerful, underexplored tools in reinforcement learning. Curriculum learning teaches agents progressively, and its modern variants automate the whole process.
 
-## 1. Concept Introduction
+## Concept Introduction
 
-### Simple Explanation
-
-Imagine you're training an agent to navigate a maze. You could throw it into a massive labyrinth from day one — but most of its experience will be random wandering, and the reward signal is so sparse it barely learns. Alternatively, you give it a tiny maze first. Once it masters that, you present bigger, more complex mazes. Progress is faster, more stable, and generalises better.
-
-That's curriculum learning: **arranging a sequence of training tasks so the agent builds skills incrementally**, with each task being just hard enough to stretch its current ability without overwhelming it.
-
-### Technical Detail
+Curriculum learning means **arranging a sequence of training tasks so the agent builds skills incrementally**, with each task just hard enough to stretch its current ability without overwhelming it. Train an agent on a massive labyrinth from day one and most of its experience is random wandering, because the reward signal is so sparse it barely learns. Start with a tiny maze, master it, then scale up. Progress is faster, more stable, and generalises better.
 
 Formally, a curriculum is a sequence of tasks or environment configurations $\mathcal{T}_1, \mathcal{T}_2, \ldots, \mathcal{T}_K$ drawn from a task space $\Lambda$. At each training stage $k$, the agent is trained on $\mathcal{T}_k$ until some progression criterion is met, then advances. The final goal is robust performance on a **target distribution** $p^*(\lambda)$.
 
 The key insight: because RL agents learn by trial-and-error, the *distribution of experience* during training is as important as the final objective. A curriculum shapes that distribution deliberately.
 
-## 2. Historical & Theoretical Context
+## Historical & Theoretical Context
 
-Curriculum learning was popularised in supervised learning by Bengio et al. (2009), drawing on insights from cognitive science: humans and animals learn faster when examples progress from easy to hard. The underlying principle traces back to Vygotsky's **Zone of Proximal Development** (ZPD) from 1930s educational psychology — the sweet spot just beyond current mastery where learning is most efficient.
+Curriculum learning was popularised in supervised learning by Bengio et al. (2009), drawing on insights from cognitive science: humans and animals learn faster when examples progress from easy to hard. The underlying principle traces back to Vygotsky's **Zone of Proximal Development** (ZPD) from 1930s educational psychology: the sweet spot just beyond current mastery where learning is most efficient.
 
-In RL, early curricula were hand-crafted: researchers manually staged environments in games like Montezuma's Revenge or robot locomotion tasks. The field matured around 2019–2022 when **automatic curriculum learning (ACL)** emerged — methods that generate or select tasks dynamically based on the agent's current competence, eliminating expert knowledge from curriculum design.
+In RL, early curricula were hand-crafted: researchers manually staged environments in games like Montezuma's Revenge or robot locomotion tasks. The field matured around 2019–2022 when **automatic curriculum learning (ACL)** emerged: methods that generate or select tasks dynamically based on the agent's current competence, eliminating expert knowledge from curriculum design.
 
 The theoretical underpinning is the **learning progress hypothesis**: training is most efficient when the agent is making measurable progress, neither stagnating on tasks too hard nor on tasks already mastered.
 
-## 3. Algorithms & Math
+## Algorithms & Math
 
 ### Learning Progress as a Curriculum Signal
 
@@ -86,7 +80,7 @@ $$P(\lambda_i) \propto \left( \text{score}(\lambda_i) \right)^{1/\beta}$$
 
 where $\text{score}(\lambda_i)$ combines regret estimates and staleness (how long since the level was last visited). New levels are sampled at rate $\rho$ to ensure coverage; old levels with high score are replayed.
 
-## 4. Design Patterns & Architectures
+## Design Patterns & Architectures
 
 Curriculum learning slots naturally into the **planner-executor** pattern: a curriculum planner decides the training distribution; the executor (the RL agent) runs in whichever environment is selected.
 
@@ -103,9 +97,9 @@ graph TD
 - **Self-paced scheduling**: agent controls its own curriculum via performance thresholds
 - **Adversarial generation** (PAIRED, POET): a generator network is co-trained with the agent
 - **Replay-based selection** (PLR): a buffer of seen environments is replayed selectively
-- **Goal-space curricula**: in goal-conditioned RL, curriculum defines the distribution over goals — harder goals are unlocked as easier ones are mastered
+- **Goal-space curricula**: in goal-conditioned RL, curriculum defines the distribution over goals. Harder goals are unlocked as easier ones are mastered.
 
-## 5. Practical Application
+## Practical Application
 
 Here's a minimal curriculum scheduler that tracks learning progress per task and biases sampling toward the ZPD:
 
@@ -159,43 +153,28 @@ for episode in range(10_000):
 
 In **LangGraph**, the same principle applies to LLM agents: start with simple sub-tasks (short context, clear instructions), measure success rate, and progressively introduce harder variants (longer context, ambiguous instructions, multi-step dependencies). The curriculum scheduler becomes a node in the graph that selects the next task distribution.
 
-## 6. Comparisons & Tradeoffs
-
-| Method | Automation | Sample Efficiency | Requires | Weakness |
-|---|---|---|---|---|
-| **Hand-crafted curriculum** | None | High (if expert is good) | Domain expert | Expensive, brittle |
-| **Domain randomisation** | Full | Moderate | Wide env space | No targeting of ZPD |
-| **ALP / Learning Progress** | High | High | Return history | LP estimation noise |
-| **PAIRED** | Full | Very high | 3× compute | Complex to stabilise |
-| **PLR** | High | High | Level buffer | No new level generation |
-| **POET** | Full | Very high | Evolutionary infra | Expensive, complex |
-
-**Domain randomisation** (randomly sample environment parameters each episode) is the simplest baseline — it's robust but wasteful, spending training time on both trivially easy and impossibly hard configurations. Curricula target the middle.
-
-**PAIRED** produces the tightest guarantees (minimax regret) but requires co-training two agents and a generator, tripling computational cost. **PLR** is more practical: it reuses the existing training infrastructure and adds only a scoring buffer.
-
-## 7. Latest Developments & Research
+## Latest Developments & Research
 
 **ACCEL** (Parker-Holder et al., 2022) combines PLR with PAIRED's generative approach: it edits high-regret levels from the PLR buffer rather than generating from scratch, inheriting both methods' strengths and achieving state-of-the-art on MiniGrid navigation benchmarks.
 
 **MAESTRO** (2023) extends curriculum ideas to multi-task RL, learning a shared encoder across a curriculum of tasks and showing that curriculum-induced representations transfer significantly better than single-task or randomly-sampled baselines.
 
-In LLM agent research, **AgentBench** (2023) and **WebArena** (2023) exposed a stark curriculum problem: LLM agents trained only on simple tasks catastrophically fail on complex real-world ones. This has sparked work on **automatic task synthesis** for LLM agents — using LLMs themselves to generate progressively complex tasks, analogous to PAIRED but in the language domain.
+In LLM agent research, **AgentBench** (2023) and **WebArena** (2023) exposed a stark curriculum problem: LLM agents trained only on simple tasks catastrophically fail on complex real-world ones. This has sparked work on **automatic task synthesis** for LLM agents, using LLMs themselves to generate progressively complex tasks, analogous to PAIRED but in the language domain.
 
 **Open problems:**
 - How to measure "difficulty" in high-dimensional, structured task spaces?
 - Can curriculum methods automatically identify *what skills* are bottlenecks?
-- How to prevent curriculum overfitting — optimising for the curriculum, not the target distribution?
+- How to prevent curriculum overfitting (optimising for the curriculum, not the target distribution)?
 
-## 8. Cross-Disciplinary Insight
+## Cross-Disciplinary Insight
 
-Educational psychology calls this **scaffolding** — temporary support structures that are gradually withdrawn as competence grows. Vygotsky's ZPD predates deep learning by 80 years, yet it precisely describes what effective curriculum methods try to approximate.
+Educational psychology calls this **scaffolding**: temporary support structures that are gradually withdrawn as competence grows. Vygotsky's ZPD predates deep learning by 80 years, yet it precisely describes what effective curriculum methods try to approximate.
 
 In **control theory**, this maps to gain scheduling: a controller with parameters tuned for the current operating regime, gradually shifted as the system state changes. You don't apply full-authority control to a system that's still unstable.
 
-Most compellingly, **developmental neuroscience** shows that the human brain's myelination schedule — the order in which neural pathways mature — acts as a biological curriculum. Sensorimotor circuits develop before prefrontal executive function, ensuring primitive competencies are in place before complex planning is attempted. Evolution, it turns out, solved curriculum design long before we did.
+Most compellingly, developmental neuroscience shows that the human brain's myelination schedule (the order in which neural pathways mature) acts as a biological curriculum. Sensorimotor circuits develop before prefrontal executive function, ensuring primitive competencies are in place before complex planning is attempted. Evolution solved this problem long before we did.
 
-## 9. Daily Challenge
+## Daily Challenge
 
 **Exercise: Build a Maze Curriculum**
 
@@ -203,7 +182,7 @@ Use OpenAI's MiniGrid (pip install minigrid) to set up a curriculum over maze si
 
 1. Train a simple DQN agent on `MiniGrid-Empty-5x5-v0` until it achieves 90% success.
 2. Advance to `MiniGrid-Empty-8x8-v0`, then `MiniGrid-FourRooms-v0`.
-3. **Track** learning curves at each stage — how does the curriculum compare to training directly on `FourRooms`?
+3. **Track** learning curves at each stage. How does the curriculum compare to training directly on `FourRooms`?
 4. **Bonus**: Implement the ALP scheduler above and let it automatically select between the three environments. Does it match your hand-crafted progression?
 
 ```python
@@ -218,9 +197,9 @@ envs = [
 # Your curriculum agent here
 ```
 
-Compare final performance and total sample count. The curriculum version almost always wins on both metrics.
+Compare final performance and total sample count. The curriculum version almost always comes out ahead on both.
 
-## 10. References & Further Reading
+## References & Further Reading
 
 ### Foundational Papers
 - **"Curriculum Learning"** — Bengio et al. (2009): The paper that named the idea in supervised learning
@@ -239,12 +218,3 @@ Compare final performance and total sample count. The curriculum version almost 
 - **"Curriculum for Reinforcement Learning"** (Lilian Weng blog): Excellent conceptual overview with diagrams
 
 ---
-
-## Key Takeaways
-
-1. **Order of training matters**: the right task at the right time can cut sample requirements by an order of magnitude
-2. **Learning progress is your ZPD signal**: high progress means you're in the sweet spot; track it cheaply from return history
-3. **PAIRED gives guarantees**: minimax regret framing is principled, but costly — use PLR as a practical alternative
-4. **Curricula aren't just for locomotion**: LLM agents, reasoning chains, and code-writing agents all benefit from progressively staged tasks
-5. **The curriculum can be the environment**: adversarial environment generation (PAIRED, ACCEL) produces emergent complexity for free
-6. **Beware curriculum overfitting**: always evaluate on the target distribution, not the training curriculum

@@ -2,11 +2,9 @@
 
 ## Concept Introduction
 
-Imagine you're about to push a glass toward the edge of a table. Before you act, you *simulate* what will happen—the glass falls, shatters. This mental rehearsal lets you avoid disaster without experiencing it. **World models** give AI agents this same power: the ability to predict consequences before taking action.
+A **world model** is a learned representation of how the environment works. Given the current state and an action, it predicts the next state and, optionally, the reward. This enables an agent to evaluate possible futures in simulation before committing to real action, transforming it from purely reactive to genuinely *planning*.
 
-At its simplest, a world model is a learned representation of how the environment works. Given the current state and an action, it predicts the next state (and potentially a reward). This transforms an agent from purely reactive to genuinely *planning*—it can evaluate multiple possible futures in its "imagination" before committing to real action.
-
-**For practitioners**: A world model is typically a neural network trained to approximate the environment's transition dynamics: `s_{t+1} = f(s_t, a_t)`. This enables **model-based reinforcement learning (MBRL)**, where agents can:
+More precisely, a world model is a neural network trained to approximate the environment's transition dynamics: `s_{t+1} = f(s_t, a_t)`. This enables **model-based reinforcement learning (MBRL)**, where agents can:
 1. Learn from simulated rollouts (cheaper than real experience)
 2. Plan ahead by searching through predicted futures
 3. Transfer knowledge to new situations by reusing the learned dynamics
@@ -185,25 +183,6 @@ def world_model_node(state):
     return {"chosen_action": best_action}
 ```
 
-## Comparisons & Tradeoffs
-
-| Aspect | World Models (Model-Based) | Model-Free RL |
-|--------|---------------------------|---------------|
-| Sample efficiency | High (learns from imagination) | Low (needs real experience) |
-| Computational cost | High (model learning + planning) | Lower per step |
-| Asymptotic performance | Limited by model accuracy | Can be optimal |
-| Generalization | Better (learned structure) | Task-specific |
-
-**Key tradeoffs:**
-- **Model error compounds**: Small prediction errors grow over long horizons
-- **Exploration**: Model-based methods can be overconfident in unexplored regions
-- **Computational cost**: Planning takes time; not suitable for all real-time applications
-
-**When to use world models:**
-- Sample efficiency matters (robotics, expensive simulators)
-- Environment has learnable structure
-- Planning horizon is moderate (not too long)
-
 ## Latest Developments & Research
 
 **DreamerV3 (2023)**: Hafner et al. created a general algorithm that masters diverse domains (Atari, robotics, Minecraft) with a single set of hyperparameters. Uses a recurrent state-space model with discrete latents and achieves superhuman performance on many benchmarks.
@@ -220,11 +199,11 @@ def world_model_node(state):
 
 ## Cross-Disciplinary Insight
 
-**Neuroscience**: The brain's predictive processing framework suggests we constantly generate predictions about sensory input and update based on prediction errors—essentially running a world model. The cerebellum is thought to maintain forward models for motor control.
+**Neuroscience**: The brain's predictive processing framework suggests we constantly generate predictions about sensory input and update based on prediction errors. The cerebellum is thought to maintain forward models for motor control.
 
-**Physics engines in games**: Video game physics engines are hand-coded world models. Learned world models are the AI equivalent—discovering physics from data rather than encoding it manually.
+**Physics engines in games**: Video game physics engines are hand-coded world models. Learned world models are the AI equivalent, discovering physics from data rather than encoding it manually.
 
-**Economics**: Agents with world models are performing "policy simulation"—what economists do when they model how markets will respond to interventions.
+**Economics**: Agents with world models are performing "policy simulation," which is what economists do when they model how markets will respond to interventions.
 
 ## Daily Challenge
 

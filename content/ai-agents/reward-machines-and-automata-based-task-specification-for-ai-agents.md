@@ -6,20 +6,16 @@ tags: ["ai-agents", "reinforcement-learning", "reward-machines", "formal-methods
 description: "How to specify complex, multi-step tasks for AI agents using finite-state automata called reward machines, enabling non-Markovian rewards and compositional task structure"
 ---
 
-Reinforcement learning agents learn by chasing rewards. But what happens when the reward depends on *history*, not just the current state? "First pick up the key, *then* open the door, *then* reach the exit" — this kind of structured, sequential task breaks the Markov assumption that most RL algorithms rely on. Reward machines solve this elegantly by encoding task structure as a finite-state automaton that emits rewards as the agent progresses.
+Standard RL algorithms assume the reward signal depends only on the current state. But many real tasks are structured and sequential: "first pick up the key, *then* open the door, *then* reach the exit." This kind of history-dependent reward breaks the Markov assumption. **Reward machines** address the problem by encoding task structure as a finite-state automaton that emits rewards as the agent progresses.
 
-## 1. Concept Introduction
+## Concept Introduction
 
-### Simple Explanation
-
-Imagine teaching an agent to make a cup of tea. The full reward only comes at the end — a perfect cup of tea. But the agent needs intermediate guidance: boil water (+1), add teabag (+1), steep for 3 minutes (+1), then pour (+1). The tricky part: these steps must happen *in order*. Doing them in the wrong order earns no reward.
+Consider teaching an agent to make a cup of tea. The full reward only comes at the end, but the agent needs intermediate guidance: boil water (+1), add teabag (+1), steep for 3 minutes (+1), then pour (+1). These steps must happen *in order*. Doing them in the wrong order earns no reward.
 
 A **reward machine** is a finite-state machine (FSM) where:
 - Each **state** tracks how far along the task the agent is
 - Each **edge** is labeled with a condition (something that happened in the environment) and an associated reward
 - The machine reads events and transitions between states, emitting shaped rewards along the way
-
-### Technical Detail
 
 Formally, a reward machine is a tuple $\mathcal{R} = (U, u_0, F, \delta_u, \delta_r)$ where:
 - $U$ is a finite set of machine states (task stages)
@@ -32,21 +28,21 @@ At each environment step, the agent observes state $s$, takes action $a$, and re
 
 $$u_{t+1} = \delta_u(u_t, \ell_t), \quad r_t = \delta_r(u_t, \ell_t)$$
 
-The full agent state becomes the augmented pair $(s_t, u_t)$, which *is* Markovian — even though the original reward was not.
+The full agent state becomes the augmented pair $(s_t, u_t)$, which *is* Markovian, even though the original reward was not.
 
-## 2. Historical & Theoretical Context
+## Historical & Theoretical Context
 
 The idea of using automata to specify rewards emerged from the temporal logic and formal verification community. In the 1990s, researchers explored **Linear Temporal Logic (LTL)** for expressing robot task specifications. However, translating LTL formulae into practical reward signals for learning agents was cumbersome.
 
-The breakthrough came with **Icarte et al. (2018)** — "Using Reward Machines for High-Level Task Specification and Decomposition in Reinforcement Learning" (ICML 2018). They showed that:
+The breakthrough came with **Icarte et al. (2018)**, "Using Reward Machines for High-Level Task Specification and Decomposition in Reinforcement Learning" (ICML 2018). They showed that:
 
 1. Reward machines can compactly represent non-Markovian reward functions
 2. The augmented MDP $(s, u)$ restores the Markov property
 3. Counterfactual reasoning (learning from *what would have happened* in other machine states) dramatically accelerates learning
 
-The connection to **automata-theoretic model checking** (Vardi, Wolper, 1986) is deep — reward machines are essentially deterministic finite automata (DFAs) over propositional symbols, a fragment of LTL.
+The connection to **automata-theoretic model checking** (Vardi, Wolper, 1986) is deep: reward machines are essentially deterministic finite automata (DFAs) over propositional symbols, a fragment of LTL.
 
-## 3. Algorithms & Math
+## Algorithms & Math
 
 ### Q-Learning for Reward Machines (QRM)
 
@@ -65,7 +61,7 @@ for each machine state u in U:
     update Q(s, u, a) using (r, s', u')
 ```
 
-This effectively runs $|U|$ parallel Q-learners that share environment transitions — a massive sample efficiency gain.
+This effectively runs $|U|$ parallel Q-learners that share environment transitions, yielding a massive sample efficiency gain.
 
 ### Reward Machine + HRL
 
@@ -98,15 +94,15 @@ for each episode:
         s = s'
 ```
 
-## 4. Design Patterns & Architectures
+## Design Patterns & Architectures
 
 Reward machines slot naturally into several agent architecture patterns:
 
-**Planner-Executor Pattern**: The reward machine *is* the plan. The current machine state tells the executor which subgoal to pursue. When a subgoal is achieved (edge condition fires), the planner advances the machine.
+In the **planner-executor** pattern, the reward machine *is* the plan. The current machine state tells the executor which subgoal to pursue, and when a subgoal is achieved (edge condition fires), the planner advances the machine.
 
-**Event-Driven Architecture**: Environment events (propositions becoming true) drive machine transitions. This maps cleanly onto message-passing systems where tools or sensors publish events.
+In an **event-driven architecture**, environment events (propositions becoming true) drive machine transitions. This maps cleanly onto message-passing systems where tools or sensors publish events.
 
-**Compositional Task Design**: Complex tasks are built from simpler machines using automata operations (product, union, concatenation). A "coffee-making" machine can be composed from a "water-boiling" machine and a "cup-preparation" machine.
+For **compositional task design**, complex tasks are built from simpler machines using automata operations (product, union, concatenation). A "coffee-making" machine, for example, can be composed from a "water-boiling" machine and a "cup-preparation" machine.
 
 ```mermaid
 stateDiagram-v2
@@ -120,7 +116,7 @@ stateDiagram-v2
     u3 --> [*]
 ```
 
-## 5. Practical Application
+## Practical Application
 
 Here's a minimal reward machine implementation and integration with a tabular RL agent:
 
@@ -217,25 +213,11 @@ def run_episode(env, agent: QRMAgent, rm: RewardMachine) -> float:
     return total_reward
 ```
 
-This pattern integrates cleanly with **LangGraph**: the reward machine state maps to the graph's current node, and edge conditions correspond to tool-call outcomes or LLM-extracted propositions.
+This pattern integrates with **LangGraph**: the reward machine state maps to the graph's current node, and edge conditions correspond to tool-call outcomes or LLM-extracted propositions.
 
-## 6. Comparisons & Tradeoffs
+## Latest Developments & Research
 
-| Approach | Handles non-Markovian rewards | Sample efficiency | Interpretability | Scalability |
-|---|---|---|---|---|
-| **Standard RL** | No (needs history) | Baseline | Low | High |
-| **Reward Machines (QRM)** | Yes | High (counterfactual) | High | Medium |
-| **LSTM / recurrent policy** | Yes (implicit) | Low | Very low | High |
-| **LTL + shield** | Yes | Low | High | Low |
-| **HRL with manual subgoals** | Partial | Medium | Medium | Medium |
-
-**Strengths**: Reward machines are fully interpretable — you can read off the task structure at a glance. Counterfactual updates give dramatic sample efficiency gains (often 5–10x over vanilla Q-learning on structured tasks). They compose: product machines let you combine constraints.
-
-**Limitations**: Someone must define the propositional vocabulary $\mathcal{P}$ and label each environment step. This requires domain knowledge. Automatically *learning* the reward machine from demonstrations is an active research problem. The number of machine states can grow exponentially with task complexity (analogous to state explosion in model checking).
-
-## 7. Latest Developments & Research
-
-**Learning reward machines from data (2019–2023)**: Several papers tackle the inverse problem — inferring the reward machine structure from agent trajectories. Icarte et al. (2019) showed this can be framed as a SAT problem. More recently, Furelos-Blanco et al. (2021, 2023) use inductive logic programming (ILP) to learn machines from minimal examples.
+**Learning reward machines from data (2019–2023)**: Several papers tackle the inverse problem of inferring the reward machine structure from agent trajectories. Icarte et al. (2019) showed this can be framed as a SAT problem. Furelos-Blanco et al. (2021, 2023) use inductive logic programming (ILP) to learn machines from minimal examples.
 
 **Reward machines + LLMs (2023–2025)**: A natural synthesis: use an LLM to *generate* the reward machine from a natural language task description, then use QRM for efficient learning. The LLM handles the symbolic abstraction; the RM handles the credit assignment. Papers from NeurIPS 2024 demonstrated this pipeline on household task benchmarks.
 
@@ -245,15 +227,15 @@ This pattern integrates cleanly with **LangGraph**: the reward machine state map
 
 **Open problems**: Can we *automatically discover* the right propositional vocabulary? How do reward machines scale to continuous-state robotics tasks where propositions must be extracted from raw perception?
 
-## 8. Cross-Disciplinary Insight
+## Cross-Disciplinary Insight
 
-Reward machines are formally identical to **Mealy machines** from automata theory, and to **process algebra** specifications from concurrent systems design. The connection to **workflow engines** in software engineering is striking — BPMN (Business Process Model and Notation) diagrams, state machines in XState, and saga patterns in distributed systems all encode the same intuition: complex processes are sequences of stages, and completion of each stage triggers the next.
+Reward machines are formally identical to **Mealy machines** from automata theory, and to process algebra specifications from concurrent systems design. BPMN (Business Process Model and Notation) diagrams, state machines in XState, and saga patterns in distributed systems all encode the same intuition: complex processes are sequences of stages, and completion of each stage triggers the next.
 
-In **neuroscience**, the basal ganglia and prefrontal cortex are thought to implement something like a hierarchical state machine for goal-directed behavior. The machine state $u$ parallels what neuroscientists call the "task set" — a configuration of rules and goals currently active in working memory.
+In **neuroscience**, the basal ganglia and prefrontal cortex are thought to implement something like a hierarchical state machine for goal-directed behavior. The machine state $u$ parallels what neuroscientists call the "task set" (a configuration of rules and goals currently active in working memory).
 
 The connection to **event sourcing** in software architecture is direct: the propositional label stream $(\ell_0, \ell_1, \ell_2, \ldots)$ is an event log, and the reward machine is a stateful projection over that log.
 
-## 9. Daily Challenge
+## Daily Challenge
 
 **Build a coffee-machine reward machine.**
 
@@ -281,32 +263,24 @@ def build_coffee_machine() -> RewardMachine:
     pass
 ```
 
-## 10. References & Further Reading
+## References & Further Reading
 
 ### Foundational Papers
-- **"Using Reward Machines for High-Level Task Specification and Decomposition in Reinforcement Learning"** — Icarte et al., ICML 2018. The original reward machine paper.
-- **"Reward Machines: Exploiting Reward Function Structure in Reinforcement Learning"** — Icarte et al., JAIR 2022. Extended journal version with theoretical analysis.
-- **"Learning Reward Machines for Partially Observable Environments"** — Icarte et al., NeurIPS 2019. Infers machine structure from data.
+- **"Using Reward Machines for High-Level Task Specification and Decomposition in Reinforcement Learning"**, Icarte et al., ICML 2018. The original reward machine paper.
+- **"Reward Machines: Exploiting Reward Function Structure in Reinforcement Learning"**, Icarte et al., JAIR 2022. Extended journal version with theoretical analysis.
+- **"Learning Reward Machines for Partially Observable Environments"**, Icarte et al., NeurIPS 2019. Infers machine structure from data.
 
 ### Temporal Logic & Formal Methods
-- **"From LTL and PLTL to Automata for Pattern Recognition in Discrete and Continuous-Time Signals"** — a bridge to the signal temporal logic world
-- **"LTL2Action: Generalizing LTL Instructions for Multi-Task RL"** — Illanes et al., ICML 2020
+- **"From LTL and PLTL to Automata for Pattern Recognition in Discrete and Continuous-Time Signals"**: a bridge to the signal temporal logic world
+- **"LTL2Action: Generalizing LTL Instructions for Multi-Task RL"**, Illanes et al., ICML 2020
 
 ### Libraries & Code
-- **jair-2020/reward-machines** — Reference implementation from the JAIR paper: `github.com/jair-2020/reward-machines`
-- **ltl2action** — Integrates LTL task specs into Gym environments
-- **FOND planning with reward machines** — Connects to classical AI planning under nondeterminism
+- **jair-2020/reward-machines**: Reference implementation from the JAIR paper: `github.com/jair-2020/reward-machines`
+- **ltl2action**: Integrates LTL task specs into Gym environments
+- **FOND planning with reward machines**: Connects to classical AI planning under nondeterminism
 
 ### Blog Posts & Tutorials
-- **"Reward Machines Explained"** — Lilian Weng's blog covers automata-based RL methods in her RL overview
-- **"Specifying Agent Tasks with Temporal Logic"** — DeepMind technical blog, 2023
+- **"Reward Machines Explained"**: Lilian Weng's blog covers automata-based RL methods in her RL overview
+- **"Specifying Agent Tasks with Temporal Logic"**: DeepMind technical blog, 2023
 
 ---
-
-## Key Takeaways
-
-1. **Non-Markovian rewards are the norm** in real tasks: order matters, history matters. Reward machines restore the Markov property by augmenting the state space.
-2. **Counterfactual updates** make QRM dramatically more sample-efficient than vanilla RL — a single trajectory trains $|U|$ Q-functions simultaneously.
-3. **Interpretability is a first-class citizen**: the machine diagram *is* the task specification. Debugging why an agent failed means reading the machine state trace.
-4. **Composition is free**: product automata let you combine safety constraints, progress objectives, and optional side-tasks without rewriting learning algorithms.
-5. **The LLM + reward machine pipeline** is emerging as a powerful pattern: LLM generates the symbolic scaffold, RL fills in the low-level policy — the best of both worlds.
