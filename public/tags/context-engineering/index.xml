@@ -6,8 +6,15 @@
     <description>Recent content in Context Engineering on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/context-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
+      <link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
+      <description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>An Introduction to Context Engineering for AI Code Generation</title>
       <link>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</link>

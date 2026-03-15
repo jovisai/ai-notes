@@ -6,14 +6,14 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Graph Neural Networks for Multi-Agent Communication and Coordination</title>
-      <link>https://notes.muthu.co/2026/03/graph-neural-networks-for-multi-agent-communication-and-coordination/</link>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/graph-neural-networks-for-multi-agent-communication-and-coordination/</guid>
-      <description>&lt;p&gt;Multi-agent systems live or die on communication. But how do you design agents that can share information efficiently when you don&amp;rsquo;t know in advance who needs to talk to whom? Graph Neural Networks (GNNs) offer a principled answer: treat agents as nodes, relationships as edges, and let the network learn what to pass along.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A Graph Neural Network applied to multi-agent coordination lets each agent send small, learned &lt;strong&gt;messages&lt;/strong&gt; to its neighbours. Each agent aggregates the messages it receives, updates its own state, and acts. Broadcasting everything to everyone is wasteful, and knowing who to talk to in advance is often impossible. GNNs resolve this by encoding the topology of communication as a graph, either fixed by proximity or dynamically learned.&lt;/p&gt;</description>
+      <title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
+      <link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
+      <description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opponent Modeling and Theory of Mind in Multi-Agent Systems</title>
