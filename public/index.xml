@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Classical Planning with STRIPS and the Delete Relaxation Heuristic</title>
+      <link>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</guid>
+      <description>&lt;p&gt;Classical planning asks a deceptively simple question: given where you are, where you want to be, and what actions you can take, how do you find a sequence of steps that gets you there? The challenge is that the space of possible action sequences grows exponentially. To tame it, you need a way to estimate how close any given state is to the goal, so you can focus search on promising paths. This is where the &lt;strong&gt;delete relaxation heuristic&lt;/strong&gt; comes in, and it remains one of the most influential ideas in AI planning research.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
       <link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
