@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anytime Heuristic Search How Agents Find Good Plans Fast and Improve Them Over Time</title>
+      <link>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</guid>
+      <description>&lt;p&gt;Planning agents face a brutal tradeoff. A* search, run to completion, finds the provably optimal path. But the search can take a long time, and in many real scenarios the agent must act before it finishes. A robot navigating a warehouse cannot wait two seconds for an optimal route when a customer is watching. A game-playing agent has a fixed clock. A scheduling system needs a plan now, not a perfect plan five minutes from now.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Classical Planning with STRIPS and the Delete Relaxation Heuristic</title>
       <link>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</link>

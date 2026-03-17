@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</loc>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</loc>
     <lastmod>2026-03-16T00:00:00+00:00</lastmod>
   </url><url>
