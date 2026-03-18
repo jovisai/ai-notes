@@ -6,13 +6,48 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dag</title>
+      <link>https://notes.muthu.co/tags/dag/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/dag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langgraph</title>
+      <link>https://notes.muthu.co/tags/langgraph/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/langgraph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parallelism</title>
+      <link>https://notes.muthu.co/tags/parallelism/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/parallelism/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Task-Scheduling</title>
+      <link>https://notes.muthu.co/tags/task-scheduling/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/task-scheduling/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +62,6 @@
       <link>https://notes.muthu.co/tags/heuristics/</link>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/heuristics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Planning</title>
-      <link>https://notes.muthu.co/tags/planning/</link>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>
@@ -76,13 +104,6 @@
       <link>https://notes.muthu.co/tags/context-engineering/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/context-engineering/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Langgraph</title>
-      <link>https://notes.muthu.co/tags/langgraph/</link>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/langgraph/</guid>
       <description></description>
     </item>
     <item>

@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dependency Aware Task Scheduling How Agents Execute Plans as Parallel DAGs</title>
+      <link>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</guid>
+      <description>&lt;p&gt;When a planner outputs a list of steps, the naive executor runs them one by one. Most plans have structure that sequential execution ignores: some tasks depend on each other, and others are completely independent. Treating a plan as a list when it is actually a graph wastes time and makes failure handling more brittle than necessary.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A task dependency graph represents a plan as a directed acyclic graph (DAG), where each node is a task and each directed edge means &amp;ldquo;this must complete before that can start.&amp;rdquo; Tasks with no incoming edges are immediately ready to run. Tasks whose dependencies have all completed become ready. Everything else waits.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Anytime Heuristic Search How Agents Find Good Plans Fast and Improve Them Over Time</title>
       <link>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</link>
