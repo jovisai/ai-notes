@@ -6,8 +6,15 @@
     <description>Recent content in Langgraph on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/langgraph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Receding Horizon Planning and Plan Commitment in Agent Reasoning Loops</title>
+      <link>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</guid>
+      <description>&lt;p&gt;The most basic planning strategy is to figure out the entire action sequence upfront and execute without looking back. This is offline planning, and it breaks immediately when the world doesn&amp;rsquo;t cooperate. The opposite extreme is pure reactivity: observe, pick the best next action, repeat. Responsive, but shortsighted. Practical agents live between these poles.&lt;/p&gt;&#xA;&lt;p&gt;They plan ahead some finite number of steps (the planning horizon), execute the first step or two, observe results, then decide whether to continue or replan. This pattern goes by several names: receding horizon planning, rolling window execution, online planning. The name matters less than the tradeoff it represents. How long should the horizon be? Under what conditions should the agent abandon its current plan rather than finish it?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Dependency Aware Task Scheduling How Agents Execute Plans as Parallel DAGs</title>
       <link>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</link>

@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</loc>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</loc>
     <lastmod>2026-03-18T00:00:00+00:00</lastmod>
   </url><url>

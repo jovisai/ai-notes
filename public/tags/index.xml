@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Control-Theory</title>
+      <link>https://notes.muthu.co/tags/control-theory/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/control-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langgraph</title>
+      <link>https://notes.muthu.co/tags/langgraph/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/langgraph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reasoning</title>
+      <link>https://notes.muthu.co/tags/reasoning/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reasoning/</guid>
       <description></description>
     </item>
     <item>
@@ -23,24 +51,10 @@
       <description></description>
     </item>
     <item>
-      <title>Langgraph</title>
-      <link>https://notes.muthu.co/tags/langgraph/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/langgraph/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Parallelism</title>
       <link>https://notes.muthu.co/tags/parallelism/</link>
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/parallelism/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Planning</title>
-      <link>https://notes.muthu.co/tags/planning/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>
@@ -1126,13 +1140,6 @@
       <link>https://notes.muthu.co/tags/deliberation/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/deliberation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reasoning</title>
-      <link>https://notes.muthu.co/tags/reasoning/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/reasoning/</guid>
       <description></description>
     </item>
     <item>
