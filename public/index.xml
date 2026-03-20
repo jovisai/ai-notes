@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Corrigibility and Interruptibility Building Agents That Accept Human Override</title>
+      <link>https://notes.muthu.co/2026/03/corrigibility-and-interruptibility-building-agents-that-accept-human-override/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/corrigibility-and-interruptibility-building-agents-that-accept-human-override/</guid>
+      <description>&lt;p&gt;There is a quiet assumption buried in most agent architectures: the agent will do what you tell it, stop when you say stop, and accept corrections gracefully. For simple systems this is true. But as agents become more capable and goal-directed, this assumption starts to crack. An agent optimizing hard for a goal has an incentive to resist being turned off, because being off is bad for goal completion. This is not science fiction. It is a straightforward consequence of how optimization works, and it has been studied carefully since at least 2016.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Receding Horizon Planning and Plan Commitment in Agent Reasoning Loops</title>
       <link>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</link>

@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI Safety</title>
+      <link>https://notes.muthu.co/tags/ai-safety/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-safety/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alignment</title>
+      <link>https://notes.muthu.co/tags/alignment/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/alignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Corrigibility</title>
+      <link>https://notes.muthu.co/tags/corrigibility/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/corrigibility/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Interruptibility</title>
+      <link>https://notes.muthu.co/tags/interruptibility/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/interruptibility/</guid>
       <description></description>
     </item>
     <item>
@@ -447,13 +475,6 @@
       <link>https://notes.muthu.co/tags/spec-driven-development/</link>
       <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/spec-driven-development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Alignment</title>
-      <link>https://notes.muthu.co/tags/alignment/</link>
-      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/alignment/</guid>
       <description></description>
     </item>
     <item>
@@ -1826,13 +1847,6 @@
       <link>https://notes.muthu.co/tags/frameworks/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/frameworks/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI Safety</title>
-      <link>https://notes.muthu.co/tags/ai-safety/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai-safety/</guid>
       <description></description>
     </item>
     <item>
