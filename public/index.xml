@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Landmark Based Planning Using Obligatory Subgoals to Guide Search</title>
+      <link>https://notes.muthu.co/2026/03/landmark-based-planning-using-obligatory-subgoals-to-guide-search/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/landmark-based-planning-using-obligatory-subgoals-to-guide-search/</guid>
+      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;landmark&lt;/strong&gt; is a fact that must become true at some point in every solution to a planning problem. You cannot reach the goal without passing through it. Landmarks are not hints or preferences: they are logical necessities, provable from the problem structure.&lt;/p&gt;&#xA;&lt;p&gt;Consider booking a flight. No matter which airline, route, or travel agent you use, you must at some point have a confirmed seat reservation. That fact is a landmark. Your heuristic planner can exploit this: count how many unachieved landmarks remain and use that as a lower bound on work still to do.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mixture of Agents Building Collaborative LLM Pipelines That Outperform Any Individual Model</title>
       <link>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</link>
