@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Indirect Prompt Injection How Untrusted Content Hijacks AI Agents</title>
+      <link>https://notes.muthu.co/2026/03/indirect-prompt-injection-how-untrusted-content-hijacks-ai-agents/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/indirect-prompt-injection-how-untrusted-content-hijacks-ai-agents/</guid>
+      <description>&lt;p&gt;When a user sends a malicious prompt to a chatbot, that&amp;rsquo;s a direct attack. You can detect it, filter it, refuse it. The threat is obvious and the attacker is the user. Indirect prompt injection is different: the attacker is the environment the agent operates in, not the person talking to it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Indirect prompt injection exploits the fundamental design of tool-using agents. An agent reads from external sources: web pages, database results, emails, retrieved documents. If an attacker can place text in those sources, they can embed instructions that hijack the agent&amp;rsquo;s next action. The user is innocent. The agent is the victim.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Landmark Based Planning Using Obligatory Subgoals to Guide Search</title>
       <link>https://notes.muthu.co/2026/03/landmark-based-planning-using-obligatory-subgoals-to-guide-search/</link>

@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt-Injection</title>
+      <link>https://notes.muthu.co/tags/prompt-injection/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/prompt-injection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Safety</title>
+      <link>https://notes.muthu.co/tags/safety/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/safety/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sandboxing</title>
+      <link>https://notes.muthu.co/tags/sandboxing/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/sandboxing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://notes.muthu.co/tags/security/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/security/</guid>
       <description></description>
     </item>
     <item>
@@ -405,13 +433,6 @@
       <link>https://notes.muthu.co/tags/lagrangian/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/lagrangian/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Safety</title>
-      <link>https://notes.muthu.co/tags/safety/</link>
-      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/safety/</guid>
       <description></description>
     </item>
     <item>
