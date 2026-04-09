@@ -6,13 +6,83 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Capability-Containment</title>
+      <link>https://notes.muthu.co/tags/capability-containment/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/capability-containment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Least-Privilege</title>
+      <link>https://notes.muthu.co/tags/least-privilege/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/least-privilege/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Safety</title>
+      <link>https://notes.muthu.co/tags/safety/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/safety/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sandboxing</title>
+      <link>https://notes.muthu.co/tags/sandboxing/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/sandboxing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://notes.muthu.co/tags/security/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Auctions</title>
+      <link>https://notes.muthu.co/tags/auctions/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/auctions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Game Theory</title>
+      <link>https://notes.muthu.co/tags/game-theory/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/game-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Incentives</title>
+      <link>https://notes.muthu.co/tags/incentives/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/incentives/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mechanism-Design</title>
+      <link>https://notes.muthu.co/tags/mechanism-design/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/mechanism-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent</title>
+      <link>https://notes.muthu.co/tags/multi-agent/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
       <description></description>
     </item>
     <item>
@@ -20,27 +90,6 @@
       <link>https://notes.muthu.co/tags/prompt-injection/</link>
       <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/prompt-injection/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Safety</title>
-      <link>https://notes.muthu.co/tags/safety/</link>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/safety/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sandboxing</title>
-      <link>https://notes.muthu.co/tags/sandboxing/</link>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/sandboxing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>https://notes.muthu.co/tags/security/</link>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/security/</guid>
       <description></description>
     </item>
     <item>
@@ -97,13 +146,6 @@
       <link>https://notes.muthu.co/tags/mixture-of-agents/</link>
       <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/mixture-of-agents/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Multi-Agent</title>
-      <link>https://notes.muthu.co/tags/multi-agent/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
       <description></description>
     </item>
     <item>
@@ -223,13 +265,6 @@
       <link>https://notes.muthu.co/tags/memory/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/memory/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Game Theory</title>
-      <link>https://notes.muthu.co/tags/game-theory/</link>
-      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/game-theory/</guid>
       <description></description>
     </item>
     <item>

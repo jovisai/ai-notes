@@ -6,8 +6,22 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Least Privilege and Capability Containment Designing Agents That Cannot Exceed Their Mandate</title>
+      <link>https://notes.muthu.co/2026/04/least-privilege-and-capability-containment-designing-agents-that-cannot-exceed-their-mandate/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/04/least-privilege-and-capability-containment-designing-agents-that-cannot-exceed-their-mandate/</guid>
+      <description>&lt;p&gt;Every tool you hand an agent is a loaded gun pointed at your infrastructure. Not because the agent is malicious. Because it will use whatever you give it, sometimes in ways you didn&amp;rsquo;t anticipate, and sometimes in response to inputs you didn&amp;rsquo;t control. An agent with write access to a production database, unrestricted shell access, and the ability to send emails will eventually combine those capabilities in a way you didn&amp;rsquo;t intend.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mechanism Design Teaching Agents to Cooperate Through Incentives</title>
+      <link>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</guid>
+      <description>&lt;p&gt;Mechanism design is game theory run backwards. Traditional game theory asks: given the rules of a game, what will rational players do? Mechanism design asks: given the outcome we want, what rules should we create so that rational players produce it? This inversion is surprisingly powerful, and it has direct consequences for how you architect multi-agent systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imagine you are building a multi-agent pipeline where three specialized agents must cooperate on a complex task. Agent A retrieves documents, Agent B synthesizes them, Agent C verifies the output. Each agent has its own internal objective, shaped by its fine-tuning or prompting. Left alone, Agent A might be lazy with retrieval because the cost of thoroughness falls on it while the benefit goes to B. Agent B might hallucinate rather than admit uncertainty, since its success metric rewards confident answers. The system as a whole fails even though each agent is locally &amp;ldquo;doing its job.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Indirect Prompt Injection How Untrusted Content Hijacks AI Agents</title>
       <link>https://notes.muthu.co/2026/03/indirect-prompt-injection-how-untrusted-content-hijacks-ai-agents/</link>

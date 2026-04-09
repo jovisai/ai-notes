@@ -6,8 +6,15 @@
     <description>Recent content in Multi-Agent on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/multi-agent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mechanism Design Teaching Agents to Cooperate Through Incentives</title>
+      <link>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</guid>
+      <description>&lt;p&gt;Mechanism design is game theory run backwards. Traditional game theory asks: given the rules of a game, what will rational players do? Mechanism design asks: given the outcome we want, what rules should we create so that rational players produce it? This inversion is surprisingly powerful, and it has direct consequences for how you architect multi-agent systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imagine you are building a multi-agent pipeline where three specialized agents must cooperate on a complex task. Agent A retrieves documents, Agent B synthesizes them, Agent C verifies the output. Each agent has its own internal objective, shaped by its fine-tuning or prompting. Left alone, Agent A might be lazy with retrieval because the cost of thoroughness falls on it while the benefit goes to B. Agent B might hallucinate rather than admit uncertainty, since its success metric rewards confident answers. The system as a whole fails even though each agent is locally &amp;ldquo;doing its job.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Mixture of Agents Building Collaborative LLM Pipelines That Outperform Any Individual Model</title>
       <link>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</link>
