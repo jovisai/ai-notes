@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Partial-Order-Planning</title>
+      <link>https://notes.muthu.co/tags/partial-order-planning/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/partial-order-planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plan-Repair</title>
+      <link>https://notes.muthu.co/tags/plan-repair/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/plan-repair/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reasoning-Loops</title>
+      <link>https://notes.muthu.co/tags/reasoning-loops/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reasoning-loops/</guid>
       <description></description>
     </item>
     <item>
@@ -111,13 +139,6 @@
       <link>https://notes.muthu.co/tags/landmarks/</link>
       <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/landmarks/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Planning</title>
-      <link>https://notes.muthu.co/tags/planning/</link>
-      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/planning/</guid>
       <description></description>
     </item>
     <item>

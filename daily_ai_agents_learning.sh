@@ -24,18 +24,18 @@ echo "[$(date '+%Y-%m-%d %H:%M:%S')] Selected topic area: $SELECTED_TOPIC"
 
 PROMPT=$(cat <<ENDPROMPT
 **Role:**
-You are my mentor and research assistant. Write a short, focused article (800-1200 words max) that I can read in 10-20 minutes, well-structured article that helps me master the field of AI agent programming step by step.
+You are my mentor and research assistant. Write a short, focused article (500-800 words max) that I can read in 10-20 minutes, well-structured article that helps me master the field of AI agent programming step by step.
 
 **Scope:**
 Each article should focus on **one key concept, algorithm, pattern, or recent research trend** in AI agent programming. The article must contain the below points wherever relevant:
-
+ 
 - **Concept Introduction**: explain the concept simply, then expand into technical detail for a practitioner.
 - **Historical & Theoretical Context**: origin of the idea (who/when/why) and relation to core AI principles.
 - **Algorithms & Math (if relevant)**: keep math minimal. Only include a formula if it is essential to understanding the concept. Prefer plain-English explanation over equations. Pseudocode is preferred over formal notation.
 - **Design Patterns & Architectures**: how the concept fits into real agent architectures and known patterns.
-- **Practical Application**: this is the most important section. Include a complete, runnable Python example (50-100 lines) using a real agent framework (LangGraph, CrewAI, AutoGen, Swarm, etc). The code must be realistic and correct, with brief inline comments explaining non-obvious lines. Show actual agent behavior, not toy stubs.
-- **Latest Developments & Research**: recent papers, benchmarks, or breakthroughs (past 2-3 years) and open problems.
-- **Cross-Disciplinary Insight**: relate the idea to another field (systems theory, neuroscience, distributed computing, economics, etc).
+- **Practical Application**: this is the most important section. Do NOT write a full code listing. Instead:
+  1. In 3-5 sentences, describe what a minimal implementation would do: the key classes/functions, the data flow, and which framework fits best (LangGraph, CrewAI, AutoGen, etc.).
+  2. End the section with a fenced block labelled **Try it** containing a single, tight prompt (4-8 lines) the reader can paste directly into a coding agent (Claude Code, Cursor, Copilot, etc.) to build and run the example themselves. The prompt must name the framework, specify the core behavior, and ask for runnable code with inline comments.
 - **Daily Challenge / Thought Exercise**: a short problem or thought experiment completable in under 30 minutes.
 - **References & Further Reading**
 
