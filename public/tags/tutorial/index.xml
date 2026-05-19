@@ -6,15 +6,8 @@
     <description>Recent content in Tutorial on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Combining LLMs with Symbolic Reasoning in Hybrid AI Agents</title>
-      <link>https://notes.muthu.co/2026/01/combining-llms-with-symbolic-reasoning-in-hybrid-ai-agents/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/01/combining-llms-with-symbolic-reasoning-in-hybrid-ai-agents/</guid>
-      <description>&lt;p&gt;LLMs are remarkably flexible but notoriously unreliable for precise reasoning. They hallucinate, make arithmetic errors, and struggle with complex logic. Symbolic systems—rule engines, constraint solvers, knowledge graphs—are precise but rigid.&lt;/p&gt;&#xA;&lt;p&gt;The solution? Combine them. Hybrid AI agents use LLMs for natural language understanding and high-level reasoning, while delegating precise tasks to symbolic systems. This is emerging as a key pattern in production AI systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-hybrid&#34;&gt;Why Hybrid?&lt;/h2&gt;&#xA;&lt;p&gt;Consider a tax preparation agent. An LLM can:&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Building a Multi-Agent Swarm with OpenAI Swarm Framework</title>
       <link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</link>
@@ -30,13 +23,6 @@
       <description>&lt;p&gt;Standard RAG has a fundamental problem: chunks lose their context. When you split a document into pieces, each chunk becomes isolated. A sentence like &amp;ldquo;The company increased revenue by 15%&amp;rdquo; is meaningless without knowing which company, which year, and what the previous revenue was.&lt;/p&gt;&#xA;&lt;p&gt;Contextual RAG solves this by enriching each chunk with surrounding context before embedding. Anthropic&amp;rsquo;s research shows this technique can reduce retrieval failures by up to 67%.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Building a Research Assistant with Windsurfs Cascade Agent</title>
-      <link>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</link>
-      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/building-a-research-assistant-with-windsurfs-cascade-agent/</guid>
-      <description>&lt;p&gt;Windsurf is an AI-powered IDE that goes beyond code completion. Its Cascade feature is a full coding agent that understands your entire project, generates code across multiple files, runs commands, and debugs issues—all from natural language instructions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll use Windsurf to build a research assistant application, demonstrating how Cascade handles complex, multi-file development tasks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-makes-windsurf-different&#34;&gt;What Makes Windsurf Different&lt;/h2&gt;&#xA;&lt;p&gt;Traditional AI coding tools like GitHub Copilot are reactive—they complete the line you&amp;rsquo;re writing. Windsurf&amp;rsquo;s Cascade is proactive:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>A Practical Guide to Evaluating Your AI Agents with DeepEval</title>
       <link>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
@@ -49,13 +35,6 @@
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-travel-planner-with-google-adk/</guid>
       <description>&lt;p&gt;Google&amp;rsquo;s Agent Development Kit (ADK) is a new framework for building AI agents that&amp;rsquo;s optimized for Gemini but works with any LLM. Its standout feature is built-in support for multi-agent orchestration—agents that coordinate and delegate to other agents.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a travel planner where a host agent delegates to specialized sub-agents for flights, hotels, and activities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-adk&#34;&gt;Why ADK?&lt;/h2&gt;&#xA;&lt;p&gt;ADK brings several innovations:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Code-first development:&lt;/strong&gt; Define agents in Python, not YAML or JSON&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multi-agent by design:&lt;/strong&gt; Built-in patterns for parallel, sequential, and hierarchical agents&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Model-agnostic:&lt;/strong&gt; Works with Gemini, GPT-4, Claude, and others via LiteLLM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Real-time support:&lt;/strong&gt; Bidirectional audio/video streaming built-in&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[User Request] --&amp;gt; B[Travel Host Agent]&#xA;    B --&amp;gt; C[Flight Agent]&#xA;    B --&amp;gt; D[Hotel Agent]&#xA;    B --&amp;gt; E[Activity Agent]&#xA;    C --&amp;gt; F[Flight Options]&#xA;    D --&amp;gt; G[Hotel Options]&#xA;    E --&amp;gt; H[Activity Options]&#xA;    F --&amp;gt; I[Final Itinerary]&#xA;    G --&amp;gt; I&#xA;    H --&amp;gt; I&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;The host agent receives the travel request and delegates to specialists:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Building a Multi-Agent Code Review System with AutoGen</title>
-      <link>https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/</link>
-      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/building-a-multi-agent-code-review-system-with-autogen/</guid>
-      <description>&lt;p&gt;Code review is a perfect use case for multi-agent systems. Different aspects of code quality—security, style, logic, performance—require different expertise. Instead of one generalist reviewer, we can create a team of specialists.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a code review system using Microsoft&amp;rsquo;s AutoGen framework. Our team will have three specialized reviewers plus a coordinator that synthesizes their findings.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-architecture&#34;&gt;The Architecture&lt;/h2&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[Code Input] --&amp;gt; B[Coordinator]&#xA;    B --&amp;gt; C[Security Reviewer]&#xA;    B --&amp;gt; D[Style Reviewer]&#xA;    B --&amp;gt; E[Logic Reviewer]&#xA;    C --&amp;gt; F[Final Report]&#xA;    D --&amp;gt; F&#xA;    E --&amp;gt; F&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Each reviewer focuses on their domain:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building an Agentic RAG Pipeline with LangGraph</title>

@@ -200,29 +200,8 @@
     <item>
       <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hybrid Systems</title>
-      <link>https://notes.muthu.co/tags/hybrid-systems/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/hybrid-systems/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Symbolic AI</title>
-      <link>https://notes.muthu.co/tags/symbolic-ai/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/symbolic-ai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tutorial</title>
-      <link>https://notes.muthu.co/tags/tutorial/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
@@ -240,6 +219,13 @@
       <description></description>
     </item>
     <item>
+      <title>Tutorial</title>
+      <link>https://notes.muthu.co/tags/tutorial/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>RAG</title>
       <link>https://notes.muthu.co/tags/rag/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
@@ -254,27 +240,6 @@
       <description></description>
     </item>
     <item>
-      <title>Coding Agent</title>
-      <link>https://notes.muthu.co/tags/coding-agent/</link>
-      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/coding-agent/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>IDE</title>
-      <link>https://notes.muthu.co/tags/ide/</link>
-      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ide/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Windsurf</title>
-      <link>https://notes.muthu.co/tags/windsurf/</link>
-      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/windsurf/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>DeepEval</title>
       <link>https://notes.muthu.co/tags/deepeval/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
@@ -286,20 +251,6 @@
       <link>https://notes.muthu.co/tags/google-adk/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/google-adk/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AutoGen</title>
-      <link>https://notes.muthu.co/tags/autogen/</link>
-      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/autogen/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Code Review</title>
-      <link>https://notes.muthu.co/tags/code-review/</link>
-      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/code-review/</guid>
       <description></description>
     </item>
     <item>
