@@ -22,19 +22,6 @@ Agent evaluation differs from standard model evaluation in several key ways:
 
 The core challenge is that agent performance is a multi-dimensional surface, not a single number.
 
-## Historical & Theoretical Context
-
-Evaluation has always been the backbone of AI progress. The history follows a clear arc of increasing complexity:
-
-- **1990s–2000s**: Static benchmarks (MNIST, ImageNet) drove the deep learning revolution by providing clear targets
-- **2010s**: NLP benchmarks (GLUE, SuperGLUE, SQuAD) measured language understanding on isolated tasks
-- **2021–2023**: LLM benchmarks (MMLU, HumanEval, GSM8K) tested reasoning and code generation
-- **2023–present**: Agent benchmarks (SWE-bench, GAIA, AgentBench) evaluate multi-step, tool-using, environment-interacting systems
-
-The shift to agent evaluation reflects **Goodhart's Law** in action: when LLMs saturated static benchmarks, the field needed harder, more realistic evaluations. Agent benchmarks aim for ecological validity, measuring performance in conditions that resemble real use.
-
-This connects to a deep idea from measurement theory: the act of measuring shapes what gets optimized. Choose the wrong metric, and you'll build the wrong agent.
-
 ## Metrics and Measurement
 
 ### The Agent Evaluation Hierarchy
@@ -108,120 +95,17 @@ This pattern is powerful but introduces its own biases: judge LLMs tend to prefe
 
 ## Practical Application
 
-Here's a practical evaluation framework you can use today:
+A minimal evaluation harness centers on three pieces: an `EvalTask` dataclass (task ID, instruction, success validator), an `EvalResult` dataclass (pass/fail, step count, token usage, latency), and an `AgentEvaluator` class that loops over tasks, runs each `n` times, and aggregates `pass@k`, mean steps, and mean tokens into a metrics dict. The raw Anthropic SDK is the best fit here — no orchestration framework is needed, since evaluation is about observing agent behavior from the outside rather than composing agents together. Data flows from a task list into repeated agent invocations, with each trajectory collected via callbacks and fed into the aggregation step. The evaluator's `_check_success` method accepts either an exact-match string or a callable validator, making it easy to plug in test-suite runners or semantic similarity checks for open-ended tasks.
 
-```python
-import json
-import time
-from dataclasses import dataclass, field
-from typing import Callable
+**Try it**
 
-@dataclass
-class EvalTask:
-    task_id: str
-    instruction: str
-    expected_output: str | None = None
-    check_fn: Callable | None = None  # Custom validator
-    max_steps: int = 20
-    timeout_seconds: float = 120.0
-
-@dataclass
-class EvalResult:
-    task_id: str
-    success: bool
-    steps_taken: int
-    total_tokens: int
-    latency_seconds: float
-    trajectory: list = field(default_factory=list)
-    error: str | None = None
-
-class AgentEvaluator:
-    def __init__(self, agent_factory: Callable):
-        self.agent_factory = agent_factory
-
-    def run_eval(self, tasks: list[EvalTask], n_runs: int = 5) -> dict:
-        all_results = []
-
-        for task in tasks:
-            task_results = []
-            for run_idx in range(n_runs):
-                result = self._run_single(task, run_idx)
-                task_results.append(result)
-            all_results.append((task.task_id, task_results))
-
-        return self._compute_metrics(all_results)
-
-    def _run_single(self, task: EvalTask, run_idx: int) -> EvalResult:
-        agent = self.agent_factory()
-        trajectory = []
-        start = time.time()
-
-        try:
-            response = agent.run(
-                task.instruction,
-                max_steps=task.max_steps,
-                callbacks=[lambda e: trajectory.append(e)]
-            )
-            success = self._check_success(task, response)
-        except Exception as e:
-            success = False
-            response = None
-
-        return EvalResult(
-            task_id=task.task_id,
-            success=success,
-            steps_taken=len(trajectory),
-            total_tokens=sum(t.get("tokens", 0) for t in trajectory),
-            latency_seconds=time.time() - start,
-            trajectory=trajectory,
-            error=str(e) if not success and 'e' in dir() else None,
-        )
-
-    def _check_success(self, task: EvalTask, response) -> bool:
-        if task.check_fn:
-            return task.check_fn(response)
-        if task.expected_output:
-            return task.expected_output.strip() == str(response).strip()
-        return False
-
-    def _compute_metrics(self, all_results) -> dict:
-        metrics = {}
-        for task_id, results in all_results:
-            successes = sum(1 for r in results if r.success)
-            n = len(results)
-            metrics[task_id] = {
-                "pass_rate": successes / n,
-                "mean_steps": sum(r.steps_taken for r in results) / n,
-                "mean_tokens": sum(r.total_tokens for r in results) / n,
-                "mean_latency": sum(r.latency_seconds for r in results) / n,
-                "all_runs": [r.__dict__ for r in results],
-            }
-        return metrics
 ```
-
-Usage with a task suite:
-
-```python
-tasks = [
-    EvalTask(
-        task_id="file_search",
-        instruction="Find all Python files containing 'TODO' and list them.",
-        check_fn=lambda r: "utils.py" in r and "main.py" in r,
-    ),
-    EvalTask(
-        task_id="bug_fix",
-        instruction="Fix the off-by-one error in sort_items().",
-        check_fn=lambda r: run_test_suite("test_sort.py"),
-    ),
-]
-
-evaluator = AgentEvaluator(agent_factory=create_my_agent)
-results = evaluator.run_eval(tasks, n_runs=5)
-
-for task_id, m in results.items():
-    print(f"{task_id}: pass@5={m['pass_rate']:.0%}, "
-          f"avg_steps={m['mean_steps']:.1f}, "
-          f"avg_tokens={m['mean_tokens']:.0f}")
+Using the raw Anthropic SDK, build an AgentEvaluator with EvalTask and EvalResult dataclasses.
+EvalTask holds: task_id, instruction, optional expected_output string, optional check_fn callable, max_steps, timeout.
+EvalResult holds: task_id, success bool, steps_taken, total_tokens, latency_seconds, trajectory list, error string.
+AgentEvaluator.run_eval(tasks, n_runs=5) runs each task n times, collects trajectories via callbacks,
+and returns a dict of pass_rate, mean_steps, mean_tokens, mean_latency per task_id.
+Include inline comments explaining each aggregation step. Make the code runnable end-to-end.
 ```
 
 ## Latest Developments & Research
@@ -261,44 +145,3 @@ Agent evaluation has a deep parallel in **psychometrics**, the science of measur
 - **Floor and ceiling effects**: If all agents score 0% or 100%, the benchmark is uninformative. Good benchmarks spread agents across the difficulty spectrum.
 
 The lesson from a century of psychometrics: measurement is a science, not an afterthought. The same rigor should apply to agent evaluation.
-
-## Daily Challenge
-
-**Exercise: Build a Mini Agent Benchmark**
-
-Create a small evaluation suite (3–5 tasks) for a tool-using agent. Each task should:
-
-1. Have a clear, automatically verifiable success condition
-2. Require at least 2 tool calls to solve
-3. Include one task where the agent must recover from a tool error
-
-Implement it using the `AgentEvaluator` pattern above, and measure:
-- Pass@1 and Pass@3 rates
-- Average step count vs. optimal step count
-- Cost per successful completion
-
-**Stretch goal**: Add an LLM-as-Judge evaluator for one open-ended task (e.g., "Summarize this document") with a rubric covering completeness, accuracy, and conciseness.
-
-## References & Further Reading
-
-### Papers
-- **"SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"** (Jimenez et al., 2024) — The benchmark that defined coding agent evaluation
-- **"GAIA: A Benchmark for General AI Assistants"** (Mialon et al., 2024) — Tests real-world multi-tool question answering
-- **"AgentBench: Evaluating LLMs as Agents"** (Liu et al., 2023) — Multi-environment evaluation across 8 domains
-- **"Let's Verify Step by Step"** (Lightman et al., 2023) — Process supervision over outcome supervision
-- **"MACHIAVELLI: A Benchmark for AI Safety"** (Pan et al., 2023) — Tests deceptive and harmful agent behaviors
-- **"WebArena: A Realistic Web Environment for Building Autonomous Agents"** (Zhou et al., 2024)
-
-### Tools & Frameworks
-- **SWE-bench**: https://github.com/princeton-nlp/SWE-bench
-- **GAIA Benchmark**: https://huggingface.co/gaia-benchmark
-- **Inspect AI** (by UK AISI): https://github.com/UKGovernmentBEIS/inspect_ai — A framework for building agent evaluations
-- **Braintrust**: https://www.braintrust.dev/ — Evaluation and monitoring platform for AI applications
-- **Evalica**: https://github.com/dustalov/evalica — Pairwise comparison evaluation toolkit
-
-### Blog Posts & Resources
-- **"How to Evaluate AI Agents"** (Anthropic, 2024) — Practical evaluation strategies
-- **"The Bitter Lesson of Benchmarks"** (Various, 2024) — Why benchmarks get saturated and what to do about it
-- **"Evaluating LLM-based Agents"** (LangChain blog) — Integrating evaluation into development workflows
-
----

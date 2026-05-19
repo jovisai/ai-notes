@@ -10,12 +10,6 @@ tags: ["AI Agents", "Function Calling", "Tool Use", "LLM", "API"]
 
 When you ask a voice assistant "What's the weather in London?", it doesn't magically know the answer. It recognizes that you want weather data, calls an external API with "London" as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.
 
-## Historical & Theoretical Context
-
-The dream of controlling computers with natural language is as old as AI itself. Early attempts, like Natural Language Interfaces to Databases (NLIDB), tried to map human questions directly to SQL queries. These systems were powerful but brittle, often relying on complex, hand-crafted rules and grammars that were difficult to scale.
-
-The game-changer was the development of Large Language Models that could be specifically fine-tuned to produce reliable, structured output. In 2023, OpenAI standardized this capability with its "Function Calling" feature. Instead of just hoping the model would format its output correctly, developers could now provide a strict schema for the functions they wanted the model to be able to call. The model, in turn, was trained to generate a JSON object matching this schema when it recognized a user's intent to use a tool. This shift from unstructured text parsing to structured data generation made tool use dramatically more reliable and robust.
-
 ## The Mechanics: A Two-Way Conversation
 
 Function calling is not a single action but a multi-step loop between your application and the LLM.
@@ -59,89 +53,16 @@ The key steps are:
 
 ## Practical Application
 
-Here’s a Python example using the `openai` library to illustrate the flow.
+A minimal function-calling implementation centers on three moving parts: a tool schema registry (a list of JSON Schema objects describing each callable), a dispatch loop that inspects the model's response for `tool_use` content blocks, and the actual Python functions that get invoked and return results. The cleanest fit for a standalone demo is the raw Anthropic SDK — no orchestration layer needed — where `anthropic.Anthropic().messages.create()` accepts a `tools` list and returns either a final `text` block or a `tool_use` block naming the function and its arguments. The agent loop calls the model, checks `stop_reason == "tool_use"`, runs the matching local function, appends a `tool_result` message, and calls the model again until it produces a plain text reply. For production use, LangGraph wraps this same loop as a stateful graph with nodes for `call_model` and `call_tools`, making it straightforward to add retries, parallel tool calls, and conversation memory without rewriting the core dispatch logic.
 
-```python
-import openai
-import json
+**Try it**
 
-client = openai.OpenAI(api_key="YOUR_API_KEY")
-
-# Define a dummy function and its schema
-def get_current_weather(location, unit="celsius"):
-    """Get the current weather in a given location."""
-    weather_info = {
-        "location": location,
-        "temperature": "15",
-        "unit": unit,
-        "forecast": ["cloudy", "chance of rain"],
-    }
-    return json.dumps(weather_info)
-
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "name": "get_current_weather",
-            "description": "Get the current weather in a given location",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "location": {
-                        "type": "string",
-                        "description": "The city and state, e.g. San Francisco, CA",
-                    },
-                    "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]},
-                },
-                "required": ["location"],
-            },
-        },
-    }
-]
-
-# Initial call to the model
-messages = [{"role": "user", "content": "What's the weather like in London?"}]
-response = client.chat.completions.create(
-    model="gpt-4-turbo",
-    messages=messages,
-    tools=tools,
-    tool_choice="auto",
-)
-
-response_message = response.choices[0].message
-tool_calls = response_message.tool_calls
-
-# Check if the model wants to call a tool
-if tool_calls:
-    # 4. Execute the function
-    available_functions = {"get_current_weather": get_current_weather}
-    function_name = tool_calls[0].function.name
-    function_to_call = available_functions[function_name]
-    function_args = json.loads(tool_calls[0].function.arguments)
-    
-    function_response = function_to_call(
-        location=function_args.get("location"),
-        unit=function_args.get("unit"),
-    )
-    
-    # 5. Send the result back to the model
-    messages.append(response_message) # Add the assistant's tool request
-    messages.append(
-        {
-            "tool_call_id": tool_calls[0].id,
-            "role": "tool",
-            "name": function_name,
-            "content": function_response,
-        }
-    )
-    
-    second_response = client.chat.completions.create(
-        model="gpt-4-turbo",
-        messages=messages,
-    )
-    
-    # 6. Get the final, user-facing response
-    print(second_response.choices[0].message.content)
+```
+Using the Anthropic Python SDK (anthropic package), build a minimal tool-calling agent loop.
+Define two dummy tools — get_weather(city) and get_time(timezone) — with JSON Schema descriptors.
+The agent should call client.messages.create with the tools list, detect tool_use stop_reason,
+dispatch to the right Python function, append the tool_result, and loop until the model returns
+a final text reply. Keep it under 60 lines with inline comments explaining each step.
 ```
 
 ## Latest Developments & Research
@@ -154,18 +75,3 @@ if tool_calls:
 Function calling is deeply connected to the field of **Linguistics**, specifically **Speech Act Theory**. This theory posits that when we speak, we are not just uttering words (a "locutionary act") but performing actions: making requests, asking questions, issuing commands. The underlying purpose of an utterance is its "illocutionary act."
 
 A function-calling LLM identifies the illocutionary act within a user's prompt. "What's the weather?" is not just a string of words. It is a request for information that maps to a concrete action: calling a weather service.
-
-## Daily Challenge / Thought Exercise
-
-Look at a common app on your phone, like a music streaming service or a food delivery app. Choose one core feature.
-1.  Define it as a function that an AI agent could call. Give it a clear name (e.g., `play_song`, `order_food`).
-2.  Write a one-sentence description for it.
-3.  List the parameters it would need. What is their type (string, number, boolean)? Which ones are required?
-This exercise of creating a tool definition is the first and most important step in building a tool-using agent.
-
-## References & Further Reading
-
-1.  **OpenAI API Documentation on Function Calling:** [https://platform.openai.com/docs/guides/function-calling](https://platform.openai.com/docs/guides/function-calling) (The official guide from the pioneers of the modern approach).
-2.  **LangChain Documentation on Tools:** [https://python.langchain.com/docs/modules/tools/](https://python.langchain.com/docs/modules/tools/) (Shows how to create a standardized tool interface that can be used across many different models).
-3.  **Google AI Blog on Tool Use:** [https://ai.google/discover/llms-tool-use/](https://ai.google/discover/llms-tool-use/) (Provides context on Google's approach with models like Gemini).
----

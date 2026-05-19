@@ -16,13 +16,6 @@
       <description>&lt;h1 id=&#34;part-1-high-level-design&#34;&gt;PART 1: HIGH-LEVEL DESIGN&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-vision--problem-statement&#34;&gt;1. Vision &amp;amp; Problem Statement&lt;/h2&gt;&#xA;&lt;p&gt;Organizations need AI automation across multiple business functions — code review, customer support, QA, documentation, data analysis, and more. Today, each of these is a siloed solution with its own interface, deployment, and learning curve.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;AI Agents Universe&lt;/strong&gt; solves this by providing a single platform where each AI capability is a self-contained, subscription-based plugin. One interface, one orchestrator, unlimited capabilities — added without touching existing code.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Error Recovery and Graceful Degradation in AI Agents</title>
-      <link>https://notes.muthu.co/2026/02/error-recovery-and-graceful-degradation-in-ai-agents/</link>
-      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/error-recovery-and-graceful-degradation-in-ai-agents/</guid>
-      <description>&lt;p&gt;Your AI agent works perfectly in development. Then it hits production: the LLM API times out, a tool returns garbage, the agent hallucinates a function that doesn&amp;rsquo;t exist, and the whole pipeline collapses. What now?&lt;/p&gt;&#xA;&lt;p&gt;Error recovery and graceful degradation are the difference between a demo and a production system. This article covers the patterns, algorithms, and practical techniques that make AI agents resilient.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Error recovery&lt;/strong&gt; means detecting failures and taking corrective action. &lt;strong&gt;Graceful degradation&lt;/strong&gt; means falling back to simpler but still useful behavior when full capability is unavailable. AI agents face cascading failures regularly: API timeouts, hallucinated tool calls, context window overflows, and malformed outputs.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
       <link>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
       <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
@@ -56,55 +49,6 @@
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Emergence and Self-Organization When Simple Rules Create Complex Intelligence</title>
-      <link>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</link>
-      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Emergence and self-organization are fundamental properties of distributed systems where global patterns arise solely from local interactions without external direction. When many simple agents interact following basic rules, the whole system displays behaviors and capabilities that no single agent possesses. These systems exhibit non-linearity, feedback loops, and phase transitions, properties that make them robust, scalable, and adaptive, but also unpredictable and difficult to engineer deterministically.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;h3 id=&#34;from-nature-to-computation-1940s1980s&#34;&gt;From Nature to Computation (1940s–1980s)&lt;/h3&gt;&#xA;&lt;p&gt;The study of emergence has deep roots across multiple disciplines:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Collaborative Problem-Solving in Multi-Agent Systems with the Blackboard Architecture</title>
-      <link>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</link>
-      <pubDate>Fri, 17 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</guid>
-      <description>&lt;p&gt;The &lt;strong&gt;blackboard architecture&lt;/strong&gt; is a design pattern for coordinating multiple AI agents working on problems that require diverse expertise. Each agent contributes partial results to a shared workspace, and a control component decides which agent acts next based on the current state of that workspace.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-blackboard-architecture&#34;&gt;What Is the Blackboard Architecture?&lt;/h2&gt;&#xA;&lt;p&gt;Multiple independent agents, called &lt;strong&gt;knowledge sources&lt;/strong&gt;, collaborate by reading from and writing to a shared workspace (the &lt;strong&gt;blackboard&lt;/strong&gt;). A &lt;strong&gt;control component&lt;/strong&gt; monitors the blackboard, evaluates which knowledge sources are triggered, and schedules their execution.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Auction-Based Task Allocation in Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</link>
-      <pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Auction-based task allocation&lt;/strong&gt; is a distributed coordination mechanism where autonomous agents compete for tasks by submitting bids that reflect their capability, cost, or utility for completing those tasks. An auctioneer (centralized or distributed) collects bids and allocates tasks based on optimization criteria such as lowest cost, highest quality, or fastest completion.&lt;/p&gt;&#xA;&lt;p&gt;Rather than a central planner deciding who does what, each agent evaluates how well-suited it is for a task and submits a bid. The system awards tasks to the best bidders, distributing work efficiently without centralized micromanagement.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Programming Multi-Agent Conversations with AutoGen</title>
-      <link>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;AutoGen&lt;/strong&gt; is a framework for simplifying the orchestration, optimization, and automation of complex LLM workflows. Its central abstraction is the &lt;strong&gt;conversable agent&lt;/strong&gt;: an independent unit that communicates via message passing and can be configured with different LLMs, prompts, and capabilities. Two key specializations are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;code&gt;AssistantAgent&lt;/code&gt;&lt;/strong&gt;: A standard AI agent that uses an LLM to reason, chat, and generate code. It acts as the &amp;ldquo;expert.&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;code&gt;UserProxyAgent&lt;/code&gt;&lt;/strong&gt;: A proxy for a human user. It can solicit human input, but more importantly, it can execute code on behalf of the user. This ability to run code (e.g., in a local Python environment) and report back the results is AutoGen&amp;rsquo;s superpower.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The magic happens when you put them together. A &lt;code&gt;UserProxyAgent&lt;/code&gt; can ask an &lt;code&gt;AssistantAgent&lt;/code&gt; to write a script. The &lt;code&gt;AssistantAgent&lt;/code&gt; sends back the code. The &lt;code&gt;UserProxyAgent&lt;/code&gt; executes it, captures the output (or error), and sends that result back to the &lt;code&gt;AssistantAgent&lt;/code&gt; for the next step. This loop continues until the task is complete.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Solving Complex Problems with AI Agent Swarms</title>
-      <link>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;An &lt;strong&gt;AI Agent Swarm&lt;/strong&gt; is a system composed of a large number of relatively simple, often identical agents working in parallel. Rather than building one monolithic agent or a small team of specialists, the swarm distributes work across many workers simultaneously. The complex, intelligent behavior of the system is an &lt;strong&gt;emergent property&lt;/strong&gt; of their collective actions, not the design of any single member.&lt;/p&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The idea is a direct import from biology, specifically the field of &lt;strong&gt;Swarm Intelligence&lt;/strong&gt;. Researchers in the 1980s and 90s, like Marco Dorigo and James Kennedy, developed computational models inspired by natural swarms. This led to powerful optimization algorithms:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Task Allocation for Machine Teamwork with the Contract Net Protocol</title>
-      <link>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Contract Net Protocol&lt;/strong&gt; is a decentralized method for assigning tasks in a multi-agent system. One agent, the &lt;strong&gt;Manager&lt;/strong&gt; (or Initiator), has a task it needs done and broadcasts a task announcement. Other agents, the &lt;strong&gt;Contractors&lt;/strong&gt; (or Participants), evaluate the announcement and submit a &lt;strong&gt;bid&lt;/strong&gt; if they are capable and available. The Manager then chooses the best bid and awards the contract.&lt;/p&gt;&#xA;&lt;p&gt;This market-like interaction allows a group of agents to self-organize and dynamically distribute work to the most suitable members.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium</title>
-      <link>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Game Theory&lt;/strong&gt; is the mathematical study of strategic decision-making among rational, self-interested agents. It is the standard framework for analyzing how AI agents behave in environments where their goals may conflict or align with others.&lt;/p&gt;&#xA;&lt;p&gt;The central concept is the &lt;strong&gt;Nash Equilibrium&lt;/strong&gt;: a state where no player can improve their outcome by unilaterally changing their strategy, assuming all others hold theirs fixed. It represents a stable outcome, though not always an optimal one.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>

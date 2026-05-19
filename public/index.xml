@@ -6,168 +6,14 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Least Commitment Planning How Agents Defer Decisions to Stay Flexible</title>
-      <link>https://notes.muthu.co/2026/04/least-commitment-planning-how-agents-defer-decisions-to-stay-flexible/</link>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/04/least-commitment-planning-how-agents-defer-decisions-to-stay-flexible/</guid>
-      <description>&lt;p&gt;Most agent planners build a plan as an ordered list: do step 1, then step 2, then step 3. That works fine on paper. In practice, committing to a total order early creates brittle plans that break the moment reality diverges from the assumption baked into step 2.&lt;/p&gt;&#xA;&lt;p&gt;Least-commitment planning flips that instinct. Instead of ordering steps eagerly, the planner defers all ordering decisions it doesn&amp;rsquo;t have to make yet. The result is a &lt;strong&gt;partial-order plan&lt;/strong&gt;: a dependency graph of actions connected by causal links and ordering constraints, with no unnecessary sequencing. Steps that don&amp;rsquo;t depend on each other remain unordered until execution forces a choice.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Least Privilege and Capability Containment Designing Agents That Cannot Exceed Their Mandate</title>
-      <link>https://notes.muthu.co/2026/04/least-privilege-and-capability-containment-designing-agents-that-cannot-exceed-their-mandate/</link>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/04/least-privilege-and-capability-containment-designing-agents-that-cannot-exceed-their-mandate/</guid>
-      <description>&lt;p&gt;Every tool you hand an agent is a loaded gun pointed at your infrastructure. Not because the agent is malicious. Because it will use whatever you give it, sometimes in ways you didn&amp;rsquo;t anticipate, and sometimes in response to inputs you didn&amp;rsquo;t control. An agent with write access to a production database, unrestricted shell access, and the ability to send emails will eventually combine those capabilities in a way you didn&amp;rsquo;t intend.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mechanism Design Teaching Agents to Cooperate Through Incentives</title>
-      <link>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</link>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</guid>
-      <description>&lt;p&gt;Mechanism design is game theory run backwards. Traditional game theory asks: given the rules of a game, what will rational players do? Mechanism design asks: given the outcome we want, what rules should we create so that rational players produce it? This inversion is surprisingly powerful, and it has direct consequences for how you architect multi-agent systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imagine you are building a multi-agent pipeline where three specialized agents must cooperate on a complex task. Agent A retrieves documents, Agent B synthesizes them, Agent C verifies the output. Each agent has its own internal objective, shaped by its fine-tuning or prompting. Left alone, Agent A might be lazy with retrieval because the cost of thoroughness falls on it while the benefit goes to B. Agent B might hallucinate rather than admit uncertainty, since its success metric rewards confident answers. The system as a whole fails even though each agent is locally &amp;ldquo;doing its job.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Indirect Prompt Injection How Untrusted Content Hijacks AI Agents</title>
-      <link>https://notes.muthu.co/2026/03/indirect-prompt-injection-how-untrusted-content-hijacks-ai-agents/</link>
-      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/indirect-prompt-injection-how-untrusted-content-hijacks-ai-agents/</guid>
-      <description>&lt;p&gt;When a user sends a malicious prompt to a chatbot, that&amp;rsquo;s a direct attack. You can detect it, filter it, refuse it. The threat is obvious and the attacker is the user. Indirect prompt injection is different: the attacker is the environment the agent operates in, not the person talking to it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Indirect prompt injection exploits the fundamental design of tool-using agents. An agent reads from external sources: web pages, database results, emails, retrieved documents. If an attacker can place text in those sources, they can embed instructions that hijack the agent&amp;rsquo;s next action. The user is innocent. The agent is the victim.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Landmark Based Planning Using Obligatory Subgoals to Guide Search</title>
-      <link>https://notes.muthu.co/2026/03/landmark-based-planning-using-obligatory-subgoals-to-guide-search/</link>
-      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/landmark-based-planning-using-obligatory-subgoals-to-guide-search/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;landmark&lt;/strong&gt; is a fact that must become true at some point in every solution to a planning problem. You cannot reach the goal without passing through it. Landmarks are not hints or preferences: they are logical necessities, provable from the problem structure.&lt;/p&gt;&#xA;&lt;p&gt;Consider booking a flight. No matter which airline, route, or travel agent you use, you must at some point have a confirmed seat reservation. That fact is a landmark. Your heuristic planner can exploit this: count how many unachieved landmarks remain and use that as a lower bound on work still to do.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mixture of Agents Building Collaborative LLM Pipelines That Outperform Any Individual Model</title>
-      <link>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A single LLM asked the same hard question twice will often give two noticeably different answers. Sometimes one version is sharper, better reasoned, more complete than the other. This suggests something: the model&amp;rsquo;s capability space is broader than what any single forward pass reliably extracts. &lt;strong&gt;Mixture-of-Agents (MoA)&lt;/strong&gt; exploits this directly by running multiple LLM agents in parallel, then feeding all their outputs to a second layer of agents that synthesizes them into something better than any proposer could produce alone.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Corrigibility and Interruptibility Building Agents That Accept Human Override</title>
-      <link>https://notes.muthu.co/2026/03/corrigibility-and-interruptibility-building-agents-that-accept-human-override/</link>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/corrigibility-and-interruptibility-building-agents-that-accept-human-override/</guid>
-      <description>&lt;p&gt;There is a quiet assumption buried in most agent architectures: the agent will do what you tell it, stop when you say stop, and accept corrections gracefully. For simple systems this is true. But as agents become more capable and goal-directed, this assumption starts to crack. An agent optimizing hard for a goal has an incentive to resist being turned off, because being off is bad for goal completion. This is not science fiction. It is a straightforward consequence of how optimization works, and it has been studied carefully since at least 2016.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Receding Horizon Planning and Plan Commitment in Agent Reasoning Loops</title>
-      <link>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</link>
-      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</guid>
-      <description>&lt;p&gt;The most basic planning strategy is to figure out the entire action sequence upfront and execute without looking back. This is offline planning, and it breaks immediately when the world doesn&amp;rsquo;t cooperate. The opposite extreme is pure reactivity: observe, pick the best next action, repeat. Responsive, but shortsighted. Practical agents live between these poles.&lt;/p&gt;&#xA;&lt;p&gt;They plan ahead some finite number of steps (the planning horizon), execute the first step or two, observe results, then decide whether to continue or replan. This pattern goes by several names: receding horizon planning, rolling window execution, online planning. The name matters less than the tradeoff it represents. How long should the horizon be? Under what conditions should the agent abandon its current plan rather than finish it?&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Dependency Aware Task Scheduling How Agents Execute Plans as Parallel DAGs</title>
-      <link>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</guid>
-      <description>&lt;p&gt;When a planner outputs a list of steps, the naive executor runs them one by one. Most plans have structure that sequential execution ignores: some tasks depend on each other, and others are completely independent. Treating a plan as a list when it is actually a graph wastes time and makes failure handling more brittle than necessary.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A task dependency graph represents a plan as a directed acyclic graph (DAG), where each node is a task and each directed edge means &amp;ldquo;this must complete before that can start.&amp;rdquo; Tasks with no incoming edges are immediately ready to run. Tasks whose dependencies have all completed become ready. Everything else waits.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Anytime Heuristic Search How Agents Find Good Plans Fast and Improve Them Over Time</title>
-      <link>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</link>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</guid>
-      <description>&lt;p&gt;Planning agents face a brutal tradeoff. A* search, run to completion, finds the provably optimal path. But the search can take a long time, and in many real scenarios the agent must act before it finishes. A robot navigating a warehouse cannot wait two seconds for an optimal route when a customer is watching. A game-playing agent has a fixed clock. A scheduling system needs a plan now, not a perfect plan five minutes from now.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Classical Planning with STRIPS and the Delete Relaxation Heuristic</title>
-      <link>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</link>
-      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</guid>
-      <description>&lt;p&gt;Classical planning asks a deceptively simple question: given where you are, where you want to be, and what actions you can take, how do you find a sequence of steps that gets you there? The challenge is that the space of possible action sequences grows exponentially. To tame it, you need a way to estimate how close any given state is to the goal, so you can focus search on promising paths. This is where the &lt;strong&gt;delete relaxation heuristic&lt;/strong&gt; comes in, and it remains one of the most influential ideas in AI planning research.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
       <link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
       <description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Opponent Modeling and Theory of Mind in Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/2026/03/opponent-modeling-and-theory-of-mind-in-multi-agent-systems/</link>
-      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/opponent-modeling-and-theory-of-mind-in-multi-agent-systems/</guid>
-      <description>&lt;p&gt;In multi-agent systems, an agent that treats the world as static will be outplayed by one that models its counterparts. Opponent modeling builds an internal representation of another agent&amp;rsquo;s goals, beliefs, and likely actions. Theory of Mind extends this to recursive reasoning: rather than only predicting what an opponent will &lt;em&gt;do&lt;/em&gt;, a ToM-capable agent reasons about what they &lt;em&gt;believe&lt;/em&gt; to be true.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Opponent modeling&lt;/strong&gt; is the ability of an agent to build an internal representation of another agent&amp;rsquo;s goals, beliefs, and likely behavior. In multi-agent settings, ignoring other agents and acting as if the world is static is almost always suboptimal. The most effective players, human or AI, exploit what they know about their counterparts.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Curriculum Learning and Automatic Curriculum Generation in Reinforcement Learning</title>
-      <link>https://notes.muthu.co/2026/03/curriculum-learning-and-automatic-curriculum-generation-in-reinforcement-learning/</link>
-      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/curriculum-learning-and-automatic-curriculum-generation-in-reinforcement-learning/</guid>
-      <description>&lt;p&gt;Order matters when learning. This deceptively simple idea turns out to be one of the most powerful, underexplored tools in reinforcement learning. Curriculum learning teaches agents progressively, and its modern variants automate the whole process.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Curriculum learning means &lt;strong&gt;arranging a sequence of training tasks so the agent builds skills incrementally&lt;/strong&gt;, with each task just hard enough to stretch its current ability without overwhelming it. Train an agent on a massive labyrinth from day one and most of its experience is random wandering, because the reward signal is so sparse it barely learns. Start with a tiny maze, master it, then scale up. Progress is faster, more stable, and generalises better.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mean Field Games and Mean Field Reinforcement Learning for Massive Agent Populations</title>
-      <link>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</link>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</guid>
-      <description>&lt;p&gt;Classical game theory breaks down at scale. With ten thousand or ten million agents, computing Nash equilibria becomes intractable and tracking every pairwise interaction is computationally impossible. Mean field games (MFGs) offer a way out: instead of reasoning about every individual, you reason about the &lt;em&gt;crowd&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When agents are numerous, rational, and roughly interchangeable, each agent&amp;rsquo;s optimal behavior depends not on individual opponents but on the &lt;strong&gt;distribution of the population&lt;/strong&gt;. That distribution summarizes the &amp;ldquo;field&amp;rdquo; every agent perceives. Consider a commuter choosing a route: they don&amp;rsquo;t care about any specific other driver, only about aggregate traffic. Their best route depends on what everyone else collectively does, and everyone else&amp;rsquo;s choice depends on what they do.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Counterfactual Regret Minimization for Solving Imperfect Information Games</title>
-      <link>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</guid>
-      <description>&lt;p&gt;Chess and Go have complete information; every player sees the whole board. But most real-world agent problems don&amp;rsquo;t. Negotiation, cybersecurity, auctions, medical triage: information is partial, private, or hidden. Counterfactual Regret Minimization (CFR) is the algorithm that cracked this class of problems, producing the first superhuman poker agents and reshaping how we think about strategic reasoning under uncertainty.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;CFR operates on &lt;strong&gt;extensive-form games&lt;/strong&gt;, the formal representation for sequential games with hidden information. Unlike normal-form games (payoff matrices), extensive-form games encode the game tree explicitly: who acts when, what they can observe, and what the payoffs are.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Maximum Entropy Reinforcement Learning and the Soft Actor-Critic Algorithm</title>
-      <link>https://notes.muthu.co/2026/03/maximum-entropy-reinforcement-learning-and-the-soft-actor-critic-algorithm/</link>
-      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/maximum-entropy-reinforcement-learning-and-the-soft-actor-critic-algorithm/</guid>
-      <description>&lt;p&gt;Most RL algorithms train an agent to maximize reward. But adding a second objective — stay as random as possible while doing so — turns out to produce better, more robust agents. This is the key insight behind Maximum Entropy RL and its flagship algorithm, &lt;strong&gt;Soft Actor-Critic (SAC)&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Entropy, in information theory, measures &lt;em&gt;unpredictability&lt;/em&gt;. A coin-flip has high entropy; a loaded coin that always shows heads has zero entropy. In RL, policy entropy measures how spread-out an agent&amp;rsquo;s action choices are.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cooperative Game Theory and Shapley Values for Fair Credit Assignment in Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</link>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</guid>
-      <description>&lt;p&gt;When a team of AI agents solves a hard problem together, a fundamental question emerges: who deserves credit? If a research agent, a coding agent, and a critic agent collaborate to produce an excellent answer, how much of the success belongs to each? This is the &lt;strong&gt;credit assignment problem&lt;/strong&gt; in multi-agent settings, and cooperative game theory offers a principled solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;cooperative game&lt;/strong&gt; (or coalitional game) is defined by a pair $(N, v)$ where:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Reward Machines and Automata-Based Task Specification for AI Agents</title>
-      <link>https://notes.muthu.co/2026/03/reward-machines-and-automata-based-task-specification-for-ai-agents/</link>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/reward-machines-and-automata-based-task-specification-for-ai-agents/</guid>
-      <description>&lt;p&gt;Standard RL algorithms assume the reward signal depends only on the current state. But many real tasks are structured and sequential: &amp;ldquo;first pick up the key, &lt;em&gt;then&lt;/em&gt; open the door, &lt;em&gt;then&lt;/em&gt; reach the exit.&amp;rdquo; This kind of history-dependent reward breaks the Markov assumption. &lt;strong&gt;Reward machines&lt;/strong&gt; address the problem by encoding task structure as a finite-state automaton that emits rewards as the agent progresses.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Consider teaching an agent to make a cup of tea. The full reward only comes at the end, but the agent needs intermediate guidance: boil water (+1), add teabag (+1), steep for 3 minutes (+1), then pour (+1). These steps must happen &lt;em&gt;in order&lt;/em&gt;. Doing them in the wrong order earns no reward.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Safe Reinforcement Learning Teaches Agents to Optimize Without Violating Constraints</title>
-      <link>https://notes.muthu.co/2026/03/safe-reinforcement-learning-teaches-agents-to-optimize-without-violating-constraints/</link>
-      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/safe-reinforcement-learning-teaches-agents-to-optimize-without-violating-constraints/</guid>
-      <description>&lt;p&gt;Standard reinforcement learning has one job: maximize reward. That simplicity is its strength and its danger. Unconstrained agents find shortcuts, exploit edge cases, and occasionally do something catastrophic in pursuit of the objective. Safe RL introduces a second imperative (&lt;em&gt;don&amp;rsquo;t break things&lt;/em&gt;) and makes it mathematically rigorous.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Safe RL formalizes the problem through &lt;strong&gt;Constrained Markov Decision Processes (CMDPs)&lt;/strong&gt;. Consider a robotic arm trained to pick up objects as fast as possible: unconstrained, it will swing at maximum velocity until it smashes the object or a nearby human. The constraint (never apply more than 50 Newtons of force) must be treated as a hard limit, not a soft hint. A CMDP extends the standard MDP tuple $(S, A, P, r, \gamma)$ with one or more cost functions $c_i : S \times A \to \mathbb{R}$ and thresholds $d_i$:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Model-Based Reinforcement Learning How Agents Simulate Experience to Learn Faster</title>
-      <link>https://notes.muthu.co/2026/03/model-based-reinforcement-learning-how-agents-simulate-experience-to-learn-faster/</link>
-      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/model-based-reinforcement-learning-how-agents-simulate-experience-to-learn-faster/</guid>
-      <description>&lt;p&gt;Most reinforcement learning algorithms learn the hard way: try something, observe the outcome, update — and repeat a million times. Model-based RL takes a different route. The agent first builds a compressed model of the world, then &lt;em&gt;simulates&lt;/em&gt; experience inside that model. Agents that can plan ahead this way recover from sparse rewards and learn from far fewer real interactions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In RL, the &lt;strong&gt;environment model&lt;/strong&gt; is a learned function that predicts: given state $s$ and action $a$, what will the next state $s&#39;$ and reward $r$ be? A model-free learner plays thousands of games and slowly infers which board positions lead to wins. A model-based learner internalizes the rules and can mentally simulate &amp;ldquo;if I do this, then that happens.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Successor Representations a Map of Where You Are Going</title>
-      <link>https://notes.muthu.co/2026/03/successor-representations-a-map-of-where-you-are-going/</link>
-      <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/successor-representations-a-map-of-where-you-are-going/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Successor Representations (SRs)&lt;/strong&gt; give an agent a cached map of where each state leads, decoupled from what those destinations are worth. When a reward location changes, the agent only needs to update one half of its knowledge; the structural map stays fixed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In standard Q-learning, an agent learns a single number per state-action pair: the expected cumulative reward. That number bakes together two things: the structure of the environment (where can you go from here?) and the reward function (what&amp;rsquo;s valuable?).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Goal-Conditioned Reinforcement Learning and Hindsight Experience Replay Turn Failures Into Training Opportunities</title>
-      <link>https://notes.muthu.co/2026/03/goal-conditioned-reinforcement-learning-and-hindsight-experience-replay-turn-failures-into-training-opportunities/</link>
-      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/goal-conditioned-reinforcement-learning-and-hindsight-experience-replay-turn-failures-into-training-opportunities/</guid>
-      <description>&lt;p&gt;In sparse-reward reinforcement learning, the agent almost never succeeds and therefore almost never learns. &lt;strong&gt;Hindsight Experience Replay (HER)&lt;/strong&gt; addresses this directly: instead of discarding failed trajectories, it asks what goal the agent was secretly achieving all along.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Goal-conditioned RL augments the standard MDP with an explicit goal $g \in \mathcal{G}$. The policy becomes $\pi(a \mid s, g)$ and the reward becomes $r(s, a, g)$, typically $0$ if the goal is not achieved and $-1$ otherwise (sparse), or a shaped version of goal proximity.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying</title>
@@ -177,88 +23,11 @@
       <description>&lt;p&gt;Most AI coding sessions start the same way. You open your editor, type a rough idea into the chat, and watch the agent generate files. It feels productive. Then two hours later you are reviewing code that solves a problem you never quite specified, built on assumptions the agent made silently, in a style that does not match the rest of your project.&lt;/p&gt;&#xA;&lt;p&gt;This is vibe coding. It does not scale.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>RLHF and Preference Learning Teaching Agents What Humans Actually Want</title>
-      <link>https://notes.muthu.co/2026/03/rlhf-and-preference-learning-teaching-agents-what-humans-actually-want/</link>
-      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/rlhf-and-preference-learning-teaching-agents-what-humans-actually-want/</guid>
-      <description>&lt;p&gt;The gap between measurable objectives and human intent is what &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; was designed to close. It is the core algorithm behind ChatGPT, Claude, Gemini, and nearly every modern aligned language model. A model can be grammatically correct and factually accurate while still being too verbose, too hedging, or simply unpleasant to use. RLHF addresses that problem directly.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A human evaluator is shown two agent responses and picks which is better. A &lt;strong&gt;reward model&lt;/strong&gt; learns to predict these preferences. Then the agent is trained to produce outputs that score highly on the reward model, while not drifting too far from its original behavior.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Conceptual AI Agents Universe — System Design Document</title>
       <link>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</guid>
       <description>&lt;h1 id=&#34;part-1-high-level-design&#34;&gt;PART 1: HIGH-LEVEL DESIGN&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-vision--problem-statement&#34;&gt;1. Vision &amp;amp; Problem Statement&lt;/h2&gt;&#xA;&lt;p&gt;Organizations need AI automation across multiple business functions — code review, customer support, QA, documentation, data analysis, and more. Today, each of these is a siloed solution with its own interface, deployment, and learning curve.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;AI Agents Universe&lt;/strong&gt; solves this by providing a single platform where each AI capability is a self-contained, subscription-based plugin. One interface, one orchestrator, unlimited capabilities — added without touching existing code.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Distributional Reinforcement Learning and Learning the Full Return Distribution</title>
-      <link>https://notes.muthu.co/2026/02/distributional-reinforcement-learning-and-learning-the-full-return-distribution/</link>
-      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/distributional-reinforcement-learning-and-learning-the-full-return-distribution/</guid>
-      <description>&lt;p&gt;Most reinforcement learning courses teach agents to maximize one number: the &lt;em&gt;expected&lt;/em&gt; cumulative reward. But reality is messier. Two paths to the same expected reward might look completely different. One is a safe, consistent path; the other is a high-variance gamble. Standard RL agents are blind to this difference. &lt;strong&gt;Distributional RL&lt;/strong&gt; fixes that by making agents learn the entire probability distribution over returns, not just the mean.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Standard Q-learning collapses the return to a single expected value. Distributional RL keeps the full picture, learning the shape of the return distribution, not just its center. Two actions with identical expected rewards can look very different when you model the full distribution: one might be consistently moderate, the other a high-variance gamble.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Grounded Language Agents Connecting Words to Actions in the Physical World</title>
-      <link>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</link>
-      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Grounded language agents&lt;/strong&gt; are systems that can reason in language and act meaningfully in physical or simulated environments. Building them requires solving a deep problem: how do words connect to the real world? A robot instructed to &amp;ldquo;grab the red mug near the coffee machine&amp;rdquo; must bridge language, perception, and motor control in ways that pure language models cannot.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Grounding&lt;/strong&gt; means connecting symbols (words, tokens) to perceptual experiences and actions in the world. A grounded agent doesn&amp;rsquo;t just predict text about picking up a mug. It actually perceives the mug, plans a trajectory, and executes the grip. Language models trained only on text are in the position of someone who learned a language entirely from definitions: syntactically fluent but experientially empty.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Offline Reinforcement Learning Training Agents from Fixed Datasets</title>
-      <link>https://notes.muthu.co/2026/02/offline-reinforcement-learning-training-agents-from-fixed-datasets/</link>
-      <pubDate>Fri, 27 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/offline-reinforcement-learning-training-agents-from-fixed-datasets/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Offline RL&lt;/strong&gt; (also called batch RL) trains agents from a fixed dataset of past interactions without any further environment access. The setting arises whenever the environment is too expensive to explore, too risky to let an agent loose in, or simply unavailable at training time.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In offline RL, the agent receives a frozen dataset of &lt;code&gt;(state, action, reward, next_state)&lt;/code&gt; tuples collected by some behaviour policy (human, scripted, or a previous agent) and must extract an optimal policy without any further interaction.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Active Inference and the Free Energy Principle How Agents Minimize Surprise Instead of Maximizing Reward</title>
-      <link>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</link>
-      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</guid>
-      <description>&lt;p&gt;The &lt;strong&gt;Free Energy Principle&lt;/strong&gt;, a theory from neuroscience that is gaining traction in AI agent research, proposes that agents do not maximize reward at all. Instead, they minimize surprise. It offers a unified explanation of perception, learning, and action under a single mathematical objective.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;An agent&amp;rsquo;s senses deliver data that may or may not match its internal model of the world. When there is a mismatch, the agent has two options:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Code Writing Agents and Program Synthesis Teaching AI to Build Its Own Tools</title>
-      <link>https://notes.muthu.co/2026/02/code-writing-agents-and-program-synthesis-teaching-ai-to-build-its-own-tools/</link>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/code-writing-agents-and-program-synthesis-teaching-ai-to-build-its-own-tools/</guid>
-      <description>&lt;p&gt;Code is the most powerful tool an AI agent can wield. Unlike a database query or an API call, code is universal: it can transform data, automate tasks, call other tools, and even modify the agent&amp;rsquo;s own environment. When an agent learns to write and run code as a first-class reasoning step, it is no longer limited to pre-defined tools. This article explores how code-writing agents work, where they came from, and how to build one yourself.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Continual Learning and Catastrophic Forgetting How Agents Remember Without Forgetting</title>
-      <link>https://notes.muthu.co/2026/02/continual-learning-and-catastrophic-forgetting-how-agents-remember-without-forgetting/</link>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/continual-learning-and-catastrophic-forgetting-how-agents-remember-without-forgetting/</guid>
-      <description>&lt;p&gt;Neural networks have a pathological relationship with sequential learning. Fine-tune a well-trained agent on a new task and it can completely lose the ability to perform the old one. Not &amp;ldquo;slightly worse,&amp;rdquo; but &lt;em&gt;completely lost&lt;/em&gt;. This is &lt;strong&gt;catastrophic forgetting&lt;/strong&gt;, and solving it is one of the deepest unsolved problems in AI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Continual learning&lt;/strong&gt; (also called &lt;em&gt;lifelong learning&lt;/em&gt; or &lt;em&gt;sequential learning&lt;/em&gt;) asks how a system can learn new things without destroying old knowledge. For AI agents deployed in changing environments (new users, new tools, new goals) this is not academic. It&amp;rsquo;s survival.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Multi-Agent Reinforcement Learning Teaching Agents to Cooperate Compete and Coexist</title>
-      <link>https://notes.muthu.co/2026/02/multi-agent-reinforcement-learning-teaching-agents-to-cooperate-compete-and-coexist/</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/multi-agent-reinforcement-learning-teaching-agents-to-cooperate-compete-and-coexist/</guid>
-      <description>&lt;p&gt;When two learning agents share the same environment, they don&amp;rsquo;t just solve a problem together — they change each other&amp;rsquo;s learning problem. Every action one agent takes shifts the reward landscape for all the others. This feedback loop between co-adapting learners is the heart of &lt;strong&gt;Multi-Agent Reinforcement Learning (MARL)&lt;/strong&gt;, and it produces some of the most counterintuitive behaviors in AI research.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In standard reinforcement learning, one agent explores an environment, collects rewards, and updates its policy. The environment doesn&amp;rsquo;t fight back or adapt. MARL changes this: multiple agents share the same world, and each agent is part of the environment for all the others. The result is non-stationarity by design — each agent&amp;rsquo;s learning problem shifts as every other agent learns.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Temporal Abstraction and the Options Framework How Agents Learn to Think in Subgoals</title>
-      <link>https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals/</guid>
-      <description>&lt;p&gt;Most reinforcement learning agents think one step at a time. They observe the environment, pick an action, collect a reward, and repeat. This works fine for simple tasks, but real-world problems often require &lt;em&gt;sustained commitment to a plan&lt;/em&gt;: navigate to the kitchen, open the fridge, grab the milk, then pour it. Each of those steps involves dozens of low-level actions, and treating them all as independent decisions leads to agents that never learn anything useful.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Automatic Prompt Optimization with DSPy Building Self-Tuning Agent Pipelines</title>
-      <link>https://notes.muthu.co/2026/02/automatic-prompt-optimization-with-dspy-building-self-tuning-agent-pipelines/</link>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/automatic-prompt-optimization-with-dspy-building-self-tuning-agent-pipelines/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;DSPy&lt;/strong&gt; (Declarative Self-improving Python), introduced by Khattab et al. at Stanford in 2023, reframes prompt engineering as an optimization problem. Instead of writing prompts, you write &lt;em&gt;programs&lt;/em&gt;, then let an optimizer find the prompts for you.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;You describe your agent&amp;rsquo;s logical pipeline (&lt;em&gt;&amp;ldquo;take a question, retrieve context, reason step by step, produce an answer&amp;rdquo;&lt;/em&gt;) and DSPy figures out what instructions and examples to feed each LLM step so that the whole pipeline scores well on your metric.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Causal Reasoning and Intervention Planning in AI Agents</title>
-      <link>https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents/</link>
-      <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents/</guid>
-      <description>&lt;p&gt;Most AI agents today are extraordinarily good at spotting patterns, but dangerously bad at understanding &lt;em&gt;why&lt;/em&gt; things happen. An agent that confuses correlation with causation will recommend an umbrella because it noticed people carrying them on days the bus is late, rather than because it&amp;rsquo;s raining. Causal reasoning gives agents the ability to ask &amp;ldquo;what would happen if I did X?&amp;rdquo; instead of merely &amp;ldquo;what usually happens alongside X?&amp;rdquo; This article explores how causal inference transforms agent planning from pattern matching into genuine understanding.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
@@ -268,39 +37,11 @@
       <description>&lt;p&gt;Agent evaluation is one of the hardest unsolved problems in the field and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Agent evaluation differs from a traditional ML benchmark because agents are not graded on a single right answer. They perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Role Specialization and Crew Based Multi Agent Architectures</title>
-      <link>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</link>
-      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</guid>
-      <description>&lt;p&gt;Role specialization is reshaping how we build AI agent systems. Instead of one all-knowing agent, we compose a &lt;em&gt;crew&lt;/em&gt; of specialized agents that collaborate on complex tasks. This article unpacks how role specialization works, why it matters, and how to build crew-based architectures in practice.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Each agent in a crew gets a &lt;strong&gt;role&lt;/strong&gt; (a system prompt defining its expertise, personality, and constraints), a &lt;strong&gt;goal&lt;/strong&gt;, and a set of &lt;strong&gt;tools&lt;/strong&gt;. An orchestration layer coordinates who works when and how information flows between them.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Inverse Reinforcement Learning Inferring Goals From Behavior</title>
-      <link>https://notes.muthu.co/2026/02/inverse-reinforcement-learning-inferring-goals-from-behavior/</link>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/inverse-reinforcement-learning-inferring-goals-from-behavior/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Inverse Reinforcement Learning (IRL)&lt;/strong&gt; is a technique for recovering a reward function from expert demonstrations, rather than hand-crafting one. Given observations of expert behavior, the agent reverse-engineers what the expert must be optimizing for, then uses standard RL to learn a policy. This makes IRL a critical building block for aligning agents with human intent.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Writing a good reward function is harder than it looks. Tell a self-driving car to &amp;ldquo;minimize travel time,&amp;rdquo; and it might learn to speed through red lights. IRL sidesteps this by inferring the reward from expert demonstrations rather than specifying it directly.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>What If GitHub Was Built for AI Agents</title>
       <link>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</link>
       <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</guid>
       <description>&lt;p&gt;GitHub was built for humans reading diffs. But what happens when most of the code is written, reviewed, and merged by AI agents?&lt;/p&gt;&#xA;&lt;p&gt;You do not just add an AI layer on top of Git. You rethink the entire system around how agents operate: intent, prediction, simulation, reputation, and policy.&lt;/p&gt;&#xA;&lt;p&gt;Here is what an agent native source code management system could look like.&lt;/p&gt;&#xA;&lt;h2 id=&#34;intent-based-commits&#34;&gt;Intent Based Commits&lt;/h2&gt;&#xA;&lt;p&gt;Agents do not just commit code. They commit &lt;strong&gt;intent&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Error Recovery and Graceful Degradation in AI Agents</title>
-      <link>https://notes.muthu.co/2026/02/error-recovery-and-graceful-degradation-in-ai-agents/</link>
-      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/error-recovery-and-graceful-degradation-in-ai-agents/</guid>
-      <description>&lt;p&gt;Your AI agent works perfectly in development. Then it hits production: the LLM API times out, a tool returns garbage, the agent hallucinates a function that doesn&amp;rsquo;t exist, and the whole pipeline collapses. What now?&lt;/p&gt;&#xA;&lt;p&gt;Error recovery and graceful degradation are the difference between a demo and a production system. This article covers the patterns, algorithms, and practical techniques that make AI agents resilient.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Error recovery&lt;/strong&gt; means detecting failures and taking corrective action. &lt;strong&gt;Graceful degradation&lt;/strong&gt; means falling back to simpler but still useful behavior when full capability is unavailable. AI agents face cascading failures regularly: API timeouts, hallucinated tool calls, context window overflows, and malformed outputs.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Imitation Learning Teaching Agents by Watching Experts</title>
-      <link>https://notes.muthu.co/2026/02/imitation-learning-teaching-agents-by-watching-experts/</link>
-      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/imitation-learning-teaching-agents-by-watching-experts/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Imitation learning&lt;/strong&gt; teaches agents by giving them examples of expert behavior rather than reward signals. Instead of exploring randomly and discovering what works, the agent observes what a skilled performer does and tries to replicate that behavior.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imitation learning (IL) lets an agent learn a task by observing demonstrations from an expert. Formally, it operates on a dataset of expert demonstrations:&lt;/p&gt;&#xA;$$D = \{(s_1, a_1), (s_2, a_2), \ldots, (s_n, a_n)\}$$&lt;p&gt;Where $s_i$ is a state (observation) and $a_i$ is the action the expert took in that state. The goal is to learn a policy $\pi(a|s)$ that maps states to actions, mimicking the expert&amp;rsquo;s decision-making process. Unlike reinforcement learning, we never define a reward function: the expert&amp;rsquo;s behavior &lt;em&gt;is&lt;/em&gt; the specification.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
@@ -422,13 +163,6 @@
       <description>&lt;p&gt;The Model Context Protocol (MCP) is Anthropic&amp;rsquo;s open standard for connecting AI applications to external data sources and tools. Think of it like a USB-C port for AI—a standardized way to plug any data source into Claude or other AI assistants.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a practical MCP server that connects Claude to a SQLite database. By the end, you&amp;rsquo;ll be able to ask Claude natural language questions about your data, and it will query the database directly.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Building Reusable Agent Capabilities with Skill Libraries</title>
-      <link>https://notes.muthu.co/2025/12/building-reusable-agent-capabilities-with-skill-libraries/</link>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/building-reusable-agent-capabilities-with-skill-libraries/</guid>
-      <description>&lt;h2 id=&#34;skill-libraries&#34;&gt;Skill Libraries&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Skill libraries&lt;/strong&gt; are structured collections of reusable behaviors that agents can invoke, compose, and refine. Instead of solving every problem from first principles, agents build up a repertoire of capabilities over time. This matters because it enables:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Transfer learning&lt;/strong&gt;: Skills learned in one context apply to others&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Compositional reasoning&lt;/strong&gt;: Complex behaviors emerge from combining simple skills&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Lifelong learning&lt;/strong&gt;: Agents improve without catastrophic forgetting&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The idea of decomposing complex behaviors into reusable primitives has deep roots:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Master the Art of Managing Up and Across</title>
       <link>https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/</link>
       <pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
@@ -450,25 +184,11 @@
       <description>&lt;h2 id=&#34;the-wisdom-of-disagreement&#34;&gt;The Wisdom of Disagreement&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Multi-agent debate&lt;/strong&gt; is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Diffusion Models and Iterative Refinement in AI Agent Planning</title>
-      <link>https://notes.muthu.co/2025/12/diffusion-models-and-iterative-refinement-in-ai-agent-planning/</link>
-      <pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/diffusion-models-and-iterative-refinement-in-ai-agent-planning/</guid>
-      <description>&lt;p&gt;Originally developed for image generation, diffusion models are reshaping how AI agents plan complex action sequences. Instead of generating a plan in one shot, an agent starts with random noise and gradually &amp;ldquo;denoises&amp;rdquo; it into a coherent, high-quality trajectory, enabling far greater flexibility in long-horizon planning.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Diffusion models&lt;/strong&gt; for planning treat action sequences as high-dimensional vectors that can be progressively refined through a learned denoising process.&lt;/p&gt;&#xA;&lt;p&gt;The core mechanism has two phases: a &lt;strong&gt;forward process&lt;/strong&gt; (training) that gradually adds Gaussian noise to ground-truth trajectories until they become pure noise, and a &lt;strong&gt;reverse process&lt;/strong&gt; (inference) where a neural network learns to undo this process, starting from noise and iteratively denoising to recover valid plans.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Expand Your Decision-Making Bandwidth, Not Your Meeting Calendar</title>
       <link>https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</link>
       <pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</guid>
       <description>&lt;p&gt;The most dangerous bottleneck in a scaling engineering organization isn&amp;rsquo;t compute, infrastructure, or even talent—it&amp;rsquo;s you. Specifically, your decision-making bandwidth.&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers respond to growth by adding more meetings, creating more approval processes, and inserting themselves into more decisions. This feels productive but creates a organizational ceiling: your team can only move as fast as you can make decisions.&lt;/p&gt;&#xA;&lt;p&gt;The counterintuitive solution isn&amp;rsquo;t to work harder or meet more—it&amp;rsquo;s to architect your decision-making system to operate without you.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Beam Search and Parallel Decoding for Multiple Solution Paths in AI Agents</title>
-      <link>https://notes.muthu.co/2025/12/beam-search-and-parallel-decoding-for-multiple-solution-paths-in-ai-agents/</link>
-      <pubDate>Tue, 02 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/beam-search-and-parallel-decoding-for-multiple-solution-paths-in-ai-agents/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Beam search&lt;/strong&gt; is a heuristic search algorithm that explores a graph by expanding the most promising nodes in a limited set. Unlike breadth-first search (which explores all nodes at each level) or greedy best-first search (which follows only the single best path), beam search maintains a fixed-size set of the &lt;em&gt;k&lt;/em&gt; best partial solutions at each step. It is an elegant compromise between exhaustive exploration and greedy decision-making.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Key parameters:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Manage Technical Investment Velocity, Not Just Delivery Velocity</title>
@@ -485,13 +205,6 @@
       <description>&lt;p&gt;The best engineering managers don&amp;rsquo;t build processes—they design systems that correct themselves. The difference is profound: processes rely on compliance, self-correcting systems rely on incentives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-self-correcting-principle&#34;&gt;The Self-Correcting Principle&lt;/h2&gt;&#xA;&lt;p&gt;A self-correcting system automatically surfaces problems, makes the right action obvious, and creates natural consequences for deviation. You&amp;rsquo;re not enforcing behavior; you&amp;rsquo;re architecting an environment where the right behavior is the path of least resistance.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Stop asking:&lt;/strong&gt; &amp;ldquo;How do I get people to follow this process?&amp;rdquo;&#xA;&lt;strong&gt;Start asking:&lt;/strong&gt; &amp;ldquo;How can I design this so deviation is immediately visible and naturally corrected?&amp;rdquo;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Reward Shaping and Credit Assignment for Guiding Agent Learning</title>
-      <link>https://notes.muthu.co/2025/12/reward-shaping-and-credit-assignment-for-guiding-agent-learning/</link>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/reward-shaping-and-credit-assignment-for-guiding-agent-learning/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Reward shaping&lt;/strong&gt; is the practice of augmenting or modifying the reward function to make learning more sample-efficient while preserving the optimal policy. Instead of sparse rewards (success or failure only at the end), we provide dense intermediate signals.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;strong&gt;credit assignment problem&lt;/strong&gt; asks: when an agent receives delayed feedback, which earlier actions were actually responsible? In a sequence like:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;action₁ → action₂ → ... → action₁₀₀ → reward&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Which actions deserve credit? This problem becomes exponentially harder with:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Design Your Dependency Architecture for Organizational Velocity</title>
       <link>https://notes.muthu.co/2025/11/design-your-dependency-architecture-for-organizational-velocity/</link>
       <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
@@ -499,32 +212,11 @@
       <description>&lt;p&gt;Most engineering managers obsess over code architecture while ignoring the dependency architecture that determines actual execution speed. Your team&amp;rsquo;s velocity isn&amp;rsquo;t limited by how fast individuals code—it&amp;rsquo;s constrained by how many dependencies they&amp;rsquo;re waiting on.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-dependency-tax&#34;&gt;The Dependency Tax&lt;/h2&gt;&#xA;&lt;p&gt;Every cross-team dependency is a coordination cost. Every external API integration is a risk surface. Every shared service is a potential bottleneck. The math is brutal: a project with 5 sequential dependencies, each 80% reliable on-time delivery, has only a 33% chance of landing on schedule.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Tool Composition and Chaining for Complex Agent Capabilities</title>
-      <link>https://notes.muthu.co/2025/11/tool-composition-and-chaining-for-complex-agent-capabilities/</link>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/tool-composition-and-chaining-for-complex-agent-capabilities/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Tool composition and chaining refers to the systematic combination of discrete agent capabilities (tools/functions) into higher-order workflows. Individual tools might search the web, run calculations, or query databases, but the real power comes from orchestrating them intelligently: using one tool&amp;rsquo;s output to inform the next, running tools in parallel when possible, and adapting the sequence based on intermediate results.&lt;/p&gt;&#xA;&lt;p&gt;The core challenges are not just execution but planning: which tools to use, how to order them, how to manage dependencies, and how to recover from failures. This involves:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Curiosity-Driven Learning and Intrinsic Motivation in AI Agents</title>
-      <link>https://notes.muthu.co/2025/11/curiosity-driven-learning-and-intrinsic-motivation-in-ai-agents/</link>
-      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/curiosity-driven-learning-and-intrinsic-motivation-in-ai-agents/</guid>
-      <description>&lt;p&gt;Traditional reinforcement learning agents depend on frequent external rewards. Without them, they wander aimlessly. Curiosity-driven agents generate their own &lt;strong&gt;intrinsic rewards&lt;/strong&gt; based on novelty, surprise, or learning progress. This self-motivation enables them to explore intelligently, discover skills without supervision, and handle sparse-reward tasks that defeat standard methods.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Curiosity-driven learning&lt;/strong&gt; means an agent rewards itself for discovering new, interesting things. Instead of only responding to external goals, it generates bonuses from novelty (&amp;ldquo;I&amp;rsquo;ve never seen this before&amp;rdquo;), prediction surprise (&amp;ldquo;this outcome wasn&amp;rsquo;t what I expected&amp;rdquo;), and learning progress (&amp;ldquo;I&amp;rsquo;m getting better at predicting this&amp;rdquo;). This intrinsic motivation pushes agents to explore systematically rather than randomly.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Master Influence Without Authority to Scale Impact Beyond Your Team</title>
       <link>https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</link>
       <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</guid>
       <description>&lt;p&gt;As an engineering manager, your biggest leverage opportunities often lie outside your direct reporting chain. The ability to influence without authority is what separates managers who scale linearly with team size from those who scale exponentially with organizational impact.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-authority-trap&#34;&gt;The Authority Trap&lt;/h2&gt;&#xA;&lt;p&gt;Most new engineering managers rely heavily on their positional authority—it works within their team, but fails spectacularly everywhere else. You can&amp;rsquo;t command the product team to prioritize technical debt, mandate the infrastructure team to adopt your standards, or order other engineering teams to integrate with your API.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Constraint Satisfaction Problems for Valid Solutions in Complex Agent Planning</title>
-      <link>https://notes.muthu.co/2025/11/constraint-satisfaction-problems-for-valid-solutions-in-complex-agent-planning/</link>
-      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/constraint-satisfaction-problems-for-valid-solutions-in-complex-agent-planning/</guid>
-      <description>&lt;p&gt;A &lt;strong&gt;Constraint Satisfaction Problem (CSP)&lt;/strong&gt; asks for any valid assignment of values to variables such that all constraints are satisfied. Not the best assignment. Just a feasible one. CSPs form the backbone of countless agent planning tasks: resource allocation, configuration management, scheduling, puzzle solving, and more.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A Constraint Satisfaction Problem has three ingredients:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Variables&lt;/strong&gt;: Things you need to decide (e.g., meeting times, task assignments)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Domains&lt;/strong&gt;: Possible values each variable can take (e.g., available time slots)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Constraints&lt;/strong&gt;: Rules that valid solutions must satisfy (e.g., &amp;ldquo;Alice can&amp;rsquo;t attend meetings after 3 PM&amp;rdquo;)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The goal: assign values to all variables such that &lt;strong&gt;all constraints are satisfied&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Optimize Deployment Frequency as Your Competitive Moat</title>
@@ -541,13 +233,6 @@
       <description>&lt;p&gt;Most engineering managers focus on growing mid-level engineers. The real leverage? Building a systematic pipeline for Staff-Plus engineers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h2&gt;&#xA;&lt;p&gt;Organizations scale through technical leadership, not just more hands. One Staff engineer who can influence 20 engineers creates more impact than hiring 5 more seniors. Yet most managers treat Staff-Plus growth as random chance—waiting for someone to &amp;ldquo;emerge&amp;rdquo; rather than deliberately developing this capability.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-anti-pattern&#34;&gt;The Anti-Pattern&lt;/h2&gt;&#xA;&lt;p&gt;You have strong senior engineers who:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Consensus Algorithms for Coordinating Agreement in Distributed Agent Systems</title>
-      <link>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</guid>
-      <description>&lt;p&gt;When multiple AI agents need to make a collective decision (agreeing on a shared belief, coordinating a distributed transaction, or electing a leader), they face the fundamental challenge of &lt;strong&gt;distributed consensus&lt;/strong&gt;. How do you ensure that agents reach agreement even when some are slow, unreachable, or Byzantine (malicious)? This is where consensus algorithms become essential.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-consensus&#34;&gt;What Is Consensus?&lt;/h2&gt;&#xA;&lt;p&gt;Consensus is the process by which a group of agents agrees on a single value or decision, even when facing failures, network delays, or conflicting information. A &lt;strong&gt;consensus algorithm&lt;/strong&gt; ensures that distributed agents maintain consistency across their states, satisfying three properties:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Architect Your Promotion Pipeline with Growth Systems Not Career Ladders</title>
       <link>https://notes.muthu.co/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</link>
       <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
@@ -555,25 +240,11 @@
       <description>&lt;p&gt;Most engineering managers think about promotions reactively: someone performs well, you promote them. But exceptional EMs architect deliberate promotion pipelines that systematically grow talent while maintaining quality bars.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-strategic-insight&#34;&gt;The Strategic Insight&lt;/h2&gt;&#xA;&lt;p&gt;Your promotion pipeline is your talent manufacturing system. If you&amp;rsquo;re not intentionally designing how engineers move from L3 to L4 to L5, you&amp;rsquo;re leaving organizational capability to chance. The companies that scale effectively don&amp;rsquo;t just have career ladders—they have engineered pathways that create predictable, high-quality talent development.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Markov Decision Processes as the Foundation of Sequential Decision-Making</title>
-      <link>https://notes.muthu.co/2025/11/markov-decision-processes-as-the-foundation-of-sequential-decision-making/</link>
-      <pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/markov-decision-processes-as-the-foundation-of-sequential-decision-making/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Markov Decision Processes (MDPs)&lt;/strong&gt; provide the mathematical framework for sequential decision-making under uncertainty. Whether an agent is navigating a warehouse, playing a game, or managing a portfolio, MDPs give it a precise language for states, actions, transitions, and rewards — and a set of algorithms for finding optimal policies.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;An MDP is defined by a 5-tuple (S, A, P, R, γ) where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;: set of states representing all possible situations&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;: set of actions the agent can take&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;P&lt;/strong&gt;: transition probability function P(s&amp;rsquo;|s,a) — the probability of reaching state s&amp;rsquo; from state s by taking action a&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;: reward function R(s,a,s&amp;rsquo;) defining immediate feedback&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;γ&lt;/strong&gt;: discount factor (0 ≤ γ ≤ 1) weighing immediate vs. future rewards&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The agent&amp;rsquo;s goal is to find a policy π: S → A that maximizes the expected cumulative discounted reward. The &amp;ldquo;Markov&amp;rdquo; part means where you go next depends only on where you are now and what you do — not on how you got there. This memorylessness is what makes otherwise intractable problems computationally feasible.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Design Your Teams Decision Latency</title>
       <link>https://notes.muthu.co/2025/11/design-your-teams-decision-latency/</link>
       <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/11/design-your-teams-decision-latency/</guid>
       <description>&lt;p&gt;Most engineering managers obsess over making the &lt;em&gt;right&lt;/em&gt; decisions. But the teams that win aren&amp;rsquo;t necessarily the ones making the best decisions—they&amp;rsquo;re the ones making good decisions &lt;em&gt;fastest&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Decision latency is the time between recognizing a choice point and executing on it. It&amp;rsquo;s the organizational drag that turns a 5-minute technical decision into a 3-week committee process. And it&amp;rsquo;s one of the highest-leverage metrics you&amp;rsquo;re probably not measuring.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-decision-latency-compounds&#34;&gt;Why Decision Latency Compounds&lt;/h2&gt;&#xA;&lt;p&gt;Every day of delay has a multiplier effect. A slow architectural decision doesn&amp;rsquo;t just delay one project—it blocks dependent work, creates workarounds that become technical debt, and burns team morale as engineers wait for clarity. A three-week delay on choosing a testing framework can cost you three months of velocity.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How AI Agents Learn from Themselves Through Self-Play and Iterative Refinement</title>
-      <link>https://notes.muthu.co/2025/11/how-ai-agents-learn-from-themselves-through-self-play-and-iterative-refinement/</link>
-      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/how-ai-agents-learn-from-themselves-through-self-play-and-iterative-refinement/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Self-play&lt;/strong&gt; is a reinforcement learning paradigm where an agent trains against instances of itself, creating a moving target that evolves with the agent&amp;rsquo;s capabilities. The environment&amp;rsquo;s difficulty scales automatically: as the agent improves, so does its opponent. No external opponents or labeled data are required.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Iterative self-refinement&lt;/strong&gt; extends this idea beyond games. An LLM-based agent generates a solution, critiques it, refines it, and repeats until the output meets quality standards. It leverages multi-turn reasoning where the agent:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Shape the Decision Space Before the Decision</title>
@@ -590,13 +261,6 @@
       <description>&lt;p&gt;The single most underestimated constraint in scaling engineering organizations is not hiring velocity, budget, or technical infrastructure—it&amp;rsquo;s &lt;strong&gt;time-to-productivity for new team members&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers treat onboarding as an HR process. Elite EMs treat it as a &lt;strong&gt;systems design problem&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost&#34;&gt;The Hidden Cost&lt;/h2&gt;&#xA;&lt;p&gt;Calculate this for your team: &lt;code&gt;(number of engineers hired annually) × (months to full productivity) × (fully-loaded engineer cost)&lt;/code&gt;. For most teams, this represents millions in latent productivity—engineers you&amp;rsquo;re paying who can&amp;rsquo;t yet deliver full value.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Test-Time Compute and o1-Style Reasoning for Scaling Intelligence Through Inference</title>
-      <link>https://notes.muthu.co/2025/11/test-time-compute-and-o1-style-reasoning-for-scaling-intelligence-through-inference/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/test-time-compute-and-o1-style-reasoning-for-scaling-intelligence-through-inference/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Test-time compute scaling&lt;/strong&gt; is the principle that allowing a model to reason longer during inference, rather than just training a larger model, can substantially improve accuracy on hard problems. OpenAI&amp;rsquo;s o1 model family is the most visible example of this approach, and it is reshaping assumptions about how intelligent agents should be built.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Most language models generate responses through a single forward pass. &lt;strong&gt;Test-time compute scaling&lt;/strong&gt; changes this: by allowing a model to &amp;ldquo;think longer&amp;rdquo; during inference, it can solve harder problems more reliably. The mechanism involves extended reasoning chains, self-verification, backtracking, and exploring multiple solution paths before committing to a final answer.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Master Calibration for Consistent Fair Decisions at Scale</title>
       <link>https://notes.muthu.co/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</link>
       <pubDate>Sun, 16 Nov 2025 00:00:00 +0000</pubDate>
@@ -604,25 +268,11 @@
       <description>&lt;p&gt;The best engineering managers I know have mastered a skill rarely discussed in management literature: &lt;strong&gt;calibration&lt;/strong&gt;. It&amp;rsquo;s the practice of synchronizing judgment across your organization so that decisions about performance, leveling, quality, and priorities are consistent regardless of who makes them.&lt;/p&gt;&#xA;&lt;p&gt;Without calibration, you get chaos: one manager&amp;rsquo;s &amp;ldquo;exceeds expectations&amp;rdquo; is another&amp;rsquo;s &amp;ldquo;meets expectations.&amp;rdquo; A senior engineer on Team A wouldn&amp;rsquo;t pass the bar for mid-level on Team B. Technical decisions vary wildly based on who&amp;rsquo;s in the room. This inconsistency erodes trust, creates unfairness, and makes it impossible to scale.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Multi-Armed Bandits and the Exploration-Exploitation Dilemma in Agent Learning</title>
-      <link>https://notes.muthu.co/2025/11/multi-armed-bandits-and-the-exploration-exploitation-dilemma-in-agent-learning/</link>
-      <pubDate>Sun, 16 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/multi-armed-bandits-and-the-exploration-exploitation-dilemma-in-agent-learning/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;multi-armed bandit (MAB)&lt;/strong&gt; is a sequential decision-making problem where an agent must repeatedly choose between multiple options (called &amp;ldquo;arms&amp;rdquo;), each providing uncertain rewards. The agent&amp;rsquo;s goal is to maximize total reward over time, but it faces a critical dilemma:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Exploitation&lt;/strong&gt;: Choose the option that has performed best so far&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Exploration&lt;/strong&gt;: Try other options to discover if they might be better&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is the &lt;strong&gt;exploration-exploitation tradeoff&lt;/strong&gt;, and it appears throughout AI systems: recommendation engines choosing which content to show, clinical trials testing treatments, hyperparameter tuning in machine learning, and agents deciding which tools to use.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Build Context Portability, Not Knowledge Silos</title>
       <link>https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos/</link>
       <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos/</guid>
       <description>&lt;p&gt;The best engineering managers don&amp;rsquo;t just manage people—they architect how context flows through their organization. The difference between a fragile team and a resilient one isn&amp;rsquo;t talent density; it&amp;rsquo;s &lt;strong&gt;context portability&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-scaling-tax&#34;&gt;The Hidden Scaling Tax&lt;/h2&gt;&#xA;&lt;p&gt;Every time a senior engineer goes on vacation, changes teams, or leaves the company, your organization pays a tax. That tax is the accumulated context trapped in their head: the &amp;ldquo;why&amp;rdquo; behind architectural decisions, the landmines in legacy systems, the tribal knowledge about customer needs.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Constrained Decoding and Structured Output for Agent Reliability</title>
-      <link>https://notes.muthu.co/2025/11/constrained-decoding-and-structured-output-for-agent-reliability/</link>
-      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/constrained-decoding-and-structured-output-for-agent-reliability/</guid>
-      <description>&lt;p&gt;When building production AI agents, one of the most persistent problems is unpredictable output formats. An agent needs to call a tool with precise JSON parameters, but the LLM wraps the output in markdown code blocks, adds explanatory text, or hallucinate invalid field names. This breaks the entire agent pipeline.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Constrained decoding&lt;/strong&gt; solves this by restricting what tokens an LLM can generate, ensuring outputs always conform to specified formats like JSON schemas, regular expressions, or context-free grammars. It&amp;rsquo;s the difference between &lt;em&gt;hoping&lt;/em&gt; your agent produces valid JSON and &lt;em&gt;guaranteeing&lt;/em&gt; it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Verification and Validation Loops for Agent Reliability Through Runtime Checks</title>
@@ -646,20 +296,6 @@
       <description>&lt;p&gt;Most engineering managers think about scaling by adding more people. Elite EMs think about scaling by designing systems that can be taken apart.&lt;/p&gt;&#xA;&lt;p&gt;Disaggregation is the practice of structuring your engineering organization, technical architecture, and processes so that components can grow, change, or be replaced independently without cascading disruption. It&amp;rsquo;s the inverse of integration—and it&amp;rsquo;s how great companies scale past their first architecture.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h2&gt;&#xA;&lt;p&gt;When teams are tightly coupled—sharing databases, deployment pipelines, review processes, or oncall rotations—every change requires coordination. Coordination has a combinatorial cost. With 3 teams, you have 3 coordination points. With 10 teams, you have 45.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Symbolic Reasoning and Neural-Symbolic Integration in AI Agents</title>
-      <link>https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents/</link>
-      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents/</guid>
-      <description>&lt;p&gt;Modern AI agents face a fundamental challenge: how to combine the pattern-matching prowess of neural networks with the logical precision of symbolic reasoning. While large language models excel at learning from data, they struggle with tasks requiring rigorous logic, mathematical proof, or verifiable reasoning chains. This is where neural-symbolic integration becomes essential.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Symbolic reasoning&lt;/strong&gt; operates on discrete symbols and rules. It uses formal logic (propositional, first-order, or higher-order logic) to manipulate knowledge representations like knowledge graphs, ontologies, or rule systems. Reasoning is explicit, traceable, and verifiable.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Contextual Bandits for Balancing Exploration and Exploitation in Real-Time</title>
-      <link>https://notes.muthu.co/2025/11/contextual-bandits-for-balancing-exploration-and-exploitation-in-real-time/</link>
-      <pubDate>Wed, 12 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/contextual-bandits-for-balancing-exploration-and-exploitation-in-real-time/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;contextual bandit&lt;/strong&gt; is a sequential decision-making framework where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;At each time step &lt;em&gt;t&lt;/em&gt;, an agent observes a &lt;strong&gt;context&lt;/strong&gt; (state) &lt;em&gt;x_t&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;Selects an &lt;strong&gt;action&lt;/strong&gt; &lt;em&gt;a_t&lt;/em&gt; from a finite set &lt;em&gt;A&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;Receives a &lt;strong&gt;reward&lt;/strong&gt; &lt;em&gt;r_t(a_t)&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;The goal is to maximize cumulative reward over time&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Unlike full reinforcement learning (RL), bandits assume:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;No state transitions&lt;/strong&gt;: each decision is independent&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Immediate feedback&lt;/strong&gt;: reward is observed right after the action&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;No delayed consequences&lt;/strong&gt;: today&amp;rsquo;s action doesn&amp;rsquo;t affect tomorrow&amp;rsquo;s state&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This makes bandits simpler than RL but powerful enough for many real-world problems: content recommendations, clinical trials, ad placement, and dynamic pricing.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Manage Your Teams Cognitive Load Budget</title>
       <link>https://notes.muthu.co/2025/11/manage-your-teams-cognitive-load-budget/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0000</pubDate>
@@ -671,7 +307,7 @@
       <link>https://notes.muthu.co/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</link>
       <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Human-in-the-loop (HITL) is an architectural pattern where autonomous agents strategically interrupt their execution flow to solicit human input, validation, or decision-making. HITL agents implement &lt;strong&gt;intervention points&lt;/strong&gt;: predetermined or dynamically determined moments where human judgment augments or overrides the agent&amp;rsquo;s proposed actions. This creates a spectrum from full automation to complete human control, with the optimal balance determined by risk tolerance, domain complexity, and trust calibration.&lt;/p&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The HITL concept emerged from &lt;strong&gt;active learning&lt;/strong&gt; research in the 1990s, where machine learning systems would query humans to label uncertain data points. The term gained prominence in autonomous systems research around 2010, particularly in semi-autonomous robotics and medical diagnosis systems where high-stakes decisions required human validation.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Human-in-the-loop (HITL) is an architectural pattern where autonomous agents strategically interrupt their execution flow to solicit human input, validation, or decision-making. HITL agents implement &lt;strong&gt;intervention points&lt;/strong&gt;: predetermined or dynamically determined moments where human judgment augments or overrides the agent&amp;rsquo;s proposed actions. This creates a spectrum from full automation to complete human control, with the optimal balance determined by risk tolerance, domain complexity, and trust calibration.&lt;/p&gt;&#xA;&lt;h2 id=&#34;algorithms--implementation-patterns&#34;&gt;Algorithms &amp;amp; Implementation Patterns&lt;/h2&gt;&#xA;&lt;h3 id=&#34;core-decision-flow&#34;&gt;Core Decision Flow&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;function agent_execute(task, confidence_threshold=0.85):&#xA;    plan = generate_plan(task)&#xA;&#xA;    for step in plan:&#xA;        action, confidence = decide_action(step)&#xA;&#xA;        # Intervention checkpoint&#xA;        if requires_human_input(action, confidence, confidence_threshold):&#xA;            human_decision = request_human_approval(&#xA;                action=action,&#xA;                context=step.context,&#xA;                reasoning=action.explanation,&#xA;                alternatives=generate_alternatives(step)&#xA;            )&#xA;&#xA;            if human_decision.override:&#xA;                action = human_decision.chosen_action&#xA;                update_preferences(step, human_decision)  # Learn from feedback&#xA;&#xA;        execute(action)&#xA;        observe_result()&#xA;&#xA;    return final_result&#xA;&#xA;function requires_human_input(action, confidence, threshold):&#xA;    # Multiple criteria for intervention&#xA;    return (&#xA;        confidence &amp;lt; threshold or&#xA;        action.risk_level == &amp;#34;HIGH&amp;#34; or&#xA;        action.irreversible == True or&#xA;        action.cost &amp;gt; budget_limit or&#xA;        action.domain in [&amp;#34;legal&amp;#34;, &amp;#34;medical&amp;#34;, &amp;#34;financial&amp;#34;]&#xA;    )&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;intervention-trigger-strategies&#34;&gt;Intervention Trigger Strategies&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Confidence-based&lt;/strong&gt;: Request input when model uncertainty exceeds threshold&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Risk-based&lt;/strong&gt;: Escalate high-stakes or irreversible actions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Novelty-based&lt;/strong&gt;: Flag situations outside training distribution&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Time-based&lt;/strong&gt;: Periodic checkpoints for long-running tasks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Semantic-based&lt;/strong&gt;: Domain-specific rules (e.g., all financial transactions &amp;gt;$10k)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;design-patterns--architectures&#34;&gt;Design Patterns &amp;amp; Architectures&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Approval Gates&lt;/strong&gt;: The agent proposes an action and waits for explicit human approval before execution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Manage Signal-to-Noise - The Hidden Cost of Organizational Chatter</title>
@@ -695,13 +331,6 @@
       <description>&lt;p&gt;Most engineering managers focus on processes, tools, and org structure while ignoring the most critical infrastructure: &lt;strong&gt;how information flows through their organization&lt;/strong&gt;. Poor communication architecture creates bottlenecks, duplicated work, and context loss that compounds as you scale.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-emergent-chaos&#34;&gt;The Problem: Emergent Chaos&lt;/h2&gt;&#xA;&lt;p&gt;Without intentional design, communication patterns emerge organically—and organically means inefficiently. You end up with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Critical decisions made in ephemeral Slack threads&lt;/li&gt;&#xA;&lt;li&gt;Key context trapped in 1:1s&lt;/li&gt;&#xA;&lt;li&gt;The same question asked 10 different ways across 10 different channels&lt;/li&gt;&#xA;&lt;li&gt;Important updates buried in meeting notes no one reads&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;As you scale from 10 to 50 to 200 engineers, this chaos becomes paralyzing.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Planning with Backtracking and Replanning for Resilient Adaptive Agents</title>
-      <link>https://notes.muthu.co/2025/11/planning-with-backtracking-and-replanning-for-resilient-adaptive-agents/</link>
-      <pubDate>Mon, 10 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/planning-with-backtracking-and-replanning-for-resilient-adaptive-agents/</guid>
-      <description>&lt;h3 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Backtracking&lt;/strong&gt; involves maintaining decision points (choice points) and systematically exploring alternative branches when a path fails. &lt;strong&gt;Replanning&lt;/strong&gt; involves detecting plan invalidity, preserving successful partial progress, and generating new plans that account for updated world state. Together, they form the failure-recovery mechanisms that let agents operate in unpredictable environments.&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;graph TD&#xA;    A[Initial Plan] --&amp;gt; B{Execute Step}&#xA;    B --&amp;gt;|Success| C[Next Step]&#xA;    B --&amp;gt;|Failure| D{Can Backtrack?}&#xA;    D --&amp;gt;|Yes| E[Undo &amp;amp; Try Alternative]&#xA;    D --&amp;gt;|No| F{Major Change?}&#xA;    F --&amp;gt;|Yes| G[Full Replan]&#xA;    F --&amp;gt;|No| H[Local Repair]&#xA;    E --&amp;gt; B&#xA;    G --&amp;gt; B&#xA;    H --&amp;gt; B&#xA;    C --&amp;gt; I{Plan Complete?}&#xA;    I --&amp;gt;|No| B&#xA;    I --&amp;gt;|Yes| J[Success]&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Robust agents must treat plans as hypotheses to be tested and revised, not immutable scripts.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Build Abstractions That Accelerate, Not Complicate</title>
       <link>https://notes.muthu.co/2025/11/build-abstractions-that-accelerate-not-complicate/</link>
       <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
@@ -709,25 +338,11 @@
       <description>&lt;p&gt;Most engineering managers understand abstractions theoretically—they reduce duplication, hide complexity, and enable reuse. But here&amp;rsquo;s the insight that separates scaling organizations from stagnating ones: &lt;strong&gt;the right abstractions are your most powerful lever for multiplying team velocity, while the wrong ones are silent productivity killers.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-bad-abstractions&#34;&gt;The Hidden Cost of Bad Abstractions&lt;/h2&gt;&#xA;&lt;p&gt;Every abstraction you introduce carries a cognitive tax. It&amp;rsquo;s a layer your team must understand, maintain, and work around. Bad abstractions—those that are too early, too rigid, or solving the wrong problem—don&amp;rsquo;t just fail to help; they actively slow teams down. Engineers spend more time fighting the framework than solving customer problems.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Semantic Routing and Intent Classification in AI Agent Systems</title>
-      <link>https://notes.muthu.co/2025/11/semantic-routing-and-intent-classification-in-ai-agent-systems/</link>
-      <pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/semantic-routing-and-intent-classification-in-ai-agent-systems/</guid>
-      <description>Learn how semantic routing acts as an intelligent dispatcher for AI agents, directing user queries to the right tools, models, or workflows based on meaning rather than keywords.</description>
-    </item>
-    <item>
       <title>Codify Your Quality Bar and Make Standards Executable</title>
       <link>https://notes.muthu.co/2025/11/codify-your-quality-bar-and-make-standards-executable/</link>
       <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/11/codify-your-quality-bar-and-make-standards-executable/</guid>
       <description>&lt;p&gt;The best engineering managers don&amp;rsquo;t just set standards—they make them impossible to ignore by encoding them into the development workflow.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-spoken-standards&#34;&gt;The Problem with Spoken Standards&lt;/h2&gt;&#xA;&lt;p&gt;Most teams define quality standards in documents, wiki pages, or verbal agreements. The result? Standards drift over time, new team members miss them entirely, and enforcement becomes a political negotiation during code reviews.&lt;/p&gt;&#xA;&lt;p&gt;When standards live in documents, you&amp;rsquo;re asking humans to remember and apply them consistently under deadline pressure. That&amp;rsquo;s a losing battle.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Meta-Learning and Few-Shot Adaptation in AI Agents</title>
-      <link>https://notes.muthu.co/2025/11/meta-learning-and-few-shot-adaptation-in-ai-agents/</link>
-      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/meta-learning-and-few-shot-adaptation-in-ai-agents/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Meta-learning trains agents on a distribution of tasks so they develop learning strategies that generalize across task families. When presented with a new task from the same distribution, the agent can adapt its parameters or behavior using only a handful of examples — few-shot — or even a single example.&lt;/p&gt;&#xA;&lt;p&gt;This contrasts with traditional machine learning, where models require thousands of examples and may catastrophically forget previous knowledge. Meta-learning agents maintain a &lt;strong&gt;meta-model&lt;/strong&gt; that encodes task-agnostic learning strategies, enabling rapid task-specific adaptation through gradient descent, recurrent state updates, or explicit memory mechanisms.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Agent Communication Protocols and Message-Passing Patterns for Coordination</title>
@@ -751,13 +366,6 @@
       <description>&lt;p&gt;Most engineering managers worry about losing &amp;ldquo;institutional knowledge&amp;rdquo; when people leave. But that&amp;rsquo;s the wrong frame. Knowledge trapped in people&amp;rsquo;s heads isn&amp;rsquo;t an asset—it&amp;rsquo;s a liability. The real challenge isn&amp;rsquo;t retaining knowledge; it&amp;rsquo;s building &lt;strong&gt;organizational memory&lt;/strong&gt; that makes your team smarter every day.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-critical-distinction&#34;&gt;The Critical Distinction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Institutional knowledge&lt;/strong&gt; is what Bob knows but nobody else does. When Bob leaves, you panic.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Organizational memory&lt;/strong&gt; is what your systems, processes, and artifacts remember. When Bob leaves, you barely notice—because Bob already externalized everything worth keeping.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How Transformers Power Modern AI Agents with Attention and Reasoning</title>
-      <link>https://notes.muthu.co/2025/11/how-transformers-power-modern-ai-agents-with-attention-and-reasoning/</link>
-      <pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/how-transformers-power-modern-ai-agents-with-attention-and-reasoning/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Attention mechanisms are computational layers that learn to assign different weights (importance scores) to different parts of an input sequence. In the context of AI agents, attention allows the model to dynamically determine which pieces of information (whether from conversation history, tool outputs, or knowledge bases) are most relevant for the current reasoning step.&lt;/p&gt;&#xA;&lt;p&gt;The transformer architecture, built entirely on attention, has become the backbone of modern AI agents (GPT-4, Claude, Gemini) because it excels at:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Agent Debugging and Observability for Seeing Inside the Black Box</title>
       <link>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</link>
       <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
@@ -779,20 +387,6 @@
       <description>&lt;p&gt;Most engineering managers scale teams by drawing org charts. The best ones design ownership boundaries first, then let the org structure emerge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-fuzzy-boundaries&#34;&gt;The Hidden Cost of Fuzzy Boundaries&lt;/h2&gt;&#xA;&lt;p&gt;When ownership is unclear, every decision becomes a negotiation. Engineers spend more time in alignment meetings than writing code. Simple changes require cross-team coordination. Innovation stalls because nobody knows who has the authority to make bold moves.&lt;/p&gt;&#xA;&lt;p&gt;The symptom looks like slow delivery. The root cause is poorly designed boundaries.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Temporal Difference Learning and Q-Learning as the Engine of Agent Intelligence</title>
-      <link>https://notes.muthu.co/2025/11/temporal-difference-learning-and-q-learning-as-the-engine-of-agent-intelligence/</link>
-      <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/temporal-difference-learning-and-q-learning-as-the-engine-of-agent-intelligence/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Temporal Difference (TD) Learning&lt;/strong&gt; and its most prominent variant, &lt;strong&gt;Q-Learning&lt;/strong&gt;, are among the most influential algorithms in reinforcement learning. They connect the theoretical framework of MDPs to the practical problem of agents learning from experience, without requiring a model of the environment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Temporal Difference Learning&lt;/strong&gt; is a class of model-free reinforcement learning algorithms that learn by bootstrapping: they update estimates based on other estimates, rather than waiting for a final outcome. The key insight is the &lt;strong&gt;TD error&lt;/strong&gt;: the difference between the current value estimate and a better estimate obtained after taking an action.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Scaling Agent Intelligence Through Specialization with Mixture of Experts</title>
-      <link>https://notes.muthu.co/2025/10/scaling-agent-intelligence-through-specialization-with-mixture-of-experts/</link>
-      <pubDate>Sat, 25 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/scaling-agent-intelligence-through-specialization-with-mixture-of-experts/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Mixture of Experts (MoE)&lt;/strong&gt; is an architectural pattern built around dynamic routing: instead of one generalist model processing every input, a gating network selects a small subset of specialized experts for each task. The result is a system that can scale to far more parameters than a dense model while activating only a fraction of them at inference time.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In practice, a Mixture of Experts system consists of:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Transform Failures Into Capability, Not Bureaucracy</title>
       <link>https://notes.muthu.co/2025/10/transform-failures-into-capability-not-bureaucracy/</link>
       <pubDate>Sat, 25 Oct 2025 00:00:00 +0000</pubDate>
@@ -807,25 +401,11 @@
       <description>&lt;p&gt;The best engineering managers don&amp;rsquo;t just build products—they build systems that make knowledge transfer automatic, decisions self-documenting, and onboarding nearly effortless. The secret? Treating documentation not as a separate task, but as an integral part of your codebase.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-productivity-drain&#34;&gt;The Hidden Productivity Drain&lt;/h2&gt;&#xA;&lt;p&gt;Every time someone asks &amp;ldquo;How does this work?&amp;rdquo; or &amp;ldquo;Why did we build it this way?&amp;rdquo;, you&amp;rsquo;re witnessing knowledge debt. These questions compound. A team of 10 engineers asking just one question per day costs roughly 40 hours monthly—an entire person&amp;rsquo;s time lost to information retrieval.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Policy Gradient Methods and Actor-Critic Architectures</title>
-      <link>https://notes.muthu.co/2025/10/policy-gradient-methods-and-actor-critic-architectures/</link>
-      <pubDate>Fri, 24 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/policy-gradient-methods-and-actor-critic-architectures/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In reinforcement learning, a &lt;strong&gt;policy&lt;/strong&gt; π(a|s) is a probability distribution over actions &lt;em&gt;a&lt;/em&gt; given state &lt;em&gt;s&lt;/em&gt;. Traditional value-based methods (like Q-learning) learn the value of states or state-action pairs and derive a policy from those values. &lt;strong&gt;Policy gradient methods&lt;/strong&gt; instead directly optimize the policy parameters θ by following the gradient of expected reward.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Actor-Critic&lt;/strong&gt; combines policy gradients (actor) with value function approximation (critic). The actor proposes actions based on the current policy π_θ, while the critic estimates the value function V(s) or advantage function A(s,a) to provide feedback. This reduces variance in policy gradient estimates while maintaining the benefits of direct policy optimization.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Debug Organizational Velocity, Not Individual Productivity</title>
       <link>https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity/</link>
       <pubDate>Thu, 23 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity/</guid>
       <description>&lt;p&gt;Most engineering managers obsess over individual productivity. They measure story points, track commit frequency, and optimize sprint velocity. But here&amp;rsquo;s the hard truth: &lt;strong&gt;your team&amp;rsquo;s output is rarely constrained by how fast individuals code&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The real bottleneck? &lt;strong&gt;Organizational friction&lt;/strong&gt; - the invisible tax on every handoff, decision, and dependency.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-shift-from-micro-optimization-to-system-diagnosis&#34;&gt;The Shift: From Micro-Optimization to System Diagnosis&lt;/h2&gt;&#xA;&lt;p&gt;Great engineering managers think like performance engineers, but for organizations. When a system is slow, you don&amp;rsquo;t randomly optimize functions. You profile, find the bottleneck, and fix &lt;em&gt;that&lt;/em&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Decision-Making Under Partial Observability with POMDPs</title>
-      <link>https://notes.muthu.co/2025/10/decision-making-under-partial-observability-with-pomdps/</link>
-      <pubDate>Thu, 23 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/decision-making-under-partial-observability-with-pomdps/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Partially Observable Markov Decision Processes (POMDPs)&lt;/strong&gt; are the mathematical framework for making optimal decisions when the true state of the world is hidden. In a POMDP, the agent receives noisy or partial observations, maintains a &lt;strong&gt;belief distribution&lt;/strong&gt; over possible states, and chooses actions to maximize expected long-term reward.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A POMDP is a 7-tuple: &lt;code&gt;(S, A, T, R, Ω, O, γ)&lt;/code&gt; where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;: Set of states (the true world state you can&amp;rsquo;t fully see)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;: Set of actions you can take&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;T&lt;/strong&gt;: Transition function &lt;code&gt;P(s&#39;|s,a)&lt;/code&gt;, the probability of reaching state s&amp;rsquo; after action a in state s&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;: Reward function &lt;code&gt;R(s,a)&lt;/code&gt;, the immediate reward for taking action a in state s&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Ω&lt;/strong&gt;: Set of observations you can receive&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt;: Observation function &lt;code&gt;P(o|s&#39;,a)&lt;/code&gt;, the probability of observing o after action a leads to state s&#39;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;γ&lt;/strong&gt;: Discount factor (0 ≤ γ &amp;lt; 1) for future rewards&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The key difference from fully-observable MDPs: you never know which state &lt;code&gt;s ∈ S&lt;/code&gt; you&amp;rsquo;re in. Instead, you maintain a &lt;strong&gt;belief state&lt;/strong&gt; &lt;code&gt;b&lt;/code&gt;, a probability distribution over S.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Multi-Agent AI Ecosystem for Self-Improving Software</title>
@@ -842,13 +422,6 @@
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Emergence and Self-Organization When Simple Rules Create Complex Intelligence</title>
-      <link>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</link>
-      <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Emergence and self-organization are fundamental properties of distributed systems where global patterns arise solely from local interactions without external direction. When many simple agents interact following basic rules, the whole system displays behaviors and capabilities that no single agent possesses. These systems exhibit non-linearity, feedback loops, and phase transitions, properties that make them robust, scalable, and adaptive, but also unpredictable and difficult to engineer deterministically.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;h3 id=&#34;from-nature-to-computation-1940s1980s&#34;&gt;From Nature to Computation (1940s–1980s)&lt;/h3&gt;&#xA;&lt;p&gt;The study of emergence has deep roots across multiple disciplines:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Make Trade-offs Explicit as a Clarity Multiplier</title>
       <link>https://notes.muthu.co/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
@@ -856,25 +429,11 @@
       <description>&lt;p&gt;The most powerful thing you can do as an engineering manager isn&amp;rsquo;t making better decisions—it&amp;rsquo;s making the trade-offs behind those decisions crystal clear to everyone involved.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-implicit-trade-offs&#34;&gt;The Hidden Cost of Implicit Trade-offs&lt;/h2&gt;&#xA;&lt;p&gt;Every engineering decision involves trade-offs: speed vs. quality, flexibility vs. simplicity, build vs. buy, now vs. later. When these trade-offs remain implicit, your team operates in a fog. Engineers question priorities, duplicate debates happen across conversations, and alignment dissolves the moment you leave the room.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Building Rational Agents with Human-Like Reasoning Using BDI Architecture</title>
-      <link>https://notes.muthu.co/2025/10/building-rational-agents-with-human-like-reasoning-using-bdi-architecture/</link>
-      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/building-rational-agents-with-human-like-reasoning-using-bdi-architecture/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Belief-Desire-Intention (BDI)&lt;/strong&gt; architecture provides a formal computational model for rational agency, grounded in philosophical work on practical reasoning. Unlike reactive systems that map states to actions, BDI agents maintain explicit mental attitudes and deliberate over competing goals before committing to executable plans.&lt;/p&gt;&#xA;&lt;p&gt;The three mental states:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Beliefs&lt;/strong&gt; = what the agent knows about the world&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Desires&lt;/strong&gt; = what the agent wants to achieve (goals)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Intentions&lt;/strong&gt; = what the agent has committed to doing (plans)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The BDI model stems from Michael Bratman&amp;rsquo;s 1987 philosophy work &lt;em&gt;Intention, Plans, and Practical Reason&lt;/em&gt;. Bratman argued that human practical reasoning involves beliefs about the current state, desires as motivational states, and intentions as commitments that constrain future deliberation. Intentions are not just desires: they persist over time and guide action selection.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Engineer the Handoffs Where Most Productivity Dies</title>
       <link>https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies/</guid>
       <description>&lt;p&gt;Most engineering managers optimize for individual productivity. They focus on hiring great people, improving code quality, and eliminating blockers. But the real productivity killer lurks in the spaces &lt;em&gt;between&lt;/em&gt; people, teams, and systems.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Handoffs are where most work goes to die.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Every time work passes from one person to another, from one team to another, or from one system to another, you pay a tax. Context is lost. Work sits idle in queues. Misunderstandings multiply. That three-day feature becomes a three-week saga—not because the coding took longer, but because it spent 12 days waiting, being clarified, and being re-explained.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bellman Equations and Value Functions for Optimal Decision-Making</title>
-      <link>https://notes.muthu.co/2025/10/bellman-equations-and-value-functions-for-optimal-decision-making/</link>
-      <pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/bellman-equations-and-value-functions-for-optimal-decision-making/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;value function&lt;/strong&gt; V(s) assigns a numerical score to each state s, representing the expected cumulative reward an agent can obtain starting from that state and following a particular strategy (policy). The &lt;strong&gt;Bellman equation&lt;/strong&gt; expresses a recursive relationship: the value of being in a state equals the immediate reward plus the discounted value of the next state.&lt;/p&gt;&#xA;&lt;p&gt;Formally, for a policy π:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;V^π(s) = E_π[r_t + γ V^π(s_{t+1}) | s_t = s]&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Invest in Compounding Leverage</title>
@@ -891,20 +450,6 @@
       <description>&lt;p&gt;The best engineering managers don&amp;rsquo;t make big decisions through perfect analysis—they build conviction through strategic experimentation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-big-decisions&#34;&gt;The Problem with Big Decisions&lt;/h2&gt;&#xA;&lt;p&gt;When facing major technical or organizational choices (microservices vs. monolith, new programming language, team restructuring), most EMs fall into analysis paralysis. They gather more data, schedule more meetings, and delay until the &amp;ldquo;right answer&amp;rdquo; emerges. It rarely does.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-small-bets-approach&#34;&gt;The Small Bets Approach&lt;/h2&gt;&#xA;&lt;p&gt;Instead of betting the farm on unproven ideas, &lt;strong&gt;run tiny, time-boxed experiments that build real conviction&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Vector Embeddings and Semantic Search as the Foundation of Agent Memory</title>
-      <link>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</link>
-      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;vector embedding&lt;/strong&gt; is a learned continuous representation of data in ℝⁿ (typically n=384 to 4096 dimensions). Modern embedding models are deep neural networks trained via contrastive learning or other self-supervised objectives to satisfy:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;similarity(embed(text_a), embed(text_b)) ≈ semantic_similarity(text_a, text_b)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The embedding function &lt;code&gt;f: Text → ℝⁿ&lt;/code&gt; maps discrete tokens into a dense vector space where cosine similarity, Euclidean distance, or dot product serve as semantic proximity metrics.&lt;/p&gt;&#xA;&lt;p&gt;For AI agents, this enables memory and retrieval by meaning rather than by keywords. Agents can recall relevant past context from millions of documents in milliseconds, or make decisions based on semantic similarity to prior experiences.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Collaborative Problem-Solving in Multi-Agent Systems with the Blackboard Architecture</title>
-      <link>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</link>
-      <pubDate>Fri, 17 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</guid>
-      <description>&lt;p&gt;The &lt;strong&gt;blackboard architecture&lt;/strong&gt; is a design pattern for coordinating multiple AI agents working on problems that require diverse expertise. Each agent contributes partial results to a shared workspace, and a control component decides which agent acts next based on the current state of that workspace.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-blackboard-architecture&#34;&gt;What Is the Blackboard Architecture?&lt;/h2&gt;&#xA;&lt;p&gt;Multiple independent agents, called &lt;strong&gt;knowledge sources&lt;/strong&gt;, collaborate by reading from and writing to a shared workspace (the &lt;strong&gt;blackboard&lt;/strong&gt;). A &lt;strong&gt;control component&lt;/strong&gt; monitors the blackboard, evaluates which knowledge sources are triggered, and schedules their execution.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Scale Culture Through Defaults, Not Rules</title>
       <link>https://notes.muthu.co/2025/10/scale-culture-through-defaults-not-rules/</link>
       <pubDate>Fri, 17 Oct 2025 00:00:00 +0000</pubDate>
@@ -912,25 +457,11 @@
       <description>&lt;p&gt;Most engineering managers try to scale culture through policies, rules, and guidelines. They write extensive playbooks, create approval processes, and implement governance frameworks. But as teams grow, this approach becomes a bottleneck. You become the referee, constantly interpreting rules and making exceptions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;The high-leverage alternative: Design powerful defaults instead of rigid rules.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-power-of-defaults&#34;&gt;The Power of Defaults&lt;/h2&gt;&#xA;&lt;p&gt;Defaults are the &amp;ldquo;path of least resistance&amp;rdquo; behaviors built into your systems, tools, and workflows. They&amp;rsquo;re what happens when people don&amp;rsquo;t actively choose otherwise. Defaults scale culture because they:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Goal-Oriented Action Planning for Dynamic Problem Solving in Adaptive Agents</title>
-      <link>https://notes.muthu.co/2025/10/goal-oriented-action-planning-for-dynamic-problem-solving-in-adaptive-agents/</link>
-      <pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/goal-oriented-action-planning-for-dynamic-problem-solving-in-adaptive-agents/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Goal-Oriented Action Planning (GOAP)&lt;/strong&gt; is a backward-chaining AI planning system where agents search through a graph of possible actions to find sequences that transform the current world state into a goal state. Each action has preconditions (what must be true to execute it) and effects (what changes when executed).&lt;/p&gt;&#xA;&lt;p&gt;Instead of following rigid scripts, the agent reasons backward from its goal, dynamically constructing a plan based on the current world state. If conditions change, it replans on the fly. GOAP lets agents figure out &lt;em&gt;how&lt;/em&gt; to achieve goals rather than being told exactly &lt;em&gt;what&lt;/em&gt; to do.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Manage Your Attention Budget as Your Scarcest Resource</title>
       <link>https://notes.muthu.co/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</link>
       <pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</guid>
       <description>&lt;p&gt;You can always hire more engineers. You can negotiate for a bigger budget. You can even extend deadlines.&lt;/p&gt;&#xA;&lt;p&gt;But you cannot create more hours in the day. And even more critically: &lt;strong&gt;you cannot expand your capacity for deep, strategic attention.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers treat their attention like it&amp;rsquo;s infinite. They say yes to every meeting, every Slack thread, every &amp;ldquo;quick question.&amp;rdquo; Then they wonder why they&amp;rsquo;re exhausted, reactive, and making shallow decisions.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Auction-Based Task Allocation in Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</link>
-      <pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Auction-based task allocation&lt;/strong&gt; is a distributed coordination mechanism where autonomous agents compete for tasks by submitting bids that reflect their capability, cost, or utility for completing those tasks. An auctioneer (centralized or distributed) collects bids and allocates tasks based on optimization criteria such as lowest cost, highest quality, or fastest completion.&lt;/p&gt;&#xA;&lt;p&gt;Rather than a central planner deciding who does what, each agent evaluates how well-suited it is for a task and submits a bid. The system awards tasks to the best bidders, distributing work efficiently without centralized micromanagement.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Design Your Feedback Loops</title>
@@ -945,13 +476,6 @@
       <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/hire-for-trajectory-not-just-skills/</guid>
       <description>&lt;p&gt;Most engineering managers hire for what candidates can do today. Great engineering managers hire for where candidates will be in 18 months.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-trajectory-principle&#34;&gt;The Trajectory Principle&lt;/h2&gt;&#xA;&lt;p&gt;When you&amp;rsquo;re building a high-performing team, the single most predictive factor of success isn&amp;rsquo;t the depth of current technical skills—it&amp;rsquo;s the &lt;strong&gt;rate of learning and growth trajectory&lt;/strong&gt;. A senior engineer who&amp;rsquo;s plateaued will add less long-term value than a mid-level engineer with exponential growth potential.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Minimax and Adversarial Search for Decision-Making in Competitive Environments</title>
-      <link>https://notes.muthu.co/2025/10/minimax-and-adversarial-search-for-decision-making-in-competitive-environments/</link>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/minimax-and-adversarial-search-for-decision-making-in-competitive-environments/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;minimax algorithm&lt;/strong&gt; is a decision-making procedure for two-player zero-sum games, where one player&amp;rsquo;s gain is the other&amp;rsquo;s loss. It assumes both players play optimally and works backward from game endings to determine the best current move.&lt;/p&gt;&#xA;&lt;p&gt;Minimax performs a depth-first search through the game tree, alternating between maximizing and minimizing layers. At terminal nodes, it evaluates game states using a heuristic function. The algorithm propagates these values upward: the maximizing player chooses the highest-value child, the minimizing player chooses the lowest. This creates a minimax value for each node representing the game outcome under optimal play.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs</title>
@@ -975,20 +499,6 @@
       <description>&lt;p&gt;Most engineering managers are firefighters. They react to outages, missed deadlines, and team burnout after the damage is done. Elite EMs are meteorologists—they see the storm forming days before it hits and adjust course early.&lt;/p&gt;&#xA;&lt;p&gt;The difference? They manage with &lt;strong&gt;leading indicators&lt;/strong&gt; instead of &lt;strong&gt;lagging indicators&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lagging-vs-leading-the-critical-distinction&#34;&gt;Lagging vs. Leading: The Critical Distinction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lagging indicators&lt;/strong&gt; tell you what already happened:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sprint velocity dropped by 30%&lt;/li&gt;&#xA;&lt;li&gt;Production incident occurred&lt;/li&gt;&#xA;&lt;li&gt;Engineer quit unexpectedly&lt;/li&gt;&#xA;&lt;li&gt;Release slipped two weeks&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;By the time you see these signals, you&amp;rsquo;re already in crisis mode. You&amp;rsquo;re managing the aftermath, not preventing the problem.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Teaching Agents to Learn from Mistakes Through Reflection and Self-Critique</title>
-      <link>https://notes.muthu.co/2025/10/teaching-agents-to-learn-from-mistakes-through-reflection-and-self-critique/</link>
-      <pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/teaching-agents-to-learn-from-mistakes-through-reflection-and-self-critique/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Reflection&lt;/strong&gt; in AI agents is a meta-cognitive process where the agent:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Executes an action (e.g., generates code, answers a question, makes a plan).&lt;/li&gt;&#xA;&lt;li&gt;Evaluates the outcome (Did it work? Why or why not?).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Generates self-critique&lt;/strong&gt; (uses an LLM or evaluator to analyze the failure and produce actionable feedback).&lt;/li&gt;&#xA;&lt;li&gt;Stores the reflection in memory (persists the lesson for future reference).&lt;/li&gt;&#xA;&lt;li&gt;Uses the reflection to improve (on the next attempt, the agent references past failures to avoid repeating mistakes).&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The most well-known implementation is &lt;strong&gt;Reflexion&lt;/strong&gt; (Shinn et al., 2023), which extends the ReAct (Reason + Act) pattern with an explicit reflection phase. Instead of blindly retrying after failure, the agent writes a natural language critique of its own performance and uses that critique as context for the next iteration.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Prompt Chaining and Workflow Orchestration for Reliable Multi-Step Agents</title>
-      <link>https://notes.muthu.co/2025/10/prompt-chaining-and-workflow-orchestration-for-reliable-multi-step-agents/</link>
-      <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/prompt-chaining-and-workflow-orchestration-for-reliable-multi-step-agents/</guid>
-      <description>&lt;p&gt;When you ask an AI to perform a complex task like &amp;ldquo;analyze this dataset and create a comprehensive report with visualizations,&amp;rdquo; you&amp;rsquo;re really asking for a sequence of specialized operations: data validation, statistical analysis, insight extraction, visualization generation, and narrative synthesis. &lt;strong&gt;Prompt chaining&lt;/strong&gt; is the architectural pattern that breaks monolithic AI tasks into discrete, composable steps, each with its own focused prompt and purpose.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Prompt chaining is a &lt;strong&gt;workflow orchestration pattern&lt;/strong&gt; where:&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>The Multiplier Mindset for Identifying and Amplifying Force Multipliers</title>
       <link>https://notes.muthu.co/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</link>
       <pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
@@ -1001,20 +511,6 @@
       <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records/</guid>
       <description>&lt;p&gt;Most engineering managers focus on making good decisions. The best ones focus on &lt;strong&gt;capturing why decisions were made&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Architecture Decision Records (ADRs) aren&amp;rsquo;t just documentation—they&amp;rsquo;re a cultural operating system that scales your judgment across the organization.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-undocumented-decisions&#34;&gt;The Hidden Cost of Undocumented Decisions&lt;/h2&gt;&#xA;&lt;p&gt;Every major technical decision you make today will be questioned in 18 months. Your team will have turned over. Context will have evaporated. Someone will ask &amp;ldquo;Why did we choose Postgres over DynamoDB?&amp;rdquo; and the answer will be lost to Slack history.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Behavior Trees for Modular Decision-Making in AI Agents</title>
-      <link>https://notes.muthu.co/2025/10/behavior-trees-for-modular-decision-making-in-ai-agents/</link>
-      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/behavior-trees-for-modular-decision-making-in-ai-agents/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;Behavior Tree&lt;/strong&gt; (BT) is a mathematical model of plan execution represented as a directed acyclic graph (DAG) where each node is a task. The tree is evaluated from the root, with control flowing to child nodes based on their parent&amp;rsquo;s type. Each node returns one of three states: &lt;strong&gt;Success&lt;/strong&gt;, &lt;strong&gt;Failure&lt;/strong&gt;, or &lt;strong&gt;Running&lt;/strong&gt; (for asynchronous tasks).&lt;/p&gt;&#xA;&lt;p&gt;Unlike finite state machines (FSMs), which can become unwieldy as complexity grows, Behavior Trees are compositional and modular. You can build complex behaviors by combining simple, reusable subtrees. This makes them ideal for AI agents that need to handle dynamic environments with many possible actions.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hierarchical Task Networks for Planning with Decomposition</title>
-      <link>https://notes.muthu.co/2025/10/hierarchical-task-networks-for-planning-with-decomposition/</link>
-      <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/hierarchical-task-networks-for-planning-with-decomposition/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Hierarchical Task Networks (HTN)&lt;/strong&gt; planning works by decomposing abstract goals into progressively more concrete subtasks until reaching actions the agent can directly execute. An HTN planner works with two types of tasks:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Primitive tasks&lt;/strong&gt;: Concrete actions the agent can directly execute (e.g., &lt;code&gt;pickup(item)&lt;/code&gt;, &lt;code&gt;move(location)&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Compound tasks&lt;/strong&gt;: Abstract goals that must be decomposed into subtasks using &lt;strong&gt;methods&lt;/strong&gt; (e.g., &lt;code&gt;prepare_dinner&lt;/code&gt;, &lt;code&gt;travel_to_city&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Each &lt;strong&gt;method&lt;/strong&gt; is a recipe that says: &amp;ldquo;To accomplish compound task X in situation S, decompose it into subtasks [T1, T2, T3].&amp;rdquo; The planner searches through different decomposition methods until it produces a sequence of primitive tasks that achieves the goal.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Make Decisions Reversible</title>
@@ -1031,13 +527,6 @@
       <description>&lt;p&gt;The best engineering managers don&amp;rsquo;t pride themselves on being heroic problem-solvers. They build systems that prevent problems from becoming emergencies in the first place.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-trap-of-being-indispensable&#34;&gt;The Trap of Being Indispensable&lt;/h2&gt;&#xA;&lt;p&gt;Early in your EM career, solving urgent problems feels rewarding. You swoop in, unblock the team, and everyone breathes easier. But this pattern creates a dangerous dependency: your team learns to escalate to you instead of developing judgment about what truly needs escalation.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Intelligent Pathfinding for AI Agents with A-Star Search</title>
-      <link>https://notes.muthu.co/2025/10/intelligent-pathfinding-for-ai-agents-with-a-star-search/</link>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/intelligent-pathfinding-for-ai-agents-with-a-star-search/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;A*&lt;/strong&gt; is a &lt;strong&gt;best-first search algorithm&lt;/strong&gt; that finds the shortest path from a start point to a goal by combining known cost with a heuristic estimate of remaining cost. It maintains a priority queue of nodes to explore. For each node &lt;code&gt;n&lt;/code&gt;, it calculates:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;f(n) = g(n) + h(n)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;g(n)&lt;/strong&gt;: The actual cost from the start node to node &lt;code&gt;n&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;h(n)&lt;/strong&gt;: The heuristic function, an estimate of the cost from &lt;code&gt;n&lt;/code&gt; to the goal&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;f(n)&lt;/strong&gt;: The estimated total cost of the cheapest path through &lt;code&gt;n&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The algorithm always expands the node with the lowest &lt;code&gt;f(n)&lt;/code&gt; value. If the heuristic &lt;code&gt;h(n)&lt;/code&gt; is &lt;strong&gt;admissible&lt;/strong&gt; (never overestimates the true cost) and &lt;strong&gt;consistent&lt;/strong&gt; (satisfies the triangle inequality), A* is guaranteed to find the optimal path.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Measure What Matters Through Data-Informed Leadership</title>
       <link>https://notes.muthu.co/2025/10/measure-what-matters-through-data-informed-leadership/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
@@ -1052,13 +541,6 @@
       <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Monte Carlo Tree Search (MCTS)&lt;/strong&gt; is a heuristic search algorithm for finding optimal decisions in large search spaces. It builds a search tree incrementally, guided by the results of random simulations (the &amp;ldquo;Monte Carlo&amp;rdquo; part), balancing exploration of new paths against exploitation of paths that have proven successful.&lt;/p&gt;&#xA;&lt;p&gt;Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Programming Multi-Agent Conversations with AutoGen</title>
-      <link>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;AutoGen&lt;/strong&gt; is a framework for simplifying the orchestration, optimization, and automation of complex LLM workflows. Its central abstraction is the &lt;strong&gt;conversable agent&lt;/strong&gt;: an independent unit that communicates via message passing and can be configured with different LLMs, prompts, and capabilities. Two key specializations are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;code&gt;AssistantAgent&lt;/code&gt;&lt;/strong&gt;: A standard AI agent that uses an LLM to reason, chat, and generate code. It acts as the &amp;ldquo;expert.&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;code&gt;UserProxyAgent&lt;/code&gt;&lt;/strong&gt;: A proxy for a human user. It can solicit human input, but more importantly, it can execute code on behalf of the user. This ability to run code (e.g., in a local Python environment) and report back the results is AutoGen&amp;rsquo;s superpower.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The magic happens when you put them together. A &lt;code&gt;UserProxyAgent&lt;/code&gt; can ask an &lt;code&gt;AssistantAgent&lt;/code&gt; to write a script. The &lt;code&gt;AssistantAgent&lt;/code&gt; sends back the code. The &lt;code&gt;UserProxyAgent&lt;/code&gt; executes it, captures the output (or error), and sends that result back to the &lt;code&gt;AssistantAgent&lt;/code&gt; for the next step. This loop continues until the task is complete.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Treat Tech Debt Like a Financial Portfolio</title>
       <link>https://notes.muthu.co/2025/10/treat-tech-debt-like-a-financial-portfolio/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
@@ -1066,32 +548,11 @@
       <description>&lt;p&gt;As an engineering manager, your role evolves from solving technical problems to building a system that solves problems. One of the most powerful shifts you can make is to stop treating technical debt as a messy backlog and start managing it like a financial portfolio. This reframing moves the conversation from &amp;ldquo;cleaning up code&amp;rdquo; to making strategic investments for long-term growth and stability.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-core-idea-debt-as-a-tool-not-a-sin&#34;&gt;The Core Idea: Debt as a Tool, Not a Sin&lt;/h3&gt;&#xA;&lt;p&gt;Just like financial debt, technical debt isn&amp;rsquo;t inherently evil. It&amp;rsquo;s a tool. You can take on debt intentionally to seize an opportunity, like shipping a feature faster to capture a market window. The danger lies not in having debt, but in letting it accumulate without a plan, allowing the &amp;ldquo;interest&amp;rdquo; to cripple your team&amp;rsquo;s velocity and morale.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Advanced Problem-Solving with Tree of Thoughts</title>
-      <link>https://notes.muthu.co/2025/10/advanced-problem-solving-with-tree-of-thoughts/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/advanced-problem-solving-with-tree-of-thoughts/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tree of Thoughts (ToT)&lt;/strong&gt; allows an agent to explore a tree of possibilities rather than following a single linear reasoning path. At each stage, the agent can generate multiple different &amp;ldquo;thoughts&amp;rdquo; or next steps, evaluate them, and decide which branches are worth exploring further. Chain of Thought (CoT) reasoning commits to one path from question to answer. ToT treats reasoning as a search problem: generate candidates, evaluate them, and backtrack when a branch goes nowhere.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>An Introduction to Reinforcement Learning for AI Agents</title>
-      <link>https://notes.muthu.co/2025/10/an-introduction-to-reinforcement-learning-for-ai-agents/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/an-introduction-to-reinforcement-learning-for-ai-agents/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Reinforcement Learning (RL) is a paradigm of machine learning where an &lt;strong&gt;agent&lt;/strong&gt; learns to make optimal decisions by interacting with an &lt;strong&gt;environment&lt;/strong&gt;. The agent takes &lt;strong&gt;actions&lt;/strong&gt;, which transition the environment into a new &lt;strong&gt;state&lt;/strong&gt;. The environment then provides feedback in the form of a &lt;strong&gt;reward&lt;/strong&gt; (or punishment). The agent&amp;rsquo;s goal is to learn a &lt;strong&gt;policy&lt;/strong&gt; — a map from states to actions — that maximizes its cumulative reward over time.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Architecting Short-Term and Long-Term Memory in AI Agents</title>
       <link>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</guid>
       <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.&lt;/p&gt;&#xA;&lt;p&gt;Agent memory falls into two broad categories:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Short-Term (or Working) Memory:&lt;/strong&gt; This is the agent&amp;rsquo;s &amp;ldquo;scratchpad.&amp;rdquo; It&amp;rsquo;s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It&amp;rsquo;s volatile and limited.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Long-Term Memory:&lt;/strong&gt; This is the agent&amp;rsquo;s persistent knowledge store. It&amp;rsquo;s where the agent saves key facts, past conversations, user preferences, and learned insights. It&amp;rsquo;s vast and durable.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Beyond the Training Data with Retrieval-Augmented Generation for AI Agents</title>
-      <link>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Retrieval-Augmented Generation (RAG)&lt;/strong&gt; gives an AI agent an external knowledge base that it can consult in real-time. Instead of relying solely on parametric memory (which is frozen at training time), the agent first &lt;strong&gt;retrieves&lt;/strong&gt; relevant facts and then generates an answer grounded in that retrieved context. This makes responses more factual, up-to-date, and verifiable.&lt;/p&gt;&#xA;&lt;p&gt;The core flow:&#xA;&lt;strong&gt;Query -&amp;gt; Retrieve Relevant Documents -&amp;gt; Augment Query with Documents -&amp;gt; Generate Answer&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Decentralize Decisions, Centralize Context</title>
@@ -1113,48 +574,6 @@
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</guid>
       <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tool Use&lt;/strong&gt; is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called &lt;strong&gt;Function Calling&lt;/strong&gt;: the LLM acts as a reasoning engine that translates a user&amp;rsquo;s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.&lt;/p&gt;&#xA;&lt;p&gt;When you ask a voice assistant &amp;ldquo;What&amp;rsquo;s the weather in London?&amp;rdquo;, it doesn&amp;rsquo;t magically know the answer. It recognizes that you want weather data, calls an external API with &amp;ldquo;London&amp;rdquo; as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Improving Agent Reliability with Plan-and-Solve Prompting</title>
-      <link>https://notes.muthu.co/2025/10/improving-agent-reliability-with-plan-and-solve-prompting/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/improving-agent-reliability-with-plan-and-solve-prompting/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Plan-and-Solve (PS) Prompting&lt;/strong&gt; is a structured approach to AI agent reliability. Instead of asking an LLM to solve a multi-step problem in one go, you instruct it to first break down the problem and create a clear, step-by-step plan. Only after the plan is explicitly written out do you then instruct the model to execute that plan.&lt;/p&gt;&#xA;&lt;p&gt;This separation of concerns dramatically improves the reliability and accuracy of agents on any task that requires more than one step, from solving math problems to executing complex user requests.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Self-Improvement and Autoformalization in AI Agents That Build Themselves</title>
-      <link>https://notes.muthu.co/2025/10/self-improvement-and-autoformalization-in-ai-agents-that-build-themselves/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/self-improvement-and-autoformalization-in-ai-agents-that-build-themselves/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;We have explored how agents can reason, plan, remember, act, and collaborate. The final, ultimate step in this journey is to create an agent that can improve its own capabilities. A &lt;strong&gt;self-improving agent&lt;/strong&gt; is one that can analyze its own performance, identify its flaws, and modify its own internal logic or code to become more effective over time.&lt;/p&gt;&#xA;&lt;p&gt;A key process that enables this is &lt;strong&gt;Autoformalization&lt;/strong&gt;. This is the ability of an agent to translate a vague, high-level goal stated in natural language (e.g., &amp;ldquo;Make this process more efficient&amp;rdquo;) into a formal, precise, and verifiable representation that it can work with (e.g., a unit test, a mathematical equation, or a piece of executable code).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Solving Complex Problems with AI Agent Swarms</title>
-      <link>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;An &lt;strong&gt;AI Agent Swarm&lt;/strong&gt; is a system composed of a large number of relatively simple, often identical agents working in parallel. Rather than building one monolithic agent or a small team of specialists, the swarm distributes work across many workers simultaneously. The complex, intelligent behavior of the system is an &lt;strong&gt;emergent property&lt;/strong&gt; of their collective actions, not the design of any single member.&lt;/p&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The idea is a direct import from biology, specifically the field of &lt;strong&gt;Swarm Intelligence&lt;/strong&gt;. Researchers in the 1980s and 90s, like Marco Dorigo and James Kennedy, developed computational models inspired by natural swarms. This led to powerful optimization algorithms:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Task Allocation for Machine Teamwork with the Contract Net Protocol</title>
-      <link>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Contract Net Protocol&lt;/strong&gt; is a decentralized method for assigning tasks in a multi-agent system. One agent, the &lt;strong&gt;Manager&lt;/strong&gt; (or Initiator), has a task it needs done and broadcasts a task announcement. Other agents, the &lt;strong&gt;Contractors&lt;/strong&gt; (or Participants), evaluate the announcement and submit a &lt;strong&gt;bid&lt;/strong&gt; if they are capable and available. The Manager then chooses the best bid and awards the contract.&lt;/p&gt;&#xA;&lt;p&gt;This market-like interaction allows a group of agents to self-organize and dynamically distribute work to the most suitable members.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium</title>
-      <link>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Game Theory&lt;/strong&gt; is the mathematical study of strategic decision-making among rational, self-interested agents. It is the standard framework for analyzing how AI agents behave in environments where their goals may conflict or align with others.&lt;/p&gt;&#xA;&lt;p&gt;The central concept is the &lt;strong&gt;Nash Equilibrium&lt;/strong&gt;: a state where no player can improve their outcome by unilaterally changing their strategy, assuming all others hold theirs fixed. It represents a stable outcome, though not always an optimal one.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Fusing Reasoning and Action in LLM Agents with ReAct</title>
-      <link>https://notes.muthu.co/2025/10/fusing-reasoning-and-action-in-llm-agents-with-react/</link>
-      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/fusing-reasoning-and-action-in-llm-agents-with-react/</guid>
-      <description>&lt;h3 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;ReAct&lt;/strong&gt; (Reason + Act) is a prompting framework where the LLM generates output in a specific format: a sequence of &lt;code&gt;Thought&lt;/code&gt;, &lt;code&gt;Action&lt;/code&gt;, and &lt;code&gt;Observation&lt;/code&gt; triplets.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Thought:&lt;/strong&gt; The LLM generates a private reasoning trace. It analyzes the current state of the problem, breaks it down, and decides what to do next. This is analogous to Chain-of-Thought (CoT) reasoning.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Based on its thought, the LLM decides to use an external tool. This could be a search query, a database lookup, a calculator, or any other API call.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Observation:&lt;/strong&gt; The agent system executes the action (e.g., runs the search query) and feeds the result back into the prompt as an &amp;ldquo;Observation.&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This loop continues, with each new observation informing the next thought, allowing the agent to build context, correct its mistakes, and solve multi-step problems that would be impossible with a single query.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Manage Energy Not Time for Sustainable High Performance</title>
@@ -1183,13 +602,6 @@
       <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</guid>
       <description>&lt;p&gt;As an engineering manager, it&amp;rsquo;s easy to get trapped in the cycle of managing people and tasks—the individual &amp;ldquo;plants&amp;rdquo; in your garden. You track progress, unblock issues, and manage performance. While essential, this approach doesn&amp;rsquo;t scale and won&amp;rsquo;t elevate you to the next level of leadership.&lt;/p&gt;&#xA;&lt;p&gt;The most powerful shift you can make is to stop focusing solely on the plants and start acting as the gardener: the designer of the entire environment. Your job isn&amp;rsquo;t to make every plant grow; it&amp;rsquo;s to create a garden where growth is the natural, inevitable outcome.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The Cognitive Loop of AI Agents with Planner Executor and Memory</title>
-      <link>https://notes.muthu.co/2025/10/the-cognitive-loop-of-ai-agents-with-planner-executor-and-memory/</link>
-      <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/the-cognitive-loop-of-ai-agents-with-planner-executor-and-memory/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Planner-Executor-Memory (PEM)&lt;/strong&gt; pattern is an architectural pattern for autonomous agents that decouples high-level reasoning from low-level action.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Planner&lt;/strong&gt; is a reasoning engine (often an LLM) that takes a high-level objective and decomposes it into a sequence of concrete, executable steps.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Executor&lt;/strong&gt; is the component that interacts with the environment by carrying out the steps defined by the planner. This could involve calling tools, APIs, or other functions.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Memory&lt;/strong&gt; component stores the agent&amp;rsquo;s state, past actions, observations from the environment, and learned knowledge. It provides context to the planner and a record for refinement.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The idea of separating planning from execution is a classic concept in AI, dating back to early robotics and automated planning systems like &lt;strong&gt;STRIPS (Stanford Research Institute Problem Solver)&lt;/strong&gt; in the late 1960s. STRIPS represented the world in terms of states and defined actions by their preconditions and effects. A planner would search for a sequence of actions to get from an initial state to a goal state.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your Engineering Org is Your Product</title>
@@ -1358,13 +770,6 @@
       <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</guid>
       <description>&lt;p&gt;Artificial Intelligence is moving beyond conversational chatbots to become &lt;em&gt;autonomous research agents&lt;/em&gt;. Unlike conventional LLM assistants that answer questions based on pre-trained knowledge, these new systems—collectively called &lt;strong&gt;Deep Research AI&lt;/strong&gt;—can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Plan and execute multi-step investigations&lt;/li&gt;&#xA;&lt;li&gt;Formulate sub-questions and hypotheses&lt;/li&gt;&#xA;&lt;li&gt;Browse the web and databases iteratively&lt;/li&gt;&#xA;&lt;li&gt;Evaluate sources and compile structured reports with citations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This process, while slower, achieves comprehensive, verifiable insights comparable to a PhD-level literature review.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-deep-research-works&#34;&gt;&lt;strong&gt;How Deep Research Works&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Core Stages:&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://notes.muthu.co/1/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/1/01/</guid>
-      <description>&lt;h1 id=&#34;world-models-teaching-agents-to-imagine-the-future&#34;&gt;World Models: Teaching Agents to Imagine the Future&lt;/h1&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;world model&lt;/strong&gt; is a learned representation of how the environment works. Given the current state and an action, it predicts the next state and, optionally, the reward. This enables an agent to evaluate possible futures in simulation before committing to real action, transforming it from purely reactive to genuinely &lt;em&gt;planning&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;More precisely, a world model is a neural network trained to approximate the environment&amp;rsquo;s transition dynamics: &lt;code&gt;s_{t+1} = f(s_t, a_t)&lt;/code&gt;. This enables &lt;strong&gt;model-based reinforcement learning (MBRL)&lt;/strong&gt;, where agents can:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

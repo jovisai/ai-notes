@@ -6,15 +6,8 @@
     <description>Recent content in CrewAI on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/crewai/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Role Specialization and Crew Based Multi Agent Architectures</title>
-      <link>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</link>
-      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</guid>
-      <description>&lt;p&gt;Role specialization is reshaping how we build AI agent systems. Instead of one all-knowing agent, we compose a &lt;em&gt;crew&lt;/em&gt; of specialized agents that collaborate on complex tasks. This article unpacks how role specialization works, why it matters, and how to build crew-based architectures in practice.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Each agent in a crew gets a &lt;strong&gt;role&lt;/strong&gt; (a system prompt defining its expertise, personality, and constraints), a &lt;strong&gt;goal&lt;/strong&gt;, and a set of &lt;strong&gt;tools&lt;/strong&gt;. An orchestration layer coordinates who works when and how information flows between them.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both</title>
       <link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>

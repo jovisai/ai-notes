@@ -6,70 +6,14 @@
     <description>Recent content in Multi-Agent on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/multi-agent/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mechanism Design Teaching Agents to Cooperate Through Incentives</title>
-      <link>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</link>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</guid>
-      <description>&lt;p&gt;Mechanism design is game theory run backwards. Traditional game theory asks: given the rules of a game, what will rational players do? Mechanism design asks: given the outcome we want, what rules should we create so that rational players produce it? This inversion is surprisingly powerful, and it has direct consequences for how you architect multi-agent systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Imagine you are building a multi-agent pipeline where three specialized agents must cooperate on a complex task. Agent A retrieves documents, Agent B synthesizes them, Agent C verifies the output. Each agent has its own internal objective, shaped by its fine-tuning or prompting. Left alone, Agent A might be lazy with retrieval because the cost of thoroughness falls on it while the benefit goes to B. Agent B might hallucinate rather than admit uncertainty, since its success metric rewards confident answers. The system as a whole fails even though each agent is locally &amp;ldquo;doing its job.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mixture of Agents Building Collaborative LLM Pipelines That Outperform Any Individual Model</title>
-      <link>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A single LLM asked the same hard question twice will often give two noticeably different answers. Sometimes one version is sharper, better reasoned, more complete than the other. This suggests something: the model&amp;rsquo;s capability space is broader than what any single forward pass reliably extracts. &lt;strong&gt;Mixture-of-Agents (MoA)&lt;/strong&gt; exploits this directly by running multiple LLM agents in parallel, then feeding all their outputs to a second layer of agents that synthesizes them into something better than any proposer could produce alone.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
       <link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
       <description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Opponent Modeling and Theory of Mind in Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/2026/03/opponent-modeling-and-theory-of-mind-in-multi-agent-systems/</link>
-      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/opponent-modeling-and-theory-of-mind-in-multi-agent-systems/</guid>
-      <description>&lt;p&gt;In multi-agent systems, an agent that treats the world as static will be outplayed by one that models its counterparts. Opponent modeling builds an internal representation of another agent&amp;rsquo;s goals, beliefs, and likely actions. Theory of Mind extends this to recursive reasoning: rather than only predicting what an opponent will &lt;em&gt;do&lt;/em&gt;, a ToM-capable agent reasons about what they &lt;em&gt;believe&lt;/em&gt; to be true.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Opponent modeling&lt;/strong&gt; is the ability of an agent to build an internal representation of another agent&amp;rsquo;s goals, beliefs, and likely behavior. In multi-agent settings, ignoring other agents and acting as if the world is static is almost always suboptimal. The most effective players, human or AI, exploit what they know about their counterparts.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mean Field Games and Mean Field Reinforcement Learning for Massive Agent Populations</title>
-      <link>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</link>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</guid>
-      <description>&lt;p&gt;Classical game theory breaks down at scale. With ten thousand or ten million agents, computing Nash equilibria becomes intractable and tracking every pairwise interaction is computationally impossible. Mean field games (MFGs) offer a way out: instead of reasoning about every individual, you reason about the &lt;em&gt;crowd&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When agents are numerous, rational, and roughly interchangeable, each agent&amp;rsquo;s optimal behavior depends not on individual opponents but on the &lt;strong&gt;distribution of the population&lt;/strong&gt;. That distribution summarizes the &amp;ldquo;field&amp;rdquo; every agent perceives. Consider a commuter choosing a route: they don&amp;rsquo;t care about any specific other driver, only about aggregate traffic. Their best route depends on what everyone else collectively does, and everyone else&amp;rsquo;s choice depends on what they do.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Counterfactual Regret Minimization for Solving Imperfect Information Games</title>
-      <link>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</guid>
-      <description>&lt;p&gt;Chess and Go have complete information; every player sees the whole board. But most real-world agent problems don&amp;rsquo;t. Negotiation, cybersecurity, auctions, medical triage: information is partial, private, or hidden. Counterfactual Regret Minimization (CFR) is the algorithm that cracked this class of problems, producing the first superhuman poker agents and reshaping how we think about strategic reasoning under uncertainty.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;CFR operates on &lt;strong&gt;extensive-form games&lt;/strong&gt;, the formal representation for sequential games with hidden information. Unlike normal-form games (payoff matrices), extensive-form games encode the game tree explicitly: who acts when, what they can observe, and what the payoffs are.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cooperative Game Theory and Shapley Values for Fair Credit Assignment in Multi-Agent Systems</title>
-      <link>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</link>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</guid>
-      <description>&lt;p&gt;When a team of AI agents solves a hard problem together, a fundamental question emerges: who deserves credit? If a research agent, a coding agent, and a critic agent collaborate to produce an excellent answer, how much of the success belongs to each? This is the &lt;strong&gt;credit assignment problem&lt;/strong&gt; in multi-agent settings, and cooperative game theory offers a principled solution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;cooperative game&lt;/strong&gt; (or coalitional game) is defined by a pair $(N, v)$ where:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Multi-Agent Reinforcement Learning Teaching Agents to Cooperate Compete and Coexist</title>
-      <link>https://notes.muthu.co/2026/02/multi-agent-reinforcement-learning-teaching-agents-to-cooperate-compete-and-coexist/</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/multi-agent-reinforcement-learning-teaching-agents-to-cooperate-compete-and-coexist/</guid>
-      <description>&lt;p&gt;When two learning agents share the same environment, they don&amp;rsquo;t just solve a problem together — they change each other&amp;rsquo;s learning problem. Every action one agent takes shifts the reward landscape for all the others. This feedback loop between co-adapting learners is the heart of &lt;strong&gt;Multi-Agent Reinforcement Learning (MARL)&lt;/strong&gt;, and it produces some of the most counterintuitive behaviors in AI research.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In standard reinforcement learning, one agent explores an environment, collects rewards, and updates its policy. The environment doesn&amp;rsquo;t fight back or adapt. MARL changes this: multiple agents share the same world, and each agent is part of the environment for all the others. The result is non-stationarity by design — each agent&amp;rsquo;s learning problem shifts as every other agent learns.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Role Specialization and Crew Based Multi Agent Architectures</title>
-      <link>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</link>
-      <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</guid>
-      <description>&lt;p&gt;Role specialization is reshaping how we build AI agent systems. Instead of one all-knowing agent, we compose a &lt;em&gt;crew&lt;/em&gt; of specialized agents that collaborate on complex tasks. This article unpacks how role specialization works, why it matters, and how to build crew-based architectures in practice.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Each agent in a crew gets a &lt;strong&gt;role&lt;/strong&gt; (a system prompt defining its expertise, personality, and constraints), a &lt;strong&gt;goal&lt;/strong&gt;, and a set of &lt;strong&gt;tools&lt;/strong&gt;. An orchestration layer coordinates who works when and how information flows between them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Multi-Agent Swarm with OpenAI Swarm Framework</title>
@@ -98,13 +42,6 @@
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
       <description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Consensus Algorithms for Coordinating Agreement in Distributed Agent Systems</title>
-      <link>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</guid>
-      <description>&lt;p&gt;When multiple AI agents need to make a collective decision (agreeing on a shared belief, coordinating a distributed transaction, or electing a leader), they face the fundamental challenge of &lt;strong&gt;distributed consensus&lt;/strong&gt;. How do you ensure that agents reach agreement even when some are slow, unreachable, or Byzantine (malicious)? This is where consensus algorithms become essential.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-consensus&#34;&gt;What Is Consensus?&lt;/h2&gt;&#xA;&lt;p&gt;Consensus is the process by which a group of agents agrees on a single value or decision, even when facing failures, network delays, or conflicting information. A &lt;strong&gt;consensus algorithm&lt;/strong&gt; ensures that distributed agents maintain consistency across their states, satisfying three properties:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

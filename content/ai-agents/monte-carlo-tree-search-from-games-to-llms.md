@@ -10,12 +10,6 @@ tags: ["AI Agents", "Algorithms", "MCTS", "Planning"]
 
 Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.
 
-## Historical & Theoretical Context
-
-The ideas behind MCTS have roots in **Monte Carlo methods**, which date back to the 1940s and the Manhattan Project. However, the MCTS algorithm as we know it today was formalized in the mid-2000s. Key contributions came from Rémi Coulom in 2006, who used it in his Go program Crazy Stone, and Levente Kocsis and Csaba Szepesvári, who developed the **UCT (Upper Confidence Bound 1 applied to Trees)** algorithm in the same year.
-
-MCTS represented a major breakthrough in computer Go, a game that had long been a grand challenge for AI due to its immense branching factor. Before MCTS, most game-playing AI relied on algorithms like **Minimax** with **alpha-beta pruning**, which require a handcrafted evaluation function. MCTS's ability to learn from simulations was a game-changer.
-
 ## Algorithms & Math
 
 The MCTS algorithm iterates through four main steps:
@@ -56,43 +50,18 @@ MCTS fits naturally into a **planner-executor** agent architecture. The MCTS alg
 
 ## Practical Application
 
-Here's a simplified Python-like pseudocode for MCTS in a game like Tic-Tac-Toe:
+A minimal MCTS implementation for LLM reasoning defines a `Node` class to hold a reasoning state (prompt + partial response) along with visit count and accumulated reward, then wires together four functions — `select` (UCT scoring over children), `expand` (sample candidate continuations from the LLM), `simulate` (run a lightweight rollout to a terminal state), and `backpropagate` (update win/visit counts up the tree). The raw Anthropic SDK is the best fit here: `expand` and `simulate` each call `client.messages.create`, with temperature controlling exploration width. A thin loop drives the four phases for a fixed budget of iterations, then returns the child of the root with the highest visit count as the chosen next reasoning step.
 
-```python
-class Node:
-    def __init__(self, state, parent=None):
-        self.state = state
-        self.parent = parent
-        self.children = []
-        self.wins = 0
-        self.visits = 0
+**Try it**
 
-def mcts(root_node, num_simulations):
-    for _ in range(num_simulations):
-        node = root_node
-        
-        # 1. Selection
-        while node.children:
-            node = select_child(node) # Using UCT
-            
-        # 2. Expansion
-        if not is_terminal(node.state):
-            expand_node(node)
-            node = node.children[0]
-            
-        # 3. Simulation
-        outcome = simulate_random_playout(node.state)
-        
-        # 4. Backpropagation
-        while node is not None:
-            node.visits += 1
-            node.wins += outcome
-            node = node.parent
-            
-    return best_move(root_node) # e.g., child with most visits
 ```
-
-In modern AI agent frameworks, MCTS is being explored as a way to guide the reasoning process of LLMs. For example, in a **LangGraph** agent, each node in the graph could represent a state of reasoning, and MCTS could be used to explore different paths (chains of thought) to solve a complex problem, similar to the **Tree of Thoughts** architecture.
+Using the Anthropic Python SDK, build a minimal Monte Carlo Tree Search (MCTS) reasoner.
+Define a Node class with fields: state (str), parent, children (list), visits (int), value (float).
+Implement select (UCT formula), expand (call claude-haiku-4-5-20251001 to sample 2 child states),
+simulate (one greedy rollout to a short answer, scored by a simple heuristic), and backpropagate.
+Run 8 MCTS iterations on the root question "What is the fastest route from A to B?" and print
+the chosen next reasoning step. Add inline comments explaining each MCTS phase.
+```
 
 ## Latest Developments & Research
 
@@ -103,16 +72,3 @@ More recently, researchers are applying MCTS-like principles to improve the reas
 ## Cross-Disciplinary Insight
 
 The **exploration-exploitation tradeoff** that MCTS addresses is a fundamental problem across many fields. In economics, businesses must decide whether to invest in new, unproven products or focus on existing profitable ones. In neuroscience, this tradeoff is thought to be managed by dopamine systems in the brain.
-
-## Daily Challenge / Thought Exercise
-
-For a simple game like Tic-Tac-Toe, the state space is small enough that you can often find the optimal move without a complex search.
-
-**Your challenge**: How would you adapt the MCTS algorithm for a game with a very high branching factor but a very short game length? For example, a game where you have 1000 possible moves, but the game always ends after 3 turns. What parts of the MCTS algorithm would be most important in this scenario?
-
-## References & Further Reading
-
--   **"A Survey of Monte Carlo Tree Search Methods"** by Browne et al. (2012): A comprehensive overview of the algorithm and its variants.
--   **"Mastering the game of Go with deep neural networks and tree search"** (The AlphaGo paper) by Silver et al. (2016): A landmark paper in AI.
--   **Jeff Bradberry's MCTS tutorial**: A very accessible introduction to the topic.
--   **The Tree of Thoughts paper**: For insights into how tree-based search is being applied to LLMs.

@@ -18,14 +18,6 @@ Three broad strategies emerge in practice. First, sliding window truncation: kee
 
 In real systems, you usually combine all three.
 
-## Historical and Theoretical Context
-
-The challenge mirrors how working memory is theorized in cognitive science. Miller's 1956 observation that human working memory holds roughly seven items (plus or minus two) sparked decades of research into how the brain manages limited attentional resources. The solution wasn't just truncation: humans chunk information, consolidate short-term memories into longer-term schemas, and selectively recall relevant context based on current goals.
-
-The earliest practical analog in AI was paging in symbolic planners. SOAR (Laird, Newell, and Rosenbloom, 1987) introduced chunking as a mechanism to compile frequently-used reasoning patterns into long-term production rules, reducing the load on working memory. HTN planners similarly compressed sub-plan results into abstract plan steps that were referenced without being re-expanded.
-
-For LLM agents, the problem became acute once people moved beyond single-turn use. Early AutoGPT experiments in 2023 showed agents spiraling into incoherence after 20-30 steps, repeatedly trying the same failed approaches because their context had been truncated. This sparked practical work on memory management that continues to evolve.
-
 ## Algorithms and Distillation Patterns
 
 The simplest workable approach is the rolling summary pattern. After every K steps:
@@ -239,18 +231,3 @@ More recent work examines compression quality. A compressed summary that omits a
 Operating systems solved a structurally similar problem decades ago with virtual memory and demand paging. The CPU's registers are a tiny, fast working memory; RAM is a larger but slower tier; disk is vast but slow. The OS moves pages between tiers based on recency and access patterns, giving processes the illusion of infinite memory.
 
 Agent memory management is demand paging for cognition. The "page fault" equivalent is a retrieval call: when the agent needs context that has been evicted, it fetches it from the archive. The key insight borrowed from OS design is that you do not need to keep everything in fast memory simultaneously, only what is actively needed. The hard part is predicting what will be needed next, which in agent systems depends on the task structure in ways that LRU caching (the OS default) does not capture well.
-
-## Daily Challenge
-
-Take any multi-step agent you have built or can build quickly. Deliberately make it run 15-20 steps on a complex task and observe where it starts to degrade: does it re-attempt things it already tried? Does it lose track of the original task? Does the context fill and truncate silently?
-
-Then implement one of: (a) a rolling summarization step after every 5 messages, or (b) a checkpoint write after every 8 steps. Measure whether the agent's final output quality improves by running both versions on the same task and comparing the outputs. Pay attention to whether the compressed version makes mistakes the full-context version avoids, and vice versa.
-
-## References and Further Reading
-
-- Packer, C., Fang, V., Patil, S. G., Moon, K., Kaufman, S., and Gonzalez, J. E. "MemGPT: Towards LLMs as Operating Systems." NeurIPS 2023 Workshop on Interactive Learning from Implicit Human Feedback.
-- Sumers, T. R., Yao, S., Narasimhan, K., and Griffiths, T. L. "Cognitive Architectures for Language Agents." Transactions on Machine Learning Research, 2024.
-- Park, J. S., O'Brien, J. C., Cai, C. J., Morris, M. R., Liang, P., and Bernstein, M. S. "Generative Agents: Interactive Simulacra of Human Behavior." UIST 2023.
-- Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., Chen, Z., Tang, J., Chen, X., Lin, Y., Zhao, W. X., Wei, Z., and Wen, J.-R. "A Survey on Large Language Model based Autonomous Agents." Frontiers of Computer Science, 2024.
-- Laird, J. E., Newell, A., and Rosenbloom, P. S. "SOAR: An Architecture for General Intelligence." Artificial Intelligence, 33(1), 1987.
-- Miller, G. A. "The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information." Psychological Review, 63(2), 1956.

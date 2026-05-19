@@ -1,134 +1,23 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://notes.muthu.co/2026/04/least-commitment-planning-how-agents-defer-decisions-to-stay-flexible/</loc>
-    <lastmod>2026-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/04/least-privilege-and-capability-containment-designing-agents-that-cannot-exceed-their-mandate/</loc>
-    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/04/mechanism-design-teaching-agents-to-cooperate-through-incentives/</loc>
-    <lastmod>2026-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/indirect-prompt-injection-how-untrusted-content-hijacks-ai-agents/</loc>
-    <lastmod>2026-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/landmark-based-planning-using-obligatory-subgoals-to-guide-search/</loc>
-    <lastmod>2026-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/mixture-of-agents-building-collaborative-llm-pipelines-that-outperform-any-individual-model/</loc>
-    <lastmod>2026-03-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/corrigibility-and-interruptibility-building-agents-that-accept-human-override/</loc>
-    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/receding-horizon-planning-and-plan-commitment-in-agent-reasoning-loops/</loc>
-    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/dependency-aware-task-scheduling-how-agents-execute-plans-as-parallel-dags/</loc>
-    <lastmod>2026-03-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/anytime-heuristic-search-how-agents-find-good-plans-fast-and-improve-them-over-time/</loc>
-    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/classical-planning-with-strips-and-the-delete-relaxation-heuristic/</loc>
-    <lastmod>2026-03-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</loc>
     <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/opponent-modeling-and-theory-of-mind-in-multi-agent-systems/</loc>
-    <lastmod>2026-03-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/curriculum-learning-and-automatic-curriculum-generation-in-reinforcement-learning/</loc>
-    <lastmod>2026-03-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</loc>
-    <lastmod>2026-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/counterfactual-regret-minimization-for-solving-imperfect-information-games/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/maximum-entropy-reinforcement-learning-and-the-soft-actor-critic-algorithm/</loc>
-    <lastmod>2026-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/cooperative-game-theory-and-shapley-values-for-fair-credit-assignment-in-multi-agent-systems/</loc>
-    <lastmod>2026-03-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/reward-machines-and-automata-based-task-specification-for-ai-agents/</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/safe-reinforcement-learning-teaches-agents-to-optimize-without-violating-constraints/</loc>
-    <lastmod>2026-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/model-based-reinforcement-learning-how-agents-simulate-experience-to-learn-faster/</loc>
-    <lastmod>2026-03-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/successor-representations-a-map-of-where-you-are-going/</loc>
-    <lastmod>2026-03-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/03/goal-conditioned-reinforcement-learning-and-hindsight-experience-replay-turn-failures-into-training-opportunities/</loc>
-    <lastmod>2026-03-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</loc>
     <lastmod>2026-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2026/03/rlhf-and-preference-learning-teaching-agents-what-humans-actually-want/</loc>
-    <lastmod>2026-03-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/distributional-reinforcement-learning-and-learning-the-full-return-distribution/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/posts/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2026/02/grounded-language-agents-connecting-words-to-actions-in-the-physical-world/</loc>
-    <lastmod>2026-02-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/offline-reinforcement-learning-training-agents-from-fixed-datasets/</loc>
-    <lastmod>2026-02-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/active-inference-and-the-free-energy-principle-how-agents-minimize-surprise-instead-of-maximizing-reward/</loc>
-    <lastmod>2026-02-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/code-writing-agents-and-program-synthesis-teaching-ai-to-build-its-own-tools/</loc>
-    <lastmod>2026-02-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/continual-learning-and-catastrophic-forgetting-how-agents-remember-without-forgetting/</loc>
-    <lastmod>2026-02-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/multi-agent-reinforcement-learning-teaching-agents-to-cooperate-compete-and-coexist/</loc>
-    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/temporal-abstraction-and-the-options-framework-how-agents-learn-to-think-in-subgoals/</loc>
-    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/automatic-prompt-optimization-with-dspy-building-self-tuning-agent-pipelines/</loc>
-    <lastmod>2026-02-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/causal-reasoning-and-intervention-planning-in-ai-agents/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</loc>
     <lastmod>2026-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2026/02/role-specialization-and-crew-based-multi-agent-architectures/</loc>
-    <lastmod>2026-02-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/inverse-reinforcement-learning-inferring-goals-from-behavior/</loc>
-    <lastmod>2026-02-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</loc>
     <lastmod>2026-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/error-recovery-and-graceful-degradation-in-ai-agents/</loc>
-    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2026/02/imitation-learning-teaching-agents-by-watching-experts/</loc>
-    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</loc>
     <lastmod>2026-02-15T00:00:00+00:00</lastmod>
@@ -178,9 +67,6 @@
     <loc>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/12/building-reusable-agent-capabilities-with-skill-libraries/</loc>
-    <lastmod>2025-12-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/</loc>
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
   </url><url>
@@ -190,14 +76,8 @@
     <loc>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/12/diffusion-models-and-iterative-refinement-in-ai-agent-planning/</loc>
-    <lastmod>2025-12-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</loc>
     <lastmod>2025-12-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/12/beam-search-and-parallel-decoding-for-multiple-solution-paths-in-ai-agents/</loc>
-    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</loc>
     <lastmod>2025-12-02T00:00:00+00:00</lastmod>
@@ -205,23 +85,11 @@
     <loc>https://notes.muthu.co/2025/12/design-self-correcting-systems-not-processes/</loc>
     <lastmod>2025-12-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/12/reward-shaping-and-credit-assignment-for-guiding-agent-learning/</loc>
-    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/design-your-dependency-architecture-for-organizational-velocity/</loc>
     <lastmod>2025-11-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/tool-composition-and-chaining-for-complex-agent-capabilities/</loc>
-    <lastmod>2025-11-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/curiosity-driven-learning-and-intrinsic-motivation-in-ai-agents/</loc>
-    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</loc>
     <lastmod>2025-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/constraint-satisfaction-problems-for-valid-solutions-in-complex-agent-planning/</loc>
-    <lastmod>2025-11-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</loc>
     <lastmod>2025-11-28T00:00:00+00:00</lastmod>
@@ -229,19 +97,10 @@
     <loc>https://notes.muthu.co/2025/11/architect-your-staff-plus-pipeline/</loc>
     <lastmod>2025-11-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/consensus-algorithms-for-coordinating-agreement-in-distributed-agent-systems/</loc>
-    <lastmod>2025-11-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</loc>
     <lastmod>2025-11-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/markov-decision-processes-as-the-foundation-of-sequential-decision-making/</loc>
-    <lastmod>2025-11-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/design-your-teams-decision-latency/</loc>
-    <lastmod>2025-11-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/how-ai-agents-learn-from-themselves-through-self-play-and-iterative-refinement/</loc>
     <lastmod>2025-11-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/11/shape-the-decision-space-before-the-decision/</loc>
@@ -250,19 +109,10 @@
     <loc>https://notes.muthu.co/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/test-time-compute-and-o1-style-reasoning-for-scaling-intelligence-through-inference/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</loc>
     <lastmod>2025-11-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/multi-armed-bandits-and-the-exploration-exploitation-dilemma-in-agent-learning/</loc>
-    <lastmod>2025-11-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos/</loc>
-    <lastmod>2025-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/constrained-decoding-and-structured-output-for-agent-reliability/</loc>
     <lastmod>2025-11-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</loc>
@@ -273,12 +123,6 @@
   </url><url>
     <loc>https://notes.muthu.co/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</loc>
     <lastmod>2025-11-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/symbolic-reasoning-and-neural-symbolic-integration-in-ai-agents/</loc>
-    <lastmod>2025-11-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/contextual-bandits-for-balancing-exploration-and-exploitation-in-real-time/</loc>
-    <lastmod>2025-11-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/11/manage-your-teams-cognitive-load-budget/</loc>
     <lastmod>2025-11-12T00:00:00+00:00</lastmod>
@@ -295,19 +139,10 @@
     <loc>https://notes.muthu.co/2025/11/architect-your-teams-communication-protocol/</loc>
     <lastmod>2025-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/planning-with-backtracking-and-replanning-for-resilient-adaptive-agents/</loc>
-    <lastmod>2025-11-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/build-abstractions-that-accelerate-not-complicate/</loc>
     <lastmod>2025-11-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/semantic-routing-and-intent-classification-in-ai-agent-systems/</loc>
-    <lastmod>2025-11-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/codify-your-quality-bar-and-make-standards-executable/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/11/meta-learning-and-few-shot-adaptation-in-ai-agents/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</loc>
@@ -319,9 +154,6 @@
     <loc>https://notes.muthu.co/2025/11/build-organizational-memory-not-institutional-knowledge/</loc>
     <lastmod>2025-11-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/how-transformers-power-modern-ai-agents-with-attention-and-reasoning/</loc>
-    <lastmod>2025-11-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
@@ -331,25 +163,13 @@
     <loc>https://notes.muthu.co/2025/11/design-ownership-boundaries-not-org-charts/</loc>
     <lastmod>2025-11-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/11/temporal-difference-learning-and-q-learning-as-the-engine-of-agent-intelligence/</loc>
-    <lastmod>2025-11-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/scaling-agent-intelligence-through-specialization-with-mixture-of-experts/</loc>
-    <lastmod>2025-10-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/transform-failures-into-capability-not-bureaucracy/</loc>
     <lastmod>2025-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/build-leverage-through-documentation-as-code/</loc>
     <lastmod>2025-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/policy-gradient-methods-and-actor-critic-architectures/</loc>
-    <lastmod>2025-10-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity/</loc>
-    <lastmod>2025-10-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/decision-making-under-partial-observability-with-pomdps/</loc>
     <lastmod>2025-10-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</loc>
@@ -358,20 +178,11 @@
     <loc>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/emergence-and-self-organization-when-simple-rules-create-complex-intelligence/</loc>
-    <lastmod>2025-10-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</loc>
     <lastmod>2025-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/building-rational-agents-with-human-like-reasoning-using-bdi-architecture/</loc>
-    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies/</loc>
     <lastmod>2025-10-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/bellman-equations-and-value-functions-for-optimal-decision-making/</loc>
-    <lastmod>2025-10-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/invest-in-compounding-leverage/</loc>
     <lastmod>2025-10-19T00:00:00+00:00</lastmod>
@@ -379,31 +190,16 @@
     <loc>https://notes.muthu.co/2025/10/build-conviction-through-small-bets/</loc>
     <lastmod>2025-10-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</loc>
-    <lastmod>2025-10-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/collaborative-problem-solving-in-multi-agent-systems-with-the-blackboard-architecture/</loc>
-    <lastmod>2025-10-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/scale-culture-through-defaults-not-rules/</loc>
     <lastmod>2025-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/goal-oriented-action-planning-for-dynamic-problem-solving-in-adaptive-agents/</loc>
-    <lastmod>2025-10-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</loc>
     <lastmod>2025-10-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/auction-based-task-allocation-in-multi-agent-systems/</loc>
-    <lastmod>2025-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/design-your-feedback-loops/</loc>
     <lastmod>2025-10-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/hire-for-trajectory-not-just-skills/</loc>
-    <lastmod>2025-10-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/minimax-and-adversarial-search-for-decision-making-in-competitive-environments/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</loc>
@@ -415,31 +211,16 @@
     <loc>https://notes.muthu.co/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</loc>
     <lastmod>2025-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/teaching-agents-to-learn-from-mistakes-through-reflection-and-self-critique/</loc>
-    <lastmod>2025-10-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/prompt-chaining-and-workflow-orchestration-for-reliable-multi-step-agents/</loc>
-    <lastmod>2025-10-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records/</loc>
     <lastmod>2025-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/behavior-trees-for-modular-decision-making-in-ai-agents/</loc>
-    <lastmod>2025-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/hierarchical-task-networks-for-planning-with-decomposition/</loc>
-    <lastmod>2025-10-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/make-decisions-reversible/</loc>
     <lastmod>2025-10-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/build-escalation-paths-not-firefighters/</loc>
-    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/intelligent-pathfinding-for-ai-agents-with-a-star-search/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/measure-what-matters-through-data-informed-leadership/</loc>
@@ -448,22 +229,10 @@
     <loc>https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/programming-multi-agent-conversations-with-autogen/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/treat-tech-debt-like-a-financial-portfolio/</loc>
     <lastmod>2025-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/advanced-problem-solving-with-tree-of-thoughts/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/an-introduction-to-reinforcement-learning-for-ai-agents/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/decentralize-decisions-centralize-context/</loc>
@@ -475,24 +244,6 @@
     <loc>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://notes.muthu.co/2025/10/improving-agent-reliability-with-plan-and-solve-prompting/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/self-improvement-and-autoformalization-in-ai-agents-that-build-themselves/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/task-allocation-for-machine-teamwork-with-the-contract-net-protocol/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/understanding-multi-agent-behavior-with-game-theory-and-nash-equilibrium/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/fusing-reasoning-and-action-in-llm-agents-with-react/</loc>
-    <lastmod>2025-10-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://notes.muthu.co/2025/10/manage-energy-not-time-for-sustainable-high-performance/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -503,9 +254,6 @@
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</loc>
-    <lastmod>2025-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/2025/10/the-cognitive-loop-of-ai-agents-with-planner-executor-and-memory/</loc>
     <lastmod>2025-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2025/10/your-engineering-org-is-your-product/</loc>

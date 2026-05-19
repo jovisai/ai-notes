@@ -6,15 +6,8 @@
     <description>Recent content in Llms on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/llms/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>RLHF and Preference Learning Teaching Agents What Humans Actually Want</title>
-      <link>https://notes.muthu.co/2026/03/rlhf-and-preference-learning-teaching-agents-what-humans-actually-want/</link>
-      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/rlhf-and-preference-learning-teaching-agents-what-humans-actually-want/</guid>
-      <description>&lt;p&gt;The gap between measurable objectives and human intent is what &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; was designed to close. It is the core algorithm behind ChatGPT, Claude, Gemini, and nearly every modern aligned language model. A model can be grammatically correct and factually accurate while still being too verbose, too hedging, or simply unpleasant to use. RLHF addresses that problem directly.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A human evaluator is shown two agent responses and picks which is better. A &lt;strong&gt;reward model&lt;/strong&gt; learns to predict these preferences. Then the agent is trained to produce outputs that score highly on the reward model, while not drifting too far from its original behavior.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Systems That Search for New Algorithms Automatically</title>
       <link>https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/</link>

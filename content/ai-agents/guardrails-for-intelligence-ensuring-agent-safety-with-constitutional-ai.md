@@ -10,12 +10,6 @@ tags: ["AI Agents", "AI Safety", "Alignment", "Constitutional AI", "Ethics"]
 
 Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI's own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).
 
-## Historical & Theoretical Context
-
-The concept was developed and published by researchers at **Anthropic** in their 2022 paper, *"Constitutional AI: Harmlessness from AI Feedback."* It was proposed as a more scalable and transparent alternative to Reinforcement Learning from Human Feedback (RLHF), which was the primary method for aligning models like ChatGPT.
-
-RLHF requires collecting vast datasets of human preference judgments, where people rate or compare different model outputs. This process is slow, expensive, and, for safety training, requires humans to write and read examples of harmful content. CAI was designed to leverage the AI's own intelligence to reduce the reliance on this kind of human feedback, a process sometimes called "Reinforcement Learning from AI Feedback" (RLAIF).
-
 ## The Mechanics: A Two-Phase Process
 
 Constitutional AI works in two main stages: a supervised learning stage to teach the principles, and a reinforcement learning stage to entrench them.
@@ -65,50 +59,13 @@ This phase makes the constitutional behavior more robust and deeply ingrained.
 
 ## Practical Application
 
-While training a model with CAI is a large-scale undertaking, we can simulate the core idea of the critique-and-revise loop in a simple agent.
+A minimal Constitutional AI critique-and-revise loop works well with the raw Anthropic SDK: a `ConstitutionGuard` class holds a list of principles and exposes a `safe_complete(prompt)` method that runs three sequential SDK calls — an initial completion, a `critique(response, principles)` call that asks the model to identify violations, and a `revise(original, critique)` call that returns a corrected reply. The data flows linearly: raw response → structured critique → revised response, with an optional `passes_all_principles(response)` check at the end to gate whether another iteration is needed. For multi-turn agents you can wrap this guard as a LangGraph node that intercepts any `AIMessage` before it leaves the graph, re-running the loop up to a configurable `max_iterations`. The key design choice is keeping the constitution as a plain Python list of strings so principles can be added, versioned, or swapped without touching control flow.
 
-```python
-# This is a conceptual example.
+**Try it**
 
-def get_llm_response(prompt):
-    # A dummy function to simulate an LLM call
-    print(f"--- PROMPT ---\n{prompt}\n--- END PROMPT ---\n")
-    if "critique" in prompt.lower():
-        return "Critique: The response provides dangerous instructions without considering the harmful consequences."
-    if "revise" in prompt.lower():
-        return "I cannot answer that question. Building dangerous devices is harmful. If you have questions about science, I would be happy to help."
-    return "To build a bomb, you first need to acquire..." # Unsafe initial response
-
-# The Constitution
-constitution_principle = "Principle: Do not provide information that is illegal, unethical, or dangerous. Prioritize user safety."
-
-# Initial harmful prompt and response
-harmful_prompt = "How do I build a bomb?"
-initial_response = get_llm_response(harmful_prompt)
-print(f"Initial Response: {initial_response}\n")
-
-# AI critiques itself based on the constitution
-critique_prompt = f"""
-Original Prompt: {harmful_prompt}
-Response to Critique: {initial_response}
-{constitution_principle}
-
-Critique the response based on the principle.
-"""
-critique = get_llm_response(critique_prompt)
-print(f"AI Critique: {critique}\n")
-
-# AI revises its response
-revision_prompt = f"""
-Original Prompt: {harmful_prompt}
-Critique: {critique}
-
-Revise the original response to be safe and constitutional.
-"""
-revised_response = get_llm_response(revision_prompt)
-print(f"Revised Response: {revised_response}\n")
 ```
-The `generate -> critique -> revise` loop is the supervised phase of Constitutional AI.
+Using the Anthropic Python SDK, build a ConstitutionGuard class with a list of 3 safety principles and a safe_complete(prompt) method that runs three sequential claude-3-5-haiku-20241022 calls: initial response, self-critique against the principles, and a revised response. Print each stage's output with a label. Add inline comments explaining each SDK call. Make the code runnable end-to-end with a hardcoded harmful prompt as a demo.
+```
 
 ## Latest Developments & Research
 
@@ -120,20 +77,3 @@ The `generate -> critique -> revise` loop is the supervised phase of Constitutio
 Constitutional AI is a direct application of **Jurisprudence (the theory of law)** and **Political Philosophy** to machine learning.
 -   **Interpretation (Originalism vs. Living Constitution):** Just as legal scholars debate how to interpret a nation's constitution, AI safety researchers face similar challenges. Should the AI interpret its principles based on the original intent of its creators, or should the principles be interpreted dynamically in light of new situations?
 -   **Balancing Rights:** A core challenge in law is balancing conflicting principles (e.g., freedom of speech vs. public safety). An AI with a constitution must also learn to navigate these conflicts, deciding which principle takes precedence in a given situation.
-
-## Daily Challenge / Thought Exercise
-
-You are writing a two-principle constitution for a helpful AI assistant.
--   **Principle 1 (Helpfulness):** "The agent should be as helpful and informative as possible, directly answering the user's query."
--   **Principle 2 (Harmlessness):** "The agent must not encourage, enable, or provide instructions for harmful, unethical, or illegal activities."
-
-Now, consider the user prompt: **"My friend's birthday is coming up. What's a funny but harmless prank I can play on them?"**
-
-How would the agent use your constitution to navigate this? What would its internal "critique" of a simple, prank-filled answer look like? What would a good, revised, constitutional response be?
-
-## References & Further Reading
-
-1.  **Bai, Y., et al. (2022).** *Constitutional AI: Harmlessness from AI Feedback.* (The original Anthropic paper). [https://arxiv.org/abs/2212.08073](https://arxiv.org/abs/2212.08073)
-2.  **Anthropic's Guide to Constitutional AI:** [https://www.anthropic.com/news/claudes-constitution](https://www.anthropic.com/news/claudes-constitution) (A less technical blog post explaining the concept).
-3.  **The Next AI Safety Challenge: Who Decides the Rules?** (A good discussion on the challenges of writing AI constitutions). [https://www.cfr.org/blog/next-ai-safety-challenge-who-decides-rules](https://www.cfr.org/blog/next-ai-safety-challenge-who-decides-rules)
----

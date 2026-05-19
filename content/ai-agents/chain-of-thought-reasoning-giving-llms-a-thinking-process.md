@@ -77,83 +77,16 @@ The CoT is the internal monologue of the Planner, bridging the gap between a hig
 
 ### Practical Application
 
-Here’s a small Python example using a hypothetical LLM library.
+A minimal Chain-of-Thought implementation centers on three moving parts: a **prompt builder** that prepends one or two worked examples in the format `Question / Reasoning / Answer`, a **completion call** to the LLM with a trigger phrase such as "Let's think step by step" appended to the user query, and a lightweight **answer extractor** that strips the reasoning trace and returns only the final line. The raw Anthropic SDK is the best fit for a focused demo because the full CoT trace lives inside a single `messages` turn with no orchestration overhead. For pipeline work, a LangGraph graph with two nodes — one that emits the reasoning chain into shared state and a second that reads that state to produce a structured answer — maps naturally onto the generate-then-verify pattern that CoT enables. Data flows as: raw question → prompt builder → `client.messages.create` → raw response text → extractor → final answer, with the intermediate reasoning stored (or logged) for debugging.
 
-```python
-# Assume 'llm' is an initialized LLM client
-import llm
+**Try it**
 
-def solve_problem_directly(problem_text):
-    """Attempts to solve the problem with a standard prompt."""
-    prompt = f"Question: {problem_text}\nAnswer:"
-    response = llm.complete(prompt)
-    return response.text
-
-def solve_with_chain_of_thought(problem_text):
-    """Uses a CoT prompt to guide the model's reasoning."""
-    cot_prompt = (
-        "Question: A jug has 1000ml of water. You pour out 250ml for tea and then "
-        "pour out 400ml for coffee. How much is left?\n"
-        "Answer: The jug starts with 1000ml. Pouring out 250ml leaves 1000 - 250 = 750ml. "
-        "Then pouring out 400ml leaves 750 - 400 = 350ml. The answer is 350.\n\n"
-        f"Question: {problem_text}\n"
-        "Answer: Let's think step by step."
-    )
-    response = llm.complete(cot_prompt, stop_sequence="\n\n")
-    return response.text
-
-# The Problem
-problem = "A library has 5 shelves. Each shelf has 30 books. If a student borrows 12 books, how many books are left in the library?"
-
-# Compare the outputs
-print("Direct Answer:", solve_problem_directly(problem))
-print("CoT Answer:", solve_with_chain_of_thought(problem))
-
-# Expected Direct Answer (often wrong): "42" or some other incorrect number.
-# Expected CoT Answer: "First, calculate the total number of books. 5 shelves * 30 books/shelf = 150 books. A student borrows 12 books. So, 150 - 12 = 138 books are left. The answer is 138."
 ```
-
-In frameworks like **LangGraph** or **CrewAI**, CoT is implemented within the nodes or tasks. A LangGraph node might be responsible for generating a CoT plan, which is then passed to subsequent nodes for execution.
-
-### Comparisons & Tradeoffs
-
-*   **CoT vs. Direct Prompting**: CoT is more accurate for complex tasks but has higher latency and token cost because the reasoning steps are generated. Direct prompting is faster but brittle.
-*   **CoT vs. Tree of Thoughts (ToT)**: CoT follows a single reasoning path. ToT, a more advanced technique, explores multiple reasoning paths simultaneously (like a tree) and uses self-correction and evaluation to choose the best path. CoT is a linear chain; ToT is a branching exploration.
-
-### Latest Developments & Research
-
-The success of CoT has spurred a wave of research into more advanced reasoning techniques:
-
-1.  **Self-Consistency (2022)**: This method runs multiple CoT chains from the same prompt (by increasing temperature) and then takes a majority vote on the final answer. This improves accuracy by mitigating the risk of a single flawed reasoning path.
-2.  **Tree of Thoughts (ToT) (2023)**: As mentioned, ToT generalizes CoT by allowing the model to explore multiple reasoning paths. It's more robust for problems where backtracking or exploration is necessary.
-3.  **Graph of Thoughts (GoT) (2023)**: This further generalizes reasoning into a graph structure, allowing thoughts to be merged and combined, creating a more flexible and powerful reasoning framework than a simple tree.
-
-The current debate is about how to make these reasoning processes more efficient and less reliant on verbose, token-heavy prompting.
-
-### Cross-Disciplinary Insight
-
-Chain-of-Thought mirrors the concept of **System 2 Thinking** from cognitive psychology, popularized by Daniel Kahneman in his book *Thinking, Fast and Slow*.
-
-*   **System 1** is fast, intuitive, and automatic (like a direct prompt).
-*   **System 2** is slow, deliberate, and logical (like a CoT prompt).
-
-By forcing the LLM to "slow down" and articulate its reasoning, we engage its equivalent of System 2, preventing impulsive System 1-style errors.
-
-### Daily Challenge / Thought Exercise
-
-Your challenge today:
-
-1.  Find a multi-step logic puzzle or a word problem online. (e.g., "If Alice is taller than Bob, and Carol is shorter than Alice but taller than Bob, who is the second tallest?")
-2.  Open a playground for an LLM (like GPT-4, Claude, or Gemini).
-3.  First, prompt it directly with the question and record the answer.
-4.  Second, write a CoT prompt. Start with a simple, unrelated example of step-by-step reasoning, then add the puzzle and the trigger phrase "Let's think step by step."
-5.  Compare the results. Did the model get it right the first time? Was the CoT response more reliable?
-
-### References & Further Reading
-
-*   **Original CoT Paper**: [Wei, J., et al. (2022). Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.](https://arxiv.org/abs/2201.11903)
-*   **Self-Consistency**: [Wang, X., et al. (2022). Self-Consistency Improves Chain of Thought Reasoning in Language Models.](https://arxiv.org/abs/2203.11171)
-*   **Tree of Thoughts**: [Yao, S., et al. (2023). Tree of Thoughts: Deliberate Problem Solving with Large Language Models.](https://arxiv.org/abs/2305.10601)
-*   **Blog Post Explainer**: [A Deep Dive into Chain-of-Thought Prompting](https://www.promptingguide.ai/techniques/cot)
-
----
+Using the Anthropic Python SDK, build a chain-of-thought helper.
+Define a build_cot_prompt(question) function that prepends one
+worked math example (question + step-by-step reasoning + answer)
+then appends the new question with "Let's think step by step."
+Call claude-sonnet-4-6 via client.messages.create, print the full
+reasoning trace, then extract and print only the final answer line.
+Add inline comments explaining each step. Return runnable code.
+```

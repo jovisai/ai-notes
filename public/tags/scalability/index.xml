@@ -6,22 +6,8 @@
     <description>Recent content in Scalability on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/scalability/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mean Field Games and Mean Field Reinforcement Learning for Massive Agent Populations</title>
-      <link>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</link>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/03/mean-field-games-and-mean-field-reinforcement-learning-for-massive-agent-populations/</guid>
-      <description>&lt;p&gt;Classical game theory breaks down at scale. With ten thousand or ten million agents, computing Nash equilibria becomes intractable and tracking every pairwise interaction is computationally impossible. Mean field games (MFGs) offer a way out: instead of reasoning about every individual, you reason about the &lt;em&gt;crowd&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;When agents are numerous, rational, and roughly interchangeable, each agent&amp;rsquo;s optimal behavior depends not on individual opponents but on the &lt;strong&gt;distribution of the population&lt;/strong&gt;. That distribution summarizes the &amp;ldquo;field&amp;rdquo; every agent perceives. Consider a commuter choosing a route: they don&amp;rsquo;t care about any specific other driver, only about aggregate traffic. Their best route depends on what everyone else collectively does, and everyone else&amp;rsquo;s choice depends on what they do.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Solving Complex Problems with AI Agent Swarms</title>
-      <link>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/solving-complex-problems-with-ai-agent-swarms/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;An &lt;strong&gt;AI Agent Swarm&lt;/strong&gt; is a system composed of a large number of relatively simple, often identical agents working in parallel. Rather than building one monolithic agent or a small team of specialists, the swarm distributes work across many workers simultaneously. The complex, intelligent behavior of the system is an &lt;strong&gt;emergent property&lt;/strong&gt; of their collective actions, not the design of any single member.&lt;/p&gt;&#xA;&lt;h2 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h2&gt;&#xA;&lt;p&gt;The idea is a direct import from biology, specifically the field of &lt;strong&gt;Swarm Intelligence&lt;/strong&gt;. Researchers in the 1980s and 90s, like Marco Dorigo and James Kennedy, developed computational models inspired by natural swarms. This led to powerful optimization algorithms:&lt;/p&gt;</description>
-    </item>
     <item>
       <title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>
       <link>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>

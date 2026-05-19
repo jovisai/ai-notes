@@ -161,7 +161,6 @@ The implement command hands control to the AI agent with the complete context: s
 
 Because every decision was made upfront, the implementation phase produces no surprises. The agent does not need to guess what "Epic" support means. It does not need to decide whether to add a DB migration. It does not need to choose between batch-level and per-item selection. All of that is resolved. The agent just writes code.
 
-
 ![](/spec_implement.png)
 
 ## Key Concepts Explained
@@ -212,11 +211,3 @@ These files are committed to the repository alongside the code. They answer ever
 **Rule of thumb**: if you would need to answer more than one clarifying question before the AI agent could start implementing, write a spec first. The spec is that conversation, made permanent.
 
 The spec writing step in the real example took under three minutes of terminal time (two minutes and twenty-five seconds according to the session output). The plan step took under four minutes. The entire pipeline produced eight clear tasks with parallel opportunities identified. Compare that to the alternative: discovering mid-implementation that "Epic" support requires a mandatory Epic Name field that Jira rejects if missing.
-
-## References and Further Reading
-
-- **spec-kit on GitHub**: [https://github.com/github/spec-kit](https://github.com/github/spec-kit)
-- **Supported AI agents**: Claude Code, GitHub Copilot (VS Code, JetBrains), Cursor, Windsurf, Zed, Cline, Goose, Aider, Continue, and more — see the repo README for the full list
-- **UV installer**: [https://docs.astral.sh/uv/](https://docs.astral.sh/uv/) — required for the `uvx` one-time install mode
-
-The spec-kit repository also contains the Constitution template, all slash command definitions, and the scripts that back each pipeline step. Worth reading if you want to understand what the commands are actually doing or adapt them for a different workflow.

@@ -22,19 +22,5 @@
       <guid>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</guid>
       <description>&lt;p&gt;Traditional RAG (Retrieval-Augmented Generation) follows a simple pattern: embed the query, find similar documents, generate an answer. But this &amp;ldquo;naive RAG&amp;rdquo; approach breaks down when queries are complex, ambiguous, or require information from multiple sources.&lt;/p&gt;&#xA;&lt;p&gt;Agentic RAG solves this by letting the LLM make decisions about retrieval. Instead of a fixed pipeline, the LLM can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decompose complex queries into sub-queries&lt;/li&gt;&#xA;&lt;li&gt;Decide if retrieved documents are sufficient&lt;/li&gt;&#xA;&lt;li&gt;Reformulate queries when initial retrieval fails&lt;/li&gt;&#xA;&lt;li&gt;Synthesize information from multiple retrieval rounds&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build an Agentic RAG system using LangGraph.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>Vector Embeddings and Semantic Search as the Foundation of Agent Memory</title>
-      <link>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</link>
-      <pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/vector-embeddings-and-semantic-search-as-the-foundation-of-agent-memory/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;vector embedding&lt;/strong&gt; is a learned continuous representation of data in ℝⁿ (typically n=384 to 4096 dimensions). Modern embedding models are deep neural networks trained via contrastive learning or other self-supervised objectives to satisfy:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;similarity(embed(text_a), embed(text_b)) ≈ semantic_similarity(text_a, text_b)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The embedding function &lt;code&gt;f: Text → ℝⁿ&lt;/code&gt; maps discrete tokens into a dense vector space where cosine similarity, Euclidean distance, or dot product serve as semantic proximity metrics.&lt;/p&gt;&#xA;&lt;p&gt;For AI agents, this enables memory and retrieval by meaning rather than by keywords. Agents can recall relevant past context from millions of documents in milliseconds, or make decisions based on semantic similarity to prior experiences.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Beyond the Training Data with Retrieval-Augmented Generation for AI Agents</title>
-      <link>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/beyond-the-training-data-with-retrieval-augmented-generation-for-ai-agents/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Retrieval-Augmented Generation (RAG)&lt;/strong&gt; gives an AI agent an external knowledge base that it can consult in real-time. Instead of relying solely on parametric memory (which is frozen at training time), the agent first &lt;strong&gt;retrieves&lt;/strong&gt; relevant facts and then generates an answer grounded in that retrieved context. This makes responses more factual, up-to-date, and verifiable.&lt;/p&gt;&#xA;&lt;p&gt;The core flow:&#xA;&lt;strong&gt;Query -&amp;gt; Retrieve Relevant Documents -&amp;gt; Augment Query with Documents -&amp;gt; Generate Answer&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

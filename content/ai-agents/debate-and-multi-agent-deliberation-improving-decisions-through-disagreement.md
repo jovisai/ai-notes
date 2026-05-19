@@ -11,29 +11,6 @@ description: "How AI agents can reach better decisions by arguing with each othe
 
 **Multi-agent debate** is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.
 
-## Historical & Theoretical Context
-
-### Origins in Human Deliberation
-
-The idea of deliberative decision-making has deep roots:
-
-- **Ancient Philosophy**: Socratic dialogue (5th century BCE) used question-and-answer to refine ideas
-- **Legal Systems**: Adversarial procedures (prosecution vs. defense) emerged to surface truth
-- **Parliamentary Debate**: Structured rules for multi-party argumentation (17th century onwards)
-
-### From Multi-Agent Systems to LLMs
-
-In AI, debate-like mechanisms appeared in several waves:
-
-1. **Classical MAS (1980s-1990s)**: Negotiation protocols for distributed problem-solving (see Contract Net Protocol)
-2. **Argumentation Theory (1990s-2000s)**: Formal frameworks for reasoning with conflicting information (Dung's argumentation frameworks, 1995)
-3. **LLM Era (2018-present)**:
-   - **Self-Consistency** (Wang et al., 2022): Sample multiple reasoning paths, vote on answers
-   - **Multi-Agent Debate** (Du et al., 2023): Agents iteratively critique each other
-   - **Society of Mind** (Park et al., 2023): Simulating diverse personas to surface perspectives
-
-LLMs can simulate multiple viewpoints, making debate practical without physically distinct agents.
-
 ## How Debate Works: The Protocol
 
 ### Basic Debate Loop
@@ -290,52 +267,3 @@ Research on human juries shows:
 - "Shared information bias": Groups overweight commonly known facts (agents can counter this by being adversarial)
 
 The implication for AI: explicitly design agents to surface non-obvious perspectives, not just restate the majority view.
-
-## Daily Challenge: Build a Debate System
-
-**Task**: Implement a 3-agent debate to answer this question:
-
-> "Is it better to use microservices or a monolith for a new SaaS product with 5 engineers?"
-
-**Steps**:
-1. Create 3 agents with different biases:
-   - Agent A: "Prefer simplicity and speed to market"
-   - Agent B: "Prefer scalability and future-proofing"
-   - Agent C: "Neutral, focus on team size and skills"
-
-2. Run 2 rounds of debate (proposal → critique → revision)
-
-3. Add a judge agent to synthesize the final recommendation
-
-**Extension**: Track how proposals change round-to-round. Do agents converge or stay polarized?
-
-**Bonus**: Try with a factual question (e.g., math problem). Does debate improve accuracy?
-
-## References & Further Reading
-
-### Foundational Papers
-
-- **Dung, P. M.** (1995). "On the acceptability of arguments and its fundamental role in nonmonotonic reasoning, logic programming and n-person games." *Artificial Intelligence*, 77(2), 321-357.
-  - Classic work on argumentation frameworks
-
-- **Du, Y., Li, S., Torralba, A., Tenenbaum, J. B., & Mordatch, I.** (2023). "Improving Factuality and Reasoning in Language Models through Multiagent Debate." *arXiv:2305.14325*
-  - [Paper](https://arxiv.org/abs/2305.14325)
-
-- **Khan, A., Xu, J., & Steinhardt, J.** (2024). "Debating with More Persuasive LLMs Leads to More Truthful Answers." *arXiv:2402.06782*
-  - [Paper](https://arxiv.org/abs/2402.06782)
-
-### Practical Resources
-
-- **LangGraph Multi-Agent Examples**: [GitHub](https://github.com/langchain-ai/langgraph/tree/main/examples/multi_agent)
-- **AutoGen Debate Framework**: [Docs](https://microsoft.github.io/autogen/)
-- **CrewAI Hierarchical Processes**: [Docs](https://docs.crewai.com/)
-
-### Related Articles
-
-- "Strategic Minds: Understanding Multi-Agent Behavior with Game Theory and Nash Equilibrium" (game-theoretic foundations)
-- "The Power of Many: Solving Complex Problems with AI Agent Swarms" (coordination without debate)
-- "Reflection and Self-Critique: Teaching Agents to Learn from Mistakes" (single-agent introspection vs. multi-agent critique)
-
----
-
-Disagreement isn't a bug in multi-agent systems. It's a feature. Designing agents to argue constructively leverages the same deliberative dynamics that make human institutions robust.

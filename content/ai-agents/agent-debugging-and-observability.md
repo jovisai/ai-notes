@@ -22,18 +22,6 @@ Agent observability encompasses several layers:
 
 Unlike traditional application observability (metrics, logs, traces), agent observability must capture the semantic content of LLM interactions, not just HTTP status codes.
 
-## Historical & Theoretical Context
-
-The challenge of AI system debugging isn't new. In the 1980s, expert systems faced similar opacity problems: rules fired in unexpected orders, and inference chains were hard to trace. This led to the development of **explanation systems** that could justify their reasoning.
-
-Modern agent observability evolved from three traditions:
-
-- **Distributed tracing** (Dapper, 2010): Google's system for tracing requests across microservices
-- **Explainable AI** (XAI): Techniques for understanding neural network decisions
-- **APM tools** (Application Performance Monitoring): DataDog, New Relic's instrumentation patterns
-
-The key insight: agents are both programs (requiring traditional debugging) and cognitive systems (requiring semantic understanding).
-
 ## Core Observability Patterns
 
 ### The Trace Hierarchy
@@ -161,87 +149,18 @@ class TraceContext:
 
 ## Practical Application
 
-Here's a complete example using LangChain with observability:
+A minimal observability implementation wraps an agent with a custom callback handler that intercepts lifecycle events — `on_llm_start`, `on_llm_end`, `on_tool_start`, and `on_tool_end` — and appends structured records to an in-memory event log. LangChain is the best-fit framework here because its `BaseCallbackHandler` protocol makes it straightforward to inject observability without modifying agent logic: you pass a callback instance to both the `ChatOpenAI` model and the `AgentExecutor`, and every step flows through your handler automatically. The handler's `get_trace()` method aggregates token counts from `llm_output` and computes wall-clock duration by diffing the first and last event timestamps, giving you a single dict you can log, store, or forward to a tracing backend. For production use you'd replace the in-memory list with a structured logger or an OpenTelemetry span, but the callback boundary stays the same.
 
-```python
-from langchain.agents import AgentExecutor, create_openai_functions_agent
-from langchain_openai import ChatOpenAI
-from langchain.tools import Tool
-from langchain.callbacks.base import BaseCallbackHandler
+**Try it**
 
-class ObservabilityCallback(BaseCallbackHandler):
-    """Custom callback to capture agent execution events"""
-
-    def __init__(self):
-        self.events = []
-        self.current_chain_id = None
-
-    def on_llm_start(self, serialized, prompts, **kwargs):
-        event_id = str(uuid.uuid4())
-        self.events.append({
-            "id": event_id,
-            "type": "llm_start",
-            "timestamp": datetime.now().isoformat(),
-            "prompts": prompts,
-            "model": serialized.get("id", ["unknown"])[-1]
-        })
-        return event_id
-
-    def on_llm_end(self, response, **kwargs):
-        self.events.append({
-            "type": "llm_end",
-            "timestamp": datetime.now().isoformat(),
-            "generations": [gen.text for gen in response.generations[0]],
-            "tokens": response.llm_output.get("token_usage", {})
-        })
-
-    def on_tool_start(self, serialized, input_str, **kwargs):
-        self.events.append({
-            "type": "tool_start",
-            "timestamp": datetime.now().isoformat(),
-            "tool": serialized.get("name"),
-            "input": input_str
-        })
-
-    def on_tool_end(self, output, **kwargs):
-        self.events.append({
-            "type": "tool_end",
-            "timestamp": datetime.now().isoformat(),
-            "output": output
-        })
-
-    def get_trace(self):
-        """Return complete trace as structured data"""
-        return {
-            "events": self.events,
-            "total_tokens": sum(
-                e.get("tokens", {}).get("total_tokens", 0)
-                for e in self.events
-            ),
-            "duration_ms": self._calculate_duration()
-        }
-
-    def _calculate_duration(self):
-        if len(self.events) < 2:
-            return 0
-        start = datetime.fromisoformat(self.events[0]["timestamp"])
-        end = datetime.fromisoformat(self.events[-1]["timestamp"])
-        return (end - start).total_seconds() * 1000
-
-# Usage
-callback = ObservabilityCallback()
-llm = ChatOpenAI(temperature=0, callbacks=[callback])
-
-agent = create_openai_functions_agent(llm, tools, prompt)
-executor = AgentExecutor(agent=agent, tools=tools, callbacks=[callback])
-
-result = executor.invoke({"input": "What's the weather in Paris?"})
-
-# Get complete trace
-trace = callback.get_trace()
-print(f"Total tokens used: {trace['total_tokens']}")
-print(f"Execution time: {trace['duration_ms']}ms")
-print(f"Event sequence: {[e['type'] for e in trace['events']]}")
+```
+Using LangChain with ChatOpenAI and AgentExecutor, build a custom BaseCallbackHandler
+subclass that logs on_llm_start, on_llm_end, on_tool_start, and on_tool_end events to
+a list. Each event dict should include type, ISO timestamp, and relevant payload fields
+(model name, token usage, tool name, input/output). Add a get_trace() method that returns
+total tokens and duration_ms. Wire the callback into both the LLM and the executor, then
+run a single test query and print the event-type sequence and token total. Include inline
+comments explaining each callback method. Code must be runnable end-to-end.
 ```
 
 ## Latest Developments & Research
@@ -297,63 +216,3 @@ Agent observability mirrors **control theory** from engineering. In a control sy
 3. **Feedback loops**: Adjust parameters based on observations (Prompt tuning)
 
 Like a control engineer designing a dashboard, you're building instrumentation to understand a complex dynamic system. The key difference is that your "system" makes decisions through learned patterns rather than explicit equations.
-
-## Daily Challenge
-
-**Exercise: Build a Trace Analyzer**
-
-Create a tool that takes an agent trace (JSON format) and answers:
-
-1. Which step took the longest?
-2. What was the token cost breakdown by operation?
-3. Were there any retry attempts? Why?
-4. Visualize the execution timeline
-
-Starter code:
-
-```python
-def analyze_trace(trace_file: str):
-    """Analyze agent execution trace"""
-    with open(trace_file) as f:
-        trace = json.load(f)
-
-    # Your implementation here:
-    # 1. Calculate durations
-    # 2. Sum token costs
-    # 3. Detect retries (failed then successful tool calls)
-    # 4. Generate timeline visualization (matplotlib or mermaid)
-
-    return {
-        "slowest_step": ...,
-        "token_breakdown": {...},
-        "retry_events": [...],
-        "timeline": "..."
-    }
-```
-
-**Bonus**: Implement a "diff" function that compares two traces and highlights differences.
-
-## References & Further Reading
-
-### Papers
-- **"Dapper, a Large-Scale Distributed Systems Tracing Infrastructure"** (Google, 2010): Foundation of modern tracing
-- **"Interpretability Beyond Feature Attribution"** (Kim et al., 2018): Understanding model decisions
-- **"Language Agent Tree Search"** (Zhou et al., 2024): Self-refinement with execution traces
-
-### Tools & Frameworks
-- **LangSmith**: https://docs.smith.langchain.com/ - LangChain's observability platform
-- **LangFuse**: https://langfuse.com/ - Open-source LLM observability
-- **Weights & Biases (Weave)**: https://wandb.ai/site/weave - Experiment tracking for agents
-- **OpenTelemetry Python**: https://opentelemetry.io/docs/languages/python/
-
-### Blog Posts
-- **"Debugging LLM Applications"** (Anthropic, 2024): Best practices for prompt debugging
-- **"Tracing LangChain Applications"** (LangChain blog): Practical guide to callbacks
-- **"The Agent Debugging Playbook"** (Hugging Face): Common failure modes and solutions
-
-### GitHub Repositories
-- **AgentOps**: https://github.com/AgentOps-AI/agentops - Monitoring specifically for AI agents
-- **Phoenix by Arize**: https://github.com/Arize-ai/phoenix - LLM observability platform
-- **LLMon**: https://github.com/Giskard-AI/llmon - Lightweight agent monitoring
-
----

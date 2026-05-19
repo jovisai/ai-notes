@@ -21,18 +21,6 @@ In the context of AI agents, distillation goes beyond single model outputs. An a
 
 Distilling an agent means transferring all of these behavioral patterns, not just the final answers, from a high-capability system to a leaner one that can operate in production at scale.
 
-## Historical & Theoretical Context
-
-Knowledge distillation was formalized by Geoffrey Hinton, Oriol Vinyals, and Jeff Dean in their 2015 paper *"Distilling the Knowledge in a Neural Network."* The core insight was elegant: the "wrong" answers a teacher model gives contain valuable information. When a digit classifier says an image is "70% a 7, 20% a 2, 10% a 1," the relationship between those probabilities encodes structural knowledge about what makes digits similar.
-
-The idea has roots in **model compression** (Buciluă et al., 2006) and connects to several foundational concepts:
-
-- **Minimum Description Length**: Compressing knowledge into a simpler representation
-- **PAC learning**: What can a simpler hypothesis class learn from a more complex one?
-- **Transfer learning**: Reusing knowledge across tasks and architectures
-
-In multi-agent systems, distillation connects to the principle of **agent specialization** — the idea that not every agent in a system needs full general capability. Some agents only need to handle a narrow slice of the problem space, and distillation is how you carve that slice efficiently.
-
 ## Algorithms & Math
 
 ### The Distillation Loss
@@ -122,118 +110,18 @@ Each tier is distilled from the one above it, specialized for the difficulty lev
 
 ## Practical Application
 
-Here's a concrete example: distilling a large agent's tool-calling behavior into a smaller model using OpenAI's API and a simple training loop.
+A minimal knowledge distillation pipeline for agent behavior has three stages: trajectory collection, dataset construction, and student fine-tuning. A `TeacherCollector` class drives a capable model (e.g., Claude claude-opus-4-6 or GPT-4o) through a set of representative queries, capturing the full chain-of-thought reasoning and any tool calls via the raw Anthropic SDK or OpenAI client. A `DatasetBuilder` function converts those `DistillationSample` records into JSONL fine-tuning format, pairing each user query with the teacher's reasoning trace and structured tool call sequence. The resulting file is uploaded for supervised fine-tuning of a smaller student model (e.g., GPT-4o-mini or a local Mistral variant), after which a `StudentAgent` wrapper runs the student in production with an optional fallback to the teacher when confidence is low. No orchestration framework is needed here — the raw SDK is the right fit because the workflow is a straight data pipeline, not a dynamic graph.
 
-```python
-import json
-import openai
-from dataclasses import dataclass
+**Try it**
 
-
-@dataclass
-class DistillationSample:
-    user_query: str
-    teacher_reasoning: str
-    teacher_action: str
-    teacher_tool_calls: list[dict]
-
-
-def collect_teacher_trajectories(
-    queries: list[str],
-    teacher_model: str = "gpt-4o",
-) -> list[DistillationSample]:
-    """Run the teacher agent and collect its behavior."""
-    client = openai.OpenAI()
-    samples = []
-
-    tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": "search_database",
-                "description": "Search the product database",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "query": {"type": "string"},
-                        "limit": {"type": "integer", "default": 10},
-                    },
-                    "required": ["query"],
-                },
-            },
-        }
-    ]
-
-    for query in queries:
-        response = client.chat.completions.create(
-            model=teacher_model,
-            messages=[
-                {"role": "system", "content": "Think step-by-step before acting."},
-                {"role": "user", "content": query},
-            ],
-            tools=tools,
-            temperature=0.3,
-        )
-
-        msg = response.choices[0].message
-        samples.append(
-            DistillationSample(
-                user_query=query,
-                teacher_reasoning=msg.content or "",
-                teacher_action=msg.role,
-                teacher_tool_calls=[
-                    {"name": tc.function.name, "args": tc.function.arguments}
-                    for tc in (msg.tool_calls or [])
-                ],
-            )
-        )
-
-    return samples
-
-
-def build_finetuning_dataset(
-    samples: list[DistillationSample],
-    output_path: str = "distillation_train.jsonl",
-):
-    """Convert teacher trajectories into fine-tuning format."""
-    with open(output_path, "w") as f:
-        for sample in samples:
-            record = {
-                "messages": [
-                    {
-                        "role": "system",
-                        "content": "You are a helpful assistant. "
-                        "Think briefly, then act.",
-                    },
-                    {"role": "user", "content": sample.user_query},
-                    {
-                        "role": "assistant",
-                        "content": sample.teacher_reasoning,
-                        "tool_calls": [
-                            {
-                                "id": f"call_{i}",
-                                "type": "function",
-                                "function": tc,
-                            }
-                            for i, tc in enumerate(sample.teacher_tool_calls)
-                        ]
-                        if sample.teacher_tool_calls
-                        else None,
-                    },
-                ]
-            }
-            f.write(json.dumps(record) + "\n")
-
-    return output_path
-
-
-# Usage:
-# Collect teacher behavior
-# samples = collect_teacher_trajectories(your_query_list)
-# Build fine-tuning dataset
-# build_finetuning_dataset(samples)
-# Fine-tune a smaller model (e.g., gpt-4o-mini) on this dataset
-# Deploy the student model in production with fallback to teacher
+```
+Using the raw Anthropic SDK (anthropic Python package), build a knowledge distillation
+pipeline with three functions: collect_teacher_trajectories(queries, model) that calls
+claude-opus-4-6 with tool use enabled and captures reasoning + tool calls per query,
+build_finetune_jsonl(samples, path) that writes each sample as a chat-format JSONL
+record, and run_student(query, model) that calls a smaller model trained on that data.
+Include inline comments explaining each step. Make the code runnable end-to-end with
+a short hardcoded query list as a demo.
 ```
 
 ## Latest Developments & Research
@@ -265,58 +153,3 @@ Knowledge distillation mirrors **apprenticeship and institutional knowledge tran
 In distributed computing, this maps to **caching hierarchies**. An L1 cache (student) handles most requests with low latency; cache misses escalate to L2 (teacher). The system works because most access patterns are predictable, just as most user queries follow common patterns that a distilled model can handle.
 
 From biology, distillation resembles **genetic assimilation** (the Baldwin effect): behaviors initially learned through expensive individual experience become encoded in simpler, faster mechanisms over generations.
-
-## Daily Challenge
-
-**Exercise: Build a Distillation Quality Monitor**
-
-Create a system that compares teacher and student agent outputs to measure distillation quality:
-
-1. Run 50 test queries through both a large model (teacher) and a small model (student)
-2. Compare: Do they select the same tools? Do they produce equivalent reasoning?
-3. Calculate an "agreement score" and identify the query types where the student diverges most
-4. Design a routing rule: which queries should be escalated to the teacher?
-
-```python
-def measure_distillation_quality(
-    queries: list[str],
-    teacher_model: str,
-    student_model: str,
-) -> dict:
-    """Compare teacher and student on the same queries."""
-    results = {"agreement": 0, "divergences": []}
-
-    for query in queries:
-        teacher_output = run_agent(query, teacher_model)
-        student_output = run_agent(query, student_model)
-
-        # TODO: Compare tool selections
-        # TODO: Compare reasoning similarity (use embedding cosine similarity)
-        # TODO: Compare final answer equivalence
-        # TODO: Track which query categories diverge most
-
-    results["agreement_rate"] = results["agreement"] / len(queries)
-    return results
-```
-
-**Bonus**: Implement an automatic escalation threshold — if the student's confidence on a query is below a certain level, route to the teacher instead.
-
-## References & Further Reading
-
-### Papers
-- **"Distilling the Knowledge in a Neural Network"** (Hinton, Vinyals, Dean, 2015): The foundational distillation paper
-- **"Orca 2: Teaching Small Language Models How to Reason"** (Microsoft, 2023): Reasoning distillation for smaller models
-- **"Lion: Adversarial Distillation of Closed-Source Large Language Model"** (Jiang et al., 2023): Distilling from black-box APIs
-- **"AgentBench: Evaluating LLMs as Agents"** (Liu et al., 2024): Benchmarking agent capabilities including distilled models
-
-### Blog Posts & Guides
-- **"How to Fine-Tune GPT-4o-mini"** (OpenAI Cookbook): Practical fine-tuning for distillation
-- **"Distilling Step-by-Step"** (Google Research Blog, 2023): Extracting reasoning as training signal
-- **"Building Tiered Agent Systems"** (LangChain Blog): Cascading agents for cost optimization
-
-### GitHub Repositories
-- **distilabel** by Argilla: https://github.com/argilla-io/distilabel — Framework for AI feedback and distillation dataset generation
-- **LitGPT**: https://github.com/Lightning-AI/litgpt — Lightweight models suitable as distillation students
-- **OpenRLHF**: https://github.com/OpenRLHF/OpenRLHF — Open-source RLHF and distillation framework
-
----
