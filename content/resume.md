@@ -1,5 +1,5 @@
 ---
-title: "AI Agents Architect Engineering Leader AI Transformation Lead"
+title: "AI Agents Architect"
 date: 2026-02-06T10:00:00+05:30
 description: "Resume of Muthu Krishnan - AI Agents Architect and Engineering Leader"
 ---
