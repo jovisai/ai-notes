@@ -6,6 +6,8 @@ tags: ["ai-agents", "agent-infrastructure", "reliability", "memory", "multi-agen
 description: "A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems."
 ---
 
+![](/agents.png)
+
 AI agents engineering is still in its "distributed systems in the 1990s" phase.
 
 Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.

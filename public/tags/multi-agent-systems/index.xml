@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Multi-Agent-Systems on Engineering Notes</title>
-    <link>http://localhost:1313/tags/multi-agent-systems/</link>
+    <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
     <description>Recent content in Multi-Agent-Systems on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/multi-agent-systems/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://notes.muthu.co/tags/multi-agent-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Unsolved Engineering Problems of AI Agents</title>
-      <link>http://localhost:1313/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>
+      <link>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>
       <pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2026/05/the-unsolved-engineering-problems-of-ai-agents/</guid>
-      <description>&lt;p&gt;AI agents engineering is still in its &amp;ldquo;distributed systems in the 1990s&amp;rdquo; phase.&lt;/p&gt;&#xA;&lt;p&gt;Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.&lt;/p&gt;&#xA;&lt;p&gt;That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.&lt;/p&gt;</description>
+      <guid>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</guid>
+      <description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/agents.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;AI agents engineering is still in its &amp;ldquo;distributed systems in the 1990s&amp;rdquo; phase.&lt;/p&gt;&#xA;&lt;p&gt;Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.&lt;/p&gt;&#xA;&lt;p&gt;That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Conceptual AI Agents Universe — System Design Document</title>
-      <link>http://localhost:1313/2026/02/conceptual-ai-agents-universe-system-design-document/</link>
+      <link>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2026/02/conceptual-ai-agents-universe-system-design-document/</guid>
+      <guid>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</guid>
       <description>&lt;h1 id=&#34;part-1-high-level-design&#34;&gt;PART 1: HIGH-LEVEL DESIGN&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-vision--problem-statement&#34;&gt;1. Vision &amp;amp; Problem Statement&lt;/h2&gt;&#xA;&lt;p&gt;Organizations need AI automation across multiple business functions — code review, customer support, QA, documentation, data analysis, and more. Today, each of these is a siloed solution with its own interface, deployment, and learning curve.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;AI Agents Universe&lt;/strong&gt; solves this by providing a single platform where each AI capability is a self-contained, subscription-based plugin. One interface, one orchestrator, unlimited capabilities — added without touching existing code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
-      <link>http://localhost:1313/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
+      <link>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
       <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</guid>
+      <guid>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Knowledge distillation&lt;/strong&gt; trains a smaller, cheaper &amp;ldquo;student&amp;rdquo; agent to mimic the behavior of a larger &amp;ldquo;teacher&amp;rdquo; model. The result is a system that can handle most queries at a fraction of the cost and latency, while routing genuinely hard cases back to the full model.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A large, powerful model (the &amp;ldquo;teacher&amp;rdquo;) generates training signals — not just correct answers, but the &lt;em&gt;distribution&lt;/em&gt; of its confidence across all possible answers. A smaller model (the &amp;ldquo;student&amp;rdquo;) learns from these soft signals, absorbing the teacher&amp;rsquo;s reasoning patterns in a compressed form.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Improving Decisions Through Multi-Agent Debate and Deliberation</title>
-      <link>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
+      <link>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
+      <guid>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
       <description>&lt;h2 id=&#34;the-wisdom-of-disagreement&#34;&gt;The Wisdom of Disagreement&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Multi-agent debate&lt;/strong&gt; is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Agent Communication Protocols and Message-Passing Patterns for Coordination</title>
-      <link>http://localhost:1313/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
+      <link>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
       <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
+      <guid>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
       <description>&lt;p&gt;In multi-agent systems, the most critical design question is not what each agent can do but how they communicate. Structured protocols govern the exchange of information, coordination of actions, and achievement of collective goals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Communication protocols define:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What can be communicated (message types)&lt;/li&gt;&#xA;&lt;li&gt;How messages are structured (syntax)&lt;/li&gt;&#xA;&lt;li&gt;When and why to send messages (semantics and pragmatics)&lt;/li&gt;&#xA;&lt;li&gt;Who can communicate with whom (topology)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In multi-agent systems (MAS), these protocols are formalized specifications for message exchange that enable coordination without centralized control. Key components include:&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Multi-Agent AI Ecosystem for Self-Improving Software</title>
-      <link>http://localhost:1313/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
+      <link>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
+      <guid>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
       <description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Multi-Agent Debate System with LangGraph</title>
-      <link>http://localhost:1313/2025/10/building-a-multi-agent-debate-system-with-langgraph/</link>
+      <link>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/10/building-a-multi-agent-debate-system-with-langgraph/</guid>
+      <guid>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>
-      <link>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
+      <link>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
       <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
+      <guid>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
       <description>&lt;p&gt;As artificial intelligence becomes more sophisticated, we are moving from single AI models to complex systems of multiple AI agents working together. These multi-agent systems (MAS) have the potential to solve incredibly complex problems, but they face a fundamental challenge: how do the agents talk to each other?&lt;/p&gt;&#xA;&lt;p&gt;Just like humans need language to cooperate, AI agents need communication protocols. These protocols are the rules of the road for AI interaction, defining how agents can exchange information, request actions, and work together on tasks. This post explores four of the most promising agent communication protocols (ACPs) and what they mean for the future of AI.&lt;/p&gt;</description>
     </item>
   </channel>
