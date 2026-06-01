@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving?</title>
+      <link>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Amdahl&amp;rsquo;s Law doesn&amp;rsquo;t care about your sprint velocity.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;There&amp;rsquo;s a pattern playing out in companies right now.&lt;/p&gt;&#xA;&lt;p&gt;Engineering gets AI tooling. Code generation, automated testing, AI-assisted reviews. Within a quarter, velocity is up. PRs merge faster. Features ship sooner. Leadership is excited. Slides go to the board.&lt;/p&gt;&#xA;&lt;p&gt;And then the revenue numbers come in. Flat.&lt;/p&gt;&#xA;&lt;p&gt;The post-mortems are always the same: &amp;ldquo;we built a lot, but it didn&amp;rsquo;t translate.&amp;rdquo; Everyone nods. Someone suggests better prioritization. The real problem goes undiagnosed.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Unsolved Engineering Problems of AI Agents</title>
       <link>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>

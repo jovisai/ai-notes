@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/posts/</loc>
+    <lastmod>2026-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</loc>
+    <lastmod>2026-06-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</loc>
     <lastmod>2026-05-25T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,9 +17,6 @@
     <lastmod>2026-03-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://notes.muthu.co/posts/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</loc>
