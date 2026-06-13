@@ -11,7 +11,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
   <meta itemprop="datePublished" content="2025-08-06T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-08-06T00:00:00+00:00">
   <meta itemprop="wordCount" content="3212">
-  <meta itemprop="keywords" content="Ai,Agentic-Ai,LLMs,Development,Coding,Tutorial,Autonomous Agents"><meta property="og:url" content="https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/">
+  <meta itemprop="keywords" content="Ai,Agentic-Ai,Llms,Development,Coding,Tutorial,Autonomous Agents"><meta property="og:url" content="https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="The Complete Claude Code Best Practices Guide">
   <meta property="og:description" content="A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge
@@ -23,7 +23,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
     <meta property="article:modified_time" content="2025-08-06T00:00:00+00:00">
     <meta property="article:tag" content="Ai">
     <meta property="article:tag" content="Agentic-Ai">
-    <meta property="article:tag" content="LLMs">
+    <meta property="article:tag" content="Llms">
     <meta property="article:tag" content="Development">
     <meta property="article:tag" content="Coding">
     <meta property="article:tag" content="Tutorial">
@@ -153,7 +153,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 <hr>
 <h2 id="quick-start--setup">Quick Start &amp; Setup</h2>
 <h3 id="installation--authentication">Installation &amp; Authentication</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Install Claude Code</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Install Claude Code</span>
 </span></span><span style="display:flex;"><span>npx @anthropics/claude
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Navigate to your project and start Claude</span>
@@ -208,7 +208,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 <li><strong>Global</strong>: <code>~/.claude/CLAUDE.md</code> (applies to all sessions)</li>
 </ol>
 <h4 id="essential-claudemd-structure">Essential CLAUDE.md Structure</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project: [Project Name]
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project: [Project Name]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Quick Commands
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#0a3069">`npm run build`</span>: Build the project
@@ -251,7 +251,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </ul>
 <h3 id="permission-management">Permission Management</h3>
 <h4 id="strategic-permission-setup">Strategic Permission Setup</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Allow safe operations</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Allow safe operations</span>
 </span></span><span style="display:flex;"><span>/permissions add Edit
 </span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(git commit:*)&#34;</span>
 </span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(git push:*)&#34;</span>
@@ -260,7 +260,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>/permissions add mcp__puppeteer__puppeteer_navigate
 </span></span></code></pre></div><h4 id="team-permissions">Team Permissions</h4>
 <p>Share permissions via <code>.claude/settings.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;allowedTools&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Edit&#34;</span><span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Bash(git commit:*)&#34;</span><span style="color:#1f2328">,</span>
@@ -271,7 +271,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 <h2 id="core-workflows--patterns">Core Workflows &amp; Patterns</h2>
 <h3 id="1-the-explore--plan--code--commit-pattern">1. The Explore → Plan → Code → Commit Pattern</h3>
 <p>This is the most versatile and effective workflow:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Phase 1: Explore**
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Phase 1: Explore**
 </span></span><span style="display:flex;"><span>&#34;Read the authentication module and related test files. Don&#39;t write any code yet - just explore and understand the current implementation.&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>**Phase 2: Plan** 
@@ -295,7 +295,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </ul>
 <h3 id="2-test-driven-development-tdd-with-claude">2. Test-Driven Development (TDD) with Claude</h3>
 <p>TDD becomes incredibly powerful with Claude:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Step 1: Write Tests First**
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Step 1: Write Tests First**
 </span></span><span style="display:flex;"><span>&#34;Write comprehensive tests for the user authentication feature. Cover:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Valid login scenarios
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Invalid credentials
@@ -314,7 +314,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>&#34;Keep iterating - run tests, fix issues, repeat until all tests pass.&#34;
 </span></span></code></pre></div><h3 id="3-visual-development-workflow">3. Visual Development Workflow</h3>
 <p>For UI work, use Claude&rsquo;s visual capabilities:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Setup Visual Feedback**
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**Setup Visual Feedback**
 </span></span><span style="display:flex;"><span>&#34;Set up Puppeteer MCP server so you can take screenshots of our React app.&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>**Implement with Visual Targets**
@@ -324,7 +324,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>&#34;The layout is close but spacing is off. Take another screenshot and adjust the CSS until the spacing matches the design exactly.&#34;
 </span></span></code></pre></div><h3 id="4-the-safe-yolo-approach">4. The &ldquo;Safe YOLO&rdquo; Approach</h3>
 <p>For repetitive tasks in secure environments:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Run with specific allowed tools (safer approach)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Run with specific allowed tools (safer approach)</span>
 </span></span><span style="display:flex;"><span>claude --allowedTools <span style="color:#0a3069">&#34;Edit,Bash(eslint:*)&#34;</span> <span style="color:#0a3069">&#34;Fix all ESLint errors in the src/ directory&#34;</span>
 </span></span></code></pre></div><p><strong>⚠️ Warning</strong>: Use <code>--allowedTools</code> to grant specific permissions. Only use <code>--dangerously-skip-permissions</code> in secure, isolated environments.</p>
 <p><strong>Use Cases:</strong></p>
@@ -346,7 +346,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </ul>
 <h3 id="subagent-orchestration">Subagent Orchestration</h3>
 <p>Let Claude manage specialized subagents:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use subagents to investigate this performance issue:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use subagents to investigate this performance issue:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Have one subagent analyze the database queries
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Have another examine the frontend bundle size
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Have a third review the caching strategy
@@ -360,7 +360,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </ul>
 <h4 id="context-priming">Context Priming</h4>
 <p>Load relevant context systematically:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Before we start, read these files to understand the context:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Before we start, read these files to understand the context:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#6639ba">@src/auth/auth_service</span>.py
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#6639ba">@tests/auth/test_auth</span>.py  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> <span style="color:#6639ba">@docs/auth_requirements</span>.md
@@ -387,7 +387,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </code></pre><h3 id="custom-slash-commands-for-teams">Custom Slash Commands for Teams</h3>
 <p>Create team-specific workflows in <code>.claude/commands/</code>:</p>
 <h4 id="projectfix-github-issuemd"><code>/project:fix-github-issue.md</code></h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Please analyze and fix GitHub issue: $ARGUMENTS
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Please analyze and fix GitHub issue: $ARGUMENTS
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Follow our team process:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Use <span style="color:#0a3069">`gh issue view`</span> to get issue details
@@ -399,7 +399,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">7.</span> Commit with format: <span style="color:#0a3069">`fix: resolve issue #$ARGUMENTS - [description]`</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">8.</span> Push and create PR with our template
 </span></span></code></pre></div><h4 id="projectcode-reviewmd"><code>/project:code-review.md</code></h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Perform comprehensive code review of recent changes:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Perform comprehensive code review of recent changes:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> **Standards Compliance**
 </span></span><span style="display:flex;"><span>   <span style="color:#cf222e">-</span> Check TypeScript/React conventions
@@ -419,7 +419,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span></code></pre></div><h3 id="prompt-plans-for-complex-projects">Prompt Plans for Complex Projects</h3>
 <p>Use structured prompt planning for large features:</p>
 <h4 id="specmd---high-level-specification"><code>spec.md</code> - High-level specification</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Feature: Real-time Collaboration
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Feature: Real-time Collaboration
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Requirements
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Multiple users can edit documents simultaneously
@@ -433,7 +433,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Redux for state management
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> IndexedDB for offline storage
 </span></span></code></pre></div><h4 id="prompt_planmd---implementation-steps"><code>prompt_plan.md</code> - Implementation steps</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Implementation Plan
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Implementation Plan
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Phase 1: Backend Infrastructure ✅
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">- [x]</span> Set up WebSocket server
@@ -457,7 +457,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span></code></pre></div><hr>
 <h2 id="testing--quality-assurance">Testing &amp; Quality Assurance</h2>
 <h3 id="test-first-development-pattern">Test-First Development Pattern</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;We&#39;re implementing TDD. First, write comprehensive tests for the shopping cart feature:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;We&#39;re implementing TDD. First, write comprehensive tests for the shopping cart feature:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Add items to cart
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Remove items from cart  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Update quantities
@@ -468,10 +468,10 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>Don&#39;t implement any actual cart logic yet - just the test cases.&#34;
 </span></span></code></pre></div><h3 id="automated-code-review-setup">Automated Code Review Setup</h3>
 <p>Use GitHub Actions with Claude Code:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In Claude Code terminal</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In Claude Code terminal</span>
 </span></span><span style="display:flex;"><span>/install-github-app
 </span></span></code></pre></div><p>Then customize the review prompt in <code>claude-code-review.yml</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">direct_prompt</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">|</span><span style="color:#0a3069">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">direct_prompt</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#1f2328">|</span><span style="color:#0a3069">
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Review this PR focusing on:
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  - Security vulnerabilities and input validation
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  - Logic errors and edge cases  
@@ -481,8 +481,8 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  Be concise - only report significant issues, not style preferences.</span><span style="color:#fff">
 </span></span></span></code></pre></div><h3 id="quality-gates-with-pre-commit-hooks">Quality Gates with Pre-commit Hooks</h3>
 <p>Set up comprehensive quality checks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#57606a"># .pre-commit-config.yaml  </span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">repos</span><span style="color:#1f2328">:</span><span style="color:#fff">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#57606a"># .pre-commit-config.yaml  </span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">repos</span><span style="color:#1f2328">:</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span>- <span style="color:#0550ae">repo</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>local<span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">hooks</span><span style="color:#1f2328">:</span><span style="color:#fff">
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">id</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>tests<span style="color:#fff">
@@ -499,13 +499,13 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">language</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>system<span style="color:#fff">
 </span></span></span></code></pre></div><h3 id="testing-strategies-by-language">Testing Strategies by Language</h3>
 <h4 id="python-projects">Python Projects</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Set up pytest with these fixtures and test patterns:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Set up pytest with these fixtures and test patterns:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Database fixtures with rollback
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> API client fixtures  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Mock external services
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Coverage reporting with minimum 80% threshold&#34;
 </span></span></code></pre></div><h4 id="javascripttypescript-projects">JavaScript/TypeScript Projects</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Configure Jest with:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Configure Jest with:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Component testing with React Testing Library
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Integration tests for API endpoints
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> E2E tests with Playwright
@@ -515,7 +515,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 <h3 id="secure-development-workflow">Secure Development Workflow</h3>
 <h4 id="code-security-reviews">Code Security Reviews</h4>
 <p>Create a security-focused CLAUDE.md section:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>## Security Requirements
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>## Security Requirements
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>### Input Validation
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> ALWAYS validate and sanitize user input
@@ -532,7 +532,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Test for common OWASP vulnerabilities
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Validate API authentication and authorization
 </span></span></code></pre></div><h4 id="security-first-prompts">Security-First Prompts</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Review this authentication endpoint as a security expert. Focus on:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Review this authentication endpoint as a security expert. Focus on:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Input validation and sanitization
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> SQL injection vulnerabilities  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Authentication bypass scenarios
@@ -542,7 +542,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>Identify any security risks and provide specific fixes.&#34;
 </span></span></code></pre></div><h3 id="production-deployment-patterns">Production Deployment Patterns</h3>
 <h4 id="infrastructure-as-code">Infrastructure as Code</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Create Terraform configuration for:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Create Terraform configuration for:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Auto-scaling web servers
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> RDS database with backups
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Redis cache cluster
@@ -551,7 +551,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Follow security best practices for network isolation and access control.&#34;
 </span></span></code></pre></div><h4 id="cicd-pipeline-setup">CI/CD Pipeline Setup</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Set up GitHub Actions workflow that:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Set up GitHub Actions workflow that:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Runs security scans on dependencies
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Executes full test suite
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Builds production artifacts
@@ -592,14 +592,14 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </ul>
 <h4 id="usage-monitoring">Usage Monitoring</h4>
 <p>Monitor usage through Claude&rsquo;s built-in tracking and third-party tools:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Check current session usage</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Check current session usage</span>
 </span></span><span style="display:flex;"><span>/usage
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># View conversation statistics</span>
 </span></span><span style="display:flex;"><span>/stats
 </span></span></code></pre></div><h3 id="workflow-optimization">Workflow Optimization</h3>
 <h4 id="batch-operations">Batch Operations</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Process these 15 similar API endpoints in batch:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Process these 15 similar API endpoints in batch:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Add input validation
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Update error handling  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Add logging
@@ -609,7 +609,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span>Work through them systematically, committing after each group of 3.&#34;
 </span></span></code></pre></div><h4 id="parallel-processing">Parallel Processing</h4>
 <p>Run multiple Claude instances for independent tasks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Terminal 1: Frontend work</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Terminal 1: Frontend work</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> frontend <span style="color:#0550ae">&amp;&amp;</span> claude
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Terminal 2: Backend API  </span>
@@ -620,7 +620,7 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span></code></pre></div><hr>
 <h2 id="multi-claude-workflows">Multi-Claude Workflows</h2>
 <h3 id="git-worktrees-for-parallel-development">Git Worktrees for Parallel Development</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktrees for parallel work</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktrees for parallel work</span>
 </span></span><span style="display:flex;"><span>git worktree add ../project-feature-a -b feature-a
 </span></span><span style="display:flex;"><span>git worktree add ../project-feature-b -b feature-b  
 </span></span><span style="display:flex;"><span>git worktree add ../project-bugfix -b bugfix
@@ -630,18 +630,18 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># (repeat in separate terminals)</span>
 </span></span></code></pre></div><h3 id="review-and-implementation-pattern">Review and Implementation Pattern</h3>
 <p><strong>Terminal 1: Implementation</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Implement the new payment processing feature according to the spec in <span style="color:#6639ba">@docs/payment</span>-spec.md&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Implement the new payment processing feature according to the spec in <span style="color:#6639ba">@docs/payment</span>-spec.md&#34;
 </span></span></code></pre></div><p><strong>Terminal 2: Review</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Review the payment processing code that was just implemented. Focus on:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Review the payment processing code that was just implemented. Focus on:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Security vulnerabilities
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Error handling completeness  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Test coverage
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Code maintainability&#34;
 </span></span></code></pre></div><p><strong>Terminal 3: Integration</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Integrate the reviewed payment code with feedback from the reviewer. Address all security concerns and add missing tests.&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Integrate the reviewed payment code with feedback from the reviewer. Address all security concerns and add missing tests.&#34;
 </span></span></code></pre></div><h3 id="specialized-agent-coordination">Specialized Agent Coordination</h3>
 <p>Use different Claude instances for specialized roles:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Architecture Agent
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Architecture Agent
 </span></span><span style="display:flex;"><span>&#34;Act as a senior architect. Design the microservice structure for our e-commerce platform.&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span># Security Agent  
@@ -653,30 +653,30 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 <h2 id="mcp-integration">MCP Integration</h2>
 <h3 id="essential-mcp-servers">Essential MCP Servers</h3>
 <h4 id="github-integration">GitHub Integration</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-github
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-github
 </span></span></code></pre></div><h4 id="web-search--research">Web Search &amp; Research</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-brave-search
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-brave-search
 </span></span></code></pre></div><h4 id="browser-automation">Browser Automation</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-puppeteer
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-puppeteer
 </span></span></code></pre></div><h4 id="database-access">Database Access</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-postgresql
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude mcp install @modelcontextprotocol/server-postgresql
 </span></span></code></pre></div><h3 id="advanced-mcp-workflows">Advanced MCP Workflows</h3>
 <h4 id="documentation-generation">Documentation Generation</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use the GitHub MCP server to:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use the GitHub MCP server to:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Fetch all README files from our repositories
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Analyze common documentation patterns
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Generate comprehensive docs for our new microservice
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Create standardized README template for future projects&#34;
 </span></span></code></pre></div><h4 id="automated-testing">Automated Testing</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use Puppeteer MCP server to:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use Puppeteer MCP server to:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Navigate to our staging environment
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Test the complete user registration flow
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Take screenshots at each step
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Generate automated test report with visual validation&#34;
 </span></span></code></pre></div><h3 id="custom-mcp-server-development">Custom MCP Server Development</h3>
 <p>For team-specific needs:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#57606a">// Custom MCP server for internal APIs
-</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">server</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">McpServer</span><span style="color:#1f2328">({</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#57606a">// Custom MCP server for internal APIs
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">const</span> <span style="color:#1f2328">server</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">McpServer</span><span style="color:#1f2328">({</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">name</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;company-internal-api&#39;</span><span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">version</span><span style="color:#0550ae">:</span> <span style="color:#0a3069">&#39;1.0.0&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
@@ -698,25 +698,25 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 <h4 id="context-window-management">Context Window Management</h4>
 <p><strong>Problem</strong>: Claude loses track in long conversations
 <strong>Solution</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Before continuing, create a summary of our current progress and save it to progress.md. Then use /compact to optimize context.&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Before continuing, create a summary of our current progress and save it to progress.md. Then use /compact to optimize context.&#34;
 </span></span></code></pre></div><h4 id="permission-errors">Permission Errors</h4>
 <p><strong>Problem</strong>: Constant permission prompts
 <strong>Solution</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Add commonly used tools to allowlist</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Add commonly used tools to allowlist</span>
 </span></span><span style="display:flex;"><span>/permissions add Edit
 </span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(git:*)&#34;</span>
 </span></span><span style="display:flex;"><span>/permissions add <span style="color:#0a3069">&#34;Bash(npm:*)&#34;</span>
 </span></span></code></pre></div><h4 id="code-quality-issues">Code Quality Issues</h4>
 <p><strong>Problem</strong>: Claude generates working but low-quality code
 <strong>Solution</strong>: Improve CLAUDE.md with specific examples:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>## Code Quality Standards
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>## Code Quality Standards
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>❌ Bad: Direct database queries in controllers
 </span></span><span style="display:flex;"><span>```python
 </span></span><span style="display:flex;"><span>def get_user(user_id):
 </span></span><span style="display:flex;"><span>    return db.execute(&#34;SELECT * FROM users WHERE id = %s&#34;, user_id)
 </span></span></code></pre></div><p>✅ Good: Use repository pattern</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_user</span><span style="color:#1f2328">(</span>user_id<span style="color:#1f2328">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">get_user</span><span style="color:#1f2328">(</span>user_id<span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> UserRepository<span style="color:#0550ae">.</span>find_by_id<span style="color:#1f2328">(</span>user_id<span style="color:#1f2328">)</span>
 </span></span></code></pre></div><pre tabindex="0"><code>
 ### Performance Optimization
@@ -740,13 +740,13 @@ Table of Contents Introduction Quick Start &amp; Setup Configuration Mastery Cor
 4. Add unit tests covering edge cases&#34;
 </code></pre><h3 id="debugging-strategies">Debugging Strategies</h3>
 <h4 id="stack-trace-analysis">Stack Trace Analysis</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Analyze this stack trace and production logs. Trace the control flow through our codebase and identify:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Analyze this stack trace and production logs. Trace the control flow through our codebase and identify:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Root cause of the error
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Contributing factors  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Specific fix needed
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">4.</span> Prevention strategies for similar issues&#34;
 </span></span></code></pre></div><h4 id="performance-investigation">Performance Investigation</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use subagents to investigate this performance issue:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use subagents to investigate this performance issue:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Database Agent: Analyze slow queries and indexing
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Frontend Agent: Check bundle size and render performance  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Network Agent: Review API response times and caching
