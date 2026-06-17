@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ai-Agents</title>
+      <title>Agent Infrastructure</title>
+      <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>https://notes.muthu.co/tags/ai/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudflare</title>
+      <link>https://notes.muthu.co/tags/cloudflare/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Email</title>
+      <link>https://notes.muthu.co/tags/email/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/email/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +69,6 @@
       <link>https://notes.muthu.co/tags/software-engineering/</link>
       <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/software-engineering/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agent-Infrastructure</title>
-      <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
       <description></description>
     </item>
     <item>
@@ -230,13 +251,6 @@
       <link>https://notes.muthu.co/tags/transfer-learning/</link>
       <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/transfer-learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ai</title>
-      <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai/</guid>
       <description></description>
     </item>
     <item>
