@@ -10,7 +10,7 @@
   <meta itemprop="datePublished" content="2025-12-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-12-22T00:00:00+00:00">
   <meta itemprop="wordCount" content="873">
-  <meta itemprop="keywords" content="Ai,Multi-Agent,CrewAI,LangGraph,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">
+  <meta itemprop="keywords" content="Ai,Multi-Agent,CrewAI,Langgraph,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="CrewAI vs LangGraph Building the Same Multi-Agent System in Both">
   <meta property="og:description" content="A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.">
@@ -22,7 +22,7 @@
     <meta property="article:tag" content="Ai">
     <meta property="article:tag" content="Multi-Agent">
     <meta property="article:tag" content="CrewAI">
-    <meta property="article:tag" content="LangGraph">
+    <meta property="article:tag" content="Langgraph">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Tutorial">
 
@@ -136,7 +136,7 @@
 
 <h2 id="crewai-implementation">CrewAI Implementation</h2>
 <p>CrewAI models agents as team members with roles, goals, and backstories. The framework handles the orchestration automatically.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">crewai</span> <span style="color:#cf222e">import</span> Agent<span style="color:#1f2328">,</span> Task<span style="color:#1f2328">,</span> Crew
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Define agents with roles</span>
 </span></span><span style="display:flex;"><span>researcher <span style="color:#0550ae">=</span> Agent<span style="color:#1f2328">(</span>
@@ -184,7 +184,7 @@
 </ul>
 <h2 id="langgraph-implementation">LangGraph Implementation</h2>
 <p>LangGraph requires you to define the state schema and each transition explicitly. This gives you more control but requires more code.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> TypedDict<span style="color:#1f2328">,</span> Annotated
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> TypedDict<span style="color:#1f2328">,</span> Annotated
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_openai</span> <span style="color:#cf222e">import</span> ChatOpenAI
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">operator</span>
@@ -306,7 +306,7 @@
 <li><strong>Your workflow is linear.</strong> Simple chains of tasks work well with CrewAI.</li>
 <li><strong>You prefer high-level APIs.</strong> Less code, more focus on agent behavior.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># CrewAI excels at simple, linear workflows</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># CrewAI excels at simple, linear workflows</span>
 </span></span><span style="display:flex;"><span>crew <span style="color:#0550ae">=</span> Crew<span style="color:#1f2328">(</span>
 </span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>researcher<span style="color:#1f2328">,</span> writer<span style="color:#1f2328">,</span> editor<span style="color:#1f2328">],</span>
 </span></span><span style="display:flex;"><span>    tasks<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>research_task<span style="color:#1f2328">,</span> writing_task<span style="color:#1f2328">,</span> editing_task<span style="color:#1f2328">],</span>
@@ -319,7 +319,7 @@
 <li><strong>State management is critical.</strong> You need fine-grained control over what data flows where.</li>
 <li><strong>You want debugging visibility.</strong> Explicit state makes it easier to trace issues.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># LangGraph handles complex branching easily</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># LangGraph handles complex branching easily</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">should_continue</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> ResearchState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;research&#34;</span><span style="color:#1f2328">])</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;researcher&#34;</span>  <span style="color:#57606a"># Loop back for more research</span>

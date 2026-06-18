@@ -6,48 +6,69 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Infrastructure</title>
+      <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai/</guid>
       <description></description>
     </item>
     <item>
-      <title>Careers</title>
-      <link>https://notes.muthu.co/tags/careers/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/careers/</guid>
+      <title>AI Agents</title>
+      <link>https://notes.muthu.co/tags/ai-agents/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudflare</title>
+      <link>https://notes.muthu.co/tags/cloudflare/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Email</title>
+      <link>https://notes.muthu.co/tags/email/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/email/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Digital-Twins</title>
+      <link>https://notes.muthu.co/tags/digital-twins/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/digital-twins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering-Intelligence</title>
+      <link>https://notes.muthu.co/tags/engineering-intelligence/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering-intelligence/</guid>
       <description></description>
     </item>
     <item>
       <title>Engineering-Management</title>
       <link>https://notes.muthu.co/tags/engineering-management/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/engineering-management/</guid>
       <description></description>
     </item>
     <item>
       <title>Software-Engineering</title>
       <link>https://notes.muthu.co/tags/software-engineering/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/software-engineering/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agent-Infrastructure</title>
-      <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI Agents</title>
-      <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
       <description></description>
     </item>
     <item>
@@ -58,7 +79,7 @@
       <description></description>
     </item>
     <item>
-      <title>Multi-Agent Systems</title>
+      <title>Multi-Agent-Systems</title>
       <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
@@ -72,14 +93,14 @@
       <description></description>
     </item>
     <item>
-      <title>Context-Engineering</title>
+      <title>Context Engineering</title>
       <link>https://notes.muthu.co/tags/context-engineering/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/context-engineering/</guid>
       <description></description>
     </item>
     <item>
-      <title>LangGraph</title>
+      <title>Langgraph</title>
       <link>https://notes.muthu.co/tags/langgraph/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/langgraph/</guid>
@@ -114,7 +135,7 @@
       <description></description>
     </item>
     <item>
-      <title>Agentic AI</title>
+      <title>Agentic-Ai</title>
       <link>https://notes.muthu.co/tags/agentic-ai/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
@@ -548,14 +569,14 @@
       <description></description>
     </item>
     <item>
-      <title>Deep Research</title>
+      <title>Deep-Research</title>
       <link>https://notes.muthu.co/tags/deep-research/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/deep-research/</guid>
       <description></description>
     </item>
     <item>
-      <title>LLMs</title>
+      <title>Llms</title>
       <link>https://notes.muthu.co/tags/llms/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/llms/</guid>

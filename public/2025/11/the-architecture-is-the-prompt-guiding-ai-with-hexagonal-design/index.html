@@ -11,7 +11,7 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
   <meta itemprop="datePublished" content="2025-11-11T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-11-11T00:00:00+00:00">
   <meta itemprop="wordCount" content="1058">
-  <meta itemprop="keywords" content="Ai,Software-Development,Agentic AI,Systems-Architecture,Coding"><meta property="og:url" content="https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/">
+  <meta itemprop="keywords" content="Ai,Software-Development,Agentic-Ai,Systems-Architecture,Coding"><meta property="og:url" content="https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="The Architecture is the Prompt - Guiding AI with Hexagonal Design">
   <meta property="og:description" content="As developers, we’ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you’re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.
@@ -23,7 +23,7 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
     <meta property="article:modified_time" content="2025-11-11T00:00:00+00:00">
     <meta property="article:tag" content="Ai">
     <meta property="article:tag" content="Software-Development">
-    <meta property="article:tag" content="Agentic AI">
+    <meta property="article:tag" content="Agentic-Ai">
     <meta property="article:tag" content="Systems-Architecture">
     <meta property="article:tag" content="Coding">
 
@@ -160,20 +160,17 @@ The immediate reaction is to blame the tool and focus on “better prompt engine
 <h3 id="prompt-1-modify-the-domain-logic">Prompt 1: Modify the Domain Logic</h3>
 <p>First, we ask the AI to change the core business model. The prompt is focused purely on business rules.</p>
 <blockquote>
-<p>&ldquo;In the <code>User</code> domain model, add a <code>deactivate()</code> method. This method should set the user&rsquo;s status to <code>INACTIVE</code> and record the current timestamp in a <code>deactivatedAt</code> field. Ensure the object is always in a valid state.&rdquo;</p>
-</blockquote>
+<p>&ldquo;In the <code>User</code> domain model, add a <code>deactivate()</code> method. This method should set the user&rsquo;s status to <code>INACTIVE</code> and record the current timestamp in a <code>deactivatedAt</code> field. Ensure the object is always in a valid state.&rdquo;</p></blockquote>
 <p>The AI can&rsquo;t make a mistake and call a database here. The <code>User</code> object has no access to database libraries. The compiler or interpreter will enforce this boundary.</p>
 <h3 id="prompt-2-implement-a-new-use-case">Prompt 2: Implement a New Use Case</h3>
 <p>Next, we create the application service that orchestrates the deactivation.</p>
 <blockquote>
-<p>&ldquo;Create a <code>DeactivateUser</code> use case. It should accept a <code>userId</code>, use the <code>UserRepository</code> port to load the <code>User</code> aggregate, call the user&rsquo;s <code>deactivate()</code> method, and then use the repository to save the updated user.&rdquo;</p>
-</blockquote>
+<p>&ldquo;Create a <code>DeactivateUser</code> use case. It should accept a <code>userId</code>, use the <code>UserRepository</code> port to load the <code>User</code> aggregate, call the user&rsquo;s <code>deactivate()</code> method, and then use the repository to save the updated user.&rdquo;</p></blockquote>
 <p>The prompt is a simple set of instructions. The AI is guided by the interfaces (<code>UserRepository</code>) and the domain model (<code>User</code>).</p>
 <h3 id="prompt-3-create-a-driving-adapter">Prompt 3: Create a Driving Adapter</h3>
 <p>Finally, we expose this functionality via a REST API.</p>
 <blockquote>
-<p>&ldquo;Create a new endpoint <code>/users/{id}/deactivate</code> in the <code>User</code> REST controller. It should be a <code>POST</code> request. This endpoint should call the <code>DeactivateUser</code> use case with the provided user ID.&rdquo;</p>
-</blockquote>
+<p>&ldquo;Create a new endpoint <code>/users/{id}/deactivate</code> in the <code>User</code> REST controller. It should be a <code>POST</code> request. This endpoint should call the <code>DeactivateUser</code> use case with the provided user ID.&rdquo;</p></blockquote>
 <p>Each prompt is small, targeted, and builds upon the solid foundation of the architecture. The AI&rsquo;s task is constrained and clear at every step.</p>
 <h3 id="a-detailed-diagram-of-the-flow">A Detailed Diagram of the Flow</h3>
 <p>This Graphviz diagram shows the specific components and dependencies for our example. Notice how all arrows point inward, demonstrating the dependency rule.</p>
