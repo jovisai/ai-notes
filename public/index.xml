@@ -6,8 +6,15 @@
     <description>Recent content on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Will Not Kill Junior Engineers but It Will Change Them</title>
+      <link>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</guid>
+      <description>&lt;p&gt;There is a growing debate in software teams:&lt;/p&gt;&#xA;&lt;p&gt;If AI can generate most entry-level coding work, do we still need junior engineers?&lt;/p&gt;&#xA;&lt;p&gt;The question sounds reasonable. AI can write boilerplate, generate CRUD APIs, draft unit tests, explain unfamiliar code, produce documentation, create migrations, and fix simple bugs. A senior engineer with a strong AI coding assistant can now complete work that previously might have been handed to one or two junior developers.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving?</title>
       <link>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</link>
