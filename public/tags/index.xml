@@ -6,13 +6,27 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI</title>
+      <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering Management</title>
+      <link>https://notes.muthu.co/tags/engineering-management/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>https://notes.muthu.co/tags/operations/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/operations/</guid>
       <description></description>
     </item>
     <item>
@@ -23,21 +37,14 @@
       <description></description>
     </item>
     <item>
-      <title>Engineering Management</title>
-      <link>https://notes.muthu.co/tags/engineering-management/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/engineering-management/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Software-Engineering</title>
+      <title>Software Engineering</title>
       <link>https://notes.muthu.co/tags/software-engineering/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/software-engineering/</guid>
       <description></description>
     </item>
     <item>
-      <title>Agent-Infrastructure</title>
+      <title>Agent Infrastructure</title>
       <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
@@ -100,7 +107,7 @@
       <description></description>
     </item>
     <item>
-      <title>Context-Engineering</title>
+      <title>Context Engineering</title>
       <link>https://notes.muthu.co/tags/context-engineering/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/context-engineering/</guid>
@@ -338,7 +345,7 @@
       <description></description>
     </item>
     <item>
-      <title>Llm</title>
+      <title>LLM</title>
       <link>https://notes.muthu.co/tags/llm/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/llm/</guid>
@@ -464,7 +471,7 @@
       <description></description>
     </item>
     <item>
-      <title>Autonomous-Agents</title>
+      <title>Autonomous Agents</title>
       <link>https://notes.muthu.co/tags/autonomous-agents/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>

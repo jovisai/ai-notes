@@ -4,6 +4,25 @@ set -e
 
 OUTPUT="static/llm.txt"
 BASE_URL="https://notes.muthu.co"
+PUBLISHED_CONTENT="$(mktemp)"
+
+trap 'rm -f "$PUBLISHED_CONTENT"' EXIT
+
+hugo list published > "$PUBLISHED_CONTENT"
+
+hugo_permalink_for() {
+    local file="$1"
+    local row
+    local permalink
+
+    row=$(grep -F -m1 "$file," "$PUBLISHED_CONTENT" || true)
+    [[ -n "$row" ]] || return 1
+
+    permalink=$(printf '%s\n' "$row" | grep -oE 'https?://[^,]+' | head -1)
+    [[ -n "$permalink" ]] || return 1
+
+    printf '%s\n' "$permalink"
+}
 
 cat > "$OUTPUT" << 'HEADER'
 # Engineering Notes
@@ -36,14 +55,10 @@ generate_section() {
 
         local title=$(grep -m1 '^title:' "$f" | sed "s/^title: *//;s/^[\"']//;s/[\"']$//")
         local desc=$(grep -m1 '^description:' "$f" | sed "s/^description: *//;s/^[\"']//;s/[\"']$//")
-        local date=$(grep -m1 '^date:' "$f" | sed 's/^date: *//' | cut -c1-7)
+        local url
+        url=$(hugo_permalink_for "$f" || true)
 
-        # Extract year and month for URL
-        local year=$(echo "$date" | cut -d- -f1)
-        local month=$(echo "$date" | cut -d- -f2)
-
-        if [[ -n "$title" && -n "$year" && -n "$month" ]]; then
-            local url="${BASE_URL}/${year}/${month}/${basename_f}"
+        if [[ -n "$title" && -n "$url" ]]; then
             if [[ -n "$desc" ]]; then
                 echo "- [${title}](${url}): ${desc}" >> "$OUTPUT"
             else
