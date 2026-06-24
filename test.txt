@@ -1,64 +1,195 @@
-A lot of leadership teams start with a goal like:
+# The Doorman Fallacy and Why AI Keeps Failing at Replacing People
 
-> "How do we grow revenue by 20%?"
+In 2023, AI was supposed to replace programmers.
 
-The problem is that this question is often too abstract. Nobody wakes up and performs a "20% growth" task.
+In 2024, AI was supposed to replace customer support.
 
-What people actually do every day are hundreds or thousands of small units of work:
+In 2025, executives were talking about replacing entire departments.
 
-* Answer customer questions
-* Create proposals
-* Follow up on leads
-* Review contracts
-* Build features
-* Resolve support tickets
-* Generate reports
-* Onboard customers
+Today, many of those same companies are quietly re-hiring people they let go.
 
-Growth emerges from how effectively these individual activities are performed.
+Not because AI is useless.
 
-So instead of asking:
+Because they made a mistake that is common, predictable, and expensive.
 
-> "How do we grow 20%?"
+It even has a name.
 
-Ask:
+**The Doorman Fallacy.**
 
-> "Where does work happen in this company, and where is effort being wasted, delayed, duplicated, or constrained?"
+## The Assumption Behind AI Replacement
 
-Then optimize those points.
+For the last few years, we've been told that AI is becoming smarter, cheaper, and more capable.
 
-For example:
+Every benchmark seemed to confirm the trend.
 
-| Function    | Unit of Work        | Inefficiency                | Impact                 |
-| ----------- | ------------------- | --------------------------- | ---------------------- |
-| Sales       | Lead qualification  | SDR spends 20 mins per lead | More leads processed   |
-| Support     | Ticket triage       | Manual categorization       | Faster response times  |
-| Engineering | Code reviews        | Senior engineers bottleneck | More throughput        |
-| Finance     | Invoice processing  | Manual entry                | Faster cash collection |
-| HR          | Candidate screening | Resume review overload      | Faster hiring          |
+* Higher scores
+* More tokens processed
+* More code generated
+* More tasks completed
 
-Each improvement may only create a 1-5% gain locally.
+The conclusion seemed obvious.
 
-But if 20 teams each improve 5%, the organization can experience substantial growth without anyone explicitly designing a "20% growth plan."
+> If AI can perform the visible part of a job, eventually it can perform the entire job.
 
-This is similar to how companies like Amazon think operationally. They rarely start with "increase company output by X%." They obsess over cycle times, defects, bottlenecks, handoffs, and customer friction. The aggregate effect becomes growth.
+That sounds reasonable.
 
-An even stronger version of your idea might be:
+Until companies actually try it.
 
-> Organizational growth is often an emergent property of eliminating friction in thousands of individual units of work. Instead of planning growth from the top down, identify where people spend time, where work gets stuck, and where decisions are delayed. Fix enough of those bottlenecks, and growth becomes the natural outcome.
+That's where the story starts to break down.
 
-What's particularly interesting in the AI era is that AI gives us a new lens:
+## The Doorman Fallacy
 
-Before AI, companies optimized processes.
+Advertising expert and behavioral economist Rory Sutherland describes a concept called the **Doorman Fallacy**.
 
-With AI, companies can optimize individual units of work.
+Imagine a luxury hotel.
 
-The question shifts from:
+Management notices they are paying someone $30,000 a year to stand at the entrance and open doors.
 
-> "How do we automate a department?"
+From a spreadsheet perspective, the solution seems obvious.
 
-to
+Install automatic doors.
 
-> "What are the 500 tasks people perform every day, and which of them can be completed faster, better, or not at all?"
+Save the money.
 
-That framing feels much more actionable and measurable than a top-down growth target.
+Problem solved.
+
+Except six months later:
+
+* Customer satisfaction drops
+* Repeat bookings decline
+* Revenue starts slipping
+
+What happened?
+
+The doorman was never just opening doors.
+
+He was:
+
+* Welcoming guests
+* Recognizing regular customers
+* Providing security
+* Helping with luggage
+* Creating a premium experience
+
+The visible task was opening doors.
+
+The real value was everything surrounding that task.
+
+## How Companies Apply the Same Logic to AI
+
+Many organizations evaluate jobs the same way.
+
+They reduce a role to its most obvious output.
+
+* Customer service becomes answering questions
+* Programming becomes writing code
+* Management becomes sending emails
+* Design becomes creating graphics
+
+Then they ask:
+
+> If AI can do that part, why do we still need people?
+
+That's the fallacy.
+
+Because the visible output is often the least valuable part of the role.
+
+## Software Development Is a Perfect Example
+
+Many non-technical leaders assume developers are paid to write code.
+
+Experienced engineers know that's rarely true.
+
+Writing code is often the easiest part of the job.
+
+The difficult parts are:
+
+* Understanding ambiguous requirements
+* Evaluating trade-offs
+* Designing architecture
+* Debugging unusual edge cases
+* Predicting future failures
+* Maintaining systems for years
+* Making decisions under uncertainty
+
+In other words, the hard part is thinking.
+
+The code is simply the artifact produced by that thinking.
+
+## Where AI Excels and Where It Struggles
+
+Modern language models can generate code at incredible speed.
+
+But generating code is not the same as understanding a system.
+
+It is not the same as:
+
+* Owning decisions
+* Understanding business context
+* Predicting long-term consequences
+* Balancing competing constraints
+* Knowing which shortcuts become future disasters
+
+This explains a pattern many teams are seeing.
+
+The more experienced the developer, the less impressed they tend to be by raw code generation alone.
+
+Not because the technology is bad.
+
+Because they understand how much of software engineering happens outside the editor.
+
+The code is the final output.
+
+The real work happened before the first line was written.
+
+## The Same Problem Appears Everywhere
+
+Software is not unique.
+
+Many industries are running into the same issue.
+
+Companies that replaced customer support teams with AI discovered customers often disliked the experience.
+
+Fast-food chains deployed AI ordering systems and encountered highly public failures.
+
+Organizations that aggressively reduced headcount are now bringing employees back.
+
+In most cases, AI did not completely fail.
+
+The failure was in how the job was defined.
+
+Organizations optimized for the visible task and ignored everything surrounding it.
+
+They removed the doorman.
+
+Then discovered the doorman was doing much more than opening doors.
+
+## The Question Most People Are Asking Wrong
+
+When someone says:
+
+"AI writes code now."
+
+Or:
+
+"AI answers customer questions now."
+
+They're often measuring the wrong thing.
+
+The real question isn't:
+
+> Can AI perform the task?
+
+The real question is:
+
+> Can AI replace all of the invisible value that surrounds the task?
+
+That invisible value is where judgment, context, accountability, trust, relationships, and experience live.
+
+And so far, that is where reality keeps colliding with the hype.
+
+The biggest mistake companies make is assuming a job is the output they can see.
+
+The output is usually the easy part.
+
+The value is everything they can't see.

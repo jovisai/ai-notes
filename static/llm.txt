@@ -45,6 +45,7 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Small Language Models are the Future of Agentic AI](https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/)
 - [Systems That Search for New Algorithms Automatically](https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/): An introduction to AlphaEvolve, DeepMind's new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.
 - [The Architecture is the Prompt - Guiding AI with Hexagonal Design](https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/)
+- [The Doorman Fallacy and Why AI Keeps Failing at Replacing People](https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/)
 - [The Theory of Constraints applied to software development life cycles](https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/)
 - [Understanding Mixture of Experts from First Principles](https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/)
 
