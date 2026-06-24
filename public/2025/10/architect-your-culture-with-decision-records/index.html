@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Architect Your Culture with Decision Records - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Architect Your Culture with Decision Records">
+  <meta itemprop="description" content="Most engineering managers focus on making good decisions. The best ones focus on capturing why decisions were made.
+Architecture Decision Records (ADRs) aren’t just documentation—they’re a cultural operating system that scales your judgment across the organization.
+The Hidden Cost of Undocumented Decisions Every major technical decision you make today will be questioned in 18 months. Your team will have turned over. Context will have evaporated. Someone will ask “Why did we choose Postgres over DynamoDB?” and the answer will be lost to Slack history.">
+  <meta itemprop="datePublished" content="2025-10-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="493">
+  <meta itemprop="keywords" content="Engineering Management"><meta property="og:url" content="https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Architect Your Culture with Decision Records">
+  <meta property="og:description" content="Most engineering managers focus on making good decisions. The best ones focus on capturing why decisions were made.
+Architecture Decision Records (ADRs) aren’t just documentation—they’re a cultural operating system that scales your judgment across the organization.
+The Hidden Cost of Undocumented Decisions Every major technical decision you make today will be questioned in 18 months. Your team will have turned over. Context will have evaporated. Someone will ask “Why did we choose Postgres over DynamoDB?” and the answer will be lost to Slack history.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="engineering-manager">
+    <meta property="article:published_time" content="2025-10-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-09T00:00:00+00:00">
+    <meta property="article:tag" content="Engineering Management">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Architect Your Culture with Decision Records">
+  <meta name="twitter:description" content="Most engineering managers focus on making good decisions. The best ones focus on capturing why decisions were made.
+Architecture Decision Records (ADRs) aren’t just documentation—they’re a cultural operating system that scales your judgment across the organization.
+The Hidden Cost of Undocumented Decisions Every major technical decision you make today will be questioned in 18 months. Your team will have turned over. Context will have evaporated. Someone will ask “Why did we choose Postgres over DynamoDB?” and the answer will be lost to Slack history.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Architect Your Culture with Decision Records</h1>
+        
+        <div class="date">
+            <span class="day">09</span>
+            <span class="rest">Oct 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>Most engineering managers focus on making good decisions. The best ones focus on <strong>capturing why decisions were made</strong>.</p>
+<p>Architecture Decision Records (ADRs) aren&rsquo;t just documentation—they&rsquo;re a cultural operating system that scales your judgment across the organization.</p>
+<h2 id="the-hidden-cost-of-undocumented-decisions">The Hidden Cost of Undocumented Decisions</h2>
+<p>Every major technical decision you make today will be questioned in 18 months. Your team will have turned over. Context will have evaporated. Someone will ask &ldquo;Why did we choose Postgres over DynamoDB?&rdquo; and the answer will be lost to Slack history.</p>
+<p>Without recorded decisions, you get:</p>
+<ul>
+<li><strong>Repeated debates</strong> on settled questions</li>
+<li><strong>Erosion of trust</strong> (&ldquo;Who made this terrible choice?&rdquo;)</li>
+<li><strong>Analysis paralysis</strong> (no template for how decisions get made)</li>
+<li><strong>Loss of institutional knowledge</strong> with every departure</li>
+</ul>
+<h2 id="the-high-leverage-move-make-adrs-your-default">The High-Leverage Move: Make ADRs Your Default</h2>
+<p>An ADR is a short document (500-1000 words) that captures:</p>
+<ol>
+<li><strong>Context</strong>: What forces are at play?</li>
+<li><strong>Decision</strong>: What did we choose?</li>
+<li><strong>Consequences</strong>: What does this enable? What does it constrain?</li>
+</ol>
+<p>The magic isn&rsquo;t in the format—it&rsquo;s in what ADRs do for your organization:</p>
+<h3 id="1-they-scale-your-judgment">1. <strong>They Scale Your Judgment</strong></h3>
+<p>When you write ADRs, you&rsquo;re teaching your team <em>how</em> to think about tradeoffs, not just <em>what</em> to choose. Junior engineers see how senior engineers weigh factors. Your decision-making framework becomes teachable.</p>
+<h3 id="2-they-build-trust-through-transparency">2. <strong>They Build Trust Through Transparency</strong></h3>
+<p>ADRs show your work. Even when people disagree with a decision, they can see the reasoning. This transforms &ldquo;I don&rsquo;t like this&rdquo; into &ldquo;I understand why we chose this given those constraints.&rdquo;</p>
+<h3 id="3-they-create-accountability">3. <strong>They Create Accountability</strong></h3>
+<p>By documenting expected consequences, you create a feedback loop. Six months later, you can review: Were we right? What did we miss? This turns decisions into learning opportunities.</p>
+<h3 id="4-they-enable-asynchronous-decision-making">4. <strong>They Enable Asynchronous Decision-Making</strong></h3>
+<p>With a clear ADR template, teams can make decisions without waiting for you. They know what good decision-making looks like because they&rsquo;ve seen 20 examples.</p>
+<h2 id="start-today-the-minimum-viable-adr-practice">Start Today: The Minimum Viable ADR Practice</h2>
+<p><strong>Step 1</strong>: Create a simple template in your team wiki:</p>
+<pre tabindex="0"><code># [Decision Title]
+Date: [YYYY-MM-DD]
+Status: [Proposed | Accepted | Deprecated]
+
+## Context
+What is the issue we&#39;re trying to address?
+
+## Decision
+What are we doing?
+
+## Consequences
+What becomes easier? What becomes harder?
+</code></pre><p><strong>Step 2</strong>: Start with your next significant decision. Write the ADR <em>before</em> implementing.</p>
+<p><strong>Step 3</strong>: In your next team meeting, review one ADR together. Show how you thought through tradeoffs.</p>
+<p><strong>Step 4</strong>: Make it a habit. Every architectural choice, every major library adoption, every process change gets an ADR.</p>
+<h2 id="the-multiplier-effect">The Multiplier Effect</h2>
+<p>Within six months, you&rsquo;ll notice something remarkable: Your team starts writing ADRs without being asked. They&rsquo;ve internalized that <em>this is how we make decisions here</em>.</p>
+<p>You&rsquo;ve architected not just systems, but culture.</p>
+<p>And culture scales in ways you never can.</p>
+<hr>
+<p><strong>Action Item</strong>: Write your first ADR this week. Pick a recent decision—even one already made—and document it retroactively. Share it with your team and ask for feedback on the format. You&rsquo;re not just documenting a decision; you&rsquo;re establishing a pattern for how your organization thinks.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/engineering-management">engineering-management</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

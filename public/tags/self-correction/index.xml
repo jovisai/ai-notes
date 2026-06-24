@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Self-Correction on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/self-correction/</link>
+    <description>Recent content in Self-Correction on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/self-correction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Verification and Validation Loops for Agent Reliability Through Runtime Checks</title>
+      <link>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</guid>
+      <description>&lt;p&gt;When an AI agent writes code, queries a database, or makes a critical decision, how do you know it got it right? Unlike traditional software where logic is deterministic, AI agents introduce probabilistic behavior that can fail in subtle ways. &lt;strong&gt;Verification and Validation (V&amp;amp;V) loops&lt;/strong&gt; are the safety net that catches these failures before they cause harm.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;V&amp;amp;V loops are architectural patterns where agents:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Generate&lt;/strong&gt; an output (code, text, decision, action)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt; syntactic correctness (does it parse? follow format rules?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Validate&lt;/strong&gt; semantic correctness (does it solve the right problem? meet constraints?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Correct&lt;/strong&gt; or &lt;strong&gt;retry&lt;/strong&gt; if checks fail&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;This creates a feedback loop where the agent acts as its own quality assurance system, improving reliability in production environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

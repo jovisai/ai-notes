@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Architecting Short-Term and Long-Term Memory in AI Agents - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Architecting Short-Term and Long-Term Memory in AI Agents">
+  <meta itemprop="description" content="Concept Introduction AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.
+Agent memory falls into two broad categories:
+Short-Term (or Working) Memory: This is the agent’s “scratchpad.” It’s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It’s volatile and limited. Long-Term Memory: This is the agent’s persistent knowledge store. It’s where the agent saves key facts, past conversations, user preferences, and learned insights. It’s vast and durable. Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.">
+  <meta itemprop="datePublished" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1065">
+  <meta itemprop="keywords" content="AI Agents,Memory,Architecture,Cognitive Science,Vector Databases"><meta property="og:url" content="https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Architecting Short-Term and Long-Term Memory in AI Agents">
+  <meta property="og:description" content="Concept Introduction AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.
+Agent memory falls into two broad categories:
+Short-Term (or Working) Memory: This is the agent’s “scratchpad.” It’s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It’s volatile and limited. Long-Term Memory: This is the agent’s persistent knowledge store. It’s where the agent saves key facts, past conversations, user preferences, and learned insights. It’s vast and durable. Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Memory">
+    <meta property="article:tag" content="Architecture">
+    <meta property="article:tag" content="Cognitive Science">
+    <meta property="article:tag" content="Vector Databases">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Architecting Short-Term and Long-Term Memory in AI Agents">
+  <meta name="twitter:description" content="Concept Introduction AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.
+Agent memory falls into two broad categories:
+Short-Term (or Working) Memory: This is the agent’s “scratchpad.” It’s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It’s volatile and limited. Long-Term Memory: This is the agent’s persistent knowledge store. It’s where the agent saves key facts, past conversations, user preferences, and learned insights. It’s vast and durable. Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Architecting Short-Term and Long-Term Memory in AI Agents</h1>
+        
+        <div class="date">
+            <span class="day">05</span>
+            <span class="rest">Oct 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <h2 id="concept-introduction">Concept Introduction</h2>
+<p>AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.</p>
+<p>Agent memory falls into two broad categories:</p>
+<ol>
+<li><strong>Short-Term (or Working) Memory:</strong> This is the agent&rsquo;s &ldquo;scratchpad.&rdquo; It&rsquo;s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It&rsquo;s volatile and limited.</li>
+<li><strong>Long-Term Memory:</strong> This is the agent&rsquo;s persistent knowledge store. It&rsquo;s where the agent saves key facts, past conversations, user preferences, and learned insights. It&rsquo;s vast and durable.</li>
+</ol>
+<p>Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.</p>
+<h2 id="algorithms--mechanics-the-memory-pipeline">Algorithms &amp; Mechanics: The Memory Pipeline</h2>
+<p>Information flows from the environment through the agent&rsquo;s memory systems in a structured way.</p>
+<pre class="mermaid">graph TD
+    A[Input from User/Tool] --&gt; B(Sensory Memory);
+    B --&gt; C{Short-Term Memory};
+    C -- To LLM --&gt; D[LLM Context Window];
+    D -- From LLM --&gt; C;
+    C -- Consolidation --&gt; E{Long-Term Memory};
+    E -- Retrieval --&gt; C;
+  </pre>
+
+<ul>
+<li>
+<p><strong>Sensory Memory:</strong> This is the raw, unprocessed input. It&rsquo;s the user&rsquo;s latest prompt or the JSON output from a tool call. It&rsquo;s the most fleeting type of memory.</p>
+</li>
+<li>
+<p><strong>Short-Term Memory:</strong> This is the context that will be passed to the LLM on the next turn. Managing it is a balancing act to stay within the model&rsquo;s context window. Common strategies include:</p>
+<ul>
+<li><strong>Conversational Buffer:</strong> The simplest method. Keep a sliding window of the last <code>k</code> messages. It&rsquo;s perfectly accurate but has a fixed, often short, memory span.</li>
+<li><strong>Summary Buffer:</strong> As the conversation grows, use an LLM to periodically summarize the older parts of the interaction. This is a &ldquo;lossy&rdquo; compression, trading detail for a much longer memory span.</li>
+<li><strong>Token-Based Buffer:</strong> A more precise version of the conversational buffer that keeps messages until the total number of tokens reaches a certain limit.</li>
+</ul>
+</li>
+<li>
+<p><strong>Long-Term Memory:</strong> This is where the agent stores information for the future. It is almost always implemented as a <strong>retrieval</strong> system, connecting directly to our previous article on RAG.</p>
+<ol>
+<li><strong>Storage (Consolidation):</strong> When a key fact, a successful plan, or a user preference is identified, it is &ldquo;consolidated&rdquo; into long-term memory. This involves using an embedding model to convert the piece of text into a vector.</li>
+<li><strong>Vector Store:</strong> The vector (and the original text) is stored in a vector database.</li>
+<li><strong>Retrieval:</strong> At the start of a new interaction, the agent can embed the user&rsquo;s query and search the vector database for relevant past experiences or facts. These retrieved memories are then loaded into the short-term memory to provide relevant context for the upcoming task.</li>
+</ol>
+</li>
+</ul>
+<h2 id="design-patterns--architectures">Design Patterns &amp; Architectures</h2>
+<ul>
+<li><strong>The Core of the Cognitive Loop:</strong> Memory is the central component of the <strong>Planner-Executor-Memory</strong> loop. The Planner reads from memory to decide what to do. The Executor writes the results of its actions back to memory. This continuous read/write cycle drives the agent&rsquo;s behavior.</li>
+<li><strong>Reflective Agents:</strong> A powerful pattern is to create agents that periodically perform &ldquo;memory consolidation.&rdquo; At the end of a task or a day, the agent can trigger a meta-process where it reviews its entire short-term memory log. It uses an LLM to ask itself questions like, &ldquo;What were the most important facts I learned?&rdquo; or &ldquo;What mistakes did I make, and how can I avoid them?&rdquo; The answers are then explicitly stored in its long-term memory. This mimics the human process of reflection and learning.</li>
+<li><strong>Memory Hierarchies:</strong> Advanced agents can have multiple, specialized long-term memory stores. For example, one vector database for conversational memories, another for factual knowledge from documents (a standard RAG store), and a third for executable code snippets or &ldquo;skills&rdquo; it has learned.</li>
+</ul>
+<h2 id="practical-application">Practical Application</h2>
+<p>Here is a simplified Python class that sketches out a combined memory system.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">collections</span> <span style="color:#cf222e">import</span> deque
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Assume we have these functions from a vector DB library</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># from vector_db import get_embedding, store_vector, search_vectors</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">AgentMemory</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> short_term_k<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Short-term memory: keep the last k interactions</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>short_term_buffer <span style="color:#0550ae">=</span> deque<span style="color:#1f2328">(</span>maxlen<span style="color:#0550ae">=</span>short_term_k<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">add_interaction</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> user_input<span style="color:#1f2328">,</span> agent_response<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Adds a user/agent turn to short-term memory.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>short_term_buffer<span style="color:#0550ae">.</span>append<span style="color:#1f2328">({</span><span style="color:#0a3069">&#34;user&#34;</span><span style="color:#1f2328">:</span> user_input<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;agent&#34;</span><span style="color:#1f2328">:</span> agent_response<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">get_context</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Formats the short-term memory for the LLM prompt.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>short_term_buffer<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">store_fact</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> text<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Embeds a fact and stores it in long-term memory.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;MEMORY: Storing fact -&gt; &#39;</span><span style="color:#0a3069">{</span>text<span style="color:#0a3069">}</span><span style="color:#0a3069">&#39;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># vector = get_embedding(text)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># store_vector(vector, text)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">pass</span> <span style="color:#57606a"># Simulate storing</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">retrieve_relevant_facts</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> query<span style="color:#1f2328">,</span> top_n<span style="color:#0550ae">=</span><span style="color:#0550ae">3</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Searches long-term memory for facts relevant to a query.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;MEMORY: Searching for facts related to -&gt; &#39;</span><span style="color:#0a3069">{</span>query<span style="color:#0a3069">}</span><span style="color:#0a3069">&#39;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># query_vector = get_embedding(query)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># results = search_vectors(query_vector, top_n)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># return results</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Simulate finding a relevant memory</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;Fact: The user&#39;s favorite color is blue.&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># --- Usage ---</span>
+</span></span><span style="display:flex;"><span>memory <span style="color:#0550ae">=</span> AgentMemory<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>memory<span style="color:#0550ae">.</span>add_interaction<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Hi there!&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Hello! How can I help you?&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>memory<span style="color:#0550ae">.</span>add_interaction<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;What&#39;s my favorite color?&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;You told me earlier it&#39;s blue.&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># A &#34;reflective&#34; moment</span>
+</span></span><span style="display:flex;"><span>memory<span style="color:#0550ae">.</span>store_fact<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;The user&#39;s favorite color is blue.&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Later, in a new session...</span>
+</span></span><span style="display:flex;"><span>context <span style="color:#0550ae">=</span> memory<span style="color:#0550ae">.</span>get_context<span style="color:#1f2328">()</span> <span style="color:#57606a"># Would be empty in a new session</span>
+</span></span><span style="display:flex;"><span>relevant_memories <span style="color:#0550ae">=</span> memory<span style="color:#0550ae">.</span>retrieve_relevant_facts<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Do you remember my preferences?&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># The agent would then add relevant_memories to its prompt context.</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>relevant_memories<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>Frameworks like <strong>LangChain</strong> and <strong>LlamaIndex</strong> offer powerful, pre-built <code>Memory</code> modules that handle various buffering strategies and vector store integrations automatically.</p>
+<h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<ul>
+<li><strong>State-Space Models &amp; &ldquo;Infinite&rdquo; Context:</strong> The biggest limitation of short-term memory is the Transformer&rsquo;s fixed context window. New architectures like Mamba or research into state-space models aim to overcome this, potentially allowing for near-infinite context windows, which would fundamentally change short-term memory management.</li>
+<li><strong>Generative Agents &amp; Memory Streams:</strong> The influential &ldquo;Generative Agents&rdquo; paper from Stanford and Google introduced a sophisticated memory architecture. Agents stored their experiences in a comprehensive &ldquo;memory stream.&rdquo; Three key processes operated on this stream: <strong>retrieval</strong> (finding relevant memories), <strong>reflection</strong> (synthesizing memories into higher-level insights), and <strong>planning</strong>.</li>
+</ul>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<p>The architecture of agent memory systems is a direct and intentional parallel to the <strong>Atkinson–Shiffrin memory model</strong> (1968), a foundational theory in <strong>Cognitive Psychology</strong>. This model proposes that human memory is split into three components:</p>
+<ol>
+<li><strong>Sensory Memory:</strong> A brief buffer for sensory inputs (sights, sounds).</li>
+<li><strong>Short-Term Memory:</strong> A limited-capacity store for active information.</li>
+<li><strong>Long-Term Memory:</strong> A vast, durable store for knowledge and experiences.</li>
+</ol>
+<p>Information flows from sensory to short-term memory. Through processes like rehearsal and elaboration, it can be encoded into long-term memory. When needed, it&rsquo;s retrieved from long-term back into short-term memory to be used. The design of agent memory systems is a direct, intentional parallel to this model.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">AI Agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/memory">Memory</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/architecture">Architecture</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/cognitive-science">Cognitive Science</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/vector-databases">Vector Databases</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

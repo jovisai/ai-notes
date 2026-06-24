@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Working Memory Compression and Context Distillation in Long Horizon Agents - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
+  <meta itemprop="description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
+  <meta itemprop="datePublished" content="2026-03-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-03-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1558">
+  <meta itemprop="keywords" content="AI Agents,Memory,Context-Engineering,LangGraph,Multi-Agent"><meta property="og:url" content="https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
+  <meta property="og:description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2026-03-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-15T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Memory">
+    <meta property="article:tag" content="Context-Engineering">
+    <meta property="article:tag" content="LangGraph">
+    <meta property="article:tag" content="Multi-Agent">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
+  <meta name="twitter:description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Working Memory Compression and Context Distillation in Long Horizon Agents</h1>
+        
+        <div class="date">
+            <span class="day">15</span>
+            <span class="rest">Mar 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.</p>
+<h2 id="concept-introduction">Concept Introduction</h2>
+<p>The core problem is that LLMs have fixed context windows, but agent tasks are often open-ended. Every tool call, observation, and reasoning step appends to the agent&rsquo;s working context. A task that seemed simple at step 3 looks very different at step 30, when the context is packed with partially-relevant tool outputs, retried subtasks, and obsolete intermediate conclusions.</p>
+<p><strong>Working memory compression</strong> refers to the set of techniques for actively managing what an agent keeps in its immediate context: what gets summarized, what gets evicted, what gets archived to external storage, and what gets retrieved on demand. The goal is to preserve the agent&rsquo;s ability to reason coherently over long horizons without blowing the context budget.</p>
+<p>Three broad strategies emerge in practice. First, sliding window truncation: keep only the last N messages. Simple, but it amputates history arbitrarily, and the agent may re-attempt steps it already tried. Second, periodic summarization: after every K steps, an LLM call compresses the recent history into a compact summary. Third, hierarchical distillation: the agent maintains multiple memory tiers, with different retention policies at each level.</p>
+<p>In real systems, you usually combine all three.</p>
+<h2 id="algorithms-and-distillation-patterns">Algorithms and Distillation Patterns</h2>
+<p>The simplest workable approach is the rolling summary pattern. After every K steps:</p>
+<pre tabindex="0"><code>summary = LLM(&#34;Summarize the key findings, decisions, and
+               outstanding questions from the following steps:
+               {recent_steps}&#34;)
+context = [initial_task, summary] + recent_steps[-K:]
+</code></pre><p>This preserves the original task and a growing compressed history, while keeping the raw detail of recent steps available for reasoning.</p>
+<p>A more sophisticated approach introduces relevance-scored retention. When the context nears capacity, each stored observation is scored by the agent for relevance to the current subtask, and low-scoring observations are either evicted or archived to a vector store for retrieval later. This lets the agent maintain a leaner working context while still being able to pull back specific memories when needed.</p>
+<p>The key design decision is who does the relevance scoring. You can use the same LLM (expensive but accurate), a smaller classifier (cheap but coarser), or a similarity search against the current task embedding (fast but shallow). In practice, a hybrid works best: use embedding similarity for coarse filtering, then LLM scoring for the borderline cases.</p>
+<h2 id="design-patterns-in-practice">Design Patterns in Practice</h2>
+<p>Long-horizon agents typically compose several memory tiers:</p>
+<pre tabindex="0"><code>Tier 1: Active context  (last 5-10 steps, always in prompt)
+Tier 2: Episode buffer  (compressed summaries of earlier steps)
+Tier 3: Archive store   (vector DB, retrieved on demand)
+Tier 4: Permanent facts (task description, constraints, invariants)
+</code></pre><p>Tier 4 is often underestimated. The agent&rsquo;s original task description, any constraints given by the user, and factual anchors (like &ldquo;we are targeting Python 3.11&rdquo;) should never be evicted. Keeping these pinned at the front of the prompt prevents the agent from drifting off-task in ways that are hard to debug.</p>
+<p>One pattern that works well is the checkpoint-resume loop. At regular intervals, the agent writes a structured checkpoint: a snapshot of what it has accomplished, what it still needs to do, and any dead ends it has ruled out. If the context fills before the task is done, the agent can start a fresh context window, reading the checkpoint rather than the full history. This mirrors how humans pause a complex task, write down where they are, and pick it up the next day.</p>
+<h2 id="practical-application">Practical Application</h2>
+<p>Here is a LangGraph implementation that demonstrates rolling summarization with a pinned task context and an archival store for evicted observations:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">os</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Annotated<span style="color:#1f2328">,</span> TypedDict
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_anthropic</span> <span style="color:#cf222e">import</span> ChatAnthropic
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_core.messages</span> <span style="color:#cf222e">import</span> HumanMessage<span style="color:#1f2328">,</span> AIMessage<span style="color:#1f2328">,</span> SystemMessage
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_core.documents</span> <span style="color:#cf222e">import</span> Document
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_community.vectorstores</span> <span style="color:#cf222e">import</span> InMemoryVectorStore
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_anthropic</span> <span style="color:#cf222e">import</span> AnthropicEmbeddings
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph.message</span> <span style="color:#cf222e">import</span> add_messages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># How many raw steps to keep before forcing a compression</span>
+</span></span><span style="display:flex;"><span>COMPRESSION_THRESHOLD <span style="color:#0550ae">=</span> <span style="color:#0550ae">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># How many recent steps remain uncompressed after a compression</span>
+</span></span><span style="display:flex;"><span>RECENT_WINDOW <span style="color:#0550ae">=</span> <span style="color:#0550ae">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">AgentState</span><span style="color:#1f2328">(</span>TypedDict<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    task<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>                          <span style="color:#57606a"># Pinned, never evicted</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#1f2328">:</span> Annotated<span style="color:#1f2328">[</span><span style="color:#6639ba">list</span><span style="color:#1f2328">,</span> add_messages<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    episode_summary<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>               <span style="color:#57606a"># Rolling compressed history</span>
+</span></span><span style="display:flex;"><span>    step_count<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span>
+</span></span><span style="display:flex;"><span>    archive<span style="color:#1f2328">:</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">]</span>                 <span style="color:#57606a"># Observations moved out of context</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>llm <span style="color:#0550ae">=</span> ChatAnthropic<span style="color:#1f2328">(</span>model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;claude-sonnet-4-6&#34;</span><span style="color:#1f2328">,</span> max_tokens<span style="color:#0550ae">=</span><span style="color:#0550ae">2048</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">build_archive_store</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Vector store for archived observations, retrieved on demand.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># In production, replace with a persistent store</span>
+</span></span><span style="display:flex;"><span>    store <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> store
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>archive_store <span style="color:#0550ae">=</span> build_archive_store<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">compress_episode</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> AgentState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> AgentState<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Summarize older messages and evict them from active context.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    messages <span style="color:#0550ae">=</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Keep the most recent steps raw; compress everything older</span>
+</span></span><span style="display:flex;"><span>    to_compress <span style="color:#0550ae">=</span> messages<span style="color:#1f2328">[:</span><span style="color:#0550ae">-</span>RECENT_WINDOW<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    to_keep <span style="color:#0550ae">=</span> messages<span style="color:#1f2328">[</span><span style="color:#0550ae">-</span>RECENT_WINDOW<span style="color:#1f2328">:]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> to_compress<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> state
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Build text for the summarizer</span>
+</span></span><span style="display:flex;"><span>    history_text <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>m<span style="color:#0550ae">.</span>type<span style="color:#0550ae">.</span>upper<span style="color:#1f2328">()</span><span style="color:#0a3069">}</span><span style="color:#0a3069">: </span><span style="color:#0a3069">{</span>m<span style="color:#0550ae">.</span>content<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span> <span style="color:#cf222e">for</span> m <span style="color:#0550ae">in</span> to_compress
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    prior_summary <span style="color:#0550ae">=</span> state<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;episode_summary&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    summary_prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;&#34;&#34;You are summarizing an agent&#39;s work history.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Prior summary (if any):
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">{</span>prior_summary<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">New steps to incorporate:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">{</span>history_text<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Produce a concise but complete summary covering:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- What has been accomplished so far
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- Key findings or decisions
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- What has been ruled out or tried unsuccessfully
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- What remains to be done
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Keep it under 300 words.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#0550ae">=</span> llm<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">([</span>SystemMessage<span style="color:#1f2328">(</span>content<span style="color:#0550ae">=</span>summary_prompt<span style="color:#1f2328">)])</span>
+</span></span><span style="display:flex;"><span>    new_summary <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>content
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Archive the raw observations in case we need to retrieve them</span>
+</span></span><span style="display:flex;"><span>    archive_entries <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>m<span style="color:#0550ae">.</span>content <span style="color:#cf222e">for</span> m <span style="color:#0550ae">in</span> to_compress<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">**</span>state<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">:</span> to_keep<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;episode_summary&#34;</span><span style="color:#1f2328">:</span> new_summary<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;archive&#34;</span><span style="color:#1f2328">:</span> state<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;archive&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[])</span> <span style="color:#0550ae">+</span> archive_entries<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">should_compress</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> AgentState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Decide whether to compress before the next reasoning step.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">])</span> <span style="color:#0550ae">&gt;=</span> COMPRESSION_THRESHOLD<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;compress&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;reason&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">reason</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> AgentState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> AgentState<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Main agent reasoning step with pinned task + episode summary in context.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    task <span style="color:#0550ae">=</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;task&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    summary <span style="color:#0550ae">=</span> state<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;episode_summary&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Build the system prompt, always including the pinned task</span>
+</span></span><span style="display:flex;"><span>    system_parts <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Your task: </span><span style="color:#0a3069">{</span>task<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> summary<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        system_parts<span style="color:#0550ae">.</span>append<span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">Work done so far:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>summary<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    system_parts<span style="color:#0550ae">.</span>append<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">Continue working on the task. Think step by step. &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;When done, say TASK COMPLETE followed by your final answer.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    system <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#34;</span><span style="color:#0550ae">.</span>join<span style="color:#1f2328">(</span>system_parts<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    messages <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>SystemMessage<span style="color:#1f2328">(</span>content<span style="color:#0550ae">=</span>system<span style="color:#1f2328">)]</span> <span style="color:#0550ae">+</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#0550ae">=</span> llm<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">(</span>messages<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">**</span>state<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">:</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">]</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">[</span>AIMessage<span style="color:#1f2328">(</span>content<span style="color:#0550ae">=</span>response<span style="color:#0550ae">.</span>content<span style="color:#1f2328">)],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;step_count&#34;</span><span style="color:#1f2328">:</span> state<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;step_count&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">is_done</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> AgentState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Check if the agent has declared the task complete.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    last <span style="color:#0550ae">=</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">][</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#cf222e">if</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">]</span> <span style="color:#cf222e">else</span> <span style="color:#cf222e">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> last <span style="color:#0550ae">and</span> <span style="color:#0a3069">&#34;TASK COMPLETE&#34;</span> <span style="color:#0550ae">in</span> last<span style="color:#0550ae">.</span>content<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;done&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> state<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;step_count&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">20</span><span style="color:#1f2328">:</span>  <span style="color:#57606a"># hard cap</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;done&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#0a3069">&#34;continue&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Build the graph</span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#0550ae">=</span> StateGraph<span style="color:#1f2328">(</span>AgentState<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;compress&#34;</span><span style="color:#1f2328">,</span> compress_episode<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">,</span> reason<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>set_entry_point<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>add_conditional_edges<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">,</span> is_done<span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;done&#34;</span><span style="color:#1f2328">:</span> END<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;continue&#34;</span><span style="color:#1f2328">:</span> should_compress<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>add_conditional_edges<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># reuse the router as the branch from the compression check</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># (when coming fresh from entry we skip compress)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;compress&#34;</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">lambda</span> s<span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Patch: add direct edge from compress to reason</span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>add_edge<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;compress&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>agent <span style="color:#0550ae">=</span> graph<span style="color:#0550ae">.</span>compile<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#953800">__name__</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;__main__&#34;</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#0550ae">=</span> agent<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">({</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;task&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;List 5 key differences between MARL and single-agent RL, &#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#0a3069">&#34;then explain which matters most for cooperative robotics.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>HumanMessage<span style="color:#1f2328">(</span>content<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Begin the task.&#34;</span><span style="color:#1f2328">)],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;episode_summary&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;step_count&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;archive&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;=== Episode Summary ===&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;episode_summary&#34;</span><span style="color:#1f2328">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">=== Steps taken: </span><span style="color:#0a3069">{</span>result<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;step_count&#39;</span><span style="color:#1f2328">]</span><span style="color:#0a3069">}</span><span style="color:#0a3069"> ===&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Archived </span><span style="color:#0a3069">{</span><span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;archive&#39;</span><span style="color:#1f2328">])</span><span style="color:#0a3069">}</span><span style="color:#0a3069"> observations&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    last_msg <span style="color:#0550ae">=</span> result<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">][</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#0a3069">&#34;TASK COMPLETE&#34;</span> <span style="color:#0550ae">in</span> last_msg<span style="color:#0550ae">.</span>content<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        answer <span style="color:#0550ae">=</span> last_msg<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>split<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;TASK COMPLETE&#34;</span><span style="color:#1f2328">)[</span><span style="color:#0550ae">-</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span><span style="color:#0550ae">.</span>strip<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">=== Final Answer ===</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>answer<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>The key architectural decision here is that <code>task</code> is a separate field in state, never mixed into the message list where it might get truncated. The <code>episode_summary</code> grows incrementally rather than being recomputed from scratch each time, which keeps compression costs proportional to recent history rather than total history.</p>
+<h2 id="latest-developments-and-research">Latest Developments and Research</h2>
+<p>MemGPT (Packer et al., MemGPT: Towards LLMs as Operating Systems, NeurIPS 2023) formalized the idea of treating context management as a memory hierarchy problem explicitly inspired by OS virtual memory. The agent has a &ldquo;main context&rdquo; (analogous to RAM) and a &ldquo;external storage&rdquo; (analogous to disk), and manages page-ins and page-outs explicitly. MemGPT showed this could support conversations and agent tasks far longer than raw context limits.</p>
+<p>Cognitive Architectures for Language Agents (CoALA, Sumers et al., TMLR 2024) provides a unifying taxonomy of memory in LLM agents, distinguishing working memory, episodic memory, semantic memory, and procedural memory. It is the most rigorous framework currently available for reasoning about memory design decisions.</p>
+<p>More recent work examines compression quality. A compressed summary that omits a critical dead-end means the agent may try the same failed approach again. Evaluation metrics for compression fidelity (does the summary preserve the information needed for future steps?) are an active research gap.</p>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<p>Operating systems solved a structurally similar problem decades ago with virtual memory and demand paging. The CPU&rsquo;s registers are a tiny, fast working memory; RAM is a larger but slower tier; disk is vast but slow. The OS moves pages between tiers based on recency and access patterns, giving processes the illusion of infinite memory.</p>
+<p>Agent memory management is demand paging for cognition. The &ldquo;page fault&rdquo; equivalent is a retrieval call: when the agent needs context that has been evicted, it fetches it from the archive. The key insight borrowed from OS design is that you do not need to keep everything in fast memory simultaneously, only what is actively needed. The hard part is predicting what will be needed next, which in agent systems depends on the task structure in ways that LRU caching (the OS default) does not capture well.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">ai-agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/memory">memory</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/context-engineering">context-engineering</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/langgraph">langgraph</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent">multi-agent</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Knowledge Distillation Teaching Smaller Agents From Larger Ones - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Knowledge Distillation Teaching Smaller Agents From Larger Ones">
+  <meta itemprop="description" content="Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability">
+  <meta itemprop="datePublished" content="2026-02-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1055">
+  <meta itemprop="keywords" content="AI Agents,Knowledge-Distillation,Model-Compression,Transfer-Learning,Multi-Agent Systems"><meta property="og:url" content="https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Knowledge Distillation Teaching Smaller Agents From Larger Ones">
+  <meta property="og:description" content="Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2026-02-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-15T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Knowledge-Distillation">
+    <meta property="article:tag" content="Model-Compression">
+    <meta property="article:tag" content="Transfer-Learning">
+    <meta property="article:tag" content="Multi-Agent Systems">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Knowledge Distillation Teaching Smaller Agents From Larger Ones">
+  <meta name="twitter:description" content="Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Knowledge Distillation Teaching Smaller Agents From Larger Ones</h1>
+        
+        <div class="date">
+            <span class="day">15</span>
+            <span class="rest">Feb 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p><strong>Knowledge distillation</strong> trains a smaller, cheaper &ldquo;student&rdquo; agent to mimic the behavior of a larger &ldquo;teacher&rdquo; model. The result is a system that can handle most queries at a fraction of the cost and latency, while routing genuinely hard cases back to the full model.</p>
+<h2 id="concept-introduction">Concept Introduction</h2>
+<p>A large, powerful model (the &ldquo;teacher&rdquo;) generates training signals — not just correct answers, but the <em>distribution</em> of its confidence across all possible answers. A smaller model (the &ldquo;student&rdquo;) learns from these soft signals, absorbing the teacher&rsquo;s reasoning patterns in a compressed form.</p>
+<p>In the context of AI agents, distillation goes beyond single model outputs. An agent produces:</p>
+<ul>
+<li><strong>Action selections</strong>: which tool to call, what to say</li>
+<li><strong>Reasoning traces</strong>: chain-of-thought steps, planning sequences</li>
+<li><strong>Confidence distributions</strong>: soft probabilities over possible next actions</li>
+<li><strong>State assessments</strong>: how the agent evaluates the current situation</li>
+</ul>
+<p>Distilling an agent means transferring all of these behavioral patterns, not just the final answers, from a high-capability system to a leaner one that can operate in production at scale.</p>
+<h2 id="algorithms--math">Algorithms &amp; Math</h2>
+<h3 id="the-distillation-loss">The Distillation Loss</h3>
+<p>The standard distillation objective combines two losses:</p>
+<pre tabindex="0"><code>L = α · L_hard + (1 - α) · L_soft
+</code></pre><p>Where:</p>
+<ul>
+<li><strong>L_hard</strong> = Cross-entropy between student predictions and ground-truth labels</li>
+<li><strong>L_soft</strong> = KL divergence between softened teacher and student distributions</li>
+<li><strong>α</strong> = Weighting factor (typically 0.1–0.5)</li>
+</ul>
+<p>The &ldquo;softening&rdquo; uses a temperature parameter T:</p>
+<pre tabindex="0"><code>softmax(z_i / T) = exp(z_i / T) / Σ_j exp(z_j / T)
+</code></pre><p>Higher temperature (T &gt; 1) produces softer probability distributions, revealing more of the teacher&rsquo;s internal ranking of alternatives.</p>
+<h3 id="pseudocode-for-agent-distillation">Pseudocode for Agent Distillation</h3>
+<pre tabindex="0"><code>Algorithm: Agent Behavior Distillation
+─────────────────────────────────────
+Input: Teacher agent A_T, Student agent A_S, Task distribution D
+Output: Trained student agent A_S*
+
+1. COLLECT trajectories:
+   For each task t ~ D:
+     Run A_T on task t
+     Record: (state, action, reasoning_trace, confidence) tuples
+
+2. BUILD distillation dataset:
+   For each trajectory:
+     Extract (input_state, teacher_action_distribution, teacher_reasoning)
+
+3. TRAIN student:
+   For each epoch:
+     For each (state, teacher_dist, reasoning) in dataset:
+       student_dist = A_S.predict(state)
+       L_action = KL(teacher_dist || student_dist)
+       L_reasoning = CrossEntropy(reasoning, A_S.generate_reasoning(state))
+       L_total = α · L_action + (1 - α) · L_reasoning
+       Update A_S parameters via gradient descent on L_total
+
+4. EVALUATE:
+   Compare A_S* vs A_T on held-out tasks
+   Return A_S* if performance meets threshold
+</code></pre><h2 id="design-patterns--architectures">Design Patterns &amp; Architectures</h2>
+<h3 id="teacher-student-pipeline">Teacher-Student Pipeline</h3>
+<pre class="mermaid">graph LR
+    A[Task Distribution] --&gt; B[Teacher Agent&lt;br/&gt;Large Model]
+    B --&gt; C[Trajectory Store&lt;br/&gt;Actions + Reasoning]
+    C --&gt; D[Distillation&lt;br/&gt;Training Loop]
+    D --&gt; E[Student Agent&lt;br/&gt;Small Model]
+    E --&gt; F[Production&lt;br/&gt;Deployment]
+    F --&gt;|Hard cases| B
+  </pre>
+
+<p>The key architectural element is <strong>fallback escalation</strong>: when the student agent encounters inputs outside its competence, it routes to the teacher. This creates a tiered system where most requests are handled cheaply and only edge cases incur full cost.</p>
+<h3 id="cascade-distillation">Cascade Distillation</h3>
+<p>Instead of a single teacher-student pair, arrange agents in a cascade:</p>
+<ol>
+<li><strong>Tier 1</strong> (smallest): Handles common, simple queries</li>
+<li><strong>Tier 2</strong> (medium): Handles moderate complexity</li>
+<li><strong>Tier 3</strong> (largest): Handles the long tail of difficult cases</li>
+</ol>
+<p>Each tier is distilled from the one above it, specialized for the difficulty level it serves.</p>
+<h3 id="connection-to-existing-patterns">Connection to Existing Patterns</h3>
+<ul>
+<li><strong>Mixture of Experts</strong>: Distillation can create specialized experts for different subdomains</li>
+<li><strong>Semantic Routing</strong>: A router decides which tier handles each request (see your semantic routing article)</li>
+<li><strong>Planner-Executor</strong>: The teacher can serve as the planner while distilled students serve as fast executors</li>
+</ul>
+<h2 id="practical-application">Practical Application</h2>
+<p>A minimal knowledge distillation pipeline for agent behavior has three stages: trajectory collection, dataset construction, and student fine-tuning. A <code>TeacherCollector</code> class drives a capable model (e.g., Claude claude-opus-4-6 or GPT-4o) through a set of representative queries, capturing the full chain-of-thought reasoning and any tool calls via the raw Anthropic SDK or OpenAI client. A <code>DatasetBuilder</code> function converts those <code>DistillationSample</code> records into JSONL fine-tuning format, pairing each user query with the teacher&rsquo;s reasoning trace and structured tool call sequence. The resulting file is uploaded for supervised fine-tuning of a smaller student model (e.g., GPT-4o-mini or a local Mistral variant), after which a <code>StudentAgent</code> wrapper runs the student in production with an optional fallback to the teacher when confidence is low. No orchestration framework is needed here — the raw SDK is the right fit because the workflow is a straight data pipeline, not a dynamic graph.</p>
+<p><strong>Try it</strong></p>
+<pre tabindex="0"><code>Using the raw Anthropic SDK (anthropic Python package), build a knowledge distillation
+pipeline with three functions: collect_teacher_trajectories(queries, model) that calls
+claude-opus-4-6 with tool use enabled and captures reasoning + tool calls per query,
+build_finetune_jsonl(samples, path) that writes each sample as a chat-format JSONL
+record, and run_student(query, model) that calls a smaller model trained on that data.
+Include inline comments explaining each step. Make the code runnable end-to-end with
+a short hardcoded query list as a demo.
+</code></pre><h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<h3 id="distilling-reasoning-2024-2025">Distilling Reasoning (2024-2025)</h3>
+<p>A major trend is distilling not just outputs but <strong>chain-of-thought reasoning</strong>. OpenAI&rsquo;s approach with the o1 model family demonstrated that reasoning traces themselves are valuable training signals. Papers like <em>&ldquo;Orca 2: Teaching Small Language Models How to Reason&rdquo;</em> (Microsoft, 2023) showed that carefully curated reasoning demonstrations can make 13B-parameter models competitive with much larger ones on specific tasks.</p>
+<h3 id="constitutional-ai-distillation-anthropic-2024">Constitutional AI Distillation (Anthropic, 2024)</h3>
+<p>Anthropic explored distilling safety behaviors from large models into smaller ones, showing that alignment properties can partially transfer through distillation — though gaps remain in edge cases.</p>
+<h3 id="agent-specific-distillation-benchmarks">Agent-Specific Distillation Benchmarks</h3>
+<ul>
+<li><strong>AgentBench</strong> (2024): Evaluates distilled agents across web, code, and database tasks</li>
+<li><strong>τ-bench</strong> (2024): Tests whether distilled agents maintain tool-use accuracy</li>
+<li>The consistent finding: distilled agents retain 85-95% of teacher performance on in-distribution tasks but degrade on out-of-distribution inputs</li>
+</ul>
+<h3 id="open-problems">Open Problems</h3>
+<ul>
+<li><strong>Reasoning collapse</strong>: Students sometimes learn to produce reasoning-shaped text without actual reasoning</li>
+<li><strong>Calibration drift</strong>: Student confidence scores diverge from teacher calibration</li>
+<li><strong>Multi-step degradation</strong>: Errors compound faster in distilled agents over long trajectories</li>
+</ul>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<p>Knowledge distillation mirrors <strong>apprenticeship and institutional knowledge transfer</strong> in organizational theory. When a senior engineer leaves a company, their knowledge doesn&rsquo;t transfer through documentation alone — it transfers through <em>working alongside</em> juniors, showing not just what decisions to make but <em>how</em> to think about problems.</p>
+<p>In distributed computing, this maps to <strong>caching hierarchies</strong>. An L1 cache (student) handles most requests with low latency; cache misses escalate to L2 (teacher). The system works because most access patterns are predictable, just as most user queries follow common patterns that a distilled model can handle.</p>
+<p>From biology, distillation resembles <strong>genetic assimilation</strong> (the Baldwin effect): behaviors initially learned through expensive individual experience become encoded in simpler, faster mechanisms over generations.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">ai-agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/knowledge-distillation">knowledge-distillation</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/model-compression">model-compression</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/transfer-learning">transfer-learning</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent-systems">multi-agent-systems</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

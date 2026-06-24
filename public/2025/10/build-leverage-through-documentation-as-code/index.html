@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Build Leverage Through Documentation as Code - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Build Leverage Through Documentation as Code">
+  <meta itemprop="description" content="The best engineering managers don’t just build products—they build systems that make knowledge transfer automatic, decisions self-documenting, and onboarding nearly effortless. The secret? Treating documentation not as a separate task, but as an integral part of your codebase.
+The Hidden Productivity Drain Every time someone asks “How does this work?” or “Why did we build it this way?”, you’re witnessing knowledge debt. These questions compound. A team of 10 engineers asking just one question per day costs roughly 40 hours monthly—an entire person’s time lost to information retrieval.">
+  <meta itemprop="datePublished" content="2025-10-24T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-24T00:00:00+00:00">
+  <meta itemprop="wordCount" content="442">
+  <meta itemprop="keywords" content="Engineering Management"><meta property="og:url" content="https://notes.muthu.co/2025/10/build-leverage-through-documentation-as-code/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Build Leverage Through Documentation as Code">
+  <meta property="og:description" content="The best engineering managers don’t just build products—they build systems that make knowledge transfer automatic, decisions self-documenting, and onboarding nearly effortless. The secret? Treating documentation not as a separate task, but as an integral part of your codebase.
+The Hidden Productivity Drain Every time someone asks “How does this work?” or “Why did we build it this way?”, you’re witnessing knowledge debt. These questions compound. A team of 10 engineers asking just one question per day costs roughly 40 hours monthly—an entire person’s time lost to information retrieval.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="engineering-manager">
+    <meta property="article:published_time" content="2025-10-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-24T00:00:00+00:00">
+    <meta property="article:tag" content="Engineering Management">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Build Leverage Through Documentation as Code">
+  <meta name="twitter:description" content="The best engineering managers don’t just build products—they build systems that make knowledge transfer automatic, decisions self-documenting, and onboarding nearly effortless. The secret? Treating documentation not as a separate task, but as an integral part of your codebase.
+The Hidden Productivity Drain Every time someone asks “How does this work?” or “Why did we build it this way?”, you’re witnessing knowledge debt. These questions compound. A team of 10 engineers asking just one question per day costs roughly 40 hours monthly—an entire person’s time lost to information retrieval.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Build Leverage Through Documentation as Code</h1>
+        
+        <div class="date">
+            <span class="day">24</span>
+            <span class="rest">Oct 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>The best engineering managers don&rsquo;t just build products—they build systems that make knowledge transfer automatic, decisions self-documenting, and onboarding nearly effortless. The secret? Treating documentation not as a separate task, but as an integral part of your codebase.</p>
+<h2 id="the-hidden-productivity-drain">The Hidden Productivity Drain</h2>
+<p>Every time someone asks &ldquo;How does this work?&rdquo; or &ldquo;Why did we build it this way?&rdquo;, you&rsquo;re witnessing knowledge debt. These questions compound. A team of 10 engineers asking just one question per day costs roughly 40 hours monthly—an entire person&rsquo;s time lost to information retrieval.</p>
+<p>Traditional documentation fails because it lives separately from the code. It becomes stale the moment it&rsquo;s written. The solution isn&rsquo;t better documentation discipline—it&rsquo;s making documentation impossible to skip.</p>
+<h2 id="documentation-as-code-the-framework">Documentation as Code: The Framework</h2>
+<p><strong>1. Architecture Decision Records (ADRs) in Your Repo</strong></p>
+<p>Store every significant technical decision as a markdown file in <code>/docs/decisions/</code>. When you choose a database, adopt a framework, or design a critical system, capture:</p>
+<ul>
+<li>The context and problem</li>
+<li>The options considered</li>
+<li>The decision made and why</li>
+<li>The consequences (trade-offs accepted)</li>
+</ul>
+<p>This creates a living history that answers &ldquo;why&rdquo; questions before they&rsquo;re asked.</p>
+<p><strong>2. Code-Level Documentation with Executable Examples</strong></p>
+<p>Use doc-tests, Storybook, or similar tools that run your documentation. When docs break during refactoring, CI fails. Your documentation becomes a contract that can&rsquo;t drift from reality.</p>
+<p><strong>3. Runbooks as Scripts</strong></p>
+<p>Transform your runbooks into executable scripts with built-in documentation. Instead of &ldquo;Step 1: SSH into server&hellip;&rdquo;, create <code>./scripts/deploy.sh</code> with clear parameters and help text. The documentation is the code; the code is the documentation.</p>
+<p><strong>4. README-Driven Development</strong></p>
+<p>Before building a feature, write the README. Describe the API, the usage, the configuration. This forces clarity of thought and creates instant documentation that&rsquo;s reviewed alongside code.</p>
+<h2 id="the-multiplier-effect">The Multiplier Effect</h2>
+<p>This approach delivers compounding returns:</p>
+<ul>
+<li><strong>Onboarding scales</strong>: New engineers read code and find context embedded where they need it</li>
+<li><strong>Decisions are preserved</strong>: Six months later, when someone asks &ldquo;why this approach?&rdquo;, the answer lives in git history</li>
+<li><strong>Quality improves</strong>: Writing docs-first exposes unclear designs before implementation</li>
+<li><strong>Bus factor increases</strong>: Knowledge isn&rsquo;t locked in people&rsquo;s heads</li>
+<li><strong>Velocity accelerates</strong>: Less time explaining, more time building</li>
+</ul>
+<h2 id="start-tomorrow">Start Tomorrow</h2>
+<p>Pick one practice:</p>
+<ol>
+<li><strong>Add ADRs</strong>: Create <code>/docs/decisions/</code> and document your next significant decision</li>
+<li><strong>Automate one runbook</strong>: Turn your most-used operational procedure into a script</li>
+<li><strong>README-first sprint</strong>: For the next feature, write the README before writing code</li>
+</ol>
+<p>The goal isn&rsquo;t perfect documentation—it&rsquo;s making knowledge capture automatic and unavoidable. When documentation is code, it scales with your team instead of holding it back.</p>
+<p><strong>The leverage move</strong>: Build systems where the default path creates documentation as a side effect. That&rsquo;s how you scale from managing a team to architecting an organization that runs itself.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/engineering-management">engineering-management</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

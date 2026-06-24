@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Monte Carlo Tree Search from Games to LLMs - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Monte Carlo Tree Search from Games to LLMs">
+  <meta itemprop="description" content="Concept Introduction Monte Carlo Tree Search (MCTS) is a heuristic search algorithm for finding optimal decisions in large search spaces. It builds a search tree incrementally, guided by the results of random simulations (the “Monte Carlo” part), balancing exploration of new paths against exploitation of paths that have proven successful.
+Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.">
+  <meta itemprop="datePublished" content="2025-10-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="856">
+  <meta itemprop="keywords" content="AI Agents,Algorithms,MCTS,Planning"><meta property="og:url" content="https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Monte Carlo Tree Search from Games to LLMs">
+  <meta property="og:description" content="Concept Introduction Monte Carlo Tree Search (MCTS) is a heuristic search algorithm for finding optimal decisions in large search spaces. It builds a search tree incrementally, guided by the results of random simulations (the “Monte Carlo” part), balancing exploration of new paths against exploitation of paths that have proven successful.
+Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-10-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-07T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Algorithms">
+    <meta property="article:tag" content="MCTS">
+    <meta property="article:tag" content="Planning">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Monte Carlo Tree Search from Games to LLMs">
+  <meta name="twitter:description" content="Concept Introduction Monte Carlo Tree Search (MCTS) is a heuristic search algorithm for finding optimal decisions in large search spaces. It builds a search tree incrementally, guided by the results of random simulations (the “Monte Carlo” part), balancing exploration of new paths against exploitation of paths that have proven successful.
+Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Monte Carlo Tree Search from Games to LLMs</h1>
+        
+        <div class="date">
+            <span class="day">07</span>
+            <span class="rest">Oct 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <h2 id="concept-introduction">Concept Introduction</h2>
+<p><strong>Monte Carlo Tree Search (MCTS)</strong> is a heuristic search algorithm for finding optimal decisions in large search spaces. It builds a search tree incrementally, guided by the results of random simulations (the &ldquo;Monte Carlo&rdquo; part), balancing exploration of new paths against exploitation of paths that have proven successful.</p>
+<p>Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.</p>
+<h2 id="algorithms--math">Algorithms &amp; Math</h2>
+<p>The MCTS algorithm iterates through four main steps:</p>
+<ol>
+<li><strong>Selection</strong>: Starting from the root of the tree (the current state), we traverse down the tree by selecting the most promising child node at each step until we reach a leaf node. The &ldquo;most promising&rdquo; child is typically chosen using the UCT formula.</li>
+<li><strong>Expansion</strong>: If the selected leaf node is not a terminal state (i.e., the game isn&rsquo;t over), we expand the tree by creating one or more new child nodes representing possible next moves.</li>
+<li><strong>Simulation</strong>: From one of the new child nodes, we run a simulation (also called a &ldquo;playout&rdquo; or &ldquo;rollout&rdquo;). This involves choosing moves (often randomly or with a simple heuristic) until the end of the game.</li>
+<li><strong>Backpropagation</strong>: The outcome of the simulation (win, loss, or draw) is then propagated back up the tree from the new node to the root. We update the statistics (number of visits and wins) of each node along the path.</li>
+</ol>
+<p>This process is repeated many times. To make a move, we simply choose the child of the root node with the highest number of visits.</p>
+<pre class="mermaid">graph TD
+    A[Root] --&gt; B{Selection};
+    B --&gt; C{Expansion};
+    C --&gt; D{Simulation};
+    D --&gt; E{Backpropagation};
+    E --&gt; A;
+  </pre>
+
+<p>The magic of balancing exploration and exploitation happens in the <strong>Selection</strong> phase, thanks to the <strong>UCT formula</strong>:</p>
+<p><code>UCT = (W / N) + C * sqrt(ln(T) / N)</code></p>
+<p>Where:</p>
+<ul>
+<li><code>W</code> is the number of wins for the node.</li>
+<li><code>N</code> is the number of visits to the node.</li>
+<li><code>T</code> is the total number of simulations run so far.</li>
+<li><code>C</code> is an exploration parameter (a constant that can be tuned).</li>
+</ul>
+<p>The first part of the formula, <code>(W / N)</code>, is the <strong>exploitation</strong> term. It favors nodes that have a high win rate. The second part is the <strong>exploration</strong> term. It favors nodes that have been visited less frequently.</p>
+<h2 id="design-patterns--architectures">Design Patterns &amp; Architectures</h2>
+<p>MCTS fits naturally into a <strong>planner-executor</strong> agent architecture. The MCTS algorithm acts as the planner, exploring possible futures and recommending a course of action. The executor carries out the recommended action, leading to a new state from which the planner begins its search again.</p>
+<p><strong>AlphaGo</strong> combined MCTS with deep neural networks in this way. A policy network guided the initial selection of moves, and a value network evaluated board positions at the end of the simulation phase, replacing pure random rollouts with learned estimates.</p>
+<h2 id="practical-application">Practical Application</h2>
+<p>A minimal MCTS implementation for LLM reasoning defines a <code>Node</code> class to hold a reasoning state (prompt + partial response) along with visit count and accumulated reward, then wires together four functions — <code>select</code> (UCT scoring over children), <code>expand</code> (sample candidate continuations from the LLM), <code>simulate</code> (run a lightweight rollout to a terminal state), and <code>backpropagate</code> (update win/visit counts up the tree). The raw Anthropic SDK is the best fit here: <code>expand</code> and <code>simulate</code> each call <code>client.messages.create</code>, with temperature controlling exploration width. A thin loop drives the four phases for a fixed budget of iterations, then returns the child of the root with the highest visit count as the chosen next reasoning step.</p>
+<p><strong>Try it</strong></p>
+<pre tabindex="0"><code>Using the Anthropic Python SDK, build a minimal Monte Carlo Tree Search (MCTS) reasoner.
+Define a Node class with fields: state (str), parent, children (list), visits (int), value (float).
+Implement select (UCT formula), expand (call claude-haiku-4-5-20251001 to sample 2 child states),
+simulate (one greedy rollout to a short answer, scored by a simple heuristic), and backpropagate.
+Run 8 MCTS iterations on the root question &#34;What is the fastest route from A to B?&#34; and print
+the chosen next reasoning step. Add inline comments explaining each MCTS phase.
+</code></pre><h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<p>The most significant breakthrough involving MCTS was <strong>DeepMind&rsquo;s AlphaGo</strong>, which defeated world champion Lee Sedol in 2016. This work demonstrated the power of combining MCTS with deep learning. The successor, <strong>AlphaZero</strong>, generalized this approach to learn Chess, Shogi, and Go from scratch, achieving superhuman performance.</p>
+<p>More recently, researchers are applying MCTS-like principles to improve the reasoning and planning capabilities of Large Language Models. The <strong>Tree of Thoughts (ToT)</strong> framework explicitly uses a tree-based search to explore different reasoning paths, and some implementations use MCTS for the search strategy. This is an active area of research, with the goal of making LLMs more deliberate and less prone to hallucination.</p>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<p>The <strong>exploration-exploitation tradeoff</strong> that MCTS addresses is a fundamental problem across many fields. In economics, businesses must decide whether to invest in new, unproven products or focus on existing profitable ones. In neuroscience, this tradeoff is thought to be managed by dopamine systems in the brain.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">AI Agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/algorithms">Algorithms</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/mcts">MCTS</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/planning">Planning</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

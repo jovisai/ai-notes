@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Agent Communication Protocols and Message-Passing Patterns for Coordination - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
+  <meta itemprop="description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
+  <meta itemprop="datePublished" content="2025-11-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1461">
+  <meta itemprop="keywords" content="AI Agents,Multi-Agent Systems,Communication-Protocols,Distributed-Systems,Coordination"><meta property="og:url" content="https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
+  <meta property="og:description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-11-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-07T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Multi-Agent Systems">
+    <meta property="article:tag" content="Communication-Protocols">
+    <meta property="article:tag" content="Distributed-Systems">
+    <meta property="article:tag" content="Coordination">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
+  <meta name="twitter:description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Agent Communication Protocols and Message-Passing Patterns for Coordination</h1>
+        
+        <div class="date">
+            <span class="day">07</span>
+            <span class="rest">Nov 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>In multi-agent systems, the most critical design question is not what each agent can do but how they communicate. Structured protocols govern the exchange of information, coordination of actions, and achievement of collective goals.</p>
+<h2 id="concept-introduction">Concept Introduction</h2>
+<p>Communication protocols define:</p>
+<ul>
+<li>What can be communicated (message types)</li>
+<li>How messages are structured (syntax)</li>
+<li>When and why to send messages (semantics and pragmatics)</li>
+<li>Who can communicate with whom (topology)</li>
+</ul>
+<p>In multi-agent systems (MAS), these protocols are formalized specifications for message exchange that enable coordination without centralized control. Key components include:</p>
+<ol>
+<li><strong>Message format</strong>: Structure and content encoding</li>
+<li><strong>Speech acts</strong>: Performative types (inform, request, propose, etc.)</li>
+<li><strong>Conversation protocols</strong>: Expected message sequences</li>
+<li><strong>Commitment semantics</strong>: What obligations messages create</li>
+<li><strong>Transport layer</strong>: How messages are physically delivered</li>
+</ol>
+<p>The most influential standard is the <strong>FIPA Agent Communication Language (ACL)</strong>, which defines speech acts inspired by speech act theory from philosophy.</p>
+<h2 id="key-message-passing-patterns">Key Message-Passing Patterns</h2>
+<p><strong>Request-Reply</strong> is used for synchronous information retrieval or action requests:</p>
+<pre tabindex="0"><code>Agent A → Agent B: REQUEST(action)
+Agent B → Agent A: AGREE | REFUSE
+Agent B → Agent A: INFORM(result) | FAILURE(reason)
+</code></pre><p><strong>Broadcast-Subscribe</strong> handles event notification to multiple interested agents:</p>
+<pre tabindex="0"><code>Agent A → MessageBus: SUBSCRIBE(topic=&#34;sensor_updates&#34;)
+Agent B → MessageBus: PUBLISH(topic=&#34;sensor_updates&#34;, data={...})
+MessageBus → Agent A: INFORM(data={...})
+</code></pre><p><strong>Contract Net (Bidding)</strong> allocates tasks through competitive bidding:</p>
+<pre tabindex="0"><code>Manager → All: CALL_FOR_PROPOSALS(task_spec)
+Agents → Manager: PROPOSE(bid) | REFUSE
+Manager → Winner: ACCEPT_PROPOSAL
+Manager → Others: REJECT_PROPOSAL
+Winner → Manager: INFORM(result)
+</code></pre><p><strong>Negotiation</strong> reaches agreement through iterative proposals:</p>
+<pre tabindex="0"><code>Agent A → Agent B: PROPOSE(offer_1)
+Agent B → Agent A: COUNTER_PROPOSE(offer_2)
+Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
+... (iterate until agreement or breakdown)
+</code></pre><h2 id="fipa-acl-speech-acts-the-standard-vocabulary">FIPA ACL Speech Acts (The Standard Vocabulary)</h2>
+<p>FIPA defines 22 communicative acts. The most important:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Speech Act</th>
+          <th>Meaning</th>
+          <th>Example</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>INFORM</strong></td>
+          <td>Assert a fact</td>
+          <td>&ldquo;The temperature is 72°F&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>REQUEST</strong></td>
+          <td>Ask agent to perform action</td>
+          <td>&ldquo;Please schedule a meeting&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>QUERY-IF</strong></td>
+          <td>Ask if proposition is true</td>
+          <td>&ldquo;Is the door locked?&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>PROPOSE</strong></td>
+          <td>Suggest an action</td>
+          <td>&ldquo;I can deliver by Tuesday for $50&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>ACCEPT-PROPOSAL</strong></td>
+          <td>Agree to a proposal</td>
+          <td>&ldquo;Deal! Deliver Tuesday&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>REFUSE</strong></td>
+          <td>Decline to perform action</td>
+          <td>&ldquo;I cannot process that request&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>CONFIRM</strong></td>
+          <td>Verify a belief</td>
+          <td>&ldquo;Yes, I received the data&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>SUBSCRIBE</strong></td>
+          <td>Request ongoing updates</td>
+          <td>&ldquo;Notify me of temperature changes&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="architecture-where-communication-fits">Architecture: Where Communication Fits</h2>
+<pre tabindex="0"><code>┌─────────────────────────────────────────────────┐
+│              Agent Architecture                  │
+├─────────────────────────────────────────────────┤
+│  Reasoning Layer (BDI, Planning, etc.)          │
+│         ↓                    ↑                   │
+│  Communication Manager                           │
+│    ├─ Message Queue (inbox/outbox)              │
+│    ├─ Protocol Handler (interprets speech acts) │
+│    ├─ Conversation Tracker (state machine)      │
+│    └─ Commitment Store (obligations/promises)   │
+│         ↓                    ↑                   │
+│  Transport Layer (TCP, HTTP, Message Broker)    │
+└─────────────────────────────────────────────────┘
+</code></pre><p>The Message Handler pattern looks like this in code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CommunicationManager</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>conversations <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">register_handler</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> speech_act<span style="color:#1f2328">,</span> handler_func<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers<span style="color:#1f2328">[</span>speech_act<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> handler_func
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">receive_message</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        handler <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span>message<span style="color:#0550ae">.</span>speech_act<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> handler<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            response <span style="color:#0550ae">=</span> handler<span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> response<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send_message<span style="color:#1f2328">(</span>response<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="practical-implementation">Practical Implementation</h2>
+<p>Let&rsquo;s build a simple multi-agent communication system using Python:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">dataclasses</span> <span style="color:#cf222e">import</span> dataclass
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Any<span style="color:#1f2328">,</span> Callable<span style="color:#1f2328">,</span> Dict<span style="color:#1f2328">,</span> List
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">enum</span> <span style="color:#cf222e">import</span> Enum
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">uuid</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">SpeechAct</span><span style="color:#1f2328">(</span>Enum<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    INFORM <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;inform&#34;</span>
+</span></span><span style="display:flex;"><span>    REQUEST <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;request&#34;</span>
+</span></span><span style="display:flex;"><span>    QUERY_IF <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;query-if&#34;</span>
+</span></span><span style="display:flex;"><span>    PROPOSE <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;propose&#34;</span>
+</span></span><span style="display:flex;"><span>    ACCEPT_PROPOSAL <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;accept-proposal&#34;</span>
+</span></span><span style="display:flex;"><span>    REFUSE <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;refuse&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Message</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    sender<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    receiver<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    speech_act<span style="color:#1f2328">:</span> SpeechAct
+</span></span><span style="display:flex;"><span>    content<span style="color:#1f2328">:</span> Any
+</span></span><span style="display:flex;"><span>    conversation_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    reply_to<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Agent</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> agent_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>id <span style="color:#0550ae">=</span> agent_id
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>inbox<span style="color:#1f2328">:</span> List<span style="color:#1f2328">[</span>Message<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers<span style="color:#1f2328">:</span> Dict<span style="color:#1f2328">[</span>SpeechAct<span style="color:#1f2328">,</span> Callable<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>knowledge_base<span style="color:#1f2328">:</span> Dict<span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> Any<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>commitments<span style="color:#1f2328">:</span> List<span style="color:#1f2328">[</span>Dict<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">register_handler</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> speech_act<span style="color:#1f2328">:</span> SpeechAct<span style="color:#1f2328">,</span> handler<span style="color:#1f2328">:</span> Callable<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Register a handler for a specific speech act&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers<span style="color:#1f2328">[</span>speech_act<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> handler
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">send</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> receiver<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> speech_act<span style="color:#1f2328">:</span> SpeechAct<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>             content<span style="color:#1f2328">:</span> Any<span style="color:#1f2328">,</span> conversation_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">None</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> Message<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Send a message to another agent&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        msg <span style="color:#0550ae">=</span> Message<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            sender<span style="color:#0550ae">=</span><span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>id<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            receiver<span style="color:#0550ae">=</span>receiver<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            speech_act<span style="color:#0550ae">=</span>speech_act<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            content<span style="color:#0550ae">=</span>content<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            conversation_id<span style="color:#0550ae">=</span>conversation_id <span style="color:#0550ae">or</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">(</span>uuid<span style="color:#0550ae">.</span>uuid4<span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> msg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">receive</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">:</span> Message<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Process an incoming message&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>inbox<span style="color:#0550ae">.</span>append<span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        handler <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span>message<span style="color:#0550ae">.</span>speech_act<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> handler<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            response <span style="color:#0550ae">=</span> handler<span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> response<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">return</span> response
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">else</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># Default: refuse unknown speech acts</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>sender<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                SpeechAct<span style="color:#0550ae">.</span>REFUSE<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;No handler for this speech act&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>conversation_id
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Example: Information Sharing Agent</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">InfoAgent</span><span style="color:#1f2328">(</span>Agent<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> agent_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">super</span><span style="color:#1f2328">()</span><span style="color:#0550ae">.</span><span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span>agent_id<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>register_handler<span style="color:#1f2328">(</span>SpeechAct<span style="color:#0550ae">.</span>QUERY_IF<span style="color:#1f2328">,</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handle_query<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>register_handler<span style="color:#1f2328">(</span>SpeechAct<span style="color:#0550ae">.</span>INFORM<span style="color:#1f2328">,</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handle_inform<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">handle_query</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">:</span> Message<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Respond to queries about our knowledge&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        query_key <span style="color:#0550ae">=</span> message<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;key&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> query_key <span style="color:#0550ae">in</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>knowledge_base<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>sender<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                SpeechAct<span style="color:#0550ae">.</span>INFORM<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;key&#34;</span><span style="color:#1f2328">:</span> query_key<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;value&#34;</span><span style="color:#1f2328">:</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>knowledge_base<span style="color:#1f2328">[</span>query_key<span style="color:#1f2328">]},</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>conversation_id
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">else</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>sender<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                SpeechAct<span style="color:#0550ae">.</span>REFUSE<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Unknown key: </span><span style="color:#0a3069">{</span>query_key<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>conversation_id
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">handle_inform</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">:</span> Message<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Update our knowledge base with new information&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        key <span style="color:#0550ae">=</span> message<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;key&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        value <span style="color:#0550ae">=</span> message<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;value&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> key <span style="color:#0550ae">and</span> value<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>knowledge_base<span style="color:#1f2328">[</span>key<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> value
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;[</span><span style="color:#0a3069">{</span><span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>id<span style="color:#0a3069">}</span><span style="color:#0a3069">] Updated knowledge: </span><span style="color:#0a3069">{</span>key<span style="color:#0a3069">}</span><span style="color:#0a3069"> = </span><span style="color:#0a3069">{</span>value<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Example: Task Executor Agent</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">ExecutorAgent</span><span style="color:#1f2328">(</span>Agent<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> agent_id<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6639ba">super</span><span style="color:#1f2328">()</span><span style="color:#0550ae">.</span><span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span>agent_id<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>register_handler<span style="color:#1f2328">(</span>SpeechAct<span style="color:#0550ae">.</span>REQUEST<span style="color:#1f2328">,</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handle_request<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>capabilities <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;calculate&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;search&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;summarize&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">handle_request</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">:</span> Message<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Handle action requests&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        action <span style="color:#0550ae">=</span> message<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;action&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> action <span style="color:#0550ae">in</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>capabilities<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># Simulate action execution</span>
+</span></span><span style="display:flex;"><span>            result <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Completed </span><span style="color:#0a3069">{</span>action<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;[</span><span style="color:#0a3069">{</span><span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>id<span style="color:#0a3069">}</span><span style="color:#0a3069">] Executing: </span><span style="color:#0a3069">{</span>action<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>sender<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                SpeechAct<span style="color:#0550ae">.</span>INFORM<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;result&#34;</span><span style="color:#1f2328">:</span> result<span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>conversation_id
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">else</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>sender<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                SpeechAct<span style="color:#0550ae">.</span>REFUSE<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;reason&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Cannot perform: </span><span style="color:#0a3069">{</span>action<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>                message<span style="color:#0550ae">.</span>conversation_id
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Simple Message Bus for Coordination</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">MessageBus</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>agents<span style="color:#1f2328">:</span> Dict<span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> Agent<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">register_agent</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> agent<span style="color:#1f2328">:</span> Agent<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>agents<span style="color:#1f2328">[</span>agent<span style="color:#0550ae">.</span>id<span style="color:#1f2328">]</span> <span style="color:#0550ae">=</span> agent
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">deliver</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> message<span style="color:#1f2328">:</span> Message<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Route message to recipient&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        receiver <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>agents<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span>message<span style="color:#0550ae">.</span>receiver<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> receiver<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            response <span style="color:#0550ae">=</span> receiver<span style="color:#0550ae">.</span>receive<span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> response<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>deliver<span style="color:#1f2328">(</span>response<span style="color:#1f2328">)</span>  <span style="color:#57606a"># Handle response</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">else</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Agent </span><span style="color:#0a3069">{</span>message<span style="color:#0550ae">.</span>receiver<span style="color:#0a3069">}</span><span style="color:#0a3069"> not found&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Usage Example</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#953800">__name__</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;__main__&#34;</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    bus <span style="color:#0550ae">=</span> MessageBus<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Create agents</span>
+</span></span><span style="display:flex;"><span>    info_agent <span style="color:#0550ae">=</span> InfoAgent<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;info_agent_1&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    info_agent<span style="color:#0550ae">.</span>knowledge_base <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;weather&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;sunny&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;temperature&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">72</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    executor <span style="color:#0550ae">=</span> ExecutorAgent<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;executor_1&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    bus<span style="color:#0550ae">.</span>register_agent<span style="color:#1f2328">(</span>info_agent<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    bus<span style="color:#0550ae">.</span>register_agent<span style="color:#1f2328">(</span>executor<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Scenario 1: Query information</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;=== Scenario 1: Information Query ===&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    query_msg <span style="color:#0550ae">=</span> executor<span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;info_agent_1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        SpeechAct<span style="color:#0550ae">.</span>QUERY_IF<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;key&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;weather&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    bus<span style="color:#0550ae">.</span>deliver<span style="color:#1f2328">(</span>query_msg<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Scenario 2: Request action</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">=== Scenario 2: Action Request ===&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    request_msg <span style="color:#0550ae">=</span> info_agent<span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;executor_1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        SpeechAct<span style="color:#0550ae">.</span>REQUEST<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;action&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;calculate&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    bus<span style="color:#0550ae">.</span>deliver<span style="color:#1f2328">(</span>request_msg<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Scenario 3: Share information</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">print</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">=== Scenario 3: Information Sharing ===&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    inform_msg <span style="color:#0550ae">=</span> executor<span style="color:#0550ae">.</span>send<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;info_agent_1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        SpeechAct<span style="color:#0550ae">.</span>INFORM<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;key&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;status&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;value&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;operational&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    bus<span style="color:#0550ae">.</span>deliver<span style="color:#1f2328">(</span>inform_msg<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>=== Scenario 1: Information Query ===
+[executor_1] Executing: query
+
+=== Scenario 2: Action Request ===
+[executor_1] Executing: calculate
+
+=== Scenario 3: Information Sharing ===
+[info_agent_1] Updated knowledge: status = operational
+</code></pre><h2 id="integration-with-modern-frameworks">Integration with Modern Frameworks</h2>
+<h3 id="langgraph-integration">LangGraph Integration</h3>
+<p>LangGraph nodes can communicate through state updates:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> TypedDict<span style="color:#1f2328">,</span> Annotated
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">operator</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">AgentMessage</span><span style="color:#1f2328">(</span>TypedDict<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    sender<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    speech_act<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    content<span style="color:#1f2328">:</span> <span style="color:#6639ba">dict</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">MultiAgentState</span><span style="color:#1f2328">(</span>TypedDict<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#1f2328">:</span> Annotated<span style="color:#1f2328">[</span><span style="color:#6639ba">list</span><span style="color:#1f2328">[</span>AgentMessage<span style="color:#1f2328">],</span> operator<span style="color:#0550ae">.</span>add<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    current_speaker<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">researcher_node</span><span style="color:#1f2328">(</span>state<span style="color:#1f2328">:</span> MultiAgentState<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Process messages addressed to researcher</span>
+</span></span><span style="display:flex;"><span>    incoming <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>m <span style="color:#cf222e">for</span> m <span style="color:#0550ae">in</span> state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">]</span> <span style="color:#cf222e">if</span> m<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;receiver&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Generate response</span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;sender&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;receiver&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;coordinator&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;speech_act&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;inform&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;content&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;findings&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Research complete&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;messages&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>response<span style="color:#1f2328">],</span> <span style="color:#0a3069">&#34;current_speaker&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;coordinator&#34;</span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Build graph with agent nodes</span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#0550ae">=</span> StateGraph<span style="color:#1f2328">(</span>MultiAgentState<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;researcher&#34;</span><span style="color:#1f2328">,</span> researcher_node<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># ... add more agent nodes</span>
+</span></span></code></pre></div><h3 id="autogen-integration">AutoGen Integration</h3>
+<p>AutoGen agents naturally support conversational protocols:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen</span> <span style="color:#cf222e">import</span> ConversableAgent<span style="color:#1f2328">,</span> GroupChat<span style="color:#1f2328">,</span> GroupChatManager
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Define agents with clear communication roles</span>
+</span></span><span style="display:flex;"><span>coordinator <span style="color:#0550ae">=</span> ConversableAgent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;coordinator&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You coordinate tasks. Use REQUEST when asking for work.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    llm_config<span style="color:#0550ae">=</span>llm_config
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>worker <span style="color:#0550ae">=</span> ConversableAgent<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    name<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;worker&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    system_message<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;You execute tasks. Reply with INFORM when done.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    llm_config<span style="color:#0550ae">=</span>llm_config
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Create group chat (implicit message bus)</span>
+</span></span><span style="display:flex;"><span>group_chat <span style="color:#0550ae">=</span> GroupChat<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    agents<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span>coordinator<span style="color:#1f2328">,</span> worker<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#0550ae">=</span><span style="color:#1f2328">[],</span>
+</span></span><span style="display:flex;"><span>    max_round<span style="color:#0550ae">=</span><span style="color:#0550ae">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<h3 id="recent-advances-2023-2025">Recent Advances (2023-2025)</h3>
+<p><strong>1. LLM-Native Communication (2023)</strong>
+Research shows LLMs can learn communication protocols through few-shot prompting:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>system_prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">You are an agent in a multi-agent system. When communicating:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- Use REQUEST(action) to ask other agents to do something
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- Use INFORM(fact) to share information
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- Use PROPOSE(plan) to suggest solutions
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Always specify the recipient agent by name.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>Paper: &ldquo;Communicative Agents for Software Development&rdquo; (ChatDev, 2023) demonstrated LLM agents using structured communication protocols.</p>
+<p><strong>2. Dynamic Protocol Learning (2024)</strong>
+Agents learning optimal communication strategies through multi-agent reinforcement learning:</p>
+<ul>
+<li><strong>Emergent Communication</strong>: Agents develop their own &ldquo;language&rdquo; symbols</li>
+<li><strong>Protocol Adaptation</strong>: Adjusting communication patterns based on network conditions</li>
+</ul>
+<p><strong>3. Semantic Interoperability (2024-2025)</strong>
+Using embeddings for flexible message understanding:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">semantic_match</span><span style="color:#1f2328">(</span>message_content<span style="color:#1f2328">,</span> known_intents<span style="color:#1f2328">,</span> threshold<span style="color:#0550ae">=</span><span style="color:#0550ae">0.85</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    message_embedding <span style="color:#0550ae">=</span> embed<span style="color:#1f2328">(</span>message_content<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    similarities <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>cosine_sim<span style="color:#1f2328">(</span>message_embedding<span style="color:#1f2328">,</span> embed<span style="color:#1f2328">(</span>intent<span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#cf222e">for</span> intent <span style="color:#0550ae">in</span> known_intents<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    best_match <span style="color:#0550ae">=</span> <span style="color:#6639ba">max</span><span style="color:#1f2328">(</span>similarities<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> best_match <span style="color:#0550ae">&gt;</span> threshold
+</span></span></code></pre></div><p>This lets agents understand variations in message phrasing without rigid schemas.</p>
+<p><strong>4. Formal Verification of Protocols</strong>
+Model checking techniques verify conversation protocols satisfy properties like:</p>
+<ul>
+<li><strong>Safety</strong>: No deadlocks or invalid states</li>
+<li><strong>Liveness</strong>: Conversations eventually terminate</li>
+<li><strong>Commitment satisfaction</strong>: Obligations are fulfilled</li>
+</ul>
+<h3 id="open-problems">Open Problems</h3>
+<ol>
+<li><strong>Handling miscommunication</strong>: When agents misunderstand each other</li>
+<li><strong>Protocol negotiation</strong>: Agents agreeing on which protocol to use</li>
+<li><strong>Cross-platform communication</strong>: LangGraph ↔ AutoGen ↔ Custom agents</li>
+<li><strong>Security</strong>: Preventing malicious messages and unauthorized access</li>
+</ol>
+<h2 id="cross-disciplinary-insights">Cross-Disciplinary Insights</h2>
+<h3 id="from-distributed-systems-cap-theorem-implications">From Distributed Systems: CAP Theorem Implications</h3>
+<p>In distributed multi-agent systems, communication must navigate the CAP theorem:</p>
+<ul>
+<li><strong>Consistency</strong>: All agents see the same information</li>
+<li><strong>Availability</strong>: Agents can always communicate</li>
+<li><strong>Partition Tolerance</strong>: System works despite network failures</li>
+</ul>
+<p>Practical impact: Choose eventual consistency for scalability, strong consistency for critical coordination.</p>
+<h3 id="from-human-communication-conversational-maxims">From Human Communication: Conversational Maxims</h3>
+<p>Grice&rsquo;s conversational maxims apply to agent communication:</p>
+<ol>
+<li><strong>Quality</strong>: Don&rsquo;t send false information</li>
+<li><strong>Quantity</strong>: Send enough information, not too much</li>
+<li><strong>Relevance</strong>: Stay on topic</li>
+<li><strong>Manner</strong>: Be clear and unambiguous</li>
+</ol>
+<p>Agents that violate these principles confuse their partners.</p>
+<h3 id="from-economics-communication-costs">From Economics: Communication Costs</h3>
+<p>Every message has costs:</p>
+<ul>
+<li><strong>Bandwidth</strong>: Token usage in LLM agents</li>
+<li><strong>Latency</strong>: Wait time for responses</li>
+<li><strong>Cognitive load</strong>: Processing complexity</li>
+</ul>
+<p>Design protocols that minimize total cost while achieving coordination goals.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">ai-agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent-systems">multi-agent-systems</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/communication-protocols">communication-protocols</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/distributed-systems">distributed-systems</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/coordination">coordination</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

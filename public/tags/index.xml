@@ -16,7 +16,7 @@
       <description></description>
     </item>
     <item>
-      <title>Ai-Agents</title>
+      <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai-agents/</guid>
@@ -30,24 +30,38 @@
       <description></description>
     </item>
     <item>
-      <title>Llm</title>
+      <title>LLM</title>
       <link>https://notes.muthu.co/tags/llm/</link>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/llm/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tool Use</title>
+      <title>Tool-Use</title>
       <link>https://notes.muthu.co/tags/tool-use/</link>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/tool-use/</guid>
       <description></description>
     </item>
     <item>
-      <title>AI</title>
+      <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering Management</title>
+      <link>https://notes.muthu.co/tags/engineering-management/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>https://notes.muthu.co/tags/operations/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/operations/</guid>
       <description></description>
     </item>
     <item>
@@ -58,21 +72,14 @@
       <description></description>
     </item>
     <item>
-      <title>Engineering Management</title>
-      <link>https://notes.muthu.co/tags/engineering-management/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/engineering-management/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Software Engineering</title>
+      <title>Software-Engineering</title>
       <link>https://notes.muthu.co/tags/software-engineering/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/software-engineering/</guid>
       <description></description>
     </item>
     <item>
-      <title>Agent-Infrastructure</title>
+      <title>Agent Infrastructure</title>
       <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
@@ -114,7 +121,7 @@
       <description></description>
     </item>
     <item>
-      <title>Multi-Agent-Systems</title>
+      <title>Multi-Agent Systems</title>
       <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
       <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
@@ -485,7 +492,7 @@
       <description></description>
     </item>
     <item>
-      <title>Autonomous Agents</title>
+      <title>Autonomous-Agents</title>
       <link>https://notes.muthu.co/tags/autonomous-agents/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
@@ -597,7 +604,7 @@
       <description></description>
     </item>
     <item>
-      <title>Llms</title>
+      <title>LLMs</title>
       <link>https://notes.muthu.co/tags/llms/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/llms/</guid>

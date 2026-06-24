@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Unsolved Engineering Problems of AI Agents - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="The Unsolved Engineering Problems of AI Agents">
+  <meta itemprop="description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
+  <meta itemprop="datePublished" content="2026-05-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-25T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2402">
+  <meta itemprop="keywords" content="AI Agents,Agent Infrastructure,Reliability,Memory,Multi-Agent Systems"><meta property="og:url" content="https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="The Unsolved Engineering Problems of AI Agents">
+  <meta property="og:description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2026-05-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-25T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Agent Infrastructure">
+    <meta property="article:tag" content="Reliability">
+    <meta property="article:tag" content="Memory">
+    <meta property="article:tag" content="Multi-Agent Systems">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Unsolved Engineering Problems of AI Agents">
+  <meta name="twitter:description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">The Unsolved Engineering Problems of AI Agents</h1>
+        
+        <div class="date">
+            <span class="day">25</span>
+            <span class="rest">May 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>
+  <img src="/agents.png" alt="">
+
+</p>
+<p>AI agents engineering is still in its &ldquo;distributed systems in the 1990s&rdquo; phase.</p>
+<p>Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.</p>
+<p>That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.</p>
+<p>Over the next five years, the field will likely evolve around a set of core unsolved engineering problems. These problems are not just model problems. They are systems problems: runtime design, memory architecture, planning, evaluation, observability, security, economics, and organizational adoption.</p>
+<p>This is a practical roadmap of the biggest open problems in AI agents.</p>
+<h2 id="1-reliability-and-determinism">1. Reliability and Determinism</h2>
+<p>Reliability is the first problem because every other capability depends on it.</p>
+<p>Agents are still non-deterministic systems pretending to be software. The same input can produce different outputs. Tool calls may succeed in one run and fail in another. A long chain can drift away from the original goal. An agent may silently hallucinate, retry the wrong operation, enter a loop, or trigger cascading failures across a multi-agent workflow.</p>
+<p>Traditional software engineering gives us expectations: repeatability, testability, rollback, observability, and controlled side effects. Agent systems often violate all of them.</p>
+<p>The field needs deterministic agent runtimes, transactional tool execution, state checkpointing, replay debugging, rollback systems, runtime safety constraints, and stronger guarantees around action sequencing. We need to be able to answer: given this state, this prompt, these tools, and this model configuration, why did the agent take this path?</p>
+<p>This is where entire infrastructure categories will emerge: Kubernetes-like orchestration for agents, distributed tracing for reasoning, and transaction managers that make agent actions safer to execute in real systems.</p>
+<h2 id="2-memory-architecture">2. Memory Architecture</h2>
+<p>Current memory systems are primitive.</p>
+<p>Most agent memory today is vector database retrieval, chat history stuffing, or summarization. Those are useful techniques, but they are not the same as memory. Retrieval finds information. Memory changes future behavior.</p>
+<p>A mature agent memory system needs multiple layers:</p>
+<ul>
+<li><strong>Episodic memory</strong>: remembering experiences and prior interactions</li>
+<li><strong>Semantic memory</strong>: forming durable abstractions over time</li>
+<li><strong>Procedural memory</strong>: learning reusable workflows</li>
+<li><strong>Working memory</strong>: managing limited context during active execution</li>
+<li><strong>Shared memory</strong>: coordinating state across agents</li>
+<li><strong>Memory decay</strong>: deciding what should be forgotten</li>
+<li><strong>Contradiction resolution</strong>: reconciling older memories with newer evidence</li>
+</ul>
+<p>The big distinction is this: RAG is retrieval, but memory is adaptation.</p>
+<p>Future systems will likely use hierarchical memory, temporal knowledge graphs, consolidation phases, learned memory prioritization, and compression mechanisms that preserve what matters while discarding noise. The hard part is not storing more. The hard part is deciding what should influence the next action.</p>
+<h2 id="3-planning-and-long-horizon-reasoning">3. Planning and Long-Horizon Reasoning</h2>
+<p>Current agents are weak at tasks that require sustained coherence across many steps.</p>
+<p>They can complete short workflows, but they often struggle with longer tasks that require goal decomposition, dependency tracking, dynamic replanning, recovery after failure, and resource-aware execution. After 10 or 20 steps, many agents lose context, repeat themselves, skip prerequisites, or optimize locally while damaging the global objective.</p>
+<p>Long-horizon agents need better planning architectures. That includes recursive planning, explicit dependency graphs, subtask prioritization, progress tracking, and failure recovery. The agent should know not only what it is doing now, but why that step matters relative to the larger goal.</p>
+<p>Several research directions are likely to matter:</p>
+<ul>
+<li><strong>Tree search for agents</strong>: exploring possible reasoning and action paths before committing</li>
+<li><strong>World models</strong>: simulating likely future outcomes internally</li>
+<li><strong>Hierarchical planning</strong>: separating strategy, tactics, and execution</li>
+<li><strong>Self-critique loops</strong>: evaluating plans before and during execution</li>
+</ul>
+<p>The AlphaGo analogy is imperfect but useful: agents need ways to search over possible futures, not just predict the next plausible message.</p>
+<h2 id="4-tool-use-and-action-grounding">4. Tool Use and Action Grounding</h2>
+<p>Many agents today are still tool wrappers.</p>
+<p>They can call functions, browse APIs, query databases, or execute code, but they do not reliably understand the consequences of their actions. They predict text that describes actions. That is different from grounded action intelligence.</p>
+<p>Tool use has several unsolved layers: tool discovery, tool selection, tool composition, API schema understanding, multi-tool coordination, error recovery, partial execution recovery, action verification, and side-effect awareness.</p>
+<p>The deepest issue is causal grounding. If an agent updates a database, sends an email, merges a pull request, or purchases cloud resources, it needs to understand the state transition it is causing. It should be able to simulate likely consequences, verify execution results, and stop when the environment no longer matches its assumptions.</p>
+<p>Future agents will need execution feedback loops that look less like &ldquo;call a tool and summarize the response&rdquo; and more like &ldquo;plan, act, observe, verify, and revise.&rdquo;</p>
+<h2 id="5-multi-agent-coordination">5. Multi-Agent Coordination</h2>
+<p>Multi-agent systems sound powerful, but they are currently one of the easiest ways to make an agent system slower, more expensive, and less reliable.</p>
+<p>Most teams do not need five agents talking to each other. They need one agent with better state, better tools, and better evaluation. Multi-agent architectures become valuable only when the coordination cost is lower than the specialization benefit.</p>
+<p>The open problems are substantial:</p>
+<ul>
+<li>How should agents communicate?</li>
+<li>How should shared state remain consistent?</li>
+<li>How do systems prevent duplicated work, loops, and deadlocks?</li>
+<li>When should agents split tasks?</li>
+<li>Can agent teams reorganize dynamically?</li>
+<li>How do we prevent unwanted emergent behavior?</li>
+</ul>
+<p>The likely future is not simply &ldquo;more agents.&rdquo; It is better coordination infrastructure: agent operating systems, message buses, distributed cognition frameworks, shared-memory models, and scheduling systems that decide when parallelism is actually useful.</p>
+<h2 id="6-evaluation-and-benchmarking">6. Evaluation and Benchmarking</h2>
+<p>Evaluation is still massively underdeveloped.</p>
+<p>Current benchmarks often reward impressive demos, clean leaderboard scores, or narrow task completion. Production usefulness is harder to measure. Real agents run for long periods, use tools, interact with messy environments, recover from errors, and incur costs.</p>
+<p>Agent evaluation needs to measure:</p>
+<ul>
+<li>Real-world task success</li>
+<li>Long-running workflow quality</li>
+<li>Autonomy level</li>
+<li>Reliability under repeated runs</li>
+<li>Tool-use correctness</li>
+<li>Cost-quality tradeoffs</li>
+<li>Safety behavior</li>
+<li>Multi-agent coordination quality</li>
+<li>Memory quality</li>
+<li>Recovery after failure</li>
+</ul>
+<p>The future direction is continuous production evaluation. Instead of asking only &ldquo;did the benchmark pass?&rdquo;, teams will track failed tasks per day, recovery success rate, hallucination severity, human override frequency, cost per completed workflow, and economic value generated.</p>
+<p>The best agent teams will treat evals as infrastructure, not as a final QA step.</p>
+<h2 id="7-agent-observability">7. Agent Observability</h2>
+<p>Debugging agents is still painful.</p>
+<p>When an agent behaves unexpectedly, it is often hard to answer basic questions:</p>
+<ul>
+<li>Why did it do that?</li>
+<li>Which memory influenced the decision?</li>
+<li>Which tool failed?</li>
+<li>Which prompt step caused the drift?</li>
+<li>Which agent duplicated work?</li>
+<li>Which state transition made recovery impossible?</li>
+</ul>
+<p>Traditional observability captures logs, metrics, and traces. Agent observability must capture reasoning traces, tool execution, memory lineage, state changes, prompt versions, intermediate decisions, and cross-agent communication.</p>
+<p>This will become a major software category. The field needs the equivalent of Datadog or New Relic for agents: systems that make reasoning, memory, actions, and failures inspectable.</p>
+<p>Without observability, agent engineering becomes superstition. With observability, it becomes debugging.</p>
+<h2 id="8-cost-optimization">8. Cost Optimization</h2>
+<p>Agent systems are economically unstable when they are not carefully designed.</p>
+<p>A simple chatbot has predictable cost. A long-running agent can explode cost through recursive context growth, repeated reasoning, redundant tool calls, inefficient retrieval, and multi-agent orchestration overhead. The system may succeed technically while failing economically.</p>
+<p>The core cost problems are token explosion, context accumulation, repeated planning, unnecessary model calls, inefficient memory retrieval, and excessive coordination overhead.</p>
+<p>Expected innovations include:</p>
+<ul>
+<li><strong>Context compression</strong>: preserving useful state without carrying the full history</li>
+<li><strong>Selective reasoning</strong>: using deeper reasoning only when needed</li>
+<li><strong>Adaptive model routing</strong>: matching task difficulty to model capability</li>
+<li><strong>Speculative execution</strong>: exploring branches in parallel when the payoff justifies it</li>
+<li><strong>Cognition caching</strong>: reusing prior reasoning traces and decisions</li>
+</ul>
+<p>Production agents will need cost-aware planning. The agent should understand not only &ldquo;can I do this?&rdquo; but &ldquo;is this worth doing this way?&rdquo;</p>
+<h2 id="9-security">9. Security</h2>
+<p>Agent security is severely underestimated.</p>
+<p>Agents expand the attack surface because they read untrusted inputs, call tools, remember information, make decisions, and sometimes act autonomously. Traditional application security still matters, but it is not enough.</p>
+<p>The open problems include prompt injection, tool hijacking, malicious API responses, memory poisoning, agent impersonation, accidental data exfiltration, and autonomous exploit chains.</p>
+<p>Memory makes the security problem harder. A one-time malicious input can become a persistent corrupted belief. Tool use makes it harder again: the agent may convert a misleading instruction into a real action.</p>
+<p>The field needs agent-native security models: permission boundaries, memory sanitization, tool authorization, provenance tracking, action approval policies, adversarial testing, and runtime containment.</p>
+<p>Security cannot be pasted on after the agent is already autonomous. It has to be part of the runtime.</p>
+<h2 id="10-alignment-and-goal-stability">10. Alignment and Goal Stability</h2>
+<p>The deeper problem is goal stability.</p>
+<p>Can an agent pursue a goal over a long period without drifting, shortcutting, corrupting the objective, or optimizing the wrong proxy? This becomes more important as agents gain persistent memory, self-improvement loops, and long-running autonomy.</p>
+<p>The failure modes include goal corruption, reward hacking, shortcut behavior, misinterpreted objectives, conflicting goals, unsafe self-modification, and long-term alignment drift.</p>
+<p>The hard question is:</p>
+<blockquote>
+<p>How do you ensure an agent still wants what you wanted after 10,000 autonomous actions?</p>
+</blockquote>
+<p>Short tasks can rely on human correction. Long-running agents need durable constraints, explicit objective management, interruption mechanisms, and continuous verification against the intended goal.</p>
+<h2 id="11-human-agent-collaboration">11. Human-Agent Collaboration</h2>
+<p>Most current systems treat humans as fallback error handlers. That is too limited.</p>
+<p>The best future systems may not be fully autonomous agents. They may be deeply collaborative intelligence systems where humans and agents work together with clear delegation boundaries.</p>
+<p>The open problems include trust calibration, interruptibility, human override UX, mixed-initiative workflows, shared reasoning interfaces, explainability, and escalation design.</p>
+<p>A good collaborative agent should know when to act, when to ask, when to summarize, when to stop, and when to hand control back to the human. It should make the human more capable rather than forcing the human to supervise every fragile step.</p>
+<p>This is where the idea of AI as a force multiplier for human intelligence becomes practical. Autonomy is not the only goal. Leverage is the goal.</p>
+<h2 id="12-autonomous-software-engineering">12. Autonomous Software Engineering</h2>
+<p>Autonomous software engineering is still unsolved beyond medium complexity.</p>
+<p>Coding agents can produce useful patches, write tests, explain code, and automate local tasks. But repository-scale engineering requires more than generating code. It requires architectural understanding, cross-service reasoning, regression prediction, dependency management, self-testing, PR validation, debugging, and coherence across evolving systems.</p>
+<p>The hardest challenge is maintaining context over millions of tokens and months of change. A useful persistent coding agent would understand company architecture, remember engineering decisions, evolve with the repository, and continuously improve the system without breaking its assumptions.</p>
+<p>The future is not just agents that write code. It is agents that understand software systems as living artifacts.</p>
+<h2 id="13-agent-infrastructure">13. Agent Infrastructure</h2>
+<p>We do not yet have the equivalent of Linux, Docker, Kubernetes, or PostgreSQL for agents.</p>
+<p>That infrastructure gap is why many teams rebuild the same scaffolding: runtimes, schedulers, tool registries, state stores, memory systems, identity layers, permission models, tracing systems, and evaluation harnesses.</p>
+<p>The missing infrastructure layers include:</p>
+<ul>
+<li><strong>Agent runtime</strong>: lifecycle, execution, retries, and failure handling</li>
+<li><strong>Agent scheduling</strong>: priority and resource management</li>
+<li><strong>Agent identity</strong>: authentication and authorization</li>
+<li><strong>Agent networking</strong>: communication protocols</li>
+<li><strong>Agent state storage</strong>: persistent cognition and task state</li>
+<li><strong>Agent marketplaces</strong>: capability discovery and reuse</li>
+</ul>
+<p>As the field matures, these pieces will become standard platforms rather than custom glue code.</p>
+<h2 id="14-synthetic-data-and-self-improvement">14. Synthetic Data and Self-Improvement</h2>
+<p>Agents need better ways to improve themselves.</p>
+<p>Human-generated training data is expensive and limited. Future agent systems will increasingly rely on synthetic trajectory generation, self-play environments, autonomous curriculum generation, self-evaluation, self-repair loops, and reflection systems.</p>
+<p>The major shift is agents training agents.</p>
+<p>That does not mean unsupervised recursive improvement without controls. It means agents generating tasks, attempting them, evaluating trajectories, identifying weaknesses, and producing better training data for future systems.</p>
+<p>The open problem is stability. Self-improvement can amplify capability, but it can also amplify errors, biases, shortcuts, and unsafe behavior.</p>
+<h2 id="15-embodied-and-real-world-agents">15. Embodied and Real-World Agents</h2>
+<p>Physical-world grounding is still primitive.</p>
+<p>LLMs understand language patterns, not physics. Robotics and real-world autonomy require planning under uncertainty, real-time perception, sensor fusion, spatial memory, physical causality, latency constraints, and safety in environments where mistakes can be irreversible.</p>
+<p>The gap between &ldquo;describe an action&rdquo; and &ldquo;safely perform an action in the physical world&rdquo; is enormous.</p>
+<p>Embodied agents will need tighter integration between language models, control systems, perception models, simulators, and safety monitors. They will also need much stronger guarantees than software-only agents because their failures can affect the physical world directly.</p>
+<h2 id="16-economic-and-organizational-problems">16. Economic and Organizational Problems</h2>
+<p>The organizational problems may matter as much as the technical ones.</p>
+<p>As agents become more capable, companies will need answers for human-agent org structures, AI-native workflows, accountability, decision ownership, governance, regulatory compliance, economic value measurement, and workforce transition.</p>
+<p>Who owns an agent&rsquo;s decision? Who reviews its work? Who is accountable when it makes a costly mistake? How do teams measure whether an agent is creating leverage or just shifting work into hidden supervision?</p>
+<p>These questions will shape adoption. The winning systems will not only be technically impressive. They will fit into real organizations with clear accountability and measurable value.</p>
+<h2 id="the-likely-five-year-evolution">The Likely Five-Year Evolution</h2>
+<p>The field will not mature all at once. A plausible progression looks like this:</p>
+<p><strong>2026</strong>: Better orchestration, better coding agents, more mature RAG systems, more reliable tool calling, and enterprise copilots.</p>
+<p><strong>2027</strong>: Persistent memory systems, agent observability platforms, production multi-agent workflows, and specialized agent operating systems.</p>
+<p><strong>2028</strong>: Long-running autonomous agents, self-improving workflows, organizational AI systems, and early economic agents.</p>
+<p><strong>2029</strong>: Semi-autonomous engineering teams, AI-native companies, agent marketplaces, and autonomous research agents.</p>
+<p><strong>2030 and beyond</strong>: Continuous autonomous software systems, agent ecosystems, self-evolving infrastructure, and human-agent hybrid organizations.</p>
+<p>The exact timeline will be uneven. Some areas will move faster than expected, while others will hit hard reliability, safety, or economic limits. But the direction is clear: AI agents are moving from demo workflows toward infrastructure.</p>
+<h2 id="the-meta-problem">The Meta Problem</h2>
+<p>The deepest unsolved issue is this:</p>
+<blockquote>
+<p>How do you build systems that can reason, act, remember, collaborate, improve, and remain aligned over extremely long time horizons under uncertainty?</p>
+</blockquote>
+<p>That question combines operating systems, distributed systems, cognition, economics, psychology, security, software engineering, control theory, and organizational design.</p>
+<p>AI agents engineering is becoming a new engineering discipline.</p>
+<p>The next phase will not be won only by larger models or better prompts. It will be won by the teams that turn probabilistic intelligence into reliable systems.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">ai-agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/agent-infrastructure">agent-infrastructure</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/reliability">reliability</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/memory">memory</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent-systems">multi-agent-systems</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

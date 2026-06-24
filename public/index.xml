@@ -16,6 +16,13 @@
       <description>&lt;p&gt;Every few months, a new term starts appearing everywhere in AI discussions.&lt;/p&gt;&#xA;&lt;p&gt;Recently, that term has been &lt;strong&gt;agent loop&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;You will see posts claiming that agent loops are the future of software, that they unlock autonomous systems, or that they are the missing ingredient behind AI agents.&lt;/p&gt;&#xA;&lt;p&gt;The reality is much less mysterious.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is one of the simplest ideas in computer science. It is a repeating cycle:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Optimize Units of Work, Not Growth Targets</title>
+      <link>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</guid>
+      <description>&lt;p&gt;A lot of leadership teams start with a goal like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;How do we grow revenue by 20%?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It is a reasonable business question. It is also too abstract to manage directly.&lt;/p&gt;&#xA;&lt;p&gt;Nobody wakes up and performs a &amp;ldquo;20% growth&amp;rdquo; task. Nobody opens a laptop and completes &amp;ldquo;increase revenue&amp;rdquo; before lunch. What people actually do every day is much smaller and much more concrete:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Answer customer questions&lt;/li&gt;&#xA;&lt;li&gt;Create proposals&lt;/li&gt;&#xA;&lt;li&gt;Follow up on leads&lt;/li&gt;&#xA;&lt;li&gt;Review contracts&lt;/li&gt;&#xA;&lt;li&gt;Build features&lt;/li&gt;&#xA;&lt;li&gt;Resolve support tickets&lt;/li&gt;&#xA;&lt;li&gt;Generate reports&lt;/li&gt;&#xA;&lt;li&gt;Onboard customers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Growth is the aggregate result of how well thousands of these units of work happen.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>AI Will Not Kill Junior Engineers but It Will Change Them</title>
       <link>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>

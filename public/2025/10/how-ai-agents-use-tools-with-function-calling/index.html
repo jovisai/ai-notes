@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How AI Agents Use Tools with Function Calling - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="How AI Agents Use Tools with Function Calling">
+  <meta itemprop="description" content="Concept Introduction Tool Use is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called Function Calling: the LLM acts as a reasoning engine that translates a user’s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.
+When you ask a voice assistant “What’s the weather in London?”, it doesn’t magically know the answer. It recognizes that you want weather data, calls an external API with “London” as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.">
+  <meta itemprop="datePublished" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="981">
+  <meta itemprop="keywords" content="AI Agents,Function Calling,Tool-Use,LLM,API"><meta property="og:url" content="https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="How AI Agents Use Tools with Function Calling">
+  <meta property="og:description" content="Concept Introduction Tool Use is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called Function Calling: the LLM acts as a reasoning engine that translates a user’s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.
+When you ask a voice assistant “What’s the weather in London?”, it doesn’t magically know the answer. It recognizes that you want weather data, calls an external API with “London” as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Function Calling">
+    <meta property="article:tag" content="Tool-Use">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="API">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How AI Agents Use Tools with Function Calling">
+  <meta name="twitter:description" content="Concept Introduction Tool Use is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called Function Calling: the LLM acts as a reasoning engine that translates a user’s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.
+When you ask a voice assistant “What’s the weather in London?”, it doesn’t magically know the answer. It recognizes that you want weather data, calls an external API with “London” as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">How AI Agents Use Tools with Function Calling</h1>
+        
+        <div class="date">
+            <span class="day">05</span>
+            <span class="rest">Oct 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <h2 id="concept-introduction">Concept Introduction</h2>
+<p><strong>Tool Use</strong> is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called <strong>Function Calling</strong>: the LLM acts as a reasoning engine that translates a user&rsquo;s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.</p>
+<p>When you ask a voice assistant &ldquo;What&rsquo;s the weather in London?&rdquo;, it doesn&rsquo;t magically know the answer. It recognizes that you want weather data, calls an external API with &ldquo;London&rdquo; as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.</p>
+<h2 id="the-mechanics-a-two-way-conversation">The Mechanics: A Two-Way Conversation</h2>
+<p>Function calling is not a single action but a multi-step loop between your application and the LLM.</p>
+<pre class="mermaid">sequenceDiagram
+    participant User
+    participant Application
+    participant LLM
+
+    User-&gt;&gt;Application: &#34;What&#39;s the weather in London?&#34;
+    Application-&gt;&gt;LLM: Send prompt + list of available tools (e.g., `get_weather`)
+    
+    LLM-&gt;&gt;LLM: Reason: User wants weather. I have a `get_weather` tool.
+    LLM--&gt;&gt;Application: Respond with `tool_call`: `get_weather(location=&#39;London&#39;)`
+    
+    Application-&gt;&gt;Application: Parse `tool_call` and execute the actual `get_weather` function
+    Note right of Application: Calls external Weather API...
+    Application--&gt;&gt;Application: Result: `{&#34;temperature&#34;: &#34;15°C&#34;, &#34;condition&#34;: &#34;cloudy&#34;}`
+    
+    Application-&gt;&gt;LLM: Send tool result back to continue the conversation
+    LLM-&gt;&gt;LLM: Reason: The tool worked. Now I can answer the user.
+    LLM--&gt;&gt;Application: Generate final response: &#34;It&#39;s currently 15°C and cloudy in London.&#34;
+    
+    Application-&gt;&gt;User: Display final response
+  </pre>
+
+<p>The key steps are:</p>
+<ol>
+<li><strong>Define Your Tools:</strong> You declare your available functions to the LLM using a specific format, often JSON Schema. This includes the function&rsquo;s name, a clear description of what it does, and its parameters (name, type, description, required).</li>
+<li><strong>First API Call:</strong> You send the user&rsquo;s prompt <em>and</em> the list of tool definitions to the LLM.</li>
+<li><strong>LLM Identifies a Tool:</strong> The LLM analyzes the prompt. If it determines that one of the tools can help fulfill the user&rsquo;s request, it doesn&rsquo;t return a text message. Instead, it returns a <code>tool_calls</code> object specifying the function name and the arguments it inferred from the prompt.</li>
+<li><strong>Your Code Executes the Tool:</strong> Your application receives this object. <strong>Crucially, the LLM does not execute any code.</strong> Your code is responsible for looking up the requested function (e.g., your <code>get_weather</code> Python function) and running it with the provided arguments.</li>
+<li><strong>Second API Call:</strong> You call the LLM <em>again</em>, this time including the output from your function call. This &ldquo;closes the loop,&rdquo; giving the LLM the information it requested.</li>
+<li><strong>LLM Generates the Final Answer:</strong> Now equipped with the tool&rsquo;s output, the LLM synthesizes a final, user-facing response in natural language.</li>
+</ol>
+<h2 id="design-patterns--architectures">Design Patterns &amp; Architectures</h2>
+<ul>
+<li><strong>The Engine of ReAct:</strong> Function calling is the concrete implementation of the <strong>Act</strong> step in the ReAct (Reason + Act) cognitive loop. The LLM first &ldquo;reasons&rdquo; about what it needs to do (e.g., &ldquo;I need to find the current weather&rdquo;), and then it &ldquo;acts&rdquo; by generating the <code>tool_call</code> object.</li>
+<li><strong>Hierarchical Agents:</strong> A &ldquo;tool&rdquo; doesn&rsquo;t have to be a simple function. It can be another, more specialized AI agent. A high-level &ldquo;manager&rdquo; agent given tools to call a &ldquo;database agent&rdquo; or a &ldquo;creative writing agent&rdquo; enables complex, hierarchical multi-agent systems.</li>
+<li><strong>Self-Correction:</strong> If a tool call fails (e.g., an API is down or the arguments are wrong), the error message can be sent back to the LLM in step 5. A capable agent can then attempt to correct its mistake, perhaps by calling the function with different arguments or trying an alternative tool.</li>
+</ul>
+<h2 id="practical-application">Practical Application</h2>
+<p>A minimal function-calling implementation centers on three moving parts: a tool schema registry (a list of JSON Schema objects describing each callable), a dispatch loop that inspects the model&rsquo;s response for <code>tool_use</code> content blocks, and the actual Python functions that get invoked and return results. The cleanest fit for a standalone demo is the raw Anthropic SDK — no orchestration layer needed — where <code>anthropic.Anthropic().messages.create()</code> accepts a <code>tools</code> list and returns either a final <code>text</code> block or a <code>tool_use</code> block naming the function and its arguments. The agent loop calls the model, checks <code>stop_reason == &quot;tool_use&quot;</code>, runs the matching local function, appends a <code>tool_result</code> message, and calls the model again until it produces a plain text reply. For production use, LangGraph wraps this same loop as a stateful graph with nodes for <code>call_model</code> and <code>call_tools</code>, making it straightforward to add retries, parallel tool calls, and conversation memory without rewriting the core dispatch logic.</p>
+<p><strong>Try it</strong></p>
+<pre tabindex="0"><code>Using the Anthropic Python SDK (anthropic package), build a minimal tool-calling agent loop.
+Define two dummy tools — get_weather(city) and get_time(timezone) — with JSON Schema descriptors.
+The agent should call client.messages.create with the tools list, detect tool_use stop_reason,
+dispatch to the right Python function, append the tool_result, and loop until the model returns
+a final text reply. Keep it under 60 lines with inline comments explaining each step.
+</code></pre><h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<ul>
+<li><strong>Parallel Function Calling:</strong> The newest models can request multiple, independent tool calls in a single turn. For example, if you ask, &ldquo;What&rsquo;s the weather in London and Paris?&rdquo;, the model can issue two <code>get_weather</code> calls simultaneously. Your application can execute these in parallel and send both results back, reducing overall latency.</li>
+<li><strong>Autonomous Tool Onboarding:</strong> A key research area is creating agents that can learn to use new tools by reading their API documentation, rather than requiring a developer to manually write the JSON schema. This would allow agents to dynamically expand their own capabilities.</li>
+</ul>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<p>Function calling is deeply connected to the field of <strong>Linguistics</strong>, specifically <strong>Speech Act Theory</strong>. This theory posits that when we speak, we are not just uttering words (a &ldquo;locutionary act&rdquo;) but performing actions: making requests, asking questions, issuing commands. The underlying purpose of an utterance is its &ldquo;illocutionary act.&rdquo;</p>
+<p>A function-calling LLM identifies the illocutionary act within a user&rsquo;s prompt. &ldquo;What&rsquo;s the weather?&rdquo; is not just a string of words. It is a request for information that maps to a concrete action: calling a weather service.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">AI Agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/function-calling">Function Calling</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/tool-use">Tool Use</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/llm">LLM</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/api">API</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

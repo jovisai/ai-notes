@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/automation/</link>
+    <description>Recent content in Automation on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
+      <link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
+      <description>&lt;p&gt;Every few months, a new term starts appearing everywhere in AI discussions.&lt;/p&gt;&#xA;&lt;p&gt;Recently, that term has been &lt;strong&gt;agent loop&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;You will see posts claiming that agent loops are the future of software, that they unlock autonomous systems, or that they are the missing ingredient behind AI agents.&lt;/p&gt;&#xA;&lt;p&gt;The reality is much less mysterious.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is one of the simplest ideas in computer science. It is a repeating cycle:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

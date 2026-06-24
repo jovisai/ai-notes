@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Conceptual AI Agents Universe — System Design Document - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Conceptual AI Agents Universe — System Design Document">
+  <meta itemprop="description" content="A plugin-based platform architecture where each AI agent system is an independently subscribable capability. One interface, one orchestrator, unlimited agents — added without touching existing code.">
+  <meta itemprop="datePublished" content="2026-02-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-28T00:00:00+00:00">
+  <meta itemprop="wordCount" content="7380">
+  <meta itemprop="keywords" content="AI Agents,Multi-Agent Systems,Plugin Architecture,Orchestration,LangGraph,Python,System Design,SaaS,Subscription Platform,Agentic AI"><meta property="og:url" content="https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Conceptual AI Agents Universe — System Design Document">
+  <meta property="og:description" content="A plugin-based platform architecture where each AI agent system is an independently subscribable capability. One interface, one orchestrator, unlimited agents — added without touching existing code.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Multi-Agent Systems">
+    <meta property="article:tag" content="Plugin Architecture">
+    <meta property="article:tag" content="Orchestration">
+    <meta property="article:tag" content="LangGraph">
+    <meta property="article:tag" content="Python">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Conceptual AI Agents Universe — System Design Document">
+  <meta name="twitter:description" content="A plugin-based platform architecture where each AI agent system is an independently subscribable capability. One interface, one orchestrator, unlimited agents — added without touching existing code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Conceptual AI Agents Universe — System Design Document</h1>
+        
+        <div class="date">
+            <span class="day">28</span>
+            <span class="rest">Feb 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <h1 id="part-1-high-level-design">PART 1: HIGH-LEVEL DESIGN</h1>
+<hr>
+<h2 id="1-vision--problem-statement">1. Vision &amp; Problem Statement</h2>
+<p>Organizations need AI automation across multiple business functions — code review, customer support, QA, documentation, data analysis, and more. Today, each of these is a siloed solution with its own interface, deployment, and learning curve.</p>
+<p><strong>AI Agents Universe</strong> solves this by providing a single platform where each AI capability is a self-contained, subscription-based plugin. One interface, one orchestrator, unlimited capabilities — added without touching existing code.</p>
+<p><strong>Core promise:</strong> A customer subscribes to the plugins they need. A developer publishes a plugin. The universe expands.</p>
+<hr>
+<h2 id="2-technology-stack">2. Technology Stack</h2>
+<p>All technology decisions are fixed here. These are not suggestions — they are the choices the platform is built on.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Layer</th>
+          <th>Technology</th>
+          <th>Rationale</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>API framework</strong></td>
+          <td>FastAPI + Uvicorn</td>
+          <td>Async-native, auto-generates OpenAPI docs, strong AI/ML ecosystem</td>
+      </tr>
+      <tr>
+          <td><strong>Agent framework</strong></td>
+          <td>LangGraph</td>
+          <td>Stateful graph-based agents, explicit control flow, production-grade for multi-step workflows</td>
+      </tr>
+      <tr>
+          <td><strong>Default LLM</strong></td>
+          <td><code>claude-sonnet-4-6</code></td>
+          <td>Strong reasoning, good cost/performance balance for agentic tasks</td>
+      </tr>
+      <tr>
+          <td><strong>Embedding model</strong></td>
+          <td><code>text-embedding-3-small</code> (OpenAI)</td>
+          <td>Hosted, fast, ~$0.02/1M tokens, sufficient for capability matching</td>
+      </tr>
+      <tr>
+          <td><strong>Primary database</strong></td>
+          <td>PostgreSQL 16 + SQLAlchemy 2 (async) + Alembic</td>
+          <td>All operational data; Alembic manages schema migrations</td>
+      </tr>
+      <tr>
+          <td><strong>Vector store</strong></td>
+          <td>pgvector extension (same PostgreSQL instance)</td>
+          <td>RAG for org knowledge; no separate service up to ~1M vectors per tenant</td>
+      </tr>
+      <tr>
+          <td><strong>Cache</strong></td>
+          <td>Redis 7</td>
+          <td>Auth cache, plugin registry, circuit breakers, route cache, rate limits, Redis Streams queues</td>
+      </tr>
+      <tr>
+          <td><strong>Async queues</strong></td>
+          <td>Redis Streams</td>
+          <td>Task execution, background summarisation, webhook delivery — reuses Redis, no extra service</td>
+      </tr>
+      <tr>
+          <td><strong>Object storage</strong></td>
+          <td>MinIO (self-hosted, S3-compatible)</td>
+          <td>Artifacts and reports; cloud-agnostic</td>
+      </tr>
+      <tr>
+          <td><strong>Container registry</strong></td>
+          <td>Zot (self-hosted OCI registry)</td>
+          <td>Plugin container images; MinIO is S3, not an OCI registry</td>
+      </tr>
+      <tr>
+          <td><strong>Secrets (v1)</strong></td>
+          <td>Kubernetes Secrets + pgcrypto</td>
+          <td>Platform credentials in K8s Secrets; tenant tokens AES-256 encrypted in PostgreSQL</td>
+      </tr>
+      <tr>
+          <td><strong>Rate limiting</strong></td>
+          <td><code>slowapi</code> (FastAPI middleware)</td>
+          <td>Sliding window; plugs into FastAPI route decorators</td>
+      </tr>
+      <tr>
+          <td><strong>Metrics</strong></td>
+          <td>Prometheus + Grafana</td>
+          <td>Kubernetes-native metrics and dashboards</td>
+      </tr>
+      <tr>
+          <td><strong>Logs</strong></td>
+          <td>Loki + Grafana</td>
+          <td>Structured log aggregation alongside metrics in Grafana</td>
+      </tr>
+      <tr>
+          <td><strong>Deployment</strong></td>
+          <td>Self-hosted Kubernetes (cloud-agnostic)</td>
+          <td>Plain Deployments + PVCs; no operators needed at v1 single-replica scale</td>
+      </tr>
+      <tr>
+          <td><strong>Local dev</strong></td>
+          <td>Docker Compose</td>
+          <td>Full local stack: app, PostgreSQL, Redis, MinIO, Zot</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>v1 scope:</strong> Single replicas for all services (no explicit HA). SSE streaming deferred to v2. Third-party plugins are invite-only at launch. Vault introduced in v2 when untrusted third-party plugins require isolated secret management and audit trails.</p>
+<p><strong>What was simplified vs. earlier drafts:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Removed / replaced</th>
+          <th>With</th>
+          <th>Why</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>HashiCorp Vault</td>
+          <td>K8s Secrets + pgcrypto</td>
+          <td>No untrusted plugins in v1; Vault overhead not justified</td>
+      </tr>
+      <tr>
+          <td>RabbitMQ</td>
+          <td>Redis Streams</td>
+          <td>Already have Redis; three queue use cases don&rsquo;t need AMQP</td>
+      </tr>
+      <tr>
+          <td>5 separate microservices</td>
+          <td>1 FastAPI app + 2 background workers</td>
+          <td>Registration, billing, notification are not services at this scale</td>
+      </tr>
+      <tr>
+          <td>5 Kubernetes operators</td>
+          <td>Plain Deployments + PVCs</td>
+          <td>Operators are for HA clusters; v1 is single-replica</td>
+      </tr>
+      <tr>
+          <td>Custom Schema Registry service</td>
+          <td><code>envelope_schemas</code> table + in-process cache</td>
+          <td>A service for one table is over-engineering</td>
+      </tr>
+      <tr>
+          <td>MinIO as image store</td>
+          <td>Zot (OCI registry)</td>
+          <td>Containerd cannot pull from S3; OCI images need an OCI registry</td>
+      </tr>
+      <tr>
+          <td>bcrypt for API key hashing</td>
+          <td>SHA-256</td>
+          <td>bcrypt is for passwords; API keys are long random strings; SHA-256 is fast and sufficient</td>
+      </tr>
+      <tr>
+          <td>3 routing confidence thresholds</td>
+          <td>2 configurable thresholds</td>
+          <td>Simpler to calibrate; removes an undefined dead zone between 0.45–0.65</td>
+      </tr>
+      <tr>
+          <td>Gateway + Orchestrator (2 pods)</td>
+          <td>Single FastAPI app</td>
+          <td>Internal HTTP hop for nothing; auth is middleware, not a separate service</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="3-system-overview">3. System Overview</h2>
+<pre class="mermaid">flowchart TB
+    subgraph External[&#34;External Channels&#34;]
+        direction LR
+        CLI --- API --- WEB --- SLACK --- WEBHOOK
+    end
+
+    subgraph App[&#34;Platform App (single FastAPI + Uvicorn process)&#34;]
+        AUTH[&#34;API Key Auth&lt;br/&gt;&lt;i&gt;SHA-256 verify → tenant_id + user_id&lt;/i&gt;&#34;]
+        RATE[&#34;Rate Limiter&lt;br/&gt;&lt;i&gt;slowapi sliding window&lt;/i&gt;&#34;]
+        ROUTER[&#34;Intent Router&lt;br/&gt;&lt;i&gt;text-embedding-3-small + claude-sonnet-4-6 fallback&lt;/i&gt;&#34;]
+        REGISTRY[&#34;Plugin Registry&lt;br/&gt;&lt;i&gt;Redis cache / PostgreSQL source of truth&lt;/i&gt;&#34;]
+        CONTEXT[&#34;Shared Context Store&lt;br/&gt;&lt;i&gt;History (windowed) + RAG org knowledge (pgvector)&lt;/i&gt;&#34;]
+        SEQUENCER[&#34;Task Sequencer&lt;br/&gt;&lt;i&gt;Single &amp; multi-plugin plans, DFS dep check&lt;/i&gt;&#34;]
+        FAILURE[&#34;Failure Manager&lt;br/&gt;&lt;i&gt;Retry, fallback, circuit breaker&lt;/i&gt;&#34;]
+
+        AUTH --&gt; RATE --&gt; ROUTER
+        ROUTER --&gt; REGISTRY
+        ROUTER --&gt; CONTEXT
+        ROUTER --&gt; SEQUENCER
+        SEQUENCER --&gt; FAILURE
+    end
+
+    subgraph Workers[&#34;Background Workers&#34;]
+        WDELIVER[&#34;Webhook Delivery Worker&lt;br/&gt;&lt;i&gt;Redis Streams consumer&lt;/i&gt;&#34;]
+        WBILLING[&#34;Billing Aggregation Worker&lt;br/&gt;&lt;i&gt;Scheduled cron&lt;/i&gt;&#34;]
+    end
+
+    subgraph Subscription[&#34;Subscription Layer (in-process)&#34;]
+        ACCESS[&#34;Access Control&#34;]
+        METER[&#34;Usage Metering&#34;]
+        QUOTA[&#34;Quota + Token Budget&#34;]
+        ACCESS --&gt; METER --&gt; QUOTA
+    end
+
+    subgraph PluginUniverse[&#34;Plugin Universe (LangGraph agents)&#34;]
+        direction LR
+        P1[&#34;Code Review Pro&#34;] --- P2[&#34;Customer Support AI&#34;] --- P3[&#34;QA Transformer&#34;]
+    end
+
+    subgraph Infra[&#34;Shared Infrastructure&#34;]
+        REDIS2[&#34;Redis 7&lt;br/&gt;&lt;i&gt;Cache + Streams queues&lt;/i&gt;&#34;]
+        PG[&#34;PostgreSQL 16 + pgvector&lt;br/&gt;&lt;i&gt;All operational data + org knowledge RAG&lt;/i&gt;&#34;]
+        MINIO[&#34;MinIO&lt;br/&gt;&lt;i&gt;Artifacts + reports&lt;/i&gt;&#34;]
+        ZOT[&#34;Zot OCI Registry&lt;br/&gt;&lt;i&gt;Plugin container images&lt;/i&gt;&#34;]
+        PROM[&#34;Prometheus + Grafana + Loki&#34;]
+        K8SSEC[&#34;Kubernetes Secrets&lt;br/&gt;&lt;i&gt;Platform credentials&lt;/i&gt;&#34;]
+    end
+
+    External --&gt; App
+    App --&gt; Subscription
+    Subscription --&gt; PluginUniverse
+    App --&gt; Workers
+    App --&gt; Infra
+    Workers --&gt; Infra
+    PluginUniverse --&gt; Infra
+  </pre>
+
+<hr>
+<h2 id="4-core-architecture-layers">4. Core Architecture Layers</h2>
+<h3 id="layer-1-interface-auth--rate-limiting">Layer 1: Interface, Auth &amp; Rate Limiting</h3>
+<p>The platform is a <strong>single FastAPI application</strong>. Auth middleware and rate limiting run in-process before route handlers — no separate gateway pod, no internal HTTP hop, no serialisation of auth context between services.</p>
+<h4 id="api-key-authentication">API Key Authentication</h4>
+<pre class="mermaid">sequenceDiagram
+    participant Client
+    participant App as FastAPI App
+    participant Cache as Redis
+    participant DB as PostgreSQL
+
+    Client-&gt;&gt;App: Request + Authorization: Bearer sk_live_a1b2c3d4...
+    App-&gt;&gt;App: Extract lookup prefix&lt;br/&gt;(first 8 chars of random part: &#34;a1b2c3d4&#34;)
+    App-&gt;&gt;Cache: GET auth:a1b2c3d4 (5-min TTL)
+
+    alt Cache hit
+        Cache--&gt;&gt;App: {tenant_id, user_id, scopes}
+    else Cache miss
+        App-&gt;&gt;DB: SELECT * FROM api_keys WHERE key_prefix = &#39;a1b2c3d4&#39;
+        DB--&gt;&gt;App: {key_hash, tenant_id, user_id, scopes, expires_at, revoked_at}
+        App-&gt;&gt;App: SHA-256(raw_key) == key_hash?
+        alt Valid + not expired + not revoked
+            App-&gt;&gt;Cache: SET auth:a1b2c3d4 {tenant_id, user_id, scopes} EX 300
+        else Invalid / expired / revoked
+            App--&gt;&gt;Client: 401 AUTH_INVALID
+        end
+    end
+
+    App-&gt;&gt;App: Attach (tenant_id, user_id, scopes) to request state
+    App--&gt;&gt;Client: Continue to handler
+  </pre>
+
+<p><strong>Key format:</strong> <code>sk_live_&lt;32-char random hex&gt;</code> for production; <code>sk_test_&lt;32-char random hex&gt;</code> for sandbox. The <strong>lookup prefix is the first 8 characters of the random part</strong> (the hex after <code>sk_live_</code>), not <code>sk_live_</code> itself which is identical on every key. SHA-256 is used for hashing — API keys are long random strings, not passwords; SHA-256 runs in microseconds and is cryptographically sufficient for this use case. bcrypt&rsquo;s brute-force resistance adds nothing over a 32-byte random value.</p>
+<h4 id="api-key-lifecycle">API Key Lifecycle</h4>
+<pre class="mermaid">flowchart LR
+    CREATE[&#34;POST /v1/api-keys&lt;br/&gt;&lt;i&gt;Generate random key&lt;br/&gt;SHA-256 hash → store&lt;br/&gt;Return plaintext once only&lt;/i&gt;&#34;]
+    --&gt; ACTIVE[&#34;Active&lt;br/&gt;&lt;i&gt;5-min Redis auth cache&lt;/i&gt;&#34;]
+    ACTIVE --&gt;|&#34;Manual rotation&#34;| ROTATE[&#34;New key issued&lt;br/&gt;&lt;i&gt;Old key valid for 24h grace period&lt;/i&gt;&#34;]
+    ROTATE --&gt; ACTIVE
+    ACTIVE --&gt;|&#34;DELETE /v1/api-keys/{id}&#34;| REVOKED[&#34;Revoked&lt;br/&gt;&lt;i&gt;revoked_at set&lt;br/&gt;Cache invalidated immediately&lt;/i&gt;&#34;]
+    ACTIVE --&gt;|&#34;expires_at reached&#34;| EXPIRED[&#34;Expired&lt;br/&gt;&lt;i&gt;Rejected on next use&lt;/i&gt;&#34;]
+    REVOKED --&gt; PURGED[&#34;Purged after 90 days&#34;]
+    EXPIRED --&gt; PURGED
+  </pre>
+
+<h4 id="rate-limiting">Rate Limiting</h4>
+<p><code>slowapi</code> runs as FastAPI middleware in the same process. Every response includes standard rate limit headers.</p>
+<pre class="mermaid">flowchart TD
+    REQ[&#34;Incoming Request&lt;br/&gt;&lt;i&gt;tenant_id from auth state&lt;/i&gt;&#34;]
+    --&gt; KEY[&#34;Build limit key&lt;br/&gt;&lt;i&gt;rate:{tenant_id}:{plugin_name}:{window_start}&lt;/i&gt;&#34;]
+    --&gt; INCR[&#34;Redis INCR + EXPIREAT&lt;br/&gt;&lt;i&gt;atomic sliding window&lt;/i&gt;&#34;]
+    --&gt; CHECK{&#34;Count ≤ limit?&#34;}
+
+    CHECK --&gt;|&#34;Yes&#34;| HEADERS[&#34;Set response headers:&lt;br/&gt;X-RateLimit-Limit&lt;br/&gt;X-RateLimit-Remaining&lt;br/&gt;X-RateLimit-Reset&#34;]
+    CHECK --&gt;|&#34;No&#34;| REJECT[&#34;429 Too Many Requests&lt;br/&gt;Retry-After: {seconds}&lt;br/&gt;error_code: RATE_LIMITED&#34;]
+
+    HEADERS --&gt; PROCEED[&#34;Forward to route handler&#34;]
+  </pre>
+
+<p><strong>Default limits (configurable per tenant):</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Requests/min per plugin</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Starter</td>
+          <td>20</td>
+      </tr>
+      <tr>
+          <td>Professional</td>
+          <td>100</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>Custom</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="layer-2-orchestrator-same-process">Layer 2: Orchestrator (same process)</h3>
+<p>Intent Router, Plugin Registry, Context Store, Task Sequencer, Failure Manager — all in-process. See Section 14 for deep-dive.</p>
+<h3 id="layer-3-subscription-layer-in-process">Layer 3: Subscription Layer (in-process)</h3>
+<p>Access control, metering, quota enforcement. The subscription check occurs inside the intent router before any plan is built. See Section 17 for deep-dive.</p>
+<h3 id="layer-4-plugin-universe">Layer 4: Plugin Universe</h3>
+<p>Each plugin is a LangGraph <code>StateGraph</code>. Fully stateless per execution. See Section 10 for deep-dive.</p>
+<h3 id="layer-5-shared-infrastructure">Layer 5: Shared Infrastructure</h3>
+<ul>
+<li><strong>Redis 7:</strong> Auth cache, plugin registry cache, circuit breaker state, route cache, rate limit counters, and <strong>Redis Streams</strong> for all async queues</li>
+<li><strong>PostgreSQL 16 + pgvector:</strong> All operational data + org knowledge RAG embeddings</li>
+<li><strong>MinIO:</strong> Artifact and report storage. Path: <code>/{tenant_id}/{plugin_name}/{task_id}/</code></li>
+<li><strong>Zot:</strong> Self-hosted OCI registry for plugin container images</li>
+<li><strong>Prometheus + Grafana + Loki:</strong> Metrics, dashboards, log aggregation</li>
+<li><strong>Kubernetes Secrets:</strong> Platform-level credentials (LLM API keys, embedding API key)</li>
+</ul>
+<hr>
+<h2 id="5-request-lifecycle">5. Request Lifecycle</h2>
+<pre class="mermaid">sequenceDiagram
+    participant User
+    participant App as FastAPI App (auth + orchestrator)
+    participant Router as Intent Router
+    participant Registry as Plugin Registry (Redis/PG)
+    participant Sub as Subscription Layer
+    participant Sequencer as Task Sequencer
+    participant Plugin as Target Plugin (LangGraph)
+    participant Agents as Internal Agent Nodes
+    participant Store as MinIO
+
+    User-&gt;&gt;App: POST /v1/tasks {command, attachments}
+    App-&gt;&gt;App: SHA-256 verify API key → tenant_id, user_id
+    App-&gt;&gt;App: slowapi rate limit check
+
+    App-&gt;&gt;Router: Forward command + tenant context
+    Router-&gt;&gt;Router: Embed command (text-embedding-3-small)
+    Router-&gt;&gt;Registry: Score against capability embeddings
+    Registry--&gt;&gt;Router: Matching plugins + confidence scores
+
+    Router-&gt;&gt;Sub: Check access for tenant → plugin
+    Sub--&gt;&gt;Router: Authorized / Denied / Quota exceeded
+
+    alt Authorized (sync)
+        Router-&gt;&gt;Sequencer: Build execution plan
+        Sequencer-&gt;&gt;Plugin: Send InputEnvelope
+
+        Plugin-&gt;&gt;Agents: Invoke LangGraph StateGraph
+        Agents-&gt;&gt;Agents: Node 1 → Node 2 → Node 3
+        Agents-&gt;&gt;Store: Save artifacts (MinIO)
+        Agents--&gt;&gt;Plugin: Final graph state
+
+        Plugin--&gt;&gt;Sequencer: OutputEnvelope (SDK-validated)
+        Sequencer--&gt;&gt;Router: Final response
+        Router--&gt;&gt;App: Response + artifact URLs
+        App--&gt;&gt;User: 200 OK {task_id, status, result}
+
+        Sub-&gt;&gt;Sub: Write execution_events row
+    else Authorized (async)
+        App-&gt;&gt;App: XADD tasks:{plugin_name} (Redis Stream)
+        App--&gt;&gt;User: 202 Accepted {task_id}
+    else Not subscribed
+        App--&gt;&gt;User: 403 PLUGIN_NOT_SUBSCRIBED {upgrade_url}
+    else Quota exceeded
+        App--&gt;&gt;User: 429 QUOTA_EXCEEDED {quota_warning}
+    end
+  </pre>
+
+<hr>
+<h2 id="6-rest-api-specification">6. REST API Specification</h2>
+<p>All endpoints require <code>Authorization: Bearer &lt;api_key&gt;</code>.</p>
+<h3 id="61-task-endpoints">6.1 Task Endpoints</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Path</th>
+          <th>Description</th>
+          <th>Response</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>POST</code></td>
+          <td><code>/v1/tasks</code></td>
+          <td>Submit a task</td>
+          <td><code>202 {task_id}</code> or <code>200 {result}</code></td>
+      </tr>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/tasks/{task_id}</code></td>
+          <td>Poll task status</td>
+          <td><code>200 {task}</code></td>
+      </tr>
+      <tr>
+          <td><code>DELETE</code></td>
+          <td><code>/v1/tasks/{task_id}</code></td>
+          <td>Cancel a running task</td>
+          <td><code>202 {task_id, status: cancelling}</code></td>
+      </tr>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/tasks</code></td>
+          <td>List tasks (paginated)</td>
+          <td><code>200 {tasks[], next_cursor}</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="62-plugin-endpoints">6.2 Plugin Endpoints</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Path</th>
+          <th>Description</th>
+          <th>Response</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/plugins</code></td>
+          <td>List available plugins for tenant</td>
+          <td><code>200 {plugins[]}</code></td>
+      </tr>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/plugins/{name}</code></td>
+          <td>Plugin detail + capabilities</td>
+          <td><code>200 {plugin}</code></td>
+      </tr>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/plugins/{name}/health</code></td>
+          <td>Plugin health status</td>
+          <td><code>200 {status, components}</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="63-auth-endpoints">6.3 Auth Endpoints</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Path</th>
+          <th>Description</th>
+          <th>Response</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>POST</code></td>
+          <td><code>/v1/api-keys</code></td>
+          <td>Create API key</td>
+          <td><code>201 {id, key (shown once), prefix}</code></td>
+      </tr>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/api-keys</code></td>
+          <td>List API keys for tenant</td>
+          <td><code>200 {keys[]}</code></td>
+      </tr>
+      <tr>
+          <td><code>DELETE</code></td>
+          <td><code>/v1/api-keys/{id}</code></td>
+          <td>Revoke API key</td>
+          <td><code>204</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="64-registration-endpoints-internal--plugin-pods-only">6.4 Registration Endpoints (internal — plugin pods only)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Path</th>
+          <th>Description</th>
+          <th>Response</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>POST</code></td>
+          <td><code>/internal/registry/register</code></td>
+          <td>Plugin self-registers on startup</td>
+          <td><code>201 {plugin_id}</code></td>
+      </tr>
+      <tr>
+          <td><code>DELETE</code></td>
+          <td><code>/internal/registry/{name}/{version}</code></td>
+          <td>Plugin deregisters on shutdown</td>
+          <td><code>204</code></td>
+      </tr>
+      <tr>
+          <td><code>POST</code></td>
+          <td><code>/internal/registry/{name}/health</code></td>
+          <td>Plugin reports health</td>
+          <td><code>200</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="65-webhook-endpoints">6.5 Webhook Endpoints</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>Path</th>
+          <th>Description</th>
+          <th>Response</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>POST</code></td>
+          <td><code>/v1/webhooks</code></td>
+          <td>Register a webhook endpoint</td>
+          <td><code>201 {webhook_id}</code></td>
+      </tr>
+      <tr>
+          <td><code>DELETE</code></td>
+          <td><code>/v1/webhooks/{webhook_id}</code></td>
+          <td>Remove a webhook</td>
+          <td><code>204</code></td>
+      </tr>
+      <tr>
+          <td><code>GET</code></td>
+          <td><code>/v1/webhooks/{webhook_id}/deliveries</code></td>
+          <td>View delivery attempts</td>
+          <td><code>200 {deliveries[]}</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="66-standard-error-format">6.6 Standard Error Format</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;error&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;code&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;PLUGIN_NOT_SUBSCRIBED&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;message&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Your plan does not include the code-review plugin.&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;upgrade_url&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;https://app.aau.io/billing/upgrade&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;task_id&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;task_abc123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;request_id&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;req_xyz789&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h3 id="67-error-code-taxonomy">6.7 Error Code Taxonomy</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Code</th>
+          <th>HTTP</th>
+          <th>Category</th>
+          <th>Retry?</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>PLUGIN_NOT_SUBSCRIBED</code></td>
+          <td>403</td>
+          <td>Permanent</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>QUOTA_EXCEEDED</code></td>
+          <td>429</td>
+          <td>Permanent</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>RATE_LIMITED</code></td>
+          <td>429</td>
+          <td>Transient</td>
+          <td>Yes (<code>Retry-After</code>)</td>
+      </tr>
+      <tr>
+          <td><code>PLUGIN_UNAVAILABLE</code></td>
+          <td>503</td>
+          <td>Transient</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td><code>PLUGIN_TIMEOUT</code></td>
+          <td>504</td>
+          <td>Transient</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td><code>CIRCULAR_DEPENDENCY</code></td>
+          <td>422</td>
+          <td>Permanent</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>INVALID_INPUT</code></td>
+          <td>422</td>
+          <td>Permanent</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>TOKEN_BUDGET_EXCEEDED</code></td>
+          <td>200 (partial)</td>
+          <td>Overage</td>
+          <td>Billed, no retry</td>
+      </tr>
+      <tr>
+          <td><code>CONTENT_POLICY_VIOLATION</code></td>
+          <td>422</td>
+          <td>Permanent</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><code>CONTEXT_WINDOW_OVERFLOW</code></td>
+          <td>200 (retry)</td>
+          <td>Transient</td>
+          <td>Yes (auto-truncated)</td>
+      </tr>
+      <tr>
+          <td><code>DEPENDENCY_FAILED</code></td>
+          <td>200 (partial)</td>
+          <td>Depends</td>
+          <td>Partial result returned</td>
+      </tr>
+      <tr>
+          <td><code>AUTH_INVALID</code></td>
+          <td>401</td>
+          <td>Permanent</td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="7-subscription--commercial-model">7. Subscription &amp; Commercial Model</h2>
+<h3 id="71-subscription-tiers">7.1 Subscription Tiers</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Plugins Included</th>
+          <th>Cross-Plugin Chaining</th>
+          <th>Custom Plugins</th>
+          <th>Pricing Model</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Starter</strong></td>
+          <td>1 plugin of choice</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Flat monthly per plugin</td>
+      </tr>
+      <tr>
+          <td><strong>Professional</strong></td>
+          <td>Up to 5 plugins</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>Bundle discount + per-execution overage</td>
+      </tr>
+      <tr>
+          <td><strong>Enterprise</strong></td>
+          <td>Unlimited</td>
+          <td>Yes</td>
+          <td>Yes (custom-built)</td>
+          <td>Annual contract, volume pricing</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Subscription enforcement position:</strong> The intent router checks the tenant&rsquo;s subscription immediately after scoring plugins — before building an execution plan.</p>
+<h3 id="72-plugin-marketplace">7.2 Plugin Marketplace</h3>
+<p>Third-party plugins are <strong>invite-only at launch</strong>. Marketplace infrastructure is a v2 deliverable.</p>
+<pre class="mermaid">graph LR
+    subgraph Marketplace[&#34;Plugin Marketplace (v1 — first-party only)&#34;]
+        CATALOG[&#34;Plugin Catalog&lt;br/&gt;&lt;i&gt;Browse &amp; search&lt;/i&gt;&#34;]
+        DETAIL[&#34;Product Page&lt;br/&gt;&lt;i&gt;Capabilities, use cases, pricing&lt;/i&gt;&#34;]
+        SANDBOX[&#34;Sandbox Mode&lt;br/&gt;&lt;i&gt;10 free executions&lt;/i&gt;&#34;]
+        SUB[&#34;Subscribe&lt;br/&gt;&lt;i&gt;Activate for tenant&lt;/i&gt;&#34;]
+        CATALOG --&gt; DETAIL --&gt; SANDBOX --&gt; SUB
+    end
+
+    subgraph Revenue[&#34;Revenue Streams&#34;]
+        FIRST[&#34;First-Party Plugins&#34;]
+        CUSTOM[&#34;Enterprise Custom Builds&#34;]
+    end
+
+    subgraph Billing[&#34;Billing Engine&#34;]
+        BASE[&#34;Base Subscription&#34;]
+        USAGE[&#34;Usage-Based Charges&#34;]
+        OVERAGE[&#34;Overage Billing&#34;]
+        BASE --&gt; USAGE --&gt; OVERAGE
+    end
+
+    Marketplace --&gt; Revenue
+    Revenue --&gt; Billing
+  </pre>
+
+<hr>
+<h2 id="8-sample-plugin-catalog">8. Sample Plugin Catalog</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Plugin</th>
+          <th>Domain</th>
+          <th>Capabilities</th>
+          <th>Agents Inside</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Code Review Pro</strong></td>
+          <td>Engineering</td>
+          <td>PR reviews, security scanning, style checks, refactor suggestions</td>
+          <td>Diff Analyzer, Security Scanner, Style Checker, Summary Writer</td>
+      </tr>
+      <tr>
+          <td><strong>Customer Support AI</strong></td>
+          <td>Support</td>
+          <td>Ticket classification, resolution, response drafting, escalation</td>
+          <td>Classifier, Resolution Engine, Response Drafter, Escalation Agent</td>
+      </tr>
+      <tr>
+          <td><strong>QA Transformer</strong></td>
+          <td>Quality</td>
+          <td>Test case generation, coverage validation, gap analysis</td>
+          <td>Code Analyzer, Test Generator, Coverage Validator</td>
+      </tr>
+      <tr>
+          <td><strong>Ticket Processor</strong></td>
+          <td>Operations</td>
+          <td>Triage, assignment, status tracking, SLA monitoring</td>
+          <td>Triager, Assigner, Status Tracker, SLA Monitor</td>
+      </tr>
+      <tr>
+          <td><strong>Doc Generator</strong></td>
+          <td>Content</td>
+          <td>PRDs, tech docs, reports from conversations</td>
+          <td>Extractor, Structurer, Writer, Reviewer</td>
+      </tr>
+      <tr>
+          <td><strong>Data Analyst</strong></td>
+          <td>Analytics</td>
+          <td>SQL generation, visualization, insight surfacing</td>
+          <td>Query Builder, Visualizer, Insight Generator, Narrator</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h1 id="part-2-low-level-design">PART 2: LOW-LEVEL DESIGN</h1>
+<hr>
+<h2 id="9-database-schema">9. Database Schema</h2>
+<h3 id="91-entity-relationship-diagram">9.1 Entity Relationship Diagram</h3>
+<pre class="mermaid">erDiagram
+    tenants {
+        uuid id PK
+        text name
+        text plan_tier
+        jsonb settings
+        timestamptz created_at
+    }
+    users {
+        uuid id PK
+        uuid tenant_id FK
+        text email
+        text role
+        timestamptz created_at
+    }
+    api_keys {
+        uuid id PK
+        uuid tenant_id FK
+        uuid user_id FK
+        text key_hash
+        text key_prefix
+        text[] scopes
+        timestamptz expires_at
+        timestamptz revoked_at
+    }
+    tenant_secrets {
+        uuid id PK
+        uuid tenant_id FK
+        text plugin_name
+        text secret_name
+        bytea secret_value
+        timestamptz created_at
+    }
+    plugins {
+        uuid id PK
+        text name
+        text category
+        text owner_type
+        text status
+        timestamptz deprecated_at
+        timestamptz sunset_at
+    }
+    plugin_versions {
+        uuid id PK
+        uuid plugin_id FK
+        text version
+        jsonb manifest
+        text envelope_version
+        text status
+        timestamptz registered_at
+    }
+    envelope_schemas {
+        uuid id PK
+        text version
+        jsonb input_schema
+        jsonb output_schema
+        timestamptz deprecated_at
+        timestamptz created_at
+    }
+    subscriptions {
+        uuid id PK
+        uuid tenant_id FK
+        uuid plugin_id FK
+        text tier
+        int quota_limit
+        bool overage_enabled
+        timestamptz started_at
+        timestamptz ended_at
+    }
+    tenant_plugin_config {
+        uuid id PK
+        uuid tenant_id FK
+        uuid plugin_id FK
+        jsonb config
+        timestamptz updated_at
+    }
+    tasks {
+        uuid id PK
+        uuid tenant_id FK
+        uuid user_id FK
+        text plugin_name
+        text status
+        jsonb input
+        jsonb result
+        int tokens_used
+        numeric cost_estimate
+        text routing_method
+        timestamptz created_at
+        timestamptz completed_at
+    }
+    webhooks {
+        uuid id PK
+        uuid tenant_id FK
+        text url
+        text secret_hash
+        text[] events
+        bool active
+    }
+    execution_events {
+        uuid id PK
+        uuid tenant_id FK
+        text plugin_name
+        uuid task_id FK
+        text status
+        int tokens_used
+        int latency_ms
+        numeric cost_estimate
+        text routing_method
+        bool billed
+        timestamptz timestamp
+    }
+    org_knowledge_chunks {
+        uuid id PK
+        uuid tenant_id FK
+        text source_url
+        text content
+        vector embedding
+        jsonb metadata
+    }
+
+    tenants ||--o{ users : &#34;has&#34;
+    tenants ||--o{ api_keys : &#34;has&#34;
+    tenants ||--o{ subscriptions : &#34;has&#34;
+    tenants ||--o{ tenant_plugin_config : &#34;configures&#34;
+    tenants ||--o{ tasks : &#34;submits&#34;
+    tenants ||--o{ webhooks : &#34;registers&#34;
+    tenants ||--o{ execution_events : &#34;generates&#34;
+    tenants ||--o{ org_knowledge_chunks : &#34;owns&#34;
+    tenants ||--o{ tenant_secrets : &#34;stores&#34;
+    users ||--o{ api_keys : &#34;owns&#34;
+    users ||--o{ tasks : &#34;submits&#34;
+    plugins ||--o{ plugin_versions : &#34;has&#34;
+    plugins ||--o{ subscriptions : &#34;subscribed via&#34;
+    plugins ||--o{ tenant_plugin_config : &#34;configured by&#34;
+    tasks ||--o{ execution_events : &#34;produces&#34;
+  </pre>
+
+<h3 id="92-postgresql--full-ddl">9.2 PostgreSQL — Full DDL</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span>EXTENSION<span style="color:#fff"> </span><span style="color:#cf222e">IF</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">EXISTS</span><span style="color:#fff"> </span>vector<span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span>EXTENSION<span style="color:#fff"> </span><span style="color:#cf222e">IF</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">EXISTS</span><span style="color:#fff"> </span>pgcrypto<span style="color:#1f2328">;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Tenants and users
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>tenants<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">          </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>name<span style="color:#fff">        </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plan_tier<span style="color:#fff">   </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">CHECK</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>plan_tier<span style="color:#fff"> </span><span style="color:#cf222e">IN</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;starter&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;professional&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;enterprise&#39;</span><span style="color:#1f2328">)),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>settings<span style="color:#fff">    </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;{}&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">  </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>users<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">          </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">   </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>email<span style="color:#fff">       </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">UNIQUE</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">role</span><span style="color:#fff">        </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;member&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">  </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- API keys — SHA-256 hashed, not bcrypt
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>api_keys<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">           </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">    </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>user_id<span style="color:#fff">      </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>users<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">   </span><span style="color:#57606a">-- NULL = service account
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>key_hash<span style="color:#fff">     </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">UNIQUE</span><span style="color:#1f2328">,</span><span style="color:#fff">         </span><span style="color:#57606a">-- SHA-256(raw_key), hex-encoded
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>key_prefix<span style="color:#fff">   </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">               </span><span style="color:#57606a">-- first 8 chars of random part for lookup
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>scopes<span style="color:#fff">       </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">[]</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;{}&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>description<span style="color:#fff">  </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>last_used_at<span style="color:#fff"> </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>expires_at<span style="color:#fff">   </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>revoked_at<span style="color:#fff">   </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">   </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Tenant-owned secrets: AES-256 via pgcrypto, replaces Vault for v1
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Platform encryption key stored in Kubernetes Secret, injected as env var ENCRYPT_KEY
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>tenant_secrets<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">           </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">    </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_name<span style="color:#fff">  </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>secret_name<span style="color:#fff">  </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">               </span><span style="color:#57606a">-- e.g. &#34;github_token&#34;, &#34;jira_api_key&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>secret_value<span style="color:#fff"> </span>BYTEA<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">              </span><span style="color:#57606a">-- pgp_sym_encrypt(value, ENCRYPT_KEY)
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">   </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">UNIQUE</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>tenant_id<span style="color:#1f2328">,</span><span style="color:#fff"> </span>plugin_name<span style="color:#1f2328">,</span><span style="color:#fff"> </span>secret_name<span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Helper functions for encrypt/decrypt
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- encrypt: SELECT pgp_sym_encrypt(&#39;value&#39;, current_setting(&#39;app.encrypt_key&#39;))
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- decrypt: SELECT pgp_sym_decrypt(secret_value, current_setting(&#39;app.encrypt_key&#39;))
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Plugin registry (durable source of truth — Redis is the cache)
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>plugins<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">            </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>name<span style="color:#fff">          </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">UNIQUE</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>category<span style="color:#fff">      </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>owner_type<span style="color:#fff">    </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">CHECK</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>owner_type<span style="color:#fff"> </span><span style="color:#cf222e">IN</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;first_party&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;enterprise_custom&#39;</span><span style="color:#1f2328">)),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>status<span style="color:#fff">        </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;active&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                      </span><span style="color:#cf222e">CHECK</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>status<span style="color:#fff"> </span><span style="color:#cf222e">IN</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;active&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;deprecated&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;sunset&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;retired&#39;</span><span style="color:#1f2328">)),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>deprecated_at<span style="color:#fff"> </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>sunset_at<span style="color:#fff">     </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">    </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>plugin_versions<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">               </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_id<span style="color:#fff">        </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>plugins<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">version</span><span style="color:#fff">          </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>manifest<span style="color:#fff">         </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>envelope_version<span style="color:#fff"> </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;1.0&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>status<span style="color:#fff">           </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;active&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>registered_at<span style="color:#fff">    </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">UNIQUE</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>plugin_id<span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">version</span><span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Envelope schema registry — a table, not a service
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Cached in-process by orchestrator on startup; refreshed on NOTIFY envelope_schemas
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>envelope_schemas<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">             </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">version</span><span style="color:#fff">        </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">UNIQUE</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>input_schema<span style="color:#fff">   </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>output_schema<span style="color:#fff">  </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>deprecated_at<span style="color:#fff">  </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">     </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Subscriptions
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>subscriptions<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">              </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">       </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_id<span style="color:#fff">       </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>plugins<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tier<span style="color:#fff">            </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>quota_limit<span style="color:#fff">     </span><span style="color:#6639ba">INTEGER</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>overage_enabled<span style="color:#fff"> </span><span style="color:#6639ba">BOOLEAN</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#cf222e">false</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>started_at<span style="color:#fff">      </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>ended_at<span style="color:#fff">        </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">UNIQUE</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>tenant_id<span style="color:#1f2328">,</span><span style="color:#fff"> </span>plugin_id<span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Tenant-specific plugin config
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>tenant_plugin_config<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">         </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">  </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_id<span style="color:#fff">  </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>plugins<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>config<span style="color:#fff">     </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;{}&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>updated_at<span style="color:#fff"> </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">UNIQUE</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>tenant_id<span style="color:#1f2328">,</span><span style="color:#fff"> </span>plugin_id<span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Task tracking
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>tasks<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">             </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">      </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>user_id<span style="color:#fff">        </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>users<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_name<span style="color:#fff">    </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>status<span style="color:#fff">         </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;pending&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                       </span><span style="color:#cf222e">CHECK</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>status<span style="color:#fff"> </span><span style="color:#cf222e">IN</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">                           </span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;pending&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;queued&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;running&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;success&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;partial&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;failed&#39;</span><span style="color:#1f2328">,</span><span style="color:#0a3069">&#39;cancelled&#39;</span><span style="color:#1f2328">)),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">input</span><span style="color:#fff">          </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">result</span><span style="color:#fff">         </span>JSONB<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>error<span style="color:#fff">          </span>JSONB<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tokens_used<span style="color:#fff">    </span><span style="color:#6639ba">INTEGER</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>cost_estimate<span style="color:#fff">  </span><span style="color:#6639ba">NUMERIC</span><span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span><span style="color:#0550ae">6</span><span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>routing_method<span style="color:#fff"> </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">     </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>started_at<span style="color:#fff">     </span>TIMESTAMPTZ<span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>completed_at<span style="color:#fff">   </span>TIMESTAMPTZ<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Webhooks
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>webhooks<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">          </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">   </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>url<span style="color:#fff">         </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>secret_hash<span style="color:#fff"> </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>events<span style="color:#fff">      </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">[]</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;{task.completed}&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>active<span style="color:#fff">      </span><span style="color:#6639ba">BOOLEAN</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#cf222e">true</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff">  </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- Metering (v1 in PostgreSQL; v2 upgrade to ClickHouse at billing scale)
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>execution_events<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">               </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">        </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_name<span style="color:#fff">      </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>plugin_version<span style="color:#fff">   </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>task_id<span style="color:#fff">          </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>status<span style="color:#fff">           </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tokens_used<span style="color:#fff">      </span><span style="color:#6639ba">INTEGER</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>latency_ms<span style="color:#fff">       </span><span style="color:#6639ba">INTEGER</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>cost_estimate<span style="color:#fff">    </span><span style="color:#6639ba">NUMERIC</span><span style="color:#1f2328">(</span><span style="color:#0550ae">10</span><span style="color:#1f2328">,</span><span style="color:#0550ae">6</span><span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>routing_method<span style="color:#fff">   </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>envelope_version<span style="color:#fff"> </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>billed<span style="color:#fff">           </span><span style="color:#6639ba">BOOLEAN</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#cf222e">false</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">timestamp</span><span style="color:#fff">        </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">INDEX</span><span style="color:#fff"> </span><span style="color:#cf222e">ON</span><span style="color:#fff"> </span>execution_events<span style="color:#fff"> </span><span style="color:#1f2328">(</span>tenant_id<span style="color:#1f2328">,</span><span style="color:#fff"> </span><span style="color:#cf222e">timestamp</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">INDEX</span><span style="color:#fff"> </span><span style="color:#cf222e">ON</span><span style="color:#fff"> </span>execution_events<span style="color:#fff"> </span><span style="color:#1f2328">(</span>task_id<span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- pgvector: org knowledge RAG
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">TABLE</span><span style="color:#fff"> </span>org_knowledge_chunks<span style="color:#fff"> </span><span style="color:#1f2328">(</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>id<span style="color:#fff">         </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">PRIMARY</span><span style="color:#fff"> </span><span style="color:#cf222e">KEY</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>gen_random_uuid<span style="color:#1f2328">(),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>tenant_id<span style="color:#fff">  </span>UUID<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">REFERENCES</span><span style="color:#fff"> </span>tenants<span style="color:#1f2328">(</span>id<span style="color:#1f2328">),</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>source_url<span style="color:#fff"> </span><span style="color:#6639ba">TEXT</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>content<span style="color:#fff">    </span><span style="color:#6639ba">TEXT</span><span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>embedding<span style="color:#fff">  </span>vector<span style="color:#1f2328">(</span><span style="color:#0550ae">1536</span><span style="color:#1f2328">),</span><span style="color:#fff">              </span><span style="color:#57606a">-- text-embedding-3-small output dimension
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>metadata<span style="color:#fff">   </span>JSONB<span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;{}&#39;</span><span style="color:#1f2328">,</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>created_at<span style="color:#fff"> </span>TIMESTAMPTZ<span style="color:#fff"> </span><span style="color:#cf222e">NOT</span><span style="color:#fff"> </span><span style="color:#cf222e">NULL</span><span style="color:#fff"> </span><span style="color:#cf222e">DEFAULT</span><span style="color:#fff"> </span>now<span style="color:#1f2328">()</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">-- HNSW index: no minimum row requirement, no reindexing needed, better recall at v1 scale
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">INDEX</span><span style="color:#fff"> </span><span style="color:#cf222e">ON</span><span style="color:#fff"> </span>org_knowledge_chunks<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">USING</span><span style="color:#fff"> </span>hnsw<span style="color:#fff"> </span><span style="color:#1f2328">(</span>embedding<span style="color:#fff"> </span>vector_cosine_ops<span style="color:#1f2328">)</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#cf222e">WITH</span><span style="color:#fff"> </span><span style="color:#1f2328">(</span>m<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0550ae">16</span><span style="color:#1f2328">,</span><span style="color:#fff"> </span>ef_construction<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0550ae">64</span><span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#cf222e">CREATE</span><span style="color:#fff"> </span><span style="color:#cf222e">INDEX</span><span style="color:#fff"> </span><span style="color:#cf222e">ON</span><span style="color:#fff"> </span>org_knowledge_chunks<span style="color:#fff"> </span><span style="color:#1f2328">(</span>tenant_id<span style="color:#1f2328">);</span><span style="color:#fff">
+</span></span></span></code></pre></div><p><strong>Why HNSW over IVFFlat:</strong> IVFFlat requires <code>3 × lists</code> minimum rows (300 rows with <code>lists=100</code>) to produce useful results and needs periodic <code>REINDEX</code> as new rows are inserted. HNSW has no minimum, never needs reindexing, and has better recall at small-to-medium scale. Switch to IVFFlat only if memory pressure becomes a concern at large scale.</p>
+<hr>
+<h2 id="10-plugin-architecture--deep-dive">10. Plugin Architecture — Deep Dive</h2>
+<h3 id="101-plugin-internal-structure">10.1 Plugin Internal Structure</h3>
+<pre class="mermaid">graph TB
+    subgraph PluginShell[&#34;Plugin Shell (Visible to Orchestrator)&#34;]
+        META[&#34;Identity &amp; Manifest&lt;br/&gt;&lt;i&gt;name, version, capabilities, schema&lt;/i&gt;&#34;]
+        CONFIG[&#34;Configuration&lt;br/&gt;&lt;i&gt;model, limits, token_budget, required_secret_names&lt;/i&gt;&#34;]
+        LIFECYCLE[&#34;Lifecycle Hooks&lt;br/&gt;&lt;i&gt;initialize · health_check · shutdown&lt;/i&gt;&#34;]
+        EXECUTE[&#34;execute(InputEnvelope) → OutputEnvelope&#34;]
+    end
+
+    subgraph PluginInternals[&#34;Plugin Internals — LangGraph StateGraph&#34;]
+        subgraph AgentGraph[&#34;StateGraph&#34;]
+            A1[&#34;Node: Task Decomposition&#34;]
+            A2[&#34;Node: Domain Processing&#34;]
+            A3[&#34;Node: Validation&#34;]
+            A4[&#34;Node: Synthesis &amp; Output&#34;]
+            A1 --&gt;|&#34;GraphState&#34;| A2
+            A2 --&gt;|&#34;GraphState&#34;| A3
+            A3 --&gt;|&#34;GraphState&#34;| A4
+        end
+
+        subgraph Budget[&#34;Token Budget Tracker (SDK)&#34;]
+            TB1[&#34;Track tokens per LLM call&#34;]
+            TB2[&#34;Emit warning at 80%&#34;]
+            TB3[&#34;Log overage at 100%+&#34;]
+        end
+
+        subgraph Tools[&#34;Tools&#34;]
+            T1[&#34;External APIs&lt;br/&gt;&lt;i&gt;credentials from InputEnvelope.context.secrets&lt;/i&gt;&#34;]
+            T2[&#34;PostgreSQL queries (tenant-scoped)&#34;]
+            T3[&#34;MinIO artifact store&#34;]
+            T4[&#34;LLM calls (Anthropic SDK)&#34;]
+        end
+
+        AgentGraph --&gt; Budget
+        AgentGraph --&gt; Tools
+    end
+
+    EXECUTE --&gt; PluginInternals
+    PluginInternals --&gt;|&#34;OutputEnvelope (SDK-validated)&#34;| EXECUTE
+  </pre>
+
+<p><strong>How plugins access credentials:</strong> The orchestrator resolves <code>required_secret_names</code> from <code>tenant_secrets</code> (decrypting with pgcrypto) and injects the resolved key-value pairs into <code>InputEnvelope.context.secrets</code> before calling <code>execute()</code>. Plugins never call the secrets store directly — the orchestrator is the only component that decrypts.</p>
+<h3 id="102-plugin-interface-contract">10.2 Plugin Interface Contract</h3>
+<p><strong>Identity &amp; Manifest:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>name</code></td>
+          <td>string</td>
+          <td>Unique identifier (e.g., <code>&quot;code-review&quot;</code>)</td>
+      </tr>
+      <tr>
+          <td><code>version</code></td>
+          <td>string</td>
+          <td>Semantic version</td>
+      </tr>
+      <tr>
+          <td><code>description</code></td>
+          <td>string</td>
+          <td>Human-readable summary</td>
+      </tr>
+      <tr>
+          <td><code>capabilities</code></td>
+          <td>list[string]</td>
+          <td>What it can do — embedded for routing</td>
+      </tr>
+      <tr>
+          <td><code>category</code></td>
+          <td>string</td>
+          <td>Domain tag</td>
+      </tr>
+      <tr>
+          <td><code>dependencies</code></td>
+          <td>list[PluginDep]</td>
+          <td><code>{name, version_constraint}</code></td>
+      </tr>
+      <tr>
+          <td><code>input_schema</code></td>
+          <td>dict</td>
+          <td>JSON schema for expected input</td>
+      </tr>
+      <tr>
+          <td><code>envelope_version</code></td>
+          <td>string</td>
+          <td>Which envelope version this plugin speaks</td>
+      </tr>
+      <tr>
+          <td><code>estimated_latency</code></td>
+          <td>string</td>
+          <td><code>fast</code> / <code>medium</code> / <code>slow</code></td>
+      </tr>
+      <tr>
+          <td><code>required_scopes</code></td>
+          <td>list[string]</td>
+          <td>Declared capability scopes</td>
+      </tr>
+      <tr>
+          <td><code>required_secret_names</code></td>
+          <td>list[string]</td>
+          <td>Secret names needed from <code>tenant_secrets</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Configuration:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>model</code></td>
+          <td>string</td>
+          <td>LLM override (default: <code>claude-sonnet-4-6</code>)</td>
+      </tr>
+      <tr>
+          <td><code>temperature</code></td>
+          <td>float</td>
+          <td>LLM temperature</td>
+      </tr>
+      <tr>
+          <td><code>max_retries</code></td>
+          <td>int</td>
+          <td>Retry count before failing</td>
+      </tr>
+      <tr>
+          <td><code>timeout_seconds</code></td>
+          <td>int</td>
+          <td>Max execution time</td>
+      </tr>
+      <tr>
+          <td><code>token_budget</code></td>
+          <td>int</td>
+          <td>Max tokens per execution</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Lifecycle Methods:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>When Called</th>
+          <th>Returns</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>initialize()</code></td>
+          <td>Once at registration</td>
+          <td>Sets up connections, compiles LangGraph</td>
+      </tr>
+      <tr>
+          <td><code>health_check()</code></td>
+          <td>Every 30s</td>
+          <td><code>HealthStatus</code></td>
+      </tr>
+      <tr>
+          <td><code>execute(input)</code></td>
+          <td>Per request</td>
+          <td><code>OutputEnvelope</code></td>
+      </tr>
+      <tr>
+          <td><code>shutdown()</code></td>
+          <td>On deregistration</td>
+          <td>Cleans up connections</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Health check returns structured status:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#0550ae">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">HealthStatus</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    status<span style="color:#1f2328">:</span> Literal<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;healthy&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;degraded&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;unhealthy&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    components<span style="color:#1f2328">:</span> <span style="color:#6639ba">dict</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">]</span>  <span style="color:#57606a"># {&#34;llm&#34;: &#34;healthy&#34;, &#34;github_api&#34;: &#34;degraded&#34;}</span>
+</span></span><span style="display:flex;"><span>    message<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span> <span style="color:#0550ae">|</span> <span style="color:#cf222e">None</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">None</span>
+</span></span></code></pre></div><p>Three consecutive <code>unhealthy</code> responses trip the circuit breaker.</p>
+<hr>
+<h2 id="11-standardized-envelopes">11. Standardized Envelopes</h2>
+<h3 id="111-inputenvelope">11.1 InputEnvelope</h3>
+<pre class="mermaid">classDiagram
+    class InputEnvelope {
+        +string task_id
+        +string task_description
+        +string envelope_version
+        +Context context
+        +Metadata metadata
+        +list~any~ attachments
+    }
+
+    class Context {
+        +string user_id
+        +string tenant_id
+        +dict user_profile
+        +list~dict~ conversation_history
+        +list~dict~ org_knowledge_chunks
+        +dict plugin_config
+        +dict secrets
+    }
+
+    class Metadata {
+        +string source_channel
+        +string priority
+        +string source_plugin
+        +string correlation_id
+        +datetime timestamp
+    }
+
+    InputEnvelope --&gt; Context : context
+    InputEnvelope --&gt; Metadata : metadata
+  </pre>
+
+<table>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>task_id</code></td>
+          <td>string</td>
+          <td>Unique ID for tracking</td>
+      </tr>
+      <tr>
+          <td><code>task_description</code></td>
+          <td>string</td>
+          <td>Natural language task</td>
+      </tr>
+      <tr>
+          <td><code>envelope_version</code></td>
+          <td>string</td>
+          <td>Schema version (e.g., <code>&quot;1.0&quot;</code>)</td>
+      </tr>
+      <tr>
+          <td><code>context.conversation_history</code></td>
+          <td>list</td>
+          <td>Last 20 turns (sliding window)</td>
+      </tr>
+      <tr>
+          <td><code>context.org_knowledge_chunks</code></td>
+          <td>list</td>
+          <td>RAG-retrieved chunks (top-k, tenant-scoped)</td>
+      </tr>
+      <tr>
+          <td><code>context.plugin_config</code></td>
+          <td>dict</td>
+          <td>Tenant config from <code>tenant_plugin_config</code></td>
+      </tr>
+      <tr>
+          <td><code>context.secrets</code></td>
+          <td>dict</td>
+          <td>Decrypted secrets from <code>tenant_secrets</code> (orchestrator-resolved, never stored)</td>
+      </tr>
+      <tr>
+          <td><code>metadata.correlation_id</code></td>
+          <td>string</td>
+          <td>End-to-end trace ID</td>
+      </tr>
+      <tr>
+          <td><code>attachments</code></td>
+          <td>list[any]</td>
+          <td>Files, code snippets, URLs, PRs</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="112-outputenvelope">11.2 OutputEnvelope</h3>
+<pre class="mermaid">classDiagram
+    class OutputEnvelope {
+        +string task_id
+        +string envelope_version
+        +string status
+        +string result
+        +list~any~ artifacts
+        +float confidence
+        +string|null error
+        +string|null error_code
+        +list~string~ next_steps
+        +string|null deprecation_warning
+        +ExecutionMeta execution_meta
+    }
+
+    class ExecutionMeta {
+        +int tokens_used
+        +float latency_seconds
+        +int agents_invoked
+        +string model_used
+        +float cost_estimate
+        +string routing_method
+        +bool budget_exceeded
+    }
+
+    OutputEnvelope --&gt; ExecutionMeta : execution_meta
+  </pre>
+
+<p><strong>OutputEnvelope validation:</strong> The SDK validates every <code>OutputEnvelope</code> against the in-process schema cache (loaded from the <code>envelope_schemas</code> table) before returning to the orchestrator.</p>
+<hr>
+<h2 id="12-envelope-versioning">12. Envelope Versioning</h2>
+<h3 id="121-versioning-rules">12.1 Versioning Rules</h3>
+<ul>
+<li><strong>Additive changes</strong> (new optional fields): minor bump. Old plugins ignore unknown fields.</li>
+<li><strong>Breaking changes</strong> (removal, type change, rename): major bump. Orchestrator runs a version adapter.</li>
+<li><strong>Schema storage:</strong> <code>envelope_schemas</code> table in PostgreSQL. Orchestrator loads schemas into an in-process dict at startup and listens for <code>NOTIFY envelope_schemas</code> to refresh on updates — no schema registry service, no extra network calls.</li>
+<li><strong>Multi-version support:</strong> Current + one prior major version. Plugins on older versions receive <code>deprecation_warning</code> in <code>execution_meta</code>.</li>
+</ul>
+<h3 id="122-adapter-flow">12.2 Adapter Flow</h3>
+<pre class="mermaid">flowchart LR
+    ORCH[&#34;Orchestrator&lt;br/&gt;&lt;i&gt;speaks v2&lt;/i&gt;&#34;]
+    ADAPT[&#34;Version Adapter&lt;br/&gt;&lt;i&gt;in-process dict lookup&lt;/i&gt;&#34;]
+    PLUGIN[&#34;Plugin&lt;br/&gt;&lt;i&gt;speaks v1&lt;/i&gt;&#34;]
+
+    ORCH --&gt;|&#34;v2 InputEnvelope&#34;| ADAPT
+    ADAPT --&gt;|&#34;v1 InputEnvelope&#34;| PLUGIN
+    PLUGIN --&gt;|&#34;v1 OutputEnvelope&#34;| ADAPT
+    ADAPT --&gt;|&#34;v2 OutputEnvelope&#34;| ORCH
+  </pre>
+
+<p>Plugin developers are notified 90 days before a major version is sunset.</p>
+<hr>
+<h2 id="13-plugin-registration--discovery">13. Plugin Registration &amp; Discovery</h2>
+<h3 id="131-plugin-deployment-models">13.1 Plugin Deployment Models</h3>
+<pre class="mermaid">flowchart TD
+    subgraph Dev[&#34;Local Development (Docker Compose)&#34;]
+        FILE[&#34;Plugin .py file&#34;] --&gt; WATCH[&#34;aau plugin dev&lt;br/&gt;&lt;i&gt;File watcher + hot-reload&lt;/i&gt;&#34;]
+        WATCH --&gt; STUB[&#34;Local app stub&lt;br/&gt;&lt;i&gt;Sends test InputEnvelopes, prints OutputEnvelopes&lt;/i&gt;&#34;]
+    end
+
+    subgraph Prod[&#34;Production (Kubernetes)&#34;]
+        IMAGE[&#34;Plugin Container Image&lt;br/&gt;&lt;i&gt;aau plugin publish → Zot OCI registry&lt;/i&gt;&#34;]
+        --&gt; DEPLOY[&#34;kubectl apply / Helm chart&#34;]
+        --&gt; STARTUP[&#34;Container starts, initialize() called&#34;]
+        --&gt; REGAPI[&#34;POST /internal/registry/register&lt;br/&gt;&lt;i&gt;{manifest, envelope_version, required_scopes}&lt;/i&gt;&#34;]
+        --&gt; VALIDATE{&#34;Contract check +&lt;br/&gt;scope allowlist +&lt;br/&gt;cosign signature verify&#34;}
+        VALIDATE --&gt;|&#34;Valid&#34;| PGWRITE[&#34;INSERT plugin_versions (PostgreSQL)&#34;]
+        VALIDATE --&gt;|&#34;Invalid&#34;| REJECT[&#34;400 — reject + log&#34;]
+        PGWRITE --&gt; HEALTH{&#34;health_check() passes?&#34;}
+        HEALTH --&gt;|&#34;Yes&#34;| REDISCACHE[&#34;SET registry:{name} in Redis&lt;br/&gt;PUBLISH registry.updated&#34;]
+        HEALTH --&gt;|&#34;No&#34;| BACKOFF[&#34;Log degraded + retry backoff&#34;]
+        REDISCACHE --&gt; READY[&#34;Plugin live in orchestrator&#34;]
+    end
+
+    subgraph Teardown[&#34;Plugin Removal&#34;]
+        SCALE[&#34;Scale to 0&#34;] --&gt; DRAIN[&#34;In-flight requests drain&lt;br/&gt;&lt;i&gt;grace = timeout_seconds&lt;/i&gt;&#34;]
+        DRAIN --&gt; DEREG[&#34;DELETE /internal/registry/{name}/{version}&#34;]
+        DEREG --&gt; PGMARK[&#34;UPDATE plugin_versions SET status=&#39;inactive&#39;&#34;]
+        PGMARK --&gt; REDINVAL[&#34;DEL registry:{name} + PUBLISH registry.removed&#34;]
+    end
+  </pre>
+
+<h3 id="132-registration-rules">13.2 Registration Rules</h3>
+<ul>
+<li><strong>Contract validation:</strong> <code>name</code>, <code>version</code>, <code>capabilities</code>, <code>required_scopes</code>, <code>execute()</code>. Fails fast with a clear error.</li>
+<li><strong>Scope enforcement:</strong> <code>required_scopes</code> validated against an allowlist at registration.</li>
+<li><strong>Health gating:</strong> Only healthy plugins enter the registry.</li>
+<li><strong>Registry durability:</strong> PostgreSQL is source of truth. Redis rebuilt from PostgreSQL on cache miss or restart.</li>
+</ul>
+<hr>
+<h2 id="14-orchestrator--deep-dive">14. Orchestrator — Deep Dive</h2>
+<h3 id="141-intent-routing-architecture">14.1 Intent Routing Architecture</h3>
+<p>The router uses <strong>two configurable thresholds</strong>: <code>CONFIDENCE_MIN</code> (below which asks for clarification or falls back to LLM) and <code>CHAIN_THRESHOLD</code> (above which routes directly; between the two, considers chaining). Both are environment config values with documented defaults.</p>
+<pre class="mermaid">flowchart TD
+    CMD[&#34;Incoming Command&#34;] --&gt; CACHE{&#34;Route cache hit?&lt;br/&gt;&lt;i&gt;Redis, TTL: 5 min&lt;/i&gt;&#34;}
+    CACHE --&gt;|&#34;Hit&#34;| CACHED[&#34;Use cached plugin route&#34;]
+    CACHE --&gt;|&#34;Miss&#34;| EMBED[&#34;Embed command&lt;br/&gt;&lt;i&gt;text-embedding-3-small&lt;/i&gt;&#34;]
+
+    EMBED --&gt; MATCH[&#34;Cosine similarity vs&lt;br/&gt;capability embeddings in Redis&#34;]
+    MATCH --&gt; EVAL{&#34;Score vs thresholds&lt;br/&gt;&lt;i&gt;CHAIN_THRESHOLD=0.75&lt;br/&gt;CONFIDENCE_MIN=0.50&lt;/i&gt;&#34;}
+
+    EVAL --&gt;|&#34;Score &gt; CHAIN_THRESHOLD&lt;br/&gt;single plugin&#34;| DIRECT[&#34;Route directly&#34;]
+    EVAL --&gt;|&#34;Score &gt; CHAIN_THRESHOLD&lt;br/&gt;multiple plugins&#34;| DEPCHECK{&#34;Circular dependency?&lt;br/&gt;&lt;i&gt;DFS check&lt;/i&gt;&#34;}
+    EVAL --&gt;|&#34;CONFIDENCE_MIN &lt; Score ≤ CHAIN_THRESHOLD&#34;| LLM[&#34;LLM fallback&lt;br/&gt;&lt;i&gt;claude-sonnet-4-6&lt;/i&gt;&#34;]
+    EVAL --&gt;|&#34;Score &lt; CONFIDENCE_MIN&#34;| NOPE[&#34;No match → suggest closest&#34;]
+    EVAL --&gt;|&#34;Embed service down&#34;| KEYWORD[&#34;Keyword fallback&lt;br/&gt;&lt;i&gt;substring match on capability strings&lt;/i&gt;&#34;]
+
+    LLM --&gt; EVAL2{&#34;LLM confident?&#34;}
+    EVAL2 --&gt;|&#34;Yes&#34;| DIRECT
+    EVAL2 --&gt;|&#34;Ambiguous&#34;| CLARIFY[&#34;Ask user to clarify&#34;]
+    EVAL2 --&gt;|&#34;No&#34;| NOPE
+
+    DEPCHECK --&gt;|&#34;Cycle found&#34;| ERROR[&#34;422 CIRCULAR_DEPENDENCY&lt;br/&gt;&lt;i&gt;cycle path in error message&lt;/i&gt;&#34;]
+    DEPCHECK --&gt;|&#34;No cycle&#34;| CHAIN[&#34;Build execution chain (topological sort)&#34;]
+
+    DIRECT --&gt; SUBCHECK{&#34;Subscription check&#34;}
+    CHAIN --&gt; PLAN[&#34;Build execution plan&#34;]
+    PLAN --&gt; SUBCHECK
+
+    SUBCHECK --&gt;|&#34;Authorized&#34;| ENVELOPE[&#34;Build InputEnvelope&lt;br/&gt;&lt;i&gt;inject context + secrets&lt;/i&gt;&#34;]
+    SUBCHECK --&gt;|&#34;Not subscribed&#34;| UPSELL[&#34;403 PLUGIN_NOT_SUBSCRIBED&#34;]
+    SUBCHECK --&gt;|&#34;Quota exceeded&#34;| QUOTA[&#34;429 QUOTA_EXCEEDED&#34;]
+
+    ENVELOPE --&gt; EXEC[&#34;Execute plugin(s)&#34;]
+    EXEC --&gt; RESULT[&#34;Return OutputEnvelope&#34;]
+    RESULT --&gt; WRITECACHE[&#34;Write to route cache (Redis)&#34;]
+    CACHED --&gt; SUBCHECK
+  </pre>
+
+<p><strong>Threshold calibration:</strong> <code>CHAIN_THRESHOLD</code> and <code>CONFIDENCE_MIN</code> are set in environment config. Calibrate by running a labeled command corpus through the router and adjusting to maximise precision while keeping recall above 95%. Two values are easier to tune and reason about than three.</p>
+<p><strong>LLM routing cost target:</strong> &lt; 5% of requests. Tracked via <code>routing_method</code> in every <code>execution_meta</code>. Grafana alert fires if LLM fallback rate exceeds 10%.</p>
+<h3 id="142-multi-plugin-task-sequencing">14.2 Multi-Plugin Task Sequencing</h3>
+<pre class="mermaid">flowchart LR
+    subgraph Example[&#34;Example: Review PR + create tickets for each issue&#34;]
+        direction TB
+        CMD2[&#34;Command&#34;] --&gt; DECOMPOSE[&#34;Task Sequencer&#34;]
+        DECOMPOSE --&gt; DEPCHECK2[&#34;DFS dependency check&#34;]
+        DEPCHECK2 --&gt; STEP1[&#34;Step 1: Code Review Pro&lt;br/&gt;&lt;i&gt;find issues&lt;/i&gt;&#34;]
+        STEP1 --&gt;|&#34;OutputEnvelope.artifacts&#34;| TRANSFORM[&#34;Transform&lt;br/&gt;&lt;i&gt;map issues to ticket format&lt;/i&gt;&#34;]
+        TRANSFORM --&gt; STEP2[&#34;Step 2: Ticket Processor&lt;br/&gt;&lt;i&gt;create tickets&lt;/i&gt;&#34;]
+        STEP2 --&gt;|&#34;OutputEnvelope&#34;| MERGE[&#34;Merge Results&#34;]
+        MERGE --&gt; FINAL[&#34;Final OutputEnvelope&#34;]
+    end
+  </pre>
+
+<p><strong>Sequencing rules:</strong></p>
+<ul>
+<li><strong>Serial chaining:</strong> Output of plugin A feeds plugin B</li>
+<li><strong>Parallel execution:</strong> Independent plugins run concurrently; results merged</li>
+<li><strong>Conditional branching:</strong> Plugin A output determines next plugin</li>
+<li><strong>Early termination:</strong> Failed step → <code>status: partial</code> with what completed</li>
+</ul>
+<h3 id="143-shared-context-store">14.3 Shared Context Store</h3>
+<h4 id="context-assembly-pipeline">Context Assembly Pipeline</h4>
+<pre class="mermaid">flowchart TD
+    REQ[&#34;Request (tenant_id, user_id, task, plugin_name)&#34;] --&gt; PARALLEL[&#34;Parallel lookups&#34;]
+
+    PARALLEL --&gt; HIST[&#34;Conversation history&lt;br/&gt;&lt;i&gt;Redis: ctx:{tenant_id}:{user_id}:history (last 20)&lt;/i&gt;&#34;]
+    PARALLEL --&gt; PROF[&#34;User profile&lt;br/&gt;&lt;i&gt;Redis cache → PostgreSQL users&lt;/i&gt;&#34;]
+    PARALLEL --&gt; CFG[&#34;Plugin config&lt;br/&gt;&lt;i&gt;Redis cache → tenant_plugin_config&lt;/i&gt;&#34;]
+    PARALLEL --&gt; RAG[&#34;RAG retrieval&lt;br/&gt;&lt;i&gt;pgvector cosine search, top-k chunks&lt;/i&gt;&#34;]
+    PARALLEL --&gt; SECRETS[&#34;Decrypt secrets&lt;br/&gt;&lt;i&gt;SELECT + pgp_sym_decrypt from tenant_secrets&lt;/i&gt;&#34;]
+
+    HIST --&gt; ASSEMBLE[&#34;Context Assembler&#34;]
+    PROF --&gt; ASSEMBLE
+    CFG --&gt; ASSEMBLE
+    RAG --&gt; ASSEMBLE
+    SECRETS --&gt; ASSEMBLE
+
+    ASSEMBLE --&gt; ENVELOPE3[&#34;InputEnvelope.context&lt;br/&gt;&lt;i&gt;history, profile, plugin_config,&lt;br/&gt;org_knowledge_chunks, secrets&lt;/i&gt;&#34;]
+  </pre>
+
+<h4 id="rag-pipeline--org-knowledge-indexing">RAG Pipeline — Org Knowledge Indexing</h4>
+<pre class="mermaid">flowchart TD
+    UPLOAD[&#34;POST /v1/knowledge {content, source_url}&#34;]
+    --&gt; CHUNK[&#34;Chunker&lt;br/&gt;&lt;i&gt;~512-token chunks with overlap&lt;/i&gt;&#34;]
+    --&gt; EMBED2[&#34;Embed each chunk&lt;br/&gt;&lt;i&gt;text-embedding-3-small → vector(1536)&lt;/i&gt;&#34;]
+    --&gt; STORE2[&#34;INSERT org_knowledge_chunks&lt;br/&gt;&lt;i&gt;content, embedding, metadata, tenant_id&lt;/i&gt;&#34;]
+    --&gt; READY2[&#34;Available for HNSW retrieval&#34;]
+
+    CHUNK --&gt; META[&#34;Extract metadata&lt;br/&gt;&lt;i&gt;source_url, section headers&lt;/i&gt;&#34;]
+    META --&gt; STORE2
+  </pre>
+
+<h4 id="rag-pipeline--retrieval-at-request-time">RAG Pipeline — Retrieval at Request Time</h4>
+<pre class="mermaid">flowchart TD
+    TASK[&#34;task_description&#34;]
+    --&gt; EMBED3[&#34;Embed task (text-embedding-3-small)&#34;]
+    --&gt; SEARCH[&#34;pgvector HNSW cosine search&lt;br/&gt;&lt;i&gt;WHERE tenant_id = $1 ORDER BY embedding &amp;lt;=&amp;gt; $2 LIMIT 8&lt;/i&gt;&#34;]
+    --&gt; FILTER[&#34;Filter: cosine similarity &gt; 0.7&#34;]
+    --&gt; WRAP[&#34;Wrap in system prompt boundary&lt;br/&gt;&lt;i&gt;prevents prompt injection from org docs&lt;/i&gt;&#34;]
+    --&gt; INJECT[&#34;Inject as context.org_knowledge_chunks&lt;br/&gt;&lt;i&gt;max 2000 tokens total&lt;/i&gt;&#34;]
+  </pre>
+
+<h4 id="async-history-summarisation">Async History Summarisation</h4>
+<pre class="mermaid">sequenceDiagram
+    participant Agent as Any Agent
+    participant Redis
+    participant Stream as Redis Stream
+    participant Worker as Summarisation Worker
+    participant LLM as claude-sonnet-4-6
+
+    Agent-&gt;&gt;Redis: LPUSH ctx:tenant:user:history {new_turn}
+    Redis-&gt;&gt;Redis: LLEN ctx:tenant:user:history
+    alt Length &gt; 20
+        Redis-&gt;&gt;Stream: XADD stream:summarization {tenant_id, user_id}
+    end
+
+    Note over Agent: Request continues unblocked
+
+    Stream-&gt;&gt;Worker: XREADGROUP (consumer group)
+    Worker-&gt;&gt;Redis: LRANGE history (turns 21..end)
+    Redis--&gt;&gt;Worker: Older turns
+    Worker-&gt;&gt;LLM: Summarise older turns
+    LLM--&gt;&gt;Worker: Compressed summary
+    Worker-&gt;&gt;Redis: SET ctx:tenant:user:summary {text}
+    Worker-&gt;&gt;Redis: LTRIM ctx:tenant:user:history 0 19
+    Worker-&gt;&gt;Stream: XACK (mark message processed)
+  </pre>
+
+<h3 id="144-async-task-delivery-redis-streams">14.4 Async Task Delivery (Redis Streams)</h3>
+<pre class="mermaid">sequenceDiagram
+    participant User
+    participant App
+    participant Stream as Redis Stream
+    participant Worker as Plugin Worker
+    participant DB as PostgreSQL
+    participant Notify as Webhook Delivery Worker
+    participant Webhook as Customer Webhook URL
+
+    User-&gt;&gt;App: POST /v1/tasks {command}
+    App-&gt;&gt;DB: INSERT tasks (status=queued)
+    App-&gt;&gt;Stream: XADD stream:tasks:{plugin_name} {task_id, payload}
+    App--&gt;&gt;User: 202 Accepted {task_id}
+
+    Stream-&gt;&gt;Worker: XREADGROUP (consumer group)
+    Worker-&gt;&gt;DB: UPDATE tasks SET status=running
+    Worker-&gt;&gt;Worker: Run LangGraph graph
+    Worker-&gt;&gt;DB: UPDATE tasks SET status=success/failed, result={...}
+    Worker-&gt;&gt;Stream: XADD stream:webhooks {task_id, tenant_id}
+    Worker-&gt;&gt;Stream: XACK tasks stream
+
+    Note over User: Poll for result
+    User-&gt;&gt;App: GET /v1/tasks/{task_id}
+    App-&gt;&gt;DB: SELECT tasks WHERE id=task_id
+    DB--&gt;&gt;App: {status, result}
+    App--&gt;&gt;User: 200 {status, result}
+
+    Note over Notify: Webhook delivery worker
+    Stream-&gt;&gt;Notify: XREADGROUP stream:webhooks
+    Notify-&gt;&gt;DB: SELECT webhooks WHERE tenant_id=...
+    Notify-&gt;&gt;Notify: HMAC-SHA256 sign payload
+    Notify-&gt;&gt;Webhook: POST {task_id, status, result}&lt;br/&gt;X-AAU-Signature: sha256=&lt;hmac&gt;
+    Notify-&gt;&gt;Stream: XACK (on 2xx) or re-enqueue with backoff
+  </pre>
+
+<h4 id="webhook-security-detail">Webhook Security Detail</h4>
+<pre class="mermaid">flowchart TD
+    PAYLOAD[&#34;Webhook payload JSON&#34;]
+    --&gt; SIGN[&#34;HMAC-SHA256(payload, webhook.secret)&lt;br/&gt;&lt;i&gt;secret from webhooks.secret_hash (decrypted)&lt;/i&gt;&#34;]
+    --&gt; HEADER[&#34;X-AAU-Signature: sha256={digest}&#34;]
+    --&gt; POST[&#34;POST to customer URL (10s timeout)&#34;]
+    --&gt; RESP{&#34;HTTP response?&#34;}
+
+    RESP --&gt;|&#34;2xx&#34;| LOG_OK[&#34;Log delivery success&#34;]
+    RESP --&gt;|&#34;Non-2xx / timeout&#34;| RETRY{&#34;Retries &lt; 5?&#34;}
+
+    RETRY --&gt;|&#34;Yes&#34;| BACKOFF2[&#34;Exponential backoff&lt;br/&gt;&lt;i&gt;1m → 5m → 30m → 2h → 8h&lt;/i&gt;&#34;]
+    BACKOFF2 --&gt; POST
+    RETRY --&gt;|&#34;No&#34;| LOG_FAIL[&#34;Log permanent failure&lt;br/&gt;&lt;i&gt;tenant notified in dashboard&lt;/i&gt;&#34;]
+  </pre>
+
+<p><strong>Task cancellation:</strong> <code>DELETE /v1/tasks/{task_id}</code> sets <code>Redis key cancel:{task_id} EX 3600</code>. The LangGraph graph checks this flag at each node boundary. Acknowledged within one node cycle.</p>
+<p><strong>Task state machine:</strong> <code>pending → queued → running → success | partial | failed | cancelled</code></p>
+<hr>
+<h2 id="15-failure-handling--resilience">15. Failure Handling &amp; Resilience</h2>
+<h3 id="151-failure-strategy">15.1 Failure Strategy</h3>
+<pre class="mermaid">flowchart TD
+    EXEC2[&#34;Plugin Execution&#34;] --&gt; OUTCOME{&#34;Outcome?&#34;}
+
+    OUTCOME --&gt;|&#34;Success&#34;| RETURN[&#34;OutputEnvelope status: success&#34;]
+    OUTCOME --&gt;|&#34;Timeout&#34;| RETRY{&#34;Retries remaining?&#34;}
+    OUTCOME --&gt;|&#34;Error&#34;| ERRTYPE{&#34;Error type?&#34;}
+
+    RETRY --&gt;|&#34;Yes&#34;| BACKOFF3[&#34;Exponential backoff → retry&#34;]
+    RETRY --&gt;|&#34;No&#34;| TIMEOUT[&#34;status: failed / PLUGIN_TIMEOUT&#34;]
+    BACKOFF3 --&gt; EXEC2
+
+    ERRTYPE --&gt;|&#34;Transient&#34;| RETRY
+    ERRTYPE --&gt;|&#34;Token budget exceeded&#34;| WARNBILL[&#34;Warn + continue&lt;br/&gt;&lt;i&gt;overage tracked + billed&lt;/i&gt;&#34;]
+    ERRTYPE --&gt;|&#34;Context window overflow&#34;| TRUNCATE[&#34;Truncate history → retry once&#34;]
+    ERRTYPE --&gt;|&#34;Content policy violation&#34;| POLICY[&#34;status: failed / CONTENT_POLICY_VIOLATION&lt;br/&gt;&lt;i&gt;not retried, not billed&lt;/i&gt;&#34;]
+    ERRTYPE --&gt;|&#34;Permanent&#34;| FALLBACK{&#34;Fallback plugin?&#34;}
+    ERRTYPE --&gt;|&#34;Partial result&#34;| PARTIAL[&#34;status: partial&#34;]
+
+    FALLBACK --&gt;|&#34;Yes&#34;| ALT[&#34;Route to fallback plugin&#34;]
+    FALLBACK --&gt;|&#34;No&#34;| FAIL[&#34;status: failed&#34;]
+    ALT --&gt; EXEC2
+
+    TIMEOUT --&gt; CIRCUIT[&#34;Update circuit breaker (Redis)&#34;]
+    FAIL --&gt; CIRCUIT
+    CIRCUIT --&gt;|&#34;3 consecutive failures&#34;| OPEN[&#34;Open circuit — 60s cooldown&#34;]
+  </pre>
+
+<h3 id="152-token-budget-enforcement">15.2 Token Budget Enforcement</h3>
+<pre class="mermaid">flowchart TD
+    NODE_START[&#34;LangGraph node starts&#34;]
+    --&gt; SDK_CHECK{&#34;tokens_used / token_budget&#34;}
+
+    SDK_CHECK --&gt;|&#34;&lt; 80%&#34;| RUN[&#34;Run node (LLM call)&#34;]
+    SDK_CHECK --&gt;|&#34;80–100%&#34;| WARN2[&#34;Log warning + emit metric&#34;]
+    WARN2 --&gt; RUN
+
+    RUN --&gt; TRACK[&#34;SDK reads response.usage&lt;br/&gt;&lt;i&gt;input_tokens + output_tokens → running total in GraphState&lt;/i&gt;&#34;]
+    TRACK --&gt; CHECK2{&#34;Total &gt; token_budget?&#34;}
+
+    CHECK2 --&gt;|&#34;No&#34;| NEXT[&#34;Proceed to next node&#34;]
+    CHECK2 --&gt;|&#34;Yes&#34;| OVERAGE[&#34;Set budget_exceeded=true in ExecutionMeta&lt;br/&gt;&lt;i&gt;Overage billed to tenant&lt;/i&gt;&#34;]
+    OVERAGE --&gt; CONTINUE[&#34;Continue execution&#34;]
+    CONTINUE --&gt; NEXT
+  </pre>
+
+<h3 id="153-circuit-breaker-per-plugin">15.3 Circuit Breaker per Plugin</h3>
+<pre class="mermaid">stateDiagram-v2
+    [*] --&gt; Closed
+    Closed --&gt; Open : 3 consecutive failures
+    Open --&gt; HalfOpen : 60s cooldown elapsed
+    HalfOpen --&gt; Closed : Probe request succeeds
+    HalfOpen --&gt; Open : Probe request fails
+    Open --&gt; Open : Requests rejected immediately (no plugin call)
+  </pre>
+
+<p>State stored in Redis (<code>circuit:{plugin_name}:{version}</code>). Surfaced as <code>aau_circuit_breaker_state</code> Gauge in Grafana.</p>
+<hr>
+<h2 id="16-plugin-sandboxing--security">16. Plugin Sandboxing &amp; Security</h2>
+<h3 id="161-capability-scope-model">16.1 Capability Scope Model</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Scope</th>
+          <th>Grants Access To</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>context:read</code></td>
+          <td>Current request&rsquo;s user and tenant context only</td>
+      </tr>
+      <tr>
+          <td><code>secrets:{name}</code></td>
+          <td>A specific named secret resolved from <code>tenant_secrets</code></td>
+      </tr>
+      <tr>
+          <td><code>store:write</code></td>
+          <td>Writing to MinIO at <code>/{tenant_id}/{plugin_name}/...</code></td>
+      </tr>
+      <tr>
+          <td><code>store:read</code></td>
+          <td>Reading artifacts the plugin itself created</td>
+      </tr>
+      <tr>
+          <td><code>plugin:chain</code></td>
+          <td>Calling other plugins as dependencies</td>
+      </tr>
+      <tr>
+          <td><code>knowledge:read</code></td>
+          <td>Reading the tenant&rsquo;s org knowledge base</td>
+      </tr>
+      <tr>
+          <td><code>knowledge:write</code></td>
+          <td>Indexing new content into the tenant&rsquo;s org knowledge base</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Note on secrets:</strong> Plugin pods never access the database or call a secrets endpoint. The orchestrator resolves and decrypts secrets from <code>tenant_secrets</code> before building the <code>InputEnvelope</code>, and injects them as <code>context.secrets</code>. Secrets leave the orchestrator only inside a request, over an in-cluster encrypted channel to the plugin pod.</p>
+<h3 id="162-runtime-isolation">16.2 Runtime Isolation</h3>
+<pre class="mermaid">flowchart TB
+    subgraph App2[&#34;Platform App&#34;]
+        EXEC3[&#34;execute(InputEnvelope)&lt;br/&gt;&lt;i&gt;secrets already injected, tenant_id embedded&lt;/i&gt;&#34;]
+    end
+
+    subgraph PluginPod[&#34;Plugin Pod (network-isolated)&#34;]
+        PROXY[&#34;Scope Enforcement Proxy&lt;br/&gt;&lt;i&gt;validates all infra calls against declared scopes&lt;/i&gt;&#34;]
+        PLUGIN3[&#34;Plugin Code (LangGraph)&#34;]
+        PROXY --&gt; PLUGIN3
+    end
+
+    subgraph SharedInfra[&#34;Shared Infrastructure&#34;]
+        PG3[&#34;PostgreSQL (WHERE tenant_id = $1 enforced)&#34;]
+        STORE3[&#34;MinIO (path: /{tenant_id}/{plugin_name}/...)&#34;]
+    end
+
+    EXEC3 --&gt;|&#34;InputEnvelope&#34;| PROXY
+    PROXY --&gt;|&#34;Scope-validated&#34;| STORE3
+    PROXY --&gt;|&#34;Read-only, tenant-scoped&#34;| PG3
+    PLUGIN3 --&gt;|&#34;OutputEnvelope&#34;| EXEC3
+  </pre>
+
+<p><strong>Network policy:</strong> Kubernetes <code>NetworkPolicy</code> restricts plugin pod egress to only the endpoints declared in <code>required_secret_names</code>. No direct database or secret store access from plugin pods.</p>
+<p><strong>Plugin signing:</strong> All plugins are signed with <code>cosign</code> during <code>aau plugin publish</code>. The registration endpoint verifies the signature before accepting.</p>
+<h3 id="163-plugin-signing--publish-flow">16.3 Plugin Signing &amp; Publish Flow</h3>
+<pre class="mermaid">flowchart TD
+    CODE[&#34;Plugin code (my_plugin.py)&#34;]
+    --&gt; SDKBUILD[&#34;aau plugin publish&lt;br/&gt;&lt;i&gt;Step 1: docker build using aau-base image&lt;/i&gt;&#34;]
+    --&gt; IMAGE2[&#34;Container image built&#34;]
+    --&gt; SCAN[&#34;Step 2: trivy scan&lt;br/&gt;&lt;i&gt;Fail on HIGH/CRITICAL CVEs&lt;/i&gt;&#34;]
+    --&gt; SIGN2[&#34;Step 3: cosign sign image&lt;br/&gt;&lt;i&gt;using platform private key&lt;/i&gt;&#34;]
+    --&gt; PUSH[&#34;Step 4: push to Zot OCI registry&lt;br/&gt;&lt;i&gt;registry.aau.internal/{name}:{version}&lt;/i&gt;&#34;]
+    --&gt; MANIFEST[&#34;Step 5: generate manifest.json&#34;]
+    --&gt; UPLOAD2[&#34;Step 6: POST /internal/registry/register&lt;br/&gt;&lt;i&gt;platform verifies cosign signature&lt;/i&gt;&#34;]
+    --&gt; LIVE2[&#34;Plugin registered and live&#34;]
+
+    SCAN --&gt; FAIL2[&#34;Build fails — developer must fix CVEs&#34;]
+  </pre>
+
+<hr>
+<h2 id="17-subscription-enforcement--deep-dive">17. Subscription Enforcement — Deep Dive</h2>
+<h3 id="171-enforcement-flow">17.1 Enforcement Flow</h3>
+<pre class="mermaid">flowchart TD
+    REQ[&#34;Incoming Request (tenant_id from API key)&#34;]
+    --&gt; LOOKUP[&#34;Lookup subscription&lt;br/&gt;&lt;i&gt;Redis cache → PostgreSQL subscriptions&lt;/i&gt;&#34;]
+    --&gt; CHECK{&#34;Plugin in subscription?&#34;}
+
+    CHECK --&gt;|&#34;Yes&#34;| QUOTA2{&#34;Within quota?&#34;}
+    CHECK --&gt;|&#34;No&#34;| DENY[&#34;403 PLUGIN_NOT_SUBSCRIBED + upgrade_url&#34;]
+
+    QUOTA2 --&gt;|&#34;&lt; 80%&#34;| ALLOW[&#34;Allow execution&#34;]
+    QUOTA2 --&gt;|&#34;80–100%&#34;| WARN3[&#34;Allow + emit quota.warning event&#34;]
+    QUOTA2 --&gt;|&#34;Exceeded&#34;| OVER{&#34;Overage enabled?&#34;}
+
+    OVER --&gt;|&#34;Yes&#34;| CHARGE[&#34;Allow + set overage=true in metering&#34;]
+    OVER --&gt;|&#34;No&#34;| BLOCK[&#34;429 QUOTA_EXCEEDED&#34;]
+
+    ALLOW --&gt; LOG[&#34;INSERT execution_events&#34;]
+    WARN3 --&gt; LOG
+    CHARGE --&gt; LOG
+    LOG --&gt; BILL[&#34;Billing worker reads execution_events WHERE billed=false&lt;br/&gt;&lt;i&gt;runs on schedule, marks billed=true after invoicing&lt;/i&gt;&#34;]
+  </pre>
+
+<h3 id="172-usage-metering-record">17.2 Usage Metering Record</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>tenant_id</code></td>
+          <td>Who</td>
+      </tr>
+      <tr>
+          <td><code>plugin_name</code> + <code>plugin_version</code></td>
+          <td>What</td>
+      </tr>
+      <tr>
+          <td><code>task_id</code></td>
+          <td>Which request</td>
+      </tr>
+      <tr>
+          <td><code>timestamp</code></td>
+          <td>When</td>
+      </tr>
+      <tr>
+          <td><code>tokens_used</code></td>
+          <td>From <code>ExecutionMeta.tokens_used</code> (SDK-tracked)</td>
+      </tr>
+      <tr>
+          <td><code>latency_ms</code></td>
+          <td>Execution duration</td>
+      </tr>
+      <tr>
+          <td><code>status</code></td>
+          <td>success / partial / failed</td>
+      </tr>
+      <tr>
+          <td><code>cost_estimate</code></td>
+          <td><code>tokens_used × per-token rate</code> for <code>model_used</code></td>
+      </tr>
+      <tr>
+          <td><code>routing_method</code></td>
+          <td>embedding / llm_fallback / cache / keyword</td>
+      </tr>
+      <tr>
+          <td><code>billed</code></td>
+          <td>False for failed; True once invoiced by billing worker</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="18-plugin-dependency-management">18. Plugin Dependency Management</h2>
+<h3 id="181-dependency-resolution">18.1 Dependency Resolution</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dependencies <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;code-review&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;version&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&gt;=1.2.0,&lt;2.0.0&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;ticket-processor&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;version&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&gt;=2.0.0&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">]</span>
+</span></span></code></pre></div><p>At plan-build time: resolve versions → check subscriptions → DFS cycle detection → topological sort → execute.</p>
+<h3 id="182-circular-dependency-detection">18.2 Circular Dependency Detection</h3>
+<pre class="mermaid">flowchart TD
+    PLAN[&#34;Build Execution Plan&#34;] --&gt; DFS[&#34;DFS over dependency graph&#34;]
+    DFS --&gt; CYCLE{&#34;Cycle detected?&#34;}
+    CYCLE --&gt;|&#34;Yes&#34;| REJECT2[&#34;422 CIRCULAR_DEPENDENCY&lt;br/&gt;&lt;i&gt;error message includes full cycle path&lt;/i&gt;&#34;]
+    CYCLE --&gt;|&#34;No&#34;| TOPO[&#34;Topological sort → execution order&#34;]
+    TOPO --&gt; EXEC4[&#34;Execute in order&#34;]
+  </pre>
+
+<hr>
+<h2 id="19-plugin-deprecation-lifecycle">19. Plugin Deprecation Lifecycle</h2>
+<pre class="mermaid">flowchart LR
+    ACTIVE[&#34;Active&#34;] --&gt;|&#34;Owner initiates&#34;| DEPRECATED[&#34;Deprecated&lt;br/&gt;&lt;i&gt;90-day warning&lt;/i&gt;&#34;]
+    DEPRECATED --&gt;|&#34;90 days elapsed&#34;| SUNSET[&#34;Sunset&lt;br/&gt;&lt;i&gt;No new subscriptions&lt;/i&gt;&#34;]
+    SUNSET --&gt;|&#34;Zero active subscribers&#34;| RETIRED[&#34;Retired&lt;br/&gt;&lt;i&gt;Removed from registry&lt;/i&gt;&#34;]
+
+    DEPRECATED --&gt; BLOCKED2[&#34;New subscriptions blocked&#34;]
+    DEPRECATED --&gt; WARN4[&#34;deprecation_warning in every OutputEnvelope&lt;br/&gt;&lt;i&gt;sunset_at + migration_guide_url&lt;/i&gt;&#34;]
+  </pre>
+
+<ul>
+<li><code>plugin_versions.status</code> transitions: <code>active → deprecated → sunset → retired</code></li>
+<li>At sunset, plugin accepts no new tasks; in-flight tasks complete before deregistration</li>
+</ul>
+<hr>
+<h2 id="20-plugin-sdk--developer-experience">20. Plugin SDK &amp; Developer Experience</h2>
+<h3 id="201-sdk-structure">20.1 SDK Structure</h3>
+<pre tabindex="0"><code>aau-sdk/
+├── base_plugin.py        # BasePlugin abstract class (LangGraph-aware)
+├── decorators.py         # @register_plugin
+├── envelopes.py          # InputEnvelope, OutputEnvelope, typed dataclasses
+├── graph.py              # AAUStateGraph, standard node helpers
+├── budget.py             # Token budget tracker (wraps Anthropic client)
+├── validation.py         # OutputEnvelope schema validation (in-process envelope_schemas cache)
+├── testing/
+│   ├── harness.py        # Local orchestrator stub
+│   └── fixtures.py       # Sample InputEnvelopes for testing
+└── cli/
+    ├── new.py            # aau plugin new &lt;name&gt;
+    ├── dev.py            # aau plugin dev (Docker Compose + hot-reload)
+    ├── test.py           # aau plugin test
+    └── publish.py        # build → trivy scan → cosign sign → Zot push → register
+</code></pre><h3 id="202-local-development-stack">20.2 Local Development Stack</h3>
+<p><code>aau plugin dev</code> runs <code>docker compose up</code>. All services are local — no external dependencies.</p>
+<pre class="mermaid">graph TB
+    subgraph DockerCompose[&#34;Docker Compose — Local Dev Stack&#34;]
+        subgraph AppLayer[&#34;Application&#34;]
+            LAPP[&#34;Platform App (FastAPI :8080)&lt;br/&gt;&lt;i&gt;auth + orchestrator + registration routes&lt;/i&gt;&#34;]
+        end
+
+        subgraph Data[&#34;Data Services&#34;]
+            LPG[&#34;PostgreSQL 16 + pgvector :5432&lt;br/&gt;&lt;i&gt;Pre-seeded: 2 tenants, subscriptions,&lt;br/&gt;API keys, sample org knowledge&lt;/i&gt;&#34;]
+            LREDIS[&#34;Redis 7 :6379&lt;br/&gt;&lt;i&gt;Cache + Streams queues&lt;/i&gt;&#34;]
+        end
+
+        subgraph Storage[&#34;Storage&#34;]
+            LMINIO[&#34;MinIO :9000 / Console :9001&lt;br/&gt;&lt;i&gt;Pre-created tenant buckets&lt;/i&gt;&#34;]
+            LZOT[&#34;Zot OCI Registry :5000&lt;br/&gt;&lt;i&gt;Accepts plugin image pushes&lt;/i&gt;&#34;]
+        end
+
+        subgraph Observability2[&#34;Observability&#34;]
+            LPROM[&#34;Prometheus :9090&#34;]
+            LGRAFANA[&#34;Grafana :3000&lt;br/&gt;&lt;i&gt;Pre-built plugin dashboards&lt;/i&gt;&#34;]
+            LLOKI[&#34;Loki :3100&#34;]
+        end
+
+        subgraph Plugin2[&#34;Developer Plugin (hot-reload)&#34;]
+            LPLUGIN[&#34;my_plugin.py&lt;br/&gt;&lt;i&gt;Reloads on file save&lt;/i&gt;&#34;]
+        end
+    end
+
+    LAPP --&gt; LPG
+    LAPP --&gt; LREDIS
+    LAPP --&gt; LMINIO
+    LPLUGIN --&gt;|&#34;POST /internal/registry/register&#34;| LAPP
+    LPROM --&gt; LGRAFANA
+    LLOKI --&gt; LGRAFANA
+  </pre>
+
+<p><strong>Test API keys:</strong></p>
+<ul>
+<li><code>&lt;YOUR_STRIPE_TEST_KEY_1&gt;</code> — <code>test-tenant-1</code> (Professional tier)</li>
+<li><code>&lt;YOUR_STRIPE_TEST_KEY_2&gt;</code> — <code>test-tenant-2</code> (Starter tier)</li>
+</ul>
+<h3 id="203-plugin-development-flow">20.3 Plugin Development Flow</h3>
+<pre class="mermaid">flowchart LR
+    SCAFFOLD[&#34;aau plugin new my-plugin&lt;br/&gt;&lt;i&gt;Scaffolds: my_plugin.py, tests/, Dockerfile, manifest.json&lt;/i&gt;&#34;]
+    --&gt; CODE[&#34;Implement LangGraph nodes&lt;br/&gt;&lt;i&gt;extend BasePlugin, define GraphState&lt;/i&gt;&#34;]
+    --&gt; DEV[&#34;aau plugin dev&lt;br/&gt;&lt;i&gt;docker compose up + hot-reload&lt;/i&gt;&#34;]
+    --&gt; TEST[&#34;aau plugin test&lt;br/&gt;&lt;i&gt;PluginHarness: tokens, scopes, schema&lt;/i&gt;&#34;]
+    --&gt; PUBLISH[&#34;aau plugin publish&lt;br/&gt;&lt;i&gt;build → trivy → cosign → Zot → register&lt;/i&gt;&#34;]
+    --&gt; LIVE2[&#34;Plugin live in registry&#34;]
+  </pre>
+
+<h3 id="204-minimal-plugin-implementation">20.4 Minimal Plugin Implementation</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">aau_sdk</span> <span style="color:#cf222e">import</span> BasePlugin<span style="color:#1f2328">,</span> register_plugin
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">aau_sdk.envelopes</span> <span style="color:#cf222e">import</span> InputEnvelope<span style="color:#1f2328">,</span> OutputEnvelope
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">aau_sdk.graph</span> <span style="color:#cf222e">import</span> AAUStateGraph
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> TypedDict
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_anthropic</span> <span style="color:#cf222e">import</span> ChatAnthropic
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">GraphState</span><span style="color:#1f2328">(</span>TypedDict<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    task<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>    result<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">@register_plugin</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">MyPlugin</span><span style="color:#1f2328">(</span>BasePlugin<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    name <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;my-plugin&#34;</span>
+</span></span><span style="display:flex;"><span>    version <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;1.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>    description <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;Summarises documents.&#34;</span>
+</span></span><span style="display:flex;"><span>    capabilities <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;summarize documents&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;extract key points&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    required_scopes <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;context:read&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;store:write&#34;</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    required_secret_names <span style="color:#0550ae">=</span> <span style="color:#1f2328">[]</span>   <span style="color:#57606a"># declare any tenant secrets needed here</span>
+</span></span><span style="display:flex;"><span>    token_budget <span style="color:#0550ae">=</span> <span style="color:#0550ae">50_000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">initialize</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># SDK wraps client with token budget tracker automatically</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>llm <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>sdk<span style="color:#0550ae">.</span>get_llm<span style="color:#1f2328">(</span>model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;claude-sonnet-4-6&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>graph <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>_build_graph<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">_build_graph</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        graph <span style="color:#0550ae">=</span> AAUStateGraph<span style="color:#1f2328">(</span>GraphState<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;summarize&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>_summarize_node<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#0550ae">.</span>set_entry_point<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;summarize&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#0550ae">.</span>set_finish_point<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;summarize&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> graph<span style="color:#0550ae">.</span>compile<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">_summarize_node</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> state<span style="color:#1f2328">:</span> GraphState<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> GraphState<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># plugin_config comes from tenant_plugin_config table</span>
+</span></span><span style="display:flex;"><span>        style <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>plugin_config<span style="color:#0550ae">.</span>get<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;summary_style&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;concise&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>llm<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Summarise in </span><span style="color:#0a3069">{</span>style<span style="color:#0a3069">}</span><span style="color:#0a3069"> style: </span><span style="color:#0a3069">{</span>state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;task&#39;</span><span style="color:#1f2328">]</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;result&#34;</span><span style="color:#1f2328">:</span> response<span style="color:#0550ae">.</span>content<span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">execute</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">input</span><span style="color:#1f2328">:</span> InputEnvelope<span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> OutputEnvelope<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        final_state <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>graph<span style="color:#0550ae">.</span>invoke<span style="color:#1f2328">({</span><span style="color:#0a3069">&#34;task&#34;</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">input</span><span style="color:#0550ae">.</span>task_description<span style="color:#1f2328">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> OutputEnvelope<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>            task_id<span style="color:#0550ae">=</span><span style="color:#6639ba">input</span><span style="color:#0550ae">.</span>task_id<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            status<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;success&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            result<span style="color:#0550ae">=</span>final_state<span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;result&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            confidence<span style="color:#0550ae">=</span><span style="color:#0550ae">0.9</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># SDK validates OutputEnvelope against in-process schema cache before returning</span>
+</span></span></code></pre></div><h3 id="205-local-test-harness">20.5 Local Test Harness</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">aau_sdk.testing</span> <span style="color:#cf222e">import</span> PluginHarness
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">my_plugin</span> <span style="color:#cf222e">import</span> MyPlugin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>harness <span style="color:#0550ae">=</span> PluginHarness<span style="color:#1f2328">(</span>MyPlugin<span style="color:#1f2328">())</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> harness<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>    task<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;Summarise this architecture document&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    tenant_id<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;test-tenant-1&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    plugin_config<span style="color:#0550ae">=</span><span style="color:#1f2328">{</span><span style="color:#0a3069">&#34;summary_style&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;detailed&#34;</span><span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>    attachments<span style="color:#0550ae">=</span><span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;doc.pdf&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>status <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;success&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>confidence <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0.7</span>
+</span></span><span style="display:flex;"><span>harness<span style="color:#0550ae">.</span>assert_tokens_within_budget<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>harness<span style="color:#0550ae">.</span>assert_no_cross_tenant_calls<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>harness<span style="color:#0550ae">.</span>assert_output_schema_valid<span style="color:#1f2328">()</span>
+</span></span></code></pre></div><hr>
+<h2 id="21-plugin-example--code-review-pro-detailed">21. Plugin Example — Code Review Pro (Detailed)</h2>
+<h3 id="211-internal-langgraph-agent-graph">21.1 Internal LangGraph Agent Graph</h3>
+<pre class="mermaid">flowchart TD
+    INPUT[&#34;InputEnvelope&lt;br/&gt;&lt;i&gt;PR URL + context.secrets.github_token&lt;br/&gt;+ context.plugin_config.coding_standards&lt;/i&gt;&#34;]
+    --&gt; FETCH[&#34;Diff Fetcher Node&lt;br/&gt;&lt;i&gt;GitHub API (token from context.secrets) → parsed diff&lt;/i&gt;&#34;]
+    --&gt; SPLIT[&#34;File Splitter Node&lt;br/&gt;&lt;i&gt;Groups files by type/module&lt;/i&gt;&#34;]
+    --&gt; PARALLEL2[&#34;Parallel Branch (LangGraph Send API)&#34;]
+
+    PARALLEL2 --&gt; SEC[&#34;Security Node&lt;br/&gt;&lt;i&gt;OWASP + dependency vulns + secret detection&lt;/i&gt;&#34;]
+    PARALLEL2 --&gt; STYLE2[&#34;Style Node&lt;br/&gt;&lt;i&gt;plugin_config.coding_standards applied&lt;/i&gt;&#34;]
+    PARALLEL2 --&gt; LOGIC2[&#34;Logic Node&lt;br/&gt;&lt;i&gt;Bug detection, edge cases, race conditions&lt;/i&gt;&#34;]
+    PARALLEL2 --&gt; PERF[&#34;Performance Node&lt;br/&gt;&lt;i&gt;N+1 queries, memory leaks, complexity&lt;/i&gt;&#34;]
+
+    SEC --&gt; MERGE3[&#34;Result Merger Node&#34;]
+    STYLE2 --&gt; MERGE3
+    LOGIC2 --&gt; MERGE3
+    PERF --&gt; MERGE3
+
+    MERGE3 --&gt; PRIORITY2[&#34;Priority Ranker Node&lt;br/&gt;&lt;i&gt;Critical → High → Medium → Low&lt;/i&gt;&#34;]
+    --&gt; SUMMARY2[&#34;Summary Node&lt;br/&gt;&lt;i&gt;Executive summary + inline comments&lt;/i&gt;&#34;]
+    --&gt; OUTPUT2[&#34;OutputEnvelope&lt;br/&gt;&lt;i&gt;Review report (MinIO URL) + confidence&lt;/i&gt;&#34;]
+  </pre>
+
+<h3 id="212-agent-node-responsibilities">21.2 Agent Node Responsibilities</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Node</th>
+          <th>Input</th>
+          <th>Output</th>
+          <th>Tools</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Diff Fetcher</td>
+          <td>PR URL</td>
+          <td>Parsed diff</td>
+          <td>GitHub API (<code>context.secrets.github_token</code>)</td>
+      </tr>
+      <tr>
+          <td>File Splitter</td>
+          <td>Diff</td>
+          <td>File batches</td>
+          <td>Internal logic</td>
+      </tr>
+      <tr>
+          <td>Security</td>
+          <td>File batch</td>
+          <td>Security findings</td>
+          <td>OWASP rules, Trivy</td>
+      </tr>
+      <tr>
+          <td>Style</td>
+          <td>File batch</td>
+          <td>Style violations</td>
+          <td><code>plugin_config.coding_standards</code></td>
+      </tr>
+      <tr>
+          <td>Logic</td>
+          <td>File batch</td>
+          <td>Bug candidates</td>
+          <td><code>claude-sonnet-4-6</code></td>
+      </tr>
+      <tr>
+          <td>Performance</td>
+          <td>File batch</td>
+          <td>Perf concerns</td>
+          <td>Complexity analyser</td>
+      </tr>
+      <tr>
+          <td>Priority Ranker</td>
+          <td>All findings</td>
+          <td>Prioritised list</td>
+          <td>Scoring model</td>
+      </tr>
+      <tr>
+          <td>Summary</td>
+          <td>Prioritised findings</td>
+          <td>Review report</td>
+          <td><code>claude-sonnet-4-6</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="22-data-storage-architecture">22. Data Storage Architecture</h2>
+<pre class="mermaid">graph TB
+    subgraph DataStores[&#34;Data Layer&#34;]
+        subgraph Primary[&#34;Primary Stores&#34;]
+            PG4[&#34;PostgreSQL 16&lt;br/&gt;&lt;i&gt;tenants, users, api_keys, tenant_secrets,&lt;br/&gt;plugins, plugin_versions, envelope_schemas,&lt;br/&gt;subscriptions, tenant_plugin_config,&lt;br/&gt;tasks, webhooks, execution_events&lt;/i&gt;&#34;]
+            PGV2[&#34;pgvector (HNSW index)&lt;br/&gt;&lt;i&gt;org_knowledge_chunks&lt;br/&gt;scoped by tenant_id&lt;/i&gt;&#34;]
+            REDIS3[&#34;Redis 7&lt;br/&gt;&lt;i&gt;Auth cache, plugin registry cache,&lt;br/&gt;circuit breakers, route cache,&lt;br/&gt;rate limit counters, cancellation flags&lt;br/&gt;+ Streams: tasks / summarisation / webhooks&lt;/i&gt;&#34;]
+        end
+
+        subgraph Storage2[&#34;Storage&#34;]
+            MINIO3[&#34;MinIO&lt;br/&gt;&lt;i&gt;/{tenant_id}/{plugin_name}/{task_id}/ — artifacts&lt;/i&gt;&#34;]
+            ZOT2[&#34;Zot OCI Registry&lt;br/&gt;&lt;i&gt;Plugin container images&lt;/i&gt;&#34;]
+        end
+
+        subgraph PlatformSecrets[&#34;Platform Credentials&#34;]
+            K8SSEC2[&#34;Kubernetes Secrets&lt;br/&gt;&lt;i&gt;LLM API key, embedding API key,&lt;br/&gt;pgcrypto ENCRYPT_KEY&lt;/i&gt;&#34;]
+        end
+    end
+
+    APP2[&#34;Platform App&#34;] --&gt; PG4
+    APP2 --&gt; PGV2
+    APP2 --&gt; REDIS3
+    APP2 --&gt; K8SSEC2
+    PLUGINS3[&#34;Plugins&#34;] --&gt; MINIO3
+    WBILLING2[&#34;Billing Worker&#34;] --&gt; PG4
+    WDELIVER2[&#34;Webhook Worker&#34;] --&gt; REDIS3
+    WDELIVER2 --&gt; PG4
+    DEPLOY2[&#34;Plugin Deployments&#34;] --&gt; ZOT2
+  </pre>
+
+<p><strong>Data retention &amp; GDPR:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Data</th>
+          <th>Retention</th>
+          <th>GDPR erasure</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>execution_events</code></td>
+          <td>13 months</td>
+          <td>Pseudonymise <code>user_id</code> within 30 days</td>
+      </tr>
+      <tr>
+          <td>MinIO artifacts</td>
+          <td>90 days (tenant-configurable)</td>
+          <td>Purge within 30 days</td>
+      </tr>
+      <tr>
+          <td><code>tasks.input</code> / <code>tasks.result</code></td>
+          <td>90 days</td>
+          <td>Purge within 30 days</td>
+      </tr>
+      <tr>
+          <td><code>users</code> row</td>
+          <td>Until account deleted</td>
+          <td>Hard delete (cascade)</td>
+      </tr>
+      <tr>
+          <td>Billing aggregates</td>
+          <td>7 years (accounting)</td>
+          <td>Not erasable — no PII in aggregates</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="gdpr-erasure-flow">GDPR Erasure Flow</h4>
+<pre class="mermaid">flowchart TD
+    REQUEST[&#34;POST /v1/gdpr/erasure-request {user_id}&#34;]
+    --&gt; VALIDATE2[&#34;Verify requester is user or tenant admin&#34;]
+    --&gt; STREAM2[&#34;XADD stream:erasure {user_id, tenant_id}&#34;]
+    --&gt; ACK[&#34;202 Accepted — SLA: 30 days&#34;]
+
+    STREAM2 --&gt; WORKER2[&#34;Erasure Worker (Redis Streams consumer)&#34;]
+    WORKER2 --&gt; TASKS_PURGE[&#34;Nullify tasks.input, tasks.result WHERE user_id=$1&#34;]
+    WORKER2 --&gt; EVENTS_PSEUDO[&#34;Pseudonymise execution_events.user_id&#34;]
+    WORKER2 --&gt; ARTIFACTS_DEL[&#34;DELETE MinIO: /{tenant_id}/.../{user_id}/&#34;]
+    WORKER2 --&gt; HISTORY_DEL[&#34;DEL Redis ctx:{tenant_id}:{user_id}:*&#34;]
+    WORKER2 --&gt; USER_DEL[&#34;DELETE users WHERE id=$1 (cascades to api_keys)&#34;]
+    WORKER2 --&gt; AUDIT[&#34;Immutable erasure audit log (no PII)&#34;]
+  </pre>
+
+<hr>
+<h2 id="23-deployment-architecture">23. Deployment Architecture</h2>
+<pre class="mermaid">graph TB
+    subgraph K8s[&#34;Kubernetes Cluster (cloud-agnostic, plain Deployments + PVCs)&#34;]
+        subgraph AppLayer2[&#34;Application (single replica — v1)&#34;]
+            APP3[&#34;Platform App&lt;br/&gt;&lt;i&gt;FastAPI + Uvicorn :8080&lt;br/&gt;auth, rate limiting, orchestrator,&lt;br/&gt;registration routes&lt;/i&gt;&#34;]
+            WWEBHOOK[&#34;Webhook Delivery Worker&lt;br/&gt;&lt;i&gt;Redis Streams consumer&lt;/i&gt;&#34;]
+            WBILL[&#34;Billing Aggregation Worker&lt;br/&gt;&lt;i&gt;Scheduled cron&lt;/i&gt;&#34;]
+        end
+
+        subgraph PluginPods2[&#34;Plugin Pods (HPA: 1–10 replicas per plugin)&#34;]
+            PP4[&#34;Code Review Pro&#34;]
+            PP5[&#34;Customer Support AI&#34;]
+            PPN2[&#34;Plugin N&#34;]
+        end
+
+        subgraph DataLayer[&#34;Data Services (plain Deployments + PVCs)&#34;]
+            PG5[&#34;PostgreSQL 16&lt;br/&gt;&lt;i&gt;Deployment + PVC&lt;/i&gt;&#34;]
+            REDIS4[&#34;Redis 7&lt;br/&gt;&lt;i&gt;Deployment + PVC&lt;/i&gt;&#34;]
+            MINIO4[&#34;MinIO&lt;br/&gt;&lt;i&gt;Deployment + PVC&lt;/i&gt;&#34;]
+            ZOT3[&#34;Zot OCI Registry&lt;br/&gt;&lt;i&gt;Deployment + PVC&lt;/i&gt;&#34;]
+        end
+
+        subgraph Obs[&#34;Observability&#34;]
+            PROM2[&#34;Prometheus&#34;]
+            GRAF2[&#34;Grafana (Metrics + Logs)&#34;]
+            LOKI3[&#34;Loki&#34;]
+        end
+    end
+
+    subgraph External3[&#34;External&#34;]
+        LB2[&#34;Ingress Controller (nginx)&lt;br/&gt;&lt;i&gt;TLS termination&lt;/i&gt;&#34;]
+        CDN2[&#34;CDN — Marketplace UI&#34;]
+    end
+
+    LB2 --&gt; APP3
+    CDN2 --&gt; APP3
+    APP3 --&gt; PluginPods2
+    PluginPods2 --&gt;|&#34;POST /internal/registry/register&#34;| APP3
+    APP3 --&gt;|&#34;Redis pub/sub&#34;| APP3
+    PROM2 --&gt; GRAF2
+    LOKI3 --&gt; GRAF2
+  </pre>
+
+<p><strong>Key deployment principles:</strong></p>
+<ul>
+<li><strong>Cloud-agnostic:</strong> No cloud-provider-specific services. Plain Kubernetes <code>Deployment</code> + <code>PersistentVolumeClaim</code> for all stateful services. No operators required at single-replica scale.</li>
+<li><strong>One application, two workers:</strong> <code>Platform App</code> handles all HTTP traffic. <code>Webhook Delivery Worker</code> and <code>Billing Aggregation Worker</code> are separate pods consuming from Redis Streams and the scheduler respectively.</li>
+<li><strong>Plugins self-register:</strong> Plugin pods call <code>POST /internal/registry/register</code> on startup. The app writes to PostgreSQL and Redis. No file system watching.</li>
+<li><strong>Zero-downtime plugin updates:</strong> Kubernetes rolling deployment + graceful in-flight request draining.</li>
+<li><strong>v2 HA path:</strong> Add a PostgreSQL streaming replica, Redis Sentinel, and increase replicas on the app. No architectural changes needed — plain Deployments scale horizontally.</li>
+</ul>
+<hr>
+<h2 id="24-observability">24. Observability</h2>
+<h3 id="241-metrics-prometheus--grafana">24.1 Metrics (Prometheus + Grafana)</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Type</th>
+          <th>Labels</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>aau_router_confidence</code></td>
+          <td>Histogram</td>
+          <td><code>method</code></td>
+          <td>Routing quality over time</td>
+      </tr>
+      <tr>
+          <td><code>aau_router_method_total</code></td>
+          <td>Counter</td>
+          <td><code>method</code></td>
+          <td>LLM fallback rate (alert &gt; 10%)</td>
+      </tr>
+      <tr>
+          <td><code>aau_plugin_execution_duration_seconds</code></td>
+          <td>Histogram</td>
+          <td><code>plugin</code>, <code>status</code></td>
+          <td>Latency per plugin</td>
+      </tr>
+      <tr>
+          <td><code>aau_plugin_token_usage_total</code></td>
+          <td>Counter</td>
+          <td><code>plugin</code>, <code>model</code></td>
+          <td>Token cost attribution</td>
+      </tr>
+      <tr>
+          <td><code>aau_plugin_budget_exceeded_total</code></td>
+          <td>Counter</td>
+          <td><code>plugin</code></td>
+          <td>Overage events</td>
+      </tr>
+      <tr>
+          <td><code>aau_circuit_breaker_state</code></td>
+          <td>Gauge</td>
+          <td><code>plugin</code></td>
+          <td>0=closed, 1=half-open, 2=open</td>
+      </tr>
+      <tr>
+          <td><code>aau_task_stream_depth</code></td>
+          <td>Gauge</td>
+          <td><code>plugin</code></td>
+          <td>Redis Stream pending count</td>
+      </tr>
+      <tr>
+          <td><code>aau_rate_limit_hits_total</code></td>
+          <td>Counter</td>
+          <td><code>tenant_id</code></td>
+          <td>Throttling events</td>
+      </tr>
+      <tr>
+          <td><code>aau_webhook_delivery_failures_total</code></td>
+          <td>Counter</td>
+          <td><code>tenant_id</code></td>
+          <td>Delivery health</td>
+      </tr>
+      <tr>
+          <td><code>aau_api_key_auth_latency_seconds</code></td>
+          <td>Histogram</td>
+          <td><code>cache_hit</code></td>
+          <td>Auth path performance</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="242-alerting-pipeline">24.2 Alerting Pipeline</h3>
+<pre class="mermaid">flowchart TD
+    PROM3[&#34;Prometheus (scrapes every 15s)&#34;]
+    --&gt; RULES[&#34;PrometheusRule alerts&#34;]
+
+    RULES --&gt; A1[&#34;circuit_breaker_state == 2 → plugin circuit open&#34;]
+    RULES --&gt; A2[&#34;router_method{llm} / total &gt; 0.10 → LLM routing rate high&#34;]
+    RULES --&gt; A3[&#34;task_stream_depth &gt; 500 → queue backing up&#34;]
+    RULES --&gt; A4[&#34;execution_duration p99 &gt; 30s → latency SLO breach&#34;]
+    RULES --&gt; A5[&#34;auth_latency p99 &gt; 500ms → auth path slow&#34;]
+
+    A1 --&gt; ALERTMANAGER[&#34;Alertmanager&#34;]
+    A2 --&gt; ALERTMANAGER
+    A3 --&gt; ALERTMANAGER
+    A4 --&gt; ALERTMANAGER
+    A5 --&gt; ALERTMANAGER
+
+    ALERTMANAGER --&gt; SLACK2[&#34;Slack #alerts&#34;]
+    ALERTMANAGER --&gt; PAGERDUTY[&#34;PagerDuty (P1 only)&#34;]
+  </pre>
+
+<h3 id="243-structured-logging-loki">24.3 Structured Logging (Loki)</h3>
+<p>Every log line is JSON with mandatory fields:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;timestamp&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;2026-02-28T12:00:00Z&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;level&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;info&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;service&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;platform-app&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;task_id&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;task_abc123&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;tenant_id&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;tenant_xyz&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;plugin_name&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;code-review&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;node&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;security_agent&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;routing_method&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;embedding&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;duration_ms&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">342</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;tokens_used&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1240</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;message&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Node completed&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><p><strong>PII policy:</strong> Never log email, API key plaintext, raw user input, or <code>tasks.input</code> content. <code>task_id</code> is the primary correlation key.</p>
+<h3 id="244-slos">24.4 SLOs</h3>
+<table>
+  <thead>
+      <tr>
+          <th>SLO</th>
+          <th>Target</th>
+          <th>Alert threshold</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Router p99 latency (embedding path)</td>
+          <td>&lt; 200ms</td>
+          <td>&gt; 400ms</td>
+      </tr>
+      <tr>
+          <td>Plugin execution success rate</td>
+          <td>&gt; 99%</td>
+          <td>&lt; 98%</td>
+      </tr>
+      <tr>
+          <td>Task delivery (sync) p95</td>
+          <td>&lt; 5s</td>
+          <td>&gt; 10s</td>
+      </tr>
+      <tr>
+          <td>LLM fallback routing rate</td>
+          <td>&lt; 5%</td>
+          <td>&gt; 10%</td>
+      </tr>
+      <tr>
+          <td>Webhook delivery success rate</td>
+          <td>&gt; 99.5%</td>
+          <td>&lt; 99%</td>
+      </tr>
+      <tr>
+          <td>Auth p99 latency</td>
+          <td>&lt; 100ms</td>
+          <td>&gt; 500ms</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="25-non-functional-requirements">25. Non-Functional Requirements</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Requirement</th>
+          <th>Target</th>
+          <th>Approach</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Availability</strong></td>
+          <td>99.9% uptime</td>
+          <td>Circuit breakers per plugin; HA as v2 milestone (plain Deployment scale-out)</td>
+      </tr>
+      <tr>
+          <td><strong>Scalability</strong></td>
+          <td>10K concurrent executions</td>
+          <td>Plugin HPA, Redis Streams for async backpressure</td>
+      </tr>
+      <tr>
+          <td><strong>Latency</strong></td>
+          <td>p95 &lt; 5s sync tasks</td>
+          <td>Embedding routing (&lt; 200ms), route cache, async summarisation</td>
+      </tr>
+      <tr>
+          <td><strong>Isolation</strong></td>
+          <td>Zero cross-tenant impact</td>
+          <td><code>tenant_id</code> enforced at query layer, Redis namespacing, MinIO path isolation, NetworkPolicy</td>
+      </tr>
+      <tr>
+          <td><strong>Security</strong></td>
+          <td>SOC2-ready</td>
+          <td>SHA-256 key hashing, pgcrypto tenant secrets, K8s Secrets platform creds, cosign plugin signing, scope enforcement</td>
+      </tr>
+      <tr>
+          <td><strong>Observability</strong></td>
+          <td>Full request tracing</td>
+          <td><code>task_id</code> correlation, Prometheus + Grafana + Loki, 6 SLOs with alert thresholds</td>
+      </tr>
+      <tr>
+          <td><strong>Extensibility</strong></td>
+          <td>Local dev in &lt; 1 hour</td>
+          <td>Plugin SDK, Docker Compose full stack, <code>aau plugin new</code> scaffolding</td>
+      </tr>
+      <tr>
+          <td><strong>Versioning</strong></td>
+          <td>No breaking surprises</td>
+          <td><code>envelope_schemas</code> table + in-process cache, version adapters, 90-day deprecation window</td>
+      </tr>
+      <tr>
+          <td><strong>Data compliance</strong></td>
+          <td>GDPR-ready</td>
+          <td>Tenant isolation, 30-day erasure SLA, erasure worker via Redis Streams</td>
+      </tr>
+      <tr>
+          <td><strong>Operational simplicity</strong></td>
+          <td>Minimal ops burden</td>
+          <td>1 app + 2 workers, plain K8s Deployments, Redis Streams reuses existing Redis</td>
+      </tr>
+      <tr>
+          <td><strong>Router cost</strong></td>
+          <td>LLM calls &lt; 5%</td>
+          <td>Embedding-first, 5-min route cache, keyword fallback, 2-threshold routing</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="26-summary">26. Summary</h2>
+<p>The AI Agents Universe is a platform where:</p>
+<ul>
+<li><strong>For customers:</strong> Subscribe to the plugins you need. One API key, one interface. Long-running tasks return a <code>task_id</code> immediately — poll or receive a signed webhook.</li>
+<li><strong>For developers:</strong> <code>aau plugin new</code> scaffolds a LangGraph plugin. <code>aau plugin dev</code> starts a full local Docker Compose stack with hot-reload. <code>aau plugin publish</code> builds, scans with Trivy, signs with cosign, and registers automatically. The entire contract is one Python class extending <code>BasePlugin</code>.</li>
+<li><strong>For the business:</strong> Token-level usage billing. Invite-only plugin ecosystem at launch; public marketplace in v2. Enterprise custom builds via direct engagement.</li>
+<li><strong>For operators:</strong> Self-hosted Kubernetes with no proprietary managed services and no Kubernetes operators — plain Deployments and PVCs throughout. One application pod, two worker pods, and five data services. Redis does double duty as cache and async queue via Streams, eliminating RabbitMQ. PostgreSQL does double duty as operational store and vector store via pgvector, eliminating a separate vector database. Secrets are stored encrypted in PostgreSQL using pgcrypto and in Kubernetes Secrets — HashiCorp Vault is a v2 addition when untrusted third-party plugins arrive.</li>
+</ul>
+<p><strong>The simplification principle:</strong> every infrastructure component must earn its place. When two use cases can be served by one tool already in the stack, that is always preferred over adding a new service.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">AI Agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/multi-agent-systems">Multi-Agent Systems</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/plugin-architecture">Plugin Architecture</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/orchestration">Orchestration</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/langgraph">LangGraph</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/python">Python</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/system-design">System Design</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/saas">SaaS</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/subscription-platform">Subscription Platform</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/agentic-ai">Agentic AI</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

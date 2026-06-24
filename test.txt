@@ -1,349 +1,64 @@
-# Agent Loops Explained
+A lot of leadership teams start with a goal like:
 
-Every few months, a new term starts appearing everywhere in AI discussions.
+> "How do we grow revenue by 20%?"
 
-Recently, that term has been **Agent Loop**.
+The problem is that this question is often too abstract. Nobody wakes up and performs a "20% growth" task.
 
-You'll see posts claiming that agent loops are the future of software, that they unlock autonomous systems, or that they are the missing ingredient behind AI agents.
+What people actually do every day are hundreds or thousands of small units of work:
 
-The reality is much less mysterious.
+* Answer customer questions
+* Create proposals
+* Follow up on leads
+* Review contracts
+* Build features
+* Resolve support tickets
+* Generate reports
+* Onboard customers
 
-An agent loop is one of the simplest ideas in computer science.
+Growth emerges from how effectively these individual activities are performed.
 
-It is merely a cycle of:
+So instead of asking:
 
-**Think → Act → Observe → Repeat**
+> "How do we grow 20%?"
 
-Yet this simple pattern is responsible for much of what makes modern AI agents useful.
+Ask:
 
-## The Difference Between an LLM and an Agent
+> "Where does work happen in this company, and where is effort being wasted, delayed, duplicated, or constrained?"
 
-A traditional Large Language Model operates in a single pass.
-
-A user asks a question.
-
-The model generates an answer.
-
-The interaction ends.
-
-```text
-Question
-    ↓
-LLM
-    ↓
-Answer
-```
-
-This works well when the model already has the information needed to answer.
-
-But many real-world tasks require gathering information, interacting with systems, and making decisions based on intermediate results.
+Then optimize those points.
 
 For example:
 
-* Investigating a Jira issue
-* Looking up customer information
-* Researching current events
-* Analyzing source code
-* Updating records across systems
+| Function    | Unit of Work        | Inefficiency                | Impact                 |
+| ----------- | ------------------- | --------------------------- | ---------------------- |
+| Sales       | Lead qualification  | SDR spends 20 mins per lead | More leads processed   |
+| Support     | Ticket triage       | Manual categorization       | Faster response times  |
+| Engineering | Code reviews        | Senior engineers bottleneck | More throughput        |
+| Finance     | Invoice processing  | Manual entry                | Faster cash collection |
+| HR          | Candidate screening | Resume review overload      | Faster hiring          |
 
-A single prompt is often insufficient.
+Each improvement may only create a 1-5% gain locally.
 
-The model must perform multiple actions before it can produce a useful answer.
+But if 20 teams each improve 5%, the organization can experience substantial growth without anyone explicitly designing a "20% growth plan."
 
-This is where the agent loop appears.
+This is similar to how companies like Amazon think operationally. They rarely start with "increase company output by X%." They obsess over cycle times, defects, bottlenecks, handoffs, and customer friction. The aggregate effect becomes growth.
 
-```text
-Question
-    ↓
-Reason
-    ↓
-Use Tool
-    ↓
-Observe Result
-    ↓
-Reason Again
-    ↓
-Use Another Tool
-    ↓
-Observe Result
-    ↓
-Final Answer
-```
+An even stronger version of your idea might be:
 
-The system keeps cycling until the task is complete.
+> Organizational growth is often an emergent property of eliminating friction in thousands of individual units of work. Instead of planning growth from the top down, identify where people spend time, where work gets stuck, and where decisions are delayed. Fix enough of those bottlenecks, and growth becomes the natural outcome.
 
-## A Real Example
+What's particularly interesting in the AI era is that AI gives us a new lens:
 
-Imagine a user asks:
+Before AI, companies optimized processes.
 
-> What are the top five open Jira bugs affecting enterprise customers?
+With AI, companies can optimize individual units of work.
 
-A standard LLM cannot answer this.
+The question shifts from:
 
-The information is not part of its training data.
+> "How do we automate a department?"
 
-An agent might proceed as follows:
+to
 
-### Iteration 1
+> "What are the 500 tasks people perform every day, and which of them can be completed faster, better, or not at all?"
 
-Search Jira for open bugs.
-
-### Iteration 2
-
-Read the returned tickets.
-
-### Iteration 3
-
-Identify which tickets belong to enterprise customers.
-
-### Iteration 4
-
-Rank them by severity and business impact.
-
-### Iteration 5
-
-Generate a summary report.
-
-Only after completing these steps does the agent return an answer.
-
-Each iteration through this cycle is one loop.
-
-## Why Everyone Is Talking About Agent Loops
-
-The idea itself is not new.
-
-What is new is that LLMs can now perform the reasoning step.
-
-Historically, workflows looked like this:
-
-```text
-Human
-   ↓
-Tool
-   ↓
-Human
-   ↓
-Tool
-   ↓
-Human
-```
-
-The human was responsible for deciding what to do next.
-
-Today, the model can make many of those decisions.
-
-```text
-LLM
-   ↓
-Tool
-   ↓
-LLM
-   ↓
-Tool
-   ↓
-LLM
-```
-
-The reasoning process becomes partially automated.
-
-This allows systems to handle longer and more complex tasks than a single prompt ever could.
-
-## Agent Loops Have Existed for Decades
-
-One reason the hype can be confusing is that software engineers have already seen this pattern many times before.
-
-### Debugging Software
-
-```text
-Read Code
-   ↓
-Run Program
-   ↓
-Observe Error
-   ↓
-Modify Code
-   ↓
-Run Again
-```
-
-This is an agent loop.
-
-### Quality Assurance
-
-```text
-Test Feature
-   ↓
-Observe Result
-   ↓
-Report Defect
-   ↓
-Retest
-```
-
-This is also an agent loop.
-
-### Customer Support
-
-```text
-Read Ticket
-   ↓
-Ask Question
-   ↓
-Receive Response
-   ↓
-Investigate
-   ↓
-Reply
-```
-
-Again, an agent loop.
-
-The pattern is everywhere.
-
-The only difference is that the reasoning step is increasingly being performed by software rather than humans.
-
-## The Smallest Possible Agent Loop
-
-Most agent frameworks eventually reduce to something surprisingly simple.
-
-```python
-while not task_complete:
-    think()
-    act()
-    observe()
-```
-
-That is the entire idea.
-
-Whether you use LangGraph, OpenAI Agents SDK, Claude Code, or your own implementation, the core concept remains the same.
-
-A practical implementation might look like:
-
-```python
-for step in range(max_steps):
-
-    response = llm(messages)
-
-    if response.type == "final":
-        return response.answer
-
-    if response.type == "tool_call":
-        result = run_tool(response)
-        messages.append(result)
-```
-
-The model decides whether it needs more information.
-
-If it does, it calls a tool.
-
-The result is fed back into the model.
-
-The cycle continues.
-
-## A Useful Project You Can Build in an Afternoon
-
-One of the simplest real-world agents is a Jira investigator.
-
-A user asks:
-
-> Why is customer login failing?
-
-The loop might work like this:
-
-### Step 1
-
-Search Jira.
-
-### Step 2
-
-Read matching incidents.
-
-### Step 3
-
-Search recent deployments.
-
-### Step 4
-
-Read error logs.
-
-### Step 5
-
-Generate an explanation.
-
-Each step uses the output of the previous step to determine what happens next.
-
-The implementation can be surprisingly small.
-
-Most of the complexity comes from connecting tools rather than building the loop itself.
-
-## The Hard Part Nobody Talks About
-
-Social media often presents the loop itself as the innovation.
-
-In reality, the loop is usually the easiest part.
-
-The difficult engineering challenges begin after the loop exists.
-
-### When Should It Stop?
-
-Without limits, an agent may continue indefinitely.
-
-### How Many Iterations Are Allowed?
-
-Every iteration costs time and money.
-
-### What Happens When a Tool Fails?
-
-External systems are unreliable.
-
-Agents must recover gracefully.
-
-### How Do You Prevent Hallucinated Actions?
-
-An agent may decide to call the wrong tool or misinterpret results.
-
-### How Do You Verify Success?
-
-Many tasks require proving the outcome is correct.
-
-### How Do Multiple Agents Coordinate?
-
-As systems grow, specialized agents often need to collaborate without creating chaos.
-
-These challenges are where most production engineering effort is spent.
-
-## Why Agent Loops Matter
-
-The significance of agent loops is not that they are a new invention.
-
-The significance is that language models can now participate in them.
-
-For decades, humans provided the reasoning that connected actions together.
-
-Now software can perform part of that reasoning.
-
-That shift allows machines to execute workflows that previously required constant human supervision.
-
-The loop itself is simple.
-
-The opportunity comes from deciding what useful work can be expressed as:
-
-```text
-Goal
-   ↓
-Reason
-   ↓
-Act
-   ↓
-Observe
-   ↓
-Repeat
-```
-
-Once you start looking for that pattern, you begin to notice it everywhere.
-
-Many business processes, engineering workflows, support operations, and research tasks are simply variations of the same loop.
-
-The future of agents may not come from inventing new loops.
-
-It may come from discovering how many existing human workflows can be mapped onto the ones we already have.
+That framing feels much more actionable and measurable than a top-down growth target.

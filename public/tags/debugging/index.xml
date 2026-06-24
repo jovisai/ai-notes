@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugging on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/debugging/</link>
+    <description>Recent content in Debugging on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Debugging and Observability for Seeing Inside the Black Box</title>
+      <link>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</link>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</guid>
+      <description>&lt;p&gt;When your AI agent fails, hallucinates, or makes unexpected decisions, how do you find out why? Unlike traditional software where you can step through code line-by-line, AI agents operate through chains of LLM calls, tool invocations, and state transitions that can be opaque and non-deterministic. This article explores the essential techniques for making agent behavior visible, debuggable, and monitorable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Observability&lt;/strong&gt; means instrumenting your agent so you can see what it&amp;rsquo;s thinking, what tools it&amp;rsquo;s calling, and why it made specific decisions. Unlike traditional software where you can step through code line-by-line, AI agents operate through chains of LLM calls, tool invocations, and state transitions that are opaque and non-deterministic.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

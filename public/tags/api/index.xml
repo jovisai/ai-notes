@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/api/</link>
+    <description>Recent content in API on Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How AI Agents Use Tools with Function Calling</title>
+      <link>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</guid>
+      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tool Use&lt;/strong&gt; is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called &lt;strong&gt;Function Calling&lt;/strong&gt;: the LLM acts as a reasoning engine that translates a user&amp;rsquo;s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.&lt;/p&gt;&#xA;&lt;p&gt;When you ask a voice assistant &amp;ldquo;What&amp;rsquo;s the weather in London?&amp;rdquo;, it doesn&amp;rsquo;t magically know the answer. It recognizes that you want weather data, calls an external API with &amp;ldquo;London&amp;rdquo; as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

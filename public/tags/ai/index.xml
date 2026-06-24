@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI on Engineering Notes</title>
+    <title>Ai on Engineering Notes</title>
     <link>https://notes.muthu.co/tags/ai/</link>
-    <description>Recent content in AI on Engineering Notes</description>
+    <description>Recent content in Ai on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimize Units of Work, Not Growth Targets</title>
+      <link>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</guid>
+      <description>&lt;p&gt;A lot of leadership teams start with a goal like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;How do we grow revenue by 20%?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It is a reasonable business question. It is also too abstract to manage directly.&lt;/p&gt;&#xA;&lt;p&gt;Nobody wakes up and performs a &amp;ldquo;20% growth&amp;rdquo; task. Nobody opens a laptop and completes &amp;ldquo;increase revenue&amp;rdquo; before lunch. What people actually do every day is much smaller and much more concrete:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Answer customer questions&lt;/li&gt;&#xA;&lt;li&gt;Create proposals&lt;/li&gt;&#xA;&lt;li&gt;Follow up on leads&lt;/li&gt;&#xA;&lt;li&gt;Review contracts&lt;/li&gt;&#xA;&lt;li&gt;Build features&lt;/li&gt;&#xA;&lt;li&gt;Resolve support tickets&lt;/li&gt;&#xA;&lt;li&gt;Generate reports&lt;/li&gt;&#xA;&lt;li&gt;Onboard customers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Growth is the aggregate result of how well thousands of these units of work happen.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI Will Not Kill Junior Engineers but It Will Change Them</title>
       <link>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>

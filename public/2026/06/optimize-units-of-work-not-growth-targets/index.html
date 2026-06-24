@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Optimize Units of Work, Not Growth Targets - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Optimize Units of Work, Not Growth Targets">
+  <meta itemprop="description" content="Growth becomes more actionable when leaders stop treating it as a target and start removing friction from the individual units of work that create it.">
+  <meta itemprop="datePublished" content="2026-06-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-06-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1166">
+  <meta itemprop="keywords" content="Engineering Management,Ai,Operations"><meta property="og:url" content="https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Optimize Units of Work, Not Growth Targets">
+  <meta property="og:description" content="Growth becomes more actionable when leaders stop treating it as a target and start removing friction from the individual units of work that create it.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="engineering-manager">
+    <meta property="article:published_time" content="2026-06-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-23T00:00:00+00:00">
+    <meta property="article:tag" content="Engineering Management">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Operations">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Optimize Units of Work, Not Growth Targets">
+  <meta name="twitter:description" content="Growth becomes more actionable when leaders stop treating it as a target and start removing friction from the individual units of work that create it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Optimize Units of Work, Not Growth Targets</h1>
+        
+        <div class="date">
+            <span class="day">23</span>
+            <span class="rest">Jun 2026</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>A lot of leadership teams start with a goal like this:</p>
+<blockquote>
+<p>How do we grow revenue by 20%?</p>
+</blockquote>
+<p>It is a reasonable business question. It is also too abstract to manage directly.</p>
+<p>Nobody wakes up and performs a &ldquo;20% growth&rdquo; task. Nobody opens a laptop and completes &ldquo;increase revenue&rdquo; before lunch. What people actually do every day is much smaller and much more concrete:</p>
+<ul>
+<li>Answer customer questions</li>
+<li>Create proposals</li>
+<li>Follow up on leads</li>
+<li>Review contracts</li>
+<li>Build features</li>
+<li>Resolve support tickets</li>
+<li>Generate reports</li>
+<li>Onboard customers</li>
+</ul>
+<p>Growth is the aggregate result of how well thousands of these units of work happen.</p>
+<p>That means the better operating question is not:</p>
+<blockquote>
+<p>How do we grow by 20%?</p>
+</blockquote>
+<p>It is:</p>
+<blockquote>
+<p>Where does work happen in this company, and where is effort being wasted, delayed, duplicated, or constrained?</p>
+</blockquote>
+<p>The second question is more useful because someone can actually do something with it.</p>
+<h2 id="growth-is-not-a-task">Growth Is Not a Task</h2>
+<p>Revenue growth is an outcome. It emerges from many local improvements across the organization: faster lead qualification, cleaner handoffs, shorter approval paths, better support triage, fewer rework loops, clearer product decisions, and less waiting between teams.</p>
+<p>Most companies try to manage growth at the level of the dashboard. They stare at revenue, pipeline, activation, churn, margin, and headcount. Those numbers matter, but they are lagging indicators. They tell you what the system produced. They do not show you where the system is wasting effort.</p>
+<p>To change the system, you have to inspect the work.</p>
+<p>Look at the smallest repeatable unit that creates value or moves value forward. Then ask:</p>
+<ul>
+<li>How often does this happen?</li>
+<li>How long does it take?</li>
+<li>How much waiting is involved?</li>
+<li>How many people touch it?</li>
+<li>How often is it redone?</li>
+<li>Which decisions slow it down?</li>
+<li>Which parts require judgment, and which parts are mechanical?</li>
+</ul>
+<p>That is where leverage hides.</p>
+<h2 id="the-unit-of-work-view">The Unit-of-Work View</h2>
+<p>Once you look at the company this way, opportunities become easier to see.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>Unit of Work</th>
+          <th>Common Inefficiency</th>
+          <th>Better Outcome</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Sales</td>
+          <td>Lead qualification</td>
+          <td>SDR spends 20 minutes researching each lead</td>
+          <td>More qualified leads processed</td>
+      </tr>
+      <tr>
+          <td>Support</td>
+          <td>Ticket triage</td>
+          <td>Manual categorization and routing</td>
+          <td>Faster first response</td>
+      </tr>
+      <tr>
+          <td>Engineering</td>
+          <td>Code review</td>
+          <td>Senior engineers become approval bottlenecks</td>
+          <td>Shorter delivery cycle time</td>
+      </tr>
+      <tr>
+          <td>Finance</td>
+          <td>Invoice processing</td>
+          <td>Manual data entry and reconciliation</td>
+          <td>Faster cash collection</td>
+      </tr>
+      <tr>
+          <td>HR</td>
+          <td>Candidate screening</td>
+          <td>Repetitive resume review overload</td>
+          <td>Faster hiring throughput</td>
+      </tr>
+  </tbody>
+</table>
+<p>None of these improvements sound like a board-level growth strategy by themselves.</p>
+<p>That is the point.</p>
+<p>A company rarely gets 20% better because one executive invents a perfect 20% plan. It gets better because hundreds of small constraints are found and removed. A sales team saves 8 minutes per lead. Support cuts triage time in half. Engineering reduces PR wait time. Finance closes invoices faster. HR moves candidates through the funnel with less manual sorting.</p>
+<p>Each gain may only be 1-5% locally. But if 20 teams each improve an important workflow by 5%, the organization starts to feel different. Work moves with less drag. Decisions travel faster. Customers wait less. Teams spend more time creating value and less time pushing work through the machine.</p>
+<p>That is how operational improvement turns into growth.</p>
+<h2 id="ai-changes-the-resolution">AI Changes the Resolution</h2>
+<p>Before AI, most companies optimized processes.</p>
+<p>They mapped departments, designed workflows, bought systems of record, defined approval paths, and standardized operating procedures. That work still matters. But it usually operates at a coarse level: the sales process, the support process, the hiring process, the finance process.</p>
+<p>AI gives leaders a finer lens.</p>
+<p>Instead of asking, &ldquo;How do we automate this department?&rdquo; you can ask:</p>
+<blockquote>
+<p>What are the 500 tasks people perform every day, and which of them can be completed faster, better, or not at all?</p>
+</blockquote>
+<p>That question is more actionable.</p>
+<p>A department is too large to reason about clearly. A process is better, but still often too broad. A unit of work is specific enough to improve:</p>
+<ul>
+<li>Summarize this customer call</li>
+<li>Classify this support ticket</li>
+<li>Draft this follow-up email</li>
+<li>Extract contract terms</li>
+<li>Compare this invoice to the purchase order</li>
+<li>Generate the first version of a test plan</li>
+<li>Review this pull request for a known class of issues</li>
+<li>Turn meeting notes into decisions and owners</li>
+</ul>
+<p>Some of these tasks can be automated. Some can be assisted. Some should be eliminated. Some should stay human because they require judgment, empathy, accountability, or context the system does not have.</p>
+<p>The value comes from making that distinction deliberately.</p>
+<h2 id="do-not-start-with-automate-a-department">Do Not Start With &ldquo;Automate a Department&rdquo;</h2>
+<p>&ldquo;Automate support&rdquo; is not a plan. It is a slogan.</p>
+<p>The useful version is:</p>
+<ul>
+<li>Which support tickets are repetitive?</li>
+<li>Which require account-specific context?</li>
+<li>Which require policy judgment?</li>
+<li>Which require engineering investigation?</li>
+<li>Which can be resolved with better product UX?</li>
+<li>Which should never have become tickets in the first place?</li>
+</ul>
+<p>Now you have a map.</p>
+<p>The same applies everywhere. &ldquo;Use AI in sales&rdquo; is vague. &ldquo;Reduce research time for inbound leads from 20 minutes to 5 minutes while preserving qualification quality&rdquo; is specific. &ldquo;Improve finance productivity&rdquo; is vague. &ldquo;Extract invoice fields automatically and flag mismatches for review&rdquo; is specific.</p>
+<p>Specific units of work create measurable experiments. Vague transformation programs create theater.</p>
+<h2 id="how-to-run-a-unit-of-work-audit">How to Run a Unit-of-Work Audit</h2>
+<p>Start with one function. Do not boil the company.</p>
+<p>Pick a team where work volume is high, delays are visible, and outcomes matter. Then run a simple audit:</p>
+<ol>
+<li>List the 20-50 recurring tasks the team performs every week.</li>
+<li>Estimate frequency, average time, wait time, error rate, and handoffs for each task.</li>
+<li>Mark each task as judgment-heavy, context-heavy, repetitive, compliance-sensitive, or customer-sensitive.</li>
+<li>Identify the top five tasks by total effort or delay.</li>
+<li>Run one small improvement experiment per task.</li>
+</ol>
+<p>The experiment does not have to be a full automation project. It might be a template, a better intake form, a decision rule, an AI-assisted draft, a routing change, a checklist, or removing a step entirely.</p>
+<p>The goal is not to replace the team. The goal is to increase the amount of useful work the team can complete with the same energy.</p>
+<p>Measure the result in operational terms:</p>
+<ul>
+<li>Minutes saved per unit</li>
+<li>Fewer handoffs</li>
+<li>Lower rework rate</li>
+<li>Shorter cycle time</li>
+<li>Faster first response</li>
+<li>Higher quality at review</li>
+<li>Fewer decisions waiting on one person</li>
+</ul>
+<p>Then aggregate the gains.</p>
+<h2 id="the-leadership-shift">The Leadership Shift</h2>
+<p>Top-down goals still matter. A company needs direction. But growth targets do not tell teams where to act.</p>
+<p>The job of leadership is to translate the target into a system of operational questions:</p>
+<ul>
+<li>Where does work wait?</li>
+<li>Where is effort duplicated?</li>
+<li>Where are decisions delayed?</li>
+<li>Where do people repeatedly search for the same context?</li>
+<li>Where do customers experience friction?</li>
+<li>Which tasks happen so often that a small improvement would compound?</li>
+</ul>
+<p>This is especially important in the AI era because the temptation is to chase big, impressive automation stories. The more durable advantage may come from something less dramatic: systematically improving the small units of work that happen all day, every day.</p>
+<p>That is where growth becomes manageable.</p>
+<p>Not as a slogan. Not as a dashboard wish. As a portfolio of bottlenecks removed from the daily work of the company.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/engineering-management">engineering-management</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/ai">AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/operations">operations</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2026   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+	
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ensuring Agent Safety with Constitutional AI Guardrails - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Ensuring Agent Safety with Constitutional AI Guardrails">
+  <meta itemprop="description" content="Concept Introduction Constitutional AI (CAI) is a method for training an AI to supervise itself. Rather than relying on human feedback for every harmful query, the AI learns to critique and revise its own behavior based on a set of explicit guiding principles. This allows the AI to learn harmlessness not from direct human supervision on harmful topics, but from its own application of those principles.
+Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI’s own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).">
+  <meta itemprop="datePublished" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1062">
+  <meta itemprop="keywords" content="AI Agents,AI Safety,Alignment,Constitutional AI,Ethics"><meta property="og:url" content="https://notes.muthu.co/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Ensuring Agent Safety with Constitutional AI Guardrails">
+  <meta property="og:description" content="Concept Introduction Constitutional AI (CAI) is a method for training an AI to supervise itself. Rather than relying on human feedback for every harmful query, the AI learns to critique and revise its own behavior based on a set of explicit guiding principles. This allows the AI to learn harmlessness not from direct human supervision on harmful topics, but from its own application of those principles.
+Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI’s own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="AI Safety">
+    <meta property="article:tag" content="Alignment">
+    <meta property="article:tag" content="Constitutional AI">
+    <meta property="article:tag" content="Ethics">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ensuring Agent Safety with Constitutional AI Guardrails">
+  <meta name="twitter:description" content="Concept Introduction Constitutional AI (CAI) is a method for training an AI to supervise itself. Rather than relying on human feedback for every harmful query, the AI learns to critique and revise its own behavior based on a set of explicit guiding principles. This allows the AI to learn harmlessness not from direct human supervision on harmful topics, but from its own application of those principles.
+Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI’s own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Ensuring Agent Safety with Constitutional AI Guardrails</h1>
+        
+        <div class="date">
+            <span class="day">05</span>
+            <span class="rest">Oct 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <h2 id="concept-introduction">Concept Introduction</h2>
+<p><strong>Constitutional AI (CAI)</strong> is a method for training an AI to supervise itself. Rather than relying on human feedback for every harmful query, the AI learns to critique and revise its own behavior based on a set of explicit guiding principles. This allows the AI to learn harmlessness not from direct human supervision on harmful topics, but from its own application of those principles.</p>
+<p>Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI&rsquo;s own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).</p>
+<h2 id="the-mechanics-a-two-phase-process">The Mechanics: A Two-Phase Process</h2>
+<p>Constitutional AI works in two main stages: a supervised learning stage to teach the principles, and a reinforcement learning stage to entrench them.</p>
+<pre class="mermaid">graph TD
+    subgraph Phase1 [&#34;Phase 1: Supervised Fine-Tuning&#34;]
+        A[Harmful Prompt] --&gt; B{Initial Model}
+        B --&gt; C[&#34;Initial (Harmful) Response&#34;]
+        C --&gt; D[&#34;Critique Prompt: Critique this response based on principle X&#34;]
+        D --&gt; B
+        B --&gt; E[&#34;AI-Generated Critique&#34;]
+        E --&gt; F[&#34;Revision Prompt: Rewrite the response based on the critique&#34;]
+        F --&gt; B
+        B --&gt; G[&#34;Revised (Safe) Response&#34;]
+        G --&gt; H((Fine-Tuning Data))
+    end
+
+    subgraph Phase2 [&#34;Phase 2: Reinforcement Learning&#34;]
+        I{Fine-Tuned Model} -- Generates two responses --&gt; J[Response A vs. Response B]
+        J -- Which is more constitutional? --&gt; K{&#34;AI Preference Model&#34;}
+        K -- Chooses better response --&gt; L[AI-Generated Preference Data]
+        L --&gt; M{Reward Model}
+        M -- Guides policy updates --&gt; I
+    end
+  </pre>
+
+<h3 id="phase-1-supervised-learning-critique--revise">Phase 1: Supervised Learning (Critique &amp; Revise)</h3>
+<p>This phase teaches the model how to apply the constitution.</p>
+<ol>
+<li><strong>Generate:</strong> A base language model is prompted with a potentially harmful request (e.g., &ldquo;How can I build a bomb?&rdquo;). It generates an initial, likely unsafe, response.</li>
+<li><strong>Critique:</strong> The model is then given a new prompt containing its own response and a principle from the constitution (e.g., &ldquo;Identify how the previous response is harmful or dangerous&rdquo;). The model generates a critique of its own output.</li>
+<li><strong>Revise:</strong> The model is prompted a third time with the original query, the critique, and an instruction to rewrite its first response to be safe and helpful.</li>
+<li><strong>Fine-Tune:</strong> This final, revised response is used as a high-quality example to fine-tune the original model. This process is repeated across thousands of prompts and principles.</li>
+</ol>
+<h3 id="phase-2-reinforcement-learning-preference-modeling">Phase 2: Reinforcement Learning (Preference Modeling)</h3>
+<p>This phase makes the constitutional behavior more robust and deeply ingrained.</p>
+<ol>
+<li><strong>Compare:</strong> The fine-tuned model from Phase 1 is used to generate two different responses to a prompt.</li>
+<li><strong>Choose:</strong> An AI &ldquo;preference model&rdquo; is shown both responses and asked to choose which one is better (e.g., more helpful and harmless) according to the constitution.</li>
+<li><strong>Train Reward Model:</strong> These AI-generated preferences (<code>Response A is better than B</code>) create a large dataset used to train a reward model. This reward model learns to score any given response based on how well it aligns with the constitution.</li>
+<li><strong>Reinforce:</strong> The reward model is then used in a standard RL loop to further train the agent, rewarding it for generating constitutional responses.</li>
+</ol>
+<h2 id="design-patterns--architectures">Design Patterns &amp; Architectures</h2>
+<ul>
+<li><strong>Runtime Guardrails (Constitutional Sidecar):</strong> The principles of a constitution can be used at runtime, not just during training. Before an agent executes an action or sends a response to a user, the proposed output can be passed to another LLM call (a &ldquo;constitutional sidecar&rdquo;). This sidecar&rsquo;s only job is to check the output against the constitution. If it flags a violation, the action can be blocked or sent back to the agent for revision.</li>
+<li><strong>Modular Ethics:</strong> In a multi-agent system, different agents could be governed by slightly different constitutions. An agent designed for creative writing might have a looser constitution than an agent designed to provide financial advice, allowing for modular and context-specific safety rules.</li>
+<li><strong>Explicit vs. Implicit Alignment:</strong> A constitution makes the agent&rsquo;s safety principles explicit and readable. This is a major step forward in transparency compared to the &ldquo;implicit&rdquo; safety learned via RLHF, where the rules are baked into the model&rsquo;s weights in a way that is difficult to inspect.</li>
+</ul>
+<h2 id="practical-application">Practical Application</h2>
+<p>A minimal Constitutional AI critique-and-revise loop works well with the raw Anthropic SDK: a <code>ConstitutionGuard</code> class holds a list of principles and exposes a <code>safe_complete(prompt)</code> method that runs three sequential SDK calls — an initial completion, a <code>critique(response, principles)</code> call that asks the model to identify violations, and a <code>revise(original, critique)</code> call that returns a corrected reply. The data flows linearly: raw response → structured critique → revised response, with an optional <code>passes_all_principles(response)</code> check at the end to gate whether another iteration is needed. For multi-turn agents you can wrap this guard as a LangGraph node that intercepts any <code>AIMessage</code> before it leaves the graph, re-running the loop up to a configurable <code>max_iterations</code>. The key design choice is keeping the constitution as a plain Python list of strings so principles can be added, versioned, or swapped without touching control flow.</p>
+<p><strong>Try it</strong></p>
+<pre tabindex="0"><code>Using the Anthropic Python SDK, build a ConstitutionGuard class with a list of 3 safety principles and a safe_complete(prompt) method that runs three sequential claude-3-5-haiku-20241022 calls: initial response, self-critique against the principles, and a revised response. Print each stage&#39;s output with a label. Add inline comments explaining each SDK call. Make the code runnable end-to-end with a hardcoded harmful prompt as a demo.
+</code></pre><h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<ul>
+<li><strong>Who Writes the Constitution?:</strong> This is a major open question. Anthropic started with a list of principles inspired by documents like the UN Declaration of Human Rights and Apple&rsquo;s terms of service. Now, there are active research projects exploring how to source these principles from the public to create more representative and less biased constitutions.</li>
+<li><strong>Dynamic Constitutions:</strong> Research is exploring agents that can propose amendments to their own constitution over time, perhaps with human oversight, allowing their ethical framework to evolve.</li>
+</ul>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<p>Constitutional AI is a direct application of <strong>Jurisprudence (the theory of law)</strong> and <strong>Political Philosophy</strong> to machine learning.</p>
+<ul>
+<li><strong>Interpretation (Originalism vs. Living Constitution):</strong> Just as legal scholars debate how to interpret a nation&rsquo;s constitution, AI safety researchers face similar challenges. Should the AI interpret its principles based on the original intent of its creators, or should the principles be interpreted dynamically in light of new situations?</li>
+<li><strong>Balancing Rights:</strong> A core challenge in law is balancing conflicting principles (e.g., freedom of speech vs. public safety). An AI with a constitution must also learn to navigate these conflicts, deciding which principle takes precedence in a given situation.</li>
+</ul>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">AI Agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/ai-safety">AI Safety</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/alignment">Alignment</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/constitutional-ai">Constitutional AI</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/ethics">Ethics</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>

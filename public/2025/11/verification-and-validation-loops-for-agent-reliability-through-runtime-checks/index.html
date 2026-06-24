@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Verification and Validation Loops for Agent Reliability Through Runtime Checks - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
+	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Verification and Validation Loops for Agent Reliability Through Runtime Checks">
+  <meta itemprop="description" content="Learn how modern AI agents use verification and validation loops to ensure output quality, catch errors at runtime, and build reliable production systems.">
+  <meta itemprop="datePublished" content="2025-11-14T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-14T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1064">
+  <meta itemprop="keywords" content="AI Agents,Verification,Validation,Reliability,Quality-Assurance,Self-Correction"><meta property="og:url" content="https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/">
+  <meta property="og:site_name" content="Engineering Notes">
+  <meta property="og:title" content="Verification and Validation Loops for Agent Reliability Through Runtime Checks">
+  <meta property="og:description" content="Learn how modern AI agents use verification and validation loops to ensure output quality, catch errors at runtime, and build reliable production systems.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-11-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-14T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Verification">
+    <meta property="article:tag" content="Validation">
+    <meta property="article:tag" content="Reliability">
+    <meta property="article:tag" content="Quality-Assurance">
+    <meta property="article:tag" content="Self-Correction">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Verification and Validation Loops for Agent Reliability Through Runtime Checks">
+  <meta name="twitter:description" content="Learn how modern AI agents use verification and validation loops to ensure output quality, catch errors at runtime, and build reliable production systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/main.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	<script src="https://notes.muthu.co/js/main.js"></script>
+</head>
+
+
+<body>
+
+
+	
+	<div class="container wrapper">
+		<div class="header">
+	<div>
+		
+			<div class="avatar">
+				<a href="https://notes.muthu.co/">
+					<img src="/avatar.jpeg" alt="Engineering Notes" />
+				</a>
+			</div>
+		
+		<div>
+			<h1 class="site-title"><a href="https://notes.muthu.co/">Engineering Notes</a></h1>
+			<div class="site-description"><div>Thoughts and Ideas on AI by Muthukrishnan</div><nav class="nav social">
+					<ul class="flat"><li><a href="https://github.com/muthuspark/" title="Github"><i data-feather="github"></i></a></li><li><a href="https://linkedin.com/in/krimuthu/" title="LinkedIn"><i data-feather="linkedin"></i></a></li></ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/ai-agents">AI Agents</a>
+			</li>
+			
+			<li>
+				<a href="/engineering-manager">Engineering Manager</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/resume">Resume</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags &amp; Stats</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+    <div class="post-header">
+    <div class="matter">
+        <h1 class="title">Verification and Validation Loops for Agent Reliability Through Runtime Checks</h1>
+        
+        <div class="date">
+            <span class="day">14</span>
+            <span class="rest">Nov 2025</span>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+    
+    <p>When an AI agent writes code, queries a database, or makes a critical decision, how do you know it got it right? Unlike traditional software where logic is deterministic, AI agents introduce probabilistic behavior that can fail in subtle ways. <strong>Verification and Validation (V&amp;V) loops</strong> are the safety net that catches these failures before they cause harm.</p>
+<h2 id="concept-introduction">Concept Introduction</h2>
+<p>V&amp;V loops are architectural patterns where agents:</p>
+<ol>
+<li><strong>Generate</strong> an output (code, text, decision, action)</li>
+<li><strong>Verify</strong> syntactic correctness (does it parse? follow format rules?)</li>
+<li><strong>Validate</strong> semantic correctness (does it solve the right problem? meet constraints?)</li>
+<li><strong>Correct</strong> or <strong>retry</strong> if checks fail</li>
+</ol>
+<p>This creates a feedback loop where the agent acts as its own quality assurance system, improving reliability in production environments.</p>
+<h2 id="algorithms--math">Algorithms &amp; Math</h2>
+<h3 id="basic-vv-loop-algorithm">Basic V&amp;V Loop Algorithm</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">vv_loop</span><span style="color:#1f2328">(</span>task<span style="color:#1f2328">,</span> max_retries<span style="color:#0550ae">=</span><span style="color:#0550ae">3</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Execute task with verification and validation
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> attempt <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span>max_retries<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Generate</span>
+</span></span><span style="display:flex;"><span>        output <span style="color:#0550ae">=</span> agent<span style="color:#0550ae">.</span>generate<span style="color:#1f2328">(</span>task<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Verify (syntactic checks)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> verify<span style="color:#1f2328">(</span>output<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            feedback <span style="color:#0550ae">=</span> get_verification_errors<span style="color:#1f2328">(</span>output<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            task <span style="color:#0550ae">=</span> enhance_with_feedback<span style="color:#1f2328">(</span>task<span style="color:#1f2328">,</span> feedback<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Validate (semantic checks)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> validate<span style="color:#1f2328">(</span>output<span style="color:#1f2328">,</span> task<span style="color:#0550ae">.</span>constraints<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            feedback <span style="color:#0550ae">=</span> get_validation_errors<span style="color:#1f2328">(</span>output<span style="color:#1f2328">,</span> task<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            task <span style="color:#0550ae">=</span> enhance_with_feedback<span style="color:#1f2328">(</span>task<span style="color:#1f2328">,</span> feedback<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a"># Success</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> output
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># All retries exhausted</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">raise</span> ValidationError<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Failed to produce valid output&#34;</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h3 id="probabilistic-formulation">Probabilistic Formulation</h3>
+<p>Let $G$ be the generation function, $V$ the verification function, and $C$ the correction function. The probability of success after $n$ attempts is:</p>
+$$P(\text{success})_n = 1 - \prod_{i=1}^{n} (1 - P(V(G(C^{i-1}(prompt)))))$$<p>Where $C^{i-1}$ represents $i-1$ correction iterations. Each retry with feedback typically increases success probability.</p>
+<h3 id="multi-validator-ensemble">Multi-Validator Ensemble</h3>
+<p>For critical applications, use multiple validators:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">ensemble_validation</span><span style="color:#1f2328">(</span>output<span style="color:#1f2328">,</span> validators<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Require majority agreement among validators
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    votes <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>v<span style="color:#1f2328">(</span>output<span style="color:#1f2328">)</span> <span style="color:#cf222e">for</span> v <span style="color:#0550ae">in</span> validators<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    confidence <span style="color:#0550ae">=</span> <span style="color:#6639ba">sum</span><span style="color:#1f2328">(</span>votes<span style="color:#1f2328">)</span> <span style="color:#0550ae">/</span> <span style="color:#6639ba">len</span><span style="color:#1f2328">(</span>votes<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#39;valid&#39;</span><span style="color:#1f2328">:</span> confidence <span style="color:#0550ae">&gt;=</span> <span style="color:#0550ae">0.5</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#39;confidence&#39;</span><span style="color:#1f2328">:</span> confidence<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#39;disagreements&#39;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>i <span style="color:#cf222e">for</span> i<span style="color:#1f2328">,</span> v <span style="color:#0550ae">in</span> <span style="color:#6639ba">enumerate</span><span style="color:#1f2328">(</span>votes<span style="color:#1f2328">)</span> <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> v<span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span></code></pre></div><h2 id="design-patterns--architectures">Design Patterns &amp; Architectures</h2>
+<h3 id="generate-verify-correct-gvc">Generate-Verify-Correct (GVC)</h3>
+<pre class="mermaid">graph LR
+    A[Task] --&gt; B[Generate]
+    B --&gt; C{Verify}
+    C --&gt;|Pass| D[Execute]
+    C --&gt;|Fail| E[Analyze Error]
+    E --&gt; F[Generate with Feedback]
+    F --&gt; C
+  </pre>
+
+<p><strong>Use when:</strong> Output has clear correctness criteria (code, structured data)</p>
+<h3 id="dual-agent-validator">Dual-Agent Validator</h3>
+<pre class="mermaid">graph LR
+    A[Task] --&gt; B[Generator Agent]
+    B --&gt; C[Validator Agent]
+    C --&gt;|Accept| D[Execute]
+    C --&gt;|Reject| E[Feedback to Generator]
+    E --&gt; B
+  </pre>
+
+<p><strong>Use when:</strong> Validation requires complex reasoning (security review, logic checking)</p>
+<h3 id="hierarchical-vv">Hierarchical V&amp;V</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">HierarchicalVV</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>checks <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;syntax&#39;</span><span style="color:#1f2328">,</span> fast_syntax_check<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;type&#39;</span><span style="color:#1f2328">,</span> type_checker<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;logic&#39;</span><span style="color:#1f2328">,</span> expensive_formal_verification<span style="color:#1f2328">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;security&#39;</span><span style="color:#1f2328">,</span> security_scan<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">validate</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> output<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Run checks in order of cost/speed&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> name<span style="color:#1f2328">,</span> check <span style="color:#0550ae">in</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>checks<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> check<span style="color:#1f2328">(</span>output<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">return</span> <span style="color:#cf222e">False</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Failed </span><span style="color:#0a3069">{</span>name<span style="color:#0a3069">}</span><span style="color:#0a3069"> check&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#cf222e">True</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;All checks passed&#34;</span>
+</span></span></code></pre></div><p><strong>Use when:</strong> Some checks are expensive. Fail fast on cheap checks first.</p>
+<h3 id="integration-with-agent-architecture">Integration with Agent Architecture</h3>
+<p>V&amp;V loops fit into the Planner-Executor-Memory pattern:</p>
+<pre tabindex="0"><code>Planner → Executor → [V&amp;V Loop] → Memory
+                ↑_________|
+</code></pre><p>The V&amp;V loop gates entry to execution and memory storage, preventing bad outputs from propagating.</p>
+<h2 id="practical-application">Practical Application</h2>
+<h3 id="code-validation-example">Code Validation Example</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">ast</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">subprocess</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Tuple
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CodeValidator</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> llm<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>llm <span style="color:#0550ae">=</span> llm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">generate_code</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> task<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> max_retries<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">3</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Generate Python code with V&amp;V loop&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        prompt <span style="color:#0550ae">=</span> task
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">for</span> attempt <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span>max_retries<span style="color:#1f2328">):</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># Generate</span>
+</span></span><span style="display:flex;"><span>            code <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>llm<span style="color:#0550ae">.</span>generate<span style="color:#1f2328">(</span>prompt<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># Verify: Syntax check</span>
+</span></span><span style="display:flex;"><span>            syntax_valid<span style="color:#1f2328">,</span> syntax_error <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>_verify_syntax<span style="color:#1f2328">(</span>code<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> syntax_valid<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>task<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Previous attempt had syntax error:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>syntax_error<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Please fix.&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># Verify: Runs without error</span>
+</span></span><span style="display:flex;"><span>            runtime_valid<span style="color:#1f2328">,</span> runtime_error <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>_verify_runtime<span style="color:#1f2328">(</span>code<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> runtime_valid<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>task<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Previous code raised error:</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">{</span>runtime_error<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Please fix.&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># Validate: Meets requirements</span>
+</span></span><span style="display:flex;"><span>            semantic_valid<span style="color:#1f2328">,</span> semantic_feedback <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>_validate_semantics<span style="color:#1f2328">(</span>code<span style="color:#1f2328">,</span> task<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> <span style="color:#0550ae">not</span> semantic_valid<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;</span><span style="color:#0a3069">{</span>task<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Code runs but: </span><span style="color:#0a3069">{</span>semantic_feedback<span style="color:#0a3069">}</span><span style="color:#0a3069">\n\n</span><span style="color:#0a3069">Please revise.&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> code
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">raise</span> ValueError<span style="color:#1f2328">(</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Failed to generate valid code after </span><span style="color:#0a3069">{</span>max_retries<span style="color:#0a3069">}</span><span style="color:#0a3069"> attempts&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">_verify_syntax</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> Tuple<span style="color:#1f2328">[</span><span style="color:#6639ba">bool</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">]:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Check if code is syntactically valid Python&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">try</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            ast<span style="color:#0550ae">.</span>parse<span style="color:#1f2328">(</span>code<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">True</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">except</span> SyntaxError <span style="color:#cf222e">as</span> e<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">False</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">(</span>e<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">_verify_runtime</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> Tuple<span style="color:#1f2328">[</span><span style="color:#6639ba">bool</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">]:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Execute code in sandbox and catch errors&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">try</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            result <span style="color:#0550ae">=</span> subprocess<span style="color:#0550ae">.</span>run<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">[</span><span style="color:#0a3069">&#39;python&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;-c&#39;</span><span style="color:#1f2328">,</span> code<span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>                capture_output<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                text<span style="color:#0550ae">=</span><span style="color:#cf222e">True</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>                timeout<span style="color:#0550ae">=</span><span style="color:#0550ae">5</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">if</span> result<span style="color:#0550ae">.</span>returncode <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">return</span> <span style="color:#cf222e">False</span><span style="color:#1f2328">,</span> result<span style="color:#0550ae">.</span>stderr
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">True</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">except</span> subprocess<span style="color:#0550ae">.</span>TimeoutExpired<span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">return</span> <span style="color:#cf222e">False</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Code execution timed out&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">_validate_semantics</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> code<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> task<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> Tuple<span style="color:#1f2328">[</span><span style="color:#6639ba">bool</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">]:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;&#34;&#34;Use LLM to check if code solves the task&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        validation_prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Task: </span><span style="color:#0a3069">{</span>task<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Generated code:
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        ```python
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        </span><span style="color:#0a3069">{</span>code<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        ```
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Does this code correctly solve the task?
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        Answer with YES or NO, followed by explanation.
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        response <span style="color:#0550ae">=</span> <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>llm<span style="color:#0550ae">.</span>generate<span style="color:#1f2328">(</span>validation_prompt<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        valid <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>strip<span style="color:#1f2328">()</span><span style="color:#0550ae">.</span>upper<span style="color:#1f2328">()</span><span style="color:#0550ae">.</span>startswith<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;YES&#39;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        feedback <span style="color:#0550ae">=</span> response<span style="color:#0550ae">.</span>split<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">)[</span><span style="color:#0550ae">1</span><span style="color:#1f2328">]</span> <span style="color:#cf222e">if</span> <span style="color:#0a3069">&#39;</span><span style="color:#0a3069">\n</span><span style="color:#0a3069">&#39;</span> <span style="color:#0550ae">in</span> response <span style="color:#cf222e">else</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> valid<span style="color:#1f2328">,</span> feedback
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Usage with LangChain</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain.chat_models</span> <span style="color:#cf222e">import</span> ChatOpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>validator <span style="color:#0550ae">=</span> CodeValidator<span style="color:#1f2328">(</span>ChatOpenAI<span style="color:#1f2328">(</span>model<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;gpt-4&#34;</span><span style="color:#1f2328">,</span> temperature<span style="color:#0550ae">=</span><span style="color:#0550ae">0</span><span style="color:#1f2328">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>task <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;Write a function that finds the longest palindromic substring&#34;</span>
+</span></span><span style="display:flex;"><span>code <span style="color:#0550ae">=</span> validator<span style="color:#0550ae">.</span>generate_code<span style="color:#1f2328">(</span>task<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>code<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><h3 id="integration-with-langgraph">Integration with LangGraph</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">create_vv_agent</span><span style="color:#1f2328">():</span>
+</span></span><span style="display:flex;"><span>    workflow <span style="color:#0550ae">=</span> StateGraph<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Nodes</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;generate&#34;</span><span style="color:#1f2328">,</span> generate_output<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;verify&#34;</span><span style="color:#1f2328">,</span> verify_output<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;validate&#34;</span><span style="color:#1f2328">,</span> validate_output<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_node<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;correct&#34;</span><span style="color:#1f2328">,</span> apply_corrections<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Edges</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>set_entry_point<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;generate&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_edge<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;generate&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;verify&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Conditional edges</span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_conditional_edges<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;verify&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        should_retry<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;pass&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;validate&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;fail&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;correct&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_conditional_edges<span style="color:#1f2328">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;validate&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        should_retry<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;pass&#34;</span><span style="color:#1f2328">:</span> END<span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;fail&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;correct&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    workflow<span style="color:#0550ae">.</span>add_edge<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;correct&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;generate&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> workflow<span style="color:#0550ae">.</span>compile<span style="color:#1f2328">()</span>
+</span></span></code></pre></div><h2 id="latest-developments--research">Latest Developments &amp; Research</h2>
+<h3 id="recent-research-2023-2025">Recent Research (2023-2025)</h3>
+<p><strong>Self-Debugging (Chen et al., 2023)</strong></p>
+<ul>
+<li>Paper: &ldquo;Teaching Large Language Models to Self-Debug&rdquo;</li>
+<li>Finding: GPT-4 improved code correctness from 48% to 68% with simple self-debugging loops</li>
+<li>Key insight: Explicit error messages enable better self-correction than general prompts</li>
+</ul>
+<p><strong>Constitutional AI for Validation (Anthropic, 2024)</strong></p>
+<ul>
+<li>Using structured critiques as validators</li>
+<li>Reduces harmful outputs by 75% compared to base models</li>
+<li>Combines rule-based and LLM-based validation</li>
+</ul>
+<p><strong>Formal Verification Integration (2024)</strong></p>
+<ul>
+<li>Tools like Dafny and Coq integrated with LLM agents</li>
+<li>Mathematically proven correctness for critical code paths</li>
+<li>Hybrid approach: LLM generates, theorem prover verifies</li>
+</ul>
+<p><strong>Benchmarks</strong></p>
+<ul>
+<li><strong>HumanEval+</strong>: Extended code benchmark with validation tests (2023)</li>
+<li><strong>AgentBench</strong>: Multi-task agent benchmark with correctness metrics (2024)</li>
+<li>Agents with V&amp;V loops achieve 15-30% higher success rates</li>
+</ul>
+<h3 id="open-problems">Open Problems</h3>
+<ol>
+<li><strong>Validator training</strong>: How to train specialized validator models?</li>
+<li><strong>Feedback quality</strong>: What feedback maximizes correction success?</li>
+<li><strong>Optimal retry strategies</strong>: When to give up vs. keep trying?</li>
+<li><strong>Cost optimization</strong>: How to minimize validation overhead?</li>
+</ol>
+<h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
+<h3 id="from-software-engineering-design-by-contract">From Software Engineering: Design by Contract</h3>
+<p>Bertrand Meyer&rsquo;s <strong>Design by Contract</strong> (1986) introduced preconditions, postconditions, and invariants. V&amp;V loops are the runtime equivalent:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">divide</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">,</span> b<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Precondition (verify)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">assert</span> b <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Divisor cannot be zero&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#0550ae">=</span> a <span style="color:#0550ae">/</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Postcondition (validate)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">assert</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span>result <span style="color:#0550ae">*</span> b <span style="color:#0550ae">-</span> a<span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">1e-10</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Result failed sanity check&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> result
+</span></span></code></pre></div><h3 id="from-control-theory-closed-loop-control">From Control Theory: Closed-Loop Control</h3>
+<p>V&amp;V loops implement <strong>closed-loop control</strong> where:</p>
+<ul>
+<li><strong>Setpoint</strong>: Desired output properties</li>
+<li><strong>Process</strong>: LLM generation</li>
+<li><strong>Sensor</strong>: Verification/validation checks</li>
+<li><strong>Controller</strong>: Feedback-based correction</li>
+</ul>
+<p>This provides stability and error correction.</p>
+<h3 id="from-biology-immune-system">From Biology: Immune System</h3>
+<p>The immune system uses multi-layered validation:</p>
+<ol>
+<li><strong>Skin barrier</strong> (syntax checks)</li>
+<li><strong>Innate immunity</strong> (pattern matching)</li>
+<li><strong>Adaptive immunity</strong> (learned validation)</li>
+</ol>
+<p>Effective V&amp;V uses the same defense-in-depth approach.</p>
+
+    
+
+    <hr class="footer-separator" />
+<div class="tags">
+    
+    
+    <ul class="flat">
+        
+        
+        <li class="tag-li"><a href="/tags/ai-agents">ai-agents</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/verification">verification</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/validation">validation</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/reliability">reliability</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/quality-assurance">quality-assurance</a>
+        </li>
+        
+        
+        <li class="tag-li"><a href="/tags/self-correction">self-correction</a>
+        </li>
+        
+    </ul>
+    
+    
+</div>
+
+
+
+<div class="back">
+    <a href="https://notes.muthu.co/"><span aria-hidden="true">← Back</span></a>
+</div>
+
+
+<div class="back">
+    
+</div>
+
+</div>
+
+	</div>
+	
+
+	<div class="grid-overlay visible" id="grid-overlay">
+	<div class="grid-overlay-baseline"></div>
+	<div class="grid-overlay-columns">
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+		<div></div><div></div><div></div><div></div>
+	</div>
+</div>
+
+
+<div class="footer wrapper">
+	<nav class="nav">
+		<div>&copy 2025   Muthukrishnan</div>
+		<div>Contact: muthukrishnan.t [at] hotmail [dot] com</div>
+	</nav>
+</div><script>feather.replace()</script>
+
+<script type="module">
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'default',
+		handDrawn: true
+	});
+
+	const applyTheme = () => {
+		const newTheme = 'default';
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: newTheme,
+			handDrawn: true
+		});
+	};
+
+	window.addEventListener('storage', (event) => {
+		if (event.key === 'scheme') {
+			applyTheme();
+		}
+	});
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+
+	
+</body>
+
+</html>
