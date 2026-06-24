@@ -1,135 +1,349 @@
-The interesting thing about Cloudflare's "Email for Agents" is that it is not really an email product.
+# Agent Loops Explained
 
-It's infrastructure for giving AI agents a real identity and communication channel on the internet. ([The Cloudflare Blog][1])
+Every few months, a new term starts appearing everywhere in AI discussions.
 
-### What Cloudflare launched
+Recently, that term has been **Agent Loop**.
 
-Cloudflare combined three capabilities:
+You'll see posts claiming that agent loops are the future of software, that they unlock autonomous systems, or that they are the missing ingredient behind AI agents.
 
-* Receive emails
-* Send emails
-* Let AI agents process and respond to them
+The reality is much less mysterious.
 
-An agent can now have its own email address like:
+An agent loop is one of the simplest ideas in computer science.
 
-`support@company.com`
-`research@company.com`
-`sales@company.com`
+It is merely a cycle of:
 
-and can independently read, classify, reply, and maintain conversations. ([Cloudflare Workers][2])
+**Think → Act → Observe → Repeat**
 
-They also open-sourced a reference application called Agentic Inbox, which is essentially Gmail for AI agents. It includes conversation threads, attachment handling, storage, and agent-driven responses. ([The Cloudflare Blog][1])
+Yet this simple pattern is responsible for much of what makes modern AI agents useful.
 
-### Why this matters
+## The Difference Between an LLM and an Agent
 
-Most AI agents today are trapped inside:
+A traditional Large Language Model operates in a single pass.
 
-* Chat windows
-* Slack
-* Discord
-* Internal tools
+A user asks a question.
 
-Email is different.
+The model generates an answer.
 
-Every business, customer, vendor, and employee already understands email.
-
-Instead of teaching the world a new protocol, Cloudflare is giving agents access to the protocol everyone already uses. ([Cloudflare Workers][2])
-
-### The bigger idea
-
-Think about how most AI assistants work today.
+The interaction ends.
 
 ```text
-User → ChatGPT → Response
+Question
+    ↓
+LLM
+    ↓
+Answer
 ```
 
-Cloudflare is pushing toward:
+This works well when the model already has the information needed to answer.
+
+But many real-world tasks require gathering information, interacting with systems, and making decisions based on intermediate results.
+
+For example:
+
+* Investigating a Jira issue
+* Looking up customer information
+* Researching current events
+* Analyzing source code
+* Updating records across systems
+
+A single prompt is often insufficient.
+
+The model must perform multiple actions before it can produce a useful answer.
+
+This is where the agent loop appears.
 
 ```text
-Human ↔ Agent ↔ Agent ↔ Service
+Question
+    ↓
+Reason
+    ↓
+Use Tool
+    ↓
+Observe Result
+    ↓
+Reason Again
+    ↓
+Use Another Tool
+    ↓
+Observe Result
+    ↓
+Final Answer
 ```
 
-through email.
+The system keeps cycling until the task is complete.
 
-Example:
+## A Real Example
 
-1. Customer emails [support@company.com](mailto:support@company.com)
-2. Support agent reads email
-3. Agent creates a Jira ticket
-4. Engineering agent investigates
-5. Agent emails customer back
-6. Entire thread remains persistent
+Imagine a user asks:
 
-No human required for the workflow. ([Cloudflare Docs][3])
+> What are the top five open Jira bugs affecting enterprise customers?
 
-### Why email is actually a great protocol for agents
+A standard LLM cannot answer this.
 
-Email has a few properties agents need:
+The information is not part of its training data.
 
-* Asynchronous
-* Persistent history
-* Universal interoperability
-* Attachments
-* Identity
-* Auditable records
+An agent might proceed as follows:
 
-Unlike chat APIs, every company on earth already supports email. ([Wikipedia][4])
+### Iteration 1
 
-### Why this is important for your AI Transformation Team thinking
+Search Jira for open bugs.
 
-This is the part that stands out.
+### Iteration 2
 
-Most people are imagining agents as "chatbots."
+Read the returned tickets.
 
-Cloudflare is imagining agents as digital employees.
+### Iteration 3
 
-Digital employees need:
+Identify which tickets belong to enterprise customers.
 
-* An identity
-* An inbox
-* A memory
-* The ability to communicate with humans
-* The ability to communicate with other agents
+### Iteration 4
 
-Email solves all five surprisingly well. ([The Cloudflare Blog][5])
+Rank them by severity and business impact.
 
-### The strategic significance
+### Iteration 5
 
-The launch is less about email and more about a shift in how infrastructure companies view agents.
+Generate a summary report.
 
-Historically:
+Only after completing these steps does the agent return an answer.
+
+Each iteration through this cycle is one loop.
+
+## Why Everyone Is Talking About Agent Loops
+
+The idea itself is not new.
+
+What is new is that LLMs can now perform the reasoning step.
+
+Historically, workflows looked like this:
 
 ```text
-Apps talk to APIs
-Humans talk to apps
+Human
+   ↓
+Tool
+   ↓
+Human
+   ↓
+Tool
+   ↓
+Human
 ```
 
-Cloudflare is betting on:
+The human was responsible for deciding what to do next.
+
+Today, the model can make many of those decisions.
 
 ```text
-Agents talk to APIs
-Humans talk to agents
-Agents talk to agents
+LLM
+   ↓
+Tool
+   ↓
+LLM
+   ↓
+Tool
+   ↓
+LLM
 ```
 
-and email becomes one of the default communication layers. ([The Cloudflare Blog][5])
+The reasoning process becomes partially automated.
 
-If that vision plays out, every agent may eventually need:
+This allows systems to handle longer and more complex tasks than a single prompt ever could.
 
-* an email address
-* storage
-* memory
-* authentication
-* communication channels
+## Agent Loops Have Existed for Decades
 
-Cloudflare wants to be the AWS for that world. ([The Cloudflare Blog][5])
+One reason the hype can be confusing is that software engineers have already seen this pattern many times before.
 
-For someone building agent platforms, the most important takeaway is not "agents can send emails."
+### Debugging Software
 
-It's that Cloudflare is treating email as a first-class primitive for autonomous systems, in the same way databases became a first-class primitive for web applications 20 years ago. ([Cloudflare Workers][2])
+```text
+Read Code
+   ↓
+Run Program
+   ↓
+Observe Error
+   ↓
+Modify Code
+   ↓
+Run Again
+```
 
-[1]: https://blog.cloudflare.com/email-for-agents/?utm_source=chatgpt.com "Cloudflare Email Service now in public beta"
-[2]: https://workers.cloudflare.com/product/email-service?utm_source=chatgpt.com "Email Service"
-[3]: https://developers.cloudflare.com/email-service/?utm_source=chatgpt.com "Cloudflare Email Service"
-[4]: https://en.wikipedia.org/wiki/Email?utm_source=chatgpt.com "Email"
-[5]: https://blog.cloudflare.com/welcome-to-agents-week/?utm_source=chatgpt.com "Welcome to Agents Week"
+This is an agent loop.
+
+### Quality Assurance
+
+```text
+Test Feature
+   ↓
+Observe Result
+   ↓
+Report Defect
+   ↓
+Retest
+```
+
+This is also an agent loop.
+
+### Customer Support
+
+```text
+Read Ticket
+   ↓
+Ask Question
+   ↓
+Receive Response
+   ↓
+Investigate
+   ↓
+Reply
+```
+
+Again, an agent loop.
+
+The pattern is everywhere.
+
+The only difference is that the reasoning step is increasingly being performed by software rather than humans.
+
+## The Smallest Possible Agent Loop
+
+Most agent frameworks eventually reduce to something surprisingly simple.
+
+```python
+while not task_complete:
+    think()
+    act()
+    observe()
+```
+
+That is the entire idea.
+
+Whether you use LangGraph, OpenAI Agents SDK, Claude Code, or your own implementation, the core concept remains the same.
+
+A practical implementation might look like:
+
+```python
+for step in range(max_steps):
+
+    response = llm(messages)
+
+    if response.type == "final":
+        return response.answer
+
+    if response.type == "tool_call":
+        result = run_tool(response)
+        messages.append(result)
+```
+
+The model decides whether it needs more information.
+
+If it does, it calls a tool.
+
+The result is fed back into the model.
+
+The cycle continues.
+
+## A Useful Project You Can Build in an Afternoon
+
+One of the simplest real-world agents is a Jira investigator.
+
+A user asks:
+
+> Why is customer login failing?
+
+The loop might work like this:
+
+### Step 1
+
+Search Jira.
+
+### Step 2
+
+Read matching incidents.
+
+### Step 3
+
+Search recent deployments.
+
+### Step 4
+
+Read error logs.
+
+### Step 5
+
+Generate an explanation.
+
+Each step uses the output of the previous step to determine what happens next.
+
+The implementation can be surprisingly small.
+
+Most of the complexity comes from connecting tools rather than building the loop itself.
+
+## The Hard Part Nobody Talks About
+
+Social media often presents the loop itself as the innovation.
+
+In reality, the loop is usually the easiest part.
+
+The difficult engineering challenges begin after the loop exists.
+
+### When Should It Stop?
+
+Without limits, an agent may continue indefinitely.
+
+### How Many Iterations Are Allowed?
+
+Every iteration costs time and money.
+
+### What Happens When a Tool Fails?
+
+External systems are unreliable.
+
+Agents must recover gracefully.
+
+### How Do You Prevent Hallucinated Actions?
+
+An agent may decide to call the wrong tool or misinterpret results.
+
+### How Do You Verify Success?
+
+Many tasks require proving the outcome is correct.
+
+### How Do Multiple Agents Coordinate?
+
+As systems grow, specialized agents often need to collaborate without creating chaos.
+
+These challenges are where most production engineering effort is spent.
+
+## Why Agent Loops Matter
+
+The significance of agent loops is not that they are a new invention.
+
+The significance is that language models can now participate in them.
+
+For decades, humans provided the reasoning that connected actions together.
+
+Now software can perform part of that reasoning.
+
+That shift allows machines to execute workflows that previously required constant human supervision.
+
+The loop itself is simple.
+
+The opportunity comes from deciding what useful work can be expressed as:
+
+```text
+Goal
+   ↓
+Reason
+   ↓
+Act
+   ↓
+Observe
+   ↓
+Repeat
+```
+
+Once you start looking for that pattern, you begin to notice it everywhere.
+
+Many business processes, engineering workflows, support operations, and research tasks are simply variations of the same loop.
+
+The future of agents may not come from inventing new loops.
+
+It may come from discovering how many existing human workflows can be mapped onto the ones we already have.

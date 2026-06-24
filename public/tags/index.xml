@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent-Loop</title>
+      <link>https://notes.muthu.co/tags/agent-loop/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agent-loop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Agents</title>
+      <link>https://notes.muthu.co/tags/ai-agents/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://notes.muthu.co/tags/automation/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://notes.muthu.co/tags/llm/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tool Use</title>
+      <link>https://notes.muthu.co/tags/tool-use/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/tool-use/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI</title>
       <link>https://notes.muthu.co/tags/ai/</link>
@@ -30,7 +65,7 @@
       <description></description>
     </item>
     <item>
-      <title>Software-Engineering</title>
+      <title>Software Engineering</title>
       <link>https://notes.muthu.co/tags/software-engineering/</link>
       <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/software-engineering/</guid>
@@ -41,13 +76,6 @@
       <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI Agents</title>
-      <link>https://notes.muthu.co/tags/ai-agents/</link>
-      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
       <description></description>
     </item>
     <item>
@@ -107,7 +135,7 @@
       <description></description>
     </item>
     <item>
-      <title>Langgraph</title>
+      <title>LangGraph</title>
       <link>https://notes.muthu.co/tags/langgraph/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/langgraph/</guid>
@@ -142,7 +170,7 @@
       <description></description>
     </item>
     <item>
-      <title>Agentic-Ai</title>
+      <title>Agentic AI</title>
       <link>https://notes.muthu.co/tags/agentic-ai/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
@@ -338,13 +366,6 @@
       <description></description>
     </item>
     <item>
-      <title>Llm</title>
-      <link>https://notes.muthu.co/tags/llm/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Reasoning</title>
       <link>https://notes.muthu.co/tags/reasoning/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
@@ -464,7 +485,7 @@
       <description></description>
     </item>
     <item>
-      <title>Autonomous-Agents</title>
+      <title>Autonomous Agents</title>
       <link>https://notes.muthu.co/tags/autonomous-agents/</link>
       <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
@@ -559,13 +580,6 @@
       <link>https://notes.muthu.co/tags/function-calling/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/function-calling/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tool Use</title>
-      <link>https://notes.muthu.co/tags/tool-use/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/tool-use/</guid>
       <description></description>
     </item>
     <item>
