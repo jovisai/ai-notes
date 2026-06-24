@@ -4,174 +4,111 @@ date: 2026-06-24
 tags: ["AI", "Automation", "Software Engineering", "Engineering Management"]
 ---
 
-In 2023, AI was supposed to replace programmers.
+In 2023, AI was going to replace programmers. A year later, customer support was next. By 2025, some executives had moved on to talking about whole departments.
 
-In 2024, AI was supposed to replace customer support.
+By 2026, the story looks messier. Companies are still automating wherever they can, but a lot of them are learning the same lesson the hard way: replacing a visible task is not the same as replacing the job.
 
-In 2025, executives were talking about replacing entire departments.
+That sounds like a small distinction until the automation goes live.
 
-By 2026, the pattern is more complicated. Companies are still automating aggressively, but many are also discovering that replacing a role is not the same as replacing the visible task that role performs.
+Then it becomes the difference between useful leverage and organizational self-harm.
 
-That distinction sounds small.
+Rory Sutherland has a name for this mistake: the Doorman Fallacy.
 
-It is not.
+## The assumption behind AI replacement
 
-It is the difference between useful automation and expensive organizational self-harm.
+For the last few years, the pitch has been simple. AI is getting smarter, cheaper, and more capable.
 
-There is a name for this mistake: **the Doorman Fallacy**.
+The benchmarks seemed to support it. Higher scores. Longer context windows. More code generated. More tickets closed. More tasks completed.
 
-## The Assumption Behind AI Replacement
+So the conclusion felt obvious:
 
-For the last few years, we have been told that AI is becoming smarter, cheaper, and more capable.
+> If AI can do the visible part of a job, eventually it can do the whole job.
 
-Every benchmark seemed to confirm the trend:
-
-- Higher scores
-- Longer context windows
-- More code generated
-- More tickets resolved
-- More tasks completed
-
-The conclusion seemed obvious:
-
-> If AI can perform the visible part of a job, eventually it can perform the entire job.
-
-That sounds reasonable until companies try it in the real world.
-
-Then the story starts to break down.
+That works as a slide deck argument. It gets weaker once it touches a real organization.
 
 ## The Doorman Fallacy
 
-Rory Sutherland describes a useful idea called the [Doorman Fallacy](https://www.mfpwealthmanagement.co.uk/blog/doorman-fallacy-rory-sutherland).
+Sutherland's [Doorman Fallacy](https://www.mfpwealthmanagement.co.uk/blog/doorman-fallacy-rory-sutherland) starts with a luxury hotel.
 
-Imagine a luxury hotel.
-
-Management notices that they are paying someone to stand near the entrance and open doors. From a spreadsheet perspective, the role looks easy to define:
+Management looks at the entrance and sees someone being paid to open doors. On a spreadsheet, the job is easy to summarize:
 
 > The doorman opens the door.
 
-Once the job has been reduced to that sentence, the solution appears obvious.
+Once you describe the role that way, the fix looks obvious. Install automatic doors. Remove the salary. Save the money.
 
-Install automatic doors. Remove the salary. Save the money.
+Except the doorman was never only opening doors.
 
-Problem solved.
+He was welcoming guests, recognizing regulars, helping with luggage, watching the entrance, setting the tone for the hotel, and quietly telling people what kind of place they had walked into.
 
-Except the doorman was never just opening doors.
+Opening the door was the visible task. The value was the cluster of things around it.
 
-He was:
+When management automates only the visible task, it may save money while damaging the service, trust, and social context that made the role useful in the first place.
 
-- Welcoming guests
-- Recognizing regular customers
-- Helping with luggage
-- Watching the entrance
-- Signaling that the hotel cared about service
-- Creating the first impression of the property
+That is the fallacy: mistaking the visible action for the whole job.
 
-The visible task was opening doors.
+## How companies make the same mistake with AI
 
-The real value was everything surrounding that task.
+Organizations often evaluate knowledge work the same way. They collapse a role into the easiest output to name.
 
-When management automates only the visible task, it may save a line item while damaging the experience, trust, and social context that made the role valuable in the first place.
+Customer service becomes answering questions. Programming becomes writing code. Management becomes sending emails. Design becomes making graphics. Recruiting becomes screening resumes. Sales becomes writing follow-up messages.
 
-That is the Doorman Fallacy: mistaking the visible action for the whole job.
-
-## How Companies Apply the Same Logic to AI
-
-Many organizations evaluate knowledge work the same way.
-
-They reduce a role to its most obvious output:
-
-- Customer service becomes answering questions
-- Programming becomes writing code
-- Management becomes sending emails
-- Design becomes creating graphics
-- Recruiting becomes screening resumes
-- Sales becomes writing follow-up messages
-
-Then they ask:
+Then someone asks:
 
 > If AI can do that part, why do we still need people?
 
-That is the fallacy.
+The question is understandable. It is also incomplete.
 
-The visible output is often the easiest part of the role to observe, measure, and automate. It is not always the most valuable part.
+The visible output is usually the easiest part to observe, measure, and automate. That does not make it the most valuable part.
 
-The value usually lives in the surrounding context: judgment, trust, escalation, taste, coordination, accountability, and memory.
+The value often lives in judgment, trust, escalation, taste, coordination, accountability, and memory.
 
-AI can help with many of those things.
+AI can help with some of that work. Help is not the same as replacement.
 
-But help is not the same as replacement.
+## Software development is the easiest place to see it
 
-## Software Development Is the Clearest Example
+Software development makes the mistake obvious because the output is so easy to misunderstand.
 
-Software development is one of the best examples because the visible output is so easy to misunderstand.
+A lot of non-technical leaders think developers are paid to write code. Experienced engineers know that is only partly true.
 
-Many non-technical leaders assume developers are paid to write code.
+Writing code is visible. Sometimes it is also the easy part.
 
-Experienced engineers know that is only partly true.
+The harder work is figuring out what the system should do, what the user actually needs, which trade-offs are acceptable, which old assumptions are hiding in the codebase, and which shortcut will become an incident six months later.
 
-Writing code is often the most visible part of the job, but it is not the whole job. Sometimes it is not even the hardest part.
+Engineers debug failures that do not match the documentation. They read old code carefully because the dangerous behavior is often implied, not written down. They decide when not to build something. They own the consequences when a change breaks production.
 
-The difficult parts are:
+The code is the artifact. The work is engineering judgment.
 
-- Understanding ambiguous requirements
-- Finding the real problem behind a requested feature
-- Choosing between imperfect trade-offs
-- Designing systems that can evolve
-- Debugging failures that do not match the documentation
-- Reading old code without breaking hidden assumptions
-- Predicting which shortcuts will become future incidents
-- Deciding when not to build something
+That is why raw code generation can be impressive and still fall short. A model can produce a function, test, migration, or endpoint quickly. Useful. But producing code is not the same as owning correctness, maintainability, security, observability, and the long-term cost of the change.
 
-The code is the artifact.
+Senior engineers tend to see this faster. Not because they are dismissive of AI. Many use it heavily. They are just less likely to confuse output speed with engineering quality.
 
-The engineering judgment is the work.
+## Customer support has the same problem
 
-This is why raw code generation can be both impressive and insufficient. A model can produce a function, a test, a migration, or an API endpoint very quickly. That is useful. But producing code is not the same as owning the correctness, maintainability, security, observability, and long-term consequences of the change.
+Customer support looks easy to automate when you define it as answering questions.
 
-The more senior the engineer, the more obvious this becomes.
+But support teams do more than produce answers. They detect frustration. They notice product gaps. They spot broken processes. They know when a customer needs an exception instead of a policy quote. They know when a technically correct answer will make the customer angrier.
 
-Not because senior engineers are unimpressed by AI. Many of them are using it heavily.
+If a company replaces support with a chatbot and measures only ticket deflection, the early numbers can look great.
 
-They are simply less likely to confuse output speed with engineering quality.
+Fewer tickets reach humans. Cost per interaction falls. The dashboard improves.
 
-## The Same Problem Appears in Customer Support
+The cost shows up later. Customers trust the company less. Edge cases take longer to resolve. Escalations arrive angrier. Product teams lose feedback from the front line. The remaining support agents inherit only the worst cases.
 
-Customer support looks easy to automate when it is defined as answering questions.
+The company thinks it automated support. It may have automated the first response and damaged the support system.
 
-But support teams do more than produce answers.
+That is why some customer-service automation is already being [reconsidered](https://www.cmswire.com/customer-experience/the-great-customer-service-ai-rehiring-is-coming/). The problem is not that AI cannot answer questions. Often it can. The problem is that support is not only answering questions.
 
-They detect frustration. They notice product gaps. They identify broken processes. They decide when a customer needs an exception instead of a policy quote. They know when a technically correct answer will still make the customer angrier.
+## Real work has edges
 
-If a company replaces support with a chatbot and measures only ticket deflection, the early numbers may look good.
+The same pattern shows up outside office work.
 
-Fewer tickets reach humans. Cost per interaction falls. Dashboards improve.
+McDonald's [ended its IBM-powered drive-thru voice-ordering test in 2024](https://apnews.com/article/mcdonalds-ai-drive-thru-ibm-bebc898363f2d550e1a0cd3c682fa234) after trying it in more than 100 restaurants. The promise was simple: automate order taking.
 
-But the hidden cost may show up elsewhere:
+The real environment was not simple. Accents, background noise, menu changes, interruptions, corrections, impatient customers, and local operating quirks all showed up at once.
 
-- Customers stop trusting the company
-- Edge cases become harder to resolve
-- Escalations arrive later and angrier
-- Product teams lose feedback from the front line
-- Remaining support agents inherit only the worst cases
+The lesson is not that restaurant automation is doomed. It probably is not.
 
-The organization thinks it automated support.
-
-It may have automated the first response and broken the support system.
-
-This is why some customer-service automation efforts are already being [reconsidered](https://www.cmswire.com/customer-experience/the-great-customer-service-ai-rehiring-is-coming/). The issue is not that AI cannot answer questions. It often can. The issue is that support is not just answering questions.
-
-## Real-World Automation Has Edges
-
-The same pattern appears in physical operations.
-
-McDonald's, for example, [ended its IBM-powered drive-thru voice-ordering test in 2024](https://apnews.com/article/mcdonalds-ai-drive-thru-ibm-bebc898363f2d550e1a0cd3c682fa234) after testing it across more than 100 restaurants. The promise was simple: automate order taking. The real environment was messier: accents, background noise, menu changes, interruptions, corrections, impatient customers, and operational variation.
-
-The lesson is not that restaurant automation will fail forever.
-
-It probably will not.
-
-The lesson is that real-world jobs contain hidden context. A task that looks narrow in a demo often expands in production.
+The lesson is that jobs contain hidden context. A task that looks narrow in a demo often expands in production.
 
 The demo says:
 
@@ -179,63 +116,31 @@ The demo says:
 
 The real job says:
 
-> Understand the order through noise, timing pressure, ambiguity, changing inventory, customer emotion, payment constraints, and operational exceptions.
+> Understand the order through noise, timing pressure, ambiguity, changing inventory, customer emotion, payment constraints, and exceptions.
 
-That gap is where many automation strategies fail.
+That gap is where automation plans break.
 
-## The Wrong Question
+## The better question
 
-When people say:
+When people say AI writes code now, answers customer questions now, or generates designs now, they are usually pointing at the visible task.
 
-> AI writes code now.
+In many cases, they are right. AI can do that part.
 
-Or:
+The better question is whether it can replace the value around the task.
 
-> AI answers customer questions now.
+That value includes context, judgment, accountability, trust, taste, relationships, exception handling, institutional memory, and long-term ownership.
 
-Or:
-
-> AI can generate designs now.
-
-They are often asking the wrong question.
-
-The question is not:
-
-> Can AI perform the visible task?
-
-In many cases, yes.
-
-The better question is:
-
-> Can AI replace the invisible value surrounding the task?
-
-That is where the answer becomes much more interesting.
-
-Invisible value includes:
-
-- Context
-- Judgment
-- Accountability
-- Trust
-- Taste
-- Relationships
-- Exception handling
-- Institutional memory
-- Long-term ownership
-
-These are harder to measure, which is exactly why they are easy to ignore.
+These things are harder to measure, which makes them easy to ignore.
 
 Spreadsheets reward visible costs. Dashboards reward visible outputs. Automation business cases reward visible savings.
 
-But organizations run on invisible work.
+Organizations still run on the work that does not fit neatly into those boxes.
 
-## Better Automation Starts with Better Job Definition
+## Define the job before automating it
 
-The answer is not to reject AI.
+The answer is not to reject AI. That is just the mirror image of assuming it can replace everyone.
 
-That would be just as lazy as assuming AI can replace everyone.
-
-The better answer is to define work honestly before automating it.
+The useful move is to define the work honestly before automating it.
 
 Before replacing a role, leaders should ask:
 
@@ -245,52 +150,36 @@ Before replacing a role, leaders should ask:
 - What trust do they create?
 - What problems do they prevent?
 - What information flows through them?
-- What will break if only the visible output is automated?
+- What breaks if only the visible output is automated?
 
-This turns automation from a cost-cutting reflex into a systems-design problem.
+Those questions turn automation from a cost-cutting reflex into a systems problem.
 
-Sometimes the result will still be automation.
+Sometimes the answer will still be automation. Sometimes it will be augmentation. Sometimes the role should be redesigned. And sometimes the supposedly simple job turns out to be holding more of the system together than anyone wanted to admit.
 
-Sometimes the result will be augmentation.
+## AI should remove drudgery, not judgment
 
-Sometimes the result will be role redesign.
+The best use of AI is not to pretend invisible work does not exist. It is to remove the drudgery around valuable human judgment.
 
-Sometimes the result will be the discovery that the apparently simple job was holding together more of the system than anyone realized.
+For software teams, that means using AI to draft code, explain old code, create tests, summarize logs, search documentation, and speed up repetitive implementation work. Humans still own architecture, trade-offs, review, and consequences.
 
-## AI Should Remove Drudgery, Not Judgment
+For support teams, it means using AI to retrieve knowledge, summarize history, suggest replies, classify issues, and help agents move faster. Humans still handle trust-sensitive, emotional, or high-impact cases.
 
-The best use of AI is not to pretend that invisible work does not exist.
+For managers, it means using AI to summarize information and reduce administrative drag. Humans still own context, prioritization, coaching, and accountability.
 
-The best use of AI is to remove the drudgery around valuable human judgment.
+The pattern is simple:
 
-For software teams, that means using AI to generate drafts, explain code, create tests, summarize logs, search documentation, and accelerate repetitive implementation work while keeping humans responsible for architecture, trade-offs, review, and ownership.
+Automate the door. Do not forget why the doorman was there.
 
-For support teams, it means using AI to retrieve knowledge, summarize history, suggest responses, classify issues, and assist agents while preserving human escalation for trust-sensitive, emotional, or high-impact cases.
+## The real lesson
 
-For managers, it means using AI to summarize information and reduce administrative load while keeping humans responsible for context, prioritization, coaching, and accountability.
+AI is not failing in these organizations because it is useless.
 
-The pattern is the same everywhere:
+It is failing because the organization misunderstood the job.
 
-Automate the door.
+They saw the output and missed the system around it. They saw the door and missed the welcome. They saw the code and missed the engineering. They saw the answer and missed the trust.
 
-Do not forget why the doorman was there.
-
-## The Real Lesson
-
-AI is not failing because it is useless.
-
-It is failing in some organizations because the organization misunderstood the job.
-
-They saw the output and missed the system around it.
-
-They saw the door and missed the welcome.
-
-They saw the code and missed the engineering.
-
-They saw the answer and missed the trust.
-
-The biggest mistake companies make is assuming a job is the output they can see.
+The biggest mistake is assuming a job is the output you can see.
 
 The output is usually the easy part.
 
-The value is everything they cannot see.
+The value is everything around it.
