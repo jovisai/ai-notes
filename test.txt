@@ -1,195 +1,430 @@
-# The Doorman Fallacy and Why AI Keeps Failing at Replacing People
+## The Race by Eliyahu M. Goldratt
 
-In 2023, AI was supposed to replace programmers.
+**The Race** is one of Goldratt's lesser-known books, but it contains many of the ideas that later became famous through the **Theory of Constraints (TOC)**.
 
-In 2024, AI was supposed to replace customer support.
+The central argument is simple:
 
-In 2025, executives were talking about replacing entire departments.
+> Most organizations are trying to improve efficiency everywhere.
+>
+> The winning organizations improve flow through the system.
 
-Today, many of those same companies are quietly re-hiring people they let go.
+The title "The Race" refers to a race between companies. The company that delivers value to customers fastest wins, not necessarily the company that keeps every employee busy.
 
-Not because AI is useless.
+---
 
-Because they made a mistake that is common, predictable, and expensive.
+# Core Idea
 
-It even has a name.
+Most managers believe:
 
-**The Doorman Fallacy.**
+* Higher utilization = better performance
+* More local efficiency = better performance
+* Every resource should be busy
 
-## The Assumption Behind AI Replacement
+Goldratt argues that this is often wrong.
 
-For the last few years, we've been told that AI is becoming smarter, cheaper, and more capable.
+A system behaves according to its constraints.
 
-Every benchmark seemed to confirm the trend.
+If one part of the system limits output, improving everything else does not improve overall results.
 
-* Higher scores
-* More tokens processed
-* More code generated
-* More tasks completed
+Think of a highway.
 
-The conclusion seemed obvious.
+If one lane is blocked, making all the other lanes wider does not increase traffic flow much.
 
-> If AI can perform the visible part of a job, eventually it can perform the entire job.
+The bottleneck determines throughput.
 
-That sounds reasonable.
+---
 
-Until companies actually try it.
+# The Three Measurements
 
-That's where the story starts to break down.
+Goldratt proposes three primary metrics.
 
-## The Doorman Fallacy
+### 1. Throughput
 
-Advertising expert and behavioral economist Rory Sutherland describes a concept called the **Doorman Fallacy**.
+Money generated through sales.
 
-Imagine a luxury hotel.
+Not production.
 
-Management notices they are paying someone $30,000 a year to stand at the entrance and open doors.
+Not inventory.
 
-From a spreadsheet perspective, the solution seems obvious.
+Not activity.
 
-Install automatic doors.
+Only sales count.
 
-Save the money.
+A warehouse full of products generates zero throughput until customers buy them.
 
-Problem solved.
+---
 
-Except six months later:
+### 2. Inventory
 
-* Customer satisfaction drops
-* Repeat bookings decline
-* Revenue starts slipping
+Money currently trapped inside the system.
 
-What happened?
+Examples:
 
-The doorman was never just opening doors.
+* Raw materials
+* Work in progress
+* Finished goods
 
-He was:
+Inventory is money waiting to become throughput.
 
-* Welcoming guests
-* Recognizing regular customers
-* Providing security
-* Helping with luggage
-* Creating a premium experience
+---
 
-The visible task was opening doors.
+### 3. Operating Expense
 
-The real value was everything surrounding that task.
+Money spent to turn inventory into throughput.
 
-## How Companies Apply the Same Logic to AI
+Examples:
 
-Many organizations evaluate jobs the same way.
+* Salaries
+* Electricity
+* Infrastructure
+* Rent
 
-They reduce a role to its most obvious output.
+---
 
-* Customer service becomes answering questions
-* Programming becomes writing code
-* Management becomes sending emails
-* Design becomes creating graphics
+Goldratt argues that nearly every business decision should be evaluated through these three measures.
 
-Then they ask:
+Ask:
 
-> If AI can do that part, why do we still need people?
+* Does it increase throughput?
+* Does it reduce inventory?
+* Does it reduce operating expense?
 
-That's the fallacy.
+---
 
-Because the visible output is often the least valuable part of the role.
+# The Cost Accounting Problem
 
-## Software Development Is a Perfect Example
+One of Goldratt's biggest criticisms.
 
-Many non-technical leaders assume developers are paid to write code.
+Traditional accounting encourages managers to maximize local efficiency.
 
-Experienced engineers know that's rarely true.
+For example:
 
-Writing code is often the easiest part of the job.
+A machine is idle.
 
-The difficult parts are:
+Management sees this as waste.
 
-* Understanding ambiguous requirements
-* Evaluating trade-offs
-* Designing architecture
-* Debugging unusual edge cases
-* Predicting future failures
-* Maintaining systems for years
-* Making decisions under uncertainty
+So they keep feeding work into the machine.
 
-In other words, the hard part is thinking.
+Result:
 
-The code is simply the artifact produced by that thinking.
+* More inventory
+* Longer queues
+* Longer lead times
+* More complexity
 
-## Where AI Excels and Where It Struggles
+The machine looks productive.
 
-Modern language models can generate code at incredible speed.
+The business becomes slower.
 
-But generating code is not the same as understanding a system.
+---
 
-It is not the same as:
+This is one of Goldratt's most important insights:
 
-* Owning decisions
-* Understanding business context
-* Predicting long-term consequences
-* Balancing competing constraints
-* Knowing which shortcuts become future disasters
+> Busy resources can make the entire organization slower.
 
-This explains a pattern many teams are seeing.
+---
 
-The more experienced the developer, the less impressed they tend to be by raw code generation alone.
+# The Constraint Principle
 
-Not because the technology is bad.
+Every system has at least one constraint.
 
-Because they understand how much of software engineering happens outside the editor.
+The constraint controls output.
 
-The code is the final output.
+Examples:
 
-The real work happened before the first line was written.
+* A machine
+* A team
+* A specialist
+* Sales capacity
+* Market demand
+* A decision-making process
 
-## The Same Problem Appears Everywhere
+Improving non-constraints produces little benefit.
 
-Software is not unique.
+Improving the constraint improves the whole system.
 
-Many industries are running into the same issue.
+---
 
-Companies that replaced customer support teams with AI discovered customers often disliked the experience.
+# The Five Focusing Steps
 
-Fast-food chains deployed AI ordering systems and encountered highly public failures.
+These became foundational TOC concepts.
 
-Organizations that aggressively reduced headcount are now bringing employees back.
+### Step 1
 
-In most cases, AI did not completely fail.
+Identify the constraint.
 
-The failure was in how the job was defined.
+Find the thing limiting overall throughput.
 
-Organizations optimized for the visible task and ignored everything surrounding it.
+---
 
-They removed the doorman.
+### Step 2
 
-Then discovered the doorman was doing much more than opening doors.
+Exploit the constraint.
 
-## The Question Most People Are Asking Wrong
+Make sure the constraint spends time only on valuable work.
 
-When someone says:
+Remove interruptions.
 
-"AI writes code now."
+Remove unnecessary tasks.
+
+Protect its time.
+
+---
+
+### Step 3
+
+Subordinate everything else.
+
+Align the rest of the organization around the constraint.
+
+This is the part most companies resist.
+
+People want every department optimized.
+
+Goldratt says:
+
+> Optimize the system, not the departments.
+
+---
+
+### Step 4
+
+Elevate the constraint.
+
+Add capacity.
+
+Hire people.
+
+Buy equipment.
+
+Automate.
+
+Outsource.
+
+Only after exploiting it first.
+
+---
+
+### Step 5
+
+Repeat.
+
+Once one constraint disappears, another emerges.
+
+Improvement never ends.
+
+---
+
+# Flow Over Efficiency
+
+A recurring theme throughout the book.
+
+Traditional thinking:
+
+```
+Efficiency → Performance
+```
+
+Goldratt's thinking:
+
+```
+Flow → Performance
+```
+
+This distinction is huge.
+
+A highly efficient department can still slow down the company.
+
+A slightly inefficient department can increase overall throughput.
+
+---
+
+# The Batch Size Insight
+
+Large batches seem efficient.
+
+Why?
+
+Because setup costs are spread across more work.
+
+Traditional manufacturing loved large batches.
+
+Goldratt showed a hidden cost.
+
+Large batches create:
+
+* Long wait times
+* Bigger queues
+* Delayed feedback
+* Higher inventory
+
+Smaller batches often improve flow dramatically.
+
+---
+
+This idea later influenced:
+
+* Lean Manufacturing
+* Agile Development
+* Continuous Delivery
+
+---
+
+# Why Projects Are Always Late
+
+Goldratt later expanded this into Critical Chain Project Management.
+
+The seeds appear here.
+
+People assume:
+
+* Every task will finish on schedule
+* Delays average out
+
+Reality:
+
+* Delays accumulate
+* Variability compounds
+
+As a result:
+
+Projects finish much later than expected.
+
+---
+
+# The Relay Race Analogy
+
+One of the most memorable ideas.
+
+Most organizations operate like this:
+
+```
+Runner A runs fast
+Runner B runs fast
+Runner C runs fast
+```
+
+Management measures each runner individually.
+
+Goldratt says a relay race is won differently.
+
+What matters is:
+
+```
+How fast the baton reaches the finish line
+```
+
+Not how fast individual runners move.
+
+The system result matters more than local performance.
+
+---
+
+# What This Means for Software Teams
+
+This is where the book feels surprisingly modern.
+
+Imagine:
+
+* Developers finish features rapidly
+* QA is overloaded
+
+Result:
+
+* Large testing queue
+* Delayed releases
+
+Adding more developer productivity may worsen the problem.
+
+The constraint is QA.
+
+Improve QA first.
+
+---
 
 Or:
 
-"AI answers customer questions now."
+* Product team creates requirements rapidly
+* Engineering cannot keep up
 
-They're often measuring the wrong thing.
+The bottleneck is engineering.
 
-The real question isn't:
+Creating more requirements increases inventory, not value.
 
-> Can AI perform the task?
+---
 
-The real question is:
+For AI-powered organizations, this insight becomes even more relevant.
 
-> Can AI replace all of the invisible value that surrounds the task?
+AI often increases local productivity.
 
-That invisible value is where judgment, context, accountability, trust, relationships, and experience live.
+For example:
 
-And so far, that is where reality keeps colliding with the hype.
+* Developers write code faster
+* Sales creates more leads
+* Support drafts more responses
 
-The biggest mistake companies make is assuming a job is the output they can see.
+But if downstream systems cannot absorb the output:
 
-The output is usually the easy part.
+* Backlogs grow
+* Complexity grows
+* Lead times grow
 
-The value is everything they can't see.
+AI can increase inventory faster than throughput.
+
+---
+
+# The Most Important Lessons
+
+### 1. Optimize the whole system
+
+Local optimization often hurts global performance.
+
+---
+
+### 2. Find the bottleneck
+
+The constraint determines output.
+
+---
+
+### 3. Measure flow
+
+Flow matters more than utilization.
+
+---
+
+### 4. Inventory hides problems
+
+Queues are symptoms.
+
+Look for growing work-in-progress.
+
+---
+
+### 5. Keep the constraint busy
+
+Protect it more than anything else.
+
+---
+
+### 6. Non-constraints should not dictate the pace
+
+The bottleneck sets the speed of the system.
+
+---
+
+### 7. Throughput is king
+
+Activity is not progress.
+
+Being busy is not value creation.
+
+---
+
+## One-Line Summary
+
+**The Race argues that organizations win not by making every part work harder, but by identifying the bottleneck, improving flow through the entire system, and maximizing throughput rather than local efficiency.**
+
+For someone leading engineering and AI transformation initiatives, the most applicable takeaway is:
+
+> AI should not be used to maximize the productivity of every team. It should be used to remove the current constraint in the value stream. Once that constraint moves, find the next one and repeat.

@@ -154,11 +154,11 @@
 <p><strong>Prerequisites</strong>: Python 3.11+, <a href="https://docs.astral.sh/uv/">UV</a>, Git, and any supported AI coding agent.</p>
 <p>spec-kit provides two install modes.</p>
 <p><strong>Persistent install</strong> — adds <code>specify</code> to your PATH so you can use it in any project:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 </span></span></code></pre></div><p><strong>One-time install</strong> — runs without installing permanently, useful for trying it out:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uvx --from git+https://github.com/github/spec-kit.git specify init
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uvx --from git+https://github.com/github/spec-kit.git specify init
 </span></span></code></pre></div><p>Once installed, run <code>specify init</code> inside your project directory:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> your-project
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> your-project
 </span></span><span style="display:flex;"><span>specify init
 </span></span></code></pre></div><p>This creates a <code>.specify/</code> directory in your project root containing scripts, templates, and agent configuration. It also registers the slash commands with your installed AI agents. From this point on, <code>/speckit.specify</code>, <code>/speckit.plan</code>, and the rest are available in your coding session.</p>
 <h2 id="the-workflow-a-real-example">The Workflow: A Real Example</h2>
@@ -174,7 +174,7 @@
 <p>Every subsequent plan generates a <strong>Constitution Check</strong>, a gate that verifies the feature design does not violate these principles. This prevents architectural drift across features without requiring a human reviewer to remember every past decision.</p>
 <h3 id="step-2--write-the-spec-speckitspecify">Step 2 — Write the Spec (<code>/speckit.specify</code>)</h3>
 <p>You provide the feature description as an argument:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.specify The current system always creates only a task, support for
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.specify The current system always creates only a task, support for
 </span></span><span style="display:flex;"><span>creating more issue types like Bug, Story and Epic
 </span></span></code></pre></div><p>spec-kit takes that sentence and does the following automatically:</p>
 <ul>
@@ -196,7 +196,7 @@
 </ul>
 <p>Notice what is not in the spec: no mention of Vue components, no mention of FastAPI, no mention of how the default is stored. Those belong in the plan.</p>
 <h3 id="step-3--plan-speckitplan">Step 3 — Plan (<code>/speckit.plan</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.plan
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.plan
 </span></span></code></pre></div><p>The plan command reads <code>spec.md</code>, researches the codebase in depth, and produces a complete technical design. It also runs the Constitution Check before generating anything.</p>
 <p>The gap analysis is the most valuable output. It documents exactly what already exists versus what is missing:</p>
 <p>
@@ -205,7 +205,7 @@
 </p>
 <p>The plan concluded that this feature required changes to five files and approximately 30 lines of code. No new endpoints, no new DB columns, no new services. The infrastructure was already in place.</p>
 <h3 id="step-4--generate-tasks-speckittasks">Step 4 — Generate Tasks (<code>/speckit.tasks</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.tasks
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.tasks
 </span></span></code></pre></div><p>The tasks command reads all the planning artifacts and generates a flat, ordered, independently implementable task list. If you try to run it without a completed <code>plan.md</code>, it fails with a clear error. This is the gate system in action.</p>
 <p>With the plan in place, it produced eight tasks:</p>
 <p>
@@ -213,7 +213,7 @@
 
 </p>
 <h3 id="step-5--implement-speckitimplement">Step 5 — Implement (<code>/speckit.implement</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.implement
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.implement
 </span></span></code></pre></div><p>The implement command hands control to the AI agent with the complete context: spec, plan, research, data model, API contracts, and the ordered task list. The agent works through the tasks in sequence, marking each complete before moving to the next.</p>
 <p>Because every decision was made upfront, the implementation phase produces no surprises. The agent does not need to guess what &ldquo;Epic&rdquo; support means. It does not need to decide whether to add a DB migration. It does not need to choose between batch-level and per-item selection. All of that is resolved. The agent just writes code.</p>
 <p>
@@ -227,7 +227,7 @@
 <p><strong>Assumptions as first-class citizens.</strong> The spec explicitly lists what is out of scope and what is assumed. In the example: dynamic fetching of issue types per Jira project is out of scope; Epic-specific required fields are handled best-effort. Writing assumptions down prevents them from becoming unspoken constraints that surprise the next person who works on the feature.</p>
 <h2 id="what-spec-kit-produces">What spec-kit Produces</h2>
 <p>After running the full pipeline, your <code>specs/</code> directory contains:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>specs/001-jira-issue-types/
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>specs/001-jira-issue-types/
 </span></span><span style="display:flex;"><span>├── spec.md                  # User stories, acceptance scenarios, FRs, success criteria
 </span></span><span style="display:flex;"><span>├── plan.md                  # Technical design, gap analysis, change map, Constitution Check
 </span></span><span style="display:flex;"><span>├── research.md              # Codebase research — what exists vs. what&#39;s missing

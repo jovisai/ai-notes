@@ -10,7 +10,7 @@
   <meta itemprop="datePublished" content="2025-12-04T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-12-04T00:00:00+00:00">
   <meta itemprop="wordCount" content="1021">
-  <meta itemprop="keywords" content="AI Agents,Multi-Agent-Systems,Reasoning,Debate,Deliberation,Llm"><meta property="og:url" content="https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/">
+  <meta itemprop="keywords" content="AI Agents,Multi-Agent-Systems,Reasoning,Debate,Deliberation,LLM"><meta property="og:url" content="https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/">
   <meta property="og:site_name" content="Engineering Notes">
   <meta property="og:title" content="Improving Decisions Through Multi-Agent Debate and Deliberation">
   <meta property="og:description" content="How AI agents can reach better decisions by arguing with each other—exploring debate protocols, deliberation architectures, and the surprising power of constructive disagreement.">
@@ -24,7 +24,7 @@
     <meta property="article:tag" content="Reasoning">
     <meta property="article:tag" content="Debate">
     <meta property="article:tag" content="Deliberation">
-    <meta property="article:tag" content="Llm">
+    <meta property="article:tag" content="LLM">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Improving Decisions Through Multi-Agent Debate and Deliberation">
@@ -124,7 +124,7 @@
 <p><strong>Multi-agent debate</strong> is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.</p>
 <h2 id="how-debate-works-the-protocol">How Debate Works: The Protocol</h2>
 <h3 id="basic-debate-loop">Basic Debate Loop</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Simplified debate protocol</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Simplified debate protocol</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">multi_agent_debate</span><span style="color:#1f2328">(</span>problem<span style="color:#1f2328">,</span> num_agents<span style="color:#0550ae">=</span><span style="color:#0550ae">3</span><span style="color:#1f2328">,</span> rounds<span style="color:#0550ae">=</span><span style="color:#0550ae">3</span><span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>    agents <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>Agent<span style="color:#1f2328">(</span>role<span style="color:#0550ae">=</span><span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;Agent-</span><span style="color:#0a3069">{</span>i<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">for</span> i <span style="color:#0550ae">in</span> <span style="color:#6639ba">range</span><span style="color:#1f2328">(</span>num_agents<span style="color:#1f2328">)]</span>
 </span></span><span style="display:flex;"><span>
@@ -213,7 +213,7 @@ $$<p>Each round $t$ conditions on previous proposals, allowing agents to:</p>
 <p><strong>Best for</strong>: Complex, multi-faceted problems (policy analysis, architectural decisions)</p>
 <h2 id="practical-application-llm-debate-in-python">Practical Application: LLM Debate in Python</h2>
 <p>Here&rsquo;s a working example using OpenAI&rsquo;s API:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">openai</span> <span style="color:#cf222e">import</span> OpenAI
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">openai</span> <span style="color:#cf222e">import</span> OpenAI
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">json</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>client <span style="color:#0550ae">=</span> OpenAI<span style="color:#1f2328">()</span>
@@ -280,7 +280,7 @@ $$<p>Each round $t$ conditions on previous proposals, allowing agents to:</p>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>result<span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h3 id="integration-with-frameworks">Integration with Frameworks</h3>
 <p><strong>LangGraph Example</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">DebateState</span><span style="color:#1f2328">(</span>TypedDict<span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>    problem<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span>

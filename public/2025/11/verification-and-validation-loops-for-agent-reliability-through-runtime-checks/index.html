@@ -132,7 +132,7 @@
 <p>This creates a feedback loop where the agent acts as its own quality assurance system, improving reliability in production environments.</p>
 <h2 id="algorithms--math">Algorithms &amp; Math</h2>
 <h3 id="basic-vv-loop-algorithm">Basic V&amp;V Loop Algorithm</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">vv_loop</span><span style="color:#1f2328">(</span>task<span style="color:#1f2328">,</span> max_retries<span style="color:#0550ae">=</span><span style="color:#0550ae">3</span><span style="color:#1f2328">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">vv_loop</span><span style="color:#1f2328">(</span>task<span style="color:#1f2328">,</span> max_retries<span style="color:#0550ae">=</span><span style="color:#0550ae">3</span><span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Execute task with verification and validation
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
@@ -162,7 +162,7 @@
 $$P(\text{success})_n = 1 - \prod_{i=1}^{n} (1 - P(V(G(C^{i-1}(prompt)))))$$<p>Where $C^{i-1}$ represents $i-1$ correction iterations. Each retry with feedback typically increases success probability.</p>
 <h3 id="multi-validator-ensemble">Multi-Validator Ensemble</h3>
 <p>For critical applications, use multiple validators:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">ensemble_validation</span><span style="color:#1f2328">(</span>output<span style="color:#1f2328">,</span> validators<span style="color:#1f2328">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">ensemble_validation</span><span style="color:#1f2328">(</span>output<span style="color:#1f2328">,</span> validators<span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    Require majority agreement among validators
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &#34;&#34;&#34;</span>
@@ -197,7 +197,7 @@ $$P(\text{success})_n = 1 - \prod_{i=1}^{n} (1 - P(V(G(C^{i-1}(prompt)))))$$<p>W
 
 <p><strong>Use when:</strong> Validation requires complex reasoning (security review, logic checking)</p>
 <h3 id="hierarchical-vv">Hierarchical V&amp;V</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">HierarchicalVV</span><span style="color:#1f2328">:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">HierarchicalVV</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>checks <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;syntax&#39;</span><span style="color:#1f2328">,</span> fast_syntax_check<span style="color:#1f2328">),</span>
@@ -220,7 +220,7 @@ $$P(\text{success})_n = 1 - \prod_{i=1}^{n} (1 - P(V(G(C^{i-1}(prompt)))))$$<p>W
 </code></pre><p>The V&amp;V loop gates entry to execution and memory storage, preventing bad outputs from propagating.</p>
 <h2 id="practical-application">Practical Application</h2>
 <h3 id="code-validation-example">Code Validation Example</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">ast</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">ast</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">subprocess</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Tuple
 </span></span><span style="display:flex;"><span>
@@ -310,7 +310,7 @@ $$P(\text{success})_n = 1 - \prod_{i=1}^{n} (1 - P(V(G(C^{i-1}(prompt)))))$$<p>W
 </span></span><span style="display:flex;"><span>code <span style="color:#0550ae">=</span> validator<span style="color:#0550ae">.</span>generate_code<span style="color:#1f2328">(</span>task<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">print</span><span style="color:#1f2328">(</span>code<span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h3 id="integration-with-langgraph">Integration with LangGraph</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">create_vv_agent</span><span style="color:#1f2328">():</span>
 </span></span><span style="display:flex;"><span>    workflow <span style="color:#0550ae">=</span> StateGraph<span style="color:#1f2328">()</span>
@@ -383,7 +383,7 @@ $$P(\text{success})_n = 1 - \prod_{i=1}^{n} (1 - P(V(G(C^{i-1}(prompt)))))$$<p>W
 <h2 id="cross-disciplinary-insight">Cross-Disciplinary Insight</h2>
 <h3 id="from-software-engineering-design-by-contract">From Software Engineering: Design by Contract</h3>
 <p>Bertrand Meyer&rsquo;s <strong>Design by Contract</strong> (1986) introduced preconditions, postconditions, and invariants. V&amp;V loops are the runtime equivalent:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">divide</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">,</span> b<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">divide</span><span style="color:#1f2328">(</span>a<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">,</span> b<span style="color:#1f2328">:</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">float</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Precondition (verify)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">assert</span> b <span style="color:#0550ae">!=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Divisor cannot be zero&#34;</span>
 </span></span><span style="display:flex;"><span>

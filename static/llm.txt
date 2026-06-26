@@ -14,15 +14,13 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 
 ## Posts
 
-- [TDD with Coding Agents to Build a Rate Limiting Service](https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/)
-- [The Complete Claude Code Best Practices Guide](https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/)
 - [AI Agent Communication Protocols MCP, ACP, A2A, and ANP](https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/): An overview of the most important communication protocols for multi-agent systems, and how they enable interoperability and scalability.
-- [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/)
 - [Building an Agentic RAG Pipeline with LangGraph](https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/): Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.
 - [Conceptual AI Agents Universe — System Design Document](https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/): A plugin-based platform architecture where each AI agent system is an independently subscribable capability. One interface, one orchestrator, unlimited agents — added without touching existing code.
 - [You Sped Up Engineering. Why Isn't Revenue Moving?](https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/): A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.
 - [AI Will Not Kill Junior Engineers but It Will Change Them](https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/)
 - [My Thoughts on Andrew Ngs Building Faster and Smarter with AI](https://notes.muthu.co/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/)
+- [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/)
 - [Building an MCP Server with Python to Connect Claude to Your Database](https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/): A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.
 - [Claude Code CLI Best Practices Checklist](https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/): Create a git commit with context
 - [Cloudflare Email for Agents: Why Email May Become Agent Infrastructure](https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/): Cloudflare's Email for Agents is less about email and more about giving AI agents identity, memory, and a universal communication channel.
@@ -44,8 +42,11 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [The Skill That Will Define Your Career in 2026](https://notes.muthu.co/2025/12/the-skill-that-will-define-your-career-in-2026/)
 - [Small Language Models are the Future of Agentic AI](https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/)
 - [Systems That Search for New Algorithms Automatically](https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/): An introduction to AlphaEvolve, DeepMind's new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.
+- [TDD with Coding Agents to Build a Rate Limiting Service](https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/)
 - [The Architecture is the Prompt - Guiding AI with Hexagonal Design](https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/)
+- [The Complete Claude Code Best Practices Guide](https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/)
 - [The Doorman Fallacy and Why AI Keeps Failing at Replacing People](https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/)
+- [The Race: Why Flow Beats Local Efficiency](https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/): A practical reading of Eliyahu Goldratt's The Race, and why AI transformation should focus on bottlenecks, throughput, and flow instead of local productivity.
 - [The Theory of Constraints applied to software development life cycles](https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/)
 - [Understanding Mixture of Experts from First Principles](https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/)
 
@@ -54,8 +55,8 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Agent Communication Protocols and Message-Passing Patterns for Coordination](https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/): Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems
 - [Agent Debugging and Observability for Seeing Inside the Black Box](https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/): Master the art of understanding, debugging, and monitoring AI agents through tracing, logging, and observability patterns
 - [Agent Evaluation and Benchmarking for Measuring What Matters](https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/): Learn how to systematically evaluate AI agent performance using benchmarks, metrics, and evaluation frameworks that go beyond simple accuracy
-- [Agent Loops Explained: The Simple Pattern Behind Useful AI Agents](https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/): A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.
 - [Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs](https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/): Learn how to build complex, stateful AI agent systems using graph-based architectures with LangGraph—a paradigm shift from linear chains to cyclic, controllable workflows.
+- [Agent Loops Explained: The Simple Pattern Behind Useful AI Agents](https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/): A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.
 - [Chain-of-Thought Reasoning and Giving LLMs a Thinking Process](https://notes.muthu.co/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/)
 - [Improving Decisions Through Multi-Agent Debate and Deliberation](https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/): How AI agents can reach better decisions by arguing with each other—exploring debate protocols, deliberation architectures, and the surprising power of constructive disagreement.
 - [Engineering Digital Twin - The Next Billion-Dollar AI Category](https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/): Why the biggest AI opportunity in software engineering is not code generation, but a living model of the engineering organization that helps leaders make better decisions
@@ -112,8 +113,8 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [Manufacture Slack as the Counterintuitive Key to High-Performing Teams](https://notes.muthu.co/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/)
 - [Master Calibration for Consistent Fair Decisions at Scale](https://notes.muthu.co/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/)
 - [Master Influence Without Authority to Scale Impact Beyond Your Team](https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/)
-- [Master the Art of Managing Up and Across](https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/)
 - [Mastering the Why in High-Impact Engineering Communication](https://notes.muthu.co/2025/09/mastering-the-why-in-high-impact-engineering-communication/)
+- [Master the Art of Managing Up and Across](https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/)
 - [Measure What Matters Through Data-Informed Leadership](https://notes.muthu.co/2025/10/measure-what-matters-through-data-informed-leadership/)
 - [Optimize Deployment Frequency as Your Competitive Moat](https://notes.muthu.co/2025/11/optimize-deployment-frequency-as-your-competitive-moat/)
 - [Optimize Units of Work, Not Growth Targets](https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/): Growth becomes more actionable when leaders stop treating it as a target and start removing friction from the individual units of work that create it.
