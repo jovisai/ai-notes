@@ -6,8 +6,15 @@
     <description>Recent content in Ai on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Local-First LLM Routing - Use Small Models for Easy Questions and Cloud Models for Hard Ones</title>
+      <link>https://notes.muthu.co/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</guid>
+      <description>&lt;p&gt;Every LLM call costs something.&lt;/p&gt;&#xA;&lt;p&gt;Sometimes the cost is money. Sometimes it is latency. Sometimes it is privacy.&lt;/p&gt;&#xA;&lt;p&gt;If you send every request to a frontier model, you burn budget on tasks a small local model could have handled. If you run everything locally, the easy cases feel great until a harder reasoning task shows up and the answer falls apart.&lt;/p&gt;&#xA;&lt;p&gt;The better pattern is a &lt;strong&gt;local-first routing gateway&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Put a thin layer between your chat UI and your models. The gateway looks at each request, sends simple work to a local model, and escalates harder work to a remote model. The user still sees one assistant. The system decides which model should answer.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Race: Why Flow Beats Local Efficiency</title>
       <link>https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/</link>

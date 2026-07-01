@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notes.muthu.co/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</loc>
+    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notes.muthu.co/posts/</loc>
-    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
+    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/</loc>
     <lastmod>2026-06-26T00:00:00+00:00</lastmod>

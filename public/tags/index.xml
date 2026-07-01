@@ -6,13 +6,41 @@
     <description>Recent content in Tags on Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
       <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://notes.muthu.co/tags/llm/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Local-Models</title>
+      <link>https://notes.muthu.co/tags/local-models/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/local-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Routing</title>
+      <link>https://notes.muthu.co/tags/routing/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/routing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software-Architecture</title>
+      <link>https://notes.muthu.co/tags/software-architecture/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/software-architecture/</guid>
       <description></description>
     </item>
     <item>
@@ -55,13 +83,6 @@
       <link>https://notes.muthu.co/tags/automation/</link>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/automation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LLM</title>
-      <link>https://notes.muthu.co/tags/llm/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llm/</guid>
       <description></description>
     </item>
     <item>
