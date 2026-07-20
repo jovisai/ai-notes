@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Email on Engineering Notes</title>
-    <link>https://notes.muthu.co/tags/email/</link>
-    <description>Recent content in Email on Engineering Notes</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://notes.muthu.co/tags/email/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Cloudflare Email for Agents: Why Email May Become Agent Infrastructure</title>
-      <link>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</link>
-      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</guid>
-      <description>&lt;p&gt;Cloudflare&amp;rsquo;s &lt;strong&gt;Email for Agents&lt;/strong&gt; looks like an email product at first glance. It is more interesting than that.&lt;/p&gt;&#xA;&lt;p&gt;It is infrastructure for giving AI agents a real identity and a reliable communication channel on the internet. Instead of keeping agents trapped inside chat windows, Slack bots, Discord servers, or internal tools, Cloudflare is putting them on a protocol every business already understands: email.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-cloudflare-launched&#34;&gt;&lt;strong&gt;What Cloudflare Launched&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Cloudflare combined three capabilities:&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Email on Engineering Notes</title>
+		<link>https://notes.muthu.co/tags/email/</link>
+		<description>Recent content in Email on Engineering Notes</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://notes.muthu.co/tags/email/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Cloudflare Email for Agents: Why Email May Become Agent Infrastructure</title>
+				<link>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</link>
+				<pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</guid>
+				<description>&lt;p&gt;Cloudflare&amp;rsquo;s &lt;strong&gt;Email for Agents&lt;/strong&gt; looks like an email product at first glance. It is more interesting than that.&lt;/p&gt;&#xA;&lt;p&gt;It is infrastructure for giving AI agents a real identity and a reliable communication channel on the internet. Instead of keeping agents trapped inside chat windows, Slack bots, Discord servers, or internal tools, Cloudflare is putting them on a protocol every business already understands: email.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-cloudflare-launched&#34;&gt;&lt;strong&gt;What Cloudflare Launched&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Cloudflare combined three capabilities:&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

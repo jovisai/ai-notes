@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Knowledge-Distillation on Engineering Notes</title>
-    <link>https://notes.muthu.co/tags/knowledge-distillation/</link>
-    <description>Recent content in Knowledge-Distillation on Engineering Notes</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://notes.muthu.co/tags/knowledge-distillation/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
-      <link>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
-      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Knowledge distillation&lt;/strong&gt; trains a smaller, cheaper &amp;ldquo;student&amp;rdquo; agent to mimic the behavior of a larger &amp;ldquo;teacher&amp;rdquo; model. The result is a system that can handle most queries at a fraction of the cost and latency, while routing genuinely hard cases back to the full model.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A large, powerful model (the &amp;ldquo;teacher&amp;rdquo;) generates training signals — not just correct answers, but the &lt;em&gt;distribution&lt;/em&gt; of its confidence across all possible answers. A smaller model (the &amp;ldquo;student&amp;rdquo;) learns from these soft signals, absorbing the teacher&amp;rsquo;s reasoning patterns in a compressed form.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Knowledge-Distillation on Engineering Notes</title>
+		<link>https://notes.muthu.co/tags/knowledge-distillation/</link>
+		<description>Recent content in Knowledge-Distillation on Engineering Notes</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://notes.muthu.co/tags/knowledge-distillation/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
+				<link>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
+				<pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;Knowledge distillation&lt;/strong&gt; trains a smaller, cheaper &amp;ldquo;student&amp;rdquo; agent to mimic the behavior of a larger &amp;ldquo;teacher&amp;rdquo; model. The result is a system that can handle most queries at a fraction of the cost and latency, while routing genuinely hard cases back to the full model.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A large, powerful model (the &amp;ldquo;teacher&amp;rdquo;) generates training signals — not just correct answers, but the &lt;em&gt;distribution&lt;/em&gt; of its confidence across all possible answers. A smaller model (the &amp;ldquo;student&amp;rdquo;) learns from these soft signals, absorbing the teacher&amp;rsquo;s reasoning patterns in a compressed form.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Evaluation on Engineering Notes</title>
-    <link>https://notes.muthu.co/tags/evaluation/</link>
-    <description>Recent content in Evaluation on Engineering Notes</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://notes.muthu.co/tags/evaluation/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
-      <link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
-      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
-      <description>&lt;p&gt;Agent evaluation is one of the hardest unsolved problems in the field and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Agent evaluation differs from a traditional ML benchmark because agents are not graded on a single right answer. They perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>A Practical Guide to Evaluating Your AI Agents with DeepEval</title>
-      <link>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</guid>
-      <description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Evaluation on Engineering Notes</title>
+		<link>https://notes.muthu.co/tags/evaluation/</link>
+		<description>Recent content in Evaluation on Engineering Notes</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://notes.muthu.co/tags/evaluation/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Becoming an AI-Native Engineer</title>
+				<link>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</link>
+				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</guid>
+				<description>&lt;p&gt;The role of a software engineer is moving up the abstraction stack. The important question is no longer only whether you can write correct code. It is whether you can specify the right intent, delegate implementation clearly, and design the systems that prove the result is correct.&lt;/p&gt;&#xA;&lt;p&gt;That is what it means to become an AI-native engineer.&lt;/p&gt;&#xA;&lt;p&gt;This is more than being a software engineer who uses an AI coding tool. An AI-native engineer gets leverage from communication and judgment while implementation is increasingly handled by agents. The code still matters. The engineer&amp;rsquo;s effort is simply applied differently: less time producing every line, more time deciding what should exist and how its correctness will be established.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
+				<link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
+				<pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
+				<description>&lt;p&gt;Agent evaluation is one of the hardest unsolved problems in the field and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Agent evaluation differs from a traditional ML benchmark because agents are not graded on a single right answer. They perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>A Practical Guide to Evaluating Your AI Agents with DeepEval</title>
+				<link>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
+				<pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</guid>
+				<description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

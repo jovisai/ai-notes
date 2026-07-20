@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Automation on Engineering Notes</title>
-    <link>https://notes.muthu.co/tags/automation/</link>
-    <description>Recent content in Automation on Engineering Notes</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://notes.muthu.co/tags/automation/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
-      <link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
-      <description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The Doorman Fallacy and Why AI Keeps Failing at Replacing People</title>
-      <link>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</guid>
-      <description>&lt;p&gt;In 2023, AI was going to replace programmers. A year later, customer support was next. By 2025, some executives had moved on to talking about whole departments.&lt;/p&gt;&#xA;&lt;p&gt;By 2026, the story looks messier. Companies are still automating wherever they can, but a lot of them are learning the same lesson the hard way: replacing a visible task is not the same as replacing the job.&lt;/p&gt;&#xA;&lt;p&gt;That sounds like a small distinction until the automation goes live.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Automation on Engineering Notes</title>
+		<link>https://notes.muthu.co/tags/automation/</link>
+		<description>Recent content in Automation on Engineering Notes</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://notes.muthu.co/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
+				<link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
+				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
+				<description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>The Doorman Fallacy and Why AI Keeps Failing at Replacing People</title>
+				<link>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</link>
+				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</guid>
+				<description>&lt;p&gt;In 2023, AI was going to replace programmers. A year later, customer support was next. By 2025, some executives had moved on to talking about whole departments.&lt;/p&gt;&#xA;&lt;p&gt;By 2026, the story looks messier. Companies are still automating wherever they can, but a lot of them are learning the same lesson the hard way: replacing a visible task is not the same as replacing the job.&lt;/p&gt;&#xA;&lt;p&gt;That sounds like a small distinction until the automation goes live.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

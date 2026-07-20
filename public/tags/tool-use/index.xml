@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tool Use on Engineering Notes</title>
-    <link>https://notes.muthu.co/tags/tool-use/</link>
-    <description>Recent content in Tool Use on Engineering Notes</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://notes.muthu.co/tags/tool-use/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
-      <link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
-      <description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How AI Agents Use Tools with Function Calling</title>
-      <link>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</guid>
-      <description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tool Use&lt;/strong&gt; is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called &lt;strong&gt;Function Calling&lt;/strong&gt;: the LLM acts as a reasoning engine that translates a user&amp;rsquo;s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.&lt;/p&gt;&#xA;&lt;p&gt;When you ask a voice assistant &amp;ldquo;What&amp;rsquo;s the weather in London?&amp;rdquo;, it doesn&amp;rsquo;t magically know the answer. It recognizes that you want weather data, calls an external API with &amp;ldquo;London&amp;rdquo; as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Tool Use on Engineering Notes</title>
+		<link>https://notes.muthu.co/tags/tool-use/</link>
+		<description>Recent content in Tool Use on Engineering Notes</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://notes.muthu.co/tags/tool-use/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
+				<link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
+				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
+				<description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>How AI Agents Use Tools with Function Calling</title>
+				<link>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</link>
+				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</guid>
+				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tool Use&lt;/strong&gt; is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called &lt;strong&gt;Function Calling&lt;/strong&gt;: the LLM acts as a reasoning engine that translates a user&amp;rsquo;s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.&lt;/p&gt;&#xA;&lt;p&gt;When you ask a voice assistant &amp;ldquo;What&amp;rsquo;s the weather in London?&amp;rdquo;, it doesn&amp;rsquo;t magically know the answer. It recognizes that you want weather data, calls an external API with &amp;ldquo;London&amp;rdquo; as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

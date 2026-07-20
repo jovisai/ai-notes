@@ -5,29 +5,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Working Memory Compression and Context Distillation in Long Horizon Agents - Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
 	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
 	
-  <meta itemprop="name" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
-  <meta itemprop="description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
-  <meta itemprop="datePublished" content="2026-03-15T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2026-03-15T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1558">
-  <meta itemprop="keywords" content="AI Agents,Memory,Context Engineering,Langgraph,Multi-Agent"><meta property="og:url" content="https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/">
-  <meta property="og:site_name" content="Engineering Notes">
-  <meta property="og:title" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
-  <meta property="og:description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="ai-agents">
-    <meta property="article:published_time" content="2026-03-15T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-03-15T00:00:00+00:00">
-    <meta property="article:tag" content="AI Agents">
-    <meta property="article:tag" content="Memory">
-    <meta property="article:tag" content="Context Engineering">
-    <meta property="article:tag" content="Langgraph">
-    <meta property="article:tag" content="Multi-Agent">
+	<meta itemprop="name" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
+	<meta itemprop="description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
+	<meta itemprop="datePublished" content="2026-03-15T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-03-15T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1558">
+	<meta itemprop="keywords" content="Ai-Agents,Memory,Context Engineering,Langgraph,Multi-Agent"><meta property="og:url" content="https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/">
+	<meta property="og:site_name" content="Engineering Notes">
+	<meta property="og:title" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
+	<meta property="og:description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="ai-agents">
+		<meta property="article:published_time" content="2026-03-15T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-03-15T00:00:00+00:00">
+		<meta property="article:tag" content="Ai-Agents">
+		<meta property="article:tag" content="Memory">
+		<meta property="article:tag" content="Context Engineering">
+		<meta property="article:tag" content="Langgraph">
+		<meta property="article:tag" content="Multi-Agent">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
-  <meta name="twitter:description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Working Memory Compression and Context Distillation in Long Horizon Agents">
+	<meta name="twitter:description" content="How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -144,7 +144,7 @@ Tier 4: Permanent facts (task description, constraints, invariants)
 <p>One pattern that works well is the checkpoint-resume loop. At regular intervals, the agent writes a structured checkpoint: a snapshot of what it has accomplished, what it still needs to do, and any dead ends it has ruled out. If the context fills before the task is done, the agent can start a fresh context window, reading the checkpoint rather than the full history. This mirrors how humans pause a complex task, write down where they are, and pick it up the next day.</p>
 <h2 id="practical-application">Practical Application</h2>
 <p>Here is a LangGraph implementation that demonstrates rolling summarization with a pinned task context and an archival store for evicted observations:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">os</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">os</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Annotated<span style="color:#1f2328">,</span> TypedDict
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_anthropic</span> <span style="color:#cf222e">import</span> ChatAnthropic
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain_core.messages</span> <span style="color:#cf222e">import</span> HumanMessage<span style="color:#1f2328">,</span> AIMessage<span style="color:#1f2328">,</span> SystemMessage
@@ -197,10 +197,10 @@ Tier 4: Permanent facts (task description, constraints, invariants)
 </span></span><span style="display:flex;"><span>    summary_prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">f</span><span style="color:#0a3069">&#34;&#34;&#34;You are summarizing an agent&#39;s work history.
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Prior summary (if any):
-</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span><span style="color:#0a3069">{</span>prior_summary<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">{</span>prior_summary<span style="color:#0a3069">}</span><span style="color:#0a3069">
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">New steps to incorporate:
-</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span><span style="color:#0a3069">{</span>history_text<span style="color:#0a3069">}</span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">{</span>history_text<span style="color:#0a3069">}</span><span style="color:#0a3069">
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">Produce a concise but complete summary covering:
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- What has been accomplished so far
