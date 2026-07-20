@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Tags on Engineering Notes</title>
+		<title>Tags on AI Agent Engineering Notes</title>
 		<link>https://notes.muthu.co/tags/</link>
-		<description>Recent content in Tags on Engineering Notes</description>
+		<description>Recent content in Tags on AI Agent Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
@@ -42,21 +42,21 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Software-Engineering</title>
+				<title>Software Engineering</title>
 				<link>https://notes.muthu.co/tags/software-engineering/</link>
 				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/software-engineering/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Ai</title>
+				<title>AI</title>
 				<link>https://notes.muthu.co/tags/ai/</link>
 				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/ai/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>Llm</title>
+				<title>LLM</title>
 				<link>https://notes.muthu.co/tags/llm/</link>
 				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/llm/</guid>
@@ -651,14 +651,14 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Deep Research</title>
+				<title>Deep-Research</title>
 				<link>https://notes.muthu.co/tags/deep-research/</link>
 				<pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/deep-research/</guid>
 				<description></description>
 			</item>
 			<item>
-				<title>LLMs</title>
+				<title>Llms</title>
 				<link>https://notes.muthu.co/tags/llms/</link>
 				<pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/llms/</guid>

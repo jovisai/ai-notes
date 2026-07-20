@@ -1,9 +1,10 @@
 baseURL = "https://notes.muthu.co/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "Engineering Notes"
+title = "AI Agent Engineering Notes"
 theme = "ink-free"
 disableAliases = true
+enableRobotsTXT = true
 [pagination]
   pagerSize = 10
 
@@ -13,7 +14,8 @@ disableAliases = true
   engineering-manager = "/:year/:month/:title"
 
 [params]
-	subtitle = "Thoughts and Ideas on AI by Muthukrishnan"
+	subtitle = "Practical guides to AI agents, agentic systems, and AI-native software engineering"
+	description = "Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan."
 
 	# Optional 64x64 avatar image.
 	avatar = "/avatar.jpeg"
