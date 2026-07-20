@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Digital-Twins on Engineering Notes</title>
-		<link>http://localhost:1313/tags/digital-twins/</link>
+		<link>https://notes.muthu.co/tags/digital-twins/</link>
 		<description>Recent content in Digital-Twins on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/digital-twins/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://notes.muthu.co/tags/digital-twins/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Engineering Digital Twin - The Next Billion-Dollar AI Category</title>
-				<link>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</link>
+				<link>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</guid>
+				<guid>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</guid>
 				<description>&lt;p&gt;Most AI tooling in software engineering is still obsessed with the same narrow promise:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;What if developers could write code faster?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Useful? Yes.&lt;/p&gt;&#xA;&lt;p&gt;Big enough to reshape how engineering organizations are run? I am not convinced.&lt;/p&gt;&#xA;&lt;p&gt;The more interesting problem starts before anyone opens an editor. By the time a developer asks an AI agent to write code, a bunch of bigger decisions have already been made: what the business wants, which roadmap item matters, which architecture is acceptable, which team owns the work, what risk we are willing to carry, and what we are choosing not to fix.&lt;/p&gt;</description>
 			</item>
 	</channel>

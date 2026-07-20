@@ -1,671 +1,349 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml version="1.0"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/ai-agents/</loc>
+    <loc>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</loc>
     <lastmod>2026-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ai-agents/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/ai-native/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/07/becoming-an-ai-native-engineer/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/engineering-leverage/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/evaluation/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/software-engineering/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/ai/</loc>
+    <loc>https://notes.muthu.co/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</loc>
     <lastmod>2026-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llm/</loc>
+    <loc>https://notes.muthu.co/posts/</loc>
     <lastmod>2026-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/local-models/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/routing/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/software-architecture/</loc>
-    <lastmod>2026-07-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/engineering-management/</loc>
+    <loc>https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/</loc>
     <lastmod>2026-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/systems-thinking/</loc>
-    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/the-race-why-flow-beats-local-efficiency/</loc>
-    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/theory-of-constraints/</loc>
-    <lastmod>2026-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</loc>
+    <loc>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</loc>
     <lastmod>2026-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/agent-loop/</loc>
+    <loc>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</loc>
     <lastmod>2026-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automation/</loc>
-    <lastmod>2026-06-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</loc>
-    <lastmod>2026-06-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/tool-use/</loc>
-    <lastmod>2026-06-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/engineering-manager/</loc>
+    <loc>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</loc>
     <lastmod>2026-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/operations/</loc>
-    <lastmod>2026-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/optimize-units-of-work-not-growth-targets/</loc>
-    <lastmod>2026-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</loc>
+    <loc>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</loc>
     <lastmod>2026-06-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/careers/</loc>
-    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/agent-infrastructure/</loc>
+    <loc>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</loc>
     <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cloudflare/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/email/</loc>
-    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/digital-twins/</loc>
+    <loc>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</loc>
     <lastmod>2026-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</loc>
-    <lastmod>2026-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/engineering-intelligence/</loc>
-    <lastmod>2026-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/memory/</loc>
+    <loc>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</loc>
     <lastmod>2026-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/multi-agent-systems/</loc>
-    <lastmod>2026-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/reliability/</loc>
-    <lastmod>2026-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</loc>
-    <lastmod>2026-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/05/the-unsolved-engineering-problems-of-ai-agents/</loc>
+    <loc>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</loc>
     <lastmod>2026-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/context-engineering/</loc>
+    <loc>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</loc>
     <lastmod>2026-03-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/langgraph/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/multi-agent/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/claude-code/</loc>
+    <loc>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</loc>
     <lastmod>2026-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/developer-workflow/</loc>
-    <lastmod>2026-03-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</loc>
-    <lastmod>2026-03-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/spec-driven-development/</loc>
-    <lastmod>2026-03-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/agentic-ai/</loc>
+    <loc>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/02/conceptual-ai-agents-universe-system-design-document/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/orchestration/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/plugin-architecture/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/saas/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/subscription-platform/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/system-design/</loc>
-    <lastmod>2026-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</loc>
+    <loc>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</loc>
     <lastmod>2026-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/benchmarking/</loc>
-    <lastmod>2026-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/metrics/</loc>
-    <lastmod>2026-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/testing/</loc>
-    <lastmod>2026-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/autonomous-systems/</loc>
+    <loc>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</loc>
     <lastmod>2026-02-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/devops/</loc>
-    <lastmod>2026-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/source-control/</loc>
-    <lastmod>2026-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/02/what-if-github-was-built-for-ai-agents/</loc>
-    <lastmod>2026-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</loc>
+    <loc>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</loc>
     <lastmod>2026-02-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/knowledge-distillation/</loc>
-    <lastmod>2026-02-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/model-compression/</loc>
-    <lastmod>2026-02-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/transfer-learning/</loc>
-    <lastmod>2026-02-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/resume/</loc>
-    <lastmod>2026-02-06T10:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2026/02/claude-code-cli-best-practices-checklist/</loc>
+    <loc>https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</loc>
+    <loc>https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</loc>
+    <loc>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</loc>
     <lastmod>2026-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/openai/</loc>
-    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/swarm/</loc>
-    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/tutorial/</loc>
-    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</loc>
+    <loc>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</loc>
     <lastmod>2025-12-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rag/</loc>
-    <lastmod>2025-12-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/retrieval/</loc>
-    <lastmod>2025-12-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</loc>
+    <loc>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/deepeval/</loc>
-    <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</loc>
+    <loc>https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</loc>
     <lastmod>2025-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/the-skill-that-will-define-your-career-in-2026/</loc>
+    <loc>https://notes.muthu.co/2025/12/the-skill-that-will-define-your-career-in-2026/</loc>
     <lastmod>2025-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</loc>
+    <loc>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</loc>
     <lastmod>2025-12-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/a-technical-introduction-to-ava/</loc>
+    <loc>https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/</loc>
     <lastmod>2025-12-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/crewai/</loc>
+    <loc>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</loc>
     <lastmod>2025-12-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</loc>
-    <lastmod>2025-12-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</loc>
+    <loc>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</loc>
     <lastmod>2025-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/claude/</loc>
-    <lastmod>2025-12-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/mcp/</loc>
-    <lastmod>2025-12-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/master-the-art-of-managing-up-and-across/</loc>
+    <loc>https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/</loc>
     <lastmod>2025-12-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/architect-for-reversibility-as-a-high-velocity-advantage/</loc>
+    <loc>https://notes.muthu.co/2025/12/architect-for-reversibility-as-a-high-velocity-advantage/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/debate/</loc>
+    <loc>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/deliberation/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/reasoning/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</loc>
+    <loc>https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</loc>
     <lastmod>2025-12-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</loc>
+    <loc>https://notes.muthu.co/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</loc>
     <lastmod>2025-12-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/12/design-self-correcting-systems-not-processes/</loc>
+    <loc>https://notes.muthu.co/2025/12/design-self-correcting-systems-not-processes/</loc>
     <lastmod>2025-12-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/design-your-dependency-architecture-for-organizational-velocity/</loc>
+    <loc>https://notes.muthu.co/2025/11/design-your-dependency-architecture-for-organizational-velocity/</loc>
     <lastmod>2025-11-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</loc>
+    <loc>https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</loc>
     <lastmod>2025-11-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</loc>
+    <loc>https://notes.muthu.co/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</loc>
     <lastmod>2025-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/architect-your-staff-plus-pipeline/</loc>
+    <loc>https://notes.muthu.co/2025/11/architect-your-staff-plus-pipeline/</loc>
     <lastmod>2025-11-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</loc>
+    <loc>https://notes.muthu.co/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</loc>
     <lastmod>2025-11-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/design-your-teams-decision-latency/</loc>
+    <loc>https://notes.muthu.co/2025/11/design-your-teams-decision-latency/</loc>
     <lastmod>2025-11-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/shape-the-decision-space-before-the-decision/</loc>
+    <loc>https://notes.muthu.co/2025/11/shape-the-decision-space-before-the-decision/</loc>
     <lastmod>2025-11-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</loc>
+    <loc>https://notes.muthu.co/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</loc>
+    <loc>https://notes.muthu.co/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</loc>
     <lastmod>2025-11-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/build-context-portability-not-knowledge-silos/</loc>
+    <loc>https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos/</loc>
     <lastmod>2025-11-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/quality-assurance/</loc>
+    <loc>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</loc>
     <lastmod>2025-11-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/self-correction/</loc>
+    <loc>https://notes.muthu.co/2025/11/write-engineering-investment-cases-not-technical-proposals/</loc>
     <lastmod>2025-11-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/validation/</loc>
-    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/verification/</loc>
-    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</loc>
-    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/write-engineering-investment-cases-not-technical-proposals/</loc>
-    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</loc>
+    <loc>https://notes.muthu.co/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</loc>
     <lastmod>2025-11-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/manage-your-teams-cognitive-load-budget/</loc>
+    <loc>https://notes.muthu.co/2025/11/manage-your-teams-cognitive-load-budget/</loc>
     <lastmod>2025-11-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/agent-architecture/</loc>
+    <loc>https://notes.muthu.co/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</loc>
     <lastmod>2025-11-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/coding/</loc>
+    <loc>https://notes.muthu.co/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter/</loc>
     <lastmod>2025-11-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/human-in-the-loop/</loc>
+    <loc>https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</loc>
     <lastmod>2025-11-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</loc>
-    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/interactive-systems/</loc>
-    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter/</loc>
-    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/software-development/</loc>
-    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/systems-architecture/</loc>
-    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</loc>
-    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/architect-your-teams-communication-protocol/</loc>
+    <loc>https://notes.muthu.co/2025/11/architect-your-teams-communication-protocol/</loc>
     <lastmod>2025-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/build-abstractions-that-accelerate-not-complicate/</loc>
+    <loc>https://notes.muthu.co/2025/11/build-abstractions-that-accelerate-not-complicate/</loc>
     <lastmod>2025-11-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/codify-your-quality-bar-and-make-standards-executable/</loc>
+    <loc>https://notes.muthu.co/2025/11/codify-your-quality-bar-and-make-standards-executable/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</loc>
+    <loc>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</loc>
     <lastmod>2025-11-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/communication-protocols/</loc>
+    <loc>https://notes.muthu.co/2025/11/create-clarity-artifacts-to-turn-ambiguity-into-executable-alignment/</loc>
     <lastmod>2025-11-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/coordination/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/create-clarity-artifacts-to-turn-ambiguity-into-executable-alignment/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/distributed-systems/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/build-organizational-memory-not-institutional-knowledge/</loc>
+    <loc>https://notes.muthu.co/2025/11/build-organizational-memory-not-institutional-knowledge/</loc>
     <lastmod>2025-11-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</loc>
+    <loc>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/debugging/</loc>
+    <loc>https://notes.muthu.co/2025/11/run-pre-mortems-not-post-mortems/</loc>
     <lastmod>2025-11-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/monitoring/</loc>
-    <lastmod>2025-11-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/observability/</loc>
-    <lastmod>2025-11-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/run-pre-mortems-not-post-mortems/</loc>
-    <lastmod>2025-11-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/11/design-ownership-boundaries-not-org-charts/</loc>
+    <loc>https://notes.muthu.co/2025/11/design-ownership-boundaries-not-org-charts/</loc>
     <lastmod>2025-11-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/transform-failures-into-capability-not-bureaucracy/</loc>
+    <loc>https://notes.muthu.co/2025/10/transform-failures-into-capability-not-bureaucracy/</loc>
     <lastmod>2025-10-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/build-leverage-through-documentation-as-code/</loc>
+    <loc>https://notes.muthu.co/2025/10/build-leverage-through-documentation-as-code/</loc>
     <lastmod>2025-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/debug-organizational-velocity-not-individual-productivity/</loc>
+    <loc>https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity/</loc>
     <lastmod>2025-10-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</loc>
+    <loc>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/autonomous-agents/</loc>
+    <loc>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</loc>
     <lastmod>2025-10-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/building-a-multi-agent-debate-system-with-langgraph/</loc>
-    <lastmod>2025-10-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</loc>
+    <loc>https://notes.muthu.co/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</loc>
     <lastmod>2025-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/engineer-the-handoffs-where-most-productivity-dies/</loc>
+    <loc>https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies/</loc>
     <lastmod>2025-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/invest-in-compounding-leverage/</loc>
+    <loc>https://notes.muthu.co/2025/10/invest-in-compounding-leverage/</loc>
     <lastmod>2025-10-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/build-conviction-through-small-bets/</loc>
+    <loc>https://notes.muthu.co/2025/10/build-conviction-through-small-bets/</loc>
     <lastmod>2025-10-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/scale-culture-through-defaults-not-rules/</loc>
+    <loc>https://notes.muthu.co/2025/10/scale-culture-through-defaults-not-rules/</loc>
     <lastmod>2025-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</loc>
+    <loc>https://notes.muthu.co/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</loc>
     <lastmod>2025-10-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/design-your-feedback-loops/</loc>
+    <loc>https://notes.muthu.co/2025/10/design-your-feedback-loops/</loc>
     <lastmod>2025-10-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/hire-for-trajectory-not-just-skills/</loc>
+    <loc>https://notes.muthu.co/2025/10/hire-for-trajectory-not-just-skills/</loc>
     <lastmod>2025-10-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</loc>
+    <loc>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</loc>
     <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/how-great-ems-shape-reality-through-storytelling/</loc>
+    <loc>https://notes.muthu.co/2025/10/how-great-ems-shape-reality-through-storytelling/</loc>
     <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/state-management/</loc>
-    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/workflow-orchestration/</loc>
-    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</loc>
+    <loc>https://notes.muthu.co/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</loc>
     <lastmod>2025-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</loc>
+    <loc>https://notes.muthu.co/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</loc>
     <lastmod>2025-10-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/architect-your-culture-with-decision-records/</loc>
+    <loc>https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records/</loc>
     <lastmod>2025-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/make-decisions-reversible/</loc>
+    <loc>https://notes.muthu.co/2025/10/make-decisions-reversible/</loc>
     <lastmod>2025-10-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/algorithms/</loc>
+    <loc>https://notes.muthu.co/2025/10/build-escalation-paths-not-firefighters/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/build-escalation-paths-not-firefighters/</loc>
+    <loc>https://notes.muthu.co/2025/10/measure-what-matters-through-data-informed-leadership/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/mcts/</loc>
+    <loc>https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/measure-what-matters-through-data-informed-leadership/</loc>
-    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/monte-carlo-tree-search-from-games-to-llms/</loc>
-    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/planning/</loc>
-    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/treat-tech-debt-like-a-financial-portfolio/</loc>
+    <loc>https://notes.muthu.co/2025/10/treat-tech-debt-like-a-financial-portfolio/</loc>
     <lastmod>2025-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ai-safety/</loc>
+    <loc>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/alignment/</loc>
+    <loc>https://notes.muthu.co/2025/10/decentralize-decisions-centralize-context/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/api/</loc>
+    <loc>https://notes.muthu.co/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</loc>
+    <loc>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/architecture/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/cognitive-science/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/constitutional-ai/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/decentralize-decisions-centralize-context/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/ethics/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/function-calling/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/how-ai-agents-use-tools-with-function-calling/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vector-databases/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/10/manage-energy-not-time-for-sustainable-high-performance/</loc>
+    <loc>https://notes.muthu.co/2025/10/manage-energy-not-time-for-sustainable-high-performance/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/</loc>
+    <loc>https://notes.muthu.co/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/pave-the-road-to-scalable-speed-in-your-engineering-org/</loc>
+    <loc>https://notes.muthu.co/2025/10/pave-the-road-to-scalable-speed-in-your-engineering-org/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</loc>
+    <loc>https://notes.muthu.co/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</loc>
     <lastmod>2025-10-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/10/your-engineering-org-is-your-product/</loc>
+    <loc>https://notes.muthu.co/2025/10/your-engineering-org-is-your-product/</loc>
     <lastmod>2025-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/mastering-the-why-in-high-impact-engineering-communication/</loc>
+    <loc>https://notes.muthu.co/2025/09/mastering-the-why-in-high-impact-engineering-communication/</loc>
     <lastmod>2025-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/the-art-of-strategic-quitting-and-knowing-when-to-say-no/</loc>
+    <loc>https://notes.muthu.co/2025/09/the-art-of-strategic-quitting-and-knowing-when-to-say-no/</loc>
     <lastmod>2025-09-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/your-team-is-not-a-family-but-a-high-performance-system/</loc>
+    <loc>https://notes.muthu.co/2025/09/your-team-is-not-a-family-but-a-high-performance-system/</loc>
     <lastmod>2025-09-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/stop-managing-people-start-managing-the-system/</loc>
+    <loc>https://notes.muthu.co/2025/09/stop-managing-people-start-managing-the-system/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/</loc>
+    <loc>https://notes.muthu.co/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/</loc>
     <lastmod>2025-09-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/from-customer-value-to-code-as-the-ems-strategic-blueprint/</loc>
+    <loc>https://notes.muthu.co/2025/09/from-customer-value-to-code-as-the-ems-strategic-blueprint/</loc>
     <lastmod>2025-09-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/09/from-business-goals-to-code-with-backward-thinking/</loc>
+    <loc>https://notes.muthu.co/2025/09/from-business-goals-to-code-with-backward-thinking/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/deep-research/</loc>
+    <loc>https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/</loc>
     <lastmod>2025-09-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llms/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/research/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/09/systems-that-search-for-new-algorithms-automatically/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/09/how-the-effort-paradox-harms-top-performers/</loc>
+    <loc>https://notes.muthu.co/2025/09/how-the-effort-paradox-harms-top-performers/</loc>
     <lastmod>2025-09-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</loc>
+    <loc>https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/development/</loc>
+    <loc>https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</loc>
     <lastmod>2025-08-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</loc>
+    <loc>https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/</loc>
     <lastmod>2025-08-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/08/the-complete-claude-code-best-practices-guide/</loc>
-    <lastmod>2025-08-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/mmlu/</loc>
+    <loc>https://notes.muthu.co/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/</loc>
     <lastmod>2025-07-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/</loc>
-    <lastmod>2025-07-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/slms/</loc>
+    <loc>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/</loc>
     <lastmod>2025-07-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/07/understanding-mixture-of-experts-from-first-principles/</loc>
-    <lastmod>2025-07-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/</loc>
+    <loc>https://notes.muthu.co/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/</loc>
     <lastmod>2025-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/startups/</loc>
-    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</loc>
+    <loc>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</loc>
     <lastmod>2025-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/interoperability/</loc>
-    <lastmod>2025-07-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/scalability/</loc>
-    <lastmod>2025-07-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/future/</loc>
+    <loc>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</loc>
     <lastmod>2025-07-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/07/small-language-models-are-the-future-of-agentic-ai/</loc>
-    <lastmod>2025-07-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</loc>
+    <loc>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</loc>
     <lastmod>2025-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2025-07-06T10:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</loc>
+    <loc>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</loc>
     <lastmod>2025-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</loc>
+    <loc>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</loc>
     <lastmod>2025-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/07/a-developers-guide-to-effective-ai-coding-agents/</loc>
+    <loc>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</loc>
     <lastmod>2025-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</loc>
+    <loc>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</loc>
     <lastmod>2025-03-22T00:00:00+00:00</lastmod>
   </url>
 </urlset>

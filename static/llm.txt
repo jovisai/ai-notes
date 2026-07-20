@@ -14,8 +14,6 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 
 ## Posts
 
-- [TDD with Coding Agents to Build a Rate Limiting Service](https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/)
-- [The Complete Claude Code Best Practices Guide](https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/)
 - [AI Agent Communication Protocols MCP, ACP, A2A, and ANP](https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/): An overview of the most important communication protocols for multi-agent systems, and how they enable interoperability and scalability.
 - [A Technical Introduction to Ava](https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/)
 - [Building an Agentic RAG Pipeline with LangGraph](https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/): Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.
@@ -45,7 +43,9 @@ This blog by Muthu Krishnan covers AI agents, LLM technologies, multi-agent syst
 - [The Skill That Will Define Your Career in 2026](https://notes.muthu.co/2025/12/the-skill-that-will-define-your-career-in-2026/)
 - [Small Language Models are the Future of Agentic AI](https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/)
 - [Systems That Search for New Algorithms Automatically](https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/): An introduction to AlphaEvolve, DeepMind's new AI agent that uses evolutionary search and LLM-driven code synthesis to autonomously discover and optimize algorithms, outperforming human-designed solutions in several domains.
+- [TDD with Coding Agents to Build a Rate Limiting Service](https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/)
 - [The Architecture is the Prompt - Guiding AI with Hexagonal Design](https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/)
+- [The Complete Claude Code Best Practices Guide](https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/)
 - [The Doorman Fallacy and Why AI Keeps Failing at Replacing People](https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/)
 - [The Race: Why Flow Beats Local Efficiency](https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/): A practical reading of Eliyahu Goldratt's The Race, and why AI transformation should focus on bottlenecks, throughput, and flow instead of local productivity.
 - [The Theory of Constraints applied to software development life cycles](https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/)

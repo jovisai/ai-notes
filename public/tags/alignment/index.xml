@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Alignment on Engineering Notes</title>
-		<link>http://localhost:1313/tags/alignment/</link>
+		<link>https://notes.muthu.co/tags/alignment/</link>
 		<description>Recent content in Alignment on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/alignment/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://notes.muthu.co/tags/alignment/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Ensuring Agent Safety with Constitutional AI Guardrails</title>
-				<link>http://localhost:1313/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</link>
+				<link>https://notes.muthu.co/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</link>
 				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</guid>
+				<guid>https://notes.muthu.co/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Constitutional AI (CAI)&lt;/strong&gt; is a method for training an AI to supervise itself. Rather than relying on human feedback for every harmful query, the AI learns to critique and revise its own behavior based on a set of explicit guiding principles. This allows the AI to learn harmlessness not from direct human supervision on harmful topics, but from its own application of those principles.&lt;/p&gt;&#xA;&lt;p&gt;Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI&amp;rsquo;s own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).&lt;/p&gt;</description>
 			</item>
 	</channel>

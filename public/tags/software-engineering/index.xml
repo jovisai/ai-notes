@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Software Engineering on Engineering Notes</title>
-		<link>http://localhost:1313/tags/software-engineering/</link>
-		<description>Recent content in Software Engineering on Engineering Notes</description>
+		<title>Software-Engineering on Engineering Notes</title>
+		<link>https://notes.muthu.co/tags/software-engineering/</link>
+		<description>Recent content in Software-Engineering on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
@@ -12,47 +12,47 @@
 		
 			<lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://notes.muthu.co/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Becoming an AI-Native Engineer</title>
-				<link>http://localhost:1313/2026/07/becoming-an-ai-native-engineer/</link>
+				<link>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</link>
 				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/07/becoming-an-ai-native-engineer/</guid>
+				<guid>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</guid>
 				<description>&lt;p&gt;The role of a software engineer is moving up the abstraction stack. The important question is no longer only whether you can write correct code. It is whether you can specify the right intent, delegate implementation clearly, and design the systems that prove the result is correct.&lt;/p&gt;&#xA;&lt;p&gt;That is what it means to become an AI-native engineer.&lt;/p&gt;&#xA;&lt;p&gt;This is more than being a software engineer who uses an AI coding tool. An AI-native engineer gets leverage from communication and judgment while implementation is increasingly handled by agents. The code still matters. The engineer&amp;rsquo;s effort is simply applied differently: less time producing every line, more time deciding what should exist and how its correctness will be established.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Doorman Fallacy and Why AI Keeps Failing at Replacing People</title>
-				<link>http://localhost:1313/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</link>
+				<link>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</link>
 				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</guid>
+				<guid>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</guid>
 				<description>&lt;p&gt;In 2023, AI was going to replace programmers. A year later, customer support was next. By 2025, some executives had moved on to talking about whole departments.&lt;/p&gt;&#xA;&lt;p&gt;By 2026, the story looks messier. Companies are still automating wherever they can, but a lot of them are learning the same lesson the hard way: replacing a visible task is not the same as replacing the job.&lt;/p&gt;&#xA;&lt;p&gt;That sounds like a small distinction until the automation goes live.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>AI Will Not Kill Junior Engineers but It Will Change Them</title>
-				<link>http://localhost:1313/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>
+				<link>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>
 				<pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</guid>
+				<guid>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</guid>
 				<description>&lt;p&gt;There is a growing debate in software teams:&lt;/p&gt;&#xA;&lt;p&gt;If AI can generate most entry-level coding work, do we still need junior engineers?&lt;/p&gt;&#xA;&lt;p&gt;The question sounds reasonable. AI can write boilerplate, generate CRUD APIs, draft unit tests, explain unfamiliar code, produce documentation, create migrations, and fix simple bugs. A senior engineer with a strong AI coding assistant can now complete work that previously might have been handed to one or two junior developers.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Engineering Digital Twin - The Next Billion-Dollar AI Category</title>
-				<link>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</link>
+				<link>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</guid>
+				<guid>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</guid>
 				<description>&lt;p&gt;Most AI tooling in software engineering is still obsessed with the same narrow promise:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;What if developers could write code faster?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Useful? Yes.&lt;/p&gt;&#xA;&lt;p&gt;Big enough to reshape how engineering organizations are run? I am not convinced.&lt;/p&gt;&#xA;&lt;p&gt;The more interesting problem starts before anyone opens an editor. By the time a developer asks an AI agent to write code, a bunch of bigger decisions have already been made: what the business wants, which roadmap item matters, which architecture is acceptable, which team owns the work, what risk we are willing to carry, and what we are choosing not to fix.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying</title>
-				<link>http://localhost:1313/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</link>
+				<link>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</link>
 				<pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</guid>
+				<guid>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</guid>
 				<description>&lt;p&gt;Most AI coding sessions start the same way. You open your editor, type a rough idea into the chat, and watch the agent generate files. It feels productive. Then two hours later you are reviewing code that solves a problem you never quite specified, built on assumptions the agent made silently, in a style that does not match the rest of your project.&lt;/p&gt;&#xA;&lt;p&gt;This is vibe coding. It does not scale.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>What If GitHub Was Built for AI Agents</title>
-				<link>http://localhost:1313/2026/02/what-if-github-was-built-for-ai-agents/</link>
+				<link>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</link>
 				<pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/what-if-github-was-built-for-ai-agents/</guid>
+				<guid>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</guid>
 				<description>&lt;p&gt;GitHub was built for humans reading diffs. But what happens when most of the code is written, reviewed, and merged by AI agents?&lt;/p&gt;&#xA;&lt;p&gt;You do not just add an AI layer on top of Git. You rethink the entire system around how agents operate: intent, prediction, simulation, reputation, and policy.&lt;/p&gt;&#xA;&lt;p&gt;Here is what an agent native source code management system could look like.&lt;/p&gt;&#xA;&lt;h2 id=&#34;intent-based-commits&#34;&gt;Intent Based Commits&lt;/h2&gt;&#xA;&lt;p&gt;Agents do not just commit code. They commit &lt;strong&gt;intent&lt;/strong&gt;.&lt;/p&gt;</description>
 			</item>
 	</channel>

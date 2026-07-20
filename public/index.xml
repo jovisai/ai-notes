@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Engineering Notes</title>
-		<link>http://localhost:1313/</link>
+		<link>https://notes.muthu.co/</link>
 		<description>Recent content on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,817 +12,817 @@
 		
 			<lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Becoming an AI-Native Engineer</title>
-				<link>http://localhost:1313/2026/07/becoming-an-ai-native-engineer/</link>
+				<link>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</link>
 				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/07/becoming-an-ai-native-engineer/</guid>
+				<guid>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</guid>
 				<description>&lt;p&gt;The role of a software engineer is moving up the abstraction stack. The important question is no longer only whether you can write correct code. It is whether you can specify the right intent, delegate implementation clearly, and design the systems that prove the result is correct.&lt;/p&gt;&#xA;&lt;p&gt;That is what it means to become an AI-native engineer.&lt;/p&gt;&#xA;&lt;p&gt;This is more than being a software engineer who uses an AI coding tool. An AI-native engineer gets leverage from communication and judgment while implementation is increasingly handled by agents. The code still matters. The engineer&amp;rsquo;s effort is simply applied differently: less time producing every line, more time deciding what should exist and how its correctness will be established.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Local-First LLM Routing - Use Small Models for Easy Questions and Cloud Models for Hard Ones</title>
-				<link>http://localhost:1313/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</link>
+				<link>https://notes.muthu.co/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</link>
 				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</guid>
+				<guid>https://notes.muthu.co/2026/07/local-first-llm-routing-use-small-models-for-easy-questions-and-cloud-models-for-hard-ones/</guid>
 				<description>&lt;p&gt;Every LLM call costs something.&lt;/p&gt;&#xA;&lt;p&gt;Sometimes the cost is money. Sometimes it is latency. Sometimes it is privacy.&lt;/p&gt;&#xA;&lt;p&gt;If you send every request to a frontier model, you burn budget on tasks a small local model could have handled. If you run everything locally, the easy cases feel great until a harder reasoning task shows up and the answer falls apart.&lt;/p&gt;&#xA;&lt;p&gt;The better pattern is a &lt;strong&gt;local-first routing gateway&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Put a thin layer between your chat UI and your models. The gateway looks at each request, sends simple work to a local model, and escalates harder work to a remote model. The user still sees one assistant. The system decides which model should answer.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Race: Why Flow Beats Local Efficiency</title>
-				<link>http://localhost:1313/2026/06/the-race-why-flow-beats-local-efficiency/</link>
+				<link>https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/</link>
 				<pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/the-race-why-flow-beats-local-efficiency/</guid>
-				<description>&lt;p&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/the-race-goldratt-cover.jpg&#34; alt=&#34;Book cover: The Race by Eliyahu M. Goldratt&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Cover image source: Open Library.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Eliyahu Goldratt&amp;rsquo;s &lt;em&gt;The Race&lt;/em&gt; is a short book, but it lands a pretty hard punch. Most organizations spend their time trying to make every part of the business more efficient. Goldratt&amp;rsquo;s point is that this is often the wrong game.&lt;/p&gt;&#xA;&lt;p&gt;The goal is not to keep every person busy. The goal is to move value through the system.&lt;/p&gt;</description>
+				<guid>https://notes.muthu.co/2026/06/the-race-why-flow-beats-local-efficiency/</guid>
+				<description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/the-race-goldratt-cover.jpg&#34; alt=&#34;Book cover: The Race by Eliyahu M. Goldratt&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Cover image source: Open Library.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Eliyahu Goldratt&amp;rsquo;s &lt;em&gt;The Race&lt;/em&gt; is a short book, but it lands a pretty hard punch. Most organizations spend their time trying to make every part of the business more efficient. Goldratt&amp;rsquo;s point is that this is often the wrong game.&lt;/p&gt;&#xA;&lt;p&gt;The goal is not to keep every person busy. The goal is to move value through the system.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
-				<link>http://localhost:1313/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
+				<link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
 				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
+				<guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
 				<description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Doorman Fallacy and Why AI Keeps Failing at Replacing People</title>
-				<link>http://localhost:1313/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</link>
+				<link>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</link>
 				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</guid>
+				<guid>https://notes.muthu.co/2026/06/the-doorman-fallacy-and-why-ai-keeps-failing-at-replacing-people/</guid>
 				<description>&lt;p&gt;In 2023, AI was going to replace programmers. A year later, customer support was next. By 2025, some executives had moved on to talking about whole departments.&lt;/p&gt;&#xA;&lt;p&gt;By 2026, the story looks messier. Companies are still automating wherever they can, but a lot of them are learning the same lesson the hard way: replacing a visible task is not the same as replacing the job.&lt;/p&gt;&#xA;&lt;p&gt;That sounds like a small distinction until the automation goes live.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Optimize Units of Work, Not Growth Targets</title>
-				<link>http://localhost:1313/2026/06/optimize-units-of-work-not-growth-targets/</link>
+				<link>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</link>
 				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/optimize-units-of-work-not-growth-targets/</guid>
+				<guid>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</guid>
 				<description>&lt;p&gt;A lot of leadership teams start with a goal like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;How do we grow revenue by 20%?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It is a reasonable business question. It is also too abstract to manage directly.&lt;/p&gt;&#xA;&lt;p&gt;Nobody wakes up and performs a &amp;ldquo;20% growth&amp;rdquo; task. Nobody opens a laptop and completes &amp;ldquo;increase revenue&amp;rdquo; before lunch. What people actually do every day is much smaller and much more concrete:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Answer customer questions&lt;/li&gt;&#xA;&lt;li&gt;Create proposals&lt;/li&gt;&#xA;&lt;li&gt;Follow up on leads&lt;/li&gt;&#xA;&lt;li&gt;Review contracts&lt;/li&gt;&#xA;&lt;li&gt;Build features&lt;/li&gt;&#xA;&lt;li&gt;Resolve support tickets&lt;/li&gt;&#xA;&lt;li&gt;Generate reports&lt;/li&gt;&#xA;&lt;li&gt;Onboard customers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Growth is the aggregate result of how well thousands of these units of work happen.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>AI Will Not Kill Junior Engineers but It Will Change Them</title>
-				<link>http://localhost:1313/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>
+				<link>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</link>
 				<pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</guid>
+				<guid>https://notes.muthu.co/2026/06/ai-will-not-kill-junior-engineers-but-it-will-change-them/</guid>
 				<description>&lt;p&gt;There is a growing debate in software teams:&lt;/p&gt;&#xA;&lt;p&gt;If AI can generate most entry-level coding work, do we still need junior engineers?&lt;/p&gt;&#xA;&lt;p&gt;The question sounds reasonable. AI can write boilerplate, generate CRUD APIs, draft unit tests, explain unfamiliar code, produce documentation, create migrations, and fix simple bugs. A senior engineer with a strong AI coding assistant can now complete work that previously might have been handed to one or two junior developers.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Cloudflare Email for Agents: Why Email May Become Agent Infrastructure</title>
-				<link>http://localhost:1313/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</link>
+				<link>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</link>
 				<pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</guid>
+				<guid>https://notes.muthu.co/2026/06/cloudflare-email-for-agents-why-email-may-become-agent-infrastructure/</guid>
 				<description>&lt;p&gt;Cloudflare&amp;rsquo;s &lt;strong&gt;Email for Agents&lt;/strong&gt; looks like an email product at first glance. It is more interesting than that.&lt;/p&gt;&#xA;&lt;p&gt;It is infrastructure for giving AI agents a real identity and a reliable communication channel on the internet. Instead of keeping agents trapped inside chat windows, Slack bots, Discord servers, or internal tools, Cloudflare is putting them on a protocol every business already understands: email.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-cloudflare-launched&#34;&gt;&lt;strong&gt;What Cloudflare Launched&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Cloudflare combined three capabilities:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Engineering Digital Twin - The Next Billion-Dollar AI Category</title>
-				<link>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</link>
+				<link>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</link>
 				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</guid>
+				<guid>https://notes.muthu.co/2026/06/engineering-digital-twin-the-next-billion-dollar-ai-category/</guid>
 				<description>&lt;p&gt;Most AI tooling in software engineering is still obsessed with the same narrow promise:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;What if developers could write code faster?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Useful? Yes.&lt;/p&gt;&#xA;&lt;p&gt;Big enough to reshape how engineering organizations are run? I am not convinced.&lt;/p&gt;&#xA;&lt;p&gt;The more interesting problem starts before anyone opens an editor. By the time a developer asks an AI agent to write code, a bunch of bigger decisions have already been made: what the business wants, which roadmap item matters, which architecture is acceptable, which team owns the work, what risk we are willing to carry, and what we are choosing not to fix.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving?</title>
-				<link>http://localhost:1313/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</link>
+				<link>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</link>
 				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</guid>
+				<guid>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</guid>
 				<description>&lt;p&gt;&lt;em&gt;Amdahl&amp;rsquo;s Law doesn&amp;rsquo;t care about your sprint velocity.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;There&amp;rsquo;s a pattern playing out in companies right now.&lt;/p&gt;&#xA;&lt;p&gt;Engineering gets AI tooling. Code generation, automated testing, AI-assisted reviews. Within a quarter, velocity is up. PRs merge faster. Features ship sooner. Leadership is excited. Slides go to the board.&lt;/p&gt;&#xA;&lt;p&gt;And then the revenue numbers come in. Flat.&lt;/p&gt;&#xA;&lt;p&gt;The post-mortems are always the same: &amp;ldquo;we built a lot, but it didn&amp;rsquo;t translate.&amp;rdquo; Everyone nods. Someone suggests better prioritization. The real problem goes undiagnosed.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Unsolved Engineering Problems of AI Agents</title>
-				<link>http://localhost:1313/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>
+				<link>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>
 				<pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/05/the-unsolved-engineering-problems-of-ai-agents/</guid>
-				<description>&lt;p&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/agents.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;AI agents engineering is still in its &amp;ldquo;distributed systems in the 1990s&amp;rdquo; phase.&lt;/p&gt;&#xA;&lt;p&gt;Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.&lt;/p&gt;&#xA;&lt;p&gt;That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.&lt;/p&gt;</description>
+				<guid>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</guid>
+				<description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/agents.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;AI agents engineering is still in its &amp;ldquo;distributed systems in the 1990s&amp;rdquo; phase.&lt;/p&gt;&#xA;&lt;p&gt;Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.&lt;/p&gt;&#xA;&lt;p&gt;That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
-				<link>http://localhost:1313/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
+				<link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
 				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
+				<guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
 				<description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying</title>
-				<link>http://localhost:1313/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</link>
+				<link>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</link>
 				<pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</guid>
+				<guid>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</guid>
 				<description>&lt;p&gt;Most AI coding sessions start the same way. You open your editor, type a rough idea into the chat, and watch the agent generate files. It feels productive. Then two hours later you are reviewing code that solves a problem you never quite specified, built on assumptions the agent made silently, in a style that does not match the rest of your project.&lt;/p&gt;&#xA;&lt;p&gt;This is vibe coding. It does not scale.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Conceptual AI Agents Universe — System Design Document</title>
-				<link>http://localhost:1313/2026/02/conceptual-ai-agents-universe-system-design-document/</link>
+				<link>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</link>
 				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/conceptual-ai-agents-universe-system-design-document/</guid>
+				<guid>https://notes.muthu.co/2026/02/conceptual-ai-agents-universe-system-design-document/</guid>
 				<description>&lt;h1 id=&#34;part-1-high-level-design&#34;&gt;PART 1: HIGH-LEVEL DESIGN&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-vision--problem-statement&#34;&gt;1. Vision &amp;amp; Problem Statement&lt;/h2&gt;&#xA;&lt;p&gt;Organizations need AI automation across multiple business functions — code review, customer support, QA, documentation, data analysis, and more. Today, each of these is a siloed solution with its own interface, deployment, and learning curve.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;AI Agents Universe&lt;/strong&gt; solves this by providing a single platform where each AI capability is a self-contained, subscription-based plugin. One interface, one orchestrator, unlimited capabilities — added without touching existing code.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
-				<link>http://localhost:1313/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
+				<link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
 				<pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
+				<guid>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
 				<description>&lt;p&gt;Agent evaluation is one of the hardest unsolved problems in the field and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Agent evaluation differs from a traditional ML benchmark because agents are not graded on a single right answer. They perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>What If GitHub Was Built for AI Agents</title>
-				<link>http://localhost:1313/2026/02/what-if-github-was-built-for-ai-agents/</link>
+				<link>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</link>
 				<pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/what-if-github-was-built-for-ai-agents/</guid>
+				<guid>https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/</guid>
 				<description>&lt;p&gt;GitHub was built for humans reading diffs. But what happens when most of the code is written, reviewed, and merged by AI agents?&lt;/p&gt;&#xA;&lt;p&gt;You do not just add an AI layer on top of Git. You rethink the entire system around how agents operate: intent, prediction, simulation, reputation, and policy.&lt;/p&gt;&#xA;&lt;p&gt;Here is what an agent native source code management system could look like.&lt;/p&gt;&#xA;&lt;h2 id=&#34;intent-based-commits&#34;&gt;Intent Based Commits&lt;/h2&gt;&#xA;&lt;p&gt;Agents do not just commit code. They commit &lt;strong&gt;intent&lt;/strong&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Knowledge Distillation Teaching Smaller Agents From Larger Ones</title>
-				<link>http://localhost:1313/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
+				<link>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</link>
 				<pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</guid>
+				<guid>https://notes.muthu.co/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/</guid>
 				<description>&lt;p&gt;&lt;strong&gt;Knowledge distillation&lt;/strong&gt; trains a smaller, cheaper &amp;ldquo;student&amp;rdquo; agent to mimic the behavior of a larger &amp;ldquo;teacher&amp;rdquo; model. The result is a system that can handle most queries at a fraction of the cost and latency, while routing genuinely hard cases back to the full model.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A large, powerful model (the &amp;ldquo;teacher&amp;rdquo;) generates training signals — not just correct answers, but the &lt;em&gt;distribution&lt;/em&gt; of its confidence across all possible answers. A smaller model (the &amp;ldquo;student&amp;rdquo;) learns from these soft signals, absorbing the teacher&amp;rsquo;s reasoning patterns in a compressed form.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>AI Agents Architect</title>
-				<link>http://localhost:1313/resume/</link>
+				<link>https://notes.muthu.co/resume/</link>
 				<pubDate>Fri, 06 Feb 2026 10:00:00 +0530</pubDate>
-				<guid>http://localhost:1313/resume/</guid>
+				<guid>https://notes.muthu.co/resume/</guid>
 				<description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mobile:&lt;/strong&gt; +91 9964929755&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; muthukrishnan.t[@]hotmail.com&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Blog:&lt;/strong&gt; &lt;a href=&#34;https://notes.muthu.co&#34;&gt;notes.muthu.co&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub:&lt;/strong&gt; &lt;a href=&#34;https://github.com/muthuspark/&#34;&gt;github.com/muthuspark&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; &lt;a href=&#34;https://www.linkedin.com/in/krimuthu/&#34;&gt;linkedin.com/in/krimuthu&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Location:&lt;/strong&gt; Bangalore, India&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;professional-summary&#34;&gt;PROFESSIONAL SUMMARY&lt;/h2&gt;&#xA;&lt;p&gt;AI Agents Architect and Engineering Leader with &lt;strong&gt;16+ years of experience&lt;/strong&gt; specializing in designing, building, and deploying production-grade agentic AI systems at enterprise scale. Over the past two years, built and shipped a multi-agent AI platform that automates core workflows across Product Management, QA, Customer Experience, and Engineering at Sanas.ai, driving AI-generated code from &lt;strong&gt;5% to 77%&lt;/strong&gt; across the engineering organization.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Claude Code CLI Best Practices Checklist</title>
-				<link>http://localhost:1313/2026/02/claude-code-cli-best-practices-checklist/</link>
+				<link>https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/</link>
 				<pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/claude-code-cli-best-practices-checklist/</guid>
+				<guid>https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/</guid>
 				<description>&lt;p&gt;A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#1-initial-setup--configuration&#34;&gt;Initial Setup &amp;amp; Configuration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#2-claudemd-configuration&#34;&gt;CLAUDE.md Configuration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#3-permissions--security&#34;&gt;Permissions &amp;amp; Security&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#4-context-management&#34;&gt;Context Management&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#5-custom-commands--slash-commands&#34;&gt;Custom Commands &amp;amp; Slash Commands&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#6-hooks-for-automation&#34;&gt;Hooks for Automation&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#7-parallel-development-with-git-worktrees&#34;&gt;Parallel Development with Git Worktrees&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#8-cli-usage-patterns&#34;&gt;CLI Usage Patterns&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#9-mcp-server-integration&#34;&gt;MCP Server Integration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#10-session-management&#34;&gt;Session Management&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#11-keyboard-shortcuts--navigation&#34;&gt;Keyboard Shortcuts &amp;amp; Navigation&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#12-advanced-tips--tricks&#34;&gt;Advanced Tips &amp;amp; Tricks&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#13-common-pitfalls-to-avoid&#34;&gt;Common Pitfalls to Avoid&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-initial-setup--configuration&#34;&gt;1. Initial Setup &amp;amp; Configuration&lt;/h2&gt;&#xA;&lt;h3 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Install Claude Code: &lt;code&gt;npm install -g @anthropic-ai/claude-code&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Run &lt;code&gt;claude&lt;/code&gt; in your project directory to start&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Run &lt;code&gt;/init&lt;/code&gt; to generate a starter CLAUDE.md based on your project structure&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Install GitHub CLI (&lt;code&gt;gh&lt;/code&gt;) for seamless GitHub integration&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Set up your preferred terminal (iTerm2, VS Code terminal recommended)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;settings-hierarchy&#34;&gt;Settings Hierarchy&lt;/h3&gt;&#xA;&lt;p&gt;Claude Code uses hierarchical settings stored in JSON files:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Complete Guide to Git Worktrees with Claude Code</title>
-				<link>http://localhost:1313/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</link>
+				<link>https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</link>
 				<pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</guid>
+				<guid>https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/</guid>
 				<description>&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#1-introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#2-understanding-git-worktrees&#34;&gt;Understanding Git Worktrees&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#3-why-worktrees--claude-code&#34;&gt;Why Worktrees + Claude Code&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#4-basic-setup-and-commands&#34;&gt;Basic Setup and Commands&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#5-parallel-development-workflow&#34;&gt;Parallel Development Workflow&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#6-automation-scripts-and-tools&#34;&gt;Automation Scripts and Tools&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#7-custom-claude-commands-for-worktrees&#34;&gt;Custom Claude Commands for Worktrees&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#8-advanced-techniques&#34;&gt;Advanced Techniques&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#9-merging-and-integration&#34;&gt;Merging and Integration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#10-troubleshooting&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#11-best-practices&#34;&gt;Best Practices&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#12-real-world-examples&#34;&gt;Real-World Examples&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-problem-context-switching-kills-productivity&#34;&gt;The Problem: Context Switching Kills Productivity&lt;/h3&gt;&#xA;&lt;p&gt;You&amp;rsquo;re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you&amp;rsquo;re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Building a Multi-Agent Swarm with OpenAI Swarm Framework</title>
-				<link>http://localhost:1313/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</link>
+				<link>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</link>
 				<pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</guid>
+				<guid>https://notes.muthu.co/2026/01/building-a-multi-agent-swarm-with-openai-swarm-framework/</guid>
 				<description>&lt;p&gt;OpenAI&amp;rsquo;s Swarm is an experimental framework for building multi-agent systems. Unlike heavier frameworks, Swarm is intentionally minimal—it adds just two concepts on top of the Chat Completions API: &lt;strong&gt;handoffs&lt;/strong&gt; and &lt;strong&gt;routines&lt;/strong&gt;. This makes it easy to understand and extend.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a customer service system where specialized agents hand off conversations to each other based on customer needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-swarm&#34;&gt;What is Swarm?&lt;/h2&gt;&#xA;&lt;p&gt;Swarm is OpenAI&amp;rsquo;s take on multi-agent orchestration. Key principles:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Adding Context to Chunks for Better Retrieval with Contextual RAG</title>
-				<link>http://localhost:1313/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</link>
+				<link>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</link>
 				<pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</guid>
+				<guid>https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/</guid>
 				<description>&lt;p&gt;Standard RAG has a fundamental problem: chunks lose their context. When you split a document into pieces, each chunk becomes isolated. A sentence like &amp;ldquo;The company increased revenue by 15%&amp;rdquo; is meaningless without knowing which company, which year, and what the previous revenue was.&lt;/p&gt;&#xA;&lt;p&gt;Contextual RAG solves this by enriching each chunk with surrounding context before embedding. Anthropic&amp;rsquo;s research shows this technique can reduce retrieval failures by up to 67%.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>A Practical Guide to Evaluating Your AI Agents with DeepEval</title>
-				<link>http://localhost:1313/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
+				<link>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</link>
 				<pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</guid>
+				<guid>https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/</guid>
 				<description>&lt;p&gt;Building AI agents is one thing. Knowing if they actually work is another. Traditional software testing doesn&amp;rsquo;t apply—you can&amp;rsquo;t assert that an LLM response equals an exact string. You need metrics that capture semantic correctness, relevance, and faithfulness.&lt;/p&gt;&#xA;&lt;p&gt;DeepEval is an open-source framework specifically designed for evaluating LLM applications. It provides metrics for RAG pipelines, agentic workflows, and chatbots. In this article, we&amp;rsquo;ll walk through evaluating a real AI agent.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Most Interesting AI Agent Design Pattern Right Now</title>
-				<link>http://localhost:1313/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</link>
+				<link>https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</link>
 				<pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</guid>
+				<guid>https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/</guid>
 				<description>&lt;p&gt;AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.&lt;/p&gt;&#xA;&lt;p&gt;This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Skill That Will Define Your Career in 2026</title>
-				<link>http://localhost:1313/2025/12/the-skill-that-will-define-your-career-in-2026/</link>
+				<link>https://notes.muthu.co/2025/12/the-skill-that-will-define-your-career-in-2026/</link>
 				<pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/the-skill-that-will-define-your-career-in-2026/</guid>
-				<description>&lt;p&gt;&lt;em&gt;Why mastering &amp;ldquo;what&amp;rdquo; and &amp;ldquo;why&amp;rdquo; matters more than ever in the age of AI&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-three-layers-of-every-job&#34;&gt;The Three Layers of Every Job&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a framework I&amp;rsquo;ve been thinking about: every job, every role, every task you do breaks down into three fundamental layers.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/three_layers.png&#34; alt=&#34;The Three Layers of Every Job&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The purpose. The demand. The reason something needs to exist.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The decision. The direction. Choosing what to build, what to solve, what to prioritize.&lt;/p&gt;</description>
+				<guid>https://notes.muthu.co/2025/12/the-skill-that-will-define-your-career-in-2026/</guid>
+				<description>&lt;p&gt;&lt;em&gt;Why mastering &amp;ldquo;what&amp;rdquo; and &amp;ldquo;why&amp;rdquo; matters more than ever in the age of AI&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-three-layers-of-every-job&#34;&gt;The Three Layers of Every Job&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a framework I&amp;rsquo;ve been thinking about: every job, every role, every task you do breaks down into three fundamental layers.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/three_layers.png&#34; alt=&#34;The Three Layers of Every Job&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The purpose. The demand. The reason something needs to exist.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The decision. The direction. Choosing what to build, what to solve, what to prioritize.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Building an Agentic RAG Pipeline with LangGraph</title>
-				<link>http://localhost:1313/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</link>
+				<link>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</link>
 				<pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</guid>
+				<guid>https://notes.muthu.co/2025/12/building-an-agentic-rag-pipeline-with-langgraph/</guid>
 				<description>&lt;p&gt;Traditional RAG (Retrieval-Augmented Generation) follows a simple pattern: embed the query, find similar documents, generate an answer. But this &amp;ldquo;naive RAG&amp;rdquo; approach breaks down when queries are complex, ambiguous, or require information from multiple sources.&lt;/p&gt;&#xA;&lt;p&gt;Agentic RAG solves this by letting the LLM make decisions about retrieval. Instead of a fixed pipeline, the LLM can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decompose complex queries into sub-queries&lt;/li&gt;&#xA;&lt;li&gt;Decide if retrieved documents are sufficient&lt;/li&gt;&#xA;&lt;li&gt;Reformulate queries when initial retrieval fails&lt;/li&gt;&#xA;&lt;li&gt;Synthesize information from multiple retrieval rounds&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build an Agentic RAG system using LangGraph.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>A Technical Introduction to Ava</title>
-				<link>http://localhost:1313/2025/12/a-technical-introduction-to-ava/</link>
+				<link>https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/</link>
 				<pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/a-technical-introduction-to-ava/</guid>
+				<guid>https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/</guid>
 				<description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://raw.githubusercontent.com/muthuspark/ava/main/screenshot.png&#34; alt=&#34;&amp;lsquo;AVA UI&amp;rsquo;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user&amp;rsquo;s device which means that no data is ever sent to a server, ensuring complete privacy.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GitHub Repository:&lt;/strong&gt; &lt;a href=&#34;https://github.com/muthuspark/ava/&#34;&gt;https://github.com/muthuspark/ava/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Live Demo:&lt;/strong&gt; &lt;a href=&#34;https://ava.muthu.co&#34;&gt;https://ava.muthu.co&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Ava&amp;rsquo;s capabilities include:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>CrewAI vs LangGraph Building the Same Multi-Agent System in Both</title>
-				<link>http://localhost:1313/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
+				<link>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</link>
 				<pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
+				<guid>https://notes.muthu.co/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/</guid>
 				<description>&lt;p&gt;CrewAI and LangGraph are two of the most popular frameworks for building multi-agent AI systems. But they take fundamentally different approaches. CrewAI uses a role-based metaphor where agents are team members with defined roles. LangGraph uses a graph-based approach where you define states and transitions explicitly.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build the same workflow in both frameworks: a research assistant that finds information and writes a summary. This will reveal the practical differences between the two approaches.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Building an MCP Server with Python to Connect Claude to Your Database</title>
-				<link>http://localhost:1313/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</link>
+				<link>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</link>
 				<pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</guid>
+				<guid>https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/</guid>
 				<description>&lt;p&gt;The Model Context Protocol (MCP) is Anthropic&amp;rsquo;s open standard for connecting AI applications to external data sources and tools. Think of it like a USB-C port for AI—a standardized way to plug any data source into Claude or other AI assistants.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll build a practical MCP server that connects Claude to a SQLite database. By the end, you&amp;rsquo;ll be able to ask Claude natural language questions about your data, and it will query the database directly.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Master the Art of Managing Up and Across</title>
-				<link>http://localhost:1313/2025/12/master-the-art-of-managing-up-and-across/</link>
+				<link>https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/</link>
 				<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/master-the-art-of-managing-up-and-across/</guid>
+				<guid>https://notes.muthu.co/2025/12/master-the-art-of-managing-up-and-across/</guid>
 				<description>&lt;p&gt;The highest-leverage skill most engineering managers neglect isn&amp;rsquo;t managing their team—it&amp;rsquo;s managing up to leadership and across to peer managers. Your ability to influence without authority, shape organizational priorities, and create alignment beyond your team determines whether you remain a team-level manager or become a true organizational leader.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters-more-than-you-think&#34;&gt;Why This Matters More Than You Think&lt;/h2&gt;&#xA;&lt;p&gt;Your team&amp;rsquo;s impact is constrained by organizational context. You can have the best engineers, the cleanest architecture, and the fastest delivery—but if leadership doesn&amp;rsquo;t understand your team&amp;rsquo;s value, if peer teams create friction, or if you&amp;rsquo;re working on the wrong priorities, none of it matters.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Architect for Reversibility as a High-Velocity Advantage</title>
-				<link>http://localhost:1313/2025/12/architect-for-reversibility-as-a-high-velocity-advantage/</link>
+				<link>https://notes.muthu.co/2025/12/architect-for-reversibility-as-a-high-velocity-advantage/</link>
 				<pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/architect-for-reversibility-as-a-high-velocity-advantage/</guid>
+				<guid>https://notes.muthu.co/2025/12/architect-for-reversibility-as-a-high-velocity-advantage/</guid>
 				<description>&lt;p&gt;The most expensive decisions in engineering aren&amp;rsquo;t the wrong ones—they&amp;rsquo;re the ones that take too long to make. Every day spent deliberating is a day your competitors are shipping.&lt;/p&gt;&#xA;&lt;p&gt;The secret? Build systems where most decisions can be reversed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-reversibility-principle&#34;&gt;The Reversibility Principle&lt;/h2&gt;&#xA;&lt;p&gt;Amazon&amp;rsquo;s Jeff Bezos famously categorized decisions into two types:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Type 1&lt;/strong&gt;: One-way doors (hard to reverse)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Type 2&lt;/strong&gt;: Two-way doors (easily reversible)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Most engineering decisions are Type 2, but we treat them like Type 1. This creates decision paralysis, endless debates, and opportunity cost that compounds daily.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Improving Decisions Through Multi-Agent Debate and Deliberation</title>
-				<link>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
+				<link>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
 				<pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
+				<guid>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
 				<description>&lt;h2 id=&#34;the-wisdom-of-disagreement&#34;&gt;The Wisdom of Disagreement&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Multi-agent debate&lt;/strong&gt; is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Expand Your Decision-Making Bandwidth, Not Your Meeting Calendar</title>
-				<link>http://localhost:1313/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</link>
+				<link>https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</link>
 				<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</guid>
+				<guid>https://notes.muthu.co/2025/12/expand-your-decision-making-bandwidth-not-your-meeting-calendar/</guid>
 				<description>&lt;p&gt;The most dangerous bottleneck in a scaling engineering organization isn&amp;rsquo;t compute, infrastructure, or even talent—it&amp;rsquo;s you. Specifically, your decision-making bandwidth.&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers respond to growth by adding more meetings, creating more approval processes, and inserting themselves into more decisions. This feels productive but creates a organizational ceiling: your team can only move as fast as you can make decisions.&lt;/p&gt;&#xA;&lt;p&gt;The counterintuitive solution isn&amp;rsquo;t to work harder or meet more—it&amp;rsquo;s to architect your decision-making system to operate without you.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Manage Technical Investment Velocity, Not Just Delivery Velocity</title>
-				<link>http://localhost:1313/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</link>
+				<link>https://notes.muthu.co/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</link>
 				<pubDate>Tue, 02 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</guid>
+				<guid>https://notes.muthu.co/2025/12/manage-technical-investment-velocity-not-just-delivery-velocity/</guid>
 				<description>&lt;p&gt;Most engineering managers obsess over delivery velocity—story points completed, features shipped, sprint goals met. But the best EMs optimize for a different metric: &lt;strong&gt;technical investment velocity&lt;/strong&gt;, the rate at which your team improves the quality, scalability, and maintainability of your system while delivering value.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s the insight: sustainable speed doesn&amp;rsquo;t come from going faster. It comes from continuously reducing friction.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-investment-velocity-framework&#34;&gt;The Investment Velocity Framework&lt;/h2&gt;&#xA;&lt;p&gt;Stop thinking about tech debt as something you &amp;ldquo;pay down later.&amp;rdquo; Instead, embed technical investment into your regular cadence using this principle:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Design Self-Correcting Systems, Not Processes</title>
-				<link>http://localhost:1313/2025/12/design-self-correcting-systems-not-processes/</link>
+				<link>https://notes.muthu.co/2025/12/design-self-correcting-systems-not-processes/</link>
 				<pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/design-self-correcting-systems-not-processes/</guid>
+				<guid>https://notes.muthu.co/2025/12/design-self-correcting-systems-not-processes/</guid>
 				<description>&lt;p&gt;The best engineering managers don&amp;rsquo;t build processes—they design systems that correct themselves. The difference is profound: processes rely on compliance, self-correcting systems rely on incentives.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-self-correcting-principle&#34;&gt;The Self-Correcting Principle&lt;/h2&gt;&#xA;&lt;p&gt;A self-correcting system automatically surfaces problems, makes the right action obvious, and creates natural consequences for deviation. You&amp;rsquo;re not enforcing behavior; you&amp;rsquo;re architecting an environment where the right behavior is the path of least resistance.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Stop asking:&lt;/strong&gt; &amp;ldquo;How do I get people to follow this process?&amp;rdquo;&#xA;&lt;strong&gt;Start asking:&lt;/strong&gt; &amp;ldquo;How can I design this so deviation is immediately visible and naturally corrected?&amp;rdquo;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Design Your Dependency Architecture for Organizational Velocity</title>
-				<link>http://localhost:1313/2025/11/design-your-dependency-architecture-for-organizational-velocity/</link>
+				<link>https://notes.muthu.co/2025/11/design-your-dependency-architecture-for-organizational-velocity/</link>
 				<pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/design-your-dependency-architecture-for-organizational-velocity/</guid>
+				<guid>https://notes.muthu.co/2025/11/design-your-dependency-architecture-for-organizational-velocity/</guid>
 				<description>&lt;p&gt;Most engineering managers obsess over code architecture while ignoring the dependency architecture that determines actual execution speed. Your team&amp;rsquo;s velocity isn&amp;rsquo;t limited by how fast individuals code—it&amp;rsquo;s constrained by how many dependencies they&amp;rsquo;re waiting on.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-dependency-tax&#34;&gt;The Dependency Tax&lt;/h2&gt;&#xA;&lt;p&gt;Every cross-team dependency is a coordination cost. Every external API integration is a risk surface. Every shared service is a potential bottleneck. The math is brutal: a project with 5 sequential dependencies, each 80% reliable on-time delivery, has only a 33% chance of landing on schedule.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Master Influence Without Authority to Scale Impact Beyond Your Team</title>
-				<link>http://localhost:1313/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</link>
+				<link>https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</link>
 				<pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</guid>
+				<guid>https://notes.muthu.co/2025/11/master-influence-without-authority-to-scale-impact-beyond-your-team/</guid>
 				<description>&lt;p&gt;As an engineering manager, your biggest leverage opportunities often lie outside your direct reporting chain. The ability to influence without authority is what separates managers who scale linearly with team size from those who scale exponentially with organizational impact.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-authority-trap&#34;&gt;The Authority Trap&lt;/h2&gt;&#xA;&lt;p&gt;Most new engineering managers rely heavily on their positional authority—it works within their team, but fails spectacularly everywhere else. You can&amp;rsquo;t command the product team to prioritize technical debt, mandate the infrastructure team to adopt your standards, or order other engineering teams to integrate with your API.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Optimize Deployment Frequency as Your Competitive Moat</title>
-				<link>http://localhost:1313/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</link>
+				<link>https://notes.muthu.co/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</link>
 				<pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</guid>
+				<guid>https://notes.muthu.co/2025/11/optimize-deployment-frequency-as-your-competitive-moat/</guid>
 				<description>&lt;p&gt;The best engineering organizations don&amp;rsquo;t just ship faster—they&amp;rsquo;ve engineered their systems to make shipping boring. Deployment frequency isn&amp;rsquo;t about speed for its own sake; it&amp;rsquo;s about building organizational muscle that compounds over time.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-deployment-frequency-matters&#34;&gt;Why Deployment Frequency Matters&lt;/h2&gt;&#xA;&lt;p&gt;When you can deploy 10 times a day instead of once a week, you fundamentally change how your team operates:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Feedback loops compress&lt;/strong&gt;: You learn what works in hours, not weeks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Risk decreases&lt;/strong&gt;: Small changes are easier to reason about and rollback&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Developer confidence grows&lt;/strong&gt;: When deployment isn&amp;rsquo;t scary, experimentation thrives&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Business agility increases&lt;/strong&gt;: You can respond to market changes in real-time&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Most importantly, high deployment frequency is a leading indicator of engineering excellence. Teams that deploy frequently have necessarily solved hard problems around testing, observability, and automation.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Architect Your Staff-Plus Pipeline</title>
-				<link>http://localhost:1313/2025/11/architect-your-staff-plus-pipeline/</link>
+				<link>https://notes.muthu.co/2025/11/architect-your-staff-plus-pipeline/</link>
 				<pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/architect-your-staff-plus-pipeline/</guid>
+				<guid>https://notes.muthu.co/2025/11/architect-your-staff-plus-pipeline/</guid>
 				<description>&lt;p&gt;Most engineering managers focus on growing mid-level engineers. The real leverage? Building a systematic pipeline for Staff-Plus engineers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h2&gt;&#xA;&lt;p&gt;Organizations scale through technical leadership, not just more hands. One Staff engineer who can influence 20 engineers creates more impact than hiring 5 more seniors. Yet most managers treat Staff-Plus growth as random chance—waiting for someone to &amp;ldquo;emerge&amp;rdquo; rather than deliberately developing this capability.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-anti-pattern&#34;&gt;The Anti-Pattern&lt;/h2&gt;&#xA;&lt;p&gt;You have strong senior engineers who:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Architect Your Promotion Pipeline with Growth Systems Not Career Ladders</title>
-				<link>http://localhost:1313/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</link>
+				<link>https://notes.muthu.co/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</link>
 				<pubDate>Wed, 26 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</guid>
+				<guid>https://notes.muthu.co/2025/11/architect-your-promotion-pipeline-with-growth-systems-not-career-ladders/</guid>
 				<description>&lt;p&gt;Most engineering managers think about promotions reactively: someone performs well, you promote them. But exceptional EMs architect deliberate promotion pipelines that systematically grow talent while maintaining quality bars.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-strategic-insight&#34;&gt;The Strategic Insight&lt;/h2&gt;&#xA;&lt;p&gt;Your promotion pipeline is your talent manufacturing system. If you&amp;rsquo;re not intentionally designing how engineers move from L3 to L4 to L5, you&amp;rsquo;re leaving organizational capability to chance. The companies that scale effectively don&amp;rsquo;t just have career ladders—they have engineered pathways that create predictable, high-quality talent development.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Design Your Teams Decision Latency</title>
-				<link>http://localhost:1313/2025/11/design-your-teams-decision-latency/</link>
+				<link>https://notes.muthu.co/2025/11/design-your-teams-decision-latency/</link>
 				<pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/design-your-teams-decision-latency/</guid>
+				<guid>https://notes.muthu.co/2025/11/design-your-teams-decision-latency/</guid>
 				<description>&lt;p&gt;Most engineering managers obsess over making the &lt;em&gt;right&lt;/em&gt; decisions. But the teams that win aren&amp;rsquo;t necessarily the ones making the best decisions—they&amp;rsquo;re the ones making good decisions &lt;em&gt;fastest&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Decision latency is the time between recognizing a choice point and executing on it. It&amp;rsquo;s the organizational drag that turns a 5-minute technical decision into a 3-week committee process. And it&amp;rsquo;s one of the highest-leverage metrics you&amp;rsquo;re probably not measuring.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-decision-latency-compounds&#34;&gt;Why Decision Latency Compounds&lt;/h2&gt;&#xA;&lt;p&gt;Every day of delay has a multiplier effect. A slow architectural decision doesn&amp;rsquo;t just delay one project—it blocks dependent work, creates workarounds that become technical debt, and burns team morale as engineers wait for clarity. A three-week delay on choosing a testing framework can cost you three months of velocity.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Shape the Decision Space Before the Decision</title>
-				<link>http://localhost:1313/2025/11/shape-the-decision-space-before-the-decision/</link>
+				<link>https://notes.muthu.co/2025/11/shape-the-decision-space-before-the-decision/</link>
 				<pubDate>Mon, 24 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/shape-the-decision-space-before-the-decision/</guid>
+				<guid>https://notes.muthu.co/2025/11/shape-the-decision-space-before-the-decision/</guid>
 				<description>&lt;p&gt;The most impactful engineering managers don&amp;rsquo;t make great decisions—they ensure great decisions get made without them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-insight&#34;&gt;The Insight&lt;/h2&gt;&#xA;&lt;p&gt;Most managers focus on being present for important decisions. Senior EMs focus on shaping the environment where decisions happen. By the time a decision reaches you, you&amp;rsquo;ve already lost leverage. Your highest-impact work happens upstream: defining constraints, establishing criteria, and creating the context that makes the right choice obvious.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h2&gt;&#xA;&lt;p&gt;As you scale beyond one team, you physically cannot be in every room where decisions happen. If your organization needs you present to make good calls, you&amp;rsquo;ve created a bottleneck that will cap your impact. The goal is to build an organization that makes decisions you&amp;rsquo;d be proud of—even when you&amp;rsquo;re not there.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Engineer the Ramp-Up Time to Fix Your Scalability Bottleneck</title>
-				<link>http://localhost:1313/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</link>
+				<link>https://notes.muthu.co/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</link>
 				<pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</guid>
+				<guid>https://notes.muthu.co/2025/11/engineer-the-ramp-up-time-to-fix-your-scalability-bottleneck/</guid>
 				<description>&lt;p&gt;The single most underestimated constraint in scaling engineering organizations is not hiring velocity, budget, or technical infrastructure—it&amp;rsquo;s &lt;strong&gt;time-to-productivity for new team members&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers treat onboarding as an HR process. Elite EMs treat it as a &lt;strong&gt;systems design problem&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost&#34;&gt;The Hidden Cost&lt;/h2&gt;&#xA;&lt;p&gt;Calculate this for your team: &lt;code&gt;(number of engineers hired annually) × (months to full productivity) × (fully-loaded engineer cost)&lt;/code&gt;. For most teams, this represents millions in latent productivity—engineers you&amp;rsquo;re paying who can&amp;rsquo;t yet deliver full value.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Master Calibration for Consistent Fair Decisions at Scale</title>
-				<link>http://localhost:1313/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</link>
+				<link>https://notes.muthu.co/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</link>
 				<pubDate>Sun, 16 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</guid>
+				<guid>https://notes.muthu.co/2025/11/master-calibration-for-consistent-fair-decisions-at-scale/</guid>
 				<description>&lt;p&gt;The best engineering managers I know have mastered a skill rarely discussed in management literature: &lt;strong&gt;calibration&lt;/strong&gt;. It&amp;rsquo;s the practice of synchronizing judgment across your organization so that decisions about performance, leveling, quality, and priorities are consistent regardless of who makes them.&lt;/p&gt;&#xA;&lt;p&gt;Without calibration, you get chaos: one manager&amp;rsquo;s &amp;ldquo;exceeds expectations&amp;rdquo; is another&amp;rsquo;s &amp;ldquo;meets expectations.&amp;rdquo; A senior engineer on Team A wouldn&amp;rsquo;t pass the bar for mid-level on Team B. Technical decisions vary wildly based on who&amp;rsquo;s in the room. This inconsistency erodes trust, creates unfairness, and makes it impossible to scale.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Build Context Portability, Not Knowledge Silos</title>
-				<link>http://localhost:1313/2025/11/build-context-portability-not-knowledge-silos/</link>
+				<link>https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos/</link>
 				<pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/build-context-portability-not-knowledge-silos/</guid>
+				<guid>https://notes.muthu.co/2025/11/build-context-portability-not-knowledge-silos/</guid>
 				<description>&lt;p&gt;The best engineering managers don&amp;rsquo;t just manage people—they architect how context flows through their organization. The difference between a fragile team and a resilient one isn&amp;rsquo;t talent density; it&amp;rsquo;s &lt;strong&gt;context portability&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-scaling-tax&#34;&gt;The Hidden Scaling Tax&lt;/h2&gt;&#xA;&lt;p&gt;Every time a senior engineer goes on vacation, changes teams, or leaves the company, your organization pays a tax. That tax is the accumulated context trapped in their head: the &amp;ldquo;why&amp;rdquo; behind architectural decisions, the landmines in legacy systems, the tribal knowledge about customer needs.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Verification and Validation Loops for Agent Reliability Through Runtime Checks</title>
-				<link>http://localhost:1313/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</link>
+				<link>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</link>
 				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</guid>
+				<guid>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</guid>
 				<description>&lt;p&gt;When an AI agent writes code, queries a database, or makes a critical decision, how do you know it got it right? Unlike traditional software where logic is deterministic, AI agents introduce probabilistic behavior that can fail in subtle ways. &lt;strong&gt;Verification and Validation (V&amp;amp;V) loops&lt;/strong&gt; are the safety net that catches these failures before they cause harm.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;V&amp;amp;V loops are architectural patterns where agents:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Generate&lt;/strong&gt; an output (code, text, decision, action)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt; syntactic correctness (does it parse? follow format rules?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Validate&lt;/strong&gt; semantic correctness (does it solve the right problem? meet constraints?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Correct&lt;/strong&gt; or &lt;strong&gt;retry&lt;/strong&gt; if checks fail&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;This creates a feedback loop where the agent acts as its own quality assurance system, improving reliability in production environments.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Write Engineering Investment Cases, Not Technical Proposals</title>
-				<link>http://localhost:1313/2025/11/write-engineering-investment-cases-not-technical-proposals/</link>
+				<link>https://notes.muthu.co/2025/11/write-engineering-investment-cases-not-technical-proposals/</link>
 				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/write-engineering-investment-cases-not-technical-proposals/</guid>
+				<guid>https://notes.muthu.co/2025/11/write-engineering-investment-cases-not-technical-proposals/</guid>
 				<description>&lt;p&gt;The difference between senior and staff-level engineering leaders often comes down to one skill: the ability to translate technical work into business investment cases.&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers are good at writing technical proposals. They explain what needs to be built, how it will be architected, and why it&amp;rsquo;s technically sound. But these proposals often die in prioritization meetings because they fail to answer the question executives actually care about: &amp;ldquo;Why should we invest here instead of somewhere else?&amp;rdquo;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Design for Disaggregation and the Hidden Art of Scaling</title>
-				<link>http://localhost:1313/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</link>
+				<link>https://notes.muthu.co/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</link>
 				<pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</guid>
+				<guid>https://notes.muthu.co/2025/11/design-for-disaggregation-and-the-hidden-art-of-scaling/</guid>
 				<description>&lt;p&gt;Most engineering managers think about scaling by adding more people. Elite EMs think about scaling by designing systems that can be taken apart.&lt;/p&gt;&#xA;&lt;p&gt;Disaggregation is the practice of structuring your engineering organization, technical architecture, and processes so that components can grow, change, or be replaced independently without cascading disruption. It&amp;rsquo;s the inverse of integration—and it&amp;rsquo;s how great companies scale past their first architecture.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h2&gt;&#xA;&lt;p&gt;When teams are tightly coupled—sharing databases, deployment pipelines, review processes, or oncall rotations—every change requires coordination. Coordination has a combinatorial cost. With 3 teams, you have 3 coordination points. With 10 teams, you have 45.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Manage Your Teams Cognitive Load Budget</title>
-				<link>http://localhost:1313/2025/11/manage-your-teams-cognitive-load-budget/</link>
+				<link>https://notes.muthu.co/2025/11/manage-your-teams-cognitive-load-budget/</link>
 				<pubDate>Wed, 12 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/manage-your-teams-cognitive-load-budget/</guid>
+				<guid>https://notes.muthu.co/2025/11/manage-your-teams-cognitive-load-budget/</guid>
 				<description>&lt;p&gt;Most engineering managers obsess over headcount, sprint capacity, and story points. But the most critical resource you&amp;rsquo;re actually managing isn&amp;rsquo;t time or people—it&amp;rsquo;s cognitive load. Your team has a finite mental bandwidth, and how you allocate it determines whether they ship great products or burn out in mediocrity.&lt;/p&gt;&#xA;&lt;p&gt;Think of your team&amp;rsquo;s collective cognitive capacity as a budget. Every system they need to understand, every tool they must learn, every meeting they attend, every context switch, every ambiguous requirement—it all makes a withdrawal. Exceed the budget, and everything suffers: code quality drops, velocity plummets, and your best engineers start quietly interviewing elsewhere.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Human-in-the-Loop Agents for Bridging Autonomy and Oversight</title>
-				<link>http://localhost:1313/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</link>
+				<link>https://notes.muthu.co/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</link>
 				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</guid>
+				<guid>https://notes.muthu.co/2025/11/human-in-the-loop-agents-for-bridging-autonomy-and-oversight/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Human-in-the-loop (HITL) is an architectural pattern where autonomous agents strategically interrupt their execution flow to solicit human input, validation, or decision-making. HITL agents implement &lt;strong&gt;intervention points&lt;/strong&gt;: predetermined or dynamically determined moments where human judgment augments or overrides the agent&amp;rsquo;s proposed actions. This creates a spectrum from full automation to complete human control, with the optimal balance determined by risk tolerance, domain complexity, and trust calibration.&lt;/p&gt;&#xA;&lt;h2 id=&#34;algorithms--implementation-patterns&#34;&gt;Algorithms &amp;amp; Implementation Patterns&lt;/h2&gt;&#xA;&lt;h3 id=&#34;core-decision-flow&#34;&gt;Core Decision Flow&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;function agent_execute(task, confidence_threshold=0.85):&#xA;    plan = generate_plan(task)&#xA;&#xA;    for step in plan:&#xA;        action, confidence = decide_action(step)&#xA;&#xA;        # Intervention checkpoint&#xA;        if requires_human_input(action, confidence, confidence_threshold):&#xA;            human_decision = request_human_approval(&#xA;                action=action,&#xA;                context=step.context,&#xA;                reasoning=action.explanation,&#xA;                alternatives=generate_alternatives(step)&#xA;            )&#xA;&#xA;            if human_decision.override:&#xA;                action = human_decision.chosen_action&#xA;                update_preferences(step, human_decision)  # Learn from feedback&#xA;&#xA;        execute(action)&#xA;        observe_result()&#xA;&#xA;    return final_result&#xA;&#xA;function requires_human_input(action, confidence, threshold):&#xA;    # Multiple criteria for intervention&#xA;    return (&#xA;        confidence &amp;lt; threshold or&#xA;        action.risk_level == &amp;#34;HIGH&amp;#34; or&#xA;        action.irreversible == True or&#xA;        action.cost &amp;gt; budget_limit or&#xA;        action.domain in [&amp;#34;legal&amp;#34;, &amp;#34;medical&amp;#34;, &amp;#34;financial&amp;#34;]&#xA;    )&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;intervention-trigger-strategies&#34;&gt;Intervention Trigger Strategies&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Confidence-based&lt;/strong&gt;: Request input when model uncertainty exceeds threshold&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Risk-based&lt;/strong&gt;: Escalate high-stakes or irreversible actions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Novelty-based&lt;/strong&gt;: Flag situations outside training distribution&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Time-based&lt;/strong&gt;: Periodic checkpoints for long-running tasks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Semantic-based&lt;/strong&gt;: Domain-specific rules (e.g., all financial transactions &amp;gt;$10k)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;design-patterns--architectures&#34;&gt;Design Patterns &amp;amp; Architectures&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Approval Gates&lt;/strong&gt;: The agent proposes an action and waits for explicit human approval before execution.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Manage Signal-to-Noise - The Hidden Cost of Organizational Chatter</title>
-				<link>http://localhost:1313/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter/</link>
+				<link>https://notes.muthu.co/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter/</link>
 				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter/</guid>
+				<guid>https://notes.muthu.co/2025/11/manage-signal-to-noise-the-hidden-cost-of-organizational-chatter/</guid>
 				<description>&lt;p&gt;The most underrated skill in scaling engineering organizations isn&amp;rsquo;t hiring faster or building better processes—it&amp;rsquo;s &lt;strong&gt;managing your organization&amp;rsquo;s signal-to-noise ratio&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;As teams grow, communication volume increases exponentially while important signals get buried. The result? Your best engineers spend hours filtering irrelevant information, critical decisions lack visibility, and organizational energy dissipates into noise.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-multiplier&#34;&gt;The Hidden Multiplier&lt;/h2&gt;&#xA;&lt;p&gt;Every Slack message, email, meeting, and document competes for your team&amp;rsquo;s attention. When noise dominates, three things happen:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Architecture is the Prompt - Guiding AI with Hexagonal Design</title>
-				<link>http://localhost:1313/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</link>
+				<link>https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</link>
 				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</guid>
+				<guid>https://notes.muthu.co/2025/11/the-architecture-is-the-prompt-guiding-ai-with-hexagonal-design/</guid>
 				<description>&lt;p&gt;As developers, we&amp;rsquo;ve all felt the frustration. You have a well-structured repository with clear patterns, but the new AI coding assistant you&amp;rsquo;re working with seems determined to ignore them. Despite providing documentation, examples, and explicit instructions in your prompts, the AI generates code that tangles concerns, bypasses your service layers, and writes directly to the database from a controller.&lt;/p&gt;&#xA;&lt;p&gt;The immediate reaction is to blame the tool and focus on &amp;ldquo;better prompt engineering.&amp;rdquo; We try longer, more detailed prompts, hoping that with enough context, the AI will finally understand. But this is often a losing battle. The problem isn&amp;rsquo;t just the prompt; it&amp;rsquo;s that we&amp;rsquo;re asking the AI to understand the invisible, implicit rules of a complex system.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Architect Your Teams Communication Protocol</title>
-				<link>http://localhost:1313/2025/11/architect-your-teams-communication-protocol/</link>
+				<link>https://notes.muthu.co/2025/11/architect-your-teams-communication-protocol/</link>
 				<pubDate>Mon, 10 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/architect-your-teams-communication-protocol/</guid>
+				<guid>https://notes.muthu.co/2025/11/architect-your-teams-communication-protocol/</guid>
 				<description>&lt;p&gt;Most engineering managers focus on processes, tools, and org structure while ignoring the most critical infrastructure: &lt;strong&gt;how information flows through their organization&lt;/strong&gt;. Poor communication architecture creates bottlenecks, duplicated work, and context loss that compounds as you scale.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-emergent-chaos&#34;&gt;The Problem: Emergent Chaos&lt;/h2&gt;&#xA;&lt;p&gt;Without intentional design, communication patterns emerge organically—and organically means inefficiently. You end up with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Critical decisions made in ephemeral Slack threads&lt;/li&gt;&#xA;&lt;li&gt;Key context trapped in 1:1s&lt;/li&gt;&#xA;&lt;li&gt;The same question asked 10 different ways across 10 different channels&lt;/li&gt;&#xA;&lt;li&gt;Important updates buried in meeting notes no one reads&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;As you scale from 10 to 50 to 200 engineers, this chaos becomes paralyzing.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Build Abstractions That Accelerate, Not Complicate</title>
-				<link>http://localhost:1313/2025/11/build-abstractions-that-accelerate-not-complicate/</link>
+				<link>https://notes.muthu.co/2025/11/build-abstractions-that-accelerate-not-complicate/</link>
 				<pubDate>Sun, 09 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/build-abstractions-that-accelerate-not-complicate/</guid>
+				<guid>https://notes.muthu.co/2025/11/build-abstractions-that-accelerate-not-complicate/</guid>
 				<description>&lt;p&gt;Most engineering managers understand abstractions theoretically—they reduce duplication, hide complexity, and enable reuse. But here&amp;rsquo;s the insight that separates scaling organizations from stagnating ones: &lt;strong&gt;the right abstractions are your most powerful lever for multiplying team velocity, while the wrong ones are silent productivity killers.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-bad-abstractions&#34;&gt;The Hidden Cost of Bad Abstractions&lt;/h2&gt;&#xA;&lt;p&gt;Every abstraction you introduce carries a cognitive tax. It&amp;rsquo;s a layer your team must understand, maintain, and work around. Bad abstractions—those that are too early, too rigid, or solving the wrong problem—don&amp;rsquo;t just fail to help; they actively slow teams down. Engineers spend more time fighting the framework than solving customer problems.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Codify Your Quality Bar and Make Standards Executable</title>
-				<link>http://localhost:1313/2025/11/codify-your-quality-bar-and-make-standards-executable/</link>
+				<link>https://notes.muthu.co/2025/11/codify-your-quality-bar-and-make-standards-executable/</link>
 				<pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/codify-your-quality-bar-and-make-standards-executable/</guid>
+				<guid>https://notes.muthu.co/2025/11/codify-your-quality-bar-and-make-standards-executable/</guid>
 				<description>&lt;p&gt;The best engineering managers don&amp;rsquo;t just set standards—they make them impossible to ignore by encoding them into the development workflow.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-spoken-standards&#34;&gt;The Problem with Spoken Standards&lt;/h2&gt;&#xA;&lt;p&gt;Most teams define quality standards in documents, wiki pages, or verbal agreements. The result? Standards drift over time, new team members miss them entirely, and enforcement becomes a political negotiation during code reviews.&lt;/p&gt;&#xA;&lt;p&gt;When standards live in documents, you&amp;rsquo;re asking humans to remember and apply them consistently under deadline pressure. That&amp;rsquo;s a losing battle.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Agent Communication Protocols and Message-Passing Patterns for Coordination</title>
-				<link>http://localhost:1313/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
+				<link>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
 				<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
+				<guid>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
 				<description>&lt;p&gt;In multi-agent systems, the most critical design question is not what each agent can do but how they communicate. Structured protocols govern the exchange of information, coordination of actions, and achievement of collective goals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Communication protocols define:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What can be communicated (message types)&lt;/li&gt;&#xA;&lt;li&gt;How messages are structured (syntax)&lt;/li&gt;&#xA;&lt;li&gt;When and why to send messages (semantics and pragmatics)&lt;/li&gt;&#xA;&lt;li&gt;Who can communicate with whom (topology)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In multi-agent systems (MAS), these protocols are formalized specifications for message exchange that enable coordination without centralized control. Key components include:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Create Clarity Artifacts to Turn Ambiguity into Executable Alignment</title>
-				<link>http://localhost:1313/2025/11/create-clarity-artifacts-to-turn-ambiguity-into-executable-alignment/</link>
+				<link>https://notes.muthu.co/2025/11/create-clarity-artifacts-to-turn-ambiguity-into-executable-alignment/</link>
 				<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/create-clarity-artifacts-to-turn-ambiguity-into-executable-alignment/</guid>
+				<guid>https://notes.muthu.co/2025/11/create-clarity-artifacts-to-turn-ambiguity-into-executable-alignment/</guid>
 				<description>&lt;p&gt;The skill that separates senior engineering managers from everyone else isn&amp;rsquo;t technical brilliance or charisma—it&amp;rsquo;s the ability to &lt;strong&gt;transform ambiguity into clarity at scale&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;As you move up, you&amp;rsquo;ll encounter increasingly fuzzy directives: &amp;ldquo;We need to modernize our infrastructure,&amp;rdquo; &amp;ldquo;Make the platform more scalable,&amp;rdquo; &amp;ldquo;Improve developer experience.&amp;rdquo; Your team can&amp;rsquo;t execute on vibes. They need crisp, unambiguous direction.&lt;/p&gt;&#xA;&lt;p&gt;The solution? &lt;strong&gt;Clarity Artifacts&lt;/strong&gt;—tangible documents that crystallize vague goals into executable reality.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Build Organizational Memory, Not Institutional Knowledge</title>
-				<link>http://localhost:1313/2025/11/build-organizational-memory-not-institutional-knowledge/</link>
+				<link>https://notes.muthu.co/2025/11/build-organizational-memory-not-institutional-knowledge/</link>
 				<pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/build-organizational-memory-not-institutional-knowledge/</guid>
+				<guid>https://notes.muthu.co/2025/11/build-organizational-memory-not-institutional-knowledge/</guid>
 				<description>&lt;p&gt;Most engineering managers worry about losing &amp;ldquo;institutional knowledge&amp;rdquo; when people leave. But that&amp;rsquo;s the wrong frame. Knowledge trapped in people&amp;rsquo;s heads isn&amp;rsquo;t an asset—it&amp;rsquo;s a liability. The real challenge isn&amp;rsquo;t retaining knowledge; it&amp;rsquo;s building &lt;strong&gt;organizational memory&lt;/strong&gt; that makes your team smarter every day.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-critical-distinction&#34;&gt;The Critical Distinction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Institutional knowledge&lt;/strong&gt; is what Bob knows but nobody else does. When Bob leaves, you panic.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Organizational memory&lt;/strong&gt; is what your systems, processes, and artifacts remember. When Bob leaves, you barely notice—because Bob already externalized everything worth keeping.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Agent Debugging and Observability for Seeing Inside the Black Box</title>
-				<link>http://localhost:1313/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</link>
+				<link>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</link>
 				<pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</guid>
+				<guid>https://notes.muthu.co/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/</guid>
 				<description>&lt;p&gt;When your AI agent fails, hallucinates, or makes unexpected decisions, how do you find out why? Unlike traditional software where you can step through code line-by-line, AI agents operate through chains of LLM calls, tool invocations, and state transitions that can be opaque and non-deterministic. This article explores the essential techniques for making agent behavior visible, debuggable, and monitorable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Observability&lt;/strong&gt; means instrumenting your agent so you can see what it&amp;rsquo;s thinking, what tools it&amp;rsquo;s calling, and why it made specific decisions. Unlike traditional software where you can step through code line-by-line, AI agents operate through chains of LLM calls, tool invocations, and state transitions that are opaque and non-deterministic.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Run Pre-Mortems, Not Post-Mortems</title>
-				<link>http://localhost:1313/2025/11/run-pre-mortems-not-post-mortems/</link>
+				<link>https://notes.muthu.co/2025/11/run-pre-mortems-not-post-mortems/</link>
 				<pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/run-pre-mortems-not-post-mortems/</guid>
+				<guid>https://notes.muthu.co/2025/11/run-pre-mortems-not-post-mortems/</guid>
 				<description>&lt;p&gt;Most engineering teams are great at post-mortems—dissecting what went wrong after a failure. But elite teams do something counterintuitive: they run pre-mortems before launching critical projects.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-pre-mortem&#34;&gt;What Is a Pre-Mortem?&lt;/h2&gt;&#xA;&lt;p&gt;A pre-mortem is a practice where you gather your team at the start of a project and ask: &amp;ldquo;It&amp;rsquo;s six months from now. This project has failed spectacularly. What went wrong?&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;This simple inversion unlocks brutal honesty that typical planning meetings never surface.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Design Ownership Boundaries, Not Org Charts</title>
-				<link>http://localhost:1313/2025/11/design-ownership-boundaries-not-org-charts/</link>
+				<link>https://notes.muthu.co/2025/11/design-ownership-boundaries-not-org-charts/</link>
 				<pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/11/design-ownership-boundaries-not-org-charts/</guid>
+				<guid>https://notes.muthu.co/2025/11/design-ownership-boundaries-not-org-charts/</guid>
 				<description>&lt;p&gt;Most engineering managers scale teams by drawing org charts. The best ones design ownership boundaries first, then let the org structure emerge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-fuzzy-boundaries&#34;&gt;The Hidden Cost of Fuzzy Boundaries&lt;/h2&gt;&#xA;&lt;p&gt;When ownership is unclear, every decision becomes a negotiation. Engineers spend more time in alignment meetings than writing code. Simple changes require cross-team coordination. Innovation stalls because nobody knows who has the authority to make bold moves.&lt;/p&gt;&#xA;&lt;p&gt;The symptom looks like slow delivery. The root cause is poorly designed boundaries.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Transform Failures Into Capability, Not Bureaucracy</title>
-				<link>http://localhost:1313/2025/10/transform-failures-into-capability-not-bureaucracy/</link>
+				<link>https://notes.muthu.co/2025/10/transform-failures-into-capability-not-bureaucracy/</link>
 				<pubDate>Sat, 25 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/transform-failures-into-capability-not-bureaucracy/</guid>
+				<guid>https://notes.muthu.co/2025/10/transform-failures-into-capability-not-bureaucracy/</guid>
 				<description>&lt;p&gt;Every organization faces failures: outages, security incidents, missed deadlines, botched releases. The critical question that separates high-performing engineering organizations from mediocre ones isn&amp;rsquo;t whether they experience failures—it&amp;rsquo;s &lt;strong&gt;how they respond to them&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Most organizations respond to failure by adding &lt;strong&gt;scar tissue&lt;/strong&gt;: more processes, more approvals, more checks, more meetings. The impulse is understandable but toxic. Each new rule is designed to prevent the last failure, but collectively they slow the organization to a crawl and create a culture of fear.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Build Leverage Through Documentation as Code</title>
-				<link>http://localhost:1313/2025/10/build-leverage-through-documentation-as-code/</link>
+				<link>https://notes.muthu.co/2025/10/build-leverage-through-documentation-as-code/</link>
 				<pubDate>Fri, 24 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/build-leverage-through-documentation-as-code/</guid>
+				<guid>https://notes.muthu.co/2025/10/build-leverage-through-documentation-as-code/</guid>
 				<description>&lt;p&gt;The best engineering managers don&amp;rsquo;t just build products—they build systems that make knowledge transfer automatic, decisions self-documenting, and onboarding nearly effortless. The secret? Treating documentation not as a separate task, but as an integral part of your codebase.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-productivity-drain&#34;&gt;The Hidden Productivity Drain&lt;/h2&gt;&#xA;&lt;p&gt;Every time someone asks &amp;ldquo;How does this work?&amp;rdquo; or &amp;ldquo;Why did we build it this way?&amp;rdquo;, you&amp;rsquo;re witnessing knowledge debt. These questions compound. A team of 10 engineers asking just one question per day costs roughly 40 hours monthly—an entire person&amp;rsquo;s time lost to information retrieval.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Debug Organizational Velocity, Not Individual Productivity</title>
-				<link>http://localhost:1313/2025/10/debug-organizational-velocity-not-individual-productivity/</link>
+				<link>https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity/</link>
 				<pubDate>Thu, 23 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/debug-organizational-velocity-not-individual-productivity/</guid>
+				<guid>https://notes.muthu.co/2025/10/debug-organizational-velocity-not-individual-productivity/</guid>
 				<description>&lt;p&gt;Most engineering managers obsess over individual productivity. They measure story points, track commit frequency, and optimize sprint velocity. But here&amp;rsquo;s the hard truth: &lt;strong&gt;your team&amp;rsquo;s output is rarely constrained by how fast individuals code&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The real bottleneck? &lt;strong&gt;Organizational friction&lt;/strong&gt; - the invisible tax on every handoff, decision, and dependency.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-shift-from-micro-optimization-to-system-diagnosis&#34;&gt;The Shift: From Micro-Optimization to System Diagnosis&lt;/h2&gt;&#xA;&lt;p&gt;Great engineering managers think like performance engineers, but for organizations. When a system is slow, you don&amp;rsquo;t randomly optimize functions. You profile, find the bottleneck, and fix &lt;em&gt;that&lt;/em&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>A Multi-Agent AI Ecosystem for Self-Improving Software</title>
-				<link>http://localhost:1313/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
+				<link>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</link>
 				<pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
+				<guid>https://notes.muthu.co/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/</guid>
 				<description>&lt;p&gt;In the relentless pursuit of robust and secure software, developers have long relied on a combination of automated testing, manual quality assurance, and periodic security audits. But what if we could create a system that continuously and autonomously hardens software from the inside out? Inspired by military red team/blue team exercises and advancements in multi-agent AI, we can design a self-improving ecosystem where AI agents work adversarially to find and fix flaws before they ever reach production.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Building a Multi-Agent Debate System with LangGraph</title>
-				<link>http://localhost:1313/2025/10/building-a-multi-agent-debate-system-with-langgraph/</link>
+				<link>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</link>
 				<pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/building-a-multi-agent-debate-system-with-langgraph/</guid>
+				<guid>https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/</guid>
 				<description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a &amp;ldquo;debate,&amp;rdquo; where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll explore a minimal multi-agent debate system built with Python and the powerful &lt;code&gt;langgraph&lt;/code&gt; library. This system orchestrates a debate between two AI agents, with a third agent acting as a judge to determine the most accurate answer. We&amp;rsquo;ll dive into the product requirements, the system architecture, and the implementation details.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Make Trade-offs Explicit as a Clarity Multiplier</title>
-				<link>http://localhost:1313/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</link>
+				<link>https://notes.muthu.co/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</link>
 				<pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</guid>
+				<guid>https://notes.muthu.co/2025/10/make-trade-offs-explicit-as-a-clarity-multiplier/</guid>
 				<description>&lt;p&gt;The most powerful thing you can do as an engineering manager isn&amp;rsquo;t making better decisions—it&amp;rsquo;s making the trade-offs behind those decisions crystal clear to everyone involved.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-implicit-trade-offs&#34;&gt;The Hidden Cost of Implicit Trade-offs&lt;/h2&gt;&#xA;&lt;p&gt;Every engineering decision involves trade-offs: speed vs. quality, flexibility vs. simplicity, build vs. buy, now vs. later. When these trade-offs remain implicit, your team operates in a fog. Engineers question priorities, duplicate debates happen across conversations, and alignment dissolves the moment you leave the room.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Engineer the Handoffs Where Most Productivity Dies</title>
-				<link>http://localhost:1313/2025/10/engineer-the-handoffs-where-most-productivity-dies/</link>
+				<link>https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies/</link>
 				<pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/engineer-the-handoffs-where-most-productivity-dies/</guid>
+				<guid>https://notes.muthu.co/2025/10/engineer-the-handoffs-where-most-productivity-dies/</guid>
 				<description>&lt;p&gt;Most engineering managers optimize for individual productivity. They focus on hiring great people, improving code quality, and eliminating blockers. But the real productivity killer lurks in the spaces &lt;em&gt;between&lt;/em&gt; people, teams, and systems.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Handoffs are where most work goes to die.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Every time work passes from one person to another, from one team to another, or from one system to another, you pay a tax. Context is lost. Work sits idle in queues. Misunderstandings multiply. That three-day feature becomes a three-week saga—not because the coding took longer, but because it spent 12 days waiting, being clarified, and being re-explained.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Invest in Compounding Leverage</title>
-				<link>http://localhost:1313/2025/10/invest-in-compounding-leverage/</link>
+				<link>https://notes.muthu.co/2025/10/invest-in-compounding-leverage/</link>
 				<pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/invest-in-compounding-leverage/</guid>
+				<guid>https://notes.muthu.co/2025/10/invest-in-compounding-leverage/</guid>
 				<description>&lt;p&gt;The difference between good engineering managers and exceptional ones isn&amp;rsquo;t how much they do—it&amp;rsquo;s how much compounds over time.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-concept&#34;&gt;The Concept&lt;/h2&gt;&#xA;&lt;p&gt;Most managers think linearly: hire more people to do more work. But exceptional managers think exponentially: they invest time in things that create compounding returns. Every hour spent on high-leverage activities should make the next hundred hours more productive.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-compounds&#34;&gt;What Compounds&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. Documentation that teaches&lt;/strong&gt;&#xA;Write the explanation once. Your team reads it forever. Better yet: they update it, making it stronger. One hour invested can save hundreds of hours of repeated questions.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Build Conviction Through Small Bets</title>
-				<link>http://localhost:1313/2025/10/build-conviction-through-small-bets/</link>
+				<link>https://notes.muthu.co/2025/10/build-conviction-through-small-bets/</link>
 				<pubDate>Sat, 18 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/build-conviction-through-small-bets/</guid>
+				<guid>https://notes.muthu.co/2025/10/build-conviction-through-small-bets/</guid>
 				<description>&lt;p&gt;The best engineering managers don&amp;rsquo;t make big decisions through perfect analysis—they build conviction through strategic experimentation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-big-decisions&#34;&gt;The Problem with Big Decisions&lt;/h2&gt;&#xA;&lt;p&gt;When facing major technical or organizational choices (microservices vs. monolith, new programming language, team restructuring), most EMs fall into analysis paralysis. They gather more data, schedule more meetings, and delay until the &amp;ldquo;right answer&amp;rdquo; emerges. It rarely does.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-small-bets-approach&#34;&gt;The Small Bets Approach&lt;/h2&gt;&#xA;&lt;p&gt;Instead of betting the farm on unproven ideas, &lt;strong&gt;run tiny, time-boxed experiments that build real conviction&lt;/strong&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Scale Culture Through Defaults, Not Rules</title>
-				<link>http://localhost:1313/2025/10/scale-culture-through-defaults-not-rules/</link>
+				<link>https://notes.muthu.co/2025/10/scale-culture-through-defaults-not-rules/</link>
 				<pubDate>Fri, 17 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/scale-culture-through-defaults-not-rules/</guid>
+				<guid>https://notes.muthu.co/2025/10/scale-culture-through-defaults-not-rules/</guid>
 				<description>&lt;p&gt;Most engineering managers try to scale culture through policies, rules, and guidelines. They write extensive playbooks, create approval processes, and implement governance frameworks. But as teams grow, this approach becomes a bottleneck. You become the referee, constantly interpreting rules and making exceptions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;The high-leverage alternative: Design powerful defaults instead of rigid rules.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-power-of-defaults&#34;&gt;The Power of Defaults&lt;/h2&gt;&#xA;&lt;p&gt;Defaults are the &amp;ldquo;path of least resistance&amp;rdquo; behaviors built into your systems, tools, and workflows. They&amp;rsquo;re what happens when people don&amp;rsquo;t actively choose otherwise. Defaults scale culture because they:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Manage Your Attention Budget as Your Scarcest Resource</title>
-				<link>http://localhost:1313/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</link>
+				<link>https://notes.muthu.co/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</link>
 				<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</guid>
+				<guid>https://notes.muthu.co/2025/10/manage-your-attention-budget-as-your-scarcest-resource/</guid>
 				<description>&lt;p&gt;You can always hire more engineers. You can negotiate for a bigger budget. You can even extend deadlines.&lt;/p&gt;&#xA;&lt;p&gt;But you cannot create more hours in the day. And even more critically: &lt;strong&gt;you cannot expand your capacity for deep, strategic attention.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Most engineering managers treat their attention like it&amp;rsquo;s infinite. They say yes to every meeting, every Slack thread, every &amp;ldquo;quick question.&amp;rdquo; Then they wonder why they&amp;rsquo;re exhausted, reactive, and making shallow decisions.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Design Your Feedback Loops</title>
-				<link>http://localhost:1313/2025/10/design-your-feedback-loops/</link>
+				<link>https://notes.muthu.co/2025/10/design-your-feedback-loops/</link>
 				<pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/design-your-feedback-loops/</guid>
+				<guid>https://notes.muthu.co/2025/10/design-your-feedback-loops/</guid>
 				<description>&lt;p&gt;The difference between a mediocre engineering organization and an exceptional one often comes down to a single variable: &lt;strong&gt;feedback loop speed&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Elite engineering managers don&amp;rsquo;t just react to feedback—they architect the systems that generate it. They obsess over how quickly their team learns they&amp;rsquo;re off track, how fast they discover quality issues, and how rapidly they understand customer impact.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-feedback-loops-are-your-most-powerful-lever&#34;&gt;Why Feedback Loops Are Your Most Powerful Lever&lt;/h2&gt;&#xA;&lt;p&gt;Every decision your team makes—from architectural choices to feature priorities—is a bet. The faster you get feedback on those bets, the faster you learn, correct course, and compound your advantages.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Hire for Trajectory, Not Just Skills</title>
-				<link>http://localhost:1313/2025/10/hire-for-trajectory-not-just-skills/</link>
+				<link>https://notes.muthu.co/2025/10/hire-for-trajectory-not-just-skills/</link>
 				<pubDate>Mon, 13 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/hire-for-trajectory-not-just-skills/</guid>
+				<guid>https://notes.muthu.co/2025/10/hire-for-trajectory-not-just-skills/</guid>
 				<description>&lt;p&gt;Most engineering managers hire for what candidates can do today. Great engineering managers hire for where candidates will be in 18 months.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-trajectory-principle&#34;&gt;The Trajectory Principle&lt;/h2&gt;&#xA;&lt;p&gt;When you&amp;rsquo;re building a high-performing team, the single most predictive factor of success isn&amp;rsquo;t the depth of current technical skills—it&amp;rsquo;s the &lt;strong&gt;rate of learning and growth trajectory&lt;/strong&gt;. A senior engineer who&amp;rsquo;s plateaued will add less long-term value than a mid-level engineer with exponential growth potential.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs</title>
-				<link>http://localhost:1313/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</link>
+				<link>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</link>
 				<pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</guid>
+				<guid>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Agentic workflow graphs&lt;/strong&gt; represent agent systems as directed graphs where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Nodes&lt;/strong&gt; are computational units (LLM calls, tool executions, or control logic)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Edges&lt;/strong&gt; define state transitions (conditional or unconditional)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;State&lt;/strong&gt; is a shared data structure that persists and evolves across node executions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cycles&lt;/strong&gt; enable iterative reasoning, self-correction, and multi-turn interactions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This architecture addresses a fundamental limitation of prompt chaining: linear chains can&amp;rsquo;t handle complex control flow, error recovery, or adaptive decision-making without brittle workarounds.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>How Great EMs Shape Reality Through Storytelling</title>
-				<link>http://localhost:1313/2025/10/how-great-ems-shape-reality-through-storytelling/</link>
+				<link>https://notes.muthu.co/2025/10/how-great-ems-shape-reality-through-storytelling/</link>
 				<pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/how-great-ems-shape-reality-through-storytelling/</guid>
+				<guid>https://notes.muthu.co/2025/10/how-great-ems-shape-reality-through-storytelling/</guid>
 				<description>&lt;p&gt;The best engineering managers understand a powerful truth: &lt;strong&gt;the story you tell about your team&amp;rsquo;s work often matters more than the work itself&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This isn&amp;rsquo;t about spin or manipulation. It&amp;rsquo;s about recognizing that in complex organizations, reality is constructed through shared narratives. If you don&amp;rsquo;t actively shape the story, someone else will—and they might not understand the full context.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-matters-at-scale&#34;&gt;Why This Matters at Scale&lt;/h2&gt;&#xA;&lt;p&gt;As you scale beyond a single team, your impact becomes increasingly mediated through perception. Executives don&amp;rsquo;t see the elegant architecture your team built. Product partners don&amp;rsquo;t sit in your sprint planning. Cross-functional stakeholders don&amp;rsquo;t understand the technical debt you&amp;rsquo;re managing.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Lead with Leading Indicators to Predict Problems Before They Happen</title>
-				<link>http://localhost:1313/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</link>
+				<link>https://notes.muthu.co/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</link>
 				<pubDate>Sat, 11 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</guid>
+				<guid>https://notes.muthu.co/2025/10/lead-with-leading-indicators-to-predict-problems-before-they-happen/</guid>
 				<description>&lt;p&gt;Most engineering managers are firefighters. They react to outages, missed deadlines, and team burnout after the damage is done. Elite EMs are meteorologists—they see the storm forming days before it hits and adjust course early.&lt;/p&gt;&#xA;&lt;p&gt;The difference? They manage with &lt;strong&gt;leading indicators&lt;/strong&gt; instead of &lt;strong&gt;lagging indicators&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lagging-vs-leading-the-critical-distinction&#34;&gt;Lagging vs. Leading: The Critical Distinction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Lagging indicators&lt;/strong&gt; tell you what already happened:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sprint velocity dropped by 30%&lt;/li&gt;&#xA;&lt;li&gt;Production incident occurred&lt;/li&gt;&#xA;&lt;li&gt;Engineer quit unexpectedly&lt;/li&gt;&#xA;&lt;li&gt;Release slipped two weeks&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;By the time you see these signals, you&amp;rsquo;re already in crisis mode. You&amp;rsquo;re managing the aftermath, not preventing the problem.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Multiplier Mindset for Identifying and Amplifying Force Multipliers</title>
-				<link>http://localhost:1313/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</link>
+				<link>https://notes.muthu.co/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</link>
 				<pubDate>Fri, 10 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</guid>
+				<guid>https://notes.muthu.co/2025/10/the-multiplier-mindset-for-identifying-and-amplifying-force-multipliers/</guid>
 				<description>&lt;p&gt;Most engineering managers operate in &lt;strong&gt;addition mode&lt;/strong&gt;: hire another engineer, add another process, create another meeting. But elite EMs operate in &lt;strong&gt;multiplication mode&lt;/strong&gt;: they relentlessly identify and invest in force multipliers—the people, practices, and tools that create exponential impact across the organization.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-force-multiplier-formula&#34;&gt;The Force Multiplier Formula&lt;/h2&gt;&#xA;&lt;p&gt;A force multiplier isn&amp;rsquo;t just someone who does good work. It&amp;rsquo;s anything that makes &lt;em&gt;everyone else&lt;/em&gt; more effective. The formula is simple:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Impact = Individual Output × Number of People Amplified&lt;/strong&gt;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Architect Your Culture with Decision Records</title>
-				<link>http://localhost:1313/2025/10/architect-your-culture-with-decision-records/</link>
+				<link>https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records/</link>
 				<pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/architect-your-culture-with-decision-records/</guid>
+				<guid>https://notes.muthu.co/2025/10/architect-your-culture-with-decision-records/</guid>
 				<description>&lt;p&gt;Most engineering managers focus on making good decisions. The best ones focus on &lt;strong&gt;capturing why decisions were made&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Architecture Decision Records (ADRs) aren&amp;rsquo;t just documentation—they&amp;rsquo;re a cultural operating system that scales your judgment across the organization.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-hidden-cost-of-undocumented-decisions&#34;&gt;The Hidden Cost of Undocumented Decisions&lt;/h2&gt;&#xA;&lt;p&gt;Every major technical decision you make today will be questioned in 18 months. Your team will have turned over. Context will have evaporated. Someone will ask &amp;ldquo;Why did we choose Postgres over DynamoDB?&amp;rdquo; and the answer will be lost to Slack history.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Make Decisions Reversible</title>
-				<link>http://localhost:1313/2025/10/make-decisions-reversible/</link>
+				<link>https://notes.muthu.co/2025/10/make-decisions-reversible/</link>
 				<pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/make-decisions-reversible/</guid>
+				<guid>https://notes.muthu.co/2025/10/make-decisions-reversible/</guid>
 				<description>&lt;p&gt;One of the highest-leverage skills you can develop as an engineering manager is &lt;strong&gt;designing your decisions to be reversible&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Most managers waste enormous amounts of time trying to make &amp;ldquo;perfect&amp;rdquo; decisions on questions that don&amp;rsquo;t require perfection. They over-research, over-debate, and create analysis paralysis in their teams.&lt;/p&gt;&#xA;&lt;p&gt;The secret: &lt;strong&gt;categorize every decision as either one-way or two-way doors&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;one-way-doors-vs-two-way-doors&#34;&gt;One-way doors vs Two-way doors&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;One-way doors&lt;/strong&gt; are hard or impossible to reverse. Examples:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Build Escalation Paths, Not Firefighters</title>
-				<link>http://localhost:1313/2025/10/build-escalation-paths-not-firefighters/</link>
+				<link>https://notes.muthu.co/2025/10/build-escalation-paths-not-firefighters/</link>
 				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/build-escalation-paths-not-firefighters/</guid>
+				<guid>https://notes.muthu.co/2025/10/build-escalation-paths-not-firefighters/</guid>
 				<description>&lt;p&gt;The best engineering managers don&amp;rsquo;t pride themselves on being heroic problem-solvers. They build systems that prevent problems from becoming emergencies in the first place.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-trap-of-being-indispensable&#34;&gt;The Trap of Being Indispensable&lt;/h2&gt;&#xA;&lt;p&gt;Early in your EM career, solving urgent problems feels rewarding. You swoop in, unblock the team, and everyone breathes easier. But this pattern creates a dangerous dependency: your team learns to escalate to you instead of developing judgment about what truly needs escalation.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Measure What Matters Through Data-Informed Leadership</title>
-				<link>http://localhost:1313/2025/10/measure-what-matters-through-data-informed-leadership/</link>
+				<link>https://notes.muthu.co/2025/10/measure-what-matters-through-data-informed-leadership/</link>
 				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/measure-what-matters-through-data-informed-leadership/</guid>
+				<guid>https://notes.muthu.co/2025/10/measure-what-matters-through-data-informed-leadership/</guid>
 				<description>&lt;p&gt;As an engineering manager, your ability to lead effectively at scale hinges on one crucial skill: &lt;strong&gt;measuring what matters&lt;/strong&gt;. While gut feelings and qualitative feedback are important, data provides the clarity and objectivity needed to drive strategic decisions, align with business goals, and foster a culture of continuous improvement.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-trap-of-vanity-metrics&#34;&gt;The Trap of Vanity Metrics&lt;/h3&gt;&#xA;&lt;p&gt;Many managers fall into the trap of tracking vanity metrics like lines of code, number of commits, or story points. These metrics are easy to measure but often fail to reflect true impact. They can even incentivize the wrong behaviors, such as shipping code quickly at the expense of quality.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Monte Carlo Tree Search from Games to LLMs</title>
-				<link>http://localhost:1313/2025/10/monte-carlo-tree-search-from-games-to-llms/</link>
+				<link>https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms/</link>
 				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/monte-carlo-tree-search-from-games-to-llms/</guid>
+				<guid>https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Monte Carlo Tree Search (MCTS)&lt;/strong&gt; is a heuristic search algorithm for finding optimal decisions in large search spaces. It builds a search tree incrementally, guided by the results of random simulations (the &amp;ldquo;Monte Carlo&amp;rdquo; part), balancing exploration of new paths against exploitation of paths that have proven successful.&lt;/p&gt;&#xA;&lt;p&gt;Unlike minimax, MCTS does not require a handcrafted evaluation function for game states. Instead, it estimates state values by sampling the outcomes of many simulated playthroughs. This makes it applicable to games like Go with astronomical branching factors, and more recently to reasoning problems in LLMs.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Treat Tech Debt Like a Financial Portfolio</title>
-				<link>http://localhost:1313/2025/10/treat-tech-debt-like-a-financial-portfolio/</link>
+				<link>https://notes.muthu.co/2025/10/treat-tech-debt-like-a-financial-portfolio/</link>
 				<pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/treat-tech-debt-like-a-financial-portfolio/</guid>
+				<guid>https://notes.muthu.co/2025/10/treat-tech-debt-like-a-financial-portfolio/</guid>
 				<description>&lt;p&gt;As an engineering manager, your role evolves from solving technical problems to building a system that solves problems. One of the most powerful shifts you can make is to stop treating technical debt as a messy backlog and start managing it like a financial portfolio. This reframing moves the conversation from &amp;ldquo;cleaning up code&amp;rdquo; to making strategic investments for long-term growth and stability.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-core-idea-debt-as-a-tool-not-a-sin&#34;&gt;The Core Idea: Debt as a Tool, Not a Sin&lt;/h3&gt;&#xA;&lt;p&gt;Just like financial debt, technical debt isn&amp;rsquo;t inherently evil. It&amp;rsquo;s a tool. You can take on debt intentionally to seize an opportunity, like shipping a feature faster to capture a market window. The danger lies not in having debt, but in letting it accumulate without a plan, allowing the &amp;ldquo;interest&amp;rdquo; to cripple your team&amp;rsquo;s velocity and morale.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Architecting Short-Term and Long-Term Memory in AI Agents</title>
-				<link>http://localhost:1313/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</link>
+				<link>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</link>
 				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</guid>
+				<guid>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.&lt;/p&gt;&#xA;&lt;p&gt;Agent memory falls into two broad categories:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Short-Term (or Working) Memory:&lt;/strong&gt; This is the agent&amp;rsquo;s &amp;ldquo;scratchpad.&amp;rdquo; It&amp;rsquo;s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It&amp;rsquo;s volatile and limited.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Long-Term Memory:&lt;/strong&gt; This is the agent&amp;rsquo;s persistent knowledge store. It&amp;rsquo;s where the agent saves key facts, past conversations, user preferences, and learned insights. It&amp;rsquo;s vast and durable.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Decentralize Decisions, Centralize Context</title>
-				<link>http://localhost:1313/2025/10/decentralize-decisions-centralize-context/</link>
+				<link>https://notes.muthu.co/2025/10/decentralize-decisions-centralize-context/</link>
 				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/decentralize-decisions-centralize-context/</guid>
+				<guid>https://notes.muthu.co/2025/10/decentralize-decisions-centralize-context/</guid>
 				<description>&lt;p&gt;As an engineering manager, one of the most significant shifts you can make to level up is to stop being the primary decision-maker and start being the primary context-provider. Many managers become a bottleneck as their team grows because they believe their job is to have all the answers. The truly scalable approach is to build a system where your team can make high-quality decisions autonomously.&lt;/p&gt;&#xA;&lt;p&gt;Your new mantra should be: &lt;strong&gt;Decentralize Decisions, Centralize Context.&lt;/strong&gt;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Ensuring Agent Safety with Constitutional AI Guardrails</title>
-				<link>http://localhost:1313/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</link>
+				<link>https://notes.muthu.co/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</link>
 				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</guid>
+				<guid>https://notes.muthu.co/2025/10/ensuring-agent-safety-with-constitutional-ai-guardrails/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Constitutional AI (CAI)&lt;/strong&gt; is a method for training an AI to supervise itself. Rather than relying on human feedback for every harmful query, the AI learns to critique and revise its own behavior based on a set of explicit guiding principles. This allows the AI to learn harmlessness not from direct human supervision on harmful topics, but from its own application of those principles.&lt;/p&gt;&#xA;&lt;p&gt;Scaling human feedback is slow, expensive, and exposes annotators to toxic content. CAI reduces this burden by using the AI&amp;rsquo;s own intelligence to generate safety training signal, a process sometimes called Reinforcement Learning from AI Feedback (RLAIF).&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>How AI Agents Use Tools with Function Calling</title>
-				<link>http://localhost:1313/2025/10/how-ai-agents-use-tools-with-function-calling/</link>
+				<link>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</link>
 				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/how-ai-agents-use-tools-with-function-calling/</guid>
+				<guid>https://notes.muthu.co/2025/10/how-ai-agents-use-tools-with-function-calling/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tool Use&lt;/strong&gt; is the mechanism that allows a language model to interact with and affect the outside world through code. The modern implementation of this is often called &lt;strong&gt;Function Calling&lt;/strong&gt;: the LLM acts as a reasoning engine that translates a user&amp;rsquo;s natural language request into a structured, executable function call, which the application then runs and feeds back into the conversation.&lt;/p&gt;&#xA;&lt;p&gt;When you ask a voice assistant &amp;ldquo;What&amp;rsquo;s the weather in London?&amp;rdquo;, it doesn&amp;rsquo;t magically know the answer. It recognizes that you want weather data, calls an external API with &amp;ldquo;London&amp;rdquo; as a parameter, and formulates a response from the result. That three-step loop is function calling in its simplest form.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Manage Energy Not Time for Sustainable High Performance</title>
-				<link>http://localhost:1313/2025/10/manage-energy-not-time-for-sustainable-high-performance/</link>
+				<link>https://notes.muthu.co/2025/10/manage-energy-not-time-for-sustainable-high-performance/</link>
 				<pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/manage-energy-not-time-for-sustainable-high-performance/</guid>
+				<guid>https://notes.muthu.co/2025/10/manage-energy-not-time-for-sustainable-high-performance/</guid>
 				<description>&lt;p&gt;As an engineering manager, you&amp;rsquo;ve mastered the basics: 1-on-1s, feedback, and project tracking. But to reach the next level, you must shift your focus from managing your team&amp;rsquo;s &lt;em&gt;time&lt;/em&gt; to managing their &lt;em&gt;energy&lt;/em&gt;. This is the key to unlocking sustainable, high-impact performance and avoiding the burnout cycle that plagues so many teams.&lt;/p&gt;&#xA;&lt;p&gt;Time is a finite resource, but energy—cognitive, emotional, and creative—is a renewable one. Your primary role as a leader is to create an environment where your team&amp;rsquo;s energy is invested in high-leverage activities and consistently replenished. Stop asking, &amp;ldquo;How can we be more productive?&amp;rdquo; and start asking, &amp;ldquo;What is draining our energy, and what is energizing us?&amp;rdquo;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Chain-of-Thought Reasoning and Giving LLMs a Thinking Process</title>
-				<link>http://localhost:1313/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/</link>
+				<link>https://notes.muthu.co/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/</link>
 				<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/</guid>
+				<guid>https://notes.muthu.co/2025/10/chain-of-thought-reasoning-and-giving-llms-a-thinking-process/</guid>
 				<description>&lt;h3 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Chain-of-Thought (CoT) Reasoning&lt;/strong&gt; is a prompting strategy that encourages a model to decompose a multi-step problem into the intermediate steps necessary for its solution. Instead of outputting a final answer directly, the model generates sequential reasoning steps first. This explicit reasoning process dramatically improves performance on tasks requiring arithmetic, commonsense, and symbolic reasoning.&lt;/p&gt;&#xA;&lt;h3 id=&#34;historical--theoretical-context&#34;&gt;Historical &amp;amp; Theoretical Context&lt;/h3&gt;&#xA;&lt;p&gt;The idea was formally introduced by Google Research in the 2022 paper &lt;strong&gt;&amp;ldquo;Chain-of-Thought Prompting Elicits Reasoning in Large Language Models&amp;rdquo;&lt;/strong&gt; by Wei et al. Before this, models were often prompted directly (zero-shot) and would frequently fail at complex reasoning tasks.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Pave the Road to Scalable Speed in Your Engineering Org</title>
-				<link>http://localhost:1313/2025/10/pave-the-road-to-scalable-speed-in-your-engineering-org/</link>
+				<link>https://notes.muthu.co/2025/10/pave-the-road-to-scalable-speed-in-your-engineering-org/</link>
 				<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/pave-the-road-to-scalable-speed-in-your-engineering-org/</guid>
+				<guid>https://notes.muthu.co/2025/10/pave-the-road-to-scalable-speed-in-your-engineering-org/</guid>
 				<description>&lt;p&gt;As an engineering manager, you&amp;rsquo;re constantly balancing the pressure to deliver new features with the need to maintain a healthy, scalable codebase. It often feels like a zero-sum game where speed today is borrowed from quality tomorrow. The next-level solution isn&amp;rsquo;t to manage this trade-off better—it&amp;rsquo;s to change the game entirely.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Your powerful tip: Stop just clearing paths; start paving roads.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Think of your engineering ecosystem as a landscape. Your developers need to get from an idea to production. Are they hacking through a jungle with machetes, or are they driving on a highway?&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Shape the Environment Instead of Just Managing the Plants</title>
-				<link>http://localhost:1313/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</link>
+				<link>https://notes.muthu.co/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</link>
 				<pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</guid>
+				<guid>https://notes.muthu.co/2025/10/shape-the-environment-instead-of-just-managing-the-plants/</guid>
 				<description>&lt;p&gt;As an engineering manager, it&amp;rsquo;s easy to get trapped in the cycle of managing people and tasks—the individual &amp;ldquo;plants&amp;rdquo; in your garden. You track progress, unblock issues, and manage performance. While essential, this approach doesn&amp;rsquo;t scale and won&amp;rsquo;t elevate you to the next level of leadership.&lt;/p&gt;&#xA;&lt;p&gt;The most powerful shift you can make is to stop focusing solely on the plants and start acting as the gardener: the designer of the entire environment. Your job isn&amp;rsquo;t to make every plant grow; it&amp;rsquo;s to create a garden where growth is the natural, inevitable outcome.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Your Engineering Org is Your Product</title>
-				<link>http://localhost:1313/2025/10/your-engineering-org-is-your-product/</link>
+				<link>https://notes.muthu.co/2025/10/your-engineering-org-is-your-product/</link>
 				<pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/10/your-engineering-org-is-your-product/</guid>
+				<guid>https://notes.muthu.co/2025/10/your-engineering-org-is-your-product/</guid>
 				<description>&lt;p&gt;As an engineering manager, it&amp;rsquo;s easy to get trapped in the cycle of shipping features. Your team delivers, the business is happy, and you get positive feedback. But to truly level up, you must shift your mindset: &lt;strong&gt;stop thinking of your product as just the code you ship, and start thinking of your engineering organization as your primary product.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This isn&amp;rsquo;t about ignoring deadlines or business goals. It&amp;rsquo;s about recognizing that the &lt;em&gt;system&lt;/em&gt; that builds the product is more important than any single feature. A well-designed engineering organization—your &amp;ldquo;product&amp;rdquo;—consistently, predictably, and sustainably delivers high-quality outcomes. An unhealthy one burns people out, accumulates tech debt, and eventually grinds to a halt.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Mastering the Why in High-Impact Engineering Communication</title>
-				<link>http://localhost:1313/2025/09/mastering-the-why-in-high-impact-engineering-communication/</link>
+				<link>https://notes.muthu.co/2025/09/mastering-the-why-in-high-impact-engineering-communication/</link>
 				<pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/mastering-the-why-in-high-impact-engineering-communication/</guid>
+				<guid>https://notes.muthu.co/2025/09/mastering-the-why-in-high-impact-engineering-communication/</guid>
 				<description>&lt;p&gt;As an engineering manager, your technical skills got you to where you are, but your communication skills will propel you to the next level. The single most powerful, high-leverage tool in your arsenal isn&amp;rsquo;t a new framework or process—it&amp;rsquo;s mastering the &amp;ldquo;Why.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Many managers get stuck communicating the &amp;ldquo;what&amp;rdquo; (&amp;ldquo;We need to build a new caching service&amp;rdquo;) or the &amp;ldquo;how&amp;rdquo; (&amp;ldquo;We&amp;rsquo;ll use Redis and deploy it on Kubernetes&amp;rdquo;). This approach creates teams of order-takers, not autonomous problem-solvers. It limits their ability to innovate and leads to a shallow sense of ownership.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Art of Strategic Quitting and Knowing When to Say No</title>
-				<link>http://localhost:1313/2025/09/the-art-of-strategic-quitting-and-knowing-when-to-say-no/</link>
+				<link>https://notes.muthu.co/2025/09/the-art-of-strategic-quitting-and-knowing-when-to-say-no/</link>
 				<pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/the-art-of-strategic-quitting-and-knowing-when-to-say-no/</guid>
+				<guid>https://notes.muthu.co/2025/09/the-art-of-strategic-quitting-and-knowing-when-to-say-no/</guid>
 				<description>&lt;p&gt;As an engineering manager, you&amp;rsquo;re driven to build, innovate, and deliver. But one of the most powerful skills for long-term strategic impact isn&amp;rsquo;t about starting things—it&amp;rsquo;s about stopping them. Strategic quitting is the discipline of intentionally ending projects, deprecating systems, and saying &amp;ldquo;no&amp;rdquo; to redirect your team&amp;rsquo;s finite energy toward what matters most.&lt;/p&gt;&#xA;&lt;p&gt;Most teams suffer from bloat. They have too many legacy systems, too many low-impact features to maintain, and too many &amp;ldquo;good ideas&amp;rdquo; pulling them in different directions. This creates a hidden tax on your team&amp;rsquo;s cognitive load, velocity, and morale. Every hour spent nursing a legacy service is an hour not spent on a key business goal or a critical platform improvement.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Your Team Is Not a Family but a High-Performance System</title>
-				<link>http://localhost:1313/2025/09/your-team-is-not-a-family-but-a-high-performance-system/</link>
+				<link>https://notes.muthu.co/2025/09/your-team-is-not-a-family-but-a-high-performance-system/</link>
 				<pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/your-team-is-not-a-family-but-a-high-performance-system/</guid>
+				<guid>https://notes.muthu.co/2025/09/your-team-is-not-a-family-but-a-high-performance-system/</guid>
 				<description>&lt;p&gt;One of the most common metaphors in team building is the idea of being a &amp;ldquo;family.&amp;rdquo; While intended to foster closeness, it&amp;rsquo;s a flawed model for an engineering organization. Families are built on unconditional acceptance. High-performing teams are built on trust, accountability, and conditional membership based on performance and contribution.&lt;/p&gt;&#xA;&lt;p&gt;Your highest-leverage skill as a manager is to stop managing people and start architecting a &lt;strong&gt;system of work&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Think of your team as a complex system. Your job is to design, monitor, and continuously improve its operating environment. When the system is well-designed, high performance and team health are its natural outputs. When it&amp;rsquo;s poorly designed, even the most talented engineers will struggle.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Stop Managing People, Start Managing the System</title>
-				<link>http://localhost:1313/2025/09/stop-managing-people-start-managing-the-system/</link>
+				<link>https://notes.muthu.co/2025/09/stop-managing-people-start-managing-the-system/</link>
 				<pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/stop-managing-people-start-managing-the-system/</guid>
+				<guid>https://notes.muthu.co/2025/09/stop-managing-people-start-managing-the-system/</guid>
 				<description>&lt;p&gt;As an engineering manager, your instinct is often to manage people. You track individual performance, mediate disputes, and assign tasks. While necessary, this focus has diminishing returns and doesn&amp;rsquo;t scale. To reach the next level, shift your perspective: &lt;strong&gt;stop managing people and start managing the system they operate in.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Your team&amp;rsquo;s performance is not just a sum of individual talents; it&amp;rsquo;s a product of its environment. This &amp;ldquo;system&amp;rdquo; includes everything from your code review process and deployment pipeline to your communication norms, meeting structures, and even how you celebrate wins. It&amp;rsquo;s the invisible architecture of how work gets done.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Manufacture Slack as the Counterintuitive Key to High-Performing Teams</title>
-				<link>http://localhost:1313/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/</link>
+				<link>https://notes.muthu.co/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/</link>
 				<pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/</guid>
+				<guid>https://notes.muthu.co/2025/09/manufacture-slack-as-the-counterintuitive-key-to-high-performing-teams/</guid>
 				<description>&lt;p&gt;As an engineering manager, your instinct is to maximize output by maximizing utilization. Every hour should be accounted for, every engineer fully booked, every sprint packed to capacity. But this relentless focus on 100% efficiency is a trap. The single most powerful, high-leverage skill you can develop is the ability to &lt;strong&gt;manufacture slack&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Slack isn&amp;rsquo;t about encouraging laziness; it&amp;rsquo;s about building a resilient, innovative, and truly high-performing engineering system. It is the intentional, unallocated capacity that allows your team to breathe, think, and operate beyond the immediate demands of the backlog. A team running at 100% capacity has no buffer for the unexpected and no space for improvement.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>From Customer Value to Code as the EMs Strategic Blueprint</title>
-				<link>http://localhost:1313/2025/09/from-customer-value-to-code-as-the-ems-strategic-blueprint/</link>
+				<link>https://notes.muthu.co/2025/09/from-customer-value-to-code-as-the-ems-strategic-blueprint/</link>
 				<pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/from-customer-value-to-code-as-the-ems-strategic-blueprint/</guid>
+				<guid>https://notes.muthu.co/2025/09/from-customer-value-to-code-as-the-ems-strategic-blueprint/</guid>
 				<description>&lt;p&gt;As an engineering manager, it&amp;rsquo;s easy to get trapped in the cycle of shipping features, closing tickets, and managing sprints. While important, this tactical focus often misses the bigger picture: driving strategic impact. To level up, you need to shift your mindset from &lt;em&gt;what&lt;/em&gt; your team is building to &lt;em&gt;why&lt;/em&gt; they are building it. The most powerful way to do this is to work backward from customer value.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-backward-thinking-approach&#34;&gt;The Backward-Thinking Approach&lt;/h3&gt;&#xA;&lt;p&gt;Instead of starting with a list of technical requirements, start with the end-user. This approach ensures that every line of code, every design decision, and every engineering hour is directly tied to a meaningful outcome for both the customer and the business.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>From Business Goals to Code with Backward Thinking</title>
-				<link>http://localhost:1313/2025/09/from-business-goals-to-code-with-backward-thinking/</link>
+				<link>https://notes.muthu.co/2025/09/from-business-goals-to-code-with-backward-thinking/</link>
 				<pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/from-business-goals-to-code-with-backward-thinking/</guid>
+				<guid>https://notes.muthu.co/2025/09/from-business-goals-to-code-with-backward-thinking/</guid>
 				<description>&lt;h2 id=&#34;stop-building-features-start-driving-outcomes&#34;&gt;Stop Building Features, Start Driving Outcomes&lt;/h2&gt;&#xA;&lt;p&gt;The most impactful shift an engineering manager can make is to move from a &amp;ldquo;feature-first&amp;rdquo; to a &amp;ldquo;business-outcome-first&amp;rdquo; mindset. Instead of asking &amp;ldquo;What should we build?&amp;rdquo;, start by asking &lt;strong&gt;&amp;ldquo;What business result do we need to achieve?&amp;rdquo;&lt;/strong&gt; This is the essence of working backward.&lt;/p&gt;&#xA;&lt;p&gt;This approach reframes your team&amp;rsquo;s purpose from writing code to solving business problems, directly connecting their work to the company&amp;rsquo;s success.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Systems That Search for New Algorithms Automatically</title>
-				<link>http://localhost:1313/2025/09/systems-that-search-for-new-algorithms-automatically/</link>
+				<link>https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/</link>
 				<pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/systems-that-search-for-new-algorithms-automatically/</guid>
+				<guid>https://notes.muthu.co/2025/09/systems-that-search-for-new-algorithms-automatically/</guid>
 				<description>&lt;p&gt;Let’s start with a &lt;strong&gt;very simple version&lt;/strong&gt; so you can see the idea in action.&lt;/p&gt;&#xA;&lt;p&gt;We’ll use a genetic algorithm to “discover” a formula that approximates a target function.&lt;/p&gt;&#xA;&lt;p&gt;This isn’t as powerful as DeepMind’s AlphaTensor, but it shows how machines can &lt;em&gt;search for algorithms or formulas automatically&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;example-discovering-a-formula-for-fx--x2--x--1&#34;&gt;Example: Discovering a formula for &lt;code&gt;f(x) = x^2 + x + 1&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#24292e&#34;&gt;random&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#24292e&#34;&gt;math&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;# Our target function&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;x&lt;span style=&#34;color:#1f2328&#34;&gt;):&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;return&lt;/span&gt; x&lt;span style=&#34;color:#0550ae&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;+&lt;/span&gt; x &lt;span style=&#34;color:#0550ae&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;# Generate a random &amp;#34;algorithm&amp;#34; = coefficients for ax^2 + bx + c&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;random_algorithm&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;():&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#1f2328&#34;&gt;[&lt;/span&gt;random&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;randint&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#0550ae&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;range&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;# Evaluate how good an algorithm is&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;fitness&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;alg&lt;span style=&#34;color:#1f2328&#34;&gt;):&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; b&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; c &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; alg&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    error &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;0&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#0550ae&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;range&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;):&lt;/span&gt;  &lt;span style=&#34;color:#57606a&#34;&gt;# test on values -5 to 5&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        guess &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; a&lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;x&lt;span style=&#34;color:#0550ae&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;+&lt;/span&gt; b&lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;x &lt;span style=&#34;color:#0550ae&#34;&gt;+&lt;/span&gt; c&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        error &lt;span style=&#34;color:#0550ae&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;abs&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;guess &lt;span style=&#34;color:#0550ae&#34;&gt;-&lt;/span&gt; target&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;x&lt;span style=&#34;color:#1f2328&#34;&gt;))&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;-&lt;/span&gt;error  &lt;span style=&#34;color:#57606a&#34;&gt;# higher is better (less error)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;# Mutate the algorithm slightly&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;mutate&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;alg&lt;span style=&#34;color:#1f2328&#34;&gt;):&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    new &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; alg&lt;span style=&#34;color:#1f2328&#34;&gt;[:]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    idx &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; random&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;randint&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    new&lt;span style=&#34;color:#1f2328&#34;&gt;[&lt;/span&gt;idx&lt;span style=&#34;color:#1f2328&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;+=&lt;/span&gt; random&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;choice&lt;span style=&#34;color:#1f2328&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;])&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;return&lt;/span&gt; new&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57606a&#34;&gt;# Evolutionary search&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;population &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1f2328&#34;&gt;[&lt;/span&gt;random_algorithm&lt;span style=&#34;color:#1f2328&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#cf222e&#34;&gt;for&lt;/span&gt; _ &lt;span style=&#34;color:#0550ae&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;range&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;20&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;for&lt;/span&gt; gen &lt;span style=&#34;color:#0550ae&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;range&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;):&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57606a&#34;&gt;# Evaluate fitness&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    population&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;sort&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt;fitness&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; reverse&lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#cf222e&#34;&gt;True&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    best &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; population&lt;span style=&#34;color:#1f2328&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;if&lt;/span&gt; fitness&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;best&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;:&lt;/span&gt;  &lt;span style=&#34;color:#57606a&#34;&gt;# perfect match&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#cf222e&#34;&gt;break&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57606a&#34;&gt;# Keep top half, mutate to create new&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    new_pop &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; population&lt;span style=&#34;color:#1f2328&#34;&gt;[:&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#cf222e&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#6639ba&#34;&gt;len&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;new_pop&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#0550ae&#34;&gt;20&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;:&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        new_pop&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;append&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;mutate&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;random&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;choice&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;population&lt;span style=&#34;color:#1f2328&#34;&gt;[:&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;])))&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    population &lt;span style=&#34;color:#0550ae&#34;&gt;=&lt;/span&gt; new_pop&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6639ba&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;&amp;#34;Discovered formula coefficients (a, b, c):&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;,&lt;/span&gt; best&lt;span style=&#34;color:#1f2328&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6639ba&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;&amp;#34;Which means: f(x) = &lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;*x^2 + &lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;*x + &lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#0a3069&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;.&lt;/span&gt;format&lt;span style=&#34;color:#1f2328&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0550ae&#34;&gt;*&lt;/span&gt;best&lt;span style=&#34;color:#1f2328&#34;&gt;))&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;&#xA;&lt;h3 id=&#34;what-happens-here&#34;&gt;What happens here&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;We define a &lt;strong&gt;target function&lt;/strong&gt;: &lt;code&gt;x^2 + x + 1&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;The system randomly generates candidate formulas like &lt;code&gt;-3x^2 + 4x + 2&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Each candidate is &lt;strong&gt;scored&lt;/strong&gt; on how close it comes to the real target.&lt;/li&gt;&#xA;&lt;li&gt;The best candidates survive, mutate, and evolve.&lt;/li&gt;&#xA;&lt;li&gt;After several generations, the system “discovers” the correct algorithm &lt;code&gt;[1, 1, 1]&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;This is a toy version of &lt;strong&gt;automatic algorithm discovery&lt;/strong&gt;.&#xA;Instead of just coefficients, real systems search for &lt;strong&gt;entire algorithmic steps&lt;/strong&gt; (loops, branches, optimizations).&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>How the Effort Paradox Harms Top Performers</title>
-				<link>http://localhost:1313/2025/09/how-the-effort-paradox-harms-top-performers/</link>
+				<link>https://notes.muthu.co/2025/09/how-the-effort-paradox-harms-top-performers/</link>
 				<pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/09/how-the-effort-paradox-harms-top-performers/</guid>
+				<guid>https://notes.muthu.co/2025/09/how-the-effort-paradox-harms-top-performers/</guid>
 				<description>&lt;p&gt;Of all the paradoxes in professional life, the effort paradox causes the most harm to top performers.&lt;/p&gt;&#xA;&lt;p&gt;The better you get at your craft, the more invisible your expertise becomes. Clean code looks “obvious”. Well-architected systems run smoothly without drama. Elegant solutions appear simple.&lt;/p&gt;&#xA;&lt;p&gt;But here’s the cruel twist:&lt;/p&gt;&#xA;&lt;p&gt;While effortless-looking work gets taken for granted, messy work gets attention. The engineer who writes brittle code that breaks gets credit for “firefighting” when they fix it. The manager whose poor planning creates chaos gets praised for “crisis leadership” when they resolve it.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Theory of Constraints applied to software development life cycles</title>
-				<link>http://localhost:1313/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</link>
+				<link>https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</link>
 				<pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</guid>
+				<guid>https://notes.muthu.co/2025/08/the-theory-of-constraints-applied-to-software-development-life-cycles/</guid>
 				<description>&lt;p&gt;As engineering leaders, we often focus on optimizing individual processes—faster CI/CD, better code reviews, more efficient testing. But what if the real performance gains come from identifying the single constraint that&amp;rsquo;s limiting your entire delivery pipeline?&lt;/p&gt;&#xA;&lt;p&gt;The Theory of Constraints teaches us that every system has exactly one bottleneck that determines overall throughput. In software development, this could be:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Common SDLC Bottlenecks:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Code review queues that delay merges for days&lt;/li&gt;&#xA;&lt;li&gt;Manual testing phases that create deployment delays&lt;/li&gt;&#xA;&lt;li&gt;Infrastructure provisioning that blocks feature rollouts&lt;/li&gt;&#xA;&lt;li&gt;Knowledge silos where only one person can deploy certain services&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;The Five-Step Process:&lt;/strong&gt;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>TDD with Coding Agents to Build a Rate Limiting Service</title>
-				<link>http://localhost:1313/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</link>
+				<link>https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</link>
 				<pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</guid>
+				<guid>https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/</guid>
 				<description>&lt;h2 id=&#34;problem-overview&#34;&gt;Problem Overview&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll build a sophisticated rate limiting service that supports:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window)&lt;/li&gt;&#xA;&lt;li&gt;Different storage backends (Memory, Redis)&lt;/li&gt;&#xA;&lt;li&gt;Per-user and per-API-key limits&lt;/li&gt;&#xA;&lt;li&gt;Rate limit headers in responses&lt;/li&gt;&#xA;&lt;li&gt;Graceful degradation when storage fails&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is complex enough to demonstrate TDD&amp;rsquo;s power with AI agents.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-tdd-works-exceptionally-well-with-ai-agents&#34;&gt;Why TDD Works Exceptionally Well with AI Agents&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;The AI Agent Advantage:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Perfect Memory&lt;/strong&gt;: Never forgets edge cases once written in tests&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Pattern Recognition&lt;/strong&gt;: Excellent at implementing algorithms to match test specifications&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Systematic Approach&lt;/strong&gt;: Follows TDD discipline consistently&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rapid Iteration&lt;/strong&gt;: Fast feedback cycles between test and implementation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;The Key Insight&lt;/strong&gt;: AI agents excel when they have clear specifications (tests) rather than vague requirements.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Complete Claude Code Best Practices Guide</title>
-				<link>http://localhost:1313/2025/08/the-complete-claude-code-best-practices-guide/</link>
+				<link>https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/</link>
 				<pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/08/the-complete-claude-code-best-practices-guide/</guid>
+				<guid>https://notes.muthu.co/2025/08/the-complete-claude-code-best-practices-guide/</guid>
 				<description>&lt;p&gt;&lt;em&gt;A Comprehensive Manual Compiled from Developer Experiences and Community Knowledge&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#quick-start--setup&#34;&gt;Quick Start &amp;amp; Setup&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#configuration-mastery&#34;&gt;Configuration Mastery&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#core-workflows--patterns&#34;&gt;Core Workflows &amp;amp; Patterns&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#advanced-techniques&#34;&gt;Advanced Techniques&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#team-workflows&#34;&gt;Team Workflows&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#testing--quality-assurance&#34;&gt;Testing &amp;amp; Quality Assurance&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#security--production-practices&#34;&gt;Security &amp;amp; Production Practices&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#cost-optimization&#34;&gt;Cost Optimization&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#multi-claude-workflows&#34;&gt;Multi-Claude Workflows&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mcp-integration&#34;&gt;MCP Integration&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#troubleshooting--tips&#34;&gt;Troubleshooting &amp;amp; Tips&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#community-resources&#34;&gt;Community Resources&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Claude Code represents a paradigm shift in software development - it&amp;rsquo;s not just a coding assistant, but a general-purpose AI agent that happens to excel at code. This guide consolidates insights from Anthropic&amp;rsquo;s internal teams, community developers, and real-world production usage to help you master Claude Code.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Why MMLU Matters and What Massive Multitask Language Understanding Really Tests</title>
-				<link>http://localhost:1313/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/</link>
+				<link>https://notes.muthu.co/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/</link>
 				<pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/</guid>
+				<guid>https://notes.muthu.co/2025/07/why-mmlu-matters-and-what-massive-multitask-language-understanding-really-tests/</guid>
 				<description>&lt;p&gt;I remember the first time I heard about MMLU. I was reading about GPT-3&amp;rsquo;s capabilities, and there it was - this benchmark that claimed to test AI across 57 different subjects. From elementary math to professional law, from world history to computer science. It sounded almost too ambitious to be real.&lt;/p&gt;&#xA;&lt;p&gt;But here&amp;rsquo;s the thing about MMLU (Measuring Massive Multitask Language Understanding) - it&amp;rsquo;s become one of the most important ways we measure how smart our AI systems really are. And after diving deep into it, I think it&amp;rsquo;s worth understanding what makes it special.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Understanding Mixture of Experts from First Principles</title>
-				<link>http://localhost:1313/2025/07/understanding-mixture-of-experts-from-first-principles/</link>
+				<link>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/</link>
 				<pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/understanding-mixture-of-experts-from-first-principles/</guid>
+				<guid>https://notes.muthu.co/2025/07/understanding-mixture-of-experts-from-first-principles/</guid>
 				<description>&lt;p&gt;One of the most exciting architectural innovations in recent years is the &lt;strong&gt;Mixture of Experts (MoE)&lt;/strong&gt;. It&amp;rsquo;s a key reason why models like Mistral&amp;rsquo;s Mixtral and (reportedly) OpenAI&amp;rsquo;s GPT-4 are so powerful.&lt;/p&gt;&#xA;&lt;p&gt;To really understand MoE, let’s go back to first principles.&#xA;Here’s a rewritten version of your article with a &lt;strong&gt;Flesch Reading Ease score above 70&lt;/strong&gt;. The language is simpler and more direct, while keeping the core ideas intact.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>My Thoughts on Andrew Ngs Building Faster and Smarter with AI</title>
-				<link>http://localhost:1313/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/</link>
+				<link>https://notes.muthu.co/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/</link>
 				<pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/</guid>
+				<guid>https://notes.muthu.co/2025/07/my-thoughts-on-andrew-ngs-building-faster-and-smarter-with-ai/</guid>
 				<description>&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/RNJCfif1dPY?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;&#xA;&#x9;&#x9;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;I watched Andrew Ng&amp;rsquo;s latest talk on AI startup strategy, and while I disagree with some of the hype, there are genuinely useful insights buried in the promotional language. Here&amp;rsquo;s what caught my attention. Ng isn&amp;rsquo;t chasing the latest transformer variant or arguing about AGI timelines. He&amp;rsquo;s focused on something much more important: how AI actually helps people build useful things faster.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>
-				<link>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
+				<link>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
 				<pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
+				<guid>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
 				<description>&lt;p&gt;As artificial intelligence becomes more sophisticated, we are moving from single AI models to complex systems of multiple AI agents working together. These multi-agent systems (MAS) have the potential to solve incredibly complex problems, but they face a fundamental challenge: how do the agents talk to each other?&lt;/p&gt;&#xA;&lt;p&gt;Just like humans need language to cooperate, AI agents need communication protocols. These protocols are the rules of the road for AI interaction, defining how agents can exchange information, request actions, and work together on tasks. This post explores four of the most promising agent communication protocols (ACPs) and what they mean for the future of AI.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Small Language Models are the Future of Agentic AI</title>
-				<link>http://localhost:1313/2025/07/small-language-models-are-the-future-of-agentic-ai/</link>
+				<link>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</link>
 				<pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/small-language-models-are-the-future-of-agentic-ai/</guid>
+				<guid>https://notes.muthu.co/2025/07/small-language-models-are-the-future-of-agentic-ai/</guid>
 				<description>&lt;p&gt;I recently came across a paper titled &lt;em&gt;&amp;ldquo;Small Language Models are the Future of Agentic AI,&amp;rdquo;&lt;/em&gt; and it got me thinking. The message is simple but powerful: bigger isn&amp;rsquo;t always better.&lt;/p&gt;&#xA;&lt;p&gt;In the current AI landscape, we often assume that more power equals more performance. But this paper challenges that assumption. Instead, it offers a smarter and more strategic view of how AI can scale without scaling costs.&lt;/p&gt;&#xA;&lt;p&gt;Let’s break it down.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Meet AlphaEvolve the AI That Discovers New Algorithms</title>
-				<link>http://localhost:1313/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</link>
+				<link>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</link>
 				<pubDate>Mon, 07 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</guid>
+				<guid>https://notes.muthu.co/2025/07/meet-alphaevolve-the-ai-that-discovers-new-algorithms/</guid>
 				<description>&lt;p&gt;Imagine a coding partner that doesn’t just write software, but &lt;strong&gt;iteratively evolves it&lt;/strong&gt;, learns from its mistakes, and even &lt;strong&gt;discovers brand-new algorithms&lt;/strong&gt; some better than anything a human has ever designed.&lt;/p&gt;&#xA;&lt;p&gt;Sounds like science fiction, right? Well, it’s exactly what &lt;a href=&#34;https://arxiv.org/abs/2506.13131&#34;&gt;&lt;strong&gt;AlphaEvolve&lt;/strong&gt;&lt;/a&gt;, a new breakthrough from DeepMind, is all about.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;so-what-exactly-is-alphaevolve&#34;&gt;So, What Exactly is AlphaEvolve?&lt;/h2&gt;&#xA;&lt;p&gt;At its heart, &lt;strong&gt;AlphaEvolve&lt;/strong&gt; is an AI agent that’s been built to do one thing: &lt;em&gt;discover new and better code through evolution&lt;/em&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>About</title>
-				<link>http://localhost:1313/about/</link>
+				<link>https://notes.muthu.co/about/</link>
 				<pubDate>Sun, 06 Jul 2025 10:00:00 +0530</pubDate>
-				<guid>http://localhost:1313/about/</guid>
+				<guid>https://notes.muthu.co/about/</guid>
 				<description>&lt;p&gt;Hello! I&amp;rsquo;m &lt;strong&gt;Muthu Krishnan&lt;/strong&gt;, An AI Agents builder at Sanas.ai building a team of AI Agents which automate many of our core workflows as Sanas.ai . I have over 16 years of experience building scalable SaaS applications. I&amp;rsquo;m passionate about the intersection of AI, software engineering, and innovative technology. I specialize in developing robust, scalable software solutions with a focus on AI and machine learning technologies. My expertise spans across multiple programming languages and technologies, with particular strength in Java, Python, and AI systems.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Learning CrewAI in a Step-by-Step Guide with 10 Concepts</title>
-				<link>http://localhost:1313/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</link>
+				<link>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</link>
 				<pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</guid>
+				<guid>https://notes.muthu.co/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/</guid>
 				<description>&lt;p&gt;CrewAI is a cutting-edge framework for orchestrating autonomous AI agents. It allows you to build sophisticated multi-agent systems that can collaborate to solve complex problems. This guide breaks down CrewAI into 10 fundamental concepts, taking you from first principles to building a complete, end-to-end agentic workflow.&lt;/p&gt;&#xA;&lt;h3 id=&#34;concept-1-the-agent&#34;&gt;&lt;strong&gt;Concept 1: The Agent&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fundamental Idea:&lt;/strong&gt; An Agent is an autonomous entity designed to perform specific roles, achieve goals, and execute tasks. Think of it as a specialized member of your AI team. Each agent has a unique role, a goal that defines its purpose, and a backstory that provides context and personality. This allows agents to behave in a more specialized and predictable way.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>An Introduction to Context Engineering for AI Code Generation</title>
-				<link>http://localhost:1313/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</link>
+				<link>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</link>
 				<pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</guid>
+				<guid>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</guid>
 				<description>&lt;p&gt;One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.&lt;/p&gt;&#xA;&lt;p&gt;This is where &lt;strong&gt;context engineering&lt;/strong&gt; comes in. Instead of relying on the LLM&amp;rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>A Developers Guide to Effective AI Coding Agents</title>
-				<link>http://localhost:1313/2025/07/a-developers-guide-to-effective-ai-coding-agents/</link>
+				<link>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</link>
 				<pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/07/a-developers-guide-to-effective-ai-coding-agents/</guid>
+				<guid>https://notes.muthu.co/2025/07/a-developers-guide-to-effective-ai-coding-agents/</guid>
 				<description>&lt;p&gt;AI-powered coding assistants are rapidly evolving from simple auto-completion tools into sophisticated, &lt;strong&gt;collaborative agents&lt;/strong&gt;. While it&amp;rsquo;s tempting to offload entire tasks to these systems, the most effective approach is a &lt;em&gt;guided&lt;/em&gt; one, where the developer remains the architect and the AI acts as a highly efficient executor.&lt;/p&gt;&#xA;&lt;p&gt;This guide outlines a structured workflow for leveraging AI coding agents, ensuring you maintain control, improve code quality, and boost your productivity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-developer-as-architect&#34;&gt;&lt;strong&gt;The Developer as Architect&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;The fundamental principle of effective AI collaboration is that &lt;strong&gt;the developer must lead the process&lt;/strong&gt;. Over-delegating to an AI without a clear plan can lead to a loss of context, architectural drift, and code that is difficult to maintain.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Deep Research Applications of Modern LLMs Generated through Deep Research</title>
-				<link>http://localhost:1313/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</link>
+				<link>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</link>
 				<pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</guid>
+				<guid>https://notes.muthu.co/2025/03/deep-research-applications-of-modern-llms-generated-through-deep-research/</guid>
 				<description>&lt;p&gt;Artificial Intelligence is moving beyond conversational chatbots to become &lt;em&gt;autonomous research agents&lt;/em&gt;. Unlike conventional LLM assistants that answer questions based on pre-trained knowledge, these new systems—collectively called &lt;strong&gt;Deep Research AI&lt;/strong&gt;—can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Plan and execute multi-step investigations&lt;/li&gt;&#xA;&lt;li&gt;Formulate sub-questions and hypotheses&lt;/li&gt;&#xA;&lt;li&gt;Browse the web and databases iteratively&lt;/li&gt;&#xA;&lt;li&gt;Evaluate sources and compile structured reports with citations&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This process, while slower, achieves comprehensive, verifiable insights comparable to a PhD-level literature review.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-deep-research-works&#34;&gt;&lt;strong&gt;How Deep Research Works&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Core Stages:&lt;/strong&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>

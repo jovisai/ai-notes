@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Deliberation on Engineering Notes</title>
-		<link>http://localhost:1313/tags/deliberation/</link>
+		<link>https://notes.muthu.co/tags/deliberation/</link>
 		<description>Recent content in Deliberation on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/deliberation/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://notes.muthu.co/tags/deliberation/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Improving Decisions Through Multi-Agent Debate and Deliberation</title>
-				<link>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
+				<link>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</link>
 				<pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
+				<guid>https://notes.muthu.co/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/</guid>
 				<description>&lt;h2 id=&#34;the-wisdom-of-disagreement&#34;&gt;The Wisdom of Disagreement&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Multi-agent debate&lt;/strong&gt; is a pattern where multiple AI agents with different viewpoints deliberate to reach better conclusions than any single agent could achieve alone. Unlike simple voting or averaging, it involves iterative argumentation: agents respond to each other, refine their positions, and sometimes change their minds. The result is more robust reasoning, reduced hallucinations, and decisions that account for edge cases a lone agent might miss.&lt;/p&gt;</description>
 			</item>
 	</channel>
