@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Interoperability on Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/interoperability/</link>
+		<link>http://localhost:1313/tags/interoperability/</link>
 		<description>Recent content in Interoperability on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://notes.muthu.co/tags/interoperability/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/interoperability/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>AI Agent Communication Protocols MCP, ACP, A2A, and ANP</title>
-				<link>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
+				<link>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</link>
 				<pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
+				<guid>http://localhost:1313/2025/07/ai-agent-communication-protocols-mcp-acp-a2a-and-anp/</guid>
 				<description>&lt;p&gt;As artificial intelligence becomes more sophisticated, we are moving from single AI models to complex systems of multiple AI agents working together. These multi-agent systems (MAS) have the potential to solve incredibly complex problems, but they face a fundamental challenge: how do the agents talk to each other?&lt;/p&gt;&#xA;&lt;p&gt;Just like humans need language to cooperate, AI agents need communication protocols. These protocols are the rules of the road for AI interaction, defining how agents can exchange information, request actions, and work together on tasks. This post explores four of the most promising agent communication protocols (ACPs) and what they mean for the future of AI.&lt;/p&gt;</description>
 			</item>
 	</channel>

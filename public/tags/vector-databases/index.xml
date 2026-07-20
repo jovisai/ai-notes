@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Vector Databases on Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/vector-databases/</link>
+		<link>http://localhost:1313/tags/vector-databases/</link>
 		<description>Recent content in Vector Databases on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://notes.muthu.co/tags/vector-databases/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/vector-databases/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Architecting Short-Term and Long-Term Memory in AI Agents</title>
-				<link>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</link>
+				<link>http://localhost:1313/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</link>
 				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</guid>
+				<guid>http://localhost:1313/2025/10/architecting-short-term-and-long-term-memory-in-ai-agents/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI agents require structured memory to operate effectively across turns and sessions. Without it, every interaction starts from scratch, and the agent cannot learn from experience or maintain coherent context.&lt;/p&gt;&#xA;&lt;p&gt;Agent memory falls into two broad categories:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Short-Term (or Working) Memory:&lt;/strong&gt; This is the agent&amp;rsquo;s &amp;ldquo;scratchpad.&amp;rdquo; It&amp;rsquo;s the context of the current conversation, the results of recent tool calls, and the immediate plan of action. It&amp;rsquo;s volatile and limited.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Long-Term Memory:&lt;/strong&gt; This is the agent&amp;rsquo;s persistent knowledge store. It&amp;rsquo;s where the agent saves key facts, past conversations, user preferences, and learned insights. It&amp;rsquo;s vast and durable.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Architecting the flow of information between these memory systems is one of the most critical aspects of designing an intelligent agent.&lt;/p&gt;</description>
 			</item>
 	</channel>

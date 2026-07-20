@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Workflow-Orchestration on Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/workflow-orchestration/</link>
+		<link>http://localhost:1313/tags/workflow-orchestration/</link>
 		<description>Recent content in Workflow-Orchestration on Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="https://notes.muthu.co/tags/workflow-orchestration/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/workflow-orchestration/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Building Stateful AI Systems with LangGraph and Agentic Workflow Graphs</title>
-				<link>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</link>
+				<link>http://localhost:1313/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</link>
 				<pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</guid>
+				<guid>http://localhost:1313/2025/10/building-stateful-ai-systems-with-langgraph-and-agentic-workflow-graphs/</guid>
 				<description>&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Agentic workflow graphs&lt;/strong&gt; represent agent systems as directed graphs where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Nodes&lt;/strong&gt; are computational units (LLM calls, tool executions, or control logic)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Edges&lt;/strong&gt; define state transitions (conditional or unconditional)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;State&lt;/strong&gt; is a shared data structure that persists and evolves across node executions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Cycles&lt;/strong&gt; enable iterative reasoning, self-correction, and multi-turn interactions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This architecture addresses a fundamental limitation of prompt chaining: linear chains can&amp;rsquo;t handle complex control flow, error recovery, or adaptive decision-making without brittle workarounds.&lt;/p&gt;</description>
 			</item>
 	</channel>
