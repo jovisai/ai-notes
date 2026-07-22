@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Context Engineering on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/context-engineering/</link>
-		<description>Recent content in Context Engineering on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/context-engineering/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
-				<link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
-				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
-				<description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>An Introduction to Context Engineering for AI Code Generation</title>
-				<link>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</link>
-				<pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</guid>
-				<description>&lt;p&gt;One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.&lt;/p&gt;&#xA;&lt;p&gt;This is where &lt;strong&gt;context engineering&lt;/strong&gt; comes in. Instead of relying on the LLM&amp;rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.&lt;/p&gt;</description>
-			</item>
-	</channel>
+  <channel>
+    <title>Context Engineering on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/context-engineering/</link>
+    <description>Recent content in Context Engineering on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/context-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working Memory Compression and Context Distillation in Long Horizon Agents</title>
+      <link>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/</guid>
+      <description>&lt;p&gt;Long-running agents break. Not because of bugs in the usual sense, but because they run out of room to think. An agent investigating a codebase, synthesizing research over dozens of documents, or managing a multi-day workflow eventually fills its context window with accumulated history. At that point, either the oldest observations get silently truncated (and the agent loses track of what it already tried), or the whole run crashes. Both outcomes are unacceptable for production systems.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>An Introduction to Context Engineering for AI Code Generation</title>
+      <link>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</link>
+      <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/07/an-introduction-to-context-engineering-for-ai-code-generation/</guid>
+      <description>&lt;p&gt;One of the most common frustrations with AI coding assistants is their tendency to generate code that is outdated or relies on deprecated libraries. This happens because the Large Language Models (LLMs) that power these assistants are trained on vast but static datasets. By the time a model is released, the libraries and frameworks it was trained on may have already been updated.&lt;/p&gt;&#xA;&lt;p&gt;This is where &lt;strong&gt;context engineering&lt;/strong&gt; comes in. Instead of relying on the LLM&amp;rsquo;s outdated knowledge, we can provide it with up-to-date information directly in the prompt. This ensures that the generated code is current, correct, and uses the latest best practices.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

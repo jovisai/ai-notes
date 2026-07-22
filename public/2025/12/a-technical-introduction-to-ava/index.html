@@ -2,36 +2,37 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Technical Introduction to Ava - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Technical Introduction to Ava - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/"><meta name="description" content="Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan.">
 	
-	<meta itemprop="name" content="A Technical Introduction to Ava">
-	<meta itemprop="description" content="Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
+  <meta itemprop="name" content="A Technical Introduction to Ava">
+  <meta itemprop="description" content="Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
 GitHub Repository: https://github.com/muthuspark/ava/
 Live Demo: https://ava.muthu.co
 Ava’s capabilities include:">
-	<meta itemprop="datePublished" content="2025-12-22T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2025-12-22T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1109"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="A Technical Introduction to Ava">
-	<meta property="og:description" content="Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
+  <meta itemprop="datePublished" content="2025-12-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1109"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="A Technical Introduction to Ava">
+  <meta property="og:description" content="Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
 GitHub Repository: https://github.com/muthuspark/ava/
 Live Demo: https://ava.muthu.co
 Ava’s capabilities include:">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2025-12-22T00:00:00+00:00">
-		<meta property="article:modified_time" content="2025-12-22T00:00:00+00:00">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-22T00:00:00+00:00">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="A Technical Introduction to Ava">
-	<meta name="twitter:description" content="Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Technical Introduction to Ava">
+  <meta name="twitter:description" content="Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side and use it with speech. It uses WebAssembly to perform all of its functions locally on the user’s device which means that no data is ever sent to a server, ensuring complete privacy.
 GitHub Repository: https://github.com/muthuspark/ava/
 Live Demo: https://ava.muthu.co
 Ava’s capabilities include:">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-12-22T00:00:00Z","datePublished":"2025-12-22T00:00:00Z","description":" Ava is an AI voice assistant that runs entirely in the browser. It is an experimental project to understand how to use LLM models completely on the client side …","headline":"A Technical Introduction to Ava","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/12/a-technical-introduction-to-ava/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -39,11 +40,6 @@ Ava’s capabilities include:">
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -55,12 +51,6 @@ Ava’s capabilities include:">
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -116,6 +106,9 @@ Ava’s capabilities include:">
             <span class="rest">Dec 2025</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -206,50 +199,50 @@ Ava’s capabilities include:">
 <h2 id="technical-stack">Technical Stack</h2>
 <p>The following table details the technologies used in Ava:</p>
 <table>
-	<thead>
-			<tr>
-					<th>Component</th>
-					<th>Technology</th>
-					<th>Size</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Voice Activity Detection</td>
-					<td>Silero VAD v5 (@ricky0123/vad-web)</td>
-					<td>~2MB</td>
-			</tr>
-			<tr>
-					<td>Speech-to-Text</td>
-					<td>Whisper tiny-en (@huggingface/transformers)</td>
-					<td>~40MB</td>
-			</tr>
-			<tr>
-					<td>LLM</td>
-					<td>Gemma 3 270M Instruct (Wllama)</td>
-					<td>~180MB</td>
-			</tr>
-			<tr>
-					<td>Text-to-Speech</td>
-					<td>Web Speech Synthesis API</td>
-					<td>Native</td>
-			</tr>
-			<tr>
-					<td>Audio Visualization</td>
-					<td>Web Audio API</td>
-					<td>Native</td>
-			</tr>
-			<tr>
-					<td>Frontend</td>
-					<td>Vue 3 + TypeScript</td>
-					<td>—</td>
-			</tr>
-			<tr>
-					<td>Build</td>
-					<td>Vite</td>
-					<td>—</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Technology</th>
+          <th>Size</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Voice Activity Detection</td>
+          <td>Silero VAD v5 (@ricky0123/vad-web)</td>
+          <td>~2MB</td>
+      </tr>
+      <tr>
+          <td>Speech-to-Text</td>
+          <td>Whisper tiny-en (@huggingface/transformers)</td>
+          <td>~40MB</td>
+      </tr>
+      <tr>
+          <td>LLM</td>
+          <td>Gemma 3 270M Instruct (Wllama)</td>
+          <td>~180MB</td>
+      </tr>
+      <tr>
+          <td>Text-to-Speech</td>
+          <td>Web Speech Synthesis API</td>
+          <td>Native</td>
+      </tr>
+      <tr>
+          <td>Audio Visualization</td>
+          <td>Web Audio API</td>
+          <td>Native</td>
+      </tr>
+      <tr>
+          <td>Frontend</td>
+          <td>Vue 3 + TypeScript</td>
+          <td>—</td>
+      </tr>
+      <tr>
+          <td>Build</td>
+          <td>Vite</td>
+          <td>—</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="project-structure">Project Structure</h2>
 <p>The project is structured as follows:</p>
@@ -319,18 +312,18 @@ Ava’s capabilities include:">
 <h2 id="configuration">Configuration</h2>
 <p>Ava&rsquo;s behavior can be customized by adjusting the following parameters:</p>
 <h3 id="llm-settings-usewllamats">LLM Settings (<code>useWllama.ts</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#1f2328">nPredict</span>: <span style="color:#cf222e">64</span><span style="color:#1f2328">,</span>              <span style="color:#57606a">// Max tokens (lower = faster response)
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">temp</span>: <span style="color:#cf222e">0.7</span><span style="color:#1f2328">,</span>                 <span style="color:#57606a">// Sampling temperature
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">top_k</span>: <span style="color:#cf222e">40</span><span style="color:#1f2328">,</span>                 <span style="color:#57606a">// Top-k sampling
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">top_p</span>: <span style="color:#cf222e">0.9</span><span style="color:#1f2328">,</span>                <span style="color:#57606a">// Nucleus sampling
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#1f2328">nPredict</span>: <span style="color:#cf222e">64</span><span style="color:#1f2328">,</span>              <span style="color:#57606a">// Max tokens (lower = faster response)
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">temp</span>: <span style="color:#cf222e">0.7</span><span style="color:#1f2328">,</span>                 <span style="color:#57606a">// Sampling temperature
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">top_k</span>: <span style="color:#cf222e">40</span><span style="color:#1f2328">,</span>                 <span style="color:#57606a">// Top-k sampling
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">top_p</span>: <span style="color:#cf222e">0.9</span><span style="color:#1f2328">,</span>                <span style="color:#57606a">// Nucleus sampling
 </span></span></span></code></pre></div><h3 id="vad-settings-usewhisperts">VAD Settings (<code>useWhisper.ts</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#1f2328">positiveSpeechThreshold</span>: <span style="color:#cf222e">0.5</span><span style="color:#1f2328">,</span>  <span style="color:#57606a">// Confidence threshold for speech detection
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">negativeSpeechThreshold</span>: <span style="color:#cf222e">0.35</span><span style="color:#1f2328">,</span> <span style="color:#57606a">// Threshold for non-speech
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">redemptionMs</span>: <span style="color:#cf222e">800</span><span style="color:#1f2328">,</span>             <span style="color:#57606a">// Wait time after speech ends before triggering
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">minSpeechMs</span>: <span style="color:#cf222e">200</span><span style="color:#1f2328">,</span>              <span style="color:#57606a">// Minimum speech duration to consider
-</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">preSpeechPadMs</span>: <span style="color:#cf222e">300</span><span style="color:#1f2328">,</span>           <span style="color:#57606a">// Audio to include before speech detected
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#1f2328">positiveSpeechThreshold</span>: <span style="color:#cf222e">0.5</span><span style="color:#1f2328">,</span>  <span style="color:#57606a">// Confidence threshold for speech detection
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">negativeSpeechThreshold</span>: <span style="color:#cf222e">0.35</span><span style="color:#1f2328">,</span> <span style="color:#57606a">// Threshold for non-speech
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">redemptionMs</span>: <span style="color:#cf222e">800</span><span style="color:#1f2328">,</span>             <span style="color:#57606a">// Wait time after speech ends before triggering
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">minSpeechMs</span>: <span style="color:#cf222e">200</span><span style="color:#1f2328">,</span>              <span style="color:#57606a">// Minimum speech duration to consider
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#1f2328">preSpeechPadMs</span>: <span style="color:#cf222e">300</span><span style="color:#1f2328">,</span>           <span style="color:#57606a">// Audio to include before speech detected
 </span></span></span></code></pre></div><h3 id="sentence-boundary-usewllamats">Sentence Boundary (<code>useWllama.ts</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">SENTENCE_BOUNDARY</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">/[.!?,](?:\s|$)/</span>  <span style="color:#57606a">// TTS triggers on punctuation
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#cf222e">const</span> <span style="color:#1f2328">SENTENCE_BOUNDARY</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">/[.!?,](?:\s|$)/</span>  <span style="color:#57606a">// TTS triggers on punctuation
 </span></span></span></code></pre></div><h2 id="requirements">Requirements</h2>
 <ul>
 <li><strong>Browser</strong>: Chrome 90+ or Edge 90+ (requires <code>SharedArrayBuffer</code>)</li>
@@ -342,25 +335,25 @@ Cross-Origin-Embedder-Policy: require-corp
 <h2 id="permissions">Permissions</h2>
 <p>Ava requires the following browser permissions:</p>
 <table>
-	<thead>
-			<tr>
-					<th>Permission</th>
-					<th>Purpose</th>
-					<th>Required</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Microphone</td>
-					<td>Voice input for Whisper</td>
-					<td>Yes</td>
-			</tr>
-			<tr>
-					<td>Audio Playback</td>
-					<td>Text-to-speech output</td>
-					<td>Yes</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Permission</th>
+          <th>Purpose</th>
+          <th>Required</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Microphone</td>
+          <td>Voice input for Whisper</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Audio Playback</td>
+          <td>Text-to-speech output</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="performance">Performance</h2>
 <ul>
@@ -390,6 +383,11 @@ Cross-Origin-Embedder-Policy: require-corp
     
     
 </div>
+
+
+
+
+
 
 
 

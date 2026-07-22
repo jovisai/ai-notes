@@ -2,6 +2,7 @@
 title: "Local-First LLM Routing - Use Small Models for Easy Questions and Cloud Models for Hard Ones"
 date: 2026-07-01
 draft: false
+featured: true
 tags: ["ai", "llm", "local-models", "routing", "software-architecture"]
 description: "A practical guide to building a local-first LLM gateway that sends simple queries to local models and escalates harder work to remote frontier models."
 ---

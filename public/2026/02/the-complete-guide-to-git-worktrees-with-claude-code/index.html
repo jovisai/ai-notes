@@ -2,27 +2,28 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Complete Guide to Git Worktrees with Claude Code - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Complete Guide to Git Worktrees with Claude Code - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/"><meta name="description" content="Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan.">
 	
-	<meta itemprop="name" content="The Complete Guide to Git Worktrees with Claude Code">
-	<meta itemprop="description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
-	<meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
-	<meta itemprop="wordCount" content="3290"><meta property="og:url" content="https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="The Complete Guide to Git Worktrees with Claude Code">
-	<meta property="og:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2026-02-02T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="name" content="The Complete Guide to Git Worktrees with Claude Code">
+  <meta itemprop="description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
+  <meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3290"><meta property="og:url" content="https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="The Complete Guide to Git Worktrees with Claude Code">
+  <meta property="og:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-02T00:00:00+00:00">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="The Complete Guide to Git Worktrees with Claude Code">
-	<meta name="twitter:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Complete Guide to Git Worktrees with Claude Code">
+  <meta name="twitter:description" content="Table of Contents Introduction Understanding Git Worktrees Why Worktrees &#43; Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts and Tools Custom Claude Commands for Worktrees Advanced Techniques Merging and Integration Troubleshooting Best Practices Real-World Examples 1. Introduction The Problem: Context Switching Kills Productivity You’re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you’re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2026-02-02T00:00:00Z","datePublished":"2026-02-02T00:00:00Z","description":"Table of Contents Introduction Understanding Git Worktrees Why Worktrees + Claude Code Basic Setup and Commands Parallel Development Workflow Automation Scripts …","headline":"The Complete Guide to Git Worktrees with Claude Code","mainEntityOfPage":{"@id":"https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2026/02/the-complete-guide-to-git-worktrees-with-claude-code/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -30,11 +31,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -46,12 +42,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -107,6 +97,9 @@
             <span class="rest">Feb 2026</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -133,7 +126,7 @@
 <h3 id="the-problem-context-switching-kills-productivity">The Problem: Context Switching Kills Productivity</h3>
 <p>You&rsquo;re deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you&rsquo;re making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.</p>
 <p>Traditional workflow:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git stash push -u -m <span style="color:#0a3069">&#34;WIP: feature work&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git stash push -u -m <span style="color:#0a3069">&#34;WIP: feature work&#34;</span>
 </span></span><span style="display:flex;"><span>git checkout main
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># do urgent work</span>
 </span></span><span style="display:flex;"><span>git checkout feature-branch
@@ -144,8 +137,8 @@
 </span></span></code></pre></div><p>This workflow is fragile, slow, and destroys the deep understanding Claude has built about your specific task.</p>
 <h3 id="the-solution-git-worktrees">The Solution: Git Worktrees</h3>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HrNtlJGvvqg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-		</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HrNtlJGvvqg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <p>Git worktrees allow you to have <strong>multiple working directories</strong> attached to the same repository, each checked out to a different branch. Combined with Claude Code, this enables:</p>
 <ul>
@@ -173,38 +166,38 @@
     └── .git                 # Text file pointing to main .git
 </code></pre><h3 id="key-properties">Key Properties</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Property</th>
-					<th>Behavior</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>.git</code> directory</td>
-					<td>Shared across all worktrees</td>
-			</tr>
-			<tr>
-					<td>Working files</td>
-					<td>Independent per worktree</td>
-			</tr>
-			<tr>
-					<td>Git history</td>
-					<td>Shared—commits visible everywhere</td>
-			</tr>
-			<tr>
-					<td>Remote connections</td>
-					<td>Shared</td>
-			</tr>
-			<tr>
-					<td>Branch checkout</td>
-					<td>Cannot checkout same branch in multiple worktrees</td>
-			</tr>
-			<tr>
-					<td>File changes</td>
-					<td>Completely isolated per worktree</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Behavior</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.git</code> directory</td>
+          <td>Shared across all worktrees</td>
+      </tr>
+      <tr>
+          <td>Working files</td>
+          <td>Independent per worktree</td>
+      </tr>
+      <tr>
+          <td>Git history</td>
+          <td>Shared—commits visible everywhere</td>
+      </tr>
+      <tr>
+          <td>Remote connections</td>
+          <td>Shared</td>
+      </tr>
+      <tr>
+          <td>Branch checkout</td>
+          <td>Cannot checkout same branch in multiple worktrees</td>
+      </tr>
+      <tr>
+          <td>File changes</td>
+          <td>Completely isolated per worktree</td>
+      </tr>
+  </tbody>
 </table>
 <hr>
 <h2 id="3-why-worktrees--claude-code">3. Why Worktrees + Claude Code</h2>
@@ -238,7 +231,7 @@
 <hr>
 <h2 id="4-basic-setup-and-commands">4. Basic Setup and Commands</h2>
 <h3 id="creating-worktrees">Creating Worktrees</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create a worktree with a NEW branch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create a worktree with a NEW branch</span>
 </span></span><span style="display:flex;"><span>git worktree add ../project-feature-auth -b feature/auth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a worktree with an EXISTING branch</span>
@@ -250,13 +243,13 @@
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Create a detached HEAD worktree (for experimentation)</span>
 </span></span><span style="display:flex;"><span>git worktree add -d ../project-experiment
 </span></span></code></pre></div><h3 id="listing-worktrees">Listing Worktrees</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git worktree list
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git worktree list
 </span></span></code></pre></div><p>Output:</p>
 <pre tabindex="0"><code>/home/user/projects/my-project         abc1234 [main]
 /home/user/projects/my-project-auth    def5678 [feature/auth]
 /home/user/projects/my-project-bugfix  ghi9012 [bugfix/issue-123]
 </code></pre><h3 id="removing-worktrees">Removing Worktrees</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Remove a worktree (directory must be clean)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Remove a worktree (directory must be clean)</span>
 </span></span><span style="display:flex;"><span>git worktree remove ../project-feature-auth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Force remove (even with uncommitted changes)</span>
@@ -265,7 +258,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Clean up stale worktree references</span>
 </span></span><span style="display:flex;"><span>git worktree prune
 </span></span></code></pre></div><h3 id="running-claude-in-a-worktree">Running Claude in a Worktree</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Navigate to worktree</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Navigate to worktree</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../project-feature-auth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Start Claude Code</span>
@@ -277,12 +270,12 @@
 <h2 id="5-parallel-development-workflow">5. Parallel Development Workflow</h2>
 <h3 id="step-by-step-workflow">Step-by-Step Workflow</h3>
 <h4 id="step-1-create-worktrees-for-each-task">Step 1: Create Worktrees for Each Task</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># From your main project directory</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># From your main project directory</span>
 </span></span><span style="display:flex;"><span>git worktree add ../myproject-feature-auth -b feature/user-authentication
 </span></span><span style="display:flex;"><span>git worktree add ../myproject-bugfix-api -b bugfix/api-rate-limiting
 </span></span><span style="display:flex;"><span>git worktree add ../myproject-refactor -b refactor/cleanup-utils
 </span></span></code></pre></div><h4 id="step-2-initialize-each-worktree-environment">Step 2: Initialize Each Worktree Environment</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># For each worktree, install dependencies</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># For each worktree, install dependencies</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../myproject-feature-auth
 </span></span><span style="display:flex;"><span>npm install  <span style="color:#57606a"># or pip install -r requirements.txt, etc.</span>
 </span></span><span style="display:flex;"><span>
@@ -321,7 +314,7 @@ then implement a solution with proper tests.
 <li>Review generated code</li>
 </ul>
 <h4 id="step-6-review-and-merge">Step 6: Review and Merge</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In each worktree, create PRs</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In each worktree, create PRs</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../myproject-feature-auth
 </span></span><span style="display:flex;"><span>gh pr create --draft --title <span style="color:#0a3069">&#34;feat: OAuth2 authentication&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -329,7 +322,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># In Claude session:</span>
 </span></span><span style="display:flex;"><span>&gt; Create a PR <span style="color:#cf222e">for</span> these changes with comprehensive description
 </span></span></code></pre></div><h4 id="step-7-cleanup">Step 7: Cleanup</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># After merging, remove worktrees</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># After merging, remove worktrees</span>
 </span></span><span style="display:flex;"><span>git worktree remove ../myproject-feature-auth
 </span></span><span style="display:flex;"><span>git worktree remove ../myproject-bugfix-api
 </span></span><span style="display:flex;"><span>git worktree remove ../myproject-refactor
@@ -340,7 +333,7 @@ then implement a solution with proper tests.
 <h2 id="6-automation-scripts-and-tools">6. Automation Scripts and Tools</h2>
 <h3 id="simple-bash-function-for-worktree-management">Simple Bash Function for Worktree Management</h3>
 <p>Add to your <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Quick worktree creation and Claude launch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Quick worktree creation and Claude launch</span>
 </span></span><span style="display:flex;"><span>cw<span style="color:#0550ae">()</span> <span style="color:#0550ae">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">local</span> <span style="color:#953800">branch_name</span><span style="color:#0550ae">=</span><span style="color:#953800">$1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">local</span> <span style="color:#953800">project_name</span><span style="color:#0550ae">=</span><span style="color:#cf222e">$(</span>basename <span style="color:#cf222e">$(</span>git rev-parse --show-toplevel<span style="color:#cf222e">))</span>
@@ -348,7 +341,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Create worktree</span>
 </span></span><span style="display:flex;"><span>    git worktree add <span style="color:#0a3069">&#34;</span><span style="color:#953800">$worktree_path</span><span style="color:#0a3069">&#34;</span> -b <span style="color:#0a3069">&#34;</span><span style="color:#953800">$branch_name</span><span style="color:#0a3069">&#34;</span> 2&gt;/dev/null <span style="color:#0550ae">||</span> <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span>    git worktree add <span style="color:#0a3069">&#34;</span><span style="color:#953800">$worktree_path</span><span style="color:#0a3069">&#34;</span> <span style="color:#0a3069">&#34;</span><span style="color:#953800">$branch_name</span><span style="color:#0a3069">&#34;</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    git worktree add <span style="color:#0a3069">&#34;</span><span style="color:#953800">$worktree_path</span><span style="color:#0a3069">&#34;</span> <span style="color:#0a3069">&#34;</span><span style="color:#953800">$branch_name</span><span style="color:#0a3069">&#34;</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#57606a"># Navigate and start Claude</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">cd</span> <span style="color:#0a3069">&#34;</span><span style="color:#953800">$worktree_path</span><span style="color:#0a3069">&#34;</span>
@@ -383,7 +376,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">fi</span>
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">}</span>
 </span></span></code></pre></div><p>Usage:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree and launch Claude</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree and launch Claude</span>
 </span></span><span style="display:flex;"><span>cw feature-auth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># List worktrees</span>
@@ -393,8 +386,8 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>cwr ../myproject-feature-auth
 </span></span></code></pre></div><h3 id="advanced-worktree-manager-script">Advanced Worktree Manager Script</h3>
 <p>Save as <code>cw</code> in your PATH:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#57606a"># Claude Worktree Manager (cw)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#57606a"># Claude Worktree Manager (cw)</span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Usage: cw setup &lt;branch-name&gt; [sparse-path]</span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a">#        cw list</span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a">#        cw cleanup &lt;branch-name&gt;</span>
@@ -470,11 +463,11 @@ then implement a solution with proper tests.
 </span></span></code></pre></div><h2 id="7-custom-claude-commands-for-worktrees">7. Custom Claude Commands for Worktrees</h2>
 <h3 id="create-a-worktree-command">Create a <code>/worktree</code> Command</h3>
 <p>Create <code>.claude/commands/worktree.md</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">argument-hint</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>branch-name<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">description</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Create a git worktree in a peer directory<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>argument-hint: branch-name
+</span></span><span style="display:flex;"><span>description: Create a git worktree in a peer directory
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Create a git worktree in a peer directory.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Arguments
@@ -507,11 +500,11 @@ then implement a solution with proper tests.
 /worktree &#34;implement user login&#34;
 </code></pre><h3 id="create-a-pr-command-for-worktrees">Create a <code>/pr</code> Command for Worktrees</h3>
 <p>Create <code>.claude/commands/pr.md</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">allowed-tools</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Bash(git *), Bash(gh *)<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">description</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Create a pull request from the current worktree<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>allowed-tools: Bash(git <span style="color:#1f2328">*), Bash(gh *</span>)
+</span></span><span style="display:flex;"><span>description: Create a pull request from the current worktree
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Create a pull request for the changes in this worktree.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Steps
@@ -534,10 +527,10 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Add labels
 </span></span></code></pre></div><h3 id="create-a-done-command">Create a <code>/done</code> Command</h3>
 <p>Create <code>.claude/commands/done.md</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">description</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Complete work in this worktree and prepare for merge<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>description: Complete work in this worktree and prepare for merge
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Finalize work in this worktree.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Steps
@@ -557,7 +550,7 @@ then implement a solution with proper tests.
 <h2 id="8-advanced-techniques">8. Advanced Techniques</h2>
 <h3 id="sparse-checkout-for-monorepos">Sparse Checkout for Monorepos</h3>
 <p>For large monorepos, combine worktrees with sparse checkout to limit Claude&rsquo;s context:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree with NO files initially</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree with NO files initially</span>
 </span></span><span style="display:flex;"><span>git worktree add --no-checkout gwt/api-fix -b fix/api-bug
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Navigate and configure sparse checkout</span>
@@ -576,7 +569,7 @@ then implement a solution with proper tests.
 </ul>
 <h3 id="running-multiple-models-in-parallel">Running Multiple Models in Parallel</h3>
 <p>Use worktrees to compare different approaches:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktrees for different experiments</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktrees for different experiments</span>
 </span></span><span style="display:flex;"><span>git worktree add ../project-approach-a -b exp/approach-a
 </span></span><span style="display:flex;"><span>git worktree add ../project-approach-b -b exp/approach-b
 </span></span><span style="display:flex;"><span>
@@ -592,26 +585,26 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Compare results and cherry-pick the winner</span>
 </span></span></code></pre></div><h3 id="batch-processing-with-worktrees">Batch Processing with Worktrees</h3>
 <p>For large-scale migrations:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Loop to create multiple worktrees with rate limiting</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Loop to create multiple worktrees with rate limiting</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">for</span> i in <span style="color:#cf222e">$(</span>seq <span style="color:#0550ae">1</span> 10<span style="color:#cf222e">)</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">do</span>
 </span></span><span style="display:flex;"><span>    claude --dangerously-skip-permissions --print /worktree
 </span></span><span style="display:flex;"><span>    sleep <span style="color:#0550ae">300</span>  <span style="color:#57606a"># Wait 5 minutes between tasks</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
 </span></span></code></pre></div><h3 id="container-isolation-with-worktrees">Container Isolation with Worktrees</h3>
 <p>For maximum isolation, run Claude in containers:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree</span>
 </span></span><span style="display:flex;"><span>git worktree add ../project-experiment -b exp/risky-changes
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Run Claude in a Docker container mounted to that worktree</span>
 </span></span><span style="display:flex;"><span>docker run -it -v <span style="color:#cf222e">$(</span><span style="color:#6639ba">pwd</span><span style="color:#cf222e">)</span>/../project-experiment:/workspace <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span>    anthropic/claude-code:latest <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span>    claude --dangerously-skip-permissions <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;Experiment with aggressive refactoring&#34;</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    anthropic/claude-code:latest <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    claude --dangerously-skip-permissions <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    <span style="color:#0a3069">&#34;Experiment with aggressive refactoring&#34;</span>
 </span></span></code></pre></div><hr>
 <h2 id="9-merging-and-integration">9. Merging and Integration</h2>
 <h3 id="integration-branch-strategy">Integration Branch Strategy</h3>
 <p>Use an integration branch as a central hub:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create integration branch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create integration branch</span>
 </span></span><span style="display:flex;"><span>git checkout -b integration main
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Merge completed worktree branches</span>
@@ -628,12 +621,12 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>git merge integration
 </span></span></code></pre></div><h3 id="cherry-picking-specific-commits">Cherry-Picking Specific Commits</h3>
 <p>When you only want some changes from a worktree:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In main worktree, cherry-pick specific commits</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># In main worktree, cherry-pick specific commits</span>
 </span></span><span style="display:flex;"><span>git cherry-pick abc1234  <span style="color:#57606a"># Specific commit from feature branch</span>
 </span></span><span style="display:flex;"><span>git cherry-pick def5678..ghi9012  <span style="color:#57606a"># Range of commits</span>
 </span></span></code></pre></div><h3 id="handling-merge-conflicts">Handling Merge Conflicts</h3>
 <p>Conflicts are inevitable with parallel development:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># When merging produces conflicts</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># When merging produces conflicts</span>
 </span></span><span style="display:flex;"><span>git merge feature/auth
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Auto-merging src/auth.js</span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># CONFLICT (content): Merge conflict in src/auth.js</span>
@@ -650,7 +643,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># 3. Abort and try different approach</span>
 </span></span><span style="display:flex;"><span>git merge --abort
 </span></span></code></pre></div><h3 id="post-merge-cleanup">Post-Merge Cleanup</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># After successful merge, clean up worktrees</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># After successful merge, clean up worktrees</span>
 </span></span><span style="display:flex;"><span>git worktree list
 </span></span><span style="display:flex;"><span>git worktree remove ../project-feature-auth
 </span></span><span style="display:flex;"><span>git worktree remove ../project-bugfix-api
@@ -670,41 +663,41 @@ then implement a solution with proper tests.
 <h3 id="common-issues-and-solutions">Common Issues and Solutions</h3>
 <h4 id="fatal--is-already-checked-out">&ldquo;fatal: &lsquo;<!-- raw HTML omitted -->&rsquo; is already checked out&rdquo;</h4>
 <p>You cannot checkout the same branch in multiple worktrees.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Solution 1: Create a new branch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Solution 1: Create a new branch</span>
 </span></span><span style="display:flex;"><span>git worktree add ../project-test -b test-branch
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Solution 2: Use detached HEAD</span>
 </span></span><span style="display:flex;"><span>git worktree add -d ../project-test
 </span></span></code></pre></div><h4 id="dependencies-not-found-module-not-found">Dependencies Not Found (&ldquo;Module not found&rdquo;)</h4>
 <p>Worktrees don&rsquo;t share <code>node_modules</code>, <code>.venv</code>, or other dependency directories.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Solution: Install dependencies in each worktree</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Solution: Install dependencies in each worktree</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../project-feature
 </span></span><span style="display:flex;"><span>npm install  <span style="color:#57606a"># or pip install, etc.</span>
 </span></span></code></pre></div><h4 id="port-already-in-use">Port Already in Use</h4>
 <p>Running multiple dev servers across worktrees:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start on different ports</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start on different ports</span>
 </span></span><span style="display:flex;"><span><span style="color:#953800">PORT</span><span style="color:#0550ae">=</span><span style="color:#0550ae">3001</span> npm run dev
 </span></span><span style="display:flex;"><span><span style="color:#953800">PORT</span><span style="color:#0550ae">=</span><span style="color:#0550ae">3002</span> npm run dev
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Claude usually handles this automatically</span>
 </span></span></code></pre></div><h4 id="worktree-directory-deleted-without-cleanup">Worktree Directory Deleted Without Cleanup</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># If you manually deleted a worktree directory</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># If you manually deleted a worktree directory</span>
 </span></span><span style="display:flex;"><span>git worktree prune
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Verify</span>
 </span></span><span style="display:flex;"><span>git worktree list
 </span></span></code></pre></div><h4 id="submodules-in-worktrees">Submodules in Worktrees</h4>
 <p>Worktrees don&rsquo;t automatically initialize submodules:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../project-worktree
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../project-worktree
 </span></span><span style="display:flex;"><span>git submodule update --init --recursive
 </span></span></code></pre></div><h4 id="env-files-missing"><code>.env</code> Files Missing</h4>
 <p>Environment files aren&rsquo;t copied automatically:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Copy manually</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Copy manually</span>
 </span></span><span style="display:flex;"><span>cp ../main-project/.env ./.env
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Or add to your worktree script</span>
 </span></span></code></pre></div><h3 id="diagnostic-commands">Diagnostic Commands</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Check worktree health</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Check worktree health</span>
 </span></span><span style="display:flex;"><span>git worktree list --porcelain
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Verify worktree linkage</span>
@@ -721,7 +714,7 @@ then implement a solution with proper tests.
 <ol>
 <li>
 <p><strong>Use descriptive branch/directory names</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Good</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Good</span>
 </span></span><span style="display:flex;"><span>git worktree add ../myproject-feature-user-auth -b feature/user-auth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Bad</span>
@@ -734,11 +727,11 @@ then implement a solution with proper tests.
 </code></pre></li>
 <li>
 <p><strong>Install dependencies immediately after creating worktree</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../new-worktree <span style="color:#0550ae">&amp;&amp;</span> npm install <span style="color:#0550ae">&amp;&amp;</span> claude
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ../new-worktree <span style="color:#0550ae">&amp;&amp;</span> npm install <span style="color:#0550ae">&amp;&amp;</span> claude
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Create draft PRs for Claude-generated code</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh pr create --draft
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh pr create --draft
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Limit to 2-3 active worktrees</strong></p>
@@ -756,11 +749,11 @@ then implement a solution with proper tests.
 </li>
 <li>
 <p><strong>Copy <code>.env</code> and <code>.claude</code> configurations</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp ../.env . <span style="color:#0550ae">&amp;&amp;</span> cp -r ../.claude .
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp ../.env . <span style="color:#0550ae">&amp;&amp;</span> cp -r ../.claude .
 </span></span></code></pre></div></li>
 <li>
 <p><strong>Clean up worktrees after merging</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git worktree remove ../completed-worktree
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git worktree remove ../completed-worktree
 </span></span><span style="display:flex;"><span>git worktree prune
 </span></span></code></pre></div></li>
 </ol>
@@ -819,14 +812,14 @@ then implement a solution with proper tests.
 │
 └── .worktrees/                   # Alternative: hidden in project
 </code></pre><p>Or use a <code>.worktrees/</code> directory inside the project:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir .worktrees
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir .worktrees
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;.worktrees/&#34;</span> &gt;&gt; .gitignore
 </span></span><span style="display:flex;"><span>git worktree add .worktrees/feature-auth -b feature/auth
 </span></span></code></pre></div><hr>
 <h2 id="12-real-world-examples">12. Real-World Examples</h2>
 <h3 id="example-1-feature-development--urgent-bug-fix">Example 1: Feature Development + Urgent Bug Fix</h3>
 <p><strong>Scenario</strong>: You&rsquo;re building a new dashboard feature when a critical production bug is reported.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Initial setup: working on dashboard</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Initial setup: working on dashboard</span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> ~/projects/myapp
 </span></span><span style="display:flex;"><span>claude
 </span></span><span style="display:flex;"><span>&gt; Building the analytics dashboard...
@@ -854,7 +847,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>git worktree remove ../myapp-hotfix
 </span></span></code></pre></div><h3 id="example-2-parallel-feature-comparison">Example 2: Parallel Feature Comparison</h3>
 <p><strong>Scenario</strong>: Implement the same feature two different ways and compare.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create two worktrees</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create two worktrees</span>
 </span></span><span style="display:flex;"><span>git worktree add ../myapp-search-elastic -b exp/search-elasticsearch
 </span></span><span style="display:flex;"><span>git worktree add ../myapp-search-postgres -b exp/search-postgres
 </span></span><span style="display:flex;"><span>
@@ -884,7 +877,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>git branch -d exp/search-postgres
 </span></span></code></pre></div><h3 id="example-3-code-review-in-isolation">Example 3: Code Review in Isolation</h3>
 <p><strong>Scenario</strong>: Review a colleague&rsquo;s PR without affecting your current work.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Fetch the PR branch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Fetch the PR branch</span>
 </span></span><span style="display:flex;"><span>git fetch origin
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Create worktree for review</span>
@@ -909,7 +902,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>git worktree remove .worktrees/review-pr-423
 </span></span></code></pre></div><h3 id="example-4-large-scale-migration">Example 4: Large-Scale Migration</h3>
 <p><strong>Scenario</strong>: Migrate 100 React components to a new design system.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create task list</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create task list</span>
 </span></span><span style="display:flex;"><span>claude -p <span style="color:#0a3069">&#34;List all React components that need migration&#34;</span> &gt; components.txt
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Process in batches with worktrees</span>
@@ -920,7 +913,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">cd</span> <span style="color:#0a3069">&#34;../myapp-migration-</span><span style="color:#953800">$batch</span><span style="color:#0a3069">&#34;</span>
 </span></span><span style="display:flex;"><span>    npm install
 </span></span><span style="display:flex;"><span>    claude --dangerously-skip-permissions <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span>        <span style="color:#0a3069">&#34;Migrate components </span><span style="color:#cf222e">$((</span>batch*20-19<span style="color:#cf222e">))</span><span style="color:#0a3069"> through </span><span style="color:#cf222e">$((</span>batch*20<span style="color:#cf222e">))</span><span style="color:#0a3069"> from components.txt to the new design system&#34;</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>        <span style="color:#0a3069">&#34;Migrate components </span><span style="color:#cf222e">$((</span>batch*20-19<span style="color:#cf222e">))</span><span style="color:#0a3069"> through </span><span style="color:#cf222e">$((</span>batch*20<span style="color:#cf222e">))</span><span style="color:#0a3069"> from components.txt to the new design system&#34;</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">cd</span> ..
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">done</span>
@@ -930,7 +923,7 @@ then implement a solution with proper tests.
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Clean up</span>
 </span></span></code></pre></div><h3 id="example-5-monorepo-sparse-checkout">Example 5: Monorepo Sparse Checkout</h3>
 <p><strong>Scenario</strong>: Fix a backend API bug without loading the entire frontend.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create sparse worktree for backend only</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create sparse worktree for backend only</span>
 </span></span><span style="display:flex;"><span>git worktree add --no-checkout gwt/api-fix -b fix/api-bug
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6639ba">cd</span> gwt/api-fix
@@ -946,7 +939,7 @@ then implement a solution with proper tests.
 </span></span></code></pre></div><hr>
 <h2 id="quick-reference-card">Quick Reference Card</h2>
 <h3 id="essential-commands">Essential Commands</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree with new branch</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree with new branch</span>
 </span></span><span style="display:flex;"><span>git worktree add &lt;path&gt; -b &lt;branch&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Create worktree with existing branch</span>
@@ -975,7 +968,7 @@ then implement a solution with proper tests.
 □ Delete branch if merged
 □ Run git worktree prune
 </code></pre><h3 id="session-management">Session Management</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Resume sessions (shows all worktrees)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Resume sessions (shows all worktrees)</span>
 </span></span><span style="display:flex;"><span>/resume
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Link session to PR</span>
@@ -1000,6 +993,11 @@ then implement a solution with proper tests.
     
     
 </div>
+
+
+
+
+
 
 
 

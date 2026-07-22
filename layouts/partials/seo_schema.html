@@ -1,0 +1,20 @@
+{{- $author := .Site.Params.author -}}
+{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" $author.name "url" ($author.url | absURL) "description" $author.description "sameAs" $author.sameAs -}}
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+
+{{- if .IsHome -}}
+  {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink "description" .Site.Params.description "publisher" (dict "@type" "Person" "name" $author.name "url" ($author.url | absURL)) -}}
+  <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+{{- end -}}
+
+{{- if and .IsPage (ne .Type "page") -}}
+  {{- $description := .Description | default (.Summary | plainify | htmlUnescape | truncate 160) -}}
+  {{- $article := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" .Title "description" $description "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink) "url" .Permalink "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "author" (dict "@type" "Person" "name" $author.name "url" ($author.url | absURL)) "publisher" (dict "@type" "Person" "name" $author.name "url" ($author.url | absURL)) -}}
+  {{- with .Params.images }}{{ $article = merge $article (dict "image" .) }}{{ end -}}
+  <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{- end -}}
+
+{{- if eq .RelPermalink "/about/" -}}
+  {{- $profile := dict "@context" "https://schema.org" "@type" "ProfilePage" "mainEntity" $person -}}
+  <script type="application/ld+json">{{ $profile | jsonify | safeJS }}</script>
+{{- end -}}

@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Developer-Workflow on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/developer-workflow/</link>
-		<description>Recent content in Developer-Workflow on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/developer-workflow/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying</title>
-				<link>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</link>
-				<pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</guid>
-				<description>&lt;p&gt;Most AI coding sessions start the same way. You open your editor, type a rough idea into the chat, and watch the agent generate files. It feels productive. Then two hours later you are reviewing code that solves a problem you never quite specified, built on assumptions the agent made silently, in a style that does not match the rest of your project.&lt;/p&gt;&#xA;&lt;p&gt;This is vibe coding. It does not scale.&lt;/p&gt;</description>
-			</item>
-	</channel>
+  <channel>
+    <title>Developer-Workflow on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/developer-workflow/</link>
+    <description>Recent content in Developer-Workflow on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/developer-workflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying</title>
+      <link>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/</guid>
+      <description>&lt;p&gt;Most AI coding sessions start the same way. You open your editor, type a rough idea into the chat, and watch the agent generate files. It feels productive. Then two hours later you are reviewing code that solves a problem you never quite specified, built on assumptions the agent made silently, in a style that does not match the rest of your project.&lt;/p&gt;&#xA;&lt;p&gt;This is vibe coding. It does not scale.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

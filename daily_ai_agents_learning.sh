@@ -37,8 +37,7 @@ Each article should focus on **one key concept, algorithm, pattern, or recent re
   2. End the section with a fenced block labelled **Try it** containing a single, tight prompt (4-8 lines) the reader can paste directly into a coding agent (Claude Code, Cursor, Copilot, etc.) to build and run the example themselves. The prompt must name the framework, specify the core behavior, and ask for runnable code with inline comments.
 - **References & Further Reading**
 
-* Cite papers by **title, authors, venue, and year** -- do not generate URLs.
-* Only include URLs for well-known, major repos where you are certain the URL is correct (e.g. \`github.com/openai/...\`, \`github.com/google-deepmind/...\`). When in doubt, omit the URL entirely.
+* End with a **Sources** section containing 2-4 primary sources that support factual claims. Cite papers by **title, authors, venue, and year**, and link only to verified official documentation, paper, benchmark, or repository URLs. When a URL cannot be verified, include the bibliographic citation without a link.
 
 **Tone & Style:**
 

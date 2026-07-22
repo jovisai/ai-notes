@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Distributed-Systems on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/distributed-systems/</link>
-		<description>Recent content in Distributed-Systems on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>Agent Communication Protocols and Message-Passing Patterns for Coordination</title>
-				<link>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
-				<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
-				<description>&lt;p&gt;In multi-agent systems, the most critical design question is not what each agent can do but how they communicate. Structured protocols govern the exchange of information, coordination of actions, and achievement of collective goals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Communication protocols define:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What can be communicated (message types)&lt;/li&gt;&#xA;&lt;li&gt;How messages are structured (syntax)&lt;/li&gt;&#xA;&lt;li&gt;When and why to send messages (semantics and pragmatics)&lt;/li&gt;&#xA;&lt;li&gt;Who can communicate with whom (topology)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In multi-agent systems (MAS), these protocols are formalized specifications for message exchange that enable coordination without centralized control. Key components include:&lt;/p&gt;</description>
-			</item>
-	</channel>
+  <channel>
+    <title>Distributed-Systems on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/distributed-systems/</link>
+    <description>Recent content in Distributed-Systems on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Communication Protocols and Message-Passing Patterns for Coordination</title>
+      <link>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/</guid>
+      <description>&lt;p&gt;In multi-agent systems, the most critical design question is not what each agent can do but how they communicate. Structured protocols govern the exchange of information, coordination of actions, and achievement of collective goals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Communication protocols define:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What can be communicated (message types)&lt;/li&gt;&#xA;&lt;li&gt;How messages are structured (syntax)&lt;/li&gt;&#xA;&lt;li&gt;When and why to send messages (semantics and pragmatics)&lt;/li&gt;&#xA;&lt;li&gt;Who can communicate with whom (topology)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In multi-agent systems (MAS), these protocols are formalized specifications for message exchange that enable coordination without centralized control. Key components include:&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

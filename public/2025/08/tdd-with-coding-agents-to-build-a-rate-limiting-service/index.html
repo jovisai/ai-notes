@@ -2,43 +2,44 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>TDD with Coding Agents to Build a Rate Limiting Service - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>TDD with Coding Agents to Build a Rate Limiting Service - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/"><meta name="description" content="Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan.">
 	
-	<meta itemprop="name" content="TDD with Coding Agents to Build a Rate Limiting Service">
-	<meta itemprop="description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
+  <meta itemprop="name" content="TDD with Coding Agents to Build a Rate Limiting Service">
+  <meta itemprop="description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
 Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD’s power with AI agents.
 Why TDD Works Exceptionally Well with AI Agents The AI Agent Advantage:
 Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements.">
-	<meta itemprop="datePublished" content="2025-08-06T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2025-08-06T00:00:00+00:00">
-	<meta itemprop="wordCount" content="2546">
-	<meta itemprop="keywords" content="AI,Agentic-Ai,Llms,Development,Coding,Tutorial,Autonomous Agents"><meta property="og:url" content="https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="TDD with Coding Agents to Build a Rate Limiting Service">
-	<meta property="og:description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
+  <meta itemprop="datePublished" content="2025-08-06T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-08-06T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2546">
+  <meta itemprop="keywords" content="Ai,Agentic-Ai,Llms,Development,Coding,Tutorial,Autonomous Agents"><meta property="og:url" content="https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="TDD with Coding Agents to Build a Rate Limiting Service">
+  <meta property="og:description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
 Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD’s power with AI agents.
 Why TDD Works Exceptionally Well with AI Agents The AI Agent Advantage:
 Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2025-08-06T00:00:00+00:00">
-		<meta property="article:modified_time" content="2025-08-06T00:00:00+00:00">
-		<meta property="article:tag" content="AI">
-		<meta property="article:tag" content="Agentic-Ai">
-		<meta property="article:tag" content="Llms">
-		<meta property="article:tag" content="Development">
-		<meta property="article:tag" content="Coding">
-		<meta property="article:tag" content="Tutorial">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-06T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Agentic-Ai">
+    <meta property="article:tag" content="Llms">
+    <meta property="article:tag" content="Development">
+    <meta property="article:tag" content="Coding">
+    <meta property="article:tag" content="Tutorial">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="TDD with Coding Agents to Build a Rate Limiting Service">
-	<meta name="twitter:description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TDD with Coding Agents to Build a Rate Limiting Service">
+  <meta name="twitter:description" content="Problem Overview We’ll build a sophisticated rate limiting service that supports:
 Multiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) Different storage backends (Memory, Redis) Per-user and per-API-key limits Rate limit headers in responses Graceful degradation when storage fails This is complex enough to demonstrate TDD’s power with AI agents.
 Why TDD Works Exceptionally Well with AI Agents The AI Agent Advantage:
 Perfect Memory: Never forgets edge cases once written in tests Pattern Recognition: Excellent at implementing algorithms to match test specifications Systematic Approach: Follows TDD discipline consistently Rapid Iteration: Fast feedback cycles between test and implementation The Key Insight: AI agents excel when they have clear specifications (tests) rather than vague requirements.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-08-06T00:00:00Z","datePublished":"2025-08-06T00:00:00Z","description":"Problem Overview We’ll build a sophisticated rate limiting service that supports:\nMultiple rate limiting algorithms (Token Bucket, Fixed Window, Sliding Window) …","headline":"TDD with Coding Agents to Build a Rate Limiting Service","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/08/tdd-with-coding-agents-to-build-a-rate-limiting-service/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -46,11 +47,6 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -62,12 +58,6 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -123,6 +113,9 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
             <span class="rest">Aug 2025</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -151,7 +144,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 <hr>
 <h2 id="phase-1-setting-up-the-tdd-environment">Phase 1: Setting Up the TDD Environment</h2>
 <h3 id="claude-code-prompt-for-setup">Claude Code Prompt for Setup</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>We&#39;re building a rate limiting service using strict TDD. Set up the project structure:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>We&#39;re building a rate limiting service using strict TDD. Set up the project structure:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Create a Python project with pytest
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Set up the basic directory structure:
@@ -183,7 +176,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 <h2 id="phase-2-red---writing-failing-tests-first">Phase 2: RED - Writing Failing Tests First</h2>
 <h3 id="step-1-core-interface-tests">Step 1: Core Interface Tests</h3>
 <p><strong>Claude Code Prompt:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now we write our first failing tests. Create comprehensive tests for the core RateLimiter interface.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now we write our first failing tests. Create comprehensive tests for the core RateLimiter interface.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Requirements to test:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> RateLimiter should check if a request is allowed
@@ -200,7 +193,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Remember: PURE TDD - write tests that describe exactly what we want, but don&#39;t implement anything yet. The tests should fail because we haven&#39;t written the implementation.
 </span></span></code></pre></div><p><strong>Expected Test File (tests/test_core.py):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime<span style="color:#1f2328">,</span> timedelta
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">unittest.mock</span> <span style="color:#cf222e">import</span> Mock<span style="color:#1f2328">,</span> patch
 </span></span><span style="display:flex;"><span>
@@ -320,7 +313,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 </span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> result<span style="color:#0550ae">.</span>retry_after <span style="color:#0550ae">is</span> <span style="color:#cf222e">None</span>
 </span></span></code></pre></div><h3 id="step-2-algorithm-specific-tests">Step 2: Algorithm-Specific Tests</h3>
 <p><strong>Claude Code Prompt:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now create comprehensive tests for the Token Bucket algorithm specifically. This should test:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now create comprehensive tests for the Token Bucket algorithm specifically. This should test:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Token bucket starts full
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Tokens are consumed on each request  
@@ -331,7 +324,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Create tests/test_token_bucket.py. Again, pure TDD - comprehensive tests but no implementation.
 </span></span></code></pre></div><p><strong>Expected Test File (tests/test_token_bucket.py):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime<span style="color:#1f2328">,</span> timedelta
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">unittest.mock</span> <span style="color:#cf222e">import</span> Mock<span style="color:#1f2328">,</span> patch
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">src.rate_limiter.algorithms</span> <span style="color:#cf222e">import</span> TokenBucketRateLimiter
@@ -491,7 +484,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 </span></span><span style="display:flex;"><span>        <span style="color:#cf222e">assert</span> <span style="color:#6639ba">abs</span><span style="color:#1f2328">(</span>result<span style="color:#0550ae">.</span>retry_after <span style="color:#0550ae">-</span> <span style="color:#0550ae">0.5</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">0.01</span>
 </span></span></code></pre></div><h3 id="step-3-storage-backend-tests">Step 3: Storage Backend Tests</h3>
 <p><strong>Claude Code Prompt:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Create tests for Redis and Memory storage backends. Test:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Create tests for Redis and Memory storage backends. Test:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Memory Storage:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Thread safety for concurrent access
@@ -508,7 +501,7 @@ Perfect Memory: Never forgets edge cases once written in tests Pattern Recogniti
 </span></span></code></pre></div><hr>
 <h2 id="phase-3-red-phase-verification">Phase 3: RED Phase Verification</h2>
 <p><strong>Claude Code Prompt:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Run the test suite to confirm all tests fail as expected. This is crucial in TDD - we need to see the RED phase.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Run the test suite to confirm all tests fail as expected. This is crucial in TDD - we need to see the RED phase.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Execute:
 </span></span><span style="display:flex;"><span>```bash
@@ -543,7 +536,7 @@ Now implement the MINIMUM code needed to make the core tests pass. Follow TDD st
 
 Start with the data structures and basic RateLimiter class.
 </code></pre><p><strong>Expected Implementation (src/rate_limiter/core.py):</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">abc</span> <span style="color:#cf222e">import</span> ABC<span style="color:#1f2328">,</span> abstractmethod
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">abc</span> <span style="color:#cf222e">import</span> ABC<span style="color:#1f2328">,</span> abstractmethod
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">dataclasses</span> <span style="color:#cf222e">import</span> dataclass
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">datetime</span> <span style="color:#cf222e">import</span> datetime<span style="color:#1f2328">,</span> timedelta
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Optional
@@ -607,7 +600,7 @@ Start with the data structures and basic RateLimiter class.
 </span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h3 id="step-2-token-bucket-implementation">Step 2: Token Bucket Implementation</h3>
 <p><strong>Claude Code Prompt:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now implement the TokenBucketRateLimiter to make those tests pass. Remember - minimal implementation that satisfies the tests, we&#39;ll refactor later.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now implement the TokenBucketRateLimiter to make those tests pass. Remember - minimal implementation that satisfies the tests, we&#39;ll refactor later.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Key requirements from tests:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Token bucket with capacity and refill rate
@@ -617,7 +610,7 @@ Start with the data structures and basic RateLimiter class.
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Clock change handling
 </span></span></code></pre></div><h3 id="step-3-iterative-implementation">Step 3: Iterative Implementation</h3>
 <p><strong>Claude Code Prompt for each iteration:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Run the tests again:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Run the tests again:
 </span></span><span style="display:flex;"><span>```bash
 </span></span><span style="display:flex;"><span>pytest tests/test_core.py -v
 </span></span></code></pre></div><p>Fix any failing tests one by one. For each failure:</p>
@@ -671,7 +664,7 @@ Run tests after each refactoring to ensure they stay green. The key rule: improv
 <hr>
 <h2 id="phase-7-integration-tests">Phase 7: Integration Tests</h2>
 <p><strong>Claude Code Prompt:</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now write integration tests that test the complete system working together:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Now write integration tests that test the complete system working together:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Real Redis backend with test containers
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Multiple rate limiting algorithms working together  
@@ -683,7 +676,7 @@ Run tests after each refactoring to ensure they stay green. The key rule: improv
 </span></span></code></pre></div><hr>
 <h2 id="why-this-tdd-approach-works-so-well-with-ai-agents">Why This TDD Approach Works So Well with AI Agents</h2>
 <h3 id="1-clear-specifications">1. <strong>Clear Specifications</strong></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Instead of vague requirements:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Instead of vague requirements:
 </span></span><span style="display:flex;"><span>&#34;Build a rate limiter&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span># TDD gives clear specifications:
@@ -713,36 +706,36 @@ Run tests after each refactoring to ensure they stay green. The key rule: improv
 <hr>
 <h2 id="advanced-tdd-techniques-with-ai-agents">Advanced TDD Techniques with AI Agents</h2>
 <h3 id="property-based-testing">Property-Based Testing</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Add property-based tests using hypothesis library:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Add property-based tests using hypothesis library:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Rate limiter should never allow more requests than the limit
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Token bucket should never have negative tokens
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Time-based calculations should be monotonic&#34;
 </span></span></code></pre></div><h3 id="test-data-builders">Test Data Builders</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Create test data builders for complex scenarios:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Create test data builders for complex scenarios:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> RateLimitRuleBuilder for different rule types
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> MockStorageBuilder for various storage states  
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> ScenarioBuilder for integration test cases&#34;
 </span></span></code></pre></div><h3 id="mutation-testing">Mutation Testing</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use mutmut to verify our tests catch all possible bugs:
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&#34;Use mutmut to verify our tests catch all possible bugs:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Run mutation testing on the rate limiter code
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">2.</span> Identify any surviving mutants
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">3.</span> Add tests to kill remaining mutants&#34;
 </span></span></code></pre></div><hr>
 <h2 id="common-tdd-pitfalls-to-avoid-with-ai-agents">Common TDD Pitfalls to Avoid with AI Agents</h2>
 <h3 id="1-writing-too-much-code">1. <strong>Writing Too Much Code</strong></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ &#34;Implement a complete rate limiter with all features&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ &#34;Implement a complete rate limiter with all features&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>✅ &#34;Implement only what&#39;s needed to make test_allows_request_within_limit pass&#34;
 </span></span></code></pre></div><h3 id="2-skipping-the-red-phase">2. <strong>Skipping the Red Phase</strong></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ Writing tests after implementation
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ Writing tests after implementation
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>✅ &#34;Write the test first, run it to confirm it fails, then implement&#34;
 </span></span></code></pre></div><h3 id="3-testing-implementation-details">3. <strong>Testing Implementation Details</strong></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ Testing internal method calls
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ Testing internal method calls
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>✅ Testing public behavior and outcomes
 </span></span></code></pre></div><h3 id="4-not-refactoring">4. <strong>Not Refactoring</strong></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ Leaving code messy once tests pass
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>❌ Leaving code messy once tests pass
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>✅ &#34;Clean up this code while keeping all tests green&#34;
 </span></span></code></pre></div><hr>
@@ -825,6 +818,24 @@ Run tests after each refactoring to ensure they stay green. The key rule: improv
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2025/08/the-complete-claude-code-best-practices-guide/">The Complete Claude Code Best Practices Guide</a></li>
+        
+        <li><a href="/2025/07/a-developers-guide-to-effective-ai-coding-agents/">A Developers Guide to Effective AI Coding Agents</a><span>Moving beyond basic code completion to a structured, developer-led workflow that harnesses the full potential of AI coding agents.</span></li>
+        
+        <li><a href="/2025/07/learning-crewai-in-a-step-by-step-guide-with-10-concepts/">Learning CrewAI in a Step-by-Step Guide with 10 Concepts</a><span>A beginner-friendly guide to mastering CrewAI, from basic agents and tasks to advanced multi-agent workflows with tools and custom LLMs.</span></li>
+        
+    </ul>
+</section>
+
+
 
 
 

@@ -38,7 +38,7 @@ The pipeline has five phases:
 4. **Tasks** — decompose the plan into a flat, ordered, independently implementable task list
 5. **Implement** — execute the tasks with the AI agent
 
-![](/sdd.png)
+![A Spec Kit workflow progressing from constitution to specification, plan, tasks, and implementation](/sdd.png)
 
 Each phase gates the next. You cannot generate tasks without a plan. You cannot write a plan without a spec. The pipeline enforces the discipline so you do not have to.
 
@@ -93,7 +93,7 @@ The Constitution is a one-time setup command that documents the governing princi
 
 You run it once when you set up spec-kit. For `ai-agents-actions-tracker` it captured five principles: web-app architecture (Route → Service → Model), AI-augmented but not AI-dependent, data integrity with migration discipline, security and multi-tenant safety, and simplicity with independent testability.
 
-![](/spec_constitution.png)
+![A Spec Kit constitution defining the project principles that guide each plan](/spec_constitution.png)
 
 Every subsequent plan generates a **Constitution Check**, a gate that verifies the feature design does not violate these principles. This prevents architectural drift across features without requiring a human reviewer to remember every past decision.
 
@@ -115,7 +115,7 @@ spec-kit takes that sentence and does the following automatically:
 
 The output is a two-story spec with no clarifications needed:
 
-![](/spec_specify.png)
+![A generated feature specification with user stories and acceptance criteria](/spec_specify.png)
 
 The spec also captures scope decisions as explicit assumptions so they do not become implicit debate later:
 
@@ -135,7 +135,7 @@ The plan command reads `spec.md`, researches the codebase in depth, and produces
 
 The gap analysis is the most valuable output. It documents exactly what already exists versus what is missing:
 
-![](/spec_plan.png)
+![A technical implementation plan showing the gap analysis and planned changes](/spec_plan.png)
 
 The plan concluded that this feature required changes to five files and approximately 30 lines of code. No new endpoints, no new DB columns, no new services. The infrastructure was already in place.
 
@@ -149,7 +149,7 @@ The tasks command reads all the planning artifacts and generates a flat, ordered
 
 With the plan in place, it produced eight tasks:
 
-![](/spec_tasks.png)
+![A generated task list that breaks the feature plan into executable work](/spec_tasks.png)
 
 ### Step 5 — Implement (`/speckit.implement`)
 
@@ -161,7 +161,7 @@ The implement command hands control to the AI agent with the complete context: s
 
 Because every decision was made upfront, the implementation phase produces no surprises. The agent does not need to guess what "Epic" support means. It does not need to decide whether to add a DB migration. It does not need to choose between batch-level and per-item selection. All of that is resolved. The agent just writes code.
 
-![](/spec_implement.png)
+![A Spec Kit implementation workflow executing the approved task list](/spec_implement.png)
 
 ## Key Concepts Explained
 

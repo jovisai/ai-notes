@@ -2,30 +2,31 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Claude Code CLI Best Practices Checklist - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Claude Code CLI Best Practices Checklist - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/"><meta name="description" content="Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan.">
 	
-	<meta itemprop="name" content="Claude Code CLI Best Practices Checklist">
-	<meta itemprop="description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
+  <meta itemprop="name" content="Claude Code CLI Best Practices Checklist">
+  <meta itemprop="description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
 Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Permissions &amp; Security Context Management Custom Commands &amp; Slash Commands Hooks for Automation Parallel Development with Git Worktrees CLI Usage Patterns MCP Server Integration Session Management Keyboard Shortcuts &amp; Navigation Advanced Tips &amp; Tricks Common Pitfalls to Avoid 1. Initial Setup &amp; Configuration Getting Started Install Claude Code: npm install -g @anthropic-ai/claude-code Run claude in your project directory to start Run /init to generate a starter CLAUDE.md based on your project structure Install GitHub CLI (gh) for seamless GitHub integration Set up your preferred terminal (iTerm2, VS Code terminal recommended) Settings Hierarchy Claude Code uses hierarchical settings stored in JSON files:">
-	<meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1832"><meta property="og:url" content="https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="Claude Code CLI Best Practices Checklist">
-	<meta property="og:description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
+  <meta itemprop="datePublished" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1832"><meta property="og:url" content="https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="Claude Code CLI Best Practices Checklist">
+  <meta property="og:description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
 Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Permissions &amp; Security Context Management Custom Commands &amp; Slash Commands Hooks for Automation Parallel Development with Git Worktrees CLI Usage Patterns MCP Server Integration Session Management Keyboard Shortcuts &amp; Navigation Advanced Tips &amp; Tricks Common Pitfalls to Avoid 1. Initial Setup &amp; Configuration Getting Started Install Claude Code: npm install -g @anthropic-ai/claude-code Run claude in your project directory to start Run /init to generate a starter CLAUDE.md based on your project structure Install GitHub CLI (gh) for seamless GitHub integration Set up your preferred terminal (iTerm2, VS Code terminal recommended) Settings Hierarchy Claude Code uses hierarchical settings stored in JSON files:">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2026-02-02T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-02-02T00:00:00+00:00">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-02T00:00:00+00:00">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Claude Code CLI Best Practices Checklist">
-	<meta name="twitter:description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claude Code CLI Best Practices Checklist">
+  <meta name="twitter:description" content="A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.
 Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Permissions &amp; Security Context Management Custom Commands &amp; Slash Commands Hooks for Automation Parallel Development with Git Worktrees CLI Usage Patterns MCP Server Integration Session Management Keyboard Shortcuts &amp; Navigation Advanced Tips &amp; Tricks Common Pitfalls to Avoid 1. Initial Setup &amp; Configuration Getting Started Install Claude Code: npm install -g @anthropic-ai/claude-code Run claude in your project directory to start Run /init to generate a starter CLAUDE.md based on your project structure Install GitHub CLI (gh) for seamless GitHub integration Set up your preferred terminal (iTerm2, VS Code terminal recommended) Settings Hierarchy Claude Code uses hierarchical settings stored in JSON files:">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2026-02-02T00:00:00Z","datePublished":"2026-02-02T00:00:00Z","description":"A comprehensive guide to tips, tricks, and best practices for maximizing productivity with Claude Code.\nTable of Contents Initial Setup \u0026amp; Configuration …","headline":"Claude Code CLI Best Practices Checklist","mainEntityOfPage":{"@id":"https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2026/02/claude-code-cli-best-practices-checklist/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -33,11 +34,6 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -49,12 +45,6 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -110,6 +100,9 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
             <span class="rest">Feb 2026</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -152,7 +145,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <li><input disabled="" type="checkbox"> <strong>Local project settings</strong>: <code>.claude/settings.local.json</code> (personal, git-ignored)</li>
 </ul>
 <h3 id="example-settingsjson">Example settings.json</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;model&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;claude-sonnet-4-20250514&#34;</span><span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;maxTokens&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4096</span><span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;permissions&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
@@ -192,29 +185,29 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </ul>
 <h3 id="file-locations">File Locations</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Location</th>
-					<th>Scope</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>~/.claude/CLAUDE.md</code></td>
-					<td>Global (all projects)</td>
-			</tr>
-			<tr>
-					<td><code>./CLAUDE.md</code></td>
-					<td>Project root (shared with team)</td>
-			</tr>
-			<tr>
-					<td><code>./subdirectory/CLAUDE.md</code></td>
-					<td>Subdirectory-specific</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Location</th>
+          <th>Scope</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>~/.claude/CLAUDE.md</code></td>
+          <td>Global (all projects)</td>
+      </tr>
+      <tr>
+          <td><code>./CLAUDE.md</code></td>
+          <td>Project root (shared with team)</td>
+      </tr>
+      <tr>
+          <td><code>./subdirectory/CLAUDE.md</code></td>
+          <td>Subdirectory-specific</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="example-claudemd">Example CLAUDE.md</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project Context
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project Context
 </span></span><span style="display:flex;"><span>FastAPI REST API for user authentication. Uses SQLAlchemy + Pydantic.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>## Key Directories
@@ -297,10 +290,10 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <h2 id="5-custom-commands--slash-commands">5. Custom Commands &amp; Slash Commands</h2>
 <h3 id="creating-project-commands">Creating Project Commands</h3>
 <p>Store prompt templates in <code>.claude/commands/</code> directory:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p .claude/commands
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p .claude/commands
 </span></span></code></pre></div><h3 id="example-fix-github-issue-command">Example: Fix GitHub Issue Command</h3>
 <p>Create <code>.claude/commands/fix-issue.md</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Please analyze and fix the GitHub issue: $ARGUMENTS.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Please analyze and fix the GitHub issue: $ARGUMENTS.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Follow these steps:
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">1.</span> Use <span style="color:#0a3069">`gh issue view`</span> to get the issue details
@@ -321,60 +314,60 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <li><input disabled="" type="checkbox"> Use <code>$ARGUMENTS</code> variable for parameters</li>
 <li><input disabled="" type="checkbox"> Add front matter for allowed tools:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">allowed-tools</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Bash(git add:*), Bash(git status:*), Bash(git commit:*)<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#0550ae">description</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Create a git commit with context<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
+</span></span><span style="display:flex;"><span>description: Create a git commit with context
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><ul>
 <li><input disabled="" type="checkbox"> Include dynamic context with <code>!</code> prefix: <code>!</code>git status``</li>
 </ul>
 <hr>
 <h2 id="6-hooks-for-automation">6. Hooks for Automation</h2>
 <h3 id="hook-events">Hook Events</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Event</th>
-					<th>When It Fires</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>PreToolUse</code></td>
-					<td>Before Claude executes an action</td>
-			</tr>
-			<tr>
-					<td><code>PostToolUse</code></td>
-					<td>After Claude completes an action</td>
-			</tr>
-			<tr>
-					<td><code>UserPromptSubmit</code></td>
-					<td>When you submit a prompt</td>
-			</tr>
-			<tr>
-					<td><code>SessionStart</code></td>
-					<td>When Claude starts</td>
-			</tr>
-			<tr>
-					<td><code>SessionEnd</code></td>
-					<td>When session terminates</td>
-			</tr>
-			<tr>
-					<td><code>Stop</code></td>
-					<td>When Claude finishes responding</td>
-			</tr>
-			<tr>
-					<td><code>Notification</code></td>
-					<td>When Claude sends an alert</td>
-			</tr>
-			<tr>
-					<td><code>PermissionRequest</code></td>
-					<td>When Claude requests permission (v2.0.45+)</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Event</th>
+          <th>When It Fires</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>PreToolUse</code></td>
+          <td>Before Claude executes an action</td>
+      </tr>
+      <tr>
+          <td><code>PostToolUse</code></td>
+          <td>After Claude completes an action</td>
+      </tr>
+      <tr>
+          <td><code>UserPromptSubmit</code></td>
+          <td>When you submit a prompt</td>
+      </tr>
+      <tr>
+          <td><code>SessionStart</code></td>
+          <td>When Claude starts</td>
+      </tr>
+      <tr>
+          <td><code>SessionEnd</code></td>
+          <td>When session terminates</td>
+      </tr>
+      <tr>
+          <td><code>Stop</code></td>
+          <td>When Claude finishes responding</td>
+      </tr>
+      <tr>
+          <td><code>Notification</code></td>
+          <td>When Claude sends an alert</td>
+      </tr>
+      <tr>
+          <td><code>PermissionRequest</code></td>
+          <td>When Claude requests permission (v2.0.45+)</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="example-auto-format-on-file-edit">Example: Auto-Format on File Edit</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;PostToolUse&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
@@ -390,7 +383,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h3 id="example-block-sensitive-files">Example: Block Sensitive Files</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;PreToolUse&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
@@ -406,7 +399,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h3 id="example-desktop-notifications">Example: Desktop Notifications</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;hooks&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;Notification&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
@@ -422,30 +415,30 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h3 id="hook-exit-codes">Hook Exit Codes</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Code</th>
-					<th>Meaning</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>0</td>
-					<td>Success, continue</td>
-			</tr>
-			<tr>
-					<td>1</td>
-					<td>Non-blocking error</td>
-			</tr>
-			<tr>
-					<td>2</td>
-					<td>Block action (PreToolUse/PermissionRequest)</td>
-			</tr>
-			<tr>
-					<td>3</td>
-					<td>Deferred execution</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Code</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>Success, continue</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>Non-blocking error</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Block action (PreToolUse/PermissionRequest)</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Deferred execution</td>
+      </tr>
+  </tbody>
 </table>
 <hr>
 <h2 id="7-parallel-development-with-git-worktrees">7. Parallel Development with Git Worktrees</h2>
@@ -457,7 +450,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <li>All worktrees share Git history and remotes</li>
 </ul>
 <h3 id="setup-worktrees">Setup Worktrees</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree for a feature</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Create worktree for a feature</span>
 </span></span><span style="display:flex;"><span>git worktree add ../my-project-feature-auth feature/auth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Create worktree from main</span>
@@ -493,7 +486,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <hr>
 <h2 id="8-cli-usage-patterns">8. CLI Usage Patterns</h2>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start interactive session</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start interactive session</span>
 </span></span><span style="display:flex;"><span>claude
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Start with initial prompt</span>
@@ -505,7 +498,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Resume previous session</span>
 </span></span><span style="display:flex;"><span>claude --resume
 </span></span></code></pre></div><h3 id="piping--chaining">Piping &amp; Chaining</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Pipe input to Claude</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Pipe input to Claude</span>
 </span></span><span style="display:flex;"><span>cat data.csv <span style="color:#1f2328">|</span> claude -p <span style="color:#0a3069">&#34;Who won the most games?&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Chain with other CLIs</span>
@@ -515,49 +508,49 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </span></span><span style="display:flex;"><span>claude -p <span style="color:#0a3069">&#34;Generate API docs&#34;</span> &gt; api-docs.md
 </span></span></code></pre></div><h3 id="useful-flags">Useful Flags</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Flag</th>
-					<th>Purpose</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>-p</code></td>
-					<td>Print mode (headless, non-interactive)</td>
-			</tr>
-			<tr>
-					<td><code>--resume</code></td>
-					<td>Resume previous session</td>
-			</tr>
-			<tr>
-					<td><code>--from-pr 123</code></td>
-					<td>Resume session linked to PR</td>
-			</tr>
-			<tr>
-					<td><code>--verbose</code></td>
-					<td>Debug mode (shows detailed output)</td>
-			</tr>
-			<tr>
-					<td><code>--mcp-debug</code></td>
-					<td>Debug MCP connections</td>
-			</tr>
-			<tr>
-					<td><code>--allowedTools</code></td>
-					<td>Specify allowed tools for this run</td>
-			</tr>
-			<tr>
-					<td><code>--output-format json</code></td>
-					<td>JSON output for scripting</td>
-			</tr>
-			<tr>
-					<td><code>--dangerously-skip-permissions</code></td>
-					<td>Skip all permission prompts</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Flag</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>-p</code></td>
+          <td>Print mode (headless, non-interactive)</td>
+      </tr>
+      <tr>
+          <td><code>--resume</code></td>
+          <td>Resume previous session</td>
+      </tr>
+      <tr>
+          <td><code>--from-pr 123</code></td>
+          <td>Resume session linked to PR</td>
+      </tr>
+      <tr>
+          <td><code>--verbose</code></td>
+          <td>Debug mode (shows detailed output)</td>
+      </tr>
+      <tr>
+          <td><code>--mcp-debug</code></td>
+          <td>Debug MCP connections</td>
+      </tr>
+      <tr>
+          <td><code>--allowedTools</code></td>
+          <td>Specify allowed tools for this run</td>
+      </tr>
+      <tr>
+          <td><code>--output-format json</code></td>
+          <td>JSON output for scripting</td>
+      </tr>
+      <tr>
+          <td><code>--dangerously-skip-permissions</code></td>
+          <td>Skip all permission prompts</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="shell-integration">Shell Integration</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Run shell commands in Claude session with ! prefix</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Run shell commands in Claude session with ! prefix</span>
 </span></span><span style="display:flex;"><span>! git status
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Bypass conversational mode for direct execution</span>
@@ -565,14 +558,14 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 </span></span></code></pre></div><hr>
 <h2 id="9-mcp-server-integration">9. MCP Server Integration</h2>
 <h3 id="adding-mcp-servers">Adding MCP Servers</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Add MCP server globally</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Add MCP server globally</span>
 </span></span><span style="display:flex;"><span>claude mcp add -s user playwright npx @playwright/mcp@latest
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Add to project</span>
 </span></span><span style="display:flex;"><span>claude mcp add puppeteer npx @anthropic/mcp-puppeteer
 </span></span></code></pre></div><h3 id="configuration-in-mcpjson">Configuration in .mcp.json</h3>
 <p>Check into git for team-wide access:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;servers&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;puppeteer&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;command&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;npx&#34;</span><span style="color:#1f2328">,</span>
@@ -594,7 +587,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <li><input disabled="" type="checkbox"> Figma (design integration)</li>
 </ul>
 <h3 id="document-mcp-usage-in-claudemd">Document MCP Usage in CLAUDE.md</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>### Slack MCP
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>### Slack MCP
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Posts to <span style="color:#6639ba">#dev</span>-notifications channel only
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Use for deployment notifications and build failures
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">-</span> Do not use for individual PR updates
@@ -602,30 +595,30 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <h2 id="10-session-management">10. Session Management</h2>
 <h3 id="session-commands">Session Commands</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Command</th>
-					<th>Action</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>/resume</code></td>
-					<td>Open session picker</td>
-			</tr>
-			<tr>
-					<td><code>/clear</code></td>
-					<td>Clear current context</td>
-			</tr>
-			<tr>
-					<td><code>/compact</code></td>
-					<td>Manually compact context</td>
-			</tr>
-			<tr>
-					<td><code>/help</code></td>
-					<td>Show all commands</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Command</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/resume</code></td>
+          <td>Open session picker</td>
+      </tr>
+      <tr>
+          <td><code>/clear</code></td>
+          <td>Clear current context</td>
+      </tr>
+      <tr>
+          <td><code>/compact</code></td>
+          <td>Manually compact context</td>
+      </tr>
+      <tr>
+          <td><code>/help</code></td>
+          <td>Show all commands</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="session-picker-features">Session Picker Features</h3>
 <ul>
@@ -645,38 +638,38 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <h2 id="11-keyboard-shortcuts--navigation">11. Keyboard Shortcuts &amp; Navigation</h2>
 <h3 id="essential-shortcuts">Essential Shortcuts</h3>
 <table>
-	<thead>
-			<tr>
-					<th>Shortcut</th>
-					<th>Action</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>Escape</code></td>
-					<td>Stop Claude (not Ctrl+C!)</td>
-			</tr>
-			<tr>
-					<td><code>Escape</code> (twice)</td>
-					<td>Show previous messages</td>
-			</tr>
-			<tr>
-					<td><code>Up/Down</code></td>
-					<td>Navigate command history</td>
-			</tr>
-			<tr>
-					<td><code>Ctrl+R</code></td>
-					<td>Reverse search history</td>
-			</tr>
-			<tr>
-					<td><code>Ctrl+V</code></td>
-					<td>Paste images (not Cmd+V)</td>
-			</tr>
-			<tr>
-					<td><code>Shift+Drag</code></td>
-					<td>Reference files properly</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Shortcut</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Escape</code></td>
+          <td>Stop Claude (not Ctrl+C!)</td>
+      </tr>
+      <tr>
+          <td><code>Escape</code> (twice)</td>
+          <td>Show previous messages</td>
+      </tr>
+      <tr>
+          <td><code>Up/Down</code></td>
+          <td>Navigate command history</td>
+      </tr>
+      <tr>
+          <td><code>Ctrl+R</code></td>
+          <td>Reverse search history</td>
+      </tr>
+      <tr>
+          <td><code>Ctrl+V</code></td>
+          <td>Paste images (not Cmd+V)</td>
+      </tr>
+      <tr>
+          <td><code>Shift+Drag</code></td>
+          <td>Reference files properly</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="terminal-setup">Terminal Setup</h3>
 <ul>
@@ -751,7 +744,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 <hr>
 <h2 id="quick-reference-card">Quick Reference Card</h2>
 <h3 id="daily-workflow">Daily Workflow</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start session</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Start session</span>
 </span></span><span style="display:flex;"><span>claude
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Initialize project memory</span>
@@ -779,7 +772,7 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
 ./CLAUDE.md                # Project memory (committed)
 .mcp.json                  # MCP server config (committed)
 </code></pre><h3 id="emergency-commands">Emergency Commands</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Skip all permissions (trusted environments only)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Skip all permissions (trusted environments only)</span>
 </span></span><span style="display:flex;"><span>claude --dangerously-skip-permissions
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Update Claude Code</span>
@@ -799,6 +792,11 @@ Table of Contents Initial Setup &amp; Configuration CLAUDE.md Configuration Perm
     
     
 </div>
+
+
+
+
+
 
 
 

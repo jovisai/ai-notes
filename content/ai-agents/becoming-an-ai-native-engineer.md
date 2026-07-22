@@ -2,6 +2,7 @@
 title: "Becoming an AI-Native Engineer"
 description: "The six capabilities that move an engineer from writing code to specifying intent and designing systems that verify correctness"
 pubDate: 2026-07-20
+featured: true
 tags: ["ai-native", "software-engineering", "ai-agents", "engineering-leverage", "evaluation"]
 ---
 

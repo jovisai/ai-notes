@@ -2,7 +2,7 @@
 # Generates static/llm.txt from content front matter
 set -e
 
-OUTPUT="static/llm.txt"
+OUTPUT="static/llms.txt"
 BASE_URL="https://notes.muthu.co"
 PUBLISHED_CONTENT="$(mktemp)"
 

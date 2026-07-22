@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Reliability on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/reliability/</link>
-		<description>Recent content in Reliability on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/reliability/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving?</title>
-				<link>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</link>
-				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</guid>
-				<description>&lt;p&gt;&lt;em&gt;Amdahl&amp;rsquo;s Law doesn&amp;rsquo;t care about your sprint velocity.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;There&amp;rsquo;s a pattern playing out in companies right now.&lt;/p&gt;&#xA;&lt;p&gt;Engineering gets AI tooling. Code generation, automated testing, AI-assisted reviews. Within a quarter, velocity is up. PRs merge faster. Features ship sooner. Leadership is excited. Slides go to the board.&lt;/p&gt;&#xA;&lt;p&gt;And then the revenue numbers come in. Flat.&lt;/p&gt;&#xA;&lt;p&gt;The post-mortems are always the same: &amp;ldquo;we built a lot, but it didn&amp;rsquo;t translate.&amp;rdquo; Everyone nods. Someone suggests better prioritization. The real problem goes undiagnosed.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>The Unsolved Engineering Problems of AI Agents</title>
-				<link>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>
-				<pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</guid>
-				<description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/agents.png&#34; alt=&#34;&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;AI agents engineering is still in its &amp;ldquo;distributed systems in the 1990s&amp;rdquo; phase.&lt;/p&gt;&#xA;&lt;p&gt;Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.&lt;/p&gt;&#xA;&lt;p&gt;That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>Verification and Validation Loops for Agent Reliability Through Runtime Checks</title>
-				<link>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</link>
-				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</guid>
-				<description>&lt;p&gt;When an AI agent writes code, queries a database, or makes a critical decision, how do you know it got it right? Unlike traditional software where logic is deterministic, AI agents introduce probabilistic behavior that can fail in subtle ways. &lt;strong&gt;Verification and Validation (V&amp;amp;V) loops&lt;/strong&gt; are the safety net that catches these failures before they cause harm.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;V&amp;amp;V loops are architectural patterns where agents:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Generate&lt;/strong&gt; an output (code, text, decision, action)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt; syntactic correctness (does it parse? follow format rules?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Validate&lt;/strong&gt; semantic correctness (does it solve the right problem? meet constraints?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Correct&lt;/strong&gt; or &lt;strong&gt;retry&lt;/strong&gt; if checks fail&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;This creates a feedback loop where the agent acts as its own quality assurance system, improving reliability in production environments.&lt;/p&gt;</description>
-			</item>
-	</channel>
+  <channel>
+    <title>Reliability on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/reliability/</link>
+    <description>Recent content in Reliability on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/reliability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving?</title>
+      <link>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Amdahl&amp;rsquo;s Law doesn&amp;rsquo;t care about your sprint velocity.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;There&amp;rsquo;s a pattern playing out in companies right now.&lt;/p&gt;&#xA;&lt;p&gt;Engineering gets AI tooling. Code generation, automated testing, AI-assisted reviews. Within a quarter, velocity is up. PRs merge faster. Features ship sooner. Leadership is excited. Slides go to the board.&lt;/p&gt;&#xA;&lt;p&gt;And then the revenue numbers come in. Flat.&lt;/p&gt;&#xA;&lt;p&gt;The post-mortems are always the same: &amp;ldquo;we built a lot, but it didn&amp;rsquo;t translate.&amp;rdquo; Everyone nods. Someone suggests better prioritization. The real problem goes undiagnosed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Unsolved Engineering Problems of AI Agents</title>
+      <link>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</link>
+      <pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/05/the-unsolved-engineering-problems-of-ai-agents/</guid>
+      <description>&lt;p&gt;&#xA;  &lt;img src=&#34;https://notes.muthu.co/agents.png&#34; alt=&#34;Illustration of an AI-agent system with interconnected components&#34;&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;AI agents engineering is still in its &amp;ldquo;distributed systems in the 1990s&amp;rdquo; phase.&lt;/p&gt;&#xA;&lt;p&gt;Most demos work. Very few systems are reliable, scalable, explainable, secure, cheap, and autonomous at the same time.&lt;/p&gt;&#xA;&lt;p&gt;That gap matters. A demo can succeed once under ideal conditions. A production agent has to survive ambiguous inputs, partial failures, bad data, tool errors, cost constraints, security attacks, long-running state, and human accountability. It has to act like software while being powered by probabilistic reasoning.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Verification and Validation Loops for Agent Reliability Through Runtime Checks</title>
+      <link>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/</guid>
+      <description>&lt;p&gt;When an AI agent writes code, queries a database, or makes a critical decision, how do you know it got it right? Unlike traditional software where logic is deterministic, AI agents introduce probabilistic behavior that can fail in subtle ways. &lt;strong&gt;Verification and Validation (V&amp;amp;V) loops&lt;/strong&gt; are the safety net that catches these failures before they cause harm.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;V&amp;amp;V loops are architectural patterns where agents:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Generate&lt;/strong&gt; an output (code, text, decision, action)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt; syntactic correctness (does it parse? follow format rules?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Validate&lt;/strong&gt; semantic correctness (does it solve the right problem? meet constraints?)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Correct&lt;/strong&gt; or &lt;strong&gt;retry&lt;/strong&gt; if checks fail&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;This creates a feedback loop where the agent acts as its own quality assurance system, improving reliability in production environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

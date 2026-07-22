@@ -1,6 +1,7 @@
 ---
 title: "Agent Evaluation and Benchmarking for Measuring What Matters"
 date: 2026-02-19
+math: true
 draft: false
 tags: ["ai-agents", "evaluation", "benchmarking", "testing", "metrics"]
 description: "Learn how to systematically evaluate AI agent performance using benchmarks, metrics, and evaluation frameworks that go beyond simple accuracy"

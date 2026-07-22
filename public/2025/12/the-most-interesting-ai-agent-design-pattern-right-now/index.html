@@ -2,30 +2,31 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Most Interesting AI Agent Design Pattern Right Now - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>The Most Interesting AI Agent Design Pattern Right Now - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/"><meta name="description" content="Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan.">
 	
-	<meta itemprop="name" content="The Most Interesting AI Agent Design Pattern Right Now">
-	<meta itemprop="description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
+  <meta itemprop="name" content="The Most Interesting AI Agent Design Pattern Right Now">
+  <meta itemprop="description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
 This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.">
-	<meta itemprop="datePublished" content="2025-12-27T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2025-12-27T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1061"><meta property="og:url" content="https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="The Most Interesting AI Agent Design Pattern Right Now">
-	<meta property="og:description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
+  <meta itemprop="datePublished" content="2025-12-27T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-27T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1061"><meta property="og:url" content="https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="The Most Interesting AI Agent Design Pattern Right Now">
+  <meta property="og:description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
 This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2025-12-27T00:00:00+00:00">
-		<meta property="article:modified_time" content="2025-12-27T00:00:00+00:00">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-27T00:00:00+00:00">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="The Most Interesting AI Agent Design Pattern Right Now">
-	<meta name="twitter:description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Most Interesting AI Agent Design Pattern Right Now">
+  <meta name="twitter:description" content="AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is gaining significant attention in both research and engineering circles.
 This pattern fundamentally changes how agents solve problems. If you are familiar with tools, you know that you traditionally have to manually code every function you want your LLM to call. This works well until the LLM encounters a new task; at that point, it simply declares that it lacks the necessary capability. CodeAct solves this exact problem. Instead of being limited to a predefined set of tools, a CodeAct agent can create a new tool on the fly by writing and executing its own code.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-12-27T00:00:00Z","datePublished":"2025-12-27T00:00:00Z","description":"AI agents have moved fast over the last year. We started with simple chatbots, evolved to tool-using agents, and now, a new design pattern called CodeAct is …","headline":"The Most Interesting AI Agent Design Pattern Right Now","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/12/the-most-interesting-ai-agent-design-pattern-right-now/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -33,11 +34,6 @@ This pattern fundamentally changes how agents solve problems. If you are familia
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -49,12 +45,6 @@ This pattern fundamentally changes how agents solve problems. If you are familia
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -110,6 +100,9 @@ This pattern fundamentally changes how agents solve problems. If you are familia
             <span class="rest">Dec 2025</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -163,7 +156,7 @@ This pattern fundamentally changes how agents solve problems. If you are familia
 <p>Let&rsquo;s look at how a CodeAct loop works, this time with a conceptual code example. Imagine an agent tasked with: <em>&ldquo;What is the total size of all .csv files in the current directory?&rdquo;</em></p>
 <p>The agent has a <code>list_files</code> tool but no tool to get file sizes.</p>
 <p>Here is a simplified Python-like implementation of how it might solve this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CodeActAgent</span><span style="color:#1f2328">:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CodeActAgent</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">,</span> tools<span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>tools <span style="color:#0550ae">=</span> <span style="color:#1f2328">{</span>tool<span style="color:#0550ae">.</span>name<span style="color:#1f2328">:</span> tool <span style="color:#cf222e">for</span> tool <span style="color:#0550ae">in</span> tools<span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>sandbox <span style="color:#0550ae">=</span> CodeSandbox<span style="color:#1f2328">()</span>
@@ -236,6 +229,11 @@ This pattern fundamentally changes how agents solve problems. If you are familia
     
     
 </div>
+
+
+
+
+
 
 
 

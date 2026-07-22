@@ -2,33 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>What If GitHub Was Built for AI Agents - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>What If GitHub Was Built for AI Agents - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/"><meta name="description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
 	
-	<meta itemprop="name" content="What If GitHub Was Built for AI Agents">
-	<meta itemprop="description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
-	<meta itemprop="datePublished" content="2026-02-17T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-02-17T00:00:00+00:00">
-	<meta itemprop="wordCount" content="773">
-	<meta itemprop="keywords" content="AI Agents,Source-Control,Devops,Autonomous-Systems,Software Engineering"><meta property="og:url" content="https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="What If GitHub Was Built for AI Agents">
-	<meta property="og:description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="ai-agents">
-		<meta property="article:published_time" content="2026-02-17T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-02-17T00:00:00+00:00">
-		<meta property="article:tag" content="AI Agents">
-		<meta property="article:tag" content="Source-Control">
-		<meta property="article:tag" content="Devops">
-		<meta property="article:tag" content="Autonomous-Systems">
-		<meta property="article:tag" content="Software Engineering">
+  <meta itemprop="name" content="What If GitHub Was Built for AI Agents">
+  <meta itemprop="description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
+  <meta itemprop="datePublished" content="2026-02-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-02-17T00:00:00+00:00">
+  <meta itemprop="wordCount" content="773">
+  <meta itemprop="keywords" content="AI Agents,Source-Control,Devops,Autonomous-Systems,Software Engineering"><meta property="og:url" content="https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="What If GitHub Was Built for AI Agents">
+  <meta property="og:description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2026-02-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-17T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Source-Control">
+    <meta property="article:tag" content="Devops">
+    <meta property="article:tag" content="Autonomous-Systems">
+    <meta property="article:tag" content="Software Engineering">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="What If GitHub Was Built for AI Agents">
-	<meta name="twitter:description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What If GitHub Was Built for AI Agents">
+  <meta name="twitter:description" content="Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2026-02-17T00:00:00Z","datePublished":"2026-02-17T00:00:00Z","description":"Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts","headline":"What If GitHub Was Built for AI Agents","mainEntityOfPage":{"@id":"https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2026/02/what-if-github-was-built-for-ai-agents/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -36,11 +37,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -52,12 +48,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -113,6 +103,9 @@
             <span class="rest">Feb 2026</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -254,6 +247,24 @@
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/">Knowledge Distillation Teaching Smaller Agents From Larger Ones</a><span>Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability</span></li>
+        
+        <li><a href="/2025/12/improving-decisions-through-multi-agent-debate-and-deliberation/">Improving Decisions Through Multi-Agent Debate and Deliberation</a><span>How AI agents can reach better decisions by arguing with each other—exploring debate protocols, deliberation architectures, and the surprising power of constructive disagreement.</span></li>
+        
+        <li><a href="/2025/11/verification-and-validation-loops-for-agent-reliability-through-runtime-checks/">Verification and Validation Loops for Agent Reliability Through Runtime Checks</a><span>Learn how modern AI agents use verification and validation loops to ensure output quality, catch errors at runtime, and build reliable production systems.</span></li>
+        
+    </ul>
+</section>
+
+
 
 
 

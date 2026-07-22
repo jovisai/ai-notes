@@ -2,33 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Adding Context to Chunks for Better Retrieval with Contextual RAG - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Adding Context to Chunks for Better Retrieval with Contextual RAG - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/"><meta name="description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
 	
-	<meta itemprop="name" content="Adding Context to Chunks for Better Retrieval with Contextual RAG">
-	<meta itemprop="description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
-	<meta itemprop="datePublished" content="2025-12-31T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2025-12-31T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1186">
-	<meta itemprop="keywords" content="AI,RAG,Retrieval,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="Adding Context to Chunks for Better Retrieval with Contextual RAG">
-	<meta property="og:description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2025-12-31T00:00:00+00:00">
-		<meta property="article:modified_time" content="2025-12-31T00:00:00+00:00">
-		<meta property="article:tag" content="AI">
-		<meta property="article:tag" content="RAG">
-		<meta property="article:tag" content="Retrieval">
-		<meta property="article:tag" content="Python">
-		<meta property="article:tag" content="Tutorial">
+  <meta itemprop="name" content="Adding Context to Chunks for Better Retrieval with Contextual RAG">
+  <meta itemprop="description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
+  <meta itemprop="datePublished" content="2025-12-31T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-31T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1186">
+  <meta itemprop="keywords" content="Ai,RAG,Retrieval,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="Adding Context to Chunks for Better Retrieval with Contextual RAG">
+  <meta property="og:description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-31T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="RAG">
+    <meta property="article:tag" content="Retrieval">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Adding Context to Chunks for Better Retrieval with Contextual RAG">
-	<meta name="twitter:description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Adding Context to Chunks for Better Retrieval with Contextual RAG">
+  <meta name="twitter:description" content="Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-12-31T00:00:00Z","datePublished":"2025-12-31T00:00:00Z","description":"Improve your RAG pipeline by prepending contextual information to each chunk before embedding, reducing retrieval failures by up to 67%.","headline":"Adding Context to Chunks for Better Retrieval with Contextual RAG","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/12/adding-context-to-chunks-for-better-retrieval-with-contextual-rag/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -36,11 +37,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -52,12 +48,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -113,6 +103,9 @@
             <span class="rest">Dec 2025</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -150,7 +143,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 <h2 id="implementation">Implementation</h2>
 <h3 id="step-1-generate-context-with-an-llm">Step 1: Generate Context with an LLM</h3>
 <p>Use a language model to generate a brief context description for each chunk:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">openai</span> <span style="color:#cf222e">import</span> OpenAI
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">openai</span> <span style="color:#cf222e">import</span> OpenAI
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>client <span style="color:#0550ae">=</span> OpenAI<span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
@@ -179,7 +172,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> response<span style="color:#0550ae">.</span>choices<span style="color:#1f2328">[</span><span style="color:#0550ae">0</span><span style="color:#1f2328">]</span><span style="color:#0550ae">.</span>message<span style="color:#0550ae">.</span>content<span style="color:#0550ae">.</span>strip<span style="color:#1f2328">()</span>
 </span></span></code></pre></div><h3 id="step-2-contextual-chunking-pipeline">Step 2: Contextual Chunking Pipeline</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain.text_splitter</span> <span style="color:#cf222e">import</span> RecursiveCharacterTextSplitter
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langchain.text_splitter</span> <span style="color:#cf222e">import</span> RecursiveCharacterTextSplitter
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">create_contextual_chunks</span><span style="color:#1f2328">(</span>document<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> chunk_size<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">500</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">dict</span><span style="color:#1f2328">]:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Split document and add context to each chunk.&#34;&#34;&#34;</span>
@@ -209,7 +202,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> contextual_chunks
 </span></span></code></pre></div><h3 id="step-3-embed-and-store">Step 3: Embed and Store</h3>
 <p>Embed the contextualized text, not the original:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">chromadb</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">chromadb</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">sentence_transformers</span> <span style="color:#cf222e">import</span> SentenceTransformer
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>embedder <span style="color:#0550ae">=</span> SentenceTransformer<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;all-MiniLM-L6-v2&#34;</span><span style="color:#1f2328">)</span>
@@ -231,7 +224,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 </span></span><span style="display:flex;"><span>        <span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h3 id="step-4-retrieval">Step 4: Retrieval</h3>
 <p>At query time, you can optionally add context to the query too:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">contextual_search</span><span style="color:#1f2328">(</span>query<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> n_results<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">dict</span><span style="color:#1f2328">]:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">contextual_search</span><span style="color:#1f2328">(</span>query<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">,</span> n_results<span style="color:#1f2328">:</span> <span style="color:#6639ba">int</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">5</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">dict</span><span style="color:#1f2328">]:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Search with optional query contextualization.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    query_embedding <span style="color:#0550ae">=</span> embedder<span style="color:#0550ae">.</span>encode<span style="color:#1f2328">(</span>query<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>tolist<span style="color:#1f2328">()</span>
@@ -253,7 +246,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 </span></span><span style="display:flex;"><span>    <span style="color:#1f2328">]</span>
 </span></span></code></pre></div><h2 id="optimization-caching-context-generation">Optimization: Caching Context Generation</h2>
 <p>Generating context for every chunk is expensive. Cache the results:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">hashlib</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">hashlib</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">json</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">pathlib</span> <span style="color:#cf222e">import</span> Path
 </span></span><span style="display:flex;"><span>
@@ -287,7 +280,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> context
 </span></span></code></pre></div><h2 id="combining-with-bm25">Combining with BM25</h2>
 <p>For even better retrieval, combine contextual embeddings with BM25:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">numpy</span> <span style="color:#cf222e">as</span> <span style="color:#24292e">np</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">numpy</span> <span style="color:#cf222e">as</span> <span style="color:#24292e">np</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">rank_bm25</span> <span style="color:#cf222e">import</span> BM25Okapi
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">HybridRetriever</span><span style="color:#1f2328">:</span>
@@ -341,39 +334,39 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 <h2 id="cost-analysis">Cost Analysis</h2>
 <p>Contextual RAG adds LLM costs at indexing time:</p>
 <table>
-	<thead>
-			<tr>
-					<th>Documents</th>
-					<th>Chunks</th>
-					<th>Context Calls</th>
-					<th>Cost (GPT-4o-mini)</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>100</td>
-					<td>1,000</td>
-					<td>1,000</td>
-					<td>~$0.15</td>
-			</tr>
-			<tr>
-					<td>1,000</td>
-					<td>10,000</td>
-					<td>10,000</td>
-					<td>~$1.50</td>
-			</tr>
-			<tr>
-					<td>10,000</td>
-					<td>100,000</td>
-					<td>100,000</td>
-					<td>~$15.00</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Documents</th>
+          <th>Chunks</th>
+          <th>Context Calls</th>
+          <th>Cost (GPT-4o-mini)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>100</td>
+          <td>1,000</td>
+          <td>1,000</td>
+          <td>~$0.15</td>
+      </tr>
+      <tr>
+          <td>1,000</td>
+          <td>10,000</td>
+          <td>10,000</td>
+          <td>~$1.50</td>
+      </tr>
+      <tr>
+          <td>10,000</td>
+          <td>100,000</td>
+          <td>100,000</td>
+          <td>~$15.00</td>
+      </tr>
+  </tbody>
 </table>
 <p>This is a one-time indexing cost. Query costs remain the same.</p>
 <h2 id="measuring-improvement">Measuring Improvement</h2>
 <p>Track these metrics before and after:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">evaluate_retrieval</span><span style="color:#1f2328">(</span>queries<span style="color:#1f2328">:</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">],</span> ground_truth<span style="color:#1f2328">:</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">]]):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">evaluate_retrieval</span><span style="color:#1f2328">(</span>queries<span style="color:#1f2328">:</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">],</span> ground_truth<span style="color:#1f2328">:</span> <span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">list</span><span style="color:#1f2328">[</span><span style="color:#6639ba">str</span><span style="color:#1f2328">]]):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;&#34;&#34;Evaluate retrieval quality.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    hits <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
 </span></span><span style="display:flex;"><span>    total <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span>
@@ -396,7 +389,7 @@ Chunk 3: &#34;This is from the Europe subsection of Regional Performance in the 
 <li><strong>Contextual + Hybrid:</strong> ~95%</li>
 </ul>
 <h2 id="complete-example">Complete Example</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Full pipeline</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Full pipeline</span>
 </span></span><span style="display:flex;"><span>document <span style="color:#0550ae">=</span> <span style="color:#6639ba">open</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;quarterly_report.md&#34;</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>read<span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># 1. Create contextual chunks</span>
@@ -466,6 +459,24 @@ chunks improve retrieval for queries referencing section context.
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2025/12/building-an-agentic-rag-pipeline-with-langgraph/">Building an Agentic RAG Pipeline with LangGraph</a><span>Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.</span></li>
+        
+        <li><a href="/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/">A Practical Guide to Evaluating Your AI Agents with DeepEval</a><span>Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.</span></li>
+        
+        <li><a href="/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">CrewAI vs LangGraph Building the Same Multi-Agent System in Both</a><span>A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.</span></li>
+        
+    </ul>
+</section>
+
+
 
 
 

@@ -2,33 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/"><meta name="description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
 	
-	<meta itemprop="name" content="Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying">
-	<meta itemprop="description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
-	<meta itemprop="datePublished" content="2026-03-02T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-03-02T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1922">
-	<meta itemprop="keywords" content="AI Agents,Spec-Driven-Development,Claude-Code,Developer-Workflow,Software Engineering"><meta property="og:url" content="https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying">
-	<meta property="og:description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="ai-agents">
-		<meta property="article:published_time" content="2026-03-02T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-03-02T00:00:00+00:00">
-		<meta property="article:tag" content="AI Agents">
-		<meta property="article:tag" content="Spec-Driven-Development">
-		<meta property="article:tag" content="Claude-Code">
-		<meta property="article:tag" content="Developer-Workflow">
-		<meta property="article:tag" content="Software Engineering">
+  <meta itemprop="name" content="Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying">
+  <meta itemprop="description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
+  <meta itemprop="datePublished" content="2026-03-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-03-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1922">
+  <meta itemprop="keywords" content="AI Agents,Spec-Driven-Development,Claude-Code,Developer-Workflow,Software Engineering"><meta property="og:url" content="https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying">
+  <meta property="og:description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2026-03-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-02T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Spec-Driven-Development">
+    <meta property="article:tag" content="Claude-Code">
+    <meta property="article:tag" content="Developer-Workflow">
+    <meta property="article:tag" content="Software Engineering">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying">
-	<meta name="twitter:description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying">
+  <meta name="twitter:description" content="A complete tutorial on using GitHub&#39;s spec-kit to bring structure to AI-assisted development — from install to your first specification.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2026-03-02T00:00:00Z","datePublished":"2026-03-02T00:00:00Z","description":"A complete tutorial on using GitHub's spec-kit to bring structure to AI-assisted development — from install to your first specification.","headline":"Spec-Driven Development with spec-kit: Stop Vibe Coding, Start Specifying","mainEntityOfPage":{"@id":"https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2026/03/spec-driven-development-with-spec-kit-stop-vibe-coding-start-specifying/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -36,11 +37,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -52,12 +48,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -113,6 +103,9 @@
             <span class="rest">Mar 2026</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -140,7 +133,7 @@
 <li><strong>Implement</strong> — execute the tasks with the AI agent</li>
 </ol>
 <p>
-  <img src="/sdd.png" alt="">
+  <img src="/sdd.png" alt="A Spec Kit workflow progressing from constitution to specification, plan, tasks, and implementation">
 
 </p>
 <p>Each phase gates the next. You cannot generate tasks without a plan. You cannot write a plan without a spec. The pipeline enforces the discipline so you do not have to.</p>
@@ -154,11 +147,11 @@
 <p><strong>Prerequisites</strong>: Python 3.11+, <a href="https://docs.astral.sh/uv/">UV</a>, Git, and any supported AI coding agent.</p>
 <p>spec-kit provides two install modes.</p>
 <p><strong>Persistent install</strong> — adds <code>specify</code> to your PATH so you can use it in any project:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 </span></span></code></pre></div><p><strong>One-time install</strong> — runs without installing permanently, useful for trying it out:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uvx --from git+https://github.com/github/spec-kit.git specify init
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uvx --from git+https://github.com/github/spec-kit.git specify init
 </span></span></code></pre></div><p>Once installed, run <code>specify init</code> inside your project directory:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> your-project
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> your-project
 </span></span><span style="display:flex;"><span>specify init
 </span></span></code></pre></div><p>This creates a <code>.specify/</code> directory in your project root containing scripts, templates, and agent configuration. It also registers the slash commands with your installed AI agents. From this point on, <code>/speckit.specify</code>, <code>/speckit.plan</code>, and the rest are available in your coding session.</p>
 <h2 id="the-workflow-a-real-example">The Workflow: A Real Example</h2>
@@ -168,13 +161,13 @@
 <p>The Constitution is a one-time setup command that documents the governing principles for your project: architectural patterns, technology decisions, security requirements, and constraints that every feature must respect.</p>
 <p>You run it once when you set up spec-kit. For <code>ai-agents-actions-tracker</code> it captured five principles: web-app architecture (Route → Service → Model), AI-augmented but not AI-dependent, data integrity with migration discipline, security and multi-tenant safety, and simplicity with independent testability.</p>
 <p>
-  <img src="/spec_constitution.png" alt="">
+  <img src="/spec_constitution.png" alt="A Spec Kit constitution defining the project principles that guide each plan">
 
 </p>
 <p>Every subsequent plan generates a <strong>Constitution Check</strong>, a gate that verifies the feature design does not violate these principles. This prevents architectural drift across features without requiring a human reviewer to remember every past decision.</p>
 <h3 id="step-2--write-the-spec-speckitspecify">Step 2 — Write the Spec (<code>/speckit.specify</code>)</h3>
 <p>You provide the feature description as an argument:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.specify The current system always creates only a task, support for
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.specify The current system always creates only a task, support for
 </span></span><span style="display:flex;"><span>creating more issue types like Bug, Story and Epic
 </span></span></code></pre></div><p>spec-kit takes that sentence and does the following automatically:</p>
 <ul>
@@ -185,7 +178,7 @@
 </ul>
 <p>The output is a two-story spec with no clarifications needed:</p>
 <p>
-  <img src="/spec_specify.png" alt="">
+  <img src="/spec_specify.png" alt="A generated feature specification with user stories and acceptance criteria">
 
 </p>
 <p>The spec also captures scope decisions as explicit assumptions so they do not become implicit debate later:</p>
@@ -196,28 +189,28 @@
 </ul>
 <p>Notice what is not in the spec: no mention of Vue components, no mention of FastAPI, no mention of how the default is stored. Those belong in the plan.</p>
 <h3 id="step-3--plan-speckitplan">Step 3 — Plan (<code>/speckit.plan</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.plan
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.plan
 </span></span></code></pre></div><p>The plan command reads <code>spec.md</code>, researches the codebase in depth, and produces a complete technical design. It also runs the Constitution Check before generating anything.</p>
 <p>The gap analysis is the most valuable output. It documents exactly what already exists versus what is missing:</p>
 <p>
-  <img src="/spec_plan.png" alt="">
+  <img src="/spec_plan.png" alt="A technical implementation plan showing the gap analysis and planned changes">
 
 </p>
 <p>The plan concluded that this feature required changes to five files and approximately 30 lines of code. No new endpoints, no new DB columns, no new services. The infrastructure was already in place.</p>
 <h3 id="step-4--generate-tasks-speckittasks">Step 4 — Generate Tasks (<code>/speckit.tasks</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.tasks
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.tasks
 </span></span></code></pre></div><p>The tasks command reads all the planning artifacts and generates a flat, ordered, independently implementable task list. If you try to run it without a completed <code>plan.md</code>, it fails with a clear error. This is the gate system in action.</p>
 <p>With the plan in place, it produced eight tasks:</p>
 <p>
-  <img src="/spec_tasks.png" alt="">
+  <img src="/spec_tasks.png" alt="A generated task list that breaks the feature plan into executable work">
 
 </p>
 <h3 id="step-5--implement-speckitimplement">Step 5 — Implement (<code>/speckit.implement</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.implement
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/speckit.implement
 </span></span></code></pre></div><p>The implement command hands control to the AI agent with the complete context: spec, plan, research, data model, API contracts, and the ordered task list. The agent works through the tasks in sequence, marking each complete before moving to the next.</p>
 <p>Because every decision was made upfront, the implementation phase produces no surprises. The agent does not need to guess what &ldquo;Epic&rdquo; support means. It does not need to decide whether to add a DB migration. It does not need to choose between batch-level and per-item selection. All of that is resolved. The agent just writes code.</p>
 <p>
-  <img src="/spec_implement.png" alt="">
+  <img src="/spec_implement.png" alt="A Spec Kit implementation workflow executing the approved task list">
 
 </p>
 <h2 id="key-concepts-explained">Key Concepts Explained</h2>
@@ -227,7 +220,7 @@
 <p><strong>Assumptions as first-class citizens.</strong> The spec explicitly lists what is out of scope and what is assumed. In the example: dynamic fetching of issue types per Jira project is out of scope; Epic-specific required fields are handled best-effort. Writing assumptions down prevents them from becoming unspoken constraints that surprise the next person who works on the feature.</p>
 <h2 id="what-spec-kit-produces">What spec-kit Produces</h2>
 <p>After running the full pipeline, your <code>specs/</code> directory contains:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>specs/001-jira-issue-types/
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>specs/001-jira-issue-types/
 </span></span><span style="display:flex;"><span>├── spec.md                  # User stories, acceptance scenarios, FRs, success criteria
 </span></span><span style="display:flex;"><span>├── plan.md                  # Technical design, gap analysis, change map, Constitution Check
 </span></span><span style="display:flex;"><span>├── research.md              # Codebase research — what exists vs. what&#39;s missing
@@ -288,6 +281,24 @@
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2026/02/what-if-github-was-built-for-ai-agents/">What If GitHub Was Built for AI Agents</a><span>Reimagining source code management from the ground up for AI agents, with intent based commits, simulation before merge, agent reputation, and automatic rollback contracts</span></li>
+        
+        <li><a href="/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/">Agent Evaluation and Benchmarking for Measuring What Matters</a><span>Learn how to systematically evaluate AI agent performance using benchmarks, metrics, and evaluation frameworks that go beyond simple accuracy</span></li>
+        
+        <li><a href="/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/">Knowledge Distillation Teaching Smaller Agents From Larger Ones</a><span>Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability</span></li>
+        
+    </ul>
+</section>
+
+
 
 
 

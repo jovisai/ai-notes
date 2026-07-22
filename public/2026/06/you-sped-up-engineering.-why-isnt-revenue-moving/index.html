@@ -2,33 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving? - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>You Sped Up Engineering. Why Isn&#39;t Revenue Moving? - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/"><meta name="description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
 	
-	<meta itemprop="name" content="You Sped Up Engineering. Why Isn&#39;t Revenue Moving?">
-	<meta itemprop="description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
-	<meta itemprop="datePublished" content="2026-06-01T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-06-01T00:00:00+00:00">
-	<meta itemprop="wordCount" content="662">
-	<meta itemprop="keywords" content="AI Agents,Agent Infrastructure,Reliability,Memory,Multi-Agent-Systems"><meta property="og:url" content="https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="You Sped Up Engineering. Why Isn&#39;t Revenue Moving?">
-	<meta property="og:description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2026-06-01T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-06-01T00:00:00+00:00">
-		<meta property="article:tag" content="AI Agents">
-		<meta property="article:tag" content="Agent Infrastructure">
-		<meta property="article:tag" content="Reliability">
-		<meta property="article:tag" content="Memory">
-		<meta property="article:tag" content="Multi-Agent-Systems">
+  <meta itemprop="name" content="You Sped Up Engineering. Why Isn&#39;t Revenue Moving?">
+  <meta itemprop="description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
+  <meta itemprop="datePublished" content="2026-06-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-06-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="662">
+  <meta itemprop="keywords" content="AI Agents,Agent Infrastructure,Reliability,Memory,Multi-Agent-Systems"><meta property="og:url" content="https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="You Sped Up Engineering. Why Isn&#39;t Revenue Moving?">
+  <meta property="og:description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-01T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Agent Infrastructure">
+    <meta property="article:tag" content="Reliability">
+    <meta property="article:tag" content="Memory">
+    <meta property="article:tag" content="Multi-Agent-Systems">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="You Sped Up Engineering. Why Isn&#39;t Revenue Moving?">
-	<meta name="twitter:description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="You Sped Up Engineering. Why Isn&#39;t Revenue Moving?">
+  <meta name="twitter:description" content="A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2026-06-01T00:00:00Z","datePublished":"2026-06-01T00:00:00Z","description":"A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.","headline":"You Sped Up Engineering. Why Isn't Revenue Moving?","mainEntityOfPage":{"@id":"https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2026/06/you-sped-up-engineering.-why-isnt-revenue-moving/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -36,11 +37,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -52,12 +48,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -113,6 +103,9 @@
             <span class="rest">Jun 2026</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -137,7 +130,7 @@
 <hr>
 <h2 id="what-the-pipeline-actually-looks-like">What the pipeline actually looks like</h2>
 <p>
-  <img src="/engineering_bottleneck.png" alt="">
+  <img src="/engineering_bottleneck.png" alt="Diagram showing engineering as one bottleneck within the broader value-delivery pipeline">
 
 </p>
 <p>Engineering is roughly 20% of a company&rsquo;s total value delivery pipeline. The rest — before and after — is everything else.</p>
@@ -157,30 +150,30 @@
 <hr>
 <h2 id="the-math-doesnt-lie">The math doesn&rsquo;t lie</h2>
 <table>
-	<thead>
-			<tr>
-					<th>What you accelerate</th>
-					<th>Max overall speedup</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>Only coding (20% of pipeline)</td>
-					<td>1.22x</td>
-			</tr>
-			<tr>
-					<td>Engineering + DevOps (30%)</td>
-					<td>1.41x</td>
-			</tr>
-			<tr>
-					<td>Full SDLC — eng, QA, security (50%)</td>
-					<td>2.00x</td>
-			</tr>
-			<tr>
-					<td>Every function at once</td>
-					<td>10x</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>What you accelerate</th>
+          <th>Max overall speedup</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Only coding (20% of pipeline)</td>
+          <td>1.22x</td>
+      </tr>
+      <tr>
+          <td>Engineering + DevOps (30%)</td>
+          <td>1.41x</td>
+      </tr>
+      <tr>
+          <td>Full SDLC — eng, QA, security (50%)</td>
+          <td>2.00x</td>
+      </tr>
+      <tr>
+          <td>Every function at once</td>
+          <td>10x</td>
+      </tr>
+  </tbody>
 </table>
 <p>This assumes 10x improvement on the accelerated portion. The ceiling is set by what you <em>don&rsquo;t</em> accelerate.</p>
 <hr>
@@ -226,6 +219,24 @@
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2026/05/the-unsolved-engineering-problems-of-ai-agents/">The Unsolved Engineering Problems of AI Agents</a><span>A practical roadmap of the core engineering problems that must be solved before AI agents become reliable, scalable, secure, and economically useful systems.</span></li>
+        
+        <li><a href="/2026/03/working-memory-compression-and-context-distillation-in-long-horizon-agents/">Working Memory Compression and Context Distillation in Long Horizon Agents</a><span>How long-running agents compress, distill, and selectively retain working memory to operate effectively within finite context windows</span></li>
+        
+        <li><a href="/2026/02/knowledge-distillation-teaching-smaller-agents-from-larger-ones/">Knowledge Distillation Teaching Smaller Agents From Larger Ones</a><span>Learn how knowledge distillation enables large, expensive AI agents to teach smaller, faster ones — reducing cost and latency while preserving capability</span></li>
+        
+    </ul>
+</section>
+
+
 
 
 

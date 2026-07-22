@@ -1,724 +1,719 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Tags on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/</link>
-		<description>Recent content in Tags on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>AI Agents</title>
-				<link>https://notes.muthu.co/tags/ai-agents/</link>
-				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ai-agents/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Ai-Native</title>
-				<link>https://notes.muthu.co/tags/ai-native/</link>
-				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ai-native/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Engineering-Leverage</title>
-				<link>https://notes.muthu.co/tags/engineering-leverage/</link>
-				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/engineering-leverage/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Evaluation</title>
-				<link>https://notes.muthu.co/tags/evaluation/</link>
-				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/evaluation/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Software Engineering</title>
-				<link>https://notes.muthu.co/tags/software-engineering/</link>
-				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/software-engineering/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>AI</title>
-				<link>https://notes.muthu.co/tags/ai/</link>
-				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ai/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>LLM</title>
-				<link>https://notes.muthu.co/tags/llm/</link>
-				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/llm/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Local-Models</title>
-				<link>https://notes.muthu.co/tags/local-models/</link>
-				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/local-models/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Routing</title>
-				<link>https://notes.muthu.co/tags/routing/</link>
-				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/routing/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Software-Architecture</title>
-				<link>https://notes.muthu.co/tags/software-architecture/</link>
-				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/software-architecture/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Engineering Management</title>
-				<link>https://notes.muthu.co/tags/engineering-management/</link>
-				<pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/engineering-management/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Systems Thinking</title>
-				<link>https://notes.muthu.co/tags/systems-thinking/</link>
-				<pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/systems-thinking/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Theory of Constraints</title>
-				<link>https://notes.muthu.co/tags/theory-of-constraints/</link>
-				<pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/theory-of-constraints/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Agent-Loop</title>
-				<link>https://notes.muthu.co/tags/agent-loop/</link>
-				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/agent-loop/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Automation</title>
-				<link>https://notes.muthu.co/tags/automation/</link>
-				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/automation/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Tool Use</title>
-				<link>https://notes.muthu.co/tags/tool-use/</link>
-				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/tool-use/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Operations</title>
-				<link>https://notes.muthu.co/tags/operations/</link>
-				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/operations/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Careers</title>
-				<link>https://notes.muthu.co/tags/careers/</link>
-				<pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/careers/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Agent Infrastructure</title>
-				<link>https://notes.muthu.co/tags/agent-infrastructure/</link>
-				<pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Cloudflare</title>
-				<link>https://notes.muthu.co/tags/cloudflare/</link>
-				<pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/cloudflare/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Email</title>
-				<link>https://notes.muthu.co/tags/email/</link>
-				<pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/email/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Digital-Twins</title>
-				<link>https://notes.muthu.co/tags/digital-twins/</link>
-				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/digital-twins/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Engineering-Intelligence</title>
-				<link>https://notes.muthu.co/tags/engineering-intelligence/</link>
-				<pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/engineering-intelligence/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Memory</title>
-				<link>https://notes.muthu.co/tags/memory/</link>
-				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/memory/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Multi-Agent-Systems</title>
-				<link>https://notes.muthu.co/tags/multi-agent-systems/</link>
-				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Reliability</title>
-				<link>https://notes.muthu.co/tags/reliability/</link>
-				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/reliability/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Context Engineering</title>
-				<link>https://notes.muthu.co/tags/context-engineering/</link>
-				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/context-engineering/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>LangGraph</title>
-				<link>https://notes.muthu.co/tags/langgraph/</link>
-				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/langgraph/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Multi-Agent</title>
-				<link>https://notes.muthu.co/tags/multi-agent/</link>
-				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/multi-agent/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Claude-Code</title>
-				<link>https://notes.muthu.co/tags/claude-code/</link>
-				<pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/claude-code/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Developer-Workflow</title>
-				<link>https://notes.muthu.co/tags/developer-workflow/</link>
-				<pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/developer-workflow/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Spec-Driven-Development</title>
-				<link>https://notes.muthu.co/tags/spec-driven-development/</link>
-				<pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/spec-driven-development/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Agentic-Ai</title>
-				<link>https://notes.muthu.co/tags/agentic-ai/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/agentic-ai/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Orchestration</title>
-				<link>https://notes.muthu.co/tags/orchestration/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/orchestration/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Plugin Architecture</title>
-				<link>https://notes.muthu.co/tags/plugin-architecture/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/plugin-architecture/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Python</title>
-				<link>https://notes.muthu.co/tags/python/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/python/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>SaaS</title>
-				<link>https://notes.muthu.co/tags/saas/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/saas/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Subscription Platform</title>
-				<link>https://notes.muthu.co/tags/subscription-platform/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/subscription-platform/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>System Design</title>
-				<link>https://notes.muthu.co/tags/system-design/</link>
-				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/system-design/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Benchmarking</title>
-				<link>https://notes.muthu.co/tags/benchmarking/</link>
-				<pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/benchmarking/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Metrics</title>
-				<link>https://notes.muthu.co/tags/metrics/</link>
-				<pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/metrics/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Testing</title>
-				<link>https://notes.muthu.co/tags/testing/</link>
-				<pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/testing/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Autonomous-Systems</title>
-				<link>https://notes.muthu.co/tags/autonomous-systems/</link>
-				<pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/autonomous-systems/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Devops</title>
-				<link>https://notes.muthu.co/tags/devops/</link>
-				<pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/devops/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Source-Control</title>
-				<link>https://notes.muthu.co/tags/source-control/</link>
-				<pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/source-control/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Knowledge-Distillation</title>
-				<link>https://notes.muthu.co/tags/knowledge-distillation/</link>
-				<pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/knowledge-distillation/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Model-Compression</title>
-				<link>https://notes.muthu.co/tags/model-compression/</link>
-				<pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/model-compression/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Transfer-Learning</title>
-				<link>https://notes.muthu.co/tags/transfer-learning/</link>
-				<pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/transfer-learning/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>OpenAI</title>
-				<link>https://notes.muthu.co/tags/openai/</link>
-				<pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/openai/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Swarm</title>
-				<link>https://notes.muthu.co/tags/swarm/</link>
-				<pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/swarm/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Tutorial</title>
-				<link>https://notes.muthu.co/tags/tutorial/</link>
-				<pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/tutorial/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>RAG</title>
-				<link>https://notes.muthu.co/tags/rag/</link>
-				<pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/rag/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Retrieval</title>
-				<link>https://notes.muthu.co/tags/retrieval/</link>
-				<pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/retrieval/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>DeepEval</title>
-				<link>https://notes.muthu.co/tags/deepeval/</link>
-				<pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/deepeval/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>CrewAI</title>
-				<link>https://notes.muthu.co/tags/crewai/</link>
-				<pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/crewai/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Claude</title>
-				<link>https://notes.muthu.co/tags/claude/</link>
-				<pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/claude/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>MCP</title>
-				<link>https://notes.muthu.co/tags/mcp/</link>
-				<pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/mcp/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Debate</title>
-				<link>https://notes.muthu.co/tags/debate/</link>
-				<pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/debate/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Deliberation</title>
-				<link>https://notes.muthu.co/tags/deliberation/</link>
-				<pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/deliberation/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Reasoning</title>
-				<link>https://notes.muthu.co/tags/reasoning/</link>
-				<pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/reasoning/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Quality-Assurance</title>
-				<link>https://notes.muthu.co/tags/quality-assurance/</link>
-				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/quality-assurance/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Self-Correction</title>
-				<link>https://notes.muthu.co/tags/self-correction/</link>
-				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/self-correction/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Validation</title>
-				<link>https://notes.muthu.co/tags/validation/</link>
-				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/validation/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Verification</title>
-				<link>https://notes.muthu.co/tags/verification/</link>
-				<pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/verification/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Agent-Architecture</title>
-				<link>https://notes.muthu.co/tags/agent-architecture/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/agent-architecture/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Coding</title>
-				<link>https://notes.muthu.co/tags/coding/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/coding/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Human-in-the-Loop</title>
-				<link>https://notes.muthu.co/tags/human-in-the-loop/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/human-in-the-loop/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Interactive-Systems</title>
-				<link>https://notes.muthu.co/tags/interactive-systems/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/interactive-systems/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Software-Development</title>
-				<link>https://notes.muthu.co/tags/software-development/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/software-development/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Systems-Architecture</title>
-				<link>https://notes.muthu.co/tags/systems-architecture/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/systems-architecture/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Communication-Protocols</title>
-				<link>https://notes.muthu.co/tags/communication-protocols/</link>
-				<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/communication-protocols/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Coordination</title>
-				<link>https://notes.muthu.co/tags/coordination/</link>
-				<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/coordination/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Distributed-Systems</title>
-				<link>https://notes.muthu.co/tags/distributed-systems/</link>
-				<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/distributed-systems/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Debugging</title>
-				<link>https://notes.muthu.co/tags/debugging/</link>
-				<pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/debugging/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Monitoring</title>
-				<link>https://notes.muthu.co/tags/monitoring/</link>
-				<pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/monitoring/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Observability</title>
-				<link>https://notes.muthu.co/tags/observability/</link>
-				<pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/observability/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Autonomous Agents</title>
-				<link>https://notes.muthu.co/tags/autonomous-agents/</link>
-				<pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>State-Management</title>
-				<link>https://notes.muthu.co/tags/state-management/</link>
-				<pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/state-management/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Workflow-Orchestration</title>
-				<link>https://notes.muthu.co/tags/workflow-orchestration/</link>
-				<pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/workflow-orchestration/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Algorithms</title>
-				<link>https://notes.muthu.co/tags/algorithms/</link>
-				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/algorithms/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>MCTS</title>
-				<link>https://notes.muthu.co/tags/mcts/</link>
-				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/mcts/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Planning</title>
-				<link>https://notes.muthu.co/tags/planning/</link>
-				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/planning/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>AI Safety</title>
-				<link>https://notes.muthu.co/tags/ai-safety/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ai-safety/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Alignment</title>
-				<link>https://notes.muthu.co/tags/alignment/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/alignment/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>API</title>
-				<link>https://notes.muthu.co/tags/api/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/api/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Architecture</title>
-				<link>https://notes.muthu.co/tags/architecture/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/architecture/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Cognitive Science</title>
-				<link>https://notes.muthu.co/tags/cognitive-science/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/cognitive-science/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Constitutional AI</title>
-				<link>https://notes.muthu.co/tags/constitutional-ai/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/constitutional-ai/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Ethics</title>
-				<link>https://notes.muthu.co/tags/ethics/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ethics/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Function Calling</title>
-				<link>https://notes.muthu.co/tags/function-calling/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/function-calling/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Vector Databases</title>
-				<link>https://notes.muthu.co/tags/vector-databases/</link>
-				<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/vector-databases/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Deep-Research</title>
-				<link>https://notes.muthu.co/tags/deep-research/</link>
-				<pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/deep-research/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Llms</title>
-				<link>https://notes.muthu.co/tags/llms/</link>
-				<pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/llms/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Research</title>
-				<link>https://notes.muthu.co/tags/research/</link>
-				<pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/research/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Development</title>
-				<link>https://notes.muthu.co/tags/development/</link>
-				<pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/development/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Mmlu</title>
-				<link>https://notes.muthu.co/tags/mmlu/</link>
-				<pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/mmlu/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Slms</title>
-				<link>https://notes.muthu.co/tags/slms/</link>
-				<pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/slms/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Startups</title>
-				<link>https://notes.muthu.co/tags/startups/</link>
-				<pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/startups/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Interoperability</title>
-				<link>https://notes.muthu.co/tags/interoperability/</link>
-				<pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/interoperability/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Scalability</title>
-				<link>https://notes.muthu.co/tags/scalability/</link>
-				<pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/scalability/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Future</title>
-				<link>https://notes.muthu.co/tags/future/</link>
-				<pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/future/</guid>
-				<description></description>
-			</item>
-	</channel>
+  <channel>
+    <title>Tags on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/</link>
+    <description>Recent content in Tags on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agents</title>
+      <link>https://notes.muthu.co/tags/ai-agents/</link>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Native</title>
+      <link>https://notes.muthu.co/tags/ai-native/</link>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-native/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering-Leverage</title>
+      <link>https://notes.muthu.co/tags/engineering-leverage/</link>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering-leverage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Evaluation</title>
+      <link>https://notes.muthu.co/tags/evaluation/</link>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/evaluation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software Engineering</title>
+      <link>https://notes.muthu.co/tags/software-engineering/</link>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/software-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>https://notes.muthu.co/tags/ai/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>https://notes.muthu.co/tags/llm/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Local-Models</title>
+      <link>https://notes.muthu.co/tags/local-models/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/local-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Routing</title>
+      <link>https://notes.muthu.co/tags/routing/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/routing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software-Architecture</title>
+      <link>https://notes.muthu.co/tags/software-architecture/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/software-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering Management</title>
+      <link>https://notes.muthu.co/tags/engineering-management/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systems Thinking</title>
+      <link>https://notes.muthu.co/tags/systems-thinking/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/systems-thinking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Theory of Constraints</title>
+      <link>https://notes.muthu.co/tags/theory-of-constraints/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/theory-of-constraints/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Loop</title>
+      <link>https://notes.muthu.co/tags/agent-loop/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agent-loop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://notes.muthu.co/tags/automation/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tool Use</title>
+      <link>https://notes.muthu.co/tags/tool-use/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/tool-use/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operations</title>
+      <link>https://notes.muthu.co/tags/operations/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/operations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Careers</title>
+      <link>https://notes.muthu.co/tags/careers/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/careers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent Infrastructure</title>
+      <link>https://notes.muthu.co/tags/agent-infrastructure/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloudflare</title>
+      <link>https://notes.muthu.co/tags/cloudflare/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Email</title>
+      <link>https://notes.muthu.co/tags/email/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/email/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Digital-Twins</title>
+      <link>https://notes.muthu.co/tags/digital-twins/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/digital-twins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering-Intelligence</title>
+      <link>https://notes.muthu.co/tags/engineering-intelligence/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering-intelligence/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory</title>
+      <link>https://notes.muthu.co/tags/memory/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/memory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent-Systems</title>
+      <link>https://notes.muthu.co/tags/multi-agent-systems/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reliability</title>
+      <link>https://notes.muthu.co/tags/reliability/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reliability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Context Engineering</title>
+      <link>https://notes.muthu.co/tags/context-engineering/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/context-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langgraph</title>
+      <link>https://notes.muthu.co/tags/langgraph/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/langgraph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-Agent</title>
+      <link>https://notes.muthu.co/tags/multi-agent/</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/multi-agent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Claude-Code</title>
+      <link>https://notes.muthu.co/tags/claude-code/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/claude-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Developer-Workflow</title>
+      <link>https://notes.muthu.co/tags/developer-workflow/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/developer-workflow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spec-Driven-Development</title>
+      <link>https://notes.muthu.co/tags/spec-driven-development/</link>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/spec-driven-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agentic-Ai</title>
+      <link>https://notes.muthu.co/tags/agentic-ai/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agentic-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Orchestration</title>
+      <link>https://notes.muthu.co/tags/orchestration/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/orchestration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plugin Architecture</title>
+      <link>https://notes.muthu.co/tags/plugin-architecture/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/plugin-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://notes.muthu.co/tags/python/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SaaS</title>
+      <link>https://notes.muthu.co/tags/saas/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/saas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Subscription Platform</title>
+      <link>https://notes.muthu.co/tags/subscription-platform/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/subscription-platform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System Design</title>
+      <link>https://notes.muthu.co/tags/system-design/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/system-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Benchmarking</title>
+      <link>https://notes.muthu.co/tags/benchmarking/</link>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/benchmarking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Metrics</title>
+      <link>https://notes.muthu.co/tags/metrics/</link>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/metrics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Testing</title>
+      <link>https://notes.muthu.co/tags/testing/</link>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Autonomous-Systems</title>
+      <link>https://notes.muthu.co/tags/autonomous-systems/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/autonomous-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://notes.muthu.co/tags/devops/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Source-Control</title>
+      <link>https://notes.muthu.co/tags/source-control/</link>
+      <pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/source-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge-Distillation</title>
+      <link>https://notes.muthu.co/tags/knowledge-distillation/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/knowledge-distillation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Model-Compression</title>
+      <link>https://notes.muthu.co/tags/model-compression/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/model-compression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transfer-Learning</title>
+      <link>https://notes.muthu.co/tags/transfer-learning/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/transfer-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenAI</title>
+      <link>https://notes.muthu.co/tags/openai/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/openai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Swarm</title>
+      <link>https://notes.muthu.co/tags/swarm/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/swarm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://notes.muthu.co/tags/tutorial/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RAG</title>
+      <link>https://notes.muthu.co/tags/rag/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Retrieval</title>
+      <link>https://notes.muthu.co/tags/retrieval/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/retrieval/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DeepEval</title>
+      <link>https://notes.muthu.co/tags/deepeval/</link>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/deepeval/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CrewAI</title>
+      <link>https://notes.muthu.co/tags/crewai/</link>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/crewai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Claude</title>
+      <link>https://notes.muthu.co/tags/claude/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/claude/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MCP</title>
+      <link>https://notes.muthu.co/tags/mcp/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/mcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debate</title>
+      <link>https://notes.muthu.co/tags/debate/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/debate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deliberation</title>
+      <link>https://notes.muthu.co/tags/deliberation/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/deliberation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reasoning</title>
+      <link>https://notes.muthu.co/tags/reasoning/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/reasoning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quality-Assurance</title>
+      <link>https://notes.muthu.co/tags/quality-assurance/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/quality-assurance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Correction</title>
+      <link>https://notes.muthu.co/tags/self-correction/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/self-correction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Validation</title>
+      <link>https://notes.muthu.co/tags/validation/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/validation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Verification</title>
+      <link>https://notes.muthu.co/tags/verification/</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/verification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agent-Architecture</title>
+      <link>https://notes.muthu.co/tags/agent-architecture/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/agent-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coding</title>
+      <link>https://notes.muthu.co/tags/coding/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/coding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Human-in-the-Loop</title>
+      <link>https://notes.muthu.co/tags/human-in-the-loop/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/human-in-the-loop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Interactive-Systems</title>
+      <link>https://notes.muthu.co/tags/interactive-systems/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/interactive-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software-Development</title>
+      <link>https://notes.muthu.co/tags/software-development/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/software-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systems-Architecture</title>
+      <link>https://notes.muthu.co/tags/systems-architecture/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/systems-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Communication-Protocols</title>
+      <link>https://notes.muthu.co/tags/communication-protocols/</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/communication-protocols/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coordination</title>
+      <link>https://notes.muthu.co/tags/coordination/</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/coordination/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributed-Systems</title>
+      <link>https://notes.muthu.co/tags/distributed-systems/</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debugging</title>
+      <link>https://notes.muthu.co/tags/debugging/</link>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/debugging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>https://notes.muthu.co/tags/monitoring/</link>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>https://notes.muthu.co/tags/observability/</link>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Autonomous Agents</title>
+      <link>https://notes.muthu.co/tags/autonomous-agents/</link>
+      <pubDate>Wed, 22 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/autonomous-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>State-Management</title>
+      <link>https://notes.muthu.co/tags/state-management/</link>
+      <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/state-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workflow-Orchestration</title>
+      <link>https://notes.muthu.co/tags/workflow-orchestration/</link>
+      <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/workflow-orchestration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithms</title>
+      <link>https://notes.muthu.co/tags/algorithms/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MCTS</title>
+      <link>https://notes.muthu.co/tags/mcts/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/mcts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>https://notes.muthu.co/tags/planning/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/planning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI Safety</title>
+      <link>https://notes.muthu.co/tags/ai-safety/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai-safety/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alignment</title>
+      <link>https://notes.muthu.co/tags/alignment/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/alignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>API</title>
+      <link>https://notes.muthu.co/tags/api/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>https://notes.muthu.co/tags/architecture/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cognitive Science</title>
+      <link>https://notes.muthu.co/tags/cognitive-science/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/cognitive-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Constitutional AI</title>
+      <link>https://notes.muthu.co/tags/constitutional-ai/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/constitutional-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ethics</title>
+      <link>https://notes.muthu.co/tags/ethics/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ethics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Function Calling</title>
+      <link>https://notes.muthu.co/tags/function-calling/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/function-calling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vector Databases</title>
+      <link>https://notes.muthu.co/tags/vector-databases/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/vector-databases/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep-Research</title>
+      <link>https://notes.muthu.co/tags/deep-research/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/deep-research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llms</title>
+      <link>https://notes.muthu.co/tags/llms/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>https://notes.muthu.co/tags/research/</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development</title>
+      <link>https://notes.muthu.co/tags/development/</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mmlu</title>
+      <link>https://notes.muthu.co/tags/mmlu/</link>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/mmlu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slms</title>
+      <link>https://notes.muthu.co/tags/slms/</link>
+      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/slms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Startups</title>
+      <link>https://notes.muthu.co/tags/startups/</link>
+      <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/startups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Interoperability</title>
+      <link>https://notes.muthu.co/tags/interoperability/</link>
+      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/interoperability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scalability</title>
+      <link>https://notes.muthu.co/tags/scalability/</link>
+      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/scalability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Future</title>
+      <link>https://notes.muthu.co/tags/future/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/future/</guid>
+      <description></description>
+    </item>
+  </channel>
 </rss>

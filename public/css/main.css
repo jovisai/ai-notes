@@ -42,9 +42,7 @@ body {
     color: var(--color-text);
     line-height: var(--line-height-base);
     font-size: var(--font-size-base);
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
+    text-align: left;
 }
 
 a {
@@ -367,6 +365,95 @@ pre .ln,
     padding: 0;
 }
 
+.header nav li a {
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+.author-byline {
+    color: var(--color-text-muted);
+    font-family: var(--font-family-heading);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    margin-top: var(--space-sm);
+}
+
+.author-byline a {
+    color: inherit;
+    font-weight: 700;
+}
+
+.start-here {
+    border-top: 2px solid var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+    margin: var(--space-xl) 0 var(--space-2xl);
+    padding: var(--space-xl) 0;
+}
+
+.start-here h2,
+.related-posts h2 {
+    border: 0;
+    font-size: 1.05rem;
+    margin: 0 0 var(--space-sm);
+    padding: 0;
+}
+
+.start-here p {
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.start-here ol,
+.related-posts ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.start-here li,
+.related-posts li {
+    border-top: 1px solid var(--color-border-light);
+    padding: var(--space-sm) 0;
+}
+
+.start-here a,
+.related-posts a,
+.topic-routes a {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+}
+
+.start-here span,
+.related-posts span,
+.topic-routes span {
+    color: var(--color-text-muted);
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}
+
+.topic-routes {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: var(--space-2xl);
+}
+
+.topic-routes a {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-md);
+    text-decoration: none;
+}
+
+.related-posts {
+    border-top: 2px solid var(--color-text);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+}
+
 .header nav li {
     display: inline-block;
     list-style: none;
@@ -653,6 +740,19 @@ code:not(pre *) {
     }
     .container-wide {
         max-width: 800px;
+    }
+
+    .header nav li {
+        margin-right: var(--space-md);
+    }
+
+    .header nav li a {
+        padding: 0.6rem 0;
+    }
+
+    .start-here,
+    .topic-routes {
+        grid-template-columns: 1fr;
     }
   }
 

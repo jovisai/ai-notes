@@ -2,34 +2,35 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Practical Guide to Evaluating Your AI Agents with DeepEval - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Practical Guide to Evaluating Your AI Agents with DeepEval - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/"><meta name="description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
 	
-	<meta itemprop="name" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
-	<meta itemprop="description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
-	<meta itemprop="datePublished" content="2025-12-29T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2025-12-29T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1256">
-	<meta itemprop="keywords" content="AI,Evaluation,DeepEval,Testing,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
-	<meta property="og:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2025-12-29T00:00:00+00:00">
-		<meta property="article:modified_time" content="2025-12-29T00:00:00+00:00">
-		<meta property="article:tag" content="AI">
-		<meta property="article:tag" content="Evaluation">
-		<meta property="article:tag" content="DeepEval">
-		<meta property="article:tag" content="Testing">
-		<meta property="article:tag" content="Python">
-		<meta property="article:tag" content="Tutorial">
+  <meta itemprop="name" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
+  <meta itemprop="description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
+  <meta itemprop="datePublished" content="2025-12-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-29T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1256">
+  <meta itemprop="keywords" content="Ai,Evaluation,DeepEval,Testing,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
+  <meta property="og:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-29T00:00:00+00:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Evaluation">
+    <meta property="article:tag" content="DeepEval">
+    <meta property="article:tag" content="Testing">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tutorial">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
-	<meta name="twitter:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
+  <meta name="twitter:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-12-29T00:00:00Z","datePublished":"2025-12-29T00:00:00Z","description":"Learn how to systematically test and evaluate AI agents using DeepEval's metrics for relevancy, faithfulness, and task completion.","headline":"A Practical Guide to Evaluating Your AI Agents with DeepEval","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -37,11 +38,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -53,12 +49,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -114,6 +104,9 @@
             <span class="rest">Dec 2025</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -131,13 +124,13 @@
 </ul>
 <p>DeepEval lets you catch these issues before deployment.</p>
 <h2 id="setting-up-deepeval">Setting Up DeepEval</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install deepeval
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install deepeval
 </span></span></code></pre></div><p>Set your OpenAI API key (DeepEval uses GPT-4 for evaluation by default):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">export</span> <span style="color:#953800">OPENAI_API_KEY</span><span style="color:#0550ae">=</span>your_key_here
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">export</span> <span style="color:#953800">OPENAI_API_KEY</span><span style="color:#0550ae">=</span>your_key_here
 </span></span></code></pre></div><h2 id="core-concepts">Core Concepts</h2>
 <h3 id="test-cases">Test Cases</h3>
 <p>A test case captures one interaction with your agent:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCase
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCase
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>test_case <span style="color:#0550ae">=</span> LLMTestCase<span style="color:#1f2328">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">input</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;What&#39;s the weather in Tokyo?&#34;</span><span style="color:#1f2328">,</span>
@@ -154,7 +147,7 @@
 </ul>
 <h3 id="metrics">Metrics</h3>
 <p>DeepEval provides specialized metrics for different evaluation needs:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> <span style="color:#1f2328">(</span>
 </span></span><span style="display:flex;"><span>    AnswerRelevancyMetric<span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>    FaithfulnessMetric<span style="color:#1f2328">,</span>
 </span></span><span style="display:flex;"><span>    ContextualRelevancyMetric<span style="color:#1f2328">,</span>
@@ -164,7 +157,7 @@
 <p>Let&rsquo;s evaluate a RAG-based Q&amp;A agent. We&rsquo;ll test three key dimensions.</p>
 <h3 id="1-answer-relevancy">1. Answer Relevancy</h3>
 <p>Does the answer actually address the question?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval</span> <span style="color:#cf222e">import</span> evaluate
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval</span> <span style="color:#cf222e">import</span> evaluate
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCase
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> AnswerRelevancyMetric
 </span></span><span style="display:flex;"><span>
@@ -191,7 +184,7 @@
 </span></span></code></pre></div><p>The first test case should pass; the second should fail because the response doesn&rsquo;t answer the question.</p>
 <h3 id="2-faithfulness">2. Faithfulness</h3>
 <p>Is the answer grounded in the retrieved context, or is the agent hallucinating?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> FaithfulnessMetric
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> FaithfulnessMetric
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>test_case <span style="color:#0550ae">=</span> LLMTestCase<span style="color:#1f2328">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">input</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;What is the company&#39;s return policy?&#34;</span><span style="color:#1f2328">,</span>
@@ -212,7 +205,7 @@
 </span></span></code></pre></div><p>A high faithfulness score means the agent&rsquo;s response is supported by the retrieved documents.</p>
 <h3 id="3-contextual-relevancy">3. Contextual Relevancy</h3>
 <p>Did the retriever fetch relevant documents in the first place?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> ContextualRelevancyMetric
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> ContextualRelevancyMetric
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>test_case <span style="color:#0550ae">=</span> LLMTestCase<span style="color:#1f2328">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#6639ba">input</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;How do I reset my password?&#34;</span><span style="color:#1f2328">,</span>
@@ -233,7 +226,7 @@
 </span></span></code></pre></div><p>This helps identify retrieval problems separate from generation problems.</p>
 <h2 id="evaluating-agentic-workflows">Evaluating Agentic Workflows</h2>
 <p>For agents with multi-step reasoning, use the GEval metric with custom criteria:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> GEval
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> GEval
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCaseParams
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>test_case <span style="color:#0550ae">=</span> LLMTestCase<span style="color:#1f2328">(</span>
@@ -261,7 +254,7 @@
 </span></span><span style="display:flex;"><span>results <span style="color:#0550ae">=</span> evaluate<span style="color:#1f2328">([</span>test_case<span style="color:#1f2328">],</span> <span style="color:#1f2328">[</span>task_metric<span style="color:#1f2328">])</span>
 </span></span></code></pre></div><h2 id="creating-test-suites">Creating Test Suites</h2>
 <p>Organize tests into suites for systematic evaluation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval</span> <span style="color:#cf222e">import</span> evaluate
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval</span> <span style="color:#cf222e">import</span> evaluate
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCase
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> AnswerRelevancyMetric<span style="color:#1f2328">,</span> FaithfulnessMetric
 </span></span><span style="display:flex;"><span>
@@ -310,7 +303,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> results
 </span></span></code></pre></div><h2 id="integration-with-pytest">Integration with pytest</h2>
 <p>DeepEval integrates with pytest for CI/CD:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># test_agent.py</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># test_agent.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">pytest</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval</span> <span style="color:#cf222e">import</span> assert_test
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCase
@@ -335,10 +328,10 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">with</span> pytest<span style="color:#0550ae">.</span>raises<span style="color:#1f2328">(</span>AssertionError<span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>        assert_test<span style="color:#1f2328">(</span>test_case<span style="color:#1f2328">,</span> <span style="color:#1f2328">[</span>relevancy_metric<span style="color:#1f2328">])</span>
 </span></span></code></pre></div><p>Run with:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>deepeval <span style="color:#6639ba">test</span> run test_agent.py
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>deepeval <span style="color:#6639ba">test</span> run test_agent.py
 </span></span></code></pre></div><h2 id="viewing-results">Viewing Results</h2>
 <p>DeepEval provides a web dashboard for visualizing results:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>deepeval login  <span style="color:#57606a"># Create account</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>deepeval login  <span style="color:#57606a"># Create account</span>
 </span></span><span style="display:flex;"><span>deepeval <span style="color:#6639ba">test</span> run test_agent.py  <span style="color:#57606a"># Results upload automatically</span>
 </span></span></code></pre></div><p>The dashboard shows:</p>
 <ul>
@@ -349,7 +342,7 @@
 </ul>
 <h2 id="custom-metrics">Custom Metrics</h2>
 <p>Create metrics specific to your use case:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> BaseMetric
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.metrics</span> <span style="color:#cf222e">import</span> BaseMetric
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.test_case</span> <span style="color:#cf222e">import</span> LLMTestCase
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">ToneMetric</span><span style="color:#1f2328">(</span>BaseMetric<span style="color:#1f2328">):</span>
@@ -392,14 +385,14 @@
 └── test_chat_agent.py
 </code></pre><h3 id="3-set-realistic-thresholds">3. Set Realistic Thresholds</h3>
 <p>Start with lower thresholds and increase as your agent improves:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Initial development</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#57606a"># Initial development</span>
 </span></span><span style="display:flex;"><span>metric <span style="color:#0550ae">=</span> AnswerRelevancyMetric<span style="color:#1f2328">(</span>threshold<span style="color:#0550ae">=</span><span style="color:#0550ae">0.5</span><span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Production-ready</span>
 </span></span><span style="display:flex;"><span>metric <span style="color:#0550ae">=</span> AnswerRelevancyMetric<span style="color:#1f2328">(</span>threshold<span style="color:#0550ae">=</span><span style="color:#0550ae">0.8</span><span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h3 id="4-monitor-in-production">4. Monitor in Production</h3>
 <p>DeepEval can evaluate production traffic:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.monitor</span> <span style="color:#cf222e">import</span> monitor
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">deepeval.monitor</span> <span style="color:#cf222e">import</span> monitor
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#0550ae">@monitor</span>
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">handle_user_query</span><span style="color:#1f2328">(</span>query<span style="color:#1f2328">:</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">-&gt;</span> <span style="color:#6639ba">str</span><span style="color:#1f2328">:</span>
@@ -407,35 +400,35 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> response
 </span></span></code></pre></div><h2 id="comparison-with-other-tools">Comparison with Other Tools</h2>
 <table>
-	<thead>
-			<tr>
-					<th>Tool</th>
-					<th>Strengths</th>
-					<th>Best For</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td>DeepEval</td>
-					<td>Comprehensive metrics, CI integration</td>
-					<td>Full evaluation pipeline</td>
-			</tr>
-			<tr>
-					<td>Ragas</td>
-					<td>RAG-specific metrics</td>
-					<td>RAG evaluation</td>
-			</tr>
-			<tr>
-					<td>LangSmith</td>
-					<td>Tracing + evaluation</td>
-					<td>LangChain projects</td>
-			</tr>
-			<tr>
-					<td>Promptfoo</td>
-					<td>Fast, local testing</td>
-					<td>Prompt iteration</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Strengths</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DeepEval</td>
+          <td>Comprehensive metrics, CI integration</td>
+          <td>Full evaluation pipeline</td>
+      </tr>
+      <tr>
+          <td>Ragas</td>
+          <td>RAG-specific metrics</td>
+          <td>RAG evaluation</td>
+      </tr>
+      <tr>
+          <td>LangSmith</td>
+          <td>Tracing + evaluation</td>
+          <td>LangChain projects</td>
+      </tr>
+      <tr>
+          <td>Promptfoo</td>
+          <td>Fast, local testing</td>
+          <td>Prompt iteration</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="whats-next">What&rsquo;s Next</h2>
 <p>Evaluation is an ongoing process, not a one-time check. Build a culture of:</p>
@@ -494,6 +487,24 @@ Run the evaluation and show pass/fail results with metric scores.
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2025/12/building-an-agentic-rag-pipeline-with-langgraph/">Building an Agentic RAG Pipeline with LangGraph</a><span>Move beyond naive RAG with an agentic approach that uses LLMs to decide what to retrieve, when to retry, and how to synthesize answers.</span></li>
+        
+        <li><a href="/2025/12/crewai-vs-langgraph-building-the-same-multi-agent-system-in-both/">CrewAI vs LangGraph Building the Same Multi-Agent System in Both</a><span>A side-by-side comparison of CrewAI and LangGraph by implementing the same research assistant workflow in both frameworks.</span></li>
+        
+        <li><a href="/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/">Building an MCP Server with Python to Connect Claude to Your Database</a><span>A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.</span></li>
+        
+    </ul>
+</section>
+
+
 
 
 

@@ -2,6 +2,7 @@
 title: Optimize Units of Work, Not Growth Targets
 date: 2026-06-23
 draft: false
+featured: true
 tags: ['engineering-management', 'AI', 'operations']
 description: "Growth becomes more actionable when leaders stop treating it as a target and start removing friction from the individual units of work that create it."
 ---

@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Agent-Loop on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/agent-loop/</link>
-		<description>Recent content in Agent-Loop on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/agent-loop/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
-				<link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
-				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
-				<description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
-			</item>
-	</channel>
+  <channel>
+    <title>Agent-Loop on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/agent-loop/</link>
+    <description>Recent content in Agent-Loop on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/agent-loop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents</title>
+      <link>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/</guid>
+      <description>&lt;p&gt;Every few months, AI gets a new phrase that suddenly shows up everywhere.&lt;/p&gt;&#xA;&lt;p&gt;Lately, that phrase is agent loop.&lt;/p&gt;&#xA;&lt;p&gt;You will see people describe agent loops as the future of software, the thing that unlocks autonomy, or the missing ingredient behind useful AI agents. The idea is much less exotic than that.&lt;/p&gt;&#xA;&lt;p&gt;An agent loop is a repeating cycle:&lt;/p&gt;&#xA;&lt;pre class=&#34;mermaid&#34;&gt;flowchart LR&#xA;    Think[Think] --&amp;gt; Act[Act]&#xA;    Act --&amp;gt; Observe[Observe]&#xA;    Observe --&amp;gt; Think&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Think. Act. Observe. Repeat.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

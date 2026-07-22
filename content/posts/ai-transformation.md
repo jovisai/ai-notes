@@ -34,7 +34,7 @@ It was written for CPUs. It describes your company perfectly.
 
 ## What the pipeline actually looks like
 
-![](/engineering_bottleneck.png)
+![Diagram showing engineering as one bottleneck within the broader value-delivery pipeline](/engineering_bottleneck.png)
 
 Engineering is roughly 20% of a company's total value delivery pipeline. The rest — before and after — is everything else.
 

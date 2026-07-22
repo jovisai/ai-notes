@@ -16,6 +16,11 @@ enableRobotsTXT = true
 [params]
 	subtitle = "Practical guides to AI agents, agentic systems, and AI-native software engineering"
 	description = "Practical guides to AI agents, agentic systems, and AI-native software engineering from Muthukrishnan."
+	[params.author]
+		name = "Muthu Krishnan"
+		url = "/about/"
+		description = "AI agent builder with 16+ years of experience building scalable SaaS applications."
+		sameAs = ["https://github.com/muthuspark/", "https://linkedin.com/in/krimuthu/"]
 
 	# Optional 64x64 avatar image.
 	avatar = "/avatar.jpeg"

@@ -8,5 +8,8 @@
                 .Date.Month) }} {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
         </div>
         {{ end }}
+		{{ if ne .Type "page" }}
+		<div class="author-byline">By <a href="{{ "about/" | relURL }}">{{ .Site.Params.author.name }}</a><span aria-hidden="true"> · </span><span>{{ .Site.Params.author.description }}</span></div>
+		{{ end }}
     </div>
 </div>

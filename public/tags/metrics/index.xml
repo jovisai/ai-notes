@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Metrics on AI Agent Engineering Notes</title>
-		<link>https://notes.muthu.co/tags/metrics/</link>
-		<description>Recent content in Metrics on AI Agent Engineering Notes</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://notes.muthu.co/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
-				<link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
-				<pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
-				<description>&lt;p&gt;Agent evaluation is one of the hardest unsolved problems in the field and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Agent evaluation differs from a traditional ML benchmark because agents are not graded on a single right answer. They perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
-			</item>
-	</channel>
+  <channel>
+    <title>Metrics on AI Agent Engineering Notes</title>
+    <link>https://notes.muthu.co/tags/metrics/</link>
+    <description>Recent content in Metrics on AI Agent Engineering Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://notes.muthu.co/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Evaluation and Benchmarking for Measuring What Matters</title>
+      <link>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</link>
+      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/02/agent-evaluation-and-benchmarking-for-measuring-what-matters/</guid>
+      <description>&lt;p&gt;Agent evaluation is one of the hardest unsolved problems in the field and one of the most important. Without rigorous evaluation, you&amp;rsquo;re flying blind. This article covers the principles, metrics, benchmarks, and practical frameworks for measuring agent performance systematically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;concept-introduction&#34;&gt;Concept Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Agent evaluation differs from a traditional ML benchmark because agents are not graded on a single right answer. They perform multi-step tasks, use tools, make judgment calls, and recover from mistakes. You need a richer framework: not just &amp;ldquo;did you get the right answer?&amp;rdquo; but &amp;ldquo;did you take reasonable steps, use resources efficiently, and handle surprises gracefully?&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

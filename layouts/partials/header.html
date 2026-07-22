@@ -15,6 +15,12 @@
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="{{ .Permalink }}">
+	{{- $description := .Description | default .Site.Params.description -}}
+	{{- if not $description -}}
+		{{- $description = .Summary | plainify | htmlUnescape | truncate 160 -}}
+	{{- end -}}
+	<meta name="description" content="{{ $description }}">
 	{{ with .OutputFormats.Get "rss" -}}
 	{{ printf `
 	<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
@@ -23,6 +29,7 @@
 	{{- template "_internal/schema.html" . -}}
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
+	{{ partial "seo_schema.html" . }}
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -51,10 +58,12 @@
 	{{- else if (isset .Site.Params "social") -}}
 	<script src="{{ .Site.BaseURL }}js/feather.min.js"></script>
 	{{ end }}
+	{{- if .Params.math -}}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
 	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
 		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+	{{- end -}}
 	<script src="{{ .Site.BaseURL }}js/main.js"></script>
 	{{- if isset .Site.Params "customjs" -}}
 	{{- range .Site.Params.customJS }}

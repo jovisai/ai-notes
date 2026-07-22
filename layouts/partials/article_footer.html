@@ -13,6 +13,20 @@
     {{ end }}
 </div>
 
+{{ if ne .Type "page" }}
+{{ $related := first 3 (where (.Site.RegularPages.Related .) "RelPermalink" "ne" .RelPermalink) }}
+{{ with $related }}
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }}<span>{{ . }}</span>{{ end }}</li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}
+{{ end }}
+
 {{ if isset .Site.Params "github" }}
 <div class="back">
     <a href="{{ .Site.Params.github }}/blob/master/content/{{ .File.Path }}" title="github"><i

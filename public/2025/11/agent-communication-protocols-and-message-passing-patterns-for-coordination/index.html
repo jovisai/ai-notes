@@ -2,33 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Agent Communication Protocols and Message-Passing Patterns for Coordination - AI Agent Engineering Notes</title><link rel="icon" type="image/jpeg" href=/avatar.jpeg />
-	<link rel="apple-touch-icon" href=/avatar.jpeg /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Agent Communication Protocols and Message-Passing Patterns for Coordination - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/"><meta name="description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
 	
-	<meta itemprop="name" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
-	<meta itemprop="description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
-	<meta itemprop="datePublished" content="2025-11-07T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2025-11-07T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1461">
-	<meta itemprop="keywords" content="AI Agents,Multi-Agent-Systems,Communication-Protocols,Distributed-Systems,Coordination"><meta property="og:url" content="https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/">
-	<meta property="og:site_name" content="AI Agent Engineering Notes">
-	<meta property="og:title" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
-	<meta property="og:description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="ai-agents">
-		<meta property="article:published_time" content="2025-11-07T00:00:00+00:00">
-		<meta property="article:modified_time" content="2025-11-07T00:00:00+00:00">
-		<meta property="article:tag" content="AI Agents">
-		<meta property="article:tag" content="Multi-Agent-Systems">
-		<meta property="article:tag" content="Communication-Protocols">
-		<meta property="article:tag" content="Distributed-Systems">
-		<meta property="article:tag" content="Coordination">
+  <meta itemprop="name" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
+  <meta itemprop="description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
+  <meta itemprop="datePublished" content="2025-11-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-07T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1461">
+  <meta itemprop="keywords" content="AI Agents,Multi-Agent-Systems,Communication-Protocols,Distributed-Systems,Coordination"><meta property="og:url" content="https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/">
+  <meta property="og:site_name" content="AI Agent Engineering Notes">
+  <meta property="og:title" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
+  <meta property="og:description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-agents">
+    <meta property="article:published_time" content="2025-11-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-07T00:00:00+00:00">
+    <meta property="article:tag" content="AI Agents">
+    <meta property="article:tag" content="Multi-Agent-Systems">
+    <meta property="article:tag" content="Communication-Protocols">
+    <meta property="article:tag" content="Distributed-Systems">
+    <meta property="article:tag" content="Coordination">
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
-	<meta name="twitter:description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Agent Communication Protocols and Message-Passing Patterns for Coordination">
+  <meta name="twitter:description" content="Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-11-07T00:00:00Z","datePublished":"2025-11-07T00:00:00Z","description":"Master the protocols and patterns that enable AI agents to communicate, coordinate, and collaborate effectively in multi-agent systems","headline":"Agent Communication Protocols and Message-Passing Patterns for Coordination","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/11/agent-communication-protocols-and-message-passing-patterns-for-coordination/"}</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Libre+Franklin:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="https://notes.muthu.co/css/normalize.css" />
@@ -36,11 +37,6 @@
 	<link rel="stylesheet" type="text/css" media="print" href="https://notes.muthu.co/css/print.css" />
 
 	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://notes.muthu.co/css/dark.css" /><script src="https://notes.muthu.co/js/feather.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-		onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 	<script src="https://notes.muthu.co/js/main.js"></script>
 </head>
 
@@ -52,12 +48,6 @@
 	<div class="container wrapper">
 		<div class="header">
 	<div>
-		
-			<div class="avatar">
-				<a href="https://notes.muthu.co/">
-					<img src="/avatar.jpeg" alt="AI Agent Engineering Notes" />
-				</a>
-			</div>
 		
 		<div>
 			<h1 class="site-title"><a href="https://notes.muthu.co/">AI Agent Engineering Notes</a></h1>
@@ -113,6 +103,9 @@
             <span class="rest">Nov 2025</span>
         </div>
         
+		
+		<div class="author-byline">By <a href="/about/">Muthu Krishnan</a><span aria-hidden="true"> · </span><span>AI agent builder with 16&#43; years of experience building scalable SaaS applications.</span></div>
+		
     </div>
 </div>
 
@@ -160,55 +153,55 @@ Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
 </code></pre><h2 id="fipa-acl-speech-acts-the-standard-vocabulary">FIPA ACL Speech Acts (The Standard Vocabulary)</h2>
 <p>FIPA defines 22 communicative acts. The most important:</p>
 <table>
-	<thead>
-			<tr>
-					<th>Speech Act</th>
-					<th>Meaning</th>
-					<th>Example</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><strong>INFORM</strong></td>
-					<td>Assert a fact</td>
-					<td>&ldquo;The temperature is 72°F&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>REQUEST</strong></td>
-					<td>Ask agent to perform action</td>
-					<td>&ldquo;Please schedule a meeting&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>QUERY-IF</strong></td>
-					<td>Ask if proposition is true</td>
-					<td>&ldquo;Is the door locked?&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>PROPOSE</strong></td>
-					<td>Suggest an action</td>
-					<td>&ldquo;I can deliver by Tuesday for $50&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>ACCEPT-PROPOSAL</strong></td>
-					<td>Agree to a proposal</td>
-					<td>&ldquo;Deal! Deliver Tuesday&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>REFUSE</strong></td>
-					<td>Decline to perform action</td>
-					<td>&ldquo;I cannot process that request&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>CONFIRM</strong></td>
-					<td>Verify a belief</td>
-					<td>&ldquo;Yes, I received the data&rdquo;</td>
-			</tr>
-			<tr>
-					<td><strong>SUBSCRIBE</strong></td>
-					<td>Request ongoing updates</td>
-					<td>&ldquo;Notify me of temperature changes&rdquo;</td>
-			</tr>
-	</tbody>
+  <thead>
+      <tr>
+          <th>Speech Act</th>
+          <th>Meaning</th>
+          <th>Example</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>INFORM</strong></td>
+          <td>Assert a fact</td>
+          <td>&ldquo;The temperature is 72°F&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>REQUEST</strong></td>
+          <td>Ask agent to perform action</td>
+          <td>&ldquo;Please schedule a meeting&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>QUERY-IF</strong></td>
+          <td>Ask if proposition is true</td>
+          <td>&ldquo;Is the door locked?&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>PROPOSE</strong></td>
+          <td>Suggest an action</td>
+          <td>&ldquo;I can deliver by Tuesday for $50&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>ACCEPT-PROPOSAL</strong></td>
+          <td>Agree to a proposal</td>
+          <td>&ldquo;Deal! Deliver Tuesday&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>REFUSE</strong></td>
+          <td>Decline to perform action</td>
+          <td>&ldquo;I cannot process that request&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>CONFIRM</strong></td>
+          <td>Verify a belief</td>
+          <td>&ldquo;Yes, I received the data&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>SUBSCRIBE</strong></td>
+          <td>Request ongoing updates</td>
+          <td>&ldquo;Notify me of temperature changes&rdquo;</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="architecture-where-communication-fits">Architecture: Where Communication Fits</h2>
 <pre tabindex="0"><code>┌─────────────────────────────────────────────────┐
@@ -225,7 +218,7 @@ Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
 │  Transport Layer (TCP, HTTP, Message Broker)    │
 └─────────────────────────────────────────────────┘
 </code></pre><p>The Message Handler pattern looks like this in code:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CommunicationManager</span><span style="color:#1f2328">:</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">CommunicationManager</span><span style="color:#1f2328">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">__init__</span><span style="color:#1f2328">(</span><span style="color:#6a737d">self</span><span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>handlers <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>conversations <span style="color:#0550ae">=</span> <span style="color:#1f2328">{}</span>
@@ -241,7 +234,7 @@ Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
 </span></span><span style="display:flex;"><span>                <span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>send_message<span style="color:#1f2328">(</span>response<span style="color:#1f2328">)</span>
 </span></span></code></pre></div><h2 id="practical-implementation">Practical Implementation</h2>
 <p>Let&rsquo;s build a simple multi-agent communication system using Python:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">dataclasses</span> <span style="color:#cf222e">import</span> dataclass
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">dataclasses</span> <span style="color:#cf222e">import</span> dataclass
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> Any<span style="color:#1f2328">,</span> Callable<span style="color:#1f2328">,</span> Dict<span style="color:#1f2328">,</span> List
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">enum</span> <span style="color:#cf222e">import</span> Enum
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">uuid</span>
@@ -438,7 +431,7 @@ Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
 </code></pre><h2 id="integration-with-modern-frameworks">Integration with Modern Frameworks</h2>
 <h3 id="langgraph-integration">LangGraph Integration</h3>
 <p>LangGraph nodes can communicate through state updates:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">langgraph.graph</span> <span style="color:#cf222e">import</span> StateGraph<span style="color:#1f2328">,</span> END
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">typing</span> <span style="color:#cf222e">import</span> TypedDict<span style="color:#1f2328">,</span> Annotated
 </span></span><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#24292e">operator</span>
 </span></span><span style="display:flex;"><span>
@@ -471,7 +464,7 @@ Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># ... add more agent nodes</span>
 </span></span></code></pre></div><h3 id="autogen-integration">AutoGen Integration</h3>
 <p>AutoGen agents naturally support conversational protocols:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen</span> <span style="color:#cf222e">import</span> ConversableAgent<span style="color:#1f2328">,</span> GroupChat<span style="color:#1f2328">,</span> GroupChatManager
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">from</span> <span style="color:#24292e">autogen</span> <span style="color:#cf222e">import</span> ConversableAgent<span style="color:#1f2328">,</span> GroupChat<span style="color:#1f2328">,</span> GroupChatManager
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#57606a"># Define agents with clear communication roles</span>
 </span></span><span style="display:flex;"><span>coordinator <span style="color:#0550ae">=</span> ConversableAgent<span style="color:#1f2328">(</span>
@@ -496,7 +489,7 @@ Agent A → Agent B: ACCEPT | COUNTER_PROPOSE(offer_3)
 <h3 id="recent-advances-2023-2025">Recent Advances (2023-2025)</h3>
 <p><strong>1. LLM-Native Communication (2023)</strong>
 Research shows LLMs can learn communication protocols through few-shot prompting:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>system_prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;&#34;&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>system_prompt <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">You are an agent in a multi-agent system. When communicating:
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- Use REQUEST(action) to ask other agents to do something
 </span></span></span><span style="display:flex;"><span><span style="color:#0a3069">- Use INFORM(fact) to share information
@@ -512,7 +505,7 @@ Agents learning optimal communication strategies through multi-agent reinforceme
 </ul>
 <p><strong>3. Semantic Interoperability (2024-2025)</strong>
 Using embeddings for flexible message understanding:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">semantic_match</span><span style="color:#1f2328">(</span>message_content<span style="color:#1f2328">,</span> known_intents<span style="color:#1f2328">,</span> threshold<span style="color:#0550ae">=</span><span style="color:#0550ae">0.85</span><span style="color:#1f2328">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">semantic_match</span><span style="color:#1f2328">(</span>message_content<span style="color:#1f2328">,</span> known_intents<span style="color:#1f2328">,</span> threshold<span style="color:#0550ae">=</span><span style="color:#0550ae">0.85</span><span style="color:#1f2328">):</span>
 </span></span><span style="display:flex;"><span>    message_embedding <span style="color:#0550ae">=</span> embed<span style="color:#1f2328">(</span>message_content<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>    similarities <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>cosine_sim<span style="color:#1f2328">(</span>message_embedding<span style="color:#1f2328">,</span> embed<span style="color:#1f2328">(</span>intent<span style="color:#1f2328">))</span>
 </span></span><span style="display:flex;"><span>                    <span style="color:#cf222e">for</span> intent <span style="color:#0550ae">in</span> known_intents<span style="color:#1f2328">]</span>
@@ -592,6 +585,24 @@ Model checking techniques verify conversation protocols satisfy properties like:
     
     
 </div>
+
+
+
+
+<section class="related-posts" aria-labelledby="continue-reading">
+    <h2 id="continue-reading">Continue reading</h2>
+    <ul>
+        
+        <li><a href="/2025/11/agent-debugging-and-observability-for-seeing-inside-the-black-box/">Agent Debugging and Observability for Seeing Inside the Black Box</a><span>Master the art of understanding, debugging, and monitoring AI agents through tracing, logging, and observability patterns</span></li>
+        
+        <li><a href="/2025/10/a-multi-agent-ai-ecosystem-for-self-improving-software/">A Multi-Agent AI Ecosystem for Self-Improving Software</a></li>
+        
+        <li><a href="/2025/10/building-a-multi-agent-debate-system-with-langgraph/">Building a Multi-Agent Debate System with LangGraph</a></li>
+        
+    </ul>
+</section>
+
+
 
 
 
