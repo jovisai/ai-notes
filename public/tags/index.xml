@@ -6,8 +6,43 @@
     <description>Recent content in Tags on AI Agent Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>https://notes.muthu.co/tags/ai/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering</title>
+      <link>https://notes.muthu.co/tags/engineering/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llms</title>
+      <link>https://notes.muthu.co/tags/llms/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/llms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine-Learning</title>
+      <link>https://notes.muthu.co/tags/machine-learning/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>https://notes.muthu.co/tags/research/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/tags/research/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI Agents</title>
       <link>https://notes.muthu.co/tags/ai-agents/</link>
@@ -41,13 +76,6 @@
       <link>https://notes.muthu.co/tags/software-engineering/</link>
       <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/software-engineering/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ai</title>
-      <link>https://notes.muthu.co/tags/ai/</link>
-      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/ai/</guid>
       <description></description>
     </item>
     <item>
@@ -650,20 +678,6 @@
       <link>https://notes.muthu.co/tags/deep-research/</link>
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://notes.muthu.co/tags/deep-research/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llms</title>
-      <link>https://notes.muthu.co/tags/llms/</link>
-      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/llms/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Research</title>
-      <link>https://notes.muthu.co/tags/research/</link>
-      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://notes.muthu.co/tags/research/</guid>
       <description></description>
     </item>
     <item>

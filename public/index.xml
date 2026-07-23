@@ -6,8 +6,15 @@
     <description>Recent content on AI Agent Engineering Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>15 AI Research Papers Every AI Engineer Should Read</title>
+      <link>https://notes.muthu.co/2026/07/15-ai-research-papers-every-ai-engineer-should-read/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://notes.muthu.co/2026/07/15-ai-research-papers-every-ai-engineer-should-read/</guid>
+      <description>&lt;p&gt;Most AI engineers do not need to read every paper cover to cover. A small set of papers changes how you reason about the systems you build. They explain why a transformer needs position information, why a RAG stack needs more than a vector database, why fine-tuning can be cheap, and why a capable model may still be unhelpful.&lt;/p&gt;&#xA;&lt;p&gt;Use this as a reading map. For each paper, focus on the engineering idea, the question it helps you answer today, and the limitation worth remembering.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Becoming an AI-Native Engineer</title>
       <link>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</link>
