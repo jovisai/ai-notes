@@ -127,11 +127,13 @@ table td {
     border-bottom: 1px solid var(--color-border);
     padding: 0.75rem;
     vertical-align: top;
+    padding-left: 0;
 }
 
 table thead th {
     border-bottom: 2px solid var(--color-border);
     vertical-align: bottom;
+    padding-left: 0;
 }
 
 table tbody+tbody {
@@ -303,8 +305,6 @@ pre .ln,
 
 .header {
     margin-bottom: var(--space-lg);
-    padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--color-border);
 }
 
 .header > div:first-child {
@@ -415,7 +415,6 @@ pre .ln,
 
 .start-here li,
 .related-posts li {
-    border-top: 1px solid var(--color-border-light);
     padding: var(--space-sm) 0;
 }
 
@@ -532,7 +531,6 @@ pre .ln,
 
 .post-header h1.title {
     margin: -10px 0 0 0;
-    text-align: center;
     text-transform: none;
     border-bottom: none;
     font-size: 1.8rem;
