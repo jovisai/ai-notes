@@ -5,29 +5,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Agent Loops Explained: The Simple Pattern Behind Useful AI Agents - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="canonical" href="https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/"><meta name="description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
 	
-  <meta itemprop="name" content="Agent Loops Explained: The Simple Pattern Behind Useful AI Agents">
-  <meta itemprop="description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
-  <meta itemprop="datePublished" content="2026-06-24T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2026-06-24T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1462">
-  <meta itemprop="keywords" content="AI Agents,Agent-Loop,Llm,Tool Use,Automation"><meta property="og:url" content="https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/">
-  <meta property="og:site_name" content="AI Agent Engineering Notes">
-  <meta property="og:title" content="Agent Loops Explained: The Simple Pattern Behind Useful AI Agents">
-  <meta property="og:description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="ai-agents">
-    <meta property="article:published_time" content="2026-06-24T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-06-24T00:00:00+00:00">
-    <meta property="article:tag" content="AI Agents">
-    <meta property="article:tag" content="Agent-Loop">
-    <meta property="article:tag" content="Llm">
-    <meta property="article:tag" content="Tool Use">
-    <meta property="article:tag" content="Automation">
+	<meta itemprop="name" content="Agent Loops Explained: The Simple Pattern Behind Useful AI Agents">
+	<meta itemprop="description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
+	<meta itemprop="datePublished" content="2026-06-24T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-06-24T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1462">
+	<meta itemprop="keywords" content="AI Agents,Agent-Loop,Llm,Tool-Use,Automation"><meta property="og:url" content="https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/">
+	<meta property="og:site_name" content="AI Agent Engineering Notes">
+	<meta property="og:title" content="Agent Loops Explained: The Simple Pattern Behind Useful AI Agents">
+	<meta property="og:description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="ai-agents">
+		<meta property="article:published_time" content="2026-06-24T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-06-24T00:00:00+00:00">
+		<meta property="article:tag" content="AI Agents">
+		<meta property="article:tag" content="Agent-Loop">
+		<meta property="article:tag" content="Llm">
+		<meta property="article:tag" content="Tool-Use">
+		<meta property="article:tag" content="Automation">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Agent Loops Explained: The Simple Pattern Behind Useful AI Agents">
-  <meta name="twitter:description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Agent Loops Explained: The Simple Pattern Behind Useful AI Agents">
+	<meta name="twitter:description" content="A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2026-06-24T00:00:00Z","datePublished":"2026-06-24T00:00:00Z","description":"A practical explanation of agent loops, how they differ from single-pass LLM calls, and why the simple think-act-observe cycle powers useful AI agents.","headline":"Agent Loops Explained: The Simple Pattern Behind Useful AI Agents","mainEntityOfPage":{"@id":"https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2026/06/agent-loops-explained-the-simple-pattern-behind-useful-ai-agents/"}</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

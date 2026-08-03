@@ -5,29 +5,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Building an MCP Server with Python to Connect Claude to Your Database - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="canonical" href="https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/"><meta name="description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
 	
-  <meta itemprop="name" content="Building an MCP Server with Python to Connect Claude to Your Database">
-  <meta itemprop="description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
-  <meta itemprop="datePublished" content="2025-12-20T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-12-20T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1053">
-  <meta itemprop="keywords" content="AI,MCP,Python,Claude,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/">
-  <meta property="og:site_name" content="AI Agent Engineering Notes">
-  <meta property="og:title" content="Building an MCP Server with Python to Connect Claude to Your Database">
-  <meta property="og:description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-12-20T00:00:00+00:00">
-    <meta property="article:tag" content="AI">
-    <meta property="article:tag" content="MCP">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Claude">
-    <meta property="article:tag" content="Tutorial">
+	<meta itemprop="name" content="Building an MCP Server with Python to Connect Claude to Your Database">
+	<meta itemprop="description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
+	<meta itemprop="datePublished" content="2025-12-20T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2025-12-20T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1053">
+	<meta itemprop="keywords" content="AI,MCP,Python,Claude,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/">
+	<meta property="og:site_name" content="AI Agent Engineering Notes">
+	<meta property="og:title" content="Building an MCP Server with Python to Connect Claude to Your Database">
+	<meta property="og:description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2025-12-20T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-12-20T00:00:00+00:00">
+		<meta property="article:tag" content="AI">
+		<meta property="article:tag" content="MCP">
+		<meta property="article:tag" content="Python">
+		<meta property="article:tag" content="Claude">
+		<meta property="article:tag" content="Tutorial">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Building an MCP Server with Python to Connect Claude to Your Database">
-  <meta name="twitter:description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Building an MCP Server with Python to Connect Claude to Your Database">
+	<meta name="twitter:description" content="A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-12-20T00:00:00Z","datePublished":"2025-12-20T00:00:00Z","description":"A practical guide to building a Model Context Protocol (MCP) server that lets Claude query your SQLite database directly.","headline":"Building an MCP Server with Python to Connect Claude to Your Database","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/12/building-an-mcp-server-with-python-to-connect-claude-to-your-database/"}</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

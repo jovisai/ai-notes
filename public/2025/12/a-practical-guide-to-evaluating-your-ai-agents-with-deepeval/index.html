@@ -5,30 +5,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>A Practical Guide to Evaluating Your AI Agents with DeepEval - AI Agent Engineering Notes</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="canonical" href="https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/"><meta name="description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
 	
-  <meta itemprop="name" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
-  <meta itemprop="description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
-  <meta itemprop="datePublished" content="2025-12-29T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-12-29T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1256">
-  <meta itemprop="keywords" content="AI,Evaluation,DeepEval,Testing,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/">
-  <meta property="og:site_name" content="AI Agent Engineering Notes">
-  <meta property="og:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
-  <meta property="og:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-12-29T00:00:00+00:00">
-    <meta property="article:tag" content="AI">
-    <meta property="article:tag" content="Evaluation">
-    <meta property="article:tag" content="DeepEval">
-    <meta property="article:tag" content="Testing">
-    <meta property="article:tag" content="Python">
-    <meta property="article:tag" content="Tutorial">
+	<meta itemprop="name" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
+	<meta itemprop="description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
+	<meta itemprop="datePublished" content="2025-12-29T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2025-12-29T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1256">
+	<meta itemprop="keywords" content="AI,Evaluation,DeepEval,Testing,Python,Tutorial"><meta property="og:url" content="https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/">
+	<meta property="og:site_name" content="AI Agent Engineering Notes">
+	<meta property="og:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
+	<meta property="og:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2025-12-29T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-12-29T00:00:00+00:00">
+		<meta property="article:tag" content="AI">
+		<meta property="article:tag" content="Evaluation">
+		<meta property="article:tag" content="DeepEval">
+		<meta property="article:tag" content="Testing">
+		<meta property="article:tag" content="Python">
+		<meta property="article:tag" content="Tutorial">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
-  <meta name="twitter:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="A Practical Guide to Evaluating Your AI Agents with DeepEval">
+	<meta name="twitter:description" content="Learn how to systematically test and evaluate AI agents using DeepEval&#39;s metrics for relevancy, faithfulness, and task completion.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","description":"AI agent builder with 16+ years of experience building scalable SaaS applications.","name":"Muthu Krishnan","sameAs":["https://github.com/muthuspark/","https://linkedin.com/in/krimuthu/"],"url":"https://notes.muthu.co/about/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"dateModified":"2025-12-29T00:00:00Z","datePublished":"2025-12-29T00:00:00Z","description":"Learn how to systematically test and evaluate AI agents using DeepEval's metrics for relevancy, faithfulness, and task completion.","headline":"A Practical Guide to Evaluating Your AI Agents with DeepEval","mainEntityOfPage":{"@id":"https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Muthu Krishnan","url":"https://notes.muthu.co/about/"},"url":"https://notes.muthu.co/2025/12/a-practical-guide-to-evaluating-your-ai-agents-with-deepeval/"}</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -400,35 +400,35 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> response
 </span></span></code></pre></div><h2 id="comparison-with-other-tools">Comparison with Other Tools</h2>
 <table>
-  <thead>
-      <tr>
-          <th>Tool</th>
-          <th>Strengths</th>
-          <th>Best For</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>DeepEval</td>
-          <td>Comprehensive metrics, CI integration</td>
-          <td>Full evaluation pipeline</td>
-      </tr>
-      <tr>
-          <td>Ragas</td>
-          <td>RAG-specific metrics</td>
-          <td>RAG evaluation</td>
-      </tr>
-      <tr>
-          <td>LangSmith</td>
-          <td>Tracing + evaluation</td>
-          <td>LangChain projects</td>
-      </tr>
-      <tr>
-          <td>Promptfoo</td>
-          <td>Fast, local testing</td>
-          <td>Prompt iteration</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Tool</th>
+					<th>Strengths</th>
+					<th>Best For</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>DeepEval</td>
+					<td>Comprehensive metrics, CI integration</td>
+					<td>Full evaluation pipeline</td>
+			</tr>
+			<tr>
+					<td>Ragas</td>
+					<td>RAG-specific metrics</td>
+					<td>RAG evaluation</td>
+			</tr>
+			<tr>
+					<td>LangSmith</td>
+					<td>Tracing + evaluation</td>
+					<td>LangChain projects</td>
+			</tr>
+			<tr>
+					<td>Promptfoo</td>
+					<td>Fast, local testing</td>
+					<td>Prompt iteration</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="whats-next">What&rsquo;s Next</h2>
 <p>Evaluation is an ongoing process, not a one-time check. Build a culture of:</p>
