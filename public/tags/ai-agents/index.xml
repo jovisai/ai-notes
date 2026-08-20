@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Mon, 20 Jul 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/tags/ai-agents/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>AI Isn&#39;t Running Out of Data. It&#39;s Running Out of New Human Data.</title>
+				<link>https://notes.muthu.co/2026/08/ai-isnt-running-out-of-data.-its-running-out-of-new-human-data./</link>
+				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/08/ai-isnt-running-out-of-data.-its-running-out-of-new-human-data./</guid>
+				<description>&lt;p&gt;The short answer is that AI will not suddenly stop improving. But it will have to change how it learns.&lt;/p&gt;&#xA;&lt;p&gt;The argument that AI is running out of data is partly true and partly misunderstood. The problem is not that the internet is about to become empty. The problem is that the most useful part of it—the new, high-quality, diverse human knowledge that frontier models need—is finite.&lt;/p&gt;&#xA;&lt;p&gt;That changes the next phase of AI development. The first generation learned mainly by reading what humans had already written. The next generation will increasingly learn by generating data, taking actions, running experiments, and receiving feedback.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Becoming an AI-Native Engineer</title>
 				<link>https://notes.muthu.co/2026/07/becoming-an-ai-native-engineer/</link>

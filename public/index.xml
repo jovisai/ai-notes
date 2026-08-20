@@ -10,15 +10,15 @@
 		
 		
 		
-			<lastBuildDate>Thu, 20 Aug 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>What Is the Risk of China Achieving Global AI Dominance?</title>
-				<link>https://notes.muthu.co/2026/08/what-is-the-risk-of-china-achieving-global-ai-dominance/</link>
-				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/2026/08/what-is-the-risk-of-china-achieving-global-ai-dominance/</guid>
-				<description>&lt;p&gt;The biggest risk is not that China produces the single smartest AI model.&lt;/p&gt;&#xA;&lt;p&gt;It is that Chinese AI becomes the default technological layer for companies, governments, robots, factories, and infrastructure across much of the world.&lt;/p&gt;&#xA;&lt;p&gt;That distinction matters. Benchmark leadership is visible and easy to measure. Distribution is slower, less glamorous, and potentially more consequential. A model that is nearly as capable as the best alternative, but much cheaper, open-weight, and easy to deploy locally, can become the foundation other people build upon.&lt;/p&gt;</description>
+				<title>AI Isn&#39;t Running Out of Data. It&#39;s Running Out of New Human Data.</title>
+				<link>https://notes.muthu.co/2026/08/ai-isnt-running-out-of-data.-its-running-out-of-new-human-data./</link>
+				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/08/ai-isnt-running-out-of-data.-its-running-out-of-new-human-data./</guid>
+				<description>&lt;p&gt;The short answer is that AI will not suddenly stop improving. But it will have to change how it learns.&lt;/p&gt;&#xA;&lt;p&gt;The argument that AI is running out of data is partly true and partly misunderstood. The problem is not that the internet is about to become empty. The problem is that the most useful part of it—the new, high-quality, diverse human knowledge that frontier models need—is finite.&lt;/p&gt;&#xA;&lt;p&gt;That changes the next phase of AI development. The first generation learned mainly by reading what humans had already written. The next generation will increasingly learn by generating data, taking actions, running experiments, and receiving feedback.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>15 AI Research Papers Every AI Engineer Should Read</title>
@@ -67,7 +67,7 @@
 				<link>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</link>
 				<pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/2026/06/optimize-units-of-work-not-growth-targets/</guid>
-				<description>&lt;p&gt;A lot of leadership teams start with a goal like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;How do we grow revenue by 20%?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It is a reasonable business question. It is also too abstract to manage directly.&lt;/p&gt;&#xA;&lt;p&gt;Nobody wakes up and performs a &amp;ldquo;20% growth&amp;rdquo; task. Nobody opens a laptop and completes &amp;ldquo;increase revenue&amp;rdquo; before lunch. What people actually do every day is much smaller and much more concrete:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Answer customer questions&lt;/li&gt;&#xA;&lt;li&gt;Create proposals&lt;/li&gt;&#xA;&lt;li&gt;Follow up on leads&lt;/li&gt;&#xA;&lt;li&gt;Review contracts&lt;/li&gt;&#xA;&lt;li&gt;Build features&lt;/li&gt;&#xA;&lt;li&gt;Resolve support tickets&lt;/li&gt;&#xA;&lt;li&gt;Generate reports&lt;/li&gt;&#xA;&lt;li&gt;Onboard customers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Growth is the aggregate result of how well thousands of these units of work happen.&lt;/p&gt;</description>
+				<description>&lt;p&gt;Start with the work, not the growth target.&lt;/p&gt;&#xA;&lt;p&gt;Leadership teams often begin with a question like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;How do we grow revenue by 20%?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;It is a reasonable business question. It is also too abstract to run day to day.&lt;/p&gt;&#xA;&lt;p&gt;Nobody performs a &amp;ldquo;20% growth&amp;rdquo; task. People answer customers, create proposals, review contracts, and ship features. The work is smaller and more concrete:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Answer customer questions&lt;/li&gt;&#xA;&lt;li&gt;Create proposals&lt;/li&gt;&#xA;&lt;li&gt;Follow up on leads&lt;/li&gt;&#xA;&lt;li&gt;Review contracts&lt;/li&gt;&#xA;&lt;li&gt;Build features&lt;/li&gt;&#xA;&lt;li&gt;Resolve support tickets&lt;/li&gt;&#xA;&lt;li&gt;Generate reports&lt;/li&gt;&#xA;&lt;li&gt;Onboard customers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Growth is what you get when thousands of those units of work go well.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>AI Will Not Kill Junior Engineers but It Will Change Them</title>
