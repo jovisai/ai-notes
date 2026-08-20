@@ -10,14 +10,49 @@
 		
 		
 		
-			<lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 20 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>AI</title>
 				<link>https://notes.muthu.co/tags/ai/</link>
-				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/ai/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>China</title>
+				<link>https://notes.muthu.co/tags/china/</link>
+				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/china/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Geopolitics</title>
+				<link>https://notes.muthu.co/tags/geopolitics/</link>
+				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/geopolitics/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Open-Weight Models</title>
+				<link>https://notes.muthu.co/tags/open-weight-models/</link>
+				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/open-weight-models/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Robotics</title>
+				<link>https://notes.muthu.co/tags/robotics/</link>
+				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/robotics/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Technology Policy</title>
+				<link>https://notes.muthu.co/tags/technology-policy/</link>
+				<pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/technology-policy/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -35,7 +70,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Machine Learning</title>
+				<title>Machine-Learning</title>
 				<link>https://notes.muthu.co/tags/machine-learning/</link>
 				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/machine-learning/</guid>
@@ -56,7 +91,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>LLMs</title>
+				<title>Llms</title>
 				<link>https://notes.muthu.co/tags/llms/</link>
 				<pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/llms/</guid>
@@ -91,7 +126,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Software-Engineering</title>
+				<title>Software Engineering</title>
 				<link>https://notes.muthu.co/tags/software-engineering/</link>
 				<pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/software-engineering/</guid>
@@ -161,7 +196,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Tool-Use</title>
+				<title>Tool Use</title>
 				<link>https://notes.muthu.co/tags/tool-use/</link>
 				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/tool-use/</guid>
@@ -224,7 +259,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Multi-Agent-Systems</title>
+				<title>Multi-Agent Systems</title>
 				<link>https://notes.muthu.co/tags/multi-agent-systems/</link>
 				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
@@ -238,7 +273,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Context Engineering</title>
+				<title>Context-Engineering</title>
 				<link>https://notes.muthu.co/tags/context-engineering/</link>
 				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/context-engineering/</guid>
@@ -280,7 +315,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Agentic AI</title>
+				<title>Agentic-Ai</title>
 				<link>https://notes.muthu.co/tags/agentic-ai/</link>
 				<pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/agentic-ai/</guid>
