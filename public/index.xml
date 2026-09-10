@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Thu, 20 Aug 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Build a Leadership Action Tracker with Five Fields</title>
+				<link>https://notes.muthu.co/2026/09/build-a-leadership-action-tracker-with-five-fields/</link>
+				<pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/09/build-a-leadership-action-tracker-with-five-fields/</guid>
+				<description>&lt;p&gt;Leadership teams rarely need another project-management system. They need a simple way to make commitments visible, keep ownership clear, and focus attention where help is required.&lt;/p&gt;&#xA;&lt;p&gt;That is the purpose of a leadership action tracker.&lt;/p&gt;&#xA;&lt;p&gt;The tracker should have five fields only:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Action | Owner | Due | Status | Blocker / Next move&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Anything beyond these fields starts pushing the tool toward project management rather than commitment management.&lt;/p&gt;&#xA;&lt;p&gt;Research supports this degree of simplicity. Implementation-intention research shows that specifying when, where, and how an action will happen improves goal attainment; a meta-analysis of 94 tests reported an effect size of &lt;em&gt;d&lt;/em&gt; = .65. [1] Progress-monitoring research likewise found improved goal attainment across 138 studies and 19,951 participants, with stronger effects when progress was explicitly recorded or visible to others. [2] Goal-setting research also consistently finds that specific goals outperform vague instructions such as “do your best.” [3]&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>What Is the Risk of China Achieving Global AI Dominance?</title>
 				<link>https://notes.muthu.co/2026/08/what-is-the-risk-of-china-achieving-global-ai-dominance/</link>
