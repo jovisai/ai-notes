@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Thu, 08 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>The Abstraction Layer Has Moved Up</title>
+				<link>https://notes.muthu.co/2026/10/the-abstraction-layer-has-moved-up/</link>
+				<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/10/the-abstraction-layer-has-moved-up/</guid>
+				<description>&lt;pre class=&#34;mermaid&#34;&gt;flowchart BT&#xA;    Hardware[&amp;#34;Hardware&amp;lt;br/&amp;gt;CPU, memory, network&amp;#34;]&#xA;    Runtime[&amp;#34;Runtime and operating system&amp;lt;br/&amp;gt;scheduling, processes, files&amp;#34;]&#xA;    Code[&amp;#34;Code and framework&amp;lt;br/&amp;gt;language, libraries, APIs&amp;#34;]&#xA;    System[&amp;#34;System design&amp;lt;br/&amp;gt;data, services, consistency, failure modes&amp;#34;]&#xA;    Direction[&amp;#34;Agent direction&amp;lt;br/&amp;gt;specification, constraints, verification&amp;#34;]&#xA;&#xA;    Hardware --&amp;gt; Runtime --&amp;gt; Code --&amp;gt; System --&amp;gt; Direction&#xA;  &lt;/pre&gt;&#xA;&#xA;&lt;p&gt;To become truly good at one layer of abstraction, you need to understand the layer beneath it.&lt;/p&gt;&#xA;&lt;p&gt;That idea shaped much of computer science education. In college, we studied operating systems, software architecture, assembly language, microprocessors, compiler design, and other subjects that seemed far removed from the applications most of us would eventually build.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Build a Leadership Action Tracker with Five Fields</title>
 				<link>https://notes.muthu.co/2026/09/build-a-leadership-action-tracker-with-five-fields/</link>
