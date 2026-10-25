@@ -11,7 +11,7 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
 	<meta itemprop="datePublished" content="2025-10-22T00:00:00+00:00">
 	<meta itemprop="dateModified" content="2025-10-22T00:00:00+00:00">
 	<meta itemprop="wordCount" content="1032">
-	<meta itemprop="keywords" content="AI,Multi-Agent-Systems,Langgraph,Python"><meta property="og:url" content="https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/">
+	<meta itemprop="keywords" content="Ai,Multi-Agent Systems,Langgraph,Python"><meta property="og:url" content="https://notes.muthu.co/2025/10/building-a-multi-agent-debate-system-with-langgraph/">
 	<meta property="og:site_name" content="AI Agent Engineering Notes">
 	<meta property="og:title" content="Building a Multi-Agent Debate System with LangGraph">
 	<meta property="og:description" content="Introduction Multi-agent systems are a fascinating area of AI development, where multiple autonomous agents collaborate or compete to solve complex problems. One interesting application of this paradigm is the concept of a “debate,” where different AI agents take on distinct personas to argue a topic from various viewpoints. This approach can help to uncover nuanced perspectives and lead to more robust and well-reasoned conclusions.
@@ -21,8 +21,8 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
 		<meta property="article:section" content="posts">
 		<meta property="article:published_time" content="2025-10-22T00:00:00+00:00">
 		<meta property="article:modified_time" content="2025-10-22T00:00:00+00:00">
-		<meta property="article:tag" content="AI">
-		<meta property="article:tag" content="Multi-Agent-Systems">
+		<meta property="article:tag" content="Ai">
+		<meta property="article:tag" content="Multi-Agent Systems">
 		<meta property="article:tag" content="Langgraph">
 		<meta property="article:tag" content="Python">
 
@@ -132,6 +132,16 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
 <li><strong>One Judge Agent:</strong> This agent&rsquo;s role is to evaluate the arguments presented by the debaters and provide a final, reasoned judgment.</li>
 <li><strong>A Moderator:</strong> This is not an agent itself, but rather the orchestration logic that manages the debate flow.</li>
 </ul>
+
+<figure >
+    <a href="/images/langgraph-debate/architecture.svg">
+		<img src="/images/langgraph-debate/architecture.svg" alt="A question and optional context enter the LangGraph moderator, which controls three agents: an analytical debater focused on evidence and logic, a philosophical debater focused on values and implications, and a judge. The moderator is orchestration code, not a fourth LLM agent." loading="lazy" decoding="async" />
+    </a>
+    
+    
+</figure>
+
+
 <p>The debate follows a structured format:</p>
 <ol>
 <li><strong>Opening Arguments:</strong> Each debater presents their initial position.</li>
@@ -139,6 +149,16 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
 <li><strong>Conclusion:</strong> Each debater provides a final summary of their position.</li>
 <li><strong>Judgment:</strong> The judge evaluates the entire debate and provides a final answer, along with reasoning and a confidence score.</li>
 </ol>
+
+<figure >
+    <a href="/images/langgraph-debate/flow.svg">
+		<img src="/images/langgraph-debate/flow.svg" alt="Fixed debate flow: Agent 1 then Agent 2 give openings, rebuttal round one, rebuttal round two, and conclusions. The judge then reads the full debate and the graph reaches END. This example uses a fixed sequence rather than response-based stopping." loading="lazy" decoding="async" />
+    </a>
+    
+    
+</figure>
+
+
 <h2 id="implementation-with-langgraph">Implementation with <code>langgraph</code></h2>
 <p>The orchestration of the debate is handled by <code>langgraph</code>, a library that allows you to build stateful, multi-agent applications. At its core, <code>langgraph</code> uses a state machine approach, where each step in the debate is a node in the graph.</p>
 <p>The state of our debate is managed in a <code>GraphState</code> object, which is a TypedDict that holds information such as the current round, the debate log, and the messages from each agent.</p>
@@ -163,6 +183,16 @@ In this article, we’ll explore a minimal multi-agent debate system built with 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6a737d">self</span><span style="color:#0550ae">.</span>graph <span style="color:#0550ae">=</span> workflow<span style="color:#0550ae">.</span>compile<span style="color:#1f2328">()</span>
 </span></span></code></pre></div><p>Each node in the graph is a function that takes the current state as input, invokes the appropriate agent, and returns an update to the state. This makes it easy to manage the flow of the debate and keep track of the conversation history.</p>
+
+<figure >
+    <a href="/images/langgraph-debate/state.svg">
+		<img src="/images/langgraph-debate/state.svg" alt="A debate node receives the current GraphState, including round and history, invokes its agent, and returns an update recording the response. The next graph node reads the updated state. Conceptually, the state carries the round, debate log, and each agent&#39;s messages." loading="lazy" decoding="async" />
+    </a>
+    
+    
+</figure>
+
+
 <h2 id="agent-prompts">Agent Prompts</h2>
 <p>The behavior of each agent is guided by a carefully crafted system prompt. These prompts define the agent&rsquo;s persona, its role in the debate, and the guidelines it should follow.</p>
 <h3 id="debater-1-analytical">Debater 1 (Analytical)</h3>

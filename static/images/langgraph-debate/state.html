@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State connects one turn to the next</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&amp;family=Libre+Franklin:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;   /* white-smoke */
+      --color-ink:     #212529;   /* jet-black */
+      --color-muted:   #666666;   /* blue-slate */
+      --color-accent:  #8b0000;   /* burnt-tangerine */
+      --font-sans:     'Libre Franklin', system-ui, sans-serif;
+      --font-serif:    'Crimson Pro', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; min-width: 0; width: 100%; }
+    /* The SVG holds its readable width (min-width == the viewBox width, so the
+       type ramp is never silently scaled down). This wrapper lets a narrow
+       screen scroll the diagram instead of the whole page. */
+    .diagram-container { width: 100%; overflow-x: auto; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 960px; display: block; }
+    /* Paper has no scrollbar, so the local scroller would clip instead of
+       scroll. Let the diagram scale down to the sheet: smaller but whole
+       beats sharp but cut off. Must come after the svg rule above - a media
+       query adds no specificity, so a later plain rule would win. */
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source: cathrynlavery/diagram-design; light variant; doc-inline width, enlarged blog labels. -->
+  <div class="frame">
+    <p class="eyebrow">Flowchart · Diagram Design</p>
+
+
+    <!-- Replace [diagram-slug] with a unique slug for this diagram before export. -->
+    <div class="diagram-container">
+      <svg width="960" height="664" viewBox="0 0 960 664" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="state-title state-desc"><title id="state-title">State connects one turn to the next</title><desc id="state-desc">A debate node receives the current GraphState, invokes its agent, and returns a response update that becomes available to the next graph node.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8b0000"/></marker><marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker></defs><rect width="960" height="664" fill="#ffffff"/><text x="40" y="64" font-family="'Crimson Pro', serif" font-size="40" font-weight="400" fill="#212529" text-anchor="start">State connects one turn to the next</text><text x="40" y="108" font-family="'Libre Franklin', sans-serif" font-size="21" font-weight="400" fill="#666666" text-anchor="start">Each node reads state, invokes its agent, and returns an update</text><line x1="248" y1="264" x2="368" y2="264" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><line x1="592" y1="264" x2="712" y2="264" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><path d="M824,312 L824,416 Q824,424 816,424 L488,424 Q480,424 480,432 L480,456" fill="none" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><rect x="40" y="216" width="208" height="96" rx="6" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="144.0" y="257.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Current state</text><text x="144.0" y="287.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Round + history</text><rect x="368" y="216" width="224" height="96" rx="6" fill="#f6ebeb" stroke="#8b0000" stroke-width="1"/><text x="480.0" y="257.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#8b0000" text-anchor="middle">Debate node</text><text x="480.0" y="287.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#8b0000" text-anchor="middle">Invoke its agent</text><rect x="712" y="216" width="208" height="96" rx="6" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="816.0" y="257.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">State update</text><text x="816.0" y="287.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Save response</text><rect x="336" y="456" width="288" height="80" rx="6" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="480.0" y="489.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Next graph node</text><text x="480.0" y="519.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Reads updated state</text><text x="40" y="362" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="400" fill="#666666" text-anchor="start">GraphState carries the round, debate log,</text><text x="40" y="394" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="400" fill="#666666" text-anchor="start">and messages from each agent.</text><line x1="40" y1="600" x2="920" y2="600" stroke="#dee2e6" stroke-width="1.2"/><text x="40" y="636" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">A node returns a state update; the graph determines which node runs next.</text></svg>
+    </div>
+  </div>
+</body>
+</html>

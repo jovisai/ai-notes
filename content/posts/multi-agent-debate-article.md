@@ -24,12 +24,16 @@ The system is composed of four main components:
 *   **One Judge Agent:** This agent's role is to evaluate the arguments presented by the debaters and provide a final, reasoned judgment.
 *   **A Moderator:** This is not an agent itself, but rather the orchestration logic that manages the debate flow.
 
+{{< figure src="/images/langgraph-debate/architecture.svg" link="/images/langgraph-debate/architecture.svg" alt="A question and optional context enter the LangGraph moderator, which controls three agents: an analytical debater focused on evidence and logic, a philosophical debater focused on values and implications, and a judge. The moderator is orchestration code, not a fourth LLM agent." >}}
+
 The debate follows a structured format:
 
 1.  **Opening Arguments:** Each debater presents their initial position.
 2.  **Rebuttal Phase:** The debaters respond to each other's arguments for a set number of rounds (in this case, two).
 3.  **Conclusion:** Each debater provides a final summary of their position.
 4.  **Judgment:** The judge evaluates the entire debate and provides a final answer, along with reasoning and a confidence score.
+
+{{< figure src="/images/langgraph-debate/flow.svg" link="/images/langgraph-debate/flow.svg" alt="Fixed debate flow: Agent 1 then Agent 2 give openings, rebuttal round one, rebuttal round two, and conclusions. The judge then reads the full debate and the graph reaches END. This example uses a fixed sequence rather than response-based stopping." >}}
 
 ## Implementation with `langgraph`
 
@@ -62,6 +66,8 @@ self.graph = workflow.compile()
 ```
 
 Each node in the graph is a function that takes the current state as input, invokes the appropriate agent, and returns an update to the state. This makes it easy to manage the flow of the debate and keep track of the conversation history.
+
+{{< figure src="/images/langgraph-debate/state.svg" link="/images/langgraph-debate/state.svg" alt="A debate node receives the current GraphState, including round and history, invokes its agent, and returns an update recording the response. The next graph node reads the updated state. Conceptually, the state carries the round, debate log, and each agent's messages." >}}
 
 ## Agent Prompts
 
