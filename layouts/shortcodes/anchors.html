@@ -1,0 +1,3 @@
+{{- range split (.Get "ids") " " -}}
+<span id="{{ . }}" class="article-anchor" aria-hidden="true"></span>
+{{- end -}}

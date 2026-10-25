@@ -1,0 +1,6 @@
+<div class="article-video">
+  <a class="video-preview" href="https://www.youtube.com/watch?v={{ .Get "id" }}" data-video-id="{{ .Get "id" }}" data-video-title="{{ .Get "title" }}">
+    <img src="{{ .Get "poster" }}" alt="" width="480" height="360" loading="lazy" decoding="async" />
+    <span class="video-preview-label">Play video: {{ .Get "title" }}</span>
+  </a>
+</div>

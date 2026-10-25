@@ -36,6 +36,10 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/normalize.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/main.css" />
 	<link rel="stylesheet" type="text/css" media="print" href="{{ .Site.BaseURL }}css/print.css" />
+	{{- if .Params.articletools }}
+	<link rel="stylesheet" href="{{ "css/article-tools.css" | relURL }}" />
+	<script defer src="{{ "js/article-tools.js" | relURL }}"></script>
+	{{- end }}
 	{{- if isset .Site.Params "customcss" }}
 	<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}{{ .Site.Params.customCSS }}" />
 	{{ end }}

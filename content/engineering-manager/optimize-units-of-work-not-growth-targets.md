@@ -7,164 +7,54 @@ tags: ['engineering-management', 'AI', 'operations']
 description: "Growth becomes more actionable when leaders stop treating it as a target and start removing friction from the individual units of work that create it."
 ---
 
-Start with the work, not the growth target.
+A revenue target gives a company direction. It does not tell a team what to do on Monday.
 
-Leadership teams often begin with a question like this:
+Nobody performs a “20% growth” task. People qualify leads, review contracts, resolve tickets, and ship features. To improve the outcome, inspect the repeatable work that produces it.
 
-> How do we grow revenue by 20%?
+## Zoom In Until You Can Change the Work
 
-It is a reasonable business question. It is also too abstract to run day to day.
+“Automate sales” is too broad to test. Researching one inbound lead has a clearer input, output, and quality standard.
 
-Nobody performs a "20% growth" task. People answer customers, create proposals, review contracts, and ship features. The work is smaller and more concrete:
+{{< figure src="/images/units-of-work/zoom.svg" link="/images/units-of-work/zoom.svg" alt="Zoom from the sales function to the lead-qualification process to one unit of work: researching an inbound lead. The smallest level is specific enough to change and measure." >}}
 
-- Answer customer questions
-- Create proposals
-- Follow up on leads
-- Review contracts
-- Build features
-- Resolve support tickets
-- Generate reports
-- Onboard customers
+AI makes it practical to improve individual tasks. Some need automation; others need a better template, clearer ownership, or removal.
 
-Growth is what you get when thousands of those units of work go well.
+## Find Where Effort Disappears
 
-That means the better operating question is not:
+Dashboards show what the system produced. Follow the work to see where it waited, changed hands, or came back for another pass.
 
-> How do we grow by 20%?
+{{< figure src="/images/units-of-work/friction.svg" link="/images/units-of-work/friction.svg" alt="Illustrative support workflow: a ticket arrives, gets triaged and routed, reaches specialist review, and is resolved. Waiting occurs at the specialist handoff, while rework sends the ticket back to triage. Measure these delays as well as active work." >}}
 
-Ask instead:
+Look for a concrete constraint in each function:
 
-> Where does work happen in this company, and where is effort being wasted, delayed, duplicated, or constrained?
+| Function | Unit of work | Friction to investigate |
+|---|---|---|
+| Sales | Lead qualification | Repeated research |
+| Support | Ticket triage | Manual categorization and routing |
+| Engineering | Code review | Waiting on a senior approver |
+| Finance | Invoice processing | Data entry and reconciliation |
+| HR | Candidate screening | Repetitive resume review |
 
-That question gives a team somewhere to start.
+## Choose Where AI Fits
 
-## Growth Is Not a Task
+Do not assume every task needs automation. Start by asking whether the task should exist at all.
 
-Revenue growth is an outcome. It comes from local improvements: faster lead qualification, cleaner handoffs, shorter approval paths, better support triage, fewer rework loops, clearer product decisions, and less waiting between teams.
+{{< figure src="/images/units-of-work/ai-fit.svg" link="/images/units-of-work/ai-fit.svg" alt="Task-level decision filter: if a task can be removed, fix the UX or remove the step. If it is necessary, bounded and repetitive, consider automation with checks. Otherwise assist a human, keeping context, judgment, empathy and accountability with people." >}}
 
-Most companies manage growth through dashboards. Revenue, pipeline, activation, churn, margin, and headcount all matter. But they are lagging indicators. They show what the system produced, not where it lost time and effort.
+For support, this means distinguishing routine tickets from account-specific questions, policy decisions, and engineering investigations. Better product UX may prevent some tickets entirely.
 
-To change the system, you have to inspect the work.
+## Define a Measurable Experiment
 
-Look at the smallest repeatable piece of work that creates value or moves it forward. Ask:
+Name the task, establish a baseline, set a target, and specify what must stay good. Faster work that creates more errors is not an improvement.
 
-- How often does this happen?
-- How long does it take?
-- How much waiting is involved?
-- How many people touch it?
-- How often is it redone?
-- Which decisions slow it down?
-- Which parts require judgment, and which parts are mechanical?
+{{< figure src="/images/units-of-work/experiment.svg" link="/images/units-of-work/experiment.svg" alt="Example experiment, not a reported result: reduce inbound-lead research from a baseline of twenty minutes to a target of five minutes per lead while preserving qualification quality. Both times share a zero-based minutes scale." >}}
 
-This is where useful improvements begin.
+## Audit One Team First
 
-## The Unit-of-Work View
+Choose a team with frequent work, visible delays, and meaningful outcomes. Map its recurring tasks before buying tools or launching a transformation program.
 
-This view makes opportunities easier to spot.
+{{< figure src="/images/units-of-work/audit.svg" link="/images/units-of-work/audit.svg" alt="Five-step unit-of-work audit: list twenty to fifty recurring weekly tasks; measure frequency, time, waiting, errors and handoffs; tag judgment, context, repetition and risk; pick the top five by effort or delay; run small experiments. An experiment can be a template, decision rule, AI draft, routing change, checklist, or one less step." >}}
 
-| Function | Unit of Work | Common Inefficiency | Better Outcome |
-|---|---|---|---|
-| Sales | Lead qualification | SDR spends 20 minutes researching each lead | More qualified leads processed |
-| Support | Ticket triage | Manual categorization and routing | Faster first response |
-| Engineering | Code review | Senior engineers become approval bottlenecks | Shorter delivery cycle time |
-| Finance | Invoice processing | Manual data entry and reconciliation | Faster cash collection |
-| HR | Candidate screening | Repetitive resume review overload | Faster hiring throughput |
+Compare minutes per unit, wait time, handoffs, and rework before and after each change. Check quality alongside throughput. Scale what improves useful work, then inspect the next constraint.
 
-No row in this table sounds like a board-level growth strategy. That is exactly why it is useful.
-
-Companies rarely improve by 20% because an executive invents a perfect 20% plan. They improve when teams find and remove many small constraints. Sales saves eight minutes per lead. Support halves triage time. Engineering reduces pull-request wait time. Finance collects invoices faster.
-
-Each change may be small in isolation. Across important workflows, the effect compounds. Work moves faster, customers wait less, and teams spend more time creating value instead of moving work through the system.
-
-That is how operational improvement becomes growth.
-
-## AI Changes the Resolution
-
-Before AI, companies mostly optimized processes.
-
-They mapped departments, designed workflows, bought systems of record, defined approval paths, and standardized procedures. That work still matters. But it happens at a broad level: sales, support, hiring, or finance.
-
-AI lets leaders work at a finer level.
-
-Instead of asking, "How do we automate this department?" you can ask:
-
-> What are the 500 tasks people perform every day, and which of them can be completed faster, better, or not at all?
-
-Departments are too large to improve with precision. Processes are better, but often still too broad. A unit of work is small enough to change:
-
-- Summarize this customer call
-- Classify this support ticket
-- Draft this follow-up email
-- Extract contract terms
-- Compare this invoice to the purchase order
-- Generate the first version of a test plan
-- Review this pull request for a known class of issues
-- Turn meeting notes into decisions and owners
-
-Some tasks can be automated. Others need assistance, redesign, or removal. Some should remain human because they require judgment, empathy, accountability, or context the system lacks.
-
-The value lies in making that choice deliberately.
-
-## Do Not Start With "Automate a Department"
-
-"Automate support" is a slogan, not a plan.
-
-The useful version is:
-
-- Which support tickets are repetitive?
-- Which require account-specific context?
-- Which require policy judgment?
-- Which require engineering investigation?
-- Which can be resolved with better product UX?
-- Which should never have become tickets in the first place?
-
-Now there is a map of the work.
-
-The same applies everywhere. "Use AI in sales" is vague. "Reduce inbound-lead research from 20 minutes to five while preserving qualification quality" is specific. "Improve finance productivity" is vague. "Extract invoice fields and flag mismatches for review" is specific.
-
-Specific units of work create measurable experiments. Vague transformation programs create activity without a clear result.
-
-## How to Run a Unit-of-Work Audit
-
-Start with one function. Do not try to map the whole company at once.
-
-Pick a team with high work volume, visible delays, and meaningful outcomes. Then run this audit:
-
-1. List the 20-50 recurring tasks the team performs every week.
-2. Estimate frequency, average time, wait time, error rate, and handoffs for each task.
-3. Mark each task as judgment-heavy, context-heavy, repetitive, compliance-sensitive, or customer-sensitive.
-4. Identify the top five tasks by total effort or delay.
-5. Run one small improvement experiment per task.
-
-The experiment does not need to be a full automation project. It can be a template, a better intake form, a decision rule, an AI-assisted draft, a routing change, a checklist, or one less step.
-
-The goal is not to replace the team. It is to help the team complete more useful work with the same effort.
-
-Measure the result in operational terms:
-
-- Minutes saved per unit
-- Fewer handoffs
-- Lower rework rate
-- Shorter cycle time
-- Faster first response
-- Higher quality at review
-- Fewer decisions waiting on one person
-
-Add up the gains over time.
-
-## The Leadership Shift
-
-Top-down goals still matter. A company needs direction. Growth targets alone do not tell teams where to act.
-
-Leadership must translate the target into operational questions:
-
-- Where does work wait?
-- Where is effort duplicated?
-- Where are decisions delayed?
-- Where do people repeatedly search for the same context?
-- Where do customers experience friction?
-- Which tasks happen so often that a small improvement would compound?
-
-This matters even more with AI. It is tempting to chase a big automation story. The stronger advantage often comes from steadily improving the small pieces of work that happen every day.
-
-Growth becomes manageable when it is treated as a portfolio of bottlenecks removed from daily work.
+Growth targets still set direction. Daily progress comes from removing the bottlenecks that keep people and customers waiting.

@@ -1,0 +1,9 @@
+<details class="article-details"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
+  <summary>{{ .Get "summary" }}</summary>
+  {{- range split (.Get "anchors" | default "") " " }}
+    {{- if . }}<span id="{{ . }}" class="article-anchor" aria-hidden="true"></span>{{ end }}
+  {{- end }}
+  <div class="article-details-content">
+    {{ .Page.RenderString (dict "display" "block") .Inner }}
+  </div>
+</details>

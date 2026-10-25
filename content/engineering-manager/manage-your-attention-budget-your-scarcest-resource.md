@@ -4,160 +4,59 @@ date: 2025-10-16
 tags: ['engineering-management']
 ---
 
-You can always hire more engineers. You can negotiate for a bigger budget. You can even extend deadlines.
+You can hire more engineers, negotiate a bigger budget, or extend a deadline. Your capacity for sustained attention is harder to expand.
 
-But you cannot create more hours in the day. And even more critically: **you cannot expand your capacity for deep, strategic attention.**
+Every meeting, Slack thread, and “quick question” draws from the same budget. Individually, the requests seem reasonable. Together, they crowd out strategy, thoughtful 1:1s, and the systems that would make your team less dependent on you.
 
-Most engineering managers treat their attention like it's infinite. They say yes to every meeting, every Slack thread, every "quick question." Then they wonder why they're exhausted, reactive, and making shallow decisions.
+**A full calendar does not tell you whether your attention went to useful work.**
 
-Elite EMs understand a fundamental truth: **your attention is your scarcest, most valuable resource—and you must budget it as ruthlessly as you budget headcount.**
+## Give Your Attention a Budget
 
-## Why Attention Is Your Real Bottleneck
+Track one week of work before changing your calendar. Sort commitments by what they accomplish, not what they're called: a 1:1 focused on growth belongs in a different bucket from a routine status update.
 
-As an EM, you're the nexus of information flow. Product wants your input. Engineers need your unblocking. Leadership wants your strategy. Recruiting needs your interviews. Incidents need your coordination.
+{{< figure src="/images/attention-budget/allocation.svg" link="/images/attention-budget/allocation.svg" alt="Illustrative weekly attention budget: 20% reactive work such as messages and incidents, 35% necessary syncs and administration, and 45% high-leverage strategy, coaching and systems work. Eliminate, delegate or move low-value work async." >}}
 
-Every request is individually reasonable. Collectively, they're impossible.
+Use this allocation as a starting point, then adjust for your role and incident load. The point is to reserve attention for high-leverage work before reactive work consumes it.
 
-Here's the trap: **your presence feels productive**. You're in meetings, responding to messages, "staying connected." But presence ≠ impact.
+## Protect Focus and Batch Interruptions
 
-The work that actually moves the needle—deep thinking about strategy, high-quality 1:1s, designing systems, mentoring future leaders—requires *sustained, uninterrupted attention*. The kind you don't have when you're context-switching every 15 minutes.
+Find the hours when you think most clearly. Reserve at least three recurring 90-minute focus windows each week, with Slack and email closed. Batch communication around those blocks.
 
-Your calendar is full, but your impact is shallow.
+{{< figure src="/images/attention-budget/day.svg" link="/images/attention-budget/day.svg" alt="Example day: messages at 8:30, protected focus from 9:00 to 10:30, grouped meetings and delivery work, a message check at 12:30, afternoon delivery or office hours, and a final message check at 16:30. Move focus to your own peak hours and provide a separate urgent escalation route." >}}
 
-## The Attention Budget Framework
+Tell your team when you check messages and how to reach you for urgent issues. A focus block needs a shared expectation about availability.
 
-Start thinking about your attention like a financial budget. You have exactly 40-50 focused hours per week (realistically less). Every commitment is a debit against that budget.
+## Make Meetings Earn Their Place
 
-### Step 1: Categorize Where Your Attention Goes
+Run each recurring meeting through this filter. Start with three meetings this week.
 
-Track your time for one week. Categorize every hour into these buckets:
+{{< figure src="/images/attention-budget/meetings.svg" link="/images/attention-budget/meetings.svg" alt="Meeting filter: Is there a clear decision or outcome? If no, cancel or send an async update. Does it require you? If no, delegate or skip. Can a document do the job? If yes, write it; otherwise keep the meeting. For each new meeting, remove or shorten another." >}}
 
-**Reactive work** (15-25% max budget):
-- Slack/email responses
-- Unscheduled "quick questions"
-- Short-notice meetings
-- Incident response
+Group similar decisions, too. Use weekly planning for priorities, office hours for questions, and a regular architecture review for technical trade-offs. Give each a clear scope so it earns its place on the calendar.
 
-**Necessary but non-leveraged** (30-40% budget):
-- Recurring syncs and status meetings
-- Administrative work (expense reports, performance cycles)
-- Required company-wide meetings
+## Invest in Work That Gives Attention Back
 
-**High-leverage work** (40-50% budget):
-- Deep 1:1s focused on growth and strategy
-- Strategic planning and architecture reviews
-- Designing systems/processes that scale
-- Mentoring and coaching future leaders
-- Focused coding/technical work (if IC-track)
+Repeated questions and approvals are clues about where a system is missing. Instead of answering the same question faster, make the answer available or give someone the authority to decide.
 
-**Low-value work** (reduce to 0%):
-- Meetings you don't need to attend
-- Status updates that could be async
-- Work that should be delegated
-- Notifications that break your flow
+{{< figure src="/images/attention-budget/leverage.svg" link="/images/attention-budget/leverage.svg" alt="Team autonomy rests on decision rules, repeatable playbooks, self-service answers and senior ownership. Fewer routine escalations leave more attention for strategy and coaching." >}}
 
-Most EMs are shocked to discover they're spending 60% on reactive/necessary work and only 20% on high-leverage work. Your goal: flip that ratio.
+## Ask What the Attention Buys
 
-## The Attention Allocation Strategy
+Before accepting a commitment, name the outcome it should produce. Time spent is only one side of the trade-off.
 
-### 1. Guard Your Peak Attention Hours
+{{< figure src="/images/attention-budget/return.svg" link="/images/attention-budget/return.svg" alt="Illustrative time-versus-impact map: 30 minutes unblocking an engineer or 90 minutes coaching a future leader has higher impact than a 30-minute passive status update or a 60-minute just-FYI meeting. Impact is qualitative, not a measured return." >}}
 
-You don't have 8 hours of quality thinking time per day. You have 3-4 hours, max. And they're not evenly distributed.
+## Watch for Attention Debt
 
-Identify your peak cognitive hours (usually 9am-12pm for most people) and **guard them ferociously**. This is when you do your highest-leverage work:
-- Strategic planning
-- Complex architectural decisions
-- Deep mentoring conversations
-- Writing that requires clarity (vision docs, performance reviews)
+Postponing important work can create the interruptions that keep you from returning to it.
 
-Create calendar blocks labeled "Focus Time" or "Strategic Work" and treat them as non-negotiable as an investor meeting.
+{{< figure src="/images/attention-budget/debt.svg" link="/images/attention-budget/debt.svg" alt="Attention debt cycle: defer strategy and systems, problems keep recurring, firefighting takes over, and less room to invest leads back to deferred strategy. Break the cycle by protecting strategy, thoughtful 1:1s and systems work." >}}
 
-**Action**: Block out 90-minute focus windows during your peak hours, 3x per week minimum. Turn off Slack. Close email. Make them recurring so they can't be slowly eroded.
+## Start with Next Week's Calendar
 
-### 2. Batch Your Context-Switching Work
+1. Review last week's commitments and sort them into the four attention buckets.
+2. Cancel, delegate, or move your biggest recurring attention leak async.
+3. Protect three 90-minute focus blocks during your best thinking hours.
+4. Share your communication schedule and urgent escalation route.
 
-Every context switch costs you 10-15 minutes of cognitive recovery time. Five "quick Slack questions" scattered across a day don't take 25 minutes—they destroy 2+ hours of deep work capacity.
-
-Batch your reactive work into designated time blocks:
-- Morning: 30-minute Slack/email sprint (8:30-9am)
-- Midday: 30-minute check-in (12:30-1pm)
-- Afternoon: 30-minute wrap-up (4:30-5pm)
-
-**Set expectations**: "I batch my communication to stay focused on high-leverage work. I check Slack/email at 9am, 1pm, and 5pm. For urgent issues, call me."
-
-### 3. Ruthlessly Eliminate Low-Value Meetings
-
-For every recurring meeting on your calendar, ask:
-- **What decision or outcome does this meeting drive?** (If none, it's a status update—make it async.)
-- **Am I the key decision-maker?** (If no, delegate or skip.)
-- **Could this be a document instead?** (Most meetings can.)
-
-Then apply the "one-out-one-in" rule: for every new meeting you accept, remove or shorten an existing one. Your calendar should never grow unchecked.
-
-**Action**: This week, identify 3 recurring meetings and either eliminate them, delegate attendance, or convert them to async updates.
-
-### 4. Create "Decision Batching" Rituals
-
-You make dozens of decisions daily: hiring, technical trade-offs, prioritization, budget allocation. Each decision in isolation feels quick. Collectively, they create decision fatigue.
-
-Instead, create decision-batching rituals:
-- **Weekly Planning Meeting** (60 min): Review all prioritization decisions for the week at once
-- **Office Hours** (2x 30 min): Batched time for "quick questions" so they don't fragment your day
-- **Architecture Review** (90 min biweekly): Batch all major technical decisions
-
-This reduces context-switching and improves decision quality because you're making similar decisions in a focused mental mode.
-
-### 5. Invest in Leverage That Buys Back Your Attention
-
-The best use of your attention is building systems that *reduce future attention demands*:
-
-- Write a clear **decision-making framework** so your team can make 80% of decisions without you
-- Create **templates and playbooks** for recurring work (hiring, onboarding, incident response)
-- Build **self-service tools** that answer common questions automatically
-- Develop **senior engineers** who can own entire problem spaces independently
-
-Every hour you invest in leverage buys back 10+ hours of future attention.
-
-## The Attention ROI Calculation
-
-Before saying yes to anything, ask: **"What is the return on attention for this?"**
-
-- Spending 30 minutes unblocking an engineer who will then ship a critical feature = high ROI
-- Spending 30 minutes in a status meeting where you're a passive listener = low ROI
-- Spending 90 minutes mentoring a senior engineer on leadership skills = very high ROI (multiplier effect)
-- Spending 60 minutes in a "just FYI" meeting = negative ROI (costs more than it returns)
-
-Track this for a week. You'll be stunned how much low-ROI work you're doing simply because you didn't explicitly calculate the trade-off.
-
-## The Attention Debt Spiral
-
-Just like technical debt, attention debt compounds:
-
-- You skip strategic planning to fight fires → more fires emerge because you lack strategy
-- You rush 1:1s to attend more meetings → team performance drops, requiring more management overhead
-- You don't invest in systems → you're forever bottlenecked on decisions
-
-Every hour of misallocated attention today creates 3 hours of forced attention tomorrow.
-
-## Start Today: Your Attention Audit
-
-1. **Review last week's calendar**. Calculate what % of time was spent in each category (reactive, necessary, high-leverage, low-value).
-
-2. **Identify your biggest attention leak**. Where are you spending time that creates little value? Cancel or delegate one recurring commitment this week.
-
-3. **Block focus time**. Create three 90-minute blocks next week during your peak cognitive hours. Label them clearly. Protect them ruthlessly.
-
-4. **Set communication boundaries**. Post your batched communication schedule. Let your team know when you'll be responsive vs. focused.
-
-## The Compounding Payoff
-
-When you manage your attention budget deliberately:
-
-- **Your decisions get better** because you have time to think deeply
-- **Your team gets stronger** because you invest in high-leverage coaching
-- **Your systems scale** because you have space to design them thoughtfully
-- **Your stress drops** because you're proactive, not reactive
-
-Within a month, you'll notice the shift. Within a quarter, your team will be operating at a different level—not because you worked more, but because **you worked on what actually matters**.
-
-**Your time is finite. Your attention even more so. Budget it like your impact depends on it—because it does.**
+Review what changed after a few weeks. Look for decisions that got easier, ownership that moved to the team, and important work that finally had room on your calendar.

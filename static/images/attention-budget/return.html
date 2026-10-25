@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time spent is only half the trade-off</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&amp;family=Libre+Franklin:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;   /* white-smoke */
+      --color-ink:     #212529;   /* jet-black */
+      --color-muted:   #666666;   /* blue-slate */
+      --color-accent:  #8b0000;   /* burnt-tangerine */
+      --font-sans:     'Libre Franklin', system-ui, sans-serif;
+      --font-serif:    'Crimson Pro', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; min-width: 0; width: 100%; }
+    /* The SVG holds its readable width (min-width == the viewBox width, so the
+       type ramp is never silently scaled down). This wrapper lets a narrow
+       screen scroll the diagram instead of the whole page. */
+    .diagram-container { width: 100%; overflow-x: auto; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 960px; display: block; }
+    /* Paper has no scrollbar, so the local scroller would clip instead of
+       scroll. Let the diagram scale down to the sheet: smaller but whole
+       beats sharp but cut off. Must come after the svg rule above - a media
+       query adds no specificity, so a later plain rule would win. */
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source: cathrynlavery/diagram-design; light variant; doc-inline width, enlarged blog labels. -->
+  <div class="frame">
+    <p class="eyebrow">Quadrant · Diagram Design</p>
+
+
+    <!-- Replace [diagram-slug] with a unique slug for this diagram before export. -->
+    <div class="diagram-container">
+      <svg width="960" height="600" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="return-title return-desc"><title id="return-title">Time spent is only half the trade-off</title><desc id="return-desc">A qualitative time-versus-impact map compares unblocking, coaching, passive status updates and just-FYI meetings; positions are illustrative, not measured returns.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8b0000"/></marker><marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker></defs><rect width="960" height="600" fill="#ffffff"/><text x="40" y="64" font-family="'Crimson Pro', serif" font-size="40" font-weight="400" fill="#212529" text-anchor="start">Time spent is only half the trade-off</text><text x="40" y="104" font-family="'Libre Franklin', sans-serif" font-size="21" font-weight="400" fill="#666666" text-anchor="start">Illustrative placement · impact is qualitative</text><line x1="112" y1="336" x2="848" y2="336" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><line x1="464" y1="496" x2="464" y2="152" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><text x="868" y="342" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">TIME</text><text x="464" y="132" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="middle">IMPACT</text><circle cx="240" cy="224" r="6" fill="#8b0000" stroke="#8b0000" stroke-width="1.2"/><text x="260" y="212" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#8b0000" text-anchor="start">Unblock an</text><text x="260" y="240" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#8b0000" text-anchor="start">engineer</text><text x="260" y="268" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">30 min · work moves</text><circle cx="784" cy="204" r="6" fill="#ffffff" stroke="#666666" stroke-width="1.2"/><text x="764" y="192" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#212529" text-anchor="end">Coach a future</text><text x="764" y="220" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#212529" text-anchor="end">leader</text><text x="764" y="248" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="end">90 min · future autonomy</text><circle cx="240" cy="420" r="6" fill="#ffffff" stroke="#666666" stroke-width="1.2"/><text x="260" y="408" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#212529" text-anchor="start">Passive status</text><text x="260" y="436" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#212529" text-anchor="start">update</text><text x="260" y="464" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">30 min · little changes</text><circle cx="512" cy="456" r="6" fill="#ffffff" stroke="#666666" stroke-width="1.2"/><text x="532" y="444" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="600" fill="#212529" text-anchor="start">“Just FYI” meeting</text><text x="532" y="472" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">60 min · no clear return</text><line x1="40" y1="536" x2="920" y2="536" stroke="#dee2e6" stroke-width="1.2"/><text x="40" y="572" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">Ask what changes because you spent the attention.</text></svg>
+    </div>
+  </div>
+</body>
+</html>

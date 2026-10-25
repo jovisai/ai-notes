@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose where AI belongs</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400&amp;family=Libre+Franklin:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #ffffff;   /* white-smoke */
+      --color-ink:     #212529;   /* jet-black */
+      --color-muted:   #666666;   /* blue-slate */
+      --color-accent:  #8b0000;   /* burnt-tangerine */
+      --font-sans:     'Libre Franklin', system-ui, sans-serif;
+      --font-serif:    'Crimson Pro', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 1200px; min-width: 0; width: 100%; }
+    /* The SVG holds its readable width (min-width == the viewBox width, so the
+       type ramp is never silently scaled down). This wrapper lets a narrow
+       screen scroll the diagram instead of the whole page. */
+    .diagram-container { width: 100%; overflow-x: auto; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 960px; display: block; }
+    /* Paper has no scrollbar, so the local scroller would clip instead of
+       scroll. Let the diagram scale down to the sheet: smaller but whole
+       beats sharp but cut off. Must come after the svg rule above - a media
+       query adds no specificity, so a later plain rule would win. */
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source: cathrynlavery/diagram-design; light variant; doc-inline width, enlarged blog labels. -->
+  <div class="frame">
+    <p class="eyebrow">Flowchart · Diagram Design</p>
+
+
+    <!-- Replace [diagram-slug] with a unique slug for this diagram before export. -->
+    <div class="diagram-container">
+      <svg width="960" height="760" viewBox="0 0 960 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ai-fit-title ai-fit-desc"><title id="ai-fit-title">Choose where AI belongs</title><desc id="ai-fit-desc">Remove unnecessary tasks first, automate bounded repetitive tasks with checks, and assist a human when context, judgment, empathy or accountability is required.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8b0000"/></marker><marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker></defs><rect width="960" height="760" fill="#ffffff"/><text x="40" y="64" font-family="'Crimson Pro', serif" font-size="40" font-weight="400" fill="#212529" text-anchor="start">Choose where AI belongs</text><text x="40" y="108" font-family="'Libre Franklin', sans-serif" font-size="21" font-weight="400" fill="#666666" text-anchor="start">Choose task by task · keep accountability with the team</text><line x1="328" y1="216" x2="552" y2="216" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><line x1="184" y1="280" x2="184" y2="360" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><line x1="328" y1="424" x2="552" y2="424" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><path d="M184,488 L184,552 Q184,560 192,560 L544,560" fill="none" stroke="#666666" stroke-width="1.2" marker-end="url(#arrow)"/><rect x="411.0" y="180" width="58" height="28" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/><text x="440" y="200" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="middle">YES</text><rect x="198.0" y="308" width="44" height="28" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/><text x="220" y="328" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="middle">NO</text><rect x="411.0" y="388" width="58" height="28" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/><text x="440" y="408" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="middle">YES</text><rect x="198.0" y="516" width="44" height="28" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/><text x="220" y="536" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="middle">NO</text><polygon points="184,152 328,216 184,280 40,216" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="184" y="209" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Can we</text><text x="184" y="239" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">remove it?</text><polygon points="184,360 328,424 184,488 40,424" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="184" y="417" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Bounded and</text><text x="184" y="447" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">repetitive?</text><rect x="560" y="176" width="344" height="80" rx="6" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="732.0" y="209.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Fix the UX or</text><text x="732.0" y="239.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">remove the step</text><rect x="560" y="384" width="344" height="80" rx="6" fill="#f6ebeb" stroke="#8b0000" stroke-width="1"/><text x="732.0" y="417.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#8b0000" text-anchor="middle">Automate</text><text x="732.0" y="447.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#8b0000" text-anchor="middle">with checks</text><rect x="552" y="528" width="352" height="64" rx="6" fill="#ffffff" stroke="#212529" stroke-width="1"/><text x="728.0" y="568.0" font-family="'Libre Franklin', sans-serif" font-size="24" font-weight="600" fill="#212529" text-anchor="middle">Assist a human</text><text x="552" y="632" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="400" fill="#666666" text-anchor="start">Keep judgment, empathy,</text><text x="552" y="661" font-family="'Libre Franklin', sans-serif" font-size="22" font-weight="400" fill="#666666" text-anchor="start">and accountability with people.</text><line x1="40" y1="696" x2="920" y2="696" stroke="#dee2e6" stroke-width="1.2"/><text x="40" y="732" font-family="'Libre Franklin', sans-serif" font-size="18" font-weight="400" fill="#666666" text-anchor="start">Account context or policy judgment? Give the person context, drafts, or routing help.</text></svg>
+    </div>
+  </div>
+</body>
+</html>

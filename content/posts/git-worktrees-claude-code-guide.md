@@ -1,1067 +1,284 @@
 ---
 title: "The Complete Guide to Git Worktrees with Claude Code"
 date: 2026-02-02
+lastmod: 2026-10-25
+description: "Run parallel Claude Code sessions with Git worktrees. Start in 60 seconds, set up each environment, review and merge changes, and fix common errors."
+articleTools: true
 ---
 
-## Table of Contents
+## Start in 60 Seconds {#1-introduction}
+{{< anchors ids="the-problem-context-switching-kills-productivity the-solution-git-worktrees step-1-create-worktrees-for-each-task step-3-open-multiple-terminal-panes running-claude-in-a-worktree" >}}
+Git worktrees give each Claude Code session its own working directory and branch. You can build a feature and fix a bug in parallel without stashing one task to start another.
 
-1. [Introduction](#1-introduction)
-2. [Understanding Git Worktrees](#2-understanding-git-worktrees)
-3. [Why Worktrees + Claude Code](#3-why-worktrees--claude-code)
-4. [Basic Setup and Commands](#4-basic-setup-and-commands)
-5. [Parallel Development Workflow](#5-parallel-development-workflow)
-6. [Automation Scripts and Tools](#6-automation-scripts-and-tools)
-7. [Custom Claude Commands for Worktrees](#7-custom-claude-commands-for-worktrees)
-8. [Advanced Techniques](#8-advanced-techniques)
-9. [Merging and Integration](#9-merging-and-integration)
-10. [Troubleshooting](#10-troubleshooting)
-11. [Best Practices](#11-best-practices)
-12. [Real-World Examples](#12-real-world-examples)
-
----
-
-## 1. Introduction
-
-### The Problem: Context Switching Kills Productivity
-
-You're deep in the zone with Claude Code, building a complex feature. Claude follows your plan, understands your codebase perfectly, and you're making incredible progress. Then suddenly—a critical bug report comes in, or a PR needs urgent review.
-
-Traditional workflow:
-```bash
-git stash push -u -m "WIP: feature work"
-git checkout main
-# do urgent work
-git checkout feature-branch
-git stash pop
-# hope there are no conflicts...
-# rebuild mental context...
-# wait for Claude to re-understand everything...
-```
-
-This workflow is fragile, slow, and destroys the deep understanding Claude has built about your specific task.
-
-### The Solution: Git Worktrees
-
-{{< youtube HrNtlJGvvqg >}}
-
-Git worktrees allow you to have **multiple working directories** attached to the same repository, each checked out to a different branch. Combined with Claude Code, this enables:
-
-- **Parallel Claude sessions** working on different tasks simultaneously
-- **Complete isolation** between different features/bugs
-- **Zero context switching** for Claude—each session maintains its deep understanding
-- **Instant task switching** for you—just change directories
-
----
-
-## 2. Understanding Git Worktrees
-
-### What is a Git Worktree?
-
-A Git worktree is a separate working directory linked to the same Git repository. Unlike cloning (which duplicates the entire `.git` directory), worktrees share a single repository database and only create the working files you need.
-
-### Architecture
-
-```
-/projects/
-├── my-project/              # Main worktree (your original checkout)
-│   └── .git/                # The actual Git repository data
-│
-├── my-project-feature-auth/ # Linked worktree
-│   └── .git                 # Text file pointing to main .git
-│
-├── my-project-bugfix-api/   # Another linked worktree
-│   └── .git                 # Text file pointing to main .git
-│
-└── my-project-refactor/     # Another linked worktree
-    └── .git                 # Text file pointing to main .git
-```
-
-### Key Properties
-
-| Property | Behavior |
-|----------|----------|
-| `.git` directory | Shared across all worktrees |
-| Working files | Independent per worktree |
-| Git history | Shared—commits visible everywhere |
-| Remote connections | Shared |
-| Branch checkout | Cannot checkout same branch in multiple worktrees |
-| File changes | Completely isolated per worktree |
-
----
-
-## 3. Why Worktrees + Claude Code
-
-### The Context Preservation Problem
-
-When you force Claude Code to context-switch between branches in a single directory, you throw away its most valuable asset: **the deep understanding** it has built about your specific codebase, your patterns, and your goals.
-
-### Benefits of Worktree + Claude Combination
-
-1. **Parallelization**: Run one Claude refactoring your authentication system while another builds a data visualization component—both at full speed.
-
-2. **Context Isolation**: Each Claude session maintains its conversation history and understanding specific to that task.
-
-3. **Increased Impact**: Get different versions of a feature from parallel Claude sessions, then cherry-pick the best one.
-
-4. **Continuous Development**: Keep working in one worktree while Claude runs long tasks in another.
-
-5. **Session Persistence**: Resume any Claude session later—the `/resume` picker shows sessions from all worktrees in the same repository.
-
-### The Developer's Role Shift
-
-With worktrees + Claude Code:
-- **Before**: You write code, context-switch constantly
-- **After**: You orchestrate multiple AI "team members," review code, and make strategic decisions
-
-You become a **Software Engineering Manager** rather than just a coder.
-
----
-
-## 4. Basic Setup and Commands
-
-### Creating Worktrees
+From an existing Git repository, open two terminals at the repository root:
 
 ```bash
-# Create a worktree with a NEW branch
-git worktree add ../project-feature-auth -b feature/auth
-
-# Create a worktree with an EXISTING branch
-git worktree add ../project-bugfix-123 bugfix/issue-123
-
-# Create a worktree from a specific commit/tag
-git worktree add ../project-v2-hotfix v2.0.0 -b hotfix/v2-critical
-
-# Create a detached HEAD worktree (for experimentation)
-git worktree add -d ../project-experiment
-```
-
-### Listing Worktrees
-
-```bash
-git worktree list
-```
-
-Output:
-```
-/home/user/projects/my-project         abc1234 [main]
-/home/user/projects/my-project-auth    def5678 [feature/auth]
-/home/user/projects/my-project-bugfix  ghi9012 [bugfix/issue-123]
-```
-
-### Removing Worktrees
-
-```bash
-# Remove a worktree (directory must be clean)
-git worktree remove ../project-feature-auth
-
-# Force remove (even with uncommitted changes)
-git worktree remove --force ../project-feature-auth
-
-# Clean up stale worktree references
-git worktree prune
-```
-
-### Running Claude in a Worktree
-
-```bash
-# Navigate to worktree
-cd ../project-feature-auth
-
-# Start Claude Code
-claude
-
-# Or start with an initial prompt
-claude "Implement OAuth2 authentication for the API"
-```
-
----
-
-## 5. Parallel Development Workflow
-
-### Step-by-Step Workflow
-
-#### Step 1: Create Worktrees for Each Task
-
-```bash
-# From your main project directory
-git worktree add ../myproject-feature-auth -b feature/user-authentication
-git worktree add ../myproject-bugfix-api -b bugfix/api-rate-limiting
-git worktree add ../myproject-refactor -b refactor/cleanup-utils
-```
-
-#### Step 2: Initialize Each Worktree Environment
-
-```bash
-# For each worktree, install dependencies
-cd ../myproject-feature-auth
-npm install  # or pip install -r requirements.txt, etc.
-
-# Optionally run /init to create CLAUDE.md
-claude
-/init
-```
-
-#### Step 3: Open Multiple Terminal Panes
-
-Using iTerm2, tmux, or VS Code terminals:
-- **Pane 1**: `cd ../myproject-feature-auth && claude`
-- **Pane 2**: `cd ../myproject-bugfix-api && claude`
-- **Pane 3**: `cd ../myproject-refactor && claude`
-
-#### Step 4: Assign Tasks to Each Claude Session
-
-**Pane 1 (Auth Feature)**:
-```
-Implement OAuth2 authentication with the following requirements:
-1. Support Google and GitHub providers
-2. Store tokens securely in the database
-3. Create middleware for protected routes
-4. Write comprehensive tests
-```
-
-**Pane 2 (Bug Fix)**:
-```
-Fix the API rate limiting issue described in GitHub issue #456.
-First, use gh issue view 456 to understand the problem,
-then implement a solution with proper tests.
-```
-
-**Pane 3 (Refactor)**:
-```
-Refactor the utils/ directory:
-1. Remove duplicate code
-2. Add TypeScript types
-3. Improve error handling
-4. Update all imports in the codebase
-```
-
-#### Step 5: Cycle Through and Monitor
-
-- Check progress in each pane
-- Approve permission requests
-- Provide guidance when Claude asks questions
-- Review generated code
-
-#### Step 6: Review and Merge
-
-```bash
-# In each worktree, create PRs
-cd ../myproject-feature-auth
-gh pr create --draft --title "feat: OAuth2 authentication"
-
-# Or use Claude to create the PR
-# In Claude session:
-> Create a PR for these changes with comprehensive description
-```
-
-#### Step 7: Cleanup
-
-```bash
-# After merging, remove worktrees
-git worktree remove ../myproject-feature-auth
-git worktree remove ../myproject-bugfix-api
-git worktree remove ../myproject-refactor
-
-# Clean up stale references
-git worktree prune
-```
-
----
-
-## 6. Automation Scripts and Tools
-
-### Simple Bash Function for Worktree Management
-
-Add to your `~/.bashrc` or `~/.zshrc`:
-
-```bash
-# Quick worktree creation and Claude launch
-cw() {
-    local branch_name=$1
-    local project_name=$(basename $(git rev-parse --show-toplevel))
-    local worktree_path="../${project_name}-${branch_name}"
-    
-    # Create worktree
-    git worktree add "$worktree_path" -b "$branch_name" 2>/dev/null || \
-    git worktree add "$worktree_path" "$branch_name"
-    
-    # Navigate and start Claude
-    cd "$worktree_path"
-    
-    # Install dependencies based on project type
-    if [ -f "package.json" ]; then
-        npm install
-    elif [ -f "requirements.txt" ]; then
-        pip install -r requirements.txt
-    fi
-    
-    # Start Claude
-    claude
-}
-
-# List all worktrees with status
-cwl() {
-    git worktree list
-}
-
-# Remove worktree and optionally delete branch
-cwr() {
-    local worktree_path=$1
-    local branch_name=$(git -C "$worktree_path" branch --show-current)
-    
-    git worktree remove "$worktree_path"
-    
-    read -p "Delete branch $branch_name? (y/n) " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        git branch -d "$branch_name"
-    fi
-}
-```
-
-Usage:
-```bash
-# Create worktree and launch Claude
-cw feature-auth
-
-# List worktrees
-cwl
-
-# Remove worktree
-cwr ../myproject-feature-auth
-```
-
-### Advanced Worktree Manager Script
-
-Save as `cw` in your PATH:
-
-```bash
-#!/bin/bash
-# Claude Worktree Manager (cw)
-# Usage: cw setup <branch-name> [sparse-path]
-#        cw list
-#        cw cleanup <branch-name>
-
-set -e
-
-WORKTREE_DIR="gwt"  # Worktrees directory name
-
-cmd=$1
-branch=$2
-sparse_path=$3
-
-case $cmd in
-    setup)
-        if [ -z "$branch" ]; then
-            echo "Usage: cw setup <branch-name> [sparse-path]"
-            exit 1
-        fi
-        
-        worktree_path="$WORKTREE_DIR/$branch"
-        
-        # Create worktree
-        if [ -n "$sparse_path" ]; then
-            # Sparse checkout for monorepos
-            git worktree add --no-checkout "$worktree_path" -b "$branch"
-            cd "$worktree_path"
-            git sparse-checkout init --cone
-            git sparse-checkout set "$sparse_path"
-        else
-            git worktree add "$worktree_path" -b "$branch"
-            cd "$worktree_path"
-        fi
-        
-        # Copy environment files
-        if [ -f "../.env" ]; then
-            cp "../.env" ".env"
-        fi
-        
-        # Copy Claude configuration
-        if [ -d "../.claude" ]; then
-            cp -r "../.claude" ".claude"
-        fi
-        
-        echo "Worktree created at $worktree_path"
-        echo "Run: cd $worktree_path && claude"
-        ;;
-        
-    list)
-        git worktree list
-        ;;
-        
-    cleanup)
-        if [ -z "$branch" ]; then
-            echo "Usage: cw cleanup <branch-name>"
-            exit 1
-        fi
-        
-        worktree_path="$WORKTREE_DIR/$branch"
-        git worktree remove "$worktree_path"
-        git branch -d "$branch" 2>/dev/null || true
-        echo "Cleaned up $branch"
-        ;;
-        
-    *)
-        echo "Claude Worktree Manager"
-        echo ""
-        echo "Usage:"
-        echo "  cw setup <branch-name> [sparse-path]  Create worktree"
-        echo "  cw list                                List worktrees"
-        echo "  cw cleanup <branch-name>              Remove worktree"
-        ;;
-esac
-```
-
-## 7. Custom Claude Commands for Worktrees
-
-### Create a `/worktree` Command
-
-Create `.claude/commands/worktree.md`:
-
-```markdown
----
-argument-hint: branch-name
-description: Create a git worktree in a peer directory
----
-
-Create a git worktree in a peer directory.
-
-## Arguments
-
-The argument should be a kebab-case task name (e.g., "auth-feature", "database-migration").
-
-The user passed in: `$ARGUMENTS`
-
-If that text is already kebab case, use it directly as the branch name.
-Otherwise come up with a good kebab-case name based on what the user passed in.
-
-## Steps
-
-1. Determine the project name from the current directory
-2. Create worktree path as `../<project>-<branch-name>`
-3. Run: `git worktree add <path> -b <branch-name>`
-4. Copy any `.env` files to the new worktree
-5. Copy `.claude` directory if it exists
-6. Install dependencies based on project type:
-   - If `package.json` exists: `npm install`
-   - If `requirements.txt` exists: `pip install -r requirements.txt`
-   - If `Cargo.toml` exists: `cargo build`
-
-## Conclusion
-
-Open a new terminal tab in the newly created worktree.
-Provide the user with the path and next steps.
-```
-
-Usage:
-```
-/worktree auth-feature
-/worktree "implement user login"
-```
-
-### Create a `/pr` Command for Worktrees
-
-Create `.claude/commands/pr.md`:
-
-```markdown
----
-allowed-tools: Bash(git *), Bash(gh *)
-description: Create a pull request from the current worktree
----
-
-Create a pull request for the changes in this worktree.
-
-## Steps
-
-1. Check for uncommitted changes: `git status`
-2. If there are changes, commit them with a descriptive message
-3. Push the branch: `git push -u origin HEAD`
-4. Create a draft PR: `gh pr create --draft`
-5. Generate comprehensive PR description including:
-   - Summary of changes
-   - Testing performed
-   - Screenshots if UI changes
-   - Breaking changes if any
-
-## After Creation
-
-Provide the PR URL and ask if the user wants to:
-- Mark the PR as ready for review
-- Request specific reviewers
-- Add labels
-```
-
-### Create a `/done` Command
-
-Create `.claude/commands/done.md`:
-
-```markdown
----
-description: Complete work in this worktree and prepare for merge
----
-
-Finalize work in this worktree.
-
-## Steps
-
-1. Run all tests: detect test framework and execute
-2. Run linting/formatting
-3. Commit any remaining changes
-4. Push to remote
-5. Create or update the pull request
-6. Provide summary of:
-   - Branch name
-   - PR URL
-   - Files changed
-   - Tests passed/failed
-   - Next steps for merging
-```
-
----
-
-## 8. Advanced Techniques
-
-### Sparse Checkout for Monorepos
-
-For large monorepos, combine worktrees with sparse checkout to limit Claude's context:
-
-```bash
-# Create worktree with NO files initially
-git worktree add --no-checkout gwt/api-fix -b fix/api-bug
-
-# Navigate and configure sparse checkout
-cd gwt/api-fix
-git sparse-checkout init --cone
-git sparse-checkout set api/
-
-# Now only the api/ folder exists in this worktree
-ls
-# api/
-```
-
-Benefits:
-- **Reduced AI Context**: Claude reads fewer files, responses are more focused
-- **Less hallucination**: Smaller context = more precision
-- **Faster operations**: `git status`, `git diff` run faster
-
-### Running Multiple Models in Parallel
-
-Use worktrees to compare different approaches:
-
-```bash
-# Create worktrees for different experiments
-git worktree add ../project-approach-a -b exp/approach-a
-git worktree add ../project-approach-b -b exp/approach-b
-
-# In separate terminals, give the same task with different prompts
-# Terminal 1:
-cd ../project-approach-a && claude
-> Implement user search using Elasticsearch
-
-# Terminal 2:
-cd ../project-approach-b && claude
-> Implement user search using PostgreSQL full-text search
-
-# Compare results and cherry-pick the winner
-```
-
-### Batch Processing with Worktrees
-
-For large-scale migrations:
-
-```bash
-# Loop to create multiple worktrees with rate limiting
-for i in $(seq 1 10); do
-    claude --dangerously-skip-permissions --print /worktree
-    sleep 300  # Wait 5 minutes between tasks
-done
-```
-
-### Container Isolation with Worktrees
-
-For maximum isolation, run Claude in containers:
-
-```bash
-# Create worktree
-git worktree add ../project-experiment -b exp/risky-changes
-
-# Run Claude in a Docker container mounted to that worktree
-docker run -it -v $(pwd)/../project-experiment:/workspace \
-    anthropic/claude-code:latest \
-    claude --dangerously-skip-permissions \
-    "Experiment with aggressive refactoring"
-```
-
----
-
-## 9. Merging and Integration
-
-### Integration Branch Strategy
-
-Use an integration branch as a central hub:
-
-```bash
-# Create integration branch
-git checkout -b integration main
-
-# Merge completed worktree branches
-git merge --no-ff feature/auth
-git merge --no-ff bugfix/api
-git merge --no-ff refactor/utils
-
-# Resolve any conflicts
-# Run full test suite
-npm test
-
-# If all tests pass, merge to main
-git checkout main
-git merge integration
-```
-
-### Cherry-Picking Specific Commits
-
-When you only want some changes from a worktree:
-
-```bash
-# In main worktree, cherry-pick specific commits
-git cherry-pick abc1234  # Specific commit from feature branch
-git cherry-pick def5678..ghi9012  # Range of commits
-```
-
-### Handling Merge Conflicts
-
-Conflicts are inevitable with parallel development:
-
-```bash
-# When merging produces conflicts
-git merge feature/auth
-# Auto-merging src/auth.js
-# CONFLICT (content): Merge conflict in src/auth.js
-
-# Options:
-# 1. Resolve manually
-vim src/auth.js
-git add src/auth.js
-git commit
-
-# 2. Use Claude to help resolve
-claude "Help me resolve the merge conflict in src/auth.js"
-
-# 3. Abort and try different approach
-git merge --abort
-```
-
-### Post-Merge Cleanup
-
-```bash
-# After successful merge, clean up worktrees
-git worktree list
-git worktree remove ../project-feature-auth
-git worktree remove ../project-bugfix-api
-
-# Delete merged branches
-git branch -d feature/auth
-git branch -d bugfix/api
-
-# Prune stale worktree references
-git worktree prune
-
-# Verify cleanup
-git worktree list
-git branch -a
-```
-
----
-
-## 10. Troubleshooting
-
-### Common Issues and Solutions
-
-#### "fatal: '<branch>' is already checked out"
-
-You cannot checkout the same branch in multiple worktrees.
-
-```bash
-# Solution 1: Create a new branch
-git worktree add ../project-test -b test-branch
-
-# Solution 2: Use detached HEAD
-git worktree add -d ../project-test
-```
-
-#### Dependencies Not Found ("Module not found")
-
-Worktrees don't share `node_modules`, `.venv`, or other dependency directories.
-
-```bash
-# Solution: Install dependencies in each worktree
-cd ../project-feature
-npm install  # or pip install, etc.
-```
-
-#### Port Already in Use
-
-Running multiple dev servers across worktrees:
-
-```bash
-# Start on different ports
-PORT=3001 npm run dev
-PORT=3002 npm run dev
-
-# Claude usually handles this automatically
-```
-
-#### Worktree Directory Deleted Without Cleanup
-
-```bash
-# If you manually deleted a worktree directory
-git worktree prune
-
-# Verify
-git worktree list
-```
-
-#### Submodules in Worktrees
-
-Worktrees don't automatically initialize submodules:
-
-```bash
-cd ../project-worktree
-git submodule update --init --recursive
-```
-
-#### `.env` Files Missing
-
-Environment files aren't copied automatically:
-
-```bash
-# Copy manually
-cp ../main-project/.env ./.env
-
-# Or add to your worktree script
-```
-
-### Diagnostic Commands
-
-```bash
-# Check worktree health
-git worktree list --porcelain
-
-# Verify worktree linkage
-cat .git  # Should show: gitdir: /path/to/main/.git/worktrees/<name>
-
-# Check for stale entries
-git worktree prune --dry-run
-
-# See worktree configuration
-git config --list | grep worktree
-```
-
----
-
-## 11. Best Practices
-
-### Do's ✅
-
-1. **Use descriptive branch/directory names**
-   ```bash
-   # Good
-   git worktree add ../myproject-feature-user-auth -b feature/user-auth
-   
-   # Bad
-   git worktree add ../test -b test
-   ```
-
-2. **Run `/init` in each worktree session**
-   ```
-   # In Claude session
-   /init
-   ```
-
-3. **Install dependencies immediately after creating worktree**
-   ```bash
-   cd ../new-worktree && npm install && claude
-   ```
-
-4. **Create draft PRs for Claude-generated code**
-   ```bash
-   gh pr create --draft
-   ```
-
-5. **Limit to 2-3 active worktrees**
-   - Your review bandwidth is the bottleneck, not Claude's speed
-   - Token consumption scales non-linearly
-
-6. **Name Claude sessions descriptively**
-   - Use `/resume` to manage multiple sessions
-   - Press `R` in the picker to rename
-
-7. **Copy `.env` and `.claude` configurations**
-   ```bash
-   cp ../.env . && cp -r ../.claude .
-   ```
-
-8. **Clean up worktrees after merging**
-   ```bash
-   git worktree remove ../completed-worktree
-   git worktree prune
-   ```
-
-### Don'ts ❌
-
-1. **Don't run 5+ parallel agents**
-   - Coordination overhead exceeds benefits
-   - API rate limits become an issue
-
-2. **Don't forget dependency installation**
-   - Worktrees are like fresh clones for dependencies
-
-3. **Don't use `--force` for worktree removal unless necessary**
-   - You might lose uncommitted work
-
-4. **Don't expect worktrees to share runtime state**
-   - Dev servers, build caches, etc. are independent
-
-5. **Don't mix worktree concerns**
-   - Keep each worktree focused on one task
-
-6. **Don't leave stale worktrees around**
-   - They consume disk space and cause confusion
-
-### Directory Organization
-
-Recommended structure:
-
-```
-~/projects/
-├── myproject/                    # Main checkout
-│   ├── .git/
-│   ├── .claude/
-│   └── src/
-│
-├── worktrees/                    # Or adjacent to main
-│   ├── myproject-feature-auth/
-│   ├── myproject-bugfix-api/
-│   └── myproject-refactor/
-│
-└── .worktrees/                   # Alternative: hidden in project
-```
-
-Or use a `.worktrees/` directory inside the project:
-
-```bash
-mkdir .worktrees
-echo ".worktrees/" >> .gitignore
-git worktree add .worktrees/feature-auth -b feature/auth
-```
-
----
-
-## 12. Real-World Examples
-
-### Example 1: Feature Development + Urgent Bug Fix
-
-**Scenario**: You're building a new dashboard feature when a critical production bug is reported.
-
-```bash
-# Initial setup: working on dashboard
-cd ~/projects/myapp
-claude
-> Building the analytics dashboard...
-
-# URGENT: Production bug reported!
-
-# Create worktree for bug fix (don't interrupt dashboard work)
-git worktree add ../myapp-hotfix -b hotfix/payment-bug
-
-# New terminal
-cd ../myapp-hotfix
-npm install
-claude
-> Fix the payment double-charge bug. Use gh issue view 789 for details.
-
-# Claude fixes the bug while your dashboard session is untouched
-# After fix is done:
-gh pr create --title "fix: prevent payment double-charge"
-
-# Back to dashboard (everything still there!)
-cd ../myapp
-# Continue working...
-
-# Clean up after hotfix is merged
-git worktree remove ../myapp-hotfix
-```
-
-### Example 2: Parallel Feature Comparison
-
-**Scenario**: Implement the same feature two different ways and compare.
-
-```bash
-# Create two worktrees
-git worktree add ../myapp-search-elastic -b exp/search-elasticsearch
-git worktree add ../myapp-search-postgres -b exp/search-postgres
-
 # Terminal 1
-cd ../myapp-search-elastic && npm install && claude
-> Implement product search using Elasticsearch.
-> Focus on fuzzy matching and performance.
+claude --worktree feature-auth
 
 # Terminal 2
-cd ../myapp-search-postgres && npm install && claude
-> Implement product search using PostgreSQL full-text search.
-> Focus on simplicity and no external dependencies.
-
-# After both complete, compare:
-# - Performance benchmarks
-# - Code complexity
-# - Maintenance burden
-
-# Merge the winner
-git checkout main
-git merge exp/search-postgres  # Example: chose PostgreSQL
-
-# Clean up
-git worktree remove ../myapp-search-elastic
-git worktree remove ../myapp-search-postgres
-git branch -d exp/search-elasticsearch
-git branch -d exp/search-postgres
+claude --worktree bugfix-api
 ```
 
-### Example 3: Code Review in Isolation
+Claude creates these under `.claude/worktrees/`, with branches named `worktree-feature-auth` and `worktree-bugfix-api`. Add `.claude/worktrees/` to `.gitignore`. If workspace trust has not been accepted, run `claude` once in the repository first.
 
-**Scenario**: Review a colleague's PR without affecting your current work.
+Check availability with `claude --help`. If your installation lacks `--worktree`, use the [manual Git setup](#4-basic-setup-and-commands). The [official worktree documentation](https://code.claude.com/docs/en/worktrees) covers the current behavior.
+
+## On This Page {#table-of-contents}
+
+[How isolation works](#2-understanding-git-worktrees) · [Complete workflow](#5-parallel-development-workflow) · [Manual setup](#4-basic-setup-and-commands) · [Troubleshooting](#10-troubleshooting) · [Advanced recipes](#8-advanced-techniques) · [Command reference](#quick-reference-card)
+
+## How Worktree Isolation Works {#2-understanding-git-worktrees}
+{{< anchors ids="what-is-a-git-worktree architecture key-properties 3-why-worktrees--claude-code the-context-preservation-problem benefits-of-worktree--claude-combination the-developers-role-shift" >}}
+A linked worktree has its own files, index, and checked-out branch. Its `.git` file points back to the shared repository data. Commits and remotes are shared; edits to working files stay in their directory.
+
+{{< figure src="/images/git-worktrees/isolation.svg" link="/images/git-worktrees/isolation.svg" alt="The main checkout and two task worktrees have separate files and Claude sessions but share Git history and remotes. Ports and external services still need coordination." >}}
+
+A separate session keeps each task's conversation focused. Worktrees do not create a sandbox: sessions can still reach shared services, databases, or files outside their directory according to their permissions. Give each dev server its own port, and plan database changes together.
+
+## A Complete Parallel Development Workflow {#5-parallel-development-workflow}
+{{< anchors ids="step-by-step-workflow 11-best-practices dos- donts- workflow-checklist" >}}
+Start with two independent tasks. If the second task depends on the first task's code, finish or integrate that prerequisite before starting it. Increase concurrency only while you can review the results.
+
+{{< figure src="/images/git-worktrees/workflow.svg" link="/images/git-worktrees/workflow.svg" alt="Create a worktree, set up its environment, give Claude one task, review and test, merge approved work, and clean up after preserving the changes." >}}
+
+### Set Up Each Environment {#step-2-initialize-each-worktree-environment}
+
+Run the project's setup in each worktree. For a Node project with a lockfile, this might be `npm ci`; Python projects need their own environment and dependency installation. Check the repository's instructions first.
+
+Tracked `CLAUDE.md` and `.claude/` files come with a normal checkout. You do not need to run `/init` every time. For native Claude-created worktrees, `.worktreeinclude` can copy selected gitignored files such as `.env`; keep those files ignored and use appropriate local credentials. [Environment setup reference](https://code.claude.com/docs/en/worktrees#copy-gitignored-files-into-worktrees)
+
+### Give Each Session One Task {#step-4-assign-tasks-to-each-claude-session}
+
+Specify the scope, expected behavior, and validation. For example:
+
+```text
+Fix the rate-limit bug in issue #456. Read the issue and repository
+instructions first. Keep changes within the API limiter and its tests.
+Run the relevant checks, then summarize the diff and remaining concerns.
+```
+
+Keep branch and session names recognizable. Visit each terminal to answer questions and review progress. Parallel sessions still share your machine's resources and usage limits.
+
+### Review, Merge, and Clean Up {#9-merging-and-integration}
+{{< anchors ids="step-5-cycle-through-and-monitor step-6-review-and-merge" >}}
+Review each diff and run its relevant tests before merging. A passing branch can still conflict with another branch's changes, so test the combined result too.
+
+The following example uses the branches from the quick start. Run it inside the feature worktree after reviewing its changes; GitHub CLI requires authentication:
 
 ```bash
-# Fetch the PR branch
-git fetch origin
+git status
+git diff
+# Run this project's tests, then commit the reviewed files.
+git push -u origin HEAD
+gh pr create --draft --title "feat: add authentication"
+```
 
-# Create worktree for review
-git worktree add .worktrees/review-pr-423 origin/feature/new-dashboard
+Use your normal PR review and merge process. Worktrees do not merge branches automatically.
 
-# Open in IDE and run
-cd .worktrees/review-pr-423
-npm install
-npm test
-npm run dev
+#### Cleanup {#post-merge-cleanup}
+{{< anchors ids="step-7-cleanup removing-worktrees" >}}
+When leaving an interactive `--worktree` session, read Claude's keep/remove prompt. Keep the worktree if you need to return to it. Non-interactive `-p` runs do not perform that exit cleanup. [Cleanup behavior](https://code.claude.com/docs/en/worktrees#clean-up-worktrees)
 
-# Use Claude to analyze
+For manual cleanup, exit the session and return to the main checkout. After the branch's work is preserved, check its status and remove its directory:
+
+```bash
+git -C .claude/worktrees/feature-auth status --short
+git worktree remove .claude/worktrees/feature-auth
+git branch -d worktree-feature-auth
+```
+
+Git normally refuses dirty worktrees. If branch deletion is refused after a squash merge, inspect the branch before deciding whether to delete it. Do not add `--force` just to make cleanup succeed.
+
+{{< details id="integration-branch-strategy" summary="Optional: integration branches, cherry-picking, and conflicts" >}}
+
+Use an integration branch when several completed tasks need testing together. From a clean main checkout, create `integration` from your base branch, merge the task branches one at a time, and run the combined test suite. Review that result before merging it through your team's normal process.
+
+#### Cherry-Picking Specific Commits {#cherry-picking-specific-commits}
+
+Use `git cherry-pick <commit>` on the destination branch when you want one reviewed commit rather than the whole task branch. Commit IDs are visible across worktrees because history is shared.
+
+#### Handling Merge Conflicts {#handling-merge-conflicts}
+
+Resolve conflicts on the integrating branch, review the resolved diff, and rerun affected tests. `git merge --abort` cancels an unfinished merge when you need to reconsider the integration. Claude can help explain a conflict, but the final behavior still needs review.
+
+{{< /details >}}
+
+## Manual Git Setup {#4-basic-setup-and-commands}
+{{< anchors ids="creating-worktrees listing-worktrees directory-organization" >}}
+Use plain Git when you need a specific base branch, an existing branch, or a directory outside Claude's default location. In this example, run from your main checkout and replace `main` if your repository uses another base:
+
+```bash
+git worktree add -b feature/auth ../project-auth main
+cd ../project-auth
+# Install this project's dependencies here.
 claude
-> Review this code for:
-> 1. Security vulnerabilities
-> 2. Performance issues
-> 3. Code style violations
-> 4. Missing test coverage
-
-# After review, clean up
-cd ../..
-git worktree remove .worktrees/review-pr-423
 ```
 
-### Example 4: Large-Scale Migration
+For an existing branch, use `git worktree add ../project-auth feature/auth`. Each branch normally belongs to one worktree at a time. For read-only inspection or experiments, `git worktree add --detach ../project-review HEAD` creates a detached checkout.
 
-**Scenario**: Migrate 100 React components to a new design system.
+Keep sibling worktrees beside the main project, or ignore the directory if you put them inside it. Manual worktrees have the same review and cleanup needs as the native workflow; substitute their actual paths and branch names in the commands above.
+
+## Troubleshooting {#10-troubleshooting}
+{{< anchors ids="common-issues-and-solutions" >}}
+
+### “Branch Is Already Checked Out” {#fatal--is-already-checked-out}
+
+Run `git worktree list` to find the checkout using it. Use that directory, create a new branch, or use a detached worktree for inspection. Avoid forcing the same branch into two active worktrees.
+
+### Dependencies Not Found {#dependencies-not-found-module-not-found}
+
+Install dependencies inside the worktree. Untracked directories such as `node_modules` and `.venv` do not arrive with a normal Git checkout. Use the same package manager and lockfile as the main project.
+
+### Port Already in Use {#port-already-in-use}
+
+Assign a different port to each server. For applications that read `PORT`, use `PORT=3001 npm run dev` in one worktree and `PORT=3002 npm run dev` in another. Other frameworks need their own port flags.
+
+### Missing `.env` Files {#env-files-missing}
+
+Gitignored files are absent from a normal worktree. Use `.worktreeinclude` for native creation, or explicitly copy the needed file from the main checkout. Check whether copied credentials point to a shared database before running migrations.
+
+### Deleted Worktree Directory {#worktree-directory-deleted-without-cleanup}
+
+Inspect `git worktree prune --dry-run` before `git worktree prune` to clear stale registrations. Pruning metadata does not recover files from a deleted directory.
+
+### Submodules {#submodules-in-worktrees}
+
+Run `git submodule update --init --recursive` inside the worktree when the project needs submodules. Check their state as part of review and cleanup too.
+
+### Diagnostic Commands {#diagnostic-commands}
 
 ```bash
-# Create task list
-claude -p "List all React components that need migration" > components.txt
-
-# Process in batches with worktrees
-for batch in {1..5}; do
-    git worktree add "../myapp-migration-$batch" -b "migrate/batch-$batch"
-    
-    # Start Claude in background
-    cd "../myapp-migration-$batch"
-    npm install
-    claude --dangerously-skip-permissions \
-        "Migrate components $((batch*20-19)) through $((batch*20)) from components.txt to the new design system"
-    
-    cd ..
-done
-
-# Monitor progress in each worktree
-# Merge completed batches
-# Clean up
+git worktree list --porcelain
+git status --short
+git worktree prune --dry-run
 ```
 
-### Example 5: Monorepo Sparse Checkout
+If a worktree is locked, stop the session or process using it before investigating the lock. Check `git worktree list --porcelain` for the reason; unlock only when it is no longer in use.
 
-**Scenario**: Fix a backend API bug without loading the entire frontend.
+## Advanced Recipes {#8-advanced-techniques}
+
+Open the recipe you need. The core workflow above is enough for most feature and bug-fix sessions.
+
+{{< details id="6-automation-scripts-and-tools" summary="Automation scripts and tools" >}}
+
+
+### A Small Shell Shortcut {#simple-bash-function-for-worktree-management}
+
+For native worktrees, a shell function is usually sufficient:
 
 ```bash
-# Create sparse worktree for backend only
-git worktree add --no-checkout gwt/api-fix -b fix/api-bug
+cw() { claude --worktree "${1:?Usage: cw <task-name>}"; }
+```
 
-cd gwt/api-fix
-git sparse-checkout init --cone
-git sparse-checkout set packages/api/ packages/shared/
+### Downloadable Worktree Manager {#advanced-worktree-manager-script}
 
-# Now only backend packages are checked out
-npm install
+[Download cw.sh](/downloads/git-worktrees/cw.sh) when you need manual Git worktrees with optional sparse checkout. Save it locally and run it from the main checkout or one of its subdirectories:
+
+```bash
+bash /path/to/cw.sh setup feature/auth
+bash /path/to/cw.sh list
+bash /path/to/cw.sh cleanup feature/auth
+```
+
+The script resolves absolute source paths before creating nested directories, stops when creation fails, and refuses dirty cleanup. It places worktrees in a sibling directory named `<project>-worktrees`. Set `CW_COPY_ENV=1` only when you want it to copy the main checkout's `.env`. Tracked Claude configuration comes from Git; the script never recursively copies `.claude/worktrees`.
+
+{{< /details >}}
+
+{{< details id="7-custom-claude-commands-for-worktrees" summary="Custom Claude commands for worktrees" >}}
+
+### Creating a Worktree {#create-a-worktree-command}
+
+Use `claude --worktree <task-name>` instead of maintaining a custom creation command. Add project-specific setup only when the native behavior does not cover it.
+
+### Preparing a PR {#create-a-pr-command-for-worktrees}
+
+[Download the draft-PR command](/downloads/git-worktrees/pr.md) and save it as `.claude/commands/pr.md` for `/pr`. It reviews the current worktree, reports validation, and prepares a draft PR within the user's authorization.
+
+### Preparing a Handoff {#create-a-done-command}
+
+[Download the handoff command](/downloads/git-worktrees/done.md) as `.claude/commands/done.md` for `/done`. It checks the branch and diff, runs relevant checks, and reports what is ready for review. It keeps the worktree available until its work is preserved.
+
+{{< /details >}}
+
+{{< details id="sparse-checkout-for-monorepos" anchors="example-5-monorepo-sparse-checkout" summary="Sparse checkout for a monorepo" >}}
+
+Limit the checkout to the packages you need, including shared dependencies. From the main checkout:
+
+```bash
+git worktree add --no-checkout -b fix/api ../project-api main
+git -C ../project-api sparse-checkout init --cone
+git -C ../project-api sparse-checkout set packages/api packages/shared
+git -C ../project-api checkout fix/api
+cd ../project-api
+# Follow the monorepo's dependency setup, then start Claude.
 claude
-> Fix the rate limiting bug in packages/api/src/middleware/rateLimit.ts
-
-# Claude has focused context, faster responses, better accuracy
 ```
 
----
+Cone mode can retain root-level files. Sparse checkout reduces checked-out content; it does not guarantee better model accuracy. Ensure the selected directories include the configuration and tests your task needs.
 
-## Quick Reference Card
+{{< /details >}}
 
-### Essential Commands
+{{< details id="12-real-world-examples" anchors="running-multiple-models-in-parallel batch-processing-with-worktrees" summary="Examples: urgent fixes, competing designs, PR review, and migrations" >}}
+
+### Feature Development and an Urgent Bug Fix {#example-1-feature-development--urgent-bug-fix}
+
+Leave the feature session running. Open another terminal at the main repository and run `claude --worktree hotfix-payment`. Give it the issue and a bounded task, then review and merge through the same process as other changes.
+
+### Parallel Feature Comparison {#example-2-parallel-feature-comparison}
+
+Create `search-postgres` and `search-elasticsearch` worktrees. Give both sessions the same acceptance criteria, then compare behavior, operational cost, and measured performance before choosing an implementation. Different prompts or models can be tested this way; neither result is automatically the winner.
+
+### Code Review in Isolation {#example-3-code-review-in-isolation}
+
+With GitHub CLI authenticated, fetch a PR into a local branch and open a detached review worktree. Substitute the PR number and an unused branch name:
 
 ```bash
-# Create worktree with new branch
-git worktree add <path> -b <branch>
-
-# Create worktree with existing branch
-git worktree add <path> <branch>
-
-# List worktrees
-git worktree list
-
-# Remove worktree
-git worktree remove <path>
-
-# Clean up stale references
-git worktree prune
-
-# Navigate and start Claude
-cd <worktree-path> && claude
+gh pr checkout 423 --branch review/pr-423
+git switch main
+git worktree add --detach ../project-pr-423 review/pr-423
+cd ../project-pr-423
+claude "Review this PR and report findings without editing files"
 ```
 
-### Workflow Checklist
+Run the checkout and switch commands from a clean main checkout. Prefer fetching a PR into a review branch directly if your team uses a custom Git hosting workflow.
 
-```
-□ Create worktree with descriptive name
-□ Install dependencies
-□ Copy .env and .claude configs
-□ Run /init in Claude session
-□ Assign focused task to Claude
-□ Create draft PR when done
-□ Review and merge
-□ Remove worktree
-□ Delete branch if merged
-□ Run git worktree prune
-```
+### Large-Scale Migration {#example-4-large-scale-migration}
 
-### Session Management
+List the files, divide them into non-overlapping batches, and give each session its own worktree. Put the migration plan in tracked files so every checkout has it. Start with a small batch, inspect its result, and integrate incrementally. Launching an interactive CLI in a shell loop does not make the sessions run in parallel.
 
-```bash
-# Resume sessions (shows all worktrees)
-/resume
+{{< /details >}}
 
-# Link session to PR
-claude --from-pr 123
+{{< details id="container-isolation-with-worktrees" summary="When you also need container isolation" >}}
 
-# List Claude sessions
-# (In /resume picker, sessions show worktree metadata)
-```
+Worktrees separate working files; containers can additionally separate processes and dependencies. Use a maintained, project-specific development container with the CLI installed. Check the mounted directory, credentials, network access, and shared services. Worktrees alone do not provide those boundaries.
 
----
+{{< /details >}}
 
-## Resources
+## Quick Reference {#quick-reference-card}
+{{< anchors ids="essential-commands" >}}
 
-- [Official Git Worktree Documentation](https://git-scm.com/docs/git-worktree)
-- [Claude Code Common Workflows](https://code.claude.com/docs/en/common-workflows)
-- [Anthropic's Best Practices](https://www.anthropic.com/engineering/claude-code-best-practices)
-- [worktree-workflow Repository](https://github.com/anthropics/worktree-workflow)
+| Task | Command |
+|---|---|
+| Start a named Claude worktree | `claude --worktree feature-auth` |
+| Create a manual branch from main | `git worktree add -b feature/auth ../project-auth main` |
+| Open an existing branch | `git worktree add ../project-auth feature/auth` |
+| Inspect all worktrees | `git worktree list` |
+| Remove a clean worktree | `git worktree remove <path>` |
+| Delete a merged branch | `git branch -d <branch>` |
+| Preview stale registrations | `git worktree prune --dry-run` |
+
+### Resume a Session {#session-management}
+
+Use `/resume` inside Claude or `claude --resume` from the repository. Choose the intended task session; returning to a branch alone does not restore a conversation. For session selection flags, see the [CLI reference](https://code.claude.com/docs/en/cli-reference).
+
+## Video Walkthrough
+
+{{< video-preview id="HrNtlJGvvqg" poster="/images/git-worktrees/video-preview.jpg" title="Git worktrees with Claude Code" >}}
+
+## Resources {#resources}
+
+- [Claude Code worktree documentation](https://code.claude.com/docs/en/worktrees): native creation, environment setup, and cleanup.
+- [Git worktree reference](https://git-scm.com/docs/git-worktree): manual worktrees, branch rules, and maintenance.
+- [Git sparse-checkout reference](https://git-scm.com/docs/git-sparse-checkout): selecting directories in a large repository.
+- [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference): session and command-line options.

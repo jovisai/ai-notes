@@ -1,0 +1,24 @@
+{
+  "workflow": "cathrynlavery/diagram-design",
+  "upstream": "https://github.com/cathrynlavery/diagram-design",
+  "commit": "0b9b10cab3dbf695642fa1a6c4b4f60df9083689",
+  "source_template": "skills/diagram-design/assets/template.html",
+  "export_helper": "skills/diagram-design/scripts/export_svg.py",
+  "brand": {
+    "paper": "#ffffff",
+    "ink": "#212529",
+    "muted": "#666666",
+    "accent": "#8b0000",
+    "title_font": "Crimson Pro 400",
+    "label_font": "Libre Franklin 400/600/700"
+  },
+  "font_export": "Subset public Google Fonts and embed WOFF2 in SVG so blog image rendering requires no font requests.",
+  "layout": "960px doc-inline width; taller AI flowchart; labels enlarged for blog readability.",
+  "diagrams": {
+    "zoom": "nested containment",
+    "friction": "flowchart",
+    "ai-fit": "flowchart",
+    "experiment": "dumbbell comparison",
+    "audit": "flowchart / audit sequence"
+  }
+}
