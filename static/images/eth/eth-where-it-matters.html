@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where ETH-based lower bounds appear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --paper:#f5f5f5; --ink:#2d3142; --muted:#4f5d75; --accent:#bf4520; --rule:rgba(45,49,66,.12); --tint:rgba(191,69,32,.08); }
+    body { min-height:100vh; padding:24px; color:var(--ink); background:var(--paper); font-family:'Geist',system-ui,sans-serif; }
+    .frame { width:100%; max-width:1120px; margin:0 auto; }
+    .eyebrow { margin-bottom:8px; color:var(--muted); font:500 10px 'Geist Mono',monospace; letter-spacing:.18em; text-transform:uppercase; }
+    h1 { margin-bottom:8px; font:400 30px/1.15 'Instrument Serif',serif; letter-spacing:-.02em; }
+    .dek { margin-bottom:12px; color:var(--muted); font-size:14px; }
+    .diagram-container { width:100%; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:#4f5d75 #ececec; }
+    .diagram-container::-webkit-scrollbar { height:12px; }
+    .diagram-container::-webkit-scrollbar-track { background:#ececec; }
+    .diagram-container::-webkit-scrollbar-thumb { background:#4f5d75; border:3px solid #ececec; border-radius:6px; }
+    .diagram-container:focus-visible { outline:2px solid #bf4520; outline-offset:4px; }
+    svg { display:block; width:100%; min-width:960px; }
+    @media print { .diagram-container{overflow-x:visible} svg{min-width:0} }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <p class="eyebrow">From assumption to algorithmic limits</p>
+    <h1>Where ETH-based lower bounds appear</h1>
+    <p class="dek">ETH connects SAT’s presumed difficulty to conditional limits for other problems.</p>
+    <div class="diagram-container" role="region" aria-label="Scrollable ETH applications diagram" tabindex="0">
+      <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eth-where-title eth-where-desc">
+        <title id="eth-where-title">Where ETH-based lower bounds appear</title>
+        <desc id="eth-where-desc">Three-SAT hardness and reductions lead to conditional lower bounds in graph algorithms, computational geometry, and other fields. If ETH is refuted, the affected arguments must be revisited, but faster algorithms do not follow automatically.</desc>
+        <defs>
+          <marker id="eth-where-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4f5d75"/></marker>
+          <marker id="eth-where-accent-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#bf4520"/></marker>
+        </defs>
+        <rect width="960" height="600" fill="#f5f5f5"/>
+        <!-- Connectors are drawn first and use orthogonal routes. -->
+        <path d="M480 112 V148" fill="none" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#eth-where-arrow)"/>
+        <path d="M480 230 V270 H176 V318" fill="none" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#eth-where-arrow)"/>
+        <path d="M480 230 V318" fill="none" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#eth-where-arrow)"/>
+        <path d="M480 270 H784 V318" fill="none" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#eth-where-arrow)"/>
+        <path d="M176 426 V442 H336 V458" fill="none" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#eth-where-arrow)"/>
+        <path d="M480 426 V458" fill="none" stroke="#bf4520" stroke-width="1.8" marker-end="url(#eth-where-accent-arrow)"/>
+        <path d="M784 426 V442 H624 V458" fill="none" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#eth-where-arrow)"/>
+        <!-- Start -->
+        <rect x="326" y="40" width="308" height="72" rx="30" fill="#ececec" stroke="#4f5d75" stroke-width="1.2"/>
+        <text x="480" y="70" fill="#2d3142" font-family="'Geist',sans-serif" font-size="14" font-weight="600" text-anchor="middle">3-SAT on n variables</text>
+        <text x="480" y="91" fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="10" text-anchor="middle">the source problem</text>
+        <!-- Assumption and reduction -->
+        <rect x="256" y="148" width="448" height="82" rx="6" fill="#fff" stroke="#2d3142" stroke-width="1.2"/>
+        <text x="480" y="177" fill="#2d3142" font-family="'Geist',sans-serif" font-size="14" font-weight="600" text-anchor="middle">ETH + a reduction</text>
+        <text x="480" y="198" fill="#4f5d75" font-family="'Geist',sans-serif" font-size="11" text-anchor="middle">“If 3-SAT needs exponential time,</text>
+        <text x="480" y="214" fill="#4f5d75" font-family="'Geist',sans-serif" font-size="11" text-anchor="middle">then this target task has a runtime limit.”</text>
+        <!-- Application domains -->
+        <rect x="64" y="318" width="224" height="108" rx="6" fill="#fff" stroke="#2d3142" stroke-width="1"/>
+        <text x="176" y="348" fill="#2d3142" font-family="'Geist',sans-serif" font-size="13" font-weight="600" text-anchor="middle">Graph algorithms</text>
+        <text x="176" y="372" fill="#4f5d75" font-family="'Geist',sans-serif" font-size="11" text-anchor="middle">treewidth · treedepth</text>
+        <text x="176" y="396" fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="9" text-anchor="middle">exact and approximate algorithms</text>
+        <rect x="368" y="318" width="224" height="108" rx="6" fill="#fff" stroke="#2d3142" stroke-width="1"/>
+        <text x="480" y="348" fill="#2d3142" font-family="'Geist',sans-serif" font-size="13" font-weight="600" text-anchor="middle">Computational geometry</text>
+        <text x="480" y="372" fill="#4f5d75" font-family="'Geist',sans-serif" font-size="11" text-anchor="middle">Earth Mover’s Distance</text>
+        <text x="480" y="396" fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="9" text-anchor="middle">dimension-dependent complexity</text>
+        <rect x="672" y="318" width="224" height="108" rx="6" fill="#fff" stroke="#2d3142" stroke-width="1"/>
+        <text x="784" y="348" fill="#2d3142" font-family="'Geist',sans-serif" font-size="13" font-weight="600" text-anchor="middle">Other fields</text>
+        <text x="784" y="372" fill="#4f5d75" font-family="'Geist',sans-serif" font-size="11" text-anchor="middle">databases · computational biology</text>
+        <text x="784" y="396" fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="9" text-anchor="middle">many ETH-conditioned results</text>
+        <!-- Consequence -->
+        <rect x="192" y="458" width="576" height="86" rx="6" fill="rgba(191,69,32,.08)" stroke="#bf4520" stroke-width="1.2"/>
+        <text x="480" y="488" fill="#2d3142" font-family="'Geist',sans-serif" font-size="14" font-weight="600" text-anchor="middle">If ETH is refuted</text>
+        <text x="480" y="511" fill="#4f5d75" font-family="'Geist',sans-serif" font-size="11" text-anchor="middle">Recheck each ETH-dependent proof. A faster algorithm for every target does not follow.</text>
+        <text x="480" y="579" fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="9" text-anchor="middle">CONDITIONAL LOWER BOUNDS ARE THEORETICAL LIMITS, NOT BENCHMARKS</text>
+      </svg>
+    </div>
+  </main>
+</body>
+</html>

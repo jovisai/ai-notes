@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Thu, 08 Oct 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Ai-Research</title>
+				<link>https://notes.muthu.co/tags/ai-research/</link>
+				<pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/ai-research/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Algorithms</title>
+				<link>https://notes.muthu.co/tags/algorithms/</link>
+				<pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/algorithms/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Complexity-Theory</title>
+				<link>https://notes.muthu.co/tags/complexity-theory/</link>
+				<pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/complexity-theory/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Computer-Science</title>
+				<link>https://notes.muthu.co/tags/computer-science/</link>
+				<pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/computer-science/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Ai</title>
 				<link>https://notes.muthu.co/tags/ai/</link>
@@ -56,7 +84,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Engineering-Management</title>
+				<title>Engineering Management</title>
 				<link>https://notes.muthu.co/tags/engineering-management/</link>
 				<pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/engineering-management/</guid>
@@ -112,7 +140,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Machine-Learning</title>
+				<title>Machine Learning</title>
 				<link>https://notes.muthu.co/tags/machine-learning/</link>
 				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/machine-learning/</guid>
@@ -133,7 +161,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>LLMs</title>
+				<title>Llms</title>
 				<link>https://notes.muthu.co/tags/llms/</link>
 				<pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/llms/</guid>
@@ -168,7 +196,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Llm</title>
+				<title>LLM</title>
 				<link>https://notes.muthu.co/tags/llm/</link>
 				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/llm/</guid>
@@ -224,7 +252,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Tool-Use</title>
+				<title>Tool Use</title>
 				<link>https://notes.muthu.co/tags/tool-use/</link>
 				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/tool-use/</guid>
@@ -245,7 +273,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Agent-Infrastructure</title>
+				<title>Agent Infrastructure</title>
 				<link>https://notes.muthu.co/tags/agent-infrastructure/</link>
 				<pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/agent-infrastructure/</guid>
@@ -287,7 +315,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Multi-Agent Systems</title>
+				<title>Multi-Agent-Systems</title>
 				<link>https://notes.muthu.co/tags/multi-agent-systems/</link>
 				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
@@ -301,7 +329,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Context-Engineering</title>
+				<title>Context Engineering</title>
 				<link>https://notes.muthu.co/tags/context-engineering/</link>
 				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/context-engineering/</guid>
@@ -662,13 +690,6 @@
 				<link>https://notes.muthu.co/tags/workflow-orchestration/</link>
 				<pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/workflow-orchestration/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Algorithms</title>
-				<link>https://notes.muthu.co/tags/algorithms/</link>
-				<pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/algorithms/</guid>
 				<description></description>
 			</item>
 			<item>

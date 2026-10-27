@@ -693,6 +693,27 @@ pre .ln,
     display: inline-block !important;
 }
 
+.inline-diagram {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1120px, calc(100vw - 48px));
+    max-width: none;
+    margin: var(--space-xl) 0;
+}
+
+.inline-diagram iframe {
+    display: block;
+    width: 100%;
+    height: max(740px, min(840px, calc(62.5vw + 110px)));
+    border: 0;
+}
+
+.inline-diagram figcaption {
+    max-width: 70ch;
+    margin: var(--space-sm) auto 0;
+}
+
 .figcaption-img {
     margin-bottom: 0px;
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exponential and subexponential growth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --paper:#f5f5f5; --ink:#2d3142; --muted:#4f5d75; --accent:#bf4520; --sage:#7c8f6f; --rule:rgba(45,49,66,.12); }
+    body { min-height:100vh; padding:24px; color:var(--ink); background:var(--paper); font-family:'Geist',system-ui,sans-serif; }
+    .frame { width:100%; max-width:1120px; margin:0 auto; }
+    .eyebrow { margin-bottom:8px; color:var(--muted); font:500 10px 'Geist Mono',monospace; letter-spacing:.18em; text-transform:uppercase; }
+    h1 { margin-bottom:8px; font:400 30px/1.15 'Instrument Serif',serif; letter-spacing:-.02em; }
+    .dek { margin-bottom:12px; color:var(--muted); font-size:14px; }
+    .diagram-container { width:100%; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:#4f5d75 #ececec; }
+    .diagram-container::-webkit-scrollbar { height:12px; }
+    .diagram-container::-webkit-scrollbar-track { background:#ececec; }
+    .diagram-container::-webkit-scrollbar-thumb { background:#4f5d75; border:3px solid #ececec; border-radius:6px; }
+    .diagram-container:focus-visible { outline:2px solid #bf4520; outline-offset:4px; }
+    svg { display:block; width:100%; min-width:960px; }
+    @media print { .diagram-container{overflow-x:visible} svg{min-width:0} }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <p class="eyebrow">A picture of asymptotic growth</p>
+    <h1>Exponential vs. subexponential time</h1>
+    <p class="dek">Vertical axis: the growth of the exponent f(n).</p>
+    <div class="diagram-container" role="region" aria-label="Scrollable growth-rate chart" tabindex="0">
+      <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eth-growth-rates-title eth-growth-rates-desc">
+        <title id="eth-growth-rates-title">Exponential and subexponential growth</title>
+        <desc id="eth-growth-rates-desc">A comparison of exponent functions n and square root of n. The chart illustrates that the exponent of a subexponential runtime grows more slowly than a linear exponent.</desc>
+        <defs>
+          <clipPath id="eth-growth-rates-plot-clip"><rect x="128" y="78" width="752" height="360"/></clipPath>
+        </defs>
+        <rect width="960" height="600" fill="#f5f5f5"/>
+        <!-- Grid and axes -->
+        <g stroke="rgba(45,49,66,.12)" stroke-width="1">
+          <line x1="128" y1="438" x2="880" y2="438"/>
+          <line x1="128" y1="348" x2="880" y2="348"/>
+          <line x1="128" y1="258" x2="880" y2="258"/>
+          <line x1="128" y1="168" x2="880" y2="168"/>
+          <line x1="128" y1="78" x2="880" y2="78"/>
+        </g>
+        <g stroke="#4f5d75" stroke-width="1.2">
+          <line x1="128" y1="78" x2="128" y2="438"/>
+          <line x1="128" y1="438" x2="880" y2="438"/>
+        </g>
+        <g fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="11" text-anchor="end">
+          <text x="114" y="442">0</text><text x="114" y="352">25</text><text x="114" y="262">50</text><text x="114" y="172">75</text><text x="114" y="82">100</text>
+        </g>
+        <g fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="11" text-anchor="middle">
+          <text x="128" y="460">0</text><text x="316" y="460">25</text><text x="504" y="460">50</text><text x="692" y="460">75</text><text x="880" y="460">100</text>
+        </g>
+        <text x="504" y="490" fill="#2d3142" font-family="'Geist',sans-serif" font-size="12" font-weight="600" text-anchor="middle">Number of variables, n</text>
+        <text x="36" y="258" fill="#2d3142" font-family="'Geist',sans-serif" font-size="12" font-weight="600" text-anchor="middle" transform="rotate(-90 36 258)">Exponent f(n) in 2^f(n)</text>
+        <!-- Data lines: n versus sqrt(n); values are illustrative. -->
+        <g clip-path="url(#eth-growth-rates-plot-clip)">
+          <polyline points="128,438 316,348 504,258 692,168 880,78" fill="none" stroke="#7c8f6f" stroke-width="2.2" stroke-linejoin="round"/>
+          <polyline points="128,438 316,420 504,412.5 692,406.8 880,402" fill="none" stroke="#bf4520" stroke-width="2.8" stroke-linejoin="round"/>
+        </g>
+        <g fill="#bf4520">
+          <circle cx="128" cy="438" r="4"/><circle cx="316" cy="420" r="4"/><circle cx="504" cy="412.5" r="4"/><circle cx="692" cy="406.8" r="4"/><circle cx="880" cy="402" r="4"/>
+        </g>
+        <!-- Legend strip -->
+        <line x1="128" y1="518" x2="880" y2="518" stroke="rgba(45,49,66,.12)"/>
+        <line x1="192" y1="548" x2="224" y2="548" stroke="#7c8f6f" stroke-width="2.2"/>
+        <text x="234" y="552" fill="#2d3142" font-family="'Geist',sans-serif" font-size="12">Exponential: f(n) = n</text>
+        <line x1="516" y1="548" x2="548" y2="548" stroke="#bf4520" stroke-width="2.8"/>
+        <circle cx="532" cy="548" r="3.5" fill="#bf4520"/>
+        <text x="558" y="552" fill="#2d3142" font-family="'Geist',sans-serif" font-size="12">Subexponential example: f(n) = √n</text>
+        <text x="128" y="584" fill="#4f5d75" font-family="'Geist Mono',monospace" font-size="9">TEACHING EXAMPLE ONLY · THE CLAIMED SAT BOUND USES A DIFFERENT SUBEXPONENTIAL EXPONENT</text>
+      </svg>
+    </div>
+  </main>
+</body>
+</html>

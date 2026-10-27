@@ -1,0 +1,7 @@
+{{- $src := .Get "src" | relURL -}}
+{{- $title := .Get "title" | default "Diagram" -}}
+{{- $height := .Get "height" | default "840" -}}
+<figure class="inline-diagram">
+  <iframe src="{{ $src }}" title="{{ $title }}" height="{{ $height }}" loading="lazy" scrolling="no"></iframe>
+  {{ with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

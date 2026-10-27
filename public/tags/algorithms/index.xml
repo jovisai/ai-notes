@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Why Proving the Exponential Time Hypothesis False Would Be Such a Big Deal</title>
+				<link>https://notes.muthu.co/2026/10/why-proving-the-exponential-time-hypothesis-false-would-be-such-a-big-deal/</link>
+				<pubDate>Tue, 27 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/10/why-proving-the-exponential-time-hypothesis-false-would-be-such-a-big-deal/</guid>
+				<description>&lt;p&gt;OpenAI says an AI system has found a proof that the Exponential Time Hypothesis (ETH) is false. If the proof holds up, it would overturn one of theoretical computer science’s most widely used assumptions about how hard certain problems are.&lt;/p&gt;&#xA;&lt;p&gt;That is a major claim, but it is not yet a settled result. OpenAI published a natural-language proof and a Lean formalization on October 26, 2026. A group led by Russell Impagliazzo, Ramamohan Paturi, and Ryan Williams is organizing an independent examination. The researchers’ participation does not mean they have endorsed the proof. (&lt;a href=&#34;https://openai.com/index/building-scientific-understanding-with-academic-communities/&#34;&gt;OpenAI announcement&lt;/a&gt;)&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Monte Carlo Tree Search from Games to LLMs</title>
 				<link>https://notes.muthu.co/2025/10/monte-carlo-tree-search-from-games-to-llms/</link>
