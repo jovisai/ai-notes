@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Tue, 27 Oct 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>AI</title>
+				<link>https://notes.muthu.co/tags/ai/</link>
+				<pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/ai/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ai-Agents</title>
+				<link>https://notes.muthu.co/tags/ai-agents/</link>
+				<pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/ai-agents/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Productivity</title>
+				<link>https://notes.muthu.co/tags/productivity/</link>
+				<pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/productivity/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Software-Engineering</title>
+				<link>https://notes.muthu.co/tags/software-engineering/</link>
+				<pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/tags/software-engineering/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Ai-Research</title>
 				<link>https://notes.muthu.co/tags/ai-research/</link>
@@ -42,13 +70,6 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Ai</title>
-				<link>https://notes.muthu.co/tags/ai/</link>
-				<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ai/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Architecture</title>
 				<link>https://notes.muthu.co/tags/architecture/</link>
 				<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -67,13 +88,6 @@
 				<link>https://notes.muthu.co/tags/coding-agents/</link>
 				<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/coding-agents/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Software Engineering</title>
-				<link>https://notes.muthu.co/tags/software-engineering/</link>
-				<pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/software-engineering/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -126,13 +140,6 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Ai-Agents</title>
-				<link>https://notes.muthu.co/tags/ai-agents/</link>
-				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>https://notes.muthu.co/tags/ai-agents/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Future of AI</title>
 				<link>https://notes.muthu.co/tags/future-of-ai/</link>
 				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
@@ -140,7 +147,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Machine Learning</title>
+				<title>Machine-Learning</title>
 				<link>https://notes.muthu.co/tags/machine-learning/</link>
 				<pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/machine-learning/</guid>
@@ -196,7 +203,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>LLM</title>
+				<title>Llm</title>
 				<link>https://notes.muthu.co/tags/llm/</link>
 				<pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/llm/</guid>
@@ -252,7 +259,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Tool Use</title>
+				<title>Tool-Use</title>
 				<link>https://notes.muthu.co/tags/tool-use/</link>
 				<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/tool-use/</guid>
@@ -315,7 +322,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Multi-Agent-Systems</title>
+				<title>Multi-Agent Systems</title>
 				<link>https://notes.muthu.co/tags/multi-agent-systems/</link>
 				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/multi-agent-systems/</guid>
@@ -329,7 +336,7 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Context Engineering</title>
+				<title>Context-Engineering</title>
 				<link>https://notes.muthu.co/tags/context-engineering/</link>
 				<pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
 				<guid>https://notes.muthu.co/tags/context-engineering/</guid>

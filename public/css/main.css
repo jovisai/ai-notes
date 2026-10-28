@@ -952,3 +952,88 @@ code:not(pre *) {
 .notice {
     width: 85%;
 }
+
+/* Opt-in long-form typography. Keep navigation and index pages at their own scale. */
+.typeset-article {
+    --text-article: 1.25rem;
+    --text-article-section: 1.563rem;
+    --text-article-title: clamp(1.953rem, 1.4rem + 1.8vw, 2.441rem);
+    font-kerning: normal;
+    font-optical-sizing: auto;
+}
+
+.typeset-article .post {
+    max-width: 68ch;
+    margin-inline: auto;
+    font-size: var(--text-article);
+    line-height: 1.65;
+}
+
+.typeset-article .post-header {
+    margin-block: 0 var(--space-xl);
+}
+
+.typeset-article .post-header h1.title {
+    margin: 0 0 var(--space-md);
+    padding: 0;
+    font-size: var(--text-article-title);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.typeset-article .post-header .date,
+.typeset-article .author-byline {
+    font-family: var(--font-family-heading);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.typeset-article .post > p {
+    margin-block: 0 1.1em;
+    text-wrap: pretty;
+}
+
+.typeset-article .post > h2,
+.typeset-article .post > h3 {
+    margin-block: 2.25em 0.8em;
+    padding: 0;
+    border: 0;
+    text-transform: none;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    text-wrap: balance;
+}
+
+.typeset-article .post > h2 {
+    font-size: var(--text-article-section);
+}
+
+.typeset-article .post > h3 {
+    font-size: var(--text-article);
+}
+
+.typeset-article .post > figure {
+    margin-block: var(--space-xl);
+}
+
+.typeset-article .post > figure:first-of-type {
+    margin-top: 0;
+}
+
+.typeset-article figcaption {
+    max-width: 60ch;
+    margin: 0.75rem auto 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.typeset-article figcaption p {
+    margin: 0;
+}
+
+.typeset-article .related-posts {
+    font-size: 1rem;
+    line-height: 1.55;
+}

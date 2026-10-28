@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Software Engineering on AI Agent Engineering Notes</title>
+		<title>Software-Engineering on AI Agent Engineering Notes</title>
 		<link>https://notes.muthu.co/tags/software-engineering/</link>
-		<description>Recent content in Software Engineering on AI Agent Engineering Notes</description>
+		<description>Recent content in Software-Engineering on AI Agent Engineering Notes</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
 		
 		
 		
-			<lastBuildDate>Thu, 08 Oct 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://notes.muthu.co/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>AI Is Making Coding Faster. What Happens to the Joy of Solving Problems?</title>
+				<link>https://notes.muthu.co/2026/10/ai-is-making-coding-faster.-what-happens-to-the-joy-of-solving-problems/</link>
+				<pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://notes.muthu.co/2026/10/ai-is-making-coding-faster.-what-happens-to-the-joy-of-solving-problems/</guid>
+				<description>&lt;figure &gt;&#xA;    &#xA;&#x9;&#x9;&lt;img src=&#34;https://notes.muthu.co/images/ai-coding-flow/divided-attention.webp&#34; alt=&#34;A developer surrounded by software task windows connected by tangled threads, illustrating attention divided across several AI agents.&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34; /&gt;&#xA;    &#xA;    &#xA;    &#xA;        &lt;figcaption&gt;&#xA;            &#xA;            &#xA;            &#xA;                &lt;p style=&#34;margin: -0.5rem 0 0 0;&#34;&gt;&#xA;                    More work can happen in parallel while our attention remains limited.&#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &lt;/p&gt; &#xA;            &#xA;        &lt;/figcaption&gt;&#xA;    &#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;p&gt;You delegate a bug, start another agent on a feature, then alternate between prompts, diffs, and test results. Work moves forward, yet the session ends without the satisfaction of having understood something deeply.&lt;/p&gt;&#xA;&lt;p&gt;AI is shifting more of programming from solving problems to directing and evaluating solutions. That can improve output while changing what makes the work rewarding.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>The Abstraction Layer Has Moved Up</title>
 				<link>https://notes.muthu.co/2026/10/the-abstraction-layer-has-moved-up/</link>
